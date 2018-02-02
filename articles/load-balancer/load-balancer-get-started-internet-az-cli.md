@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel med Azure CLI
 
@@ -41,7 +41,7 @@ Om du väljer att installera och använda CLI lokalt kursen krävs att du använ
 
 Innan du väljer en zon eller zonredundant alternativ för klientdel offentliga IP-adressen för belastningsutjämnaren, måste du slutföra stegen i [registrera sig för tillgänglighet zoner förhandsversion](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Kontrollera att du har installerat senast [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)och är inloggad på ett Azure-konto med [az inloggningen](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Kontrollera att du har installerat senast [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)och är inloggad på ett Azure-konto med [az inloggningen](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

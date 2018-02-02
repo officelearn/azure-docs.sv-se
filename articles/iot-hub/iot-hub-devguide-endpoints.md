@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens - slutpunkter för IoT-hubb
 
@@ -81,7 +81,12 @@ Begränsningar för antalet slutpunkter som du kan lägga till finns [kvoter och
 
 ### <a name="when-using-azure-storage-containers"></a>När du använder Azure Storage-behållare
 
-IoT-hubben har bara stöd för skrivning av data till Azure Storage-behållare som blobar i den [Apache Avro](http://avro.apache.org/) format. IoT-hubb batchar meddelanden och skriver data till en blobb när den når antingen en viss storlek eller efter en viss tidsperiod har löpt ut, beroende på vilket som inträffar först. IoT-hubb kommer inte att skriva en tom blob om det finns inga data att skriva.
+IoT-hubben har bara stöd för skrivning av data till Azure Storage-behållare som blobar i den [Apache Avro](http://avro.apache.org/) format. IoT-hubb batchar meddelanden och skriver data till en blobb när:
+
+* Batchen når en viss storlek.
+* Eller mängden tid har gått ut.
+
+IoT-hubb kommer har Skriv en tom blob om det finns inga data att skriva.
 
 IoT-hubb som standard följande namngivningskonvention för filen:
 

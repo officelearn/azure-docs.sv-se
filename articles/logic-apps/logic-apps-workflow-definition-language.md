@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Arbetsflödet Definition Language schemat för Azure Logic Apps
 
@@ -44,7 +44,7 @@ Här är den grundläggande strukturen i en arbetsflödesdefinition:
   
 |Elementnamn|Krävs|Beskrivning|  
 |------------------|--------------|-----------------|  
-|$schema|Nej|Anger platsen för schemat JSON-fil som beskriver versionen av definition language. Den här platsen måste anges när du refererar till en definition av externt. Platsen är för det här dokumentet: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
+|$schema|Nej|Anger platsen för schemat JSON-fil som beskriver versionen av definition language. Den här platsen måste anges när du refererar till en definition av externt. Här är platsen för det här dokumentet: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
 |contentVersion|Nej|Anger vilken definitionsversion. När du distribuerar ett arbetsflöde med definitionen kan du använda det här värdet för att se till att rätt definition används.|  
 |parameters|Nej|Anger parametrar som används för att mata in data i definitionen. Du kan definiera högst 50 parametrar.|  
 |Utlösare|Nej|Anger information för utlösare som initierar arbetsflödet. Högst 10 utlösare kan definieras.|  
@@ -90,7 +90,7 @@ Det här exemplet visar hur du kan använda en parameter i brödtexten i en åtg
 
 Ange de anrop som kan delta i arbetsflödeskörning utlösare och åtgärder. Mer information om det här avsnittet finns [arbetsflödesåtgärder och utlösare](logic-apps-workflow-actions-triggers.md).
   
-## <a name="outputs"></a>utdata  
+## <a name="outputs"></a>Utdata  
 
 Utdata ange information som kan returneras från ett arbetsflöde som körs. Om du har en viss status eller ett värde som du vill spåra för varje körning kan inkludera du dessa data i kör utdata. Data visas i Management REST API för att köra och i hanteringsgränssnittet för att köras i Azure-portalen. Du kan också flöda dessa utdata till andra externa system som PowerBI för att skapa instrumentpaneler. Utdata är *inte* används för att svara på inkommande begäranden på REST API-tjänsten. Att svara på en inkommande begäran med hjälp av den `response` åtgärdstyp, här är ett exempel:
   
@@ -153,7 +153,7 @@ Resultatet är alltid en sträng, vilket gör den här funktionen liknar den `co
 
 Operatorer är de tecken som du kan använda i uttryck eller funktioner. 
   
-|Operatorn|Beskrivning|  
+|Operator|Beskrivning|  
 |--------------|-----------------|  
 |.|Punktoperatorn kan du referera till egenskaperna för ett objekt|  
 |?|Operatorn frågetecken kan du referera till null egenskaper för ett objekt utan ett körningsfel. Du kan till exempel använda det här uttrycket för att hantera null utlösaren utdata: <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
@@ -164,7 +164,7 @@ Operatorer är de tecken som du kan använda i uttryck eller funktioner.
 
 Du kan också kontakta funktioner i uttryck. I följande tabell visas de funktioner som kan användas i ett uttryck.  
   
-|uttryck|Utvärdering|  
+|Uttryck|Utvärdering|  
 |----------------|----------------|  
 |”@function(” Hello ”)”|Anropar funktionen tillhör definition med den exakta strängen Hello som den första parametern.|  
 |”@function(' Den '' s lågfrekvent!')”|Anropar funktionen tillhör definition med den exakta strängen 'Är lågfrekvent!' som den första parametern|  
@@ -172,14 +172,14 @@ Du kan också kontakta funktioner i uttryck. I följande tabell visas de funktio
 |”@function(” Hello ”) .prop1”|Anropar funktionen tillhör definition med strängen ”Hello” som den första parametern och returnerar egenskapen egenskap1 för objektet.|  
 |”@function(parameters('Hello'))”|Utvärderar Hello-parametern och skickar värdet till funktion|  
   
-### <a name="referencing-functions"></a>Refererar till funktioner  
+### <a name="referencing-functions"></a>Referensfunktioner  
 
 Du kan använda dessa funktioner för att referera till utdata från andra åtgärder i logikapp eller värden som skickades när logikappen skapades. Du kan till exempel referera data från ett steg till att använda den i en annan.  
   
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
 |parameters|Returnerar ett parametervärde som har definierats i definitionen. <p>`parameters('password')` <p> **Parameternummer**: 1 <p> **Namnet**: parametern <p> **Beskrivning**: krävs. Namnet på den parameter vars värden som du vill.|  
-|Åtgärden|Gör ett uttryck att erhålla dess värde från andra JSON-namn och värdepar eller utdata från den aktuella runtime-åtgärden. Egenskapen som representeras av propertyPath i följande exempel är valfri. Om propertyPath inte anges är referensen till hela action-objekt. Den här funktionen kan bara användas i-tills villkoren i en åtgärd. <p>`action().outputs.body.propertyPath`|  
+|åtgärd|Gör ett uttryck att erhålla dess värde från andra JSON-namn och värdepar eller utdata från den aktuella runtime-åtgärden. Egenskapen som representeras av propertyPath i följande exempel är valfri. Om propertyPath inte anges är referensen till hela action-objekt. Den här funktionen kan bara användas i-tills villkoren i en åtgärd. <p>`action().outputs.body.propertyPath`|  
 |åtgärder|Gör ett uttryck att erhålla dess värde från andra JSON-namn och värdepar eller resultatet av åtgärden runtime. Dessa uttryck deklarera uttryckligen att en åtgärd är beroende av en annan åtgärd. Egenskapen som representeras av propertyPath i följande exempel är valfri. Om propertyPath inte anges är referensen till hela action-objekt. Du kan använda det här elementet eller elementet villkor för att ange beroenden, men du behöver inte använda både för samma beroende resurs. <p>`actions('myAction').outputs.body.propertyPath` <p> **Parameternummer**: 1 <p> **Namnet**: åtgärdsnamn <p> **Beskrivning**: krävs. Namnet på åtgärden vars värden som du vill. <p> Tillgängliga egenskaper för åtgärdsobjektet är: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Finns det [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646) mer information om dessa egenskaper.|
 |Utlösare|Gör ett uttryck att erhålla dess värde från andra JSON-namn och värdepar eller utdata för runtime-utlösare. Egenskapen som representeras av propertyPath i följande exempel är valfri. Om propertyPath inte anges är referensen till objektet hela utlösare. <p>`trigger().outputs.body.propertyPath` <p>När den används i en utlösare indata returnerar funktionen utdata för tidigare körningen. Men, när den används i en utlösarvillkor den `trigger` funktionen returnerar utdata för aktuella körningen. <p> Tillgängliga egenskaper i objektet för utlösare är: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Finns det [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644) mer information om dessa egenskaper.|
 |actionOutputs|Den här funktionen är snabbformen för`actions('actionName').outputs` <p> **Parameternummer**: 1 <p> **Namnet**: åtgärdsnamn <p> **Beskrivning**: krävs. Namnet på åtgärden vars värden som du vill.|  
@@ -194,7 +194,7 @@ Dessa funktioner fungerar på samlingar som vanligtvis gäller för matriser, st
   
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
-|Innehåller|Returnerar true om uppslagslistan innehåller en nyckel, lista innehåller värdet eller strängen innehåller delsträngen. Den här funktionen returnerar till exempel `true`: <p>`contains('abacaba','aca')` <p> **Parameternummer**: 1 <p> **Namnet**: inom samlingen <p> **Beskrivning**: krävs. Att söka i samlingen. <p> **Parameternummer**: 2 <p> **Namnet**: Sök objekt <p> **Beskrivning**: krävs. Objektet för att hitta i den **inom samlingen**.|  
+|innehåller|Returnerar true om uppslagslistan innehåller en nyckel, lista innehåller värdet eller strängen innehåller delsträngen. Den här funktionen returnerar till exempel `true`: <p>`contains('abacaba','aca')` <p> **Parameternummer**: 1 <p> **Namnet**: inom samlingen <p> **Beskrivning**: krävs. Att söka i samlingen. <p> **Parameternummer**: 2 <p> **Namnet**: Sök objekt <p> **Beskrivning**: krävs. Objektet för att hitta i den **inom samlingen**.|  
 |Längd|Returnerar antalet element i en matris eller sträng. Den här funktionen returnerar till exempel `3`:  <p>`length('abc')` <p> **Parameternummer**: 1 <p> **Namnet**: samlingen <p> **Beskrivning**: krävs. Samlingen som du vill hämta längden.|  
 |tom|Returnerar true om objektet, matris eller sträng är tom. Den här funktionen returnerar till exempel `true`: <p>`empty('')` <p> **Parameternummer**: 1 <p> **Namnet**: samlingen <p> **Beskrivning**: krävs. Samlingen för att kontrollera om den är tom.|  
 |skärningspunkten|Returnerar en enda matris eller ett objekt som har gemensamma element mellan matriser eller objekt som överförts. Den här funktionen returnerar till exempel `[1, 2]`: <p>`intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])` <p>Parametrar för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av båda). Om det finns två objekt med samma namn, visas det sista objektet med det namnet i det sista objektet. <p> **Parameternummer**: 1...*n* <p> **Namnet**: samlingen*n* <p> **Beskrivning**: krävs. Samlingar att utvärdera. Ett objekt måste vara i alla samlingar som skickades till visas i resultatet.|  
@@ -229,7 +229,7 @@ Dessa funktioner är användbara i villkor och kan användas för att utvärdera
   
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
-|är lika med|Returnerar true om två värden är lika. Till exempel om parameter1 är someValue, returnerar funktionen `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Parameternummer**: 1 <p> **Namnet**: objekt-1 <p> **Beskrivning**: krävs. Det objekt som jämför med **objekt 2**. <p> **Parameternummer**: 2 <p> **Namnet**: objekt 2 <p> **Beskrivning**: krävs. Det objekt som jämför med **objekt 1**.|  
+|lika med|Returnerar true om två värden är lika. Till exempel om parameter1 är someValue, returnerar funktionen `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Parameternummer**: 1 <p> **Namnet**: objekt-1 <p> **Beskrivning**: krävs. Det objekt som jämför med **objekt 2**. <p> **Parameternummer**: 2 <p> **Namnet**: objekt 2 <p> **Beskrivning**: krävs. Det objekt som jämför med **objekt 1**.|  
 |mindre|Returnerar true om det första argumentet är mindre än andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Den här funktionen returnerar till exempel `true`: <p>`less(10,100)` <p> **Parameternummer**: 1 <p> **Namnet**: objekt-1 <p> **Beskrivning**: krävs. Objektet för att kontrollera om det är mindre än **objekt 2**. <p> **Parameternummer**: 2 <p> **Namnet**: objekt 2 <p> **Beskrivning**: krävs. Objektet för att kontrollera om det är större än **objekt 1**.|  
 |lessOrEquals|Returnerar true om det första argumentet är mindre än eller lika med andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Den här funktionen returnerar till exempel `true`: <p>`lessOrEquals(10,10)` <p> **Parameternummer**: 1 <p> **Namnet**: objekt-1 <p> **Beskrivning**: krävs. Objektet som ska kontrollera om det är mindre eller lika med **objekt 2**. <p> **Parameternummer**: 2 <p> **Namnet**: objekt 2 <p> **Beskrivning**: krävs. Objektet för att kontrollera om den är större än eller lika med **objekt 1**.|  
 |större|Returnerar true om det första argumentet är större än andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Den här funktionen returnerar till exempel `false`:  <p>`greater(10,10)` <p> **Parameternummer**: 1 <p> **Namnet**: objekt-1 <p> **Beskrivning**: krävs. Objektet för att kontrollera om det är större än **objekt 2**. <p> **Parameternummer**: 2 <p> **Namnet**: objekt 2 <p> **Beskrivning**: krävs. Objektet för att kontrollera om det är mindre än **objekt 1**.|  
@@ -243,13 +243,13 @@ Dessa funktioner är användbara i villkor och kan användas för att utvärdera
 
 Dessa funktioner används för att konvertera mellan var och en av de inbyggda typerna för språk:  
   
-- Sträng  
+- sträng  
   
 - heltal  
   
-- flyttal  
+- flyt  
   
-- Booleskt värde  
+- boolesk  
   
 - matriser  
   
@@ -260,9 +260,9 @@ Dessa funktioner används för att konvertera mellan var och en av de inbyggda t
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
 |int|Konvertera parametern till ett heltal. Den här funktionen returnerar till exempel 100 som ett tal i stället för en sträng: <p>`int('100')` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som konverteras till ett heltal.|  
-|Sträng|Konvertera parametern till en sträng. Den här funktionen returnerar till exempel `'10'`: <p>`string(10)` <p>Du kan också konvertera ett objekt till en sträng. Till exempel om den `myPar` parametern är ett objekt med en egenskap `abc : xyz`, och sedan på den här funktionen returnerar `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som konverteras till en sträng.|  
+|sträng|Konvertera parametern till en sträng. Den här funktionen returnerar till exempel `'10'`: <p>`string(10)` <p>Du kan också konvertera ett objekt till en sträng. Till exempel om den `myPar` parametern är ett objekt med en egenskap `abc : xyz`, och sedan på den här funktionen returnerar `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som konverteras till en sträng.|  
 |JSON|Konvertera parametern till ett värde för typ av JSON och är motsatsen till `string()`. Den här funktionen returnerar till exempel `[1,2,3]` som en matris i stället för en sträng: <p>`json('[1,2,3]')` <p>På samma sätt kan du konvertera en sträng till ett objekt. Den här funktionen returnerar till exempel `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Parameternummer**: 1 <p> **Namnet**: sträng <p> **Beskrivning**: krävs. Den sträng som konverteras till en inbyggd typ-värde. <p>Den `json()` har stöd för XML som indata för funktionen. Till exempel parametervärdet för: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>konverteras till den här JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|flyttal|Konvertera argumentet parametern till ett flyttal. Den här funktionen returnerar till exempel `10.333`: <p>`float('10.333')` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
+|flyt|Konvertera argumentet parametern till ett flyttal. Den här funktionen returnerar till exempel `10.333`: <p>`float('10.333')` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
 |bool|Konvertera parametern till ett booleskt värde. Den här funktionen returnerar till exempel `false`: <p>`bool(0)` <p> **Parameternummer**: 1 <p> **Namnet**: värde <p> **Beskrivning**: krävs. Det värde som har konverterats till ett booleskt värde.|  
 |Base64|Returnerar base64-representation av Indatasträngen. Den här funktionen returnerar till exempel `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Parameternummer**: 1 <p> **Namnet**: String 1 <p> **Beskrivning**: krävs. Strängen som koda till base64-representation.|  
 |base64ToBinary|Returnerar en a binär representation av en base64-kodad sträng. Den här funktionen returnerar till exempel binär representation av `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Parameternummer**: 1 <p> **Namnet**: sträng <p> **Beskrivning**: krävs. Base64-kodad sträng.|  
@@ -300,19 +300,19 @@ Dessa funktioner gäller XML och objekt.
 |removeProperty|Returnerar ett objekt med en egenskap tas bort. Om egenskapen för att ta bort inte finns returneras det ursprungliga objektet. Den här funktionen returnerar till exempel objektet `{ "abc" : "xyz" }`: <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **Parameternummer**: 1 <p> **Namnet**: objektet <p> **Beskrivning**: krävs. Objekt att ta bort egenskapen från.<p> **Parameternummer**: 2 <p> **Namnet**: egenskapsnamn <p> **Beskrivning**: krävs. Namnet på egenskapen för att ta bort. <p>|
 |XPath|Returnera en matris med XML-noder som matchar ett värde som xpath-uttryck som utvärderas till det xpath-uttrycken. <p> **Exempel 1** <p>Anta att värdet för parametern `p1` är en strängrepresentation av den här XML: <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>Den här koden:`xpath(xml(parameters('p1')), '/lab/robot/name')` <p>Returnerar <p>`[ <name>R1</name>, <name>R2</name> ]` <p>När den här koden: <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>Returnerar <p>`13` <p> <p> **Exempel 2** <p>Anges i följande XML-innehåll: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>Den här koden:`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>eller den här koden: <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>Returnerar <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>Och koden:`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>Returnerar <p>``xyz`` <p> **Parameternummer**: 1 <p> **Namnet**: Xml <p> **Beskrivning**: krävs. XML-filen som du vill utvärdera XPath-uttryck. <p> **Parameternummer**: 2 <p> **Namnet**: XPath <p> **Beskrivning**: krävs. XPath-uttrycket ska utvärderas.|
 
-### <a name="math-functions"></a>Matematiska funktioner  
+### <a name="math-functions"></a>Matematikfunktioner  
 
 Dessa funktioner kan användas för båda typer av siffror: **heltal** och **flyter**.  
   
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
-|Lägg till|Returnerar resultatet från att lägga till de två talen. Den här funktionen returnerar till exempel `20.333`: <p>`add(10,10.333)` <p> **Parameternummer**: 1 <p> **Namnet**: genom att hålla 1 <p> **Beskrivning**: krävs. Det tal som ska lägga till **genom att hålla 2**. <p> **Parameternummer**: 2 <p> **Namnet**: genom att hålla 2 <p> **Beskrivning**: krävs. Det tal som ska lägga till **genom att hålla 1**.|  
+|lägg till|Returnerar resultatet från att lägga till de två talen. Den här funktionen returnerar till exempel `20.333`: <p>`add(10,10.333)` <p> **Parameternummer**: 1 <p> **Namnet**: genom att hålla 1 <p> **Beskrivning**: krävs. Det tal som ska lägga till **genom att hålla 2**. <p> **Parameternummer**: 2 <p> **Namnet**: genom att hålla 2 <p> **Beskrivning**: krävs. Det tal som ska lägga till **genom att hålla 1**.|  
 |Sub|Returnerar resultatet från att subtrahera två tal. Den här funktionen returnerar till exempel `-0.333`: <p>`sub(10,10.333)` <p> **Parameternummer**: 1 <p> **Namn på**: Minuend <p> **Beskrivning**: krävs. Numret som **Subtrahend** tas bort från. <p> **Parameternummer**: 2 <p> **Namn på**: Subtrahend <p> **Beskrivning**: krävs. Det tal som ska ta bort från den **Minuend**.|  
 |mul|Returnerar resultatet från att multiplicera de två talen. Den här funktionen returnerar till exempel `103.33`: <p>`mul(10,10.333)` <p> **Parameternummer**: 1 <p> **Namn på**: Multiplicand 1 <p> **Beskrivning**: krävs. Talet som multipliceras **Multiplicand 2** med. <p> **Parameternummer**: 2 <p> **Namn på**: Multiplicand 2 <p> **Beskrivning**: krävs. Talet som multipliceras **Multiplicand 1** med.|  
 |div|Returnerar resultatet från divisionen av de två talen. Den här funktionen returnerar till exempel `1.0333`: <p>`div(10.333,10)` <p> **Parameternummer**: 1 <p> **Namnet**: täljaren <p> **Beskrivning**: krävs. Det tal som du delar med den **Divisor**. <p> **Parameternummer**: 2 <p> **Namnet**: Divisor <p> **Beskrivning**: krävs. Det tal som ska divideras med det **täljaren** av.|  
 |MOD|Returnerar resten efter att dela de två talen (modulo). Den här funktionen returnerar till exempel `2`: <p>`mod(10,4)` <p> **Parameternummer**: 1 <p> **Namnet**: täljaren <p> **Beskrivning**: krävs. Det tal som du delar med den **Divisor**. <p> **Parameternummer**: 2 <p> **Namnet**: Divisor <p> **Beskrivning**: krävs. Det tal som ska divideras med det **täljaren** av. Efter att divisionen tas resten.|  
 |min.|Det finns två olika mönster för att anropa den här funktionen. <p>Här `min` tar en matris och funktionen returnerar `0`: <p>`min([0,1,2])` <p>Den här funktionen kan också ta en kommaavgränsad lista med värden och returnerar `0`: <p>`min(0,1,2)` <p> **Obs**: alla värden måste vara ett tal, så om parametern är en matris, matrisen måste endast innehålla siffror. <p> **Parameternummer**: 1 <p> **Namnet**: samlingen eller -värde <p> **Beskrivning**: krävs. Antingen en matris med värden för att hitta det minsta värdet eller det första värdet i en mängd. <p> **Parameternummer**: 2...*n* <p> **Namnet**: värde*n* <p> **Beskrivning**: valfria. Om den första parametern är ett värde, kan du skicka ytterligare värden och minimum för alla överförda värden returneras.|  
-|Max|Det finns två olika mönster för att anropa den här funktionen. <p>Här `max` tar en matris och funktionen returnerar `2`: <p>`max([0,1,2])` <p>Den här funktionen kan också ta en kommaavgränsad lista med värden och returnerar `2`: <p>`max(0,1,2)` <p> **Obs**: alla värden måste vara ett tal, så om parametern är en matris, matrisen måste endast innehålla siffror. <p> **Parameternummer**: 1 <p> **Namnet**: samlingen eller -värde <p> **Beskrivning**: krävs. Antingen en matris med värden för att hitta det största värdet eller det första värdet i en mängd. <p> **Parameternummer**: 2...*n* <p> **Namnet**: värde*n* <p> **Beskrivning**: valfria. Om den första parametern är ett värde, kan du skicka ytterligare värden och maxvärdet för alla överförda värden returneras.|  
+|max|Det finns två olika mönster för att anropa den här funktionen. <p>Här `max` tar en matris och funktionen returnerar `2`: <p>`max([0,1,2])` <p>Den här funktionen kan också ta en kommaavgränsad lista med värden och returnerar `2`: <p>`max(0,1,2)` <p> **Obs**: alla värden måste vara ett tal, så om parametern är en matris, matrisen måste endast innehålla siffror. <p> **Parameternummer**: 1 <p> **Namnet**: samlingen eller -värde <p> **Beskrivning**: krävs. Antingen en matris med värden för att hitta det största värdet eller det första värdet i en mängd. <p> **Parameternummer**: 2...*n* <p> **Namnet**: värde*n* <p> **Beskrivning**: valfria. Om den första parametern är ett värde, kan du skicka ytterligare värden och maxvärdet för alla överförda värden returneras.|  
 |intervallet|Genererar en heltalsmatris som startar från ett visst antal. Du kan definiera returnerade Matrislängden. <p>Den här funktionen returnerar till exempel `[3,4,5,6]`: <p>`range(3,4)` <p> **Parameternummer**: 1 <p> **Namnet**: startIndex <p> **Beskrivning**: krävs. Det första heltal i matrisen. <p> **Parameternummer**: 2 <p> **Namnet**: antal <p> **Beskrivning**: krävs. Det här värdet är antalet heltal som är i matrisen.|  
 |SLUMP|Genererar ett slumpmässigt heltal inom det angivna intervallet (sammanlagt endast på första sidan). Den här funktionen kan till exempel returnera antingen `0` eller '1': <p>`rand(0,2)` <p> **Parameternummer**: 1 <p> **Namnet**: minsta <p> **Beskrivning**: krävs. Ett heltal som kan returneras. <p> **Parameternummer**: 2 <p> **Namnet**: högsta <p> **Beskrivning**: krävs. Det här värdet är nästa heltal efter det största heltal som kan returneras.|  
  
@@ -334,7 +334,7 @@ Dessa funktioner kan användas för båda typer av siffror: **heltal** och **fly
 |DayOfYear|Returnerar dagen på året komponent i en sträng tidsstämpel. Till exempel `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: tidsstämpel<br /><br /> **Beskrivning**: krävs. Detta är en sträng som innehåller tiden.| 
 |skalstreck|Returnerar skalstrecken-egenskapen för ett sträng-tidsstämpel. Till exempel `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: tidsstämpel<br /><br /> **Beskrivning**: krävs. Detta är en sträng som innehåller tiden.| 
   
-### <a name="workflow-functions"></a>Funktioner för arbetsflöde  
+### <a name="workflow-functions"></a>Arbetsflödesfunktioner  
 
 Dessa funktioner för att få information om själva arbetsflödet vid körning.  
   

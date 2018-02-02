@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8708f13109767c7cb9e4a1bf0d2797d7c4fb9a23
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-frånkopplade distribution planeringsbeslut för Azure-stacken integrerat system
 När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-deployment-decisions.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.
@@ -60,3 +60,5 @@ Telemetri|Inte tillgänglig telemetridata för Azure-Stack som tillsammans med e
 - Information om plan och geo tillgänglighet för Azure-stacken integrerade system finns i faktabladet: [Azure stacken: ett tillägg för Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Läs mer om Microsoft Azure-stacken paketera och prissättning [ladda ned PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
+## <a name="next-steps"></a>Nästa steg
+[Datacenter nätverksintegration](azure-stack-network.md)

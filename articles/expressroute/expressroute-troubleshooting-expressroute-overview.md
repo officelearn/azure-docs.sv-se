@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: e52e53255a1462522f297d8918eb1c347a460f77
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera en ExpressRoute-anslutning
 ExpressRoute som sträcker sig ett lokalt nätverk via en privat anslutning som möjliggörs med hjälp av en provider för anslutning till Microsoft cloud omfattar följande tre separata nätverkszoner:
 
 -   Kundens nätverk
 -   Providern nätverk
--   Microsoft-Datacenter
+-   Microsoft Datacenter
 
 Syftet med det här dokumentet är att hjälpa användare att identifiera var (eller även om) ett anslutningsproblem finns och inom vilken zon, vilket för att begära hjälp från rätt team för att lösa problemet. Om Microsoft-supporten krävs för att lösa ett problem, öppna ett supportärende med [Microsoft-supporten][Support].
 
@@ -47,7 +47,7 @@ Beroende på anslutningen ExpressRoute modellen (moln Exchange samordning, Point
 3.  Sämsta (CE inriktad): providern edge routrar/växlar som är riktade mot klientens gränsroutrar. Kallas PE CEs i det här dokumentet.
 4.  Sämsta (MSEE inriktad): providern edge routrar/växlar som är riktade mot MSEEs. Kallas PE MSEEs i det här dokumentet.
 5.  MSEEs: Microsoft Enterprise kant (MSEE) ExpressRoute routrar
-6.  Gateway för virtuellt nätverk (VNet)
+6.  Virtual Network (VNet) Gateway
 7.  Compute-enhet i Azure VNet
 
 Om anslutningen modeller molnet Exchange samplacering eller Point-to-Point Ethernet-anslutning används skulle klientens gränsrouter (2) upprätta BGP-peering med MSEEs (5). Nätverket punkterna 3 och 4 skulle fortfarande finns men är något transparent som Lager2-enheter.
@@ -216,12 +216,12 @@ En exempelsvar för en har konfigurerats privat peering, är:
 För att få Azure offentlig peering konfigurationsinformation, använder du följande kommandon:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Använd följande kommandon för att hämta konfigurationsinformation för Microsoft-peering:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
+     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Om en peering inte har konfigurerats, skulle det finnas ett felmeddelande. Ett exempelsvar, när den angivna peering (offentlig Azure-peering i det här exemplet) inte har konfigurerats i kretsen:
 

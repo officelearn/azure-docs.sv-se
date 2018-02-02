@@ -1,28 +1,28 @@
 ---
 title: "Distribuera fjärråtkomst övervakningslösning - Azure Java | Microsoft Docs"
-description: "Den här kursen visar hur du etablerar fjärråtkomst övervakning förkonfigurerade lösningen Java microsoervices med hjälp av CLI."
+description: "Den här kursen visar hur du etablerar den fjärranslutna förkonfigurerade övervakningslösning med hjälp av CLI."
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 01/29/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 94c3db3286623264e9df7873962d10dd5cc662d4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningen som med hjälp av CLI
 
 I den här självstudiekursen lär du dig hur du etablerar den förkonfigurerade lösningen för fjärrövervakning. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av webbaserade Användargränssnittet på azureiotsuite.com, mer information om det här alternativet finns [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill distribuera fjärråtkomst övervakning förkonfigurerade lösningen måste en aktiv Azure-prenumeration.
 
@@ -54,8 +54,10 @@ När du distribuerar den förkonfigurerade lösningen, finns det flera alternati
 
 | Alternativ | Värden | Beskrivning |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en enskild virtuell dator. En _standard_ distribution är avsedd för produktion, har mikrotjänster distribueras till flera virtuella datorer. |
-| Runtime | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
+| SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en enskild virtuell dator. En _standard_ distribution är avsedd för produktion, har mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en dockerbehållare för att köra mikrotjänster på din lokala dator och använder Azure-tjänster, till exempel lagring och Cosmos-DB i molnet. |
+| Körning | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
+
+Läs om hur du använder den lokala distributionen i [kör remote övervakningslösning lokalt](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="deploy-the-preconfigured-solution"></a>Distribuera förkonfigurerade lösningen
 

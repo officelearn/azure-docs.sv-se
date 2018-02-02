@@ -1,6 +1,6 @@
 ---
-title: "Automatiserade skript för att skapa webbprogram för Service Manager att ansluta med IT Service Management-anslutningstjänsten i OMS | Microsoft Docs"
-description: "Skapa en webbapp för Service Manager med ett automatiserat skript för att ansluta med IT Service Management-anslutningstjänsten i OMS, och centralt övervaka och hantera arbetsobjekt ITSM."
+title: "Automatiserade skript för att skapa webbprogram för Service Manager att ansluta med IT Service Management-anslutningstjänsten i Azure | Microsoft Docs"
+description: "Skapa en webbapp för Service Manager med ett automatiserat skript för att ansluta med IT Service Management-anslutningstjänsten i Azure, och centralt övervaka och hantera arbetsobjekt ITSM."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Skapa Service Manager-webbprogram med hjälp av automatiserade skript (förhandsgranskning)
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbprogram med hjälp av automatiserade skript
 
 Använd följande skript för att skapa webbprogram för Service Manager-instansen. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbprogram](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Kör skript genom att tillhandahålla följande obligatoriska uppgifter:
 
 - Information om Azure-prenumeration
-- Resursgruppens namn
+- Resursgruppsnamn
 - Plats
 - Information om Service Manager (servernamnet, domän, användarnamn och lösenord)
 - Platsen namnprefixet för ditt webbprogram
@@ -37,7 +37,7 @@ Skriptet skapar webbappen med hjälp av namnet som du angav (tillsammans med nå
 
 Spara dessa värden måste dessa när du skapar en anslutning med IT Service Management-anslutningstjänsten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
  Windows Management Framework 5.0 eller senare.
 Windows 10 har 5.1 som standard. Du kan hämta framework från [här](https://www.microsoft.com/download/details.aspx?id=53347):

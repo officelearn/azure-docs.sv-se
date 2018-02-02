@@ -2,17 +2,18 @@
 title: "Integration av Azure Stack datacenter - säkerhet"
 description: "Lär dig hur du integrerar Azure Stack säkerheten med din datacenter"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: eb7c651362838d44d6558e080e6130b4a8041d1e
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 0ce7585552f39f59f83df88320e52ea257bb74dd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Integration av Azure Stack datacenter - säkerhet
 
@@ -74,7 +75,7 @@ Följande procedur är ett exempel som du kan använda för att konfigurera Azur
 
 Du kan använda olika programmeringsspråk för att få åtkomst till ett lagringskonto. Använd följande dokumentation om du vill välja ett exempel som matchar ditt språk:
 
-[https://Azure.microsoft.com/resources/Samples/?term=Storage+Account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
 ## <a name="device-access-auditing"></a>Enheten granskning
 
@@ -93,4 +94,4 @@ Måladress Syslog är en valfri parameter som samlats in för distribution, men 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure stacken datacenter integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md)
+[Behandling av princip](azure-stack-servicing-policy.md)

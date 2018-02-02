@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 381dacd14afe8a2cb20be8d5e5d8065034db22c8
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
 Lär dig mer om att skapa, ändra eller ta bort ett virtuellt nätverk-peering. Peering virtuellt nätverk kan du ansluta virtuella nätverk via Azure stamnät nätverket. När peerkoppla, hanteras virtuella nätverk fortfarande som separata resurser. Om du inte är bekant med virtuella nätverk peering rekommenderar vi att läsa den [peering översikt över virtuella nätverk](virtual-network-peering-overview.md) och slutföra de [skapa virtuellt nätverk peering självstudiekursen](virtual-network-create-peering.md), innan du slutför uppgifterna i den här artikeln.
 
-VNET-peering i samma region är allmänt sett tillgängligt. VNET-peering i olika regioner finns som förhandsversion i västra centrala USA, centrala Kanada och västra USA 2. Du kan [registrera din prenumeration för förhandsversionen](virtual-network-create-peering.md).
+VNET-peering i samma region är allmänt sett tillgängligt. Peering virtuella nätverk i olika regioner är för närvarande under förhandsgranskning. Se [virtuella nätverk uppdateringar](https://azure.microsoft.com/en-us/updates/?product=virtual-network) för tillgängliga regioner. Du måste [registrera prenumerationen för förhandsgranskningen](virtual-network-create-peering.md).
 
 > [!WARNING]
 > VNET-peering som skapats i det här scenariot kanske inte har samma tillgänglighet och pålitlighet som scenarier i en allmänt tillgänglig version. VNET-peering kan ha begränsad kapacitet och kanske inte är tillgänglig i alla Azure-regioner. Du hittar aktuell information om tillgänglighet och status för den här funktionen på [sidan med Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).

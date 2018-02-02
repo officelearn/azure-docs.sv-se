@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 37602bf78f7a43fb8255ddc0aad21f24095cb43c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referera - Välj ett kommunikationsprotokoll
 
@@ -44,7 +44,7 @@ Tänk på följande när du väljer att protokollet för enheten på klientsidan
 
 * **Moln till enhet mönster**. HTTPS har inte ett effektivt sätt att implementera server push. Därför när du använder HTTPS avsöker enheter IoT-hubb för moln till enhet meddelanden. Den här metoden är ineffektiv för både enheten och IoT-hubb. Under den aktuella HTTPS riktlinjerna ska varje enhet avsöka för meddelanden var 25: e minut eller mer. MQTT och AMQP stöder server push när du tar emot meddelanden moln till enhet. De ger omedelbar push-meddelanden av meddelanden från IoT-hubb till enheten. Om leverans svarstiden är ett bekymmer, är MQTT eller AMQP de bästa protokoll som ska användas. För sällan anslutna enheter fungerar HTTPS samt.
 * **Fältet gateways**. När du använder MQTT och HTTPS kan du inte kan ansluta flera enheter (var och en med sina egna autentiseringsuppgifter per enhet) med samma TLS-anslutning. För [fältet gateway-scenarier] [ lnk-azure-gateway-guidance] som kräver en TLS-anslutning mellan fältet gateway- och IoT-hubb för varje ansluten enhet, dessa protokoll är något sämre.
-* **Lite resurs enheter**. MQTT och HTTPS-bibliotek har en mindre utrymme än AMQP-bibliotek. Om enheten har begränsat resurser (till exempel, mindre än 1 MB RAM-minne), som sådana vara dessa protokoll den enda protokollimplementering.
+* **Lite resurs enheter**. MQTT och HTTPS-bibliotek har en mindre utrymme än AMQP-bibliotek. Om enheten har begränsat resurser (till exempel mindre än 1 MB RAM-minne), som sådana vara dessa protokoll den enda protokollimplementering.
 * **Nätverk traversal**. AMQP standardprotokollet använder port 5671 och MQTT lyssnar på port 8883. Användning av dessa portar kan orsaka problem i nätverk som har stängts till icke-HTTPS-protokoll. Använd MQTT över WebSockets, AMQP över WebSockets eller HTTPS i det här scenariot.
 * **Nyttolastens storlek**. MQTT och AMQP är binär protokoll, vilket resulterar i mer komprimerade nyttolaster än HTTPS.
 

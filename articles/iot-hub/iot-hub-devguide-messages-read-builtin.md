@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från inbyggd slutpunkt
 
@@ -32,7 +32,7 @@ IoT-hubb kan du hantera konsumentgrupper på det inbyggda enhet till molnet får
 
 Som standard skrivs alla meddelanden som inte uttryckligen matchar en regel för routning av meddelanden till inbyggd slutpunkt. Om du inaktiverar den här återställningsplats vägen släpps meddelanden som inte uttryckligen matchar alla regler för routning av meddelandet.
 
-Du kan ändra tiden för datakvarhållning antingen programmässigt via den [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis], eller genom att använda den [Azure-portalen][lnk-management-portal].
+Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis], eller med den [Azure-portalen] [ lnk-management-portal].
 
 IoT-hubb visar den **meddelanden/händelser** inbyggd slutpunkt för dina backend-tjänster att läsa de enhet till moln har tagits emot av din hubb. Den här slutpunkten är Event Hub-kompatibel, där du kan använda någon av av mekanismer händelsehubbtjänsten har stöd för att läsa meddelanden.
 
@@ -40,7 +40,7 @@ IoT-hubb visar den **meddelanden/händelser** inbyggd slutpunkt för dina backen
 
 När du använder den [Azure Service Bus SDK för .NET] [ lnk-servicebus-sdk] eller [Händelsehubbar - värd för händelsebearbetning][lnk-eventprocessorhost], du kan använda alla IoT-hubb anslutningssträngar med rätt behörighet. Använd sedan **meddelanden/händelser** som Event Hub-namn.
 
-När du använder SDK: er (eller produkten integreringar) som inte känner till IoT-hubb, du måste hämta en Event Hub-kompatibel slutpunkt och Event Hub-kompatibelt namn från IoT-hubbsinställningar:
+När du använder SDK: er (eller produkten integreringar) som inte känner till IoT-hubb, du måste hämta en Event Hub-kompatibel slutpunkt och Event Hub-kompatibelt namn:
 
 1. Logga in på den [Azure-portalen] [ lnk-management-portal] och navigera till din IoT-hubb.
 1. Klicka på **Slutpunkter**.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Skala Service Fabric-klustret in eller ut använda regler för automatisk skalning
 Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan använda för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-klustret har konfigurerats som en separat skaluppsättning för virtuell dator. Varje nodtyp kan sedan skalas i ut oberoende av varandra, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Läs mer om den i den [nodetypes får Service Fabric](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom typer för Service Fabric-nod i klustret har skapats på skalningsuppsättningar i virtuella datorer på serverdelen, behöver du ställa in automatisk skalning regler för varje nod typ/virtuella datorns skaluppsättning.
@@ -91,7 +91,7 @@ Du måste köra de följande stegen en VM-instansen i taget. Detta ger systemtj�
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära noden typerna mindre än tillförlitlighetsnivån garanterar. Referera till [information på tillförlitlighet nivåerna här](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Beteenden som du kan se i Service Fabric Explorer
-När du skalar upp ett kluster visar Service Fabric Explorer antalet noder (virtuella skaluppsättning instanser) som ingår i klustret.  Men när du skalar ett kluster av du ser den borttagna nod och VM-instans som visas i ett feltillstånd om du anropar [ta bort ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) med lämplig nod-namn.   
+När du skalar upp ett kluster visar Service Fabric Explorer antalet noder (virtuella skaluppsättning instanser) som ingår i klustret.  Men när du skalar ett kluster av du ser den borttagna nod och VM-instans som visas i ett feltillstånd om du anropar [ta bort ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) med lämplig nod-namn.   
 
 Här är förklaring till problemet.
 

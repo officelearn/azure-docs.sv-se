@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 78091b515c00591a4af8d807945475b6be50188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af6e9d55038acba194f3cc631ff1b4e2e371852c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Vidarebefordra trafik via en virtuell nätverksenhet
 
@@ -49,18 +49,18 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, v
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ network vnet](/cli/azure/network/vnet#create) | Skapar en Azure-nätverket och frontend-undernät. |
-| [Skapa AZ undernät](/cli/azure/network/vnet/subnet#create) | Skapar backend- och DMZ undernät. |
-| [Skapa AZ nätverket offentliga-ip](/cli/azure/network/public-ip#create) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
-| [Skapa AZ nätverket nic](/cli/azure/network/nic#create) | Skapar ett virtuellt nätverksgränssnitt och aktivera IP-vidarebefordring för den. |
-| [Skapa AZ nätverket nsg](/cli/azure/network/nsg#create) | Skapar en nätverkssäkerhetsgrupp (NSG). |
-| [Skapa AZ nätverket nsg regel](/cli/azure/network/nsg/rule#create) | Skapar NSG-regler som tillåter HTTP och HTTPS-portar inkommande till den virtuella datorn. |
-| [AZ network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#update)| Associerar NSG: er och vägtabeller till undernät. |
-| [Skapa AZ-routningstabellen för nätverk](/cli/azure/network/route-table#create)| Skapar en routningstabell för alla flöden. |
-| [Skapa AZ nätverksväg routningstabellen](/cli/azure/network/route-table/route#create)| Skapar vägar för att vidarebefordra trafik mellan undernät och Internet via den virtuella datorn. |
-| [Skapa AZ vm](/cli/azure/vm#create) | Skapar en virtuell dator och bifogar nätverkskortet till den. Det här kommandot anger också avbildning av virtuell dator ska användas och administrativa autentiseringsuppgifter. |
-| [ta bort grupp AZ](/cli/azure/group#delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
+| [Skapa AZ grupp](/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [Skapa AZ network vnet](/cli/azure/network/vnet#az_network_vnet_create) | Skapar en Azure-nätverket och frontend-undernät. |
+| [Skapa AZ undernät](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Skapar backend- och DMZ undernät. |
+| [Skapa AZ nätverket offentliga-ip](/cli/azure/network/public-ip#az_network_public_ip_create) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
+| [Skapa AZ nätverket nic](/cli/azure/network/nic#az_network_nic_create) | Skapar ett virtuellt nätverksgränssnitt och aktivera IP-vidarebefordring för den. |
+| [Skapa AZ nätverket nsg](/cli/azure/network/nsg#az_network_nsg_create) | Skapar en nätverkssäkerhetsgrupp (NSG). |
+| [Skapa AZ nätverket nsg regel](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Skapar NSG-regler som tillåter HTTP och HTTPS-portar inkommande till den virtuella datorn. |
+| [AZ network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associerar NSG: er och vägtabeller till undernät. |
+| [Skapa AZ-routningstabellen för nätverk](/cli/azure/network/route-table#az_network_route_table_create)| Skapar en routningstabell för alla flöden. |
+| [Skapa AZ nätverksväg routningstabellen](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Skapar vägar för att vidarebefordra trafik mellan undernät och Internet via den virtuella datorn. |
+| [Skapa AZ vm](/cli/azure/vm#az_vm_create) | Skapar en virtuell dator och bifogar nätverkskortet till den. Det här kommandot anger också avbildning av virtuell dator ska användas och administrativa autentiseringsuppgifter. |
+| [ta bort grupp AZ](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
 
 ## <a name="next-steps"></a>Nästa steg
 

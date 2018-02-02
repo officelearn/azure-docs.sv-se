@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -22,18 +22,20 @@ Du kan använda filter för att vidarebefordra specifika händelser till olika s
 
 Händelsen rutnätet stöder för närvarande följande områden:
 
+* Sydostasien
+* Asien Öst
 * Centrala USA
 *   Östra USA
 *   Östra USA 2
+* Västeuropa
+* Nordeuropa
 *   Västra centrala USA
 *   Västra USA
 *   Västra USA 2
 
-Kommer att läggas till andra regioner.
-
 Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md). Följande bild visar hur händelsen rutnätet ansluter utgivare och hanterare, men ger inte en omfattande lista över vilka alternativ som stöds.
 
-![Händelsen rutnätet funktionella modellen](./media/overview/event-grid-functional-model.png)
+![Händelsen rutnätet funktionella modellen](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Händelseutfärdare
 
@@ -42,10 +44,10 @@ För närvarande har följande Azure-tjänster inbyggda utgivarens support för 
 * Azure-prenumerationer (hanteringsåtgärder)
 * Anpassade avsnitt
 * Händelsehubbar
+* IoT Hub
 * Resursgrupper (hanteringsåtgärder)
-* Lagringsblob
-
-Andra Azure-tjänster kommer att adderas i år.
+* Storage Blob
+* Storage General-purpose v2 (GPv2)
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
@@ -55,12 +57,12 @@ Följande Azure-tjänster har för närvarande stöd för inbyggda hanterare fö
 * Azure Functions
 * Händelsehubbar
 * Logic Apps
-* Microsoft-flöde
+* Microsoft Flow
 * WebHooks
 
-Andra Azure-tjänster kommer att adderas i år.
+När du använder Azure Functions som hanterare kan använda händelse rutnätet utlösaren i stället för allmänna HTTP-utlösare. Händelsen rutnätet verifieras automatiskt händelse rutnätet funktionen utlösare. Med den allmänna http-utlösare, måste du implementera den [validering svar](security-authentication.md#webhook-event-delivery).
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
 Det finns fem koncept i Azure händelse rutnät som gör att du kan komma igång:
 
@@ -111,9 +113,7 @@ Event Grid ansluter din app till andra tjänster. Till exempel skapa en anpassad
 
 ## <a name="how-much-does-event-grid-cost"></a>Hur mycket kostar händelse rutnätet?
 
-Azure händelse rutnätet använder en modell med betalning per händelse prisnivå så att du betalar bara för att du använder.
-
-Händelsen rutnätet kostnaden $0,60 per miljoner operations ($0,30 under förhandsgranskning) och åtgärden först 100 000 per månad är gratis. Åtgärder definieras som händelsen ingång, avancerad matchar, leverans försök och management-anrop.  Mer information finns på den [sida med priser](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure händelse rutnätet använder en modell med betalning per händelse prisnivå så att du betalar bara för att du använder. De första 100 000 åtgärderna per månad är gratis. Åtgärder definieras som händelsen ingång, avancerad matchar, leverans försök och management-anrop. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Nästa steg
 

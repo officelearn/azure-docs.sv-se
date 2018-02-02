@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 73db1f05bacd3edd93394f346274727ca5735c87
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Skapa en Programgateway med URL: en sökväg-baserade regler för routning med hjälp av Azure CLI
 
@@ -205,17 +205,6 @@ done
 
 ### <a name="install-nginx"></a>Installera NGINX
 
-Skapa en fil med namnet customConfig.json och klistra in följande konfiguration i din aktuella shell. Du kan använda valfri redigerare som du vill skapa filen i molnet-gränssnittet.  Ange `sensible-editor cloudConfig.json` att se en lista över tillgängliga redigerare för att skapa filen.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Kör kommandot i shell-fönstret:
-
 ```azurecli-interactive
 for i in `seq 1 3`; do
   az vmss extension set \
@@ -224,7 +213,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings @cloudConfig.json
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

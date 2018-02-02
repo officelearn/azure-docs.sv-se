@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights Connector lösning (förhandsgranskning) i Operations Management Suite (OMS)
 
@@ -44,7 +44,7 @@ Till skillnad från de flesta andra logganalys-lösningar är inte samlas in fö
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen matchar inte samlingsinformation från Azure storage. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du vill komma åt information om Application Insights Connector måste du ha en Azure-prenumeration
 - Du måste ha minst en konfigurerade Application Insights-resurs.
@@ -84,7 +84,7 @@ Klicka på den **Programinsikter** öppna den **Application Insights** instrumen
 
 Instrumentpanelen innehåller blad som visas i tabellen. Varje bladet visar upp till 10 objekt som matchar det bladet villkoren för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster när du klickar på **se alla** längst ned på bladet eller när du klickar på rubriken bladet.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Kolumnen** | **Beskrivning** |
 | --- | --- |
@@ -164,7 +164,7 @@ Lösningen tar emot telemetri följande typer av data från dina anslutna appar 
 
 Data tas emot av OMS från Application Insights vartefter det blir tillgängligt.
 
-## <a name="output-data"></a>utdata
+## <a name="output-data"></a>Utdata
 
 En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata. ApplicationInsights poster har egenskaperna som visas i följande avsnitt:
 
@@ -182,16 +182,16 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | ScreenResolution |   |
 | Kontinent | Kontinent som begäran kom från |
 | Land/region | Land där begäran har sitt ursprung |
-| Provins | Region, status eller locale där begäran har sitt ursprung |
+| Län | Region, status eller locale där begäran har sitt ursprung |
 | Ort | Stad där begäran har sitt ursprung |
 | isSynthetic | Anger om begäran har skapats av en användare eller automatiserad metod. = Användargenererat TRUE eller false = automatiserad metod |
 | SamplingRate | Procentandelen telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Till exempel 4 =&gt; 25% |
 | IsAuthenticated | Sant eller falskt |
-| Åtgärds-ID | Objekt som har samma åtgärd ID visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
+| OperationID | Objekt som har samma åtgärd ID visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
 | ParentOperationID | ID för överordnad igen |
 | OperationName |   |
-| Sessions-ID | GUID för att identifiera den session där den skapades |
+| SessionId | GUID för att identifiera den session där den skapades |
 | SourceSystem | ApplicationInsights |
 
 ### <a name="availability-specific-fields"></a>Tillgänglighet-specifika fält

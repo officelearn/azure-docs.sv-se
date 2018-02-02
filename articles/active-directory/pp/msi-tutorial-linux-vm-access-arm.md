@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 51e14d0e9130a5a870ed120010508dc5eda125f9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att komma åt Azure Resource Manager
 
@@ -110,10 +110,10 @@ az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 MSI innehåller koden med en åtkomst-token för att autentisera till resurs-API: er som stöder Azure AD-autentisering. I den här självstudiekursen koden har åtkomst till Azure Resource Manager API. 
 
-Innan din kod kan dock åtkomst till API, måste du bevilja MSI-identitet åtkomst till en resurs i Azure Resource Manager. I det här fallet resursgruppen där den virtuella datorn finns. Se till att ersätta den `<CLIENT ID>`, `<SUBSCRIPTION ID>`, och `<RESOURCE GROUP>` parametervärden med egna värden. Ersätt `<CLIENT ID>` med den `clientId` egenskap som returneras av den `az identity create` i [skapa en Användartilldelad MSI](#create-a-user-assigned-msi): 
+Innan din kod kan dock åtkomst till API, måste du bevilja MSI-identitet åtkomst till en resurs i Azure Resource Manager. I det här fallet resursgruppen där den virtuella datorn finns. Uppdatera värdena för `<SUBSCRIPTION ID>` och `<RESOURCE GROUP>` som passar din miljö. Dessutom ersätta `<MSI PRINCIPALID>` med den `principalId` egenskap som returneras av den `az identity create` i [skapa en Användartilldelad MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
 Svaret innehåller information om rolltilldelning skapas, liknande exemplet nedan:

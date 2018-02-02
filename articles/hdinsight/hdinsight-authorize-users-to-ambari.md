@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 02761b0e4a25e9aa2312d66bb8c6ab861fb0c3cc
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Auktorisera användare för Ambari Views
 
-[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan synkronisera nya användare
-<!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both domain-joined HDInsight cluster and standard HDInsight cluster.
+[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan synkronisera nya användare <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i Ambari stöds för både domänanslutna HDInsight-kluster och standard HDInsight-kluster.
 
 Active Directory-användare kan logga in på noderna i med sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera klustret interaktioner med andra godkända slutpunkter som Hue, Ambari-vyer, ODBC, JDBC, PowerShell och REST API: er.
 

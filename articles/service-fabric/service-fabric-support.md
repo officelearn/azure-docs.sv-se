@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2017
+ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric-supportalternativ
 
@@ -76,12 +76,13 @@ Här är listan över Service Fabric-versioner som stöds och deras stöd slutda
 | 5.5.* | 5.4.164.* |Mindre än eller lika med version 2.5 |Augusti 10,2017    |
 | 5.6.* | 5.4.164.* |Mindre än eller lika med version 2.6 |Oktober 13,2017   |
 | 5.7.* | 5.4.164.* |Mindre än eller lika med version 2.7 |December 15,2017  |
-| 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Aktuell version och därför inget slutdatum |
+| 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Mars 30,2018     | 
+| 6.1.* | 5.7.221.* |Mindre än eller lika med version 3.0 |Aktuell version och därför inget slutdatum |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric förhandsversioner - stöds inte för produktion.
 Då, släpp vi-versioner som har viktiga funktioner som vi vill feedback, som släpps som förhandsgranskningar. Dessa förhandsversioner bör endast användas för testning. Klustret produktion bör alltid köra en stöds, stabil, Service Fabric-version. En förhandsversion börjar alltid med ett högre och lägre versionsnummer 255. Till exempel om du ser ett Service Fabric version 255.255.5703.949 som versionen ska bara användas i testkluster och är en förhandsversion. Dessa förhandsvisningarna också tillkännages i den [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric) och kommer att ha information på funktioner som ingår.
 
-Det finns inget stöd för betald alternativ för dessa förhandsvisningarna. Använd någon av de alternativ som beskrivs [rapporten Azure Service Fabric utfärdar](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) att ställa frågor eller lämna feedback.
+Det finns inget stöd för betald alternativ för dessa förhandsvisningarna. Använd någon av de alternativ som beskrivs [rapporten Azure Service Fabric utfärdar](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) att ställa frågor eller lämna feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 

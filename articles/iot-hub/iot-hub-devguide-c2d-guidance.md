@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: c0f9d0e13cb159188bdaf2b915c1bf6de73be855
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Vägledning för kommunikation moln till enhet
 IoT-hubb innehåller tre alternativ för enhetsappar exponera funktionen till en backend-app:
@@ -36,7 +36,7 @@ Här följer en detaljerad jämförelse av de olika alternativen för kommunikat
 | Hållbarhet | Frånkopplade enheter kontaktas inte. Lösningens serverdel meddelas att enheten inte är ansluten. | Egenskapsvärden bevaras i dubbla för enheten. Enheten läses den vid nästa återanslutning. Egenskapsvärden är strängfält med den [IoT-hubb frågespråket][lnk-query]. | Meddelanden kan behållas av IoT-hubb för upp till 48 timmar. |
 | Mål | Enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb][lnk-jobs]. | Enhet med hjälp av **deviceId**, eller flera enheter med hjälp av [jobb][lnk-jobs]. | Enskild enhet av **deviceId**. |
 | Storlek | Upp till 8 KB-begäran och svar på 8 KB. | Maximalt önskade egenskaper storleken är 8 KB. | Upp till 64 KB meddelanden. |
-| frekvens | Hög. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Medel. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Låg. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. |
+| Frekvens | Hög. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Medel. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Låg. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. |
 | Protokoll | Tillgängligt med MQTT eller AMQP. | Tillgängligt med MQTT eller AMQP. | Tillgängligt på alla protokoll. Enheten måste avsöka när du använder HTTPS. |
 
 Lär dig hur du använder direkta metoder, egenskaper och moln till enhet meddelanden i följande kurser:

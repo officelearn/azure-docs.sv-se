@@ -5,19 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2f15e130859272a729fb0ad6e0b718d4724f2103
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integration av Azure Stack datacenter - identitet
-
-*Gäller för: Azure Stack integrerat system*
-
 Du kan distribuera Azure-stacken använder Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantörer. Innan du distribuerar Azure stacken måste du göra valet. Distribution med AD FS är kallas även distribuera Azure-stacken i frånkopplat läge.
 
 Följande tabell visar skillnaderna mellan de två identity val:
@@ -26,7 +24,7 @@ Följande tabell visar skillnaderna mellan de två identity val:
 |---------|---------|---------|
 |Fakturering|Måste vara kapacitet<br> Enterprise-avtal (EA) endast|Kapacitet eller lön-som-du-användning<br>EA eller Cloud Solution Provider (CSP)|
 |Identitet|Måste vara AD FS|Azure AD eller AD FS|
-|Marketplace-syndikeringsfeed|Inte tillgänglig för tillfället|Stöds<br>BYOL-licensiering|
+|Marketplace-syndikeringsfeed|Stöds<br>BYOL-licensiering|Stöds<br>BYOL-licensiering|
 |Registrering|Rekommenderas, kräver flyttbart medium<br> och en separat ansluten enhet.|Automatisk|
 |Korrigeringar och uppdateringar|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Uppdateringspaket kan hämtas direkt<br> från Internet till Azure-stacken.|
 
@@ -109,7 +107,7 @@ Diagram tjänsten i Azure-stacken använder följande protokoll och portar för 
 |---------|---------|---------|
 |LDAP|389|TCP OCH UDP|
 |LDAP SSL|636|TCP|
-|GLOBAL KATALOG LDAP|3268|TCP|
+|LDAP GC|3268|TCP|
 |LDAP-GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Ställa in integration med AD FS genom att hämta federationsmetadata
@@ -119,7 +117,7 @@ Följande information krävs som indata för automation-parametrar:
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
 |CustomAdfsName|Namnet på anspråksprovidern. <cr>Verkar det sätt på den AD FS-landningssidan.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Länk för Federation metadata|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomAD<br>FSFederationMetadataEndpointUri|Länk för Federation metadata|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Utlösaren automation för att konfigurera anspråksleverantörsförtroendena i Azure-stacken
@@ -158,7 +156,7 @@ Följande information krävs som indata för automation-parametrar:
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
 |CustomAdfsName|Namnet på anspråksprovidern. På så sätt på den AD FS-landningssidan visas.|Contoso|
-|CustomADFSFederationMetadataFile|Metadatafil för Federation|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.XML|
+|CustomADFSFederationMetadataFile|Metadatafil för Federation|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Skapa federation metadatafil
 
@@ -335,4 +333,4 @@ Om någon av cmdletarna misslyckas du kan samla in ytterligare loggfiler med hj�
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure stacken datacenter integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md)
+[Registrera Azure Stack](azure-stack-registration.md)

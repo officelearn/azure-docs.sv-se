@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -44,7 +44,7 @@ Nu ska vi titta på några av de specifika tjänster som vi rekommenderar att un
 
 Azure tillhandahåller flera molnbaserade compute erbjudanden om du vill köra programmet så att du inte behöver bekymra dig om infrastruktur. Du kan enkelt skala upp eller ut dina resurser som din programanvändning växer.
 
-Azure erbjuder tjänster som stöder utveckling av program och vara värd för behov. Azure tillhandahåller infrastruktur-som-en-tjänst (IaaS) ger dig fullständig kontroll över din programvärd. Azures plattform som en tjänst (PaaS)-erbjudanden tillhandahålla fullständigt hanterade tjänster som behövs för att starta dina appar. Det finns även true serverlösa värd i Azure där allt du behöver göra är att skriva koden.
+Azure erbjuder tjänster som stöder utveckling av program och vara värd för behov. Azure tillhandahåller infrastruktur som en tjänst (IaaS) ger dig fullständig kontroll över din värd för programmet. Azures plattform som en tjänst (PaaS)-erbjudanden tillhandahålla fullständigt hanterade tjänster som behövs för att starta dina appar. Det finns även true serverlösa värd i Azure där allt du behöver göra är att skriva koden.
 
 ![Azure-program webbhotell](./media/azure-developer-guide/azure-developer-hosting-options.png)
 

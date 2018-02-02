@@ -4,22 +4,24 @@ description: "Introduktion till Azure tid serien Insights, en ny tjänst för ti
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: anshan, jasonh
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 01/26/2018
+ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure tid serien Insights?
 
 Tid serien insikter är utformat för att lagra, visualisera och fråga stora mängder tid serie data, till exempel som genererats av IoT-enheter.  Om du vill lagra, hantera, fråga och visualisera tid series-data i molnet, sannolikt tid serien insikter rätt för dig.  
+
+! [Tid serien insikter flödesschema] (media/overview/time-series-insights-flowchart.png)
 
 Tid serien insikter har fyra viktiga jobb:
 
@@ -67,7 +69,6 @@ Komma igång tar mindre än 5 minuter.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
 Det här diagrammet visar ett exempel på tidsserier insights-data visas via Utforskaren: ![Tid serien insikter explorer] (media/time-series-insights-explorer/explorer4.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
  - [Utforska Utforskaren tid serien insikter i en miljö för demonstration](./time-series-quickstart.md)

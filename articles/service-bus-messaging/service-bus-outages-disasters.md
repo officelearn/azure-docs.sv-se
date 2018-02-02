@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för program mot Service Bus-avbrott och katastrofer isolering
 
@@ -31,12 +31,7 @@ En katastrof definieras som en Service Bus-skalningsenhet eller datacenter perma
 ## <a name="current-architecture"></a>Aktuella arkitektur
 Service Bus använder flera meddelandearkiv för att lagra meddelanden som skickas till köer och ämnen. En icke-partitionerat kö eller ett ämne tilldelas till ett meddelandearkiv. Om den här meddelandearkiv är tillgänglig, misslyckas alla åtgärder på den kö eller ett ämne.
 
-Alla Service Bus meddelandeentiteter (köer, ämnen, reläer) finns i ett namnområde för tjänsten som är kopplad till ett datacenter. Service Bus Aktivera inte automatisk geo-replikering av data eller tillåter att ett namnområde ska sträcka sig över flera datacenter.
-
-## <a name="protecting-against-acs-outages"></a>Skydd mot avbrott för ACS
-Om du använder autentiseringsuppgifter för ACS och ACS är tillgänglig, kan klienter inte längre hämta token. Klienter som har en token när ACS kraschar kan fortsätta att använda Service Bus tills token upphör att gälla. Livslängd för token standard är tre timmar.
-
-Använd delade signatur åtkomst (SAS)-token för att skydda mot ACS avbrott. I det här fallet autentiserar klienten direkt med Service Bus genom att registrera en egen minted token med en hemlig nyckel. Anrop till ACS inte längre behövs. Mer information om SAS-token finns [Service Bus autentisering][Service Bus authentication].
+Alla Service Bus meddelandeentiteter (köer, ämnen, reläer) finns i ett namnområde för tjänsten som är kopplad till ett datacenter. Stöd för Service Bus [ *Geo-återställning* och *georeplikering* ](service-bus-geo-dr.md) på namnområdesnivån.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Skydda köer och ämnen mot messaging store-fel
 En icke-partitionerat kö eller ett ämne tilldelas till ett meddelandearkiv. Om den här meddelandearkiv är tillgänglig, misslyckas alla åtgärder på den kö eller ett ämne. En partitionerad kö å andra sidan består av flera fragment. Varje fragment lagras i en annan meddelandearkiv. När ett meddelande skickas till en partitionerad kö eller ett ämne, tilldelar Service Bus meddelandet till en av fragment. Om motsvarande meddelandearkiv är tillgänglig, skriver Service Bus meddelandet till en annan fragment om möjligt. Mer information om partitionerade enheter finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
@@ -82,9 +77,14 @@ När du använder passiva replikering, i följande scenarier kan meddelanden tap
 
 Den [Geo-replikering med Service Bus asynkrona meddelanden] [ Geo-replication with Service Bus Brokered Messages] exemplet visar passiva replikering av meddelandeentiteter.
 
+## <a name="geo-replication"></a>Geo-replikering
+
+Service Bus stöder Geo-återställning och Geo-replikering på namnområdesnivån. Mer information finns i [Azure Service Bus Geo-återställning](service-bus-geo-dr.md). Disaster recovery funktionen, tillgänglig för den [Premium-SKU](service-bus-premium-messaging.md) endast implementerar metadata katastrofåterställning och bygger på primära och sekundära disaster recovery-namnområden.
+
 ## <a name="next-steps"></a>Nästa steg
 Mer information om återställning finns i följande artiklar:
 
+* [Azure Service Bus Geo-katastrofåterställning](service-bus-geo-dr.md)
 * [Företagskontinuitet för Azure SQL-databas][Azure SQL Database Business Continuity]
 * [Utforma flexibel program för Azure][Azure resiliency technical guidance]
 

@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins plugin-programmet 
 
@@ -71,7 +71,7 @@ Du kan ladda upp build-artefakter (till exempel en WAR-fil i Java) för att dist
 Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och ett webbprogram för att köra Java-app.
 
 
-1. Skapa en Azure App Service-plan med de **lediga** prisnivån med hjälp av den `az appservice plan create` [Azure CLI kommandot](/cli/azure/appservice/plan#create). Programtjänstplanen definierar de fysiska resurserna som används som värd för dina appar. Alla program som har tilldelats en apptjänstplan dela dessa resurser. Delade resurser hjälper dig att spara på kostnader när värd för flera appar.
+1. Skapa en Azure App Service-plan med de **lediga** prisnivån med hjälp av den `az appservice plan create` [Azure CLI kommandot](/cli/azure/appservice/plan#az_appservice_plan_create). Programtjänstplanen definierar de fysiska resurserna som används som värd för dina appar. Alla program som har tilldelats en apptjänstplan dela dessa resurser. Delade resurser hjälper dig att spara på kostnader när värd för flera appar.
 2. Skapa en webbapp. Du kan använda den [Azure-portalen](/azure/app-service-web/web-sites-configure) eller följande `az` Azure CLI-kommando:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -206,7 +206,7 @@ För den **Docker registret URL** värde, ange URL: en med hjälp av formatet ht
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y. Räknaren visar summan: ![Kalkylatorn: Lägg till](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y. Räknaren visar summan: ![Kalkylatorn: Lägg till](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>För Azure App Service på Linux
 
@@ -225,7 +225,7 @@ För den **Docker registret URL** värde, ange URL: en med hjälp av formatet ht
     Sun Jul 09 16:39:10 UTC 2017
     ```
 
-3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y.
+3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x > och &lt;y > med några siffror för att hämta summan av x + y.
     
 ## <a name="next-steps"></a>Nästa steg
 

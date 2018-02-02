@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -90,6 +90,6 @@ Vanliga frågor och svar om Azure-nätverk finns i [vanliga frågor och svar fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa din första virtuella nätverket och distribuerar några virtuella datorer till den, genom att slutföra stegen i [skapa din första virtuella nätverket](virtual-network-get-started-vnet-subnet.md).
+- Skapa din första virtuella nätverket och distribuerar några virtuella datorer till den, genom att slutföra stegen i [skapa din första virtuella nätverket](quick-create-portal.md).
 - Skapa en punkt-till-plats-anslutning till ett virtuellt nätverk genom att slutföra stegen i [konfigurerar en punkt-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Lär dig mer om den andra nyckeln [nätverk funktioner](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.

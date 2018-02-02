@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 3ea10ee8652dc2a03791feb66041431e7b3c6ae1
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT-hubb hög tillgänglighet och disaster recovery
 IoT-hubb ger hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare krävs för lösningen som en Azure-tjänst. Microsoft Azure-plattformen innehåller också funktioner för att skapa lösningar med funktioner för katastrofåterställning (DR) eller mellan regional tillgänglighet. Om du vill ange globalt, dra nytta av funktionerna Azure DR mellan region hög tillgänglighet för enheter eller användare. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för kontinuitet för företag och Katastrofåterställning. Den [katastrofåterställning och hög tillgänglighet för Azure-program] [ Disaster recovery and high availability for Azure applications] dokumentet innehåller arkitekturvägledning om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
@@ -34,6 +34,8 @@ Förutom intra-region hög tillgänglighet implementerar IoT-hubb redundans meka
 | Åtgärder som övervakning av meddelanden |Alla oläst meddelanden försvinner |
 | Meddelanden moln till enhet |0-5 minuter dataförlust |
 | Feedbackkö moln till enhet |Alla oläst meddelanden försvinner |
+| Dubbla enhetsdata |0-5 minuter dataförlust |
+| Överordnade och enheten jobb |0-5 minuter dataförlust |
 
 ## <a name="regional-failover-with-iot-hub"></a>Regional växling vid fel med IoT-hubb
 En fullständig behandling av distributionstopologier i IoT-lösningar som ligger utanför omfånget för den här artikeln. Här beskrivs de *regional växling vid fel* distributionsmodell för hög tillgänglighet och katastrofåterställning återställning.

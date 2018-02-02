@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/24/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6f7ef46d9c40138c211427845423783fefde5dc3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>Installera en SQL &#92; IIS &#92;. NET stack i Azure
 
@@ -32,7 +32,9 @@ Den här självstudiekursen installera en SQL &#92; IIS &#92;. NET stacken med h
 > * Skapa en virtuell dator som kör SQL Server
 > * Installera SQL Server-tillägg
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.1.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-iis-vm"></a>Skapa en virtuell IIS-dator 
 
@@ -41,9 +43,10 @@ I det här exemplet använder vi den [ny AzVM](https://www.powershellgallery.com
 Klicka på den **prova** knappen längst upp till höger i kodblocket ska starta molnet Shell i det här fönstret. Du blir ombedd att ange autentiseringsuppgifter för den virtuella datorn cmd i Kommandotolken.
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 Installera IIS och .NET framework med tillägget för anpassat skript.
@@ -52,7 +55,7 @@ Installera IIS och .NET framework med tillägget för anpassat skript.
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -60,7 +63,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Location EastUS
 ```
 
-## <a name="azure-sql-vm"></a>Azure SQL-VM
+## <a name="azure-sql-vm"></a>Azure SQL VM
 
 Vi använder en förkonfigurerad Azure marketplace-avbildning av en SQLServer för att skapa SQL-VM. Vi först skapa den virtuella datorn och sedan vi installerar SQL Server-tillägget på den virtuella datorn. 
 

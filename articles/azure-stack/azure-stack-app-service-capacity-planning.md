@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure-stacken
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 För att etablera en klar Produktionsdistribution av Azure App Service på Azure-stacken, måste du planera för kapacitet du förväntar dig att systemet stöder.  Här följer riktlinjer för minsta antal förekomster och beräkning SKU: er som du bör använda för distribution i produktionsmiljöer.
 
@@ -28,8 +29,8 @@ Du kan planera din strategi för kapacitet av Apptjänst med hjälp av dessa rik
 
 | Apptjänst-serverrollen | Minsta rekommenderade antalet instanser | Rekommenderade beräkning SKU|
 | --- | --- | --- |
-| Domänkontrollant | 2 | A1 |
-| Klientdel | 2 | A1 |
+| Kontrollenhet | 2 | A1 |
+| Klient | 2 | A1 |
 | Hantering | 2 | A3 |
 | Utgivare | 2 | A1 |
 | Web medarbetare – delade | 2 | A1 |

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure-stacken användnings-API
 Den här artikeln besvarar några vanliga frågor om Azure-stacken användning API.
@@ -28,8 +28,8 @@ Användning har rapporterats för följande resursproviders:
 
 | **Resursprovider** | **Mätaren ID** | **Mätaren namn** | **Enhet** | **Ytterligare information** |
 | --- | --- | --- | --- | --- |
-| **Nätverk** |F271A8A388C44D93956A063E1D2FA80B |Användning av statisk IP-adress |IP-adresser| Räkna IP-adresser som används |
-| |9E2739BA86744796B465F64674B822BA |Dynamisk IP-Adressanvändning |IP-adresser| Räkna IP-adresser som används |
+| **Nätverk** |F271A8A388C44D93956A063E1D2FA80B |Användning av statisk IP-adress |IP-adresser| Räkna IP-adresser som används. Om du anropar API för användning med en timme, returnerar mätaren IP-adress multiplicerat med antalet timmar. |
+| |9E2739BA86744796B465F64674B822BA |Dynamisk IP-Adressanvändning |IP-adresser| Räkna IP-adresser som används. Om du anropar API för användning med en timme, returnerar mätaren IP-adress multiplicerat med antalet timmar. |
 | **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*timmar |Total kapacitet som används av tabeller |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*timmar |Total kapacitet som används av sidblobar |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*timmar |Total kapacitet som används av kön |
@@ -43,10 +43,10 @@ Användning har rapporterats för följande resursproviders:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Antal begäranden i 10 för 000's |Kön tjänstbegäranden (i 10 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingång data i GB |Kön tjänsten data ingång i GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Utgående trafik i GB |Kön service datatrafik i GB |
-| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*timmar   | Total DB kapacitet vid skapandet rapporterade varje timme.  |
-| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*timmar    | Total DB kapacitet vid skapandet rapporterade varje timme. |
-| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Timmar för grundläggande VM-storlek |Virtuella core minuter | Virtuella kärnor antal minuter som den virtuella datorn kördes |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM storlek timmar |Virtuella core minuter | Virtuella kärnor antal minuter som den virtuella datorn kördes |
+| **Sql RP**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*timmar   | Total DB kapacitet vid skapandet. Om du anropar API för användning med en timme, returneras mätaren MB multiplicerat med antalet timmar. |
+| **MySql RP**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*timmar    | Total DB kapacitet vid skapandet. Om du anropar API för användning med en timme, returneras mätaren MB multiplicerat med antalet timmar. |
+| **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Timmar för grundläggande VM-storlek |Virtuella kärntimmar | Antal virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM storlek timmar |Virtuella kärntimmar | Antal virtuella kärnor multiplicerat med den virtuella datorn kördes timmar |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Timmar för VM-storlek |VM-timmar |Samlar in bas- och Windows-VM. Justeras inte för kärnor |
 | **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transaktioner | Antalet begäranden i 10 000's| Antal REST API-begäranden tas emot av Key Vault dataplan |
 | **Apptjänst** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Virtuella kärntimmar  | Antal virtuella kärnor som används för att köra apptjänst |

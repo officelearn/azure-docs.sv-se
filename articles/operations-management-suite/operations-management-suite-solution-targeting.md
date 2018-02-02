@@ -1,6 +1,6 @@
 ---
-title: "Lösning mål i OMS | Microsoft Docs"
-description: "Lösning målinriktning är en funktion i Operations Management Suite (OMS) och där du kan begränsa hanteringslösningar till en specifik uppsättning agenter.  Den här artikeln beskriver hur du skapar en konfiguration för scope och tillämpa den på en lösning."
+title: "Målobjekt för hanteringslösningar i Azure | Microsoft Docs"
+description: "Målobjekt för hanteringslösningar kan du begränsa hanteringslösningar till en specifik uppsättning agenter.  Den här artikeln beskriver hur du skapar en konfiguration för scope och tillämpa den på en lösning."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Använda lösningen i Operations Management Suite (OMS) till scope hanteringslösningar till specifika agenter (förhandsgranskning)
-När du lägger till en lösning i OMS distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan.  Du kanske vill hantera kostnaderna och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösning riktad** som är en OMS-funktion som gör att du kan använda ett scope för dina lösningar.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Målobjekt för hanteringslösningar i Azure (förhandsversion)
+När du lägger till en lösning för din prenumeration distribueras den automatiskt som standard till alla Windows- och Linux-agenter ansluten till logganalys-arbetsytan.  Du kanske vill hantera kostnaderna och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter.  Den här artikeln beskriver hur du använder **lösning riktad** som är en funktion som gör att du kan använda ett omfång med dina lösningar.
 
 ## <a name="how-to-target-a-solution"></a>Så här anger du en lösning som mål
-Det finns tre steg ska inriktning på en lösning som beskrivs i följande avsnitt.  Observera att du måste både OMS-portalen och Azure portal för olika steg.
+Det finns tre steg ska inriktning på en lösning som beskrivs i följande avsnitt. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Skapa en datorgrupp

@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect-synkronisering: Konfigurera önskad plats för Office 365-användare | Microsoft Docs"
+title: "Azure AD Connect-synkronisering: Konfigurera önskad plats för flera Geo funktioner i Office 365 | Microsoft Docs"
 description: "Beskriver hur du lägger din Office 365 användarresurser nära användare med Azure AD Connect-synkronisering."
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 01/30/2018
 ms.author: billmath
-ms.openlocfilehash: 73b9b8d208b5eac2e62f62ab786efafa056e3cb4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect-synkronisering: Konfigurera önskad plats för Office 365-resurser
-Syftet om det här avsnittet leder dig igenom hur du konfigurerar preferredDataLocation i Azure AD Connect-synkronisering. Det här attributet används för att indikera att Office 365 där användaren finns så att resurserna som kan placeras nära användaren. Den här funktionen är avsedd för större kunder.
+Syftet med det här avsnittet är leder dig igenom hur du konfigurerar PreferredDataLocation i Azure AD Connect Sync. När en kund använder flera Geo funktionerna i Office 365, används det här attributet för att ange den geografiska platsen användardata Office 365.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande i Förhandsgranska och inaktiverat som standard i molnet. Kontakta din Microsoft-representant om du vill delta i förhandsgranskningsprogrammet.
+> Flera Geo är för närvarande under förhandsgranskning. Kontakta din Microsoft-representant om du vill delta i förhandsgranskningsprogrammet.
 >
 >
 
@@ -34,11 +34,11 @@ Som standard finns Office 365-resurser för dina användare i samma region som A
 Med inställningarna för det här attributet kan du ha användarens Office 365 resurser, till exempel postlåda och OneDrive, i samma region som användaren och fortfarande har en klient för hela organisationen.
 
 > [!IMPORTANT]
-> Du måste ha minst 5000 platser i din Office 365-prenumeration för att få den här funktionen.
+> För att få flera Geo, måste du ha minst 5000 platser i din prenumeration på Office 365
 >
 >
 
-Regioner i Office 365 är:
+Regioner i Office 365 för flera Geo är:
 
 | Region | Beskrivning |
 | --- | --- |
@@ -56,7 +56,6 @@ Inte alla Office 365-arbetsbelastningar stöder för att en användares region.
 Azure AD Connect har stöd för synkronisering av den **PreferredDataLocation** attribut för **användaren** objekt i version 1.1.524.0 och efter. Följande ändringar har införts mer specifikt:
 
 * Schemat för objekttypen **användaren** i Azure AD-koppling har utökats för att inkludera PreferredDataLocation attribut, som är av typen enstaka string.
-
 * Schemat för objekttypen **Person** i metaversum utökas för att inkludera PreferredDataLocation attribut som är av typen string och enkelvärdesattribut.
 
 Som standard aktiveras inte attributet PreferredDataLocation för synkronisering. Den här funktionen är avsedd för större organisationer och inte alla skulle dra nytta av den. Du måste också identifiera ett attribut för Office 365-region för dina användare eftersom det inte finns några PreferredDataLocation attribut i lokala Active Directory. Detta kommer att vara olika för varje organisation.
@@ -69,14 +68,13 @@ Som standard aktiveras inte attributet PreferredDataLocation för synkronisering
 
 Innan du aktiverar synkronisering av attributet PreferredDataLocation, måste du:
 
- * Bestäm vilka lokala Active Directory-attribut som ska användas som källattributet först. Det ska vara av typen **enstaka sträng**. I stegen nedan en av extensionAttributes används.
-
- * Om du tidigare har konfigurerat attributet PreferredDataLocation på befintliga synkroniseras användarobjekt i Azure AD med hjälp av Azure AD PowerShell, måste du **backport** attributvärden till motsvarande användarobjekt i lokala Active Directory.
+* Bestäm vilka lokala Active Directory-attribut som ska användas som källattributet först. Det ska vara av typen **enstaka sträng**. I stegen nedan en av extensionAttributes används.
+* Om du tidigare har konfigurerat attributet PreferredDataLocation på befintliga synkroniseras användarobjekt i Azure AD med hjälp av Azure AD PowerShell, måste du **backport** attributvärden till motsvarande användarobjekt i lokala Active Directory.
 
     > [!IMPORTANT]
     > Om du gör inte backport attributvärden till motsvarande användarobjekt i lokala Active Directory, tar Azure AD Connect bort de befintliga attributvärdena i Azure AD när synkronisering för attributet PreferredDataLocation har aktiverats.
 
- * Bör du konfigurera källattributet på minst några lokala AD-användare objekt nu, som kan användas för verifiering senare.
+* Bör du konfigurera källattributet på minst några lokala AD-användare objekt nu, som kan användas för verifiering senare.
 
 Stegen för att aktivera synkronisering för attributet PreferredDataLocation kan sammanfattas som:
 
@@ -102,7 +100,7 @@ Kontrollera sker ingen synkronisering när du arbetar på att uppdatera Synkroni
 
 ![Synchronization Service Manager - Kontrollera att inga åtgärder pågår](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Steg 2: Lägga till källattributet i lokala ADDS connector schema
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-adds-connector-schema"></a>Steg 2: Lägga till källattributet i lokala ADDS connector schema
 Inte alla AD-attribut har importerats till lokalt AD-anslutningsplatsen. Om du har valt för att använda ett attribut som synkroniseras inte som standard måste du importera den. Lägga till källattributet i listan över importerade attribut:
 
 1. Gå till den **kopplingar** fliken i hanteraren för synkroniseringstjänsten.
@@ -124,7 +122,7 @@ Som standard importeras inte attributet PreferredDataLocation till Azure AD-ansl
 
 ![Lägga till källattributet Azure AD Connector-schema](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Steg 4: Skapa en regel för inkommande synkronisering för att flöda attributvärdet från lokala Active Directory
+## <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Steg 4: Skapa en regel för inkommande synkronisering för att flöda attributvärdet från lokala Active Directory
 Regel för inkommande synkronisering tillåter attributvärdet som ska flödas från källattributet från lokala Active Directory för metaversum:
 
 1. Starta den **Synchronization regler Editor** genom att gå till **starta** > **Synchronization regler Editor**.
@@ -256,6 +254,15 @@ Under förutsättning att din klient har markerats för att kunna använda den h
 4. Om du vill verifiera att den här inställningen har effektiva över många postlådor, använder du skriptet i den [Technet-galleriet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Skriptet har också en lista över alla Office 365 Datacenter server prefix och vilken region som den finns i. Den kan användas som en referens i föregående steg för att kontrollera platsen för postlådan.
 
 ## <a name="next-steps"></a>Nästa steg
+
+**Läs mer om flera Geo i Office 365:**
+
+* Flera Geo sessioner på Ignite: https://aka.ms/MultiGeoIgnite
+* Flera Geo i OneDrive: https://aka.ms/OneDriveMultiGeo
+* Flera Geo i SharePoint Online: https://aka.ms/SharePointMultiGeo
+
+**Läs mer om Konfigurationsmodell i Synkroniseringsmotorn:**
+
 * Läs mer om Konfigurationsmodell i [förstå deklarativ etablering](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Läs mer om Uttrycksspråk i [förstå uttryck för deklarativ etablering](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 

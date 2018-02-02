@@ -11,26 +11,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
 
-IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-cloud] till IoT-hubb service-riktade slutpunkter baserat på Egenskaper. Regler för routning ger dig möjlighet att skicka meddelanden om de måste gå utan att behöva ytterligare tjänster för att bearbeta meddelanden eller skriva ytterligare kod. Varje regel för vidarebefordran av du konfigurerar har följande egenskaper:
+IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-cloud] till IoT-hubb service-riktade slutpunkter baserat på Egenskaper. Regler för routning ger dig möjlighet att skicka meddelanden när de behöver gå utan att behöva ytterligare tjänster eller anpassad kod. Varje regel för vidarebefordran av du konfigurerar har följande egenskaper:
 
 | Egenskap      | Beskrivning |
 | ------------- | ----------- |
 | **Namn**      | Unika namn som identifierar regeln. |
-| **Källa**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
-| **Villkor** | Frågeuttrycket för regel för vidarebefordran som körs mot meddelandets rubriker och brödtext och används för att avgöra om det finns en matchning för slutpunkten. Mer information om hur du skapar en väg villkor finns i [referens - frågespråket för jobb och enheten twins][lnk-devguide-query-language]. |
+| **Source**    | Ursprung för dataström som ska användas. Till exempel enhetstelemetrin. |
+| **Villkor** | Frågeuttrycket för regel för vidarebefordran som körs mot meddelandets sidhuvuden och brödtext och avgör om det finns en matchning för slutpunkten. Mer information om hur du skapar en väg villkor finns i [referens - frågespråket för jobb och enheten twins][lnk-devguide-query-language]. |
 | **Slutpunkt**  | Namnet på slutpunkten där IoT-hubb skickar meddelanden som matchar villkoret. Slutpunkter måste vara i samma region som IoT-hubben, får annars du debiteras för cross-region skrivningar. |
 
-Ett enda meddelande kan matchar villkoret på flera routningsregler fallet IoT-hubb skickar meddelandet till slutpunkten som är associerade med varje matchade regel. IoT-hubb deduplicates också automatiskt meddelandeleverans, så om ett meddelande matchar flera regler som alla har samma mål, skrivs den bara till denna destination en gång.
+Ett enda meddelande kan matchar villkoret på flera routningsregler fallet IoT-hubb skickar meddelandet till slutpunkten som är associerade med varje matchade regel. IoT-hubb också automatiskt deduplicates meddelandeleverans, så om ett meddelande matchar flera regler som har samma mål, det är bara skriva en gång till denna destination.
 
 En IoT-hubb har standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till andra tjänster i din prenumeration länkar till hubben. IoT-hubb stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
 

@@ -3,8 +3,8 @@ title: "Hämta marketplace-objekt från Azure | Microsoft Docs"
 description: "I min Azure Stack-distribution kan jag hämta marketplace-objekt från Azure."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
+
 Som du bestämmer vilket innehåll som ska ingå i din Azure-stacken marketplace bör du innehållet från Azure marketplace. Du kan hämta från en granskad lista över Azure marketplace-objekt som har förhandstestade körs på Azure-stacken. Nya objekt är ofta läggs till i listan, så se till att kontrollera för nytt innehåll.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Hämta marketplace-objekt i ett scenario med anslutna (med Internetanslutning)
 
-1. Om du vill hämta marketplace-objekt måste du först [registrera Azure stacken med Azure](azure-stack-register.md). 
+1. Om du vill hämta marketplace-objekt måste du först [registrera Azure stacken med Azure](azure-stack-register.md).
 2. Logga in på Azure Stack-administratörsportalen (https://portal.local.azurestack.external).
 3. Vissa marketplace-objekt kan vara stora. Kontrollera att du har tillräckligt med utrymme på datorn genom att klicka på **Resursproviders** > **lagring**.
 
@@ -51,9 +52,9 @@ Som du bestämmer vilket innehåll som ska ingå i din Azure-stacken marketplace
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Hämta marketplace-objekt i en frånkopplad eller delvis scenariot (med begränsad Internetanslutning)
 
-När du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning), kan du hämta marketplace-objekt med hjälp av Azure Stack-portalen. Du kan dock använda marketplace syndikering för att hämta marketplace-objekt till en dator som är ansluten till internet och överför dem till din Azure Stack-miljö. 
+När du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning), kan du hämta marketplace-objekt med hjälp av Azure Stack-portalen. Du kan dock använda marketplace syndikering för att hämta marketplace-objekt till en dator som är ansluten till internet och överför dem till din Azure Stack-miljö.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du kan använda verktyget marketplace syndikering, se till att du har [registrerad Azure stacken med din Azure-prenumeration](azure-stack-register.md).  
 
 Använd följande steg för att ladda ned nödvändiga marketplace-objekt från den dator som är ansluten till internet:
@@ -132,12 +133,12 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Använd portalen för att ladda upp din Marketplace-objektet (. Azpkg) till Azure-stacken Blob storage. Du kan överföra till lokal lagring i Azure Stack eller överför till Azure Storage. (Det är en tillfällig plats för paketet.) Se till att blob är offentligt tillgänglig och notera URI: N.  
 
-5. Publicera marketplace-objektet till Azure-stacken genom att använda den **Lägg till AzureRMGalleryItem**. Exempel:
+5. Publicera marketplace-objektet till Azure-stacken genom att använda den **Lägg till AzsGalleryItem**. Exempel:
 
    ```powershell
    Add-AzsGalleryItem `

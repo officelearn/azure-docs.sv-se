@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -59,9 +59,7 @@ Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämme
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
- Azure-stacken stöder följande virtuella tillägget versioner:
-
-![VM-tillägg](media/azure-stack-vm-considerations/vm-extensions.png)
+ Azure-stacken innehåller en liten uppsättning tillägg. Uppdateringar och ytterligare tillägg och är tillgängliga via Marketplace-syndikeringsfeed.
 
 Använd följande PowerShell-skript för att hämta listan över tillägg för virtuell dator som är tillgängliga i Azure Stack-miljö:
 

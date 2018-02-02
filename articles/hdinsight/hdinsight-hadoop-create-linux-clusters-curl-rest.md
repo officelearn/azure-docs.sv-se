@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Hadoop-kluster med hjälp av Azure REST API
 
@@ -367,7 +367,7 @@ Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att 
 
 ### <a name="hbase-clusters"></a>HBase-kluster
 
-* [Kom igång med HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Kom igång med HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Utveckla Java-program för HBase i HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-kluster

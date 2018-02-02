@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden moln till enhet från IoT-hubb
 
@@ -41,12 +41,12 @@ När tjänsten IoT-hubb skickar ett meddelande till en enhet, tjänsten anger ti
 
 En enhet kan också välja att:
 
-* *Avvisa* meddelandet, vilket gör att IoT-hubben ska anges till den **Deadlettered** tillstånd. Enheter som ansluter via protokollet MQTT kan inte avvisa meddelanden moln till enhet.
+* *Avvisa* meddelandet, vilket gör att IoT-hubben ska anges till den **död lettered** tillstånd. Enheter som ansluter via protokollet MQTT kan inte avvisa meddelanden moln till enhet.
 * *Avbryt* meddelandet, vilket gör att IoT-hubb för att placera meddelandet i kön med statusen inställd på **köas**. Enheter som ansluter via protokollet MQTT kan inte avbryta moln till enhet meddelanden.
 
 En tråd kan misslyckas med att bearbeta ett meddelande utan att meddela IoT-hubb. I det här fallet meddelanden automatiskt övergång från den **osynliga** tillbaka till den **köas** tillstånd efter en *synlighet (eller lås) timeout*. Standardvärdet för det här är en minut.
 
-Den **max antal leverans** -egenskapen i IoT-hubb anger det maximala antalet gånger som ett meddelande kan övergå mellan den **köas** och **osynliga** tillstånd. Efter att antalet övergångar, IoT-hubb anger tillståndet för meddelandet till **Deadlettered**. På liknande sätt IoT-hubb anger tillståndet för ett meddelande till **Deadlettered** efter dess förfallotid (se [Time to live-][lnk-ttl]).
+Den **max antal leverans** -egenskapen i IoT-hubb anger det maximala antalet gånger som ett meddelande kan övergå mellan den **köas** och **osynliga** tillstånd. Efter att antalet övergångar, IoT-hubb anger tillståndet för meddelandet till **död lettered**. På liknande sätt IoT-hubb anger tillståndet för ett meddelande till **död lettered** efter dess förfallotid (se [Time to live-][lnk-ttl]).
 
 Den [hur du skickar meddelanden moln till enhet med IoT-hubben] [ lnk-c2d-tutorial] visar hur du skickar meddelanden moln till enhet från molnet och ta emot dem på en enhet.
 
@@ -76,7 +76,7 @@ När du skickar ett moln till enhet, kan tjänsten begära leverans av varje med
 | Ack-egenskap | Beteende |
 | ------------ | -------- |
 | **positivt** | Om meddelandet moln till enhet når den **slutförd** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
-| **negativt** | Om meddelandet moln till enhet når den **Deadlettered** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
+| **negativt** | Om meddelandet moln till enhet når den **död lettered** tillstånd, IoT-hubb genererar ett meddelande om feedback. |
 | **fullständig**     | IoT-hubb genererar ett meddelande om feedback i båda fallen. |
 
 Om **Ack** är **fullständig**, och inte ett meddelande feedback, innebär det att meddelandet feedback har gått ut. Tjänsten kan inte vet vad hände med det ursprungliga meddelandet. I praktiken Kontrollera en tjänst att den kan bearbeta feedback innan den upphör. Maximal förfallotiden två dagar, vilket lämnar tid att hämta tjänsten körs igen om ett fel inträffar.
@@ -86,7 +86,7 @@ Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb ger feedback via e
 | Egenskap     | Beskrivning |
 | ------------ | ----------- |
 | EnqueuedTime | Tidsstämpel som visar när meddelandet har skapats. |
-| Användar-ID       | `{iot hub name}` |
+| UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
 Brödtext är en JSON-serialiserad matris med poster, med följande egenskaper:
@@ -94,8 +94,8 @@ Brödtext är en JSON-serialiserad matris med poster, med följande egenskaper:
 | Egenskap           | Beskrivning |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Tidsstämpel som anger när resultatet av meddelandet har hänt. Till exempel enhet slutförts eller meddelandet har upphört att gälla. |
-| originalMessageId  | **MessageId** postmeddelandets moln till enhet som informationen feedback avser. |
-| statusCode         | Strängen som krävs. Används i feedback-meddelanden som genereras av IoT-hubb. <br/> ”Lyckades” <br/> 'Har upphört att gälla: <br/> 'DeliveryCountExceeded' <br/> 'Avvisade' <br/> 'Rensas' |
+| OriginalMessageId  | **MessageId** postmeddelandets moln till enhet som informationen feedback avser. |
+| StatusCode         | Strängen som krävs. Används i feedback-meddelanden som genereras av IoT-hubb. <br/> ”Lyckades” <br/> 'Har upphört att gälla: <br/> 'DeliveryCountExceeded' <br/> 'Avvisade' <br/> 'Rensas' |
 | Beskrivning        | Sträng som värden för **StatusCode**. |
 | DeviceId           | **DeviceId** av målenhet postmeddelandets moln till enhet som denna typ av feedback avser. |
 | DeviceGenerationId | **DeviceGenerationId** av målenhet postmeddelandets moln till enhet som denna typ av feedback avser. |

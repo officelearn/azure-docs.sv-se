@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Kontrollerna i Azure Active Directory för villkorlig åtkomst 
 
@@ -30,11 +30,11 @@ Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-c
 
 - ”**Gör du så här**” kallas **kontroller**
 
-![Kontrollen](./media/active-directory-conditional-access-controls/11.png)
+![Kontroll](./media/active-directory-conditional-access-controls/11.png)
 
 Kombinationen av en condition-instruktion med kontrollerna representerar en princip för villkorlig åtkomst.
 
-![Kontrollen](./media/active-directory-conditional-access-controls/12.png)
+![Kontroll](./media/active-directory-conditional-access-controls/12.png)
 
 Varje kontroll är antingen ett krav som måste uppfyllas av personen eller system som loggar in eller en begränsning på vilka användare kan göra när du har loggat in. 
 
@@ -53,7 +53,7 @@ Med grant-kontroller kan du blockera åtkomst helt och hållet eller tillåter �
 - Alla markerade kontroller uppfylls (*och*) 
 - En vald kontroll uppfylls (*eller*)
 
-![Kontrollen](./media/active-directory-conditional-access-controls/17.png)
+![Kontroll](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -107,7 +107,7 @@ De här kontrollerna tillåter användning av vissa externa eller anpassade tjä
 
 Providers för närvarande erbjuder en kompatibel tjänst är:
 
-- Duo säkerhet
+- [Duo säkerhet](https://duo.com/docs/azure-ca)
 
 - RSA
 
@@ -123,12 +123,12 @@ Kopiera JSON-data och klistra in den i textrutan relaterade. Du inte göra någr
 
 Alternativet för att skapa en anpassad kontroll som finns i den **hantera** avsnitt i den **villkorlig åtkomst** sidan.
 
-![Kontrollen](./media/active-directory-conditional-access-controls/82.png)
+![Kontroll](./media/active-directory-conditional-access-controls/82.png)
 
 Klicka på **nya anpassade kontrollen**, öppnas ett blad med en textruta för JSON-data för kontrollen.  
 
 
-![Kontrollen](./media/active-directory-conditional-access-controls/81.png)
+![Kontroll](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Ta bort anpassade kontroller
@@ -150,11 +150,11 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 ## <a name="session-controls"></a>Sessionen kontroller
 
-Sessionen kontroller Aktivera begränsad erfarenhet inom en molnappen. Sessionen kontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD App om sessionen.
+Sessionskontroller aktiverar en begränsad upplevelse inom en molnapp. Sessionen kontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD App om sessionen.
 
-![Kontrollen](./media/active-directory-conditional-access-controls/31.png)
+![Kontroll](./media/active-directory-conditional-access-controls/31.png)
 
-### <a name="use-app-enforced-restrictions"></a>Använd appbegränsningar tillämpas
+### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
 
 Du kan använda den här kontrollen kräver Azure AD för att skicka information om de enheten till molnappen. Detta hjälper molnappen om användaren kommer från en kompatibel enhet eller en domänansluten enhet. Den här kontrollen är för närvarande stöds endast med SharePoint som molnappen. SharePoint använder enhetsinformationen för att ge användarna en begränsad eller fullständig upplevelse beroende på enhetens tillstånd.
 Mer information om hur du kräver begränsad åtkomst med SharePoint finns [styra åtkomsten från ohanterade enheter](https://aka.ms/spolimitedaccessdocs).

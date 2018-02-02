@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Anslut Azure Stack till Azure med hjälp av VPN
 
@@ -71,7 +71,7 @@ Först skapar du nätverksresurser för Azure. I följande anvisningar visar hur
 3. Välj **gatewayundernät** att lägga till ett gateway-undernät i det virtuella nätverket.
 4. Namnet på undernätet ställs in på **GatewaySubnet** som standard.
    Gatewayundernät är speciella och måste ha det här specifika namnet för att fungera ordentligt.
-5. I den **adressintervall** fältet, kontrollera att adressen är **10.100.0.0/24**.
+5. I den **adressintervall** fältet, kontrollera att adressen är **10.100.1.0/24**.
 6. Välj **OK** att skapa gateway-undernätet.
 
 ### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
@@ -93,7 +93,7 @@ Först skapar du nätverksresurser för Azure. I följande anvisningar visar hur
 5. Välj i listan över resurser **lokal nätverksgateway**.
 6. I **namn**, typen **Azs GW**.
 7. I **IP-adress**, skriver du den offentliga IP-adressen för din virtuella nätverksgateway för Azure-stacken som anges tidigare i tabellen nätverket konfiguration.
-8. I **adressutrymme**, från Azure-stacken, skriver du den **10.0.10.0/23** adressutrymmet för **AzureVNet**.
+8. I **adressutrymme**, från Azure-stacken, skriver du den **10.1.0.0/24** och **10.1.1.0/24** adressutrymmet för **AzureVNet**.
 9. Kontrollera att din **prenumeration**, **resursgruppen**, och **plats** är korrekta och välj sedan **skapa**.
 
 ## <a name="create-the-connection"></a>Skapa anslutningen
@@ -118,7 +118,7 @@ Skapa en virtuell dator i Azure nu och placera den på VM-undernät i det virtue
 5. Ange ett giltigt användarnamn och lösenord. Du kan använda det här kontot för att logga in på den virtuella datorn när den har skapats.
 6. Ange en **prenumeration**, **resursgruppen**, och **plats**, och välj sedan **OK**.
 7. På den **storlek** markerar du en storlek på virtuell dator för den här instansen, och välj sedan **Välj**.
-8. På den **inställningar** avsnitt, du kan acceptera standardinställningarna. Se till att den **AzureVnet** virtuellt nätverk är markerad och kontrollera att undernätet är **10.0.20.0/24**. Välj **OK**.
+8. På den **inställningar** avsnitt, du kan acceptera standardinställningarna. Se till att den **AzureVnet** virtuellt nätverk är markerad och kontrollera att undernätet är **10.100.0.0/24**. Välj **OK**.
 9. Granska inställningarna på den **sammanfattning** avsnittet och väljer sedan **OK**.
 
 ## <a name="create-the-network-resources-in-azure-stack"></a>Skapa nätverksresurser i Azure-stacken
@@ -181,7 +181,7 @@ Ett sätt att tänka på detta mer allmänna är att den lokala gateway nätverk
 4. Välj i listan över resurser **lokal nätverksgateway**.
 5. I **namn**, typen **Azure-GW**.
 6. I **IP-adress**, skriver du den offentliga IP-adressen för den virtuella nätverksgatewayen i Azure **Azure-GW-PiP**. Den här adressen visas tidigare i tabellen nätverket konfiguration.
-7. I **adressutrymme**, adressutrymmet för det Azure-VNET som du skapade, Skriv **10.0.20.0/23**.
+7. I **adressutrymme**, adressutrymmet för det Azure-VNET som du skapade, Skriv **10.100.0.0/24** och **10.100.1.0/24**.
 8. Kontrollera att din **prenumeration**, **resursgruppen**, och **plats** är korrekta och välj sedan **skapa**.
 
 ### <a name="create-the-connection"></a>Skapa anslutningen
@@ -225,7 +225,7 @@ Se till att skicka trafik via plats-till-plats-anslutning genom att pinga direkt
 5. Logga in med det konto som du konfigurerade när du har skapat den virtuella datorn.
 6. Öppna en förhöjd behörighet **Windows PowerShell** fönster.
 7. Skriv **ipconfig /all**.
-8. I resultatet är att hitta den **IPv4-adress**, och sedan spara adress för senare användning. Det här är den adress som du kan pinga från Azure. I exempelmiljön är adressen **10.0.10.4**, men i din miljö kan det bli annorlunda. Det bör omfattas av **10.0.10.0/24** undernät som du skapade tidigare.
+8. I resultatet är att hitta den **IPv4-adress**, och sedan spara adress för senare användning. Det här är den adress som du kan pinga från Azure. I exempel-miljö adressen är **10.1.0.4**, men i din miljö kan det vara olika. Det bör omfattas av **10.1.0.0/24** undernät som du skapade tidigare.
 9. Om du vill skapa en brandväggsregel som tillåter den virtuella datorn som svar på pingmeddelanden, kör du följande PowerShell-kommando:
 
    ```powershell
@@ -242,7 +242,7 @@ Se till att skicka trafik via plats-till-plats-anslutning genom att pinga direkt
 5. Logga in med det konto som du konfigurerade när du har skapat den virtuella datorn.
 6. Öppna en förhöjd behörighet **Windows PowerShell** fönster.
 7. Skriv **ipconfig /all**.
-8. Du bör se en IPv4-adress som ligger inom **10.0.20.0/24**. I exempel-miljö adressen är **10.0.20.4**, men din adress vara annorlunda.
+8. Du bör se en IPv4-adress som ligger inom **10.100.0.0/24**. I exempel-miljö adressen är **10.100.0.4**, men din adress vara annorlunda.
 9. Om du vill skapa en brandväggsregel som tillåter den virtuella datorn som svar på pingmeddelanden, kör du följande PowerShell-kommando:
 
    ```powershell
@@ -252,7 +252,7 @@ Se till att skicka trafik via plats-till-plats-anslutning genom att pinga direkt
    ```
 
 10. Pinga den virtuella datorn i Azure-stacken genom tunneln från den virtuella datorn i Azure. Om du vill göra detta pinga DIP-ADRESSEN som du antecknade från Azs-VM.
-   I exempel-miljö är **10.0.10.4**, men se till att pinga den adress som du antecknade i labbet. Du bör se ett resultat som ser ut som följande skärmbild:
+   I exempel-miljö är **10.1.0.4**, men se till att pinga den adress som du antecknade i labbet. Du bör se ett resultat som ser ut som följande skärmbild:
    
     ![Lyckad ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 11. Ett svar från fjärrdatorn virtuella anger en lyckad testa! Du kan stänga fönstret för den virtuella dator. Om du vill testa anslutningen kan du andra typer av överföring av data som en kopia av filen.
@@ -264,7 +264,7 @@ Om du vill veta hur mycket data som skickas via plats-till-plats-anslutning till
 2. Gå till **alla resurser**, och välj sedan den **Azs Azure** anslutning. **Anslutningar** visas.
 4. På den **anslutning** avsnittet statistik för **Data i** och **ut Data** visas. I följande skärmbild hänföras stora tal till ytterligare filöverföring. Du bör se vissa inte är noll värden.
    
-    ![Data i och ut](media/azure-stack-connect-vpn/Connection.png)
+    ![Data in och ut](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

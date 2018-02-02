@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
 
 Apptjänst Azure stacken stöder distribution på begäran från flera Källkontrollsprovidrar. Den här funktionen kan programutvecklare distribuera direkt från sina databaser för kontroll av källa. Om användarna vill konfigurera App Service för att ansluta till sina databaser, måste en moln-operator du konfigurera integrationen mellan App Service på Azure-stacken och en Källkontrollsleverantör.  
 

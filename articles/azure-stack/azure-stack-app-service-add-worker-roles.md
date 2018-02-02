@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 30ab325488684a26a6ef442e7c8241526a66aa4c
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: a9be9011062f07d59842d417bf6761ec81c39275
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Apptjänst Azure stacken: lägga till fler infrastruktur eller worker-roller
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*  
 
 Det här dokumentet innehåller instruktioner om hur du skalar Apptjänst på Azure-stacken infrastruktur- och arbetsroller roller. Den innehåller anvisningar för att skapa ytterligare arbetsroller för program i alla storlekar.
 
@@ -40,15 +41,15 @@ Lägg till ytterligare arbetare direkt i App Service-administratören Resource P
 2. Bläddra till **Apptjänster**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
-  
+
 3. Klicka på **roller**. Här kan du se uppdelning av alla roller för App Service som distribueras.
 
 4. Högerklicka på raden i vilken du vill skala och klicka sedan på **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
-  
+
 5. Klicka på **skalning**, Välj antalet instanser som du vill skala till och klicka sedan på **spara**.
-    
+
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. Apptjänst Azure stacken ska nu lägga till ytterligare virtuella datorer, konfigurera dem, installera nödvändig programvara och markeras som redo när processen har slutförts. Den här processen kan ta ungefär 80 minuter.

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Skalning av klustret för att hantera web service genomflöde
 
@@ -55,7 +55,7 @@ Följande kommando anger räkningen på agenten noder i klustret:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-Detta tar några minuter att slutföra. Mer information om att skala antalet noder i klustret finns [skala agent noder i ett Container Service-kluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+Detta tar några minuter att slutföra. Mer information om att skala antalet noder i klustret finns [skala agent noder i ett Container Service-kluster](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Skala antalet Kubernetes baljor repliker i ett kluster
  
@@ -85,7 +85,7 @@ Ange till exempel `autoscale-min-replicas` 5 skapas fem repliker. Ange hur mång
 
 | Parameternamn | Typ | Beskrivning |
 |--------------------|--------------------|--------------------|
-| `autoscale-enabled` | Booleskt värde | Anger om Autoskala är aktiverad. Standard: true |
+| `autoscale-enabled` | boolesk | Anger om Autoskala är aktiverad. Standard: true |
 | `autoscale-min-replicas` | heltal | Anger det minsta antalet skida. Måste vara 0 eller större. Standard: 1 |
 | `autoscale-max-replicas` | heltal | Anger det maximala antalet skida. Måste vara 1 eller högre. Om Autoskala-max-repliker är mindre än Autoskala-min-repliker kommer Autoskala-max-repliker att ignoreras. Standard: 10 |
 | `autoscale-refresh-period-seconds` | heltal | Anger hur länge i sekunder mellan automatiska uppdateringar. Standard: 1 |
@@ -159,6 +159,6 @@ När du har startat instrumentpanelen servern, öppna en webbläsare och ange f�
 
 Från huvudskärmen instrumentpanelen, klickar du på **distributioner** i det vänstra navigeringsfältet. Om inte visas i navigeringsfönstret, Välj den här ikonen ![menyn som består av tre korta vågräta linjer](media/how-to-scale-clusters/icon-hamburger.png) längst upp till vänster.
 
-Hitta distributionen för att ändra och klicka på ikonen ![menyn ikon som består av tre lodräta punkter](media/how-to-scale-clusters/icon-kebab.png) till höger och klicka sedan på **visa/edi YAML**.
+Hitta distributionen för att ändra och klicka på ikonen ![menyn ikon som består av tre lodräta punkter](media/how-to-scale-clusters/icon-kebab.png) till höger och klicka sedan på **visa och redigera YAML**.
 
 Leta upp på skärmen för distribution av redigera den *spec* nod, ändra den *repliker* värdet och klicka på **uppdatering**.

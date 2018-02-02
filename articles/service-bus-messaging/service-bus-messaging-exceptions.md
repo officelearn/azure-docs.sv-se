@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus – undantag för meddelanden
 Den här artikeln innehåller vissa undantag som genereras av Microsoft Azure Service Bus-meddelanden API: er. Den här referensen kan ändras, så kolla igen efter uppdateringar.
 
 ## <a name="exception-categories"></a>Undantag kategorier
-Messaging API: er skapa undantag som kan delas in i följande kategorier tillsammans med den associerade åtgärden som du kan vidta att åtgärda dem. Observera att innebörd och orsakerna till ett undantag kan variera beroende på vilken typ av meddelandeentitet (köer/ämnen eller Händelsehubbar):
+Messaging API: er skapa undantag som kan delas in i följande kategorier tillsammans med den associerade åtgärden som du kan vidta att åtgärda dem. Observera att innebörd och orsakerna till ett undantag kan variera beroende på vilken typ av meddelandeentitet:
 
 1. Användaren kodningsfel ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Allmän åtgärd: försök att åtgärda kod innan du fortsätter.
 2. Installationen/konfigurationsfel ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Allmän åtgärd: Granska konfigurationen och ändra vid behov.
@@ -66,7 +66,7 @@ I följande tabell visas meddelanden undantag typer och orsaker och anteckningar
 ### <a name="queues-and-topics"></a>Köer och ämnen
 För köer och ämnen är det ofta storlek för kön. Fel meddelandeegenskap innehåller ytterligare information, som i följande exempel:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -75,11 +75,11 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 Meddelandet om att avsnittet överskrider storleksgränsen i det här fallet 1 GB (Standardstorleksgränsen). 
 
-### <a name="namespaces"></a>namnområden
+### <a name="namespaces"></a>Namnområden
 
 För namnområden, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) kan det tyda på att ett program har överskridit det maximala antalet anslutningar till ett namnområde. Exempel:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -93,9 +93,6 @@ Det finns två vanliga orsaker till detta fel: kö med olevererade brev och icke
    
     Lös problemet, Läs- och slutföra meddelanden från kön för obeställbara, precis som andra kön. Du kan använda den [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) metoden för att formatera sökvägen för obeställbara meddelanden.
 2. **Mottagaren stoppats** en mottagare har slutat att ta emot meddelanden från en kö eller prenumeration. Sätt att identifiera detta är att titta på den [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) -egenskap som visar fullständig uppdelning av meddelanden. Om den [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) egenskapen är hög eller växande sedan meddelanden läses inte lika snabbt som de skrivs.
-
-### <a name="event-hubs"></a>Händelsehubbar
-Händelsehubbar är begränsad till 20 konsumentgrupper per Event Hub. När du försöker skapa flera får du en [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
 En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) anger att en åtgärd som initieras av användaren tar längre tid än tidsgränsen för åtgärden. 

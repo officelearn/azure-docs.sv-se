@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsversion) | Microsoft Docs"
+title: "Konfigurera brandväggar för Azure-lagring och virtuella nätverk | Microsoft Docs"
 description: "Konfigurera överlappande nätverkssäkerhet för ditt lagringskonto."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsgranskning)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
 
-## <a name="preview-availability-and-support"></a>Förhandsgranska tillgänglighet och support
-Brandväggar för lagring och virtuella nätverk finns i förhandsgranskningen.  Den här funktionen är tillgänglig för nya eller befintliga lagringskonton i alla regioner för offentliga Azure-molnet.
-
-> [!NOTE]
-> Produktionsarbetsbelastningar stöds inte under förhandsgranskningen.
+> [!IMPORTANT]
+> Aktivera brandväggsregler för ditt lagringskonto ska blockera inkommande begäranden för data, inklusive från andra Azure-tjänster.  Detta inkluderar med hjälp av portalen skriver loggar, osv.  För deltagande tjänster du kan återaktivera funktioner med hjälp av den [undantag](#Exceptions) nedan.  Åtkomst till portalen måste du göra det från en dator inom betrodda gräns (IP eller virtuella nätverk) som du har ställt in.
 >
 
 ## <a name="scenarios"></a>Scenarier
@@ -55,9 +52,6 @@ Som standard godkänna lagringskonton anslutningar från klienter på ett nätve
 
 #### <a name="azure-portal"></a>Azure Portal
 1. Navigera till storage-konto som du vill skydda.  
-> [!NOTE]
-> Kontrollera att ditt lagringskonto är i något av regionerna som stöds för förhandsversion.
->
 
 2. Klicka på inställningsmenyn kallas **brandväggar och virtuella nätverk**.
 3. Välja att tillåta åtkomst från valda-nätverk för att neka åtkomst som standard.  Välja att tillåta åtkomst från ”alla nätverk” för att tillåta trafik från alla nätverk.

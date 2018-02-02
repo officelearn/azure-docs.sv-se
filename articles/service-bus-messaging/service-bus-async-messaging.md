@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: d36360f3fb46adf96f53976584987590791b07d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e48e95d99847e68bdb218b341ad2fbcd44eb31f4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Asynkrona meddelandemönster och hög tillgänglighet
 
@@ -88,7 +88,7 @@ Länkas namnområden stöd *skicka tillgänglighet*. Skicka tillgänglighet beva
 
 I följande avsnitt beskrivs de API: er, hur de API: er implementeras och visar exempelkoden som använder funktionen. Observera att fakturering effekter som är associerade med den här funktionen.
 
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>MessagingFactory.PairNamespaceAsync API
+### <a name="the-messagingfactorypairnamespaceasync-api"></a>The MessagingFactory.PairNamespaceAsync API
 Funktionen parad namnområden innehåller den [PairNamespaceAsync] [ PairNamespaceAsync] -metoden i den [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] klass:
 
 ```csharp

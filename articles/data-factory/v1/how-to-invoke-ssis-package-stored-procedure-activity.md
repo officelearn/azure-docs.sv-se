@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 66b4f068189fd17f08a6a57ed44233c04c16fff7
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Fa
 Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL hanteras-instans (privat förhandsvisning).
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
-Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-deploy-ssis-packages-azure.md). Du måste skapa en datafabrik version 2 för att skapa en Azure-SSIS-integrering körning. 
+Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](../tutorial-create-azure-ssis-runtime-portal.md). Du måste skapa en datafabrik version 2 för att skapa en Azure-SSIS-integrering körning. 
 
 ## <a name="azure-portal"></a>Azure Portal
 I det här avsnittet använder du Azure-portalen för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
@@ -43,11 +43,11 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
 2. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. I den **nya datafabriken** anger **ADFTutorialDataFactory** för den **namn**. 
+2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
-     ![Ny data factory-sida](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Namnet på Azure Data Factory måste vara **globalt unikt**. Ändra namnet på data factory (till exempel yournameADFTutorialDataFactory) om du ser följande fel för namnfältet. Se [Data Factory - namnregler](data-factory-naming-rules.md) artikel för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory). Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 
     `Data factory name ADFTutorialDataFactory is not available`
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
@@ -58,13 +58,13 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
          
     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V1** för den **version**.
-5. Välj **plats** för datafabriken. Endast de platser som stöds av Data Factory visas i den nedrullningsbara listan. Data lagras (Azure Storage, Azure SQL Database, etc.) och beräknar (HDInsight osv.) som används av datafabriken kan finnas på andra platser.
+5. Välj **plats** för datafabriken. Endast platser som stöds av Data Factory visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas på andra platser.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
     ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. När den har skapats visas den **Data Factory** sidan som visas i bilden.
+9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
     ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klicka på **författare och distribuera** rutan för att starta Data Factory-redigeraren.

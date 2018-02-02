@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 504316a7d09595d24318d1f574b0f8927914d424
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera utan slutanvändarregistrering för återställning av lösenord
 
@@ -44,6 +44,11 @@ Om du använder standardinställningarna i Azure AD Connect, görs följande avb
 | telephoneNumber | Arbetstelefon | Alternativ telefon |
 | mobila | Mobiltelefon | Telefon |
 
+Fälten kan visas tom tills användaren bekräftar sitt autentiseringsdata.
+
+En Global administratör kan manuellt ange kontaktinformation för autentisering för användaren som visas i följande skärmbild.
+
+![Kontakta][Contact]
 
 ## <a name="security-questions-and-answers"></a>Säkerhetsfrågor och svar
 
@@ -154,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Globala administratörer kan ändra en användares kontaktinformation för autentisering"

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generera PKI-certifikat för distribution av Azure-stacken
 Nu när du vet [PKI-certifikatkrav](azure-stack-pki-certs.md) för Azure-stacken distributioner måste du hämta dessa certifikat från den certifikatutfärdare (CA) du väljer. 
@@ -74,3 +74,5 @@ Följande arbetsflöde beskrivs hur du kan anpassa och använda exempel INF-fil 
 4. **Importera. CER**. CA: N returnerar en. CER-fil. Använder samma Windows-dator som du genererade förfrågningsfilen, importera den. CER-fil som returneras till datorn/personal-arkivet. 
 5. **Exportera och kopiera. PFX till distributionsmappar**. Exportera certifikatet (inklusive den privata nyckeln) som en. PFX-filen och kopiera den. PFX-fil som distributionsmappar som beskrivs i [Azure Stack PKI distributionskrav](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Nästa steg
+[Identitetsintegrering](azure-stack-integrate-identity.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/30/2018
 ms.author: jingwang
-ms.openlocfilehash: 2847be0fec83e923126ba436f09f24d83d69bd9d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -45,8 +45,7 @@ För Dynamics 365 mer specifikt kan stöds följande programtyper:
 - Dynamics 365 för projektet Service Automation
 - Dynamics 365 marknadsföring
 
-> [!NOTE]
-> Om du vill använda Dynamics connector lagra lösenord i Azure Key Vault och låt aktiviteten kopiera pull därifrån när du utför kopiering av data. Mer information om konfigurationen finns i [länkade tjänstegenskaper](#linked-service-properties) avsnitt.
+Andra program typer t.ex. Operations och ekonomi, användare, etc. stöds inte.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -67,7 +66,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Nej, ska anges om det finns fler än en Dynamics instanser som är associerade med användaren |
 | AuthenticationType | Autentiseringstypen som ansluter till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du måste placera lösenordet i Nyckelvalvet och konfigurera lösenordet som **”AzureKeyVaultSecret”**. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källan länkade tjänsten inte en integration körning |
 
 >[!IMPORTANT]
@@ -87,12 +86,8 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -116,7 +111,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Ja |
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du måste placera lösenordet i Nyckelvalvet och konfigurera lösenordet som **”AzureKeyVaultSecret”**. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
 
 >[!IMPORTANT]
@@ -138,12 +133,8 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
             "authenticationType": "Ifd",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

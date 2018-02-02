@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline.
@@ -433,10 +433,10 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |TotalStorage|Totalt lagringsutrymme|Byte|Maximal|Total mängd data som lagras på kontot.|Inga dimensioner|
-|DataWritten|Data som skrivs|Byte|Totalt|Total mängd data som skrivs till kontot.|Inga dimensioner|
+|DataWritten|Skrivna data|Byte|Totalt|Total mängd data som skrivs till kontot.|Inga dimensioner|
 |DataRead|Lästa data|Byte|Totalt|Total mängd data har lästs från kontot.|Inga dimensioner|
-|WriteRequests|Skrivbegäranden|Antal|Totalt|Antal data skrivåtgärder till kontot.|Inga dimensioner|
-|ReadRequests|Läsbegäranden|Antal|Totalt|Antal data läsbegäranden till kontot.|Inga dimensioner|
+|WriteRequests|Skrivåtgärder|Antal|Totalt|Antal data skrivåtgärder till kontot.|Inga dimensioner|
+|ReadRequests|Läs begäranden|Antal|Totalt|Antal data läsbegäranden till kontot.|Inga dimensioner|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -529,6 +529,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |jobs.Failed|Misslyckade jobb|Antal|Totalt|Antal alla misslyckade jobb.|Inga dimensioner|
 |d2c.telemetry.Ingress.sendThrottle|Antalet fel som bandbreddsbegränsning|Antal|Totalt|Begränsar antalet bandbreddsbegränsning felen på grund av enheten genomflöde|Inga dimensioner|
 |dailyMessageQuotaUsed|Sammanlagt antal meddelanden som används|Antal|Medel|Antal Totalt antal meddelanden som används idag. Detta är en kumulativ värde som har återställts till noll i UTC 00:00 varje dag.|Inga dimensioner|
+|deviceDataUsage|Totalt antal devicedata användning|Antal|Totalt|Byte som överförs till och från alla enheter som är anslutna till IotHub|Inga dimensioner|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -707,15 +708,6 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |BillableTriggerExecutions|Fakturerbara utlösarkörningar|Antal|Totalt|Antal körningar av arbetsflödesutlösare som faktureras.|Inga dimensioner|
 |TotalBillableExecutions|Totalt antal fakturerbara körningar|Antal|Totalt|Antal arbetsflödeskörningar som faktureras.|Inga dimensioner|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
-|---|---|---|---|---|---|
-|BytesSentRate|Skickade byte|Antal|Totalt|Antal byte skickas nätverksgränssnittet|Inga dimensioner|
-|BytesReceivedRate|Mottagna byte|Antal|Totalt|Antal byte mottagna nätverksgränssnittet|Inga dimensioner|
-|PacketsSentRate|Paket som skickats|Antal|Totalt|Antalet paket som skickats nätverksgränssnittet|Inga dimensioner|
-|PacketsReceivedRate|Mottagna paket|Antal|Totalt|Antal paket som nätverksgränssnittet som tagits emot|Inga dimensioner|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
@@ -757,13 +749,6 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |ByteCount|Antal byte|Antal|Totalt|Totalt antal byte som överförs inom tidsperiod|Port, riktning|
 |PacketCount|Antal|Antal|Totalt|Totalt antal paket som skickas inom tidsperiod|Port, riktning|
 |SynCount|SYN antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperiod|Port, riktning|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Inkommande paket som tas bort för skydd av Virtuella datorer|CountPerSecond|Medel|Inkommande paket som tas bort för skydd av Virtuella datorer|Inga dimensioner|
-|PacketsOutDroppedVMProtection|Utgående paket som tas bort för skydd av Virtuella datorer|CountPerSecond|Medel|Utgående paket som tas bort för skydd av Virtuella datorer|Inga dimensioner|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -861,8 +846,15 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Outgoing.mpns.pnserror|MPNS-fel|Antal|Totalt|Antal push-meddelanden som inte levererades på grund av kommunikationsproblem med MPNS.|Inga dimensioner|
 |Outgoing.mpns.authenticationerror|MPNS-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som inte levererades eftersom PNS inte godkände de angivna autentiseringsuppgifterna eller på grund av att autentiseringsuppgifterna är blockerade.|Inga dimensioner|
 |notificationhub.pushes|Alla utgående meddelanden|Antal|Totalt|Alla utgående meddelanden i meddelandehubben|Inga dimensioner|
-|Incoming.all.Requests|Alla inkommande förfrågningar|Antal|Totalt|Totalt antal inkommande förfrågningar för en meddelandehubb|Inga dimensioner|
-|Incoming.all.failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade förfrågningar för en meddelandehubb|Inga dimensioner|
+|incoming.all.requests|Alla inkommande förfrågningar|Antal|Totalt|Totalt antal inkommande förfrågningar för en meddelandehubb|Inga dimensioner|
+|incoming.all.failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade förfrågningar för en meddelandehubb|Inga dimensioner|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
+|---|---|---|---|---|---|
+|QueryDuration||Antal|Medel||Inga dimensioner|
+|QueryPoolJobQueueLength|Trådar: Kölängd frågan poolen jobb|Antal|Medel|Antal jobb i kö i trådpoolen för frågan.|Inga dimensioner|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -937,23 +929,16 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|database_cpu_percent|CPU-procent|Procent|Medel|CPU-procent|DatabaseResourceId|
 |physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|database_physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|DatabaseResourceId|
 |log_write_percent|Loggen IO-procent|Procent|Medel|Loggen IO-procent|Inga dimensioner|
-|database_log_write_percent|Loggen IO-procent|Procent|Medel|Loggen IO-procent|DatabaseResourceId|
 |dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
-|database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId|
 |storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inga dimensioner|
 |workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|Inga dimensioner|
-|database_workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|DatabaseResourceId|
 |sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|Inga dimensioner|
-|database_sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|DatabaseResourceId|
 |eDTU_limit|eDTU gräns|Antal|Medel|eDTU gräns|Inga dimensioner|
 |storage_limit|Lagringsgränsen|Byte|Medel|Lagringsgränsen|Inga dimensioner|
 |eDTU_used|eDTU används|Antal|Medel|eDTU används|Inga dimensioner|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
-|database_storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|DatabaseResourceId|
 |xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Medel|Minnesintern OLTP lagring procent|Inga dimensioner|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,16 +946,14 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId ElasticPoolResourceId|
 |storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|ElasticPoolResourceId|
-|database_storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|DatabaseResourceId ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet som används av konto|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType, GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
 |SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
@@ -984,7 +967,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |BlobCapacity|Blobkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots Blob Service i byte.|BlobType|
 |BlobCount|Antalet blobar|Antal|Medel|Antalet blobar i lagringskontots Blob Service.|BlobType|
 |ContainerCount|Antal blobbehållare|Antal|Medel|Antalet behållare i lagringskontots Blob Service.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType, GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
 |SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
@@ -998,7 +981,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |TableCapacity|Tabellkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots tabelltjänst i byte.|Inga dimensioner|
 |TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagringskontots tabelltjänst.|Inga dimensioner|
 |TableEntityCount|Antal tabellentiteter|Antal|Medel|Antalet tabellentiteter i lagringskontots tabelltjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType, GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
 |SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
@@ -1012,7 +995,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |QueueCapacity|Kökapacitet|Byte|Medel|Mängden lagring som används av lagringskontots kötjänst i byte.|Inga dimensioner|
 |QueueCount|Antal köer|Antal|Medel|Antalet köer i lagringskontots kötjänst.|Inga dimensioner|
 |QueueMessageCount|Antal kömeddelanden|Antal|Medel|Ungefärligt antal kömeddelanden i lagringskontots kötjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType, GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
 |SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
@@ -1026,7 +1009,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |FileCapacity|Filkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots filtjänst i byte.|Inga dimensioner|
 |FileCount|Antal filer|Antal|Medel|Antalet filer i lagringskontots filtjänst.|Inga dimensioner|
 |FileShareCount|Antal filresurser|Antal|Medel|Antalet filresurser i lagringskontots filtjänst.|Inga dimensioner|
-|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
+|Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType, GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Egress|Egress|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
 |SuccessServerLatency|Lyckad serversvarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
@@ -1080,6 +1063,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
 |AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
+|AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funktioner)
 
@@ -1113,8 +1097,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
 |AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
 |AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
-|FunctionExecutionUnits|Funktionskörningsenheter|Antal|Medel|Funktionskörningsenheter|Instans|
-|FunctionExecutionCount|Funktionen Antal körningar|Antal|Medel|Funktionen Antal körningar|Instans|
+|FunctionExecutionUnits|Funktionskörningsenheter|Antal|Totalt|Funktionskörningsenheter|Instans|
+|FunctionExecutionCount|Funktionen Antal körningar|Antal|Totalt|Funktionen Antal körningar|Instans|
+|AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1138,18 +1123,18 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |DiskQueueLength|Diskkölängd|Antal|Medel|Diskkölängd|Instans|
 |HttpQueueLength|Http-kölängd|Antal|Medel|Http-kölängd|Instans|
 |ActiveRequests|Aktiva förfrågningar|Antal|Totalt|Aktiva förfrågningar|Instans|
-|TotalFrontEnds|Totalt antal klienter|Antal|Medel|Totalt antal klienter|Instans|
-|SmallAppServicePlanInstances|App Service-plan för arbeten (låg användning)|Antal|Medel|App Service-plan för arbeten (låg användning)|Instans|
-|MediumAppServicePlanInstances|App Service-plan för arbeten (medelhög användning)|Antal|Medel|App Service-plan för arbeten (medelhög användning)|Instans|
-|LargeAppServicePlanInstances|App Service-plan för arbeten (hög användning)|Antal|Medel|App Service-plan för arbeten (hög användning)|Instans|
+|TotalFrontEnds|Totalt antal klienter|Antal|Medel|Totalt antal klienter|Inga dimensioner|
+|SmallAppServicePlanInstances|App Service-plan för arbeten (låg användning)|Antal|Medel|App Service-plan för arbeten (låg användning)|Inga dimensioner|
+|MediumAppServicePlanInstances|App Service-plan för arbeten (medelhög användning)|Antal|Medel|App Service-plan för arbeten (medelhög användning)|Inga dimensioner|
+|LargeAppServicePlanInstances|App Service-plan för arbeten (hög användning)|Antal|Medel|App Service-plan för arbeten (hög användning)|Inga dimensioner|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|WorkersTotal|Totalt antal arbeten|Antal|Medel|Totalt antal arbeten|Instans|
-|WorkersAvailable|Tillgängliga arbeten|Antal|Medel|Tillgängliga arbeten|Instans|
-|WorkersUsed|Använda arbeten|Antal|Medel|Använda arbeten|Instans|
+|WorkersTotal|Totalt antal arbeten|Antal|Medel|Totalt antal arbeten|Inga dimensioner|
+|WorkersAvailable|Tillgängliga arbeten|Antal|Medel|Tillgängliga arbeten|Inga dimensioner|
+|WorkersUsed|Använda arbeten|Antal|Medel|Använda arbeten|Inga dimensioner|
 |CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
 

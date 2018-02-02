@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: 1f57fbb8e2a86b744808ee844e5f853bdb587a5d
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för bättre prestanda med hjälp av Service Bus-meddelanden
 
@@ -29,6 +29,7 @@ I det här avsnittet avser termen ”klient” entiteter som har åtkomst till S
 Dessa avsnitt beskrivs några begrepp som Service Bus använder för att förbättra prestanda.
 
 ## <a name="protocols"></a>Protokoll
+
 Service Bus gör att klienter kan skicka och ta emot meddelanden via ett av tre protokoll:
 
 1. Avancerade Message Queuing-protokollet (AMQP)
@@ -38,9 +39,11 @@ Service Bus gör att klienter kan skicka och ta emot meddelanden via ett av tre 
 AMQP och SBMP är effektivare, eftersom de upprätthålla anslutningen till Service Bus så länge meddelandefabrik finns. Den implementerar batchbearbetning och förhämtar. Om du inte uttryckligen anges förutsätter allt innehåll i det här avsnittet att använda AMQP eller SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Återanvända fabriker och klienter
+
 Service Bus klienten objekt, till exempel [QueueClient] [ QueueClient] eller [MessageSender][MessageSender], skapas via en [ MessagingFactory] [ MessagingFactory] -objektet, vilket ger också intern hantering av anslutningar. Du bör inte stänga meddelanden fabriker eller kön, ämnet och prenumerationen klienter när du skickar ett meddelande och sedan återskapa dem när du skickar nästa meddelande. Stänga en meddelandefabrik tar bort anslutningen till Service Bus-tjänst och en ny anslutning upprättas när återskapa fabriken. Upprätta en anslutning är en kostsam åtgärd som du kan undvika genom att återanvända samma fabrik och klientobjekt för flera åtgärder. Du kan använda på ett säkert sätt den [QueueClient] [ QueueClient] objekt för att skicka meddelanden från samtidiga asynkrona åtgärder och flera trådar. 
 
 ## <a name="concurrent-operations"></a>Samtidiga åtgärder
+
 Utföra en åtgärd (skicka, ta emot, ta bort, etc.) tar en stund. Den här gången innefattar bearbetning av åtgärden av tjänsten Service Bus förutom svarstid för begäran och svar. Om du vill öka antalet åtgärder per tid måste operations köras samtidigt. Du kan göra detta på flera olika sätt:
 
 * **Asynkrona åtgärder**: klienten schemalägger åtgärder genom att utföra asynkrona åtgärder. Nästa förfrågan har startat innan den förra begäranden har slutförts. Följande är ett exempel på en asynkron sändningsåtgärd:
@@ -78,9 +81,11 @@ Utföra en åtgärd (skicka, ta emot, ta bort, etc.) tar en stund. Den här gån
     Console.WriteLine("{0} complete", m.Label);
   }
   ```
+
 * **Flera fabriker**: alla klienter (avsändare förutom mottagare) som skapats av samma fabrik dela en TCP-anslutning. Den maximala genomströmningen begränsas av antal åtgärder som kan gå igenom den här TCP-anslutningen. Dataflödet som kan hämtas med en enda fabrik varierar kraftigt med TCP fram och åter gånger och meddelandestorlek. Om du vill använda högre hastigheter, bör du använda flera meddelanden fabriker.
 
 ## <a name="receive-mode"></a>Mottagningsläge
+
 När du skapar en kö eller prenumeration klient kan du ange en receive-läge: *titt Lås* eller *ta emot och ta bort*. Standard mottagningsläge är [PeekLock][PeekLock]. När det här läget kan skickar klienten en begäran om att ta emot ett meddelande från Service Bus. När klienten har tagit emot meddelandet, skickar en begäran om att slutföra meddelandet.
 
 När du ställer in receive-läge [ReceiveAndDelete][ReceiveAndDelete], båda stegen kombineras i en enskild begäran. Detta minskar det totala antalet åtgärder och kan förbättra den övergripande genomströmningen. Den här prestandafördelar kommer dess risk att förlora meddelanden.
@@ -88,6 +93,7 @@ När du ställer in receive-läge [ReceiveAndDelete][ReceiveAndDelete], båda st
 Service Bus stöder inte transaktioner för ta emot och delete-åtgärder. Dessutom titt Lås semantik krävs för alla scenarier där klienten vill skjuta upp eller [förlorade](service-bus-dead-letter-queues.md) ett meddelande.
 
 ## <a name="client-side-batching"></a>Klientsidans batchbearbetning
+
 Klientsidans batchbearbetning gör en kö eller ett ämne klienten att fördröja skickas ett meddelande för en viss tidsperiod. Om klienten skickar ytterligare meddelanden under den här tiden, skickar den meddelanden i en enskild batch. Klientsidans batchbearbetning gör att en kö eller prenumeration klient till batchen flera **Slutför** begäranden till en enskild begäran. Batchbearbetning är endast tillgängligt för asynkron **skicka** och **Slutför** åtgärder. Synkrona åtgärder skickas direkt till tjänsten Service Bus. Batchbearbetning inte ske för titt eller ta emot operations eller batchbearbetning sker över klienter.
 
 Som standard använder en klient en batch-intervallet för 20ms. Du kan ändra batch-intervall genom att ange den [BatchFlushInterval] [ BatchFlushInterval] egenskapen innan du skapar meddelandefabrik. Den här inställningen påverkar alla klienter som har skapats med den här fabriken.
@@ -104,6 +110,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 Batchbearbetning påverkar inte antalet fakturerbar asynkrona åtgärder och är bara tillgängligt för Service Bus-klientprotokollet. HTTP-protokollet har inte stöd för batchbearbetning.
 
 ## <a name="batching-store-access"></a>Batchbearbetning store-åtkomst
+
 Om du vill öka genomflödet av kön, ämnet och prenumerationen batchar Service Bus flera meddelanden vid skrivning till interna arkivet. Om aktiverad på en kö eller ett ämne, kommer det att batchar att skriva meddelanden till arkivet. Om aktiverat på en kö eller en prenumeration, kommer det att batchar att ta bort meddelanden från store. Om gruppbaserad store-åtkomst är aktiverat för en entitet, fördröjningar Service Bus store skrivning om entiteten med upp till 20 MS. Ytterligare store-åtgärder som inträffar under det här intervallet har lagts till i gruppen. Batchar store åtkomst endast påverkar **skicka** och **Slutför** verksamhet, ta emot påverkas inte. Batch store-åtkomst är en egenskap för en entitet. Batchbearbetning sker över alla enheter som möjliggör gruppbaserad store-åtkomst.
 
 När du skapar en ny kö, ämne eller en prenumeration kan är batch store-åtkomst aktiverat som standard. Om du vill inaktivera batch store-åtkomst, ange den [EnableBatchedOperations] [ EnableBatchedOperations] egenskapen **FALSKT** innan du skapar entiteten. Exempel:
@@ -117,6 +124,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 Batch store-åtkomst påverkar inte antalet fakturerbar asynkrona åtgärder och är en egenskap för en kö, ämne eller prenumeration. Det är oberoende av receive-läge och protokoll som används mellan klienten och tjänsten Service Bus.
 
 ## <a name="prefetching"></a>Förhämtar
+
 [Förhämtar](service-bus-prefetch.md) gör att kön eller prenumeration klienten att läsa in ytterligare meddelanden från tjänsten när en receive-åtgärd utförs. Klienten lagrar dessa meddelanden i ett lokalt cacheminne. Storleken på cacheminnet bestäms av den [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] eller [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] egenskaper. Varje klient som möjliggör förhämtar upprätthåller sin egen cache. En cache delas inte mellan klienter. Om klienten startar en receive-åtgärd och dess cachen är tom, skickar tjänsten en grupp med meddelanden. Storlek på batch är lika med storleken på cacheminnet eller 256 KB, beroende på vilket som är mindre. Om klienten startar en receive-åtgärd och cachen innehåller ett meddelande, tas meddelandet från cacheminnet.
 
 När ett meddelande är prefetched låser tjänsten prefetched meddelandet. På så sätt kan inte prefetched meddelandet tas emot av en annan mottagare. Om mottagaren inte kan slutföra meddelandet innan låset upphör att gälla, blir meddelandet tillgänglig för andra mottagare. Prefetched kopia av meddelandet finns kvar i cacheminnet. Mottagaren som förbrukar utgångna cachelagrad kopia får ett undantag när den försöker slutföra meddelandet. Som standard upphör meddelandet låset efter 60 sekunder. Det här värdet kan utökas till 5 minuter. För att förhindra användningen av inaktuella meddelanden ska cachestorleken alltid vara mindre än antalet meddelanden som kan användas av en klient i lås-timeout-intervall.
@@ -145,6 +153,7 @@ Om ett meddelande som innehåller viktig information som inte får vara förlora
 > Expressenheter stöder inte transaktioner.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Användning av partitionerade köer och ämnen
+
 Internt, Service Bus använder samma nod och messaging lagra bearbetas och lagras alla meddelanden för en meddelandeentitet (kö eller ett ämne). En [partitionerade kö eller ett ämne](service-bus-partitioning.md), å andra sidan distribueras över flera noder och meddelanden lagras. Partitionerade köer och ämnen inte bara att ge en bättre genomströmning än vanliga köer och ämnen, de också uppvisar en högre tillgänglighet. Så här skapar du en partitionerad entitet i [EnablePartitioning] [ EnablePartitioning] egenskapen **SANT**som visas i följande exempel. Mer information om partitionerade enheter finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
 
 ```csharp
@@ -165,9 +174,11 @@ Service Bus har en funktion som används för utveckling som **ska aldrig använ
 När nya regler eller filter har lagts till i avsnittet, kan du använda [TopicDescription.EnableFilteringMessagesBeforePublishing][] och kontrollera att nya filteruttrycket fungerar som förväntat.
 
 ## <a name="scenarios"></a>Scenarier
+
 I följande avsnitt beskrivs vanliga meddelandehantering och beskriver de föredragna inställningarna för Service Bus. Hastigheter klassificeras så liten (mindre än 1 meddelande per sekund), Måttlig (1-meddelande per sekund eller större men mindre än 100 meddelanden per sekund) och hög (100 meddelanden/andra eller senare). Antalet klienter som är klassificerade som liten (5 eller färre), Måttlig (mer än 5 men mindre än eller lika med 20), och stora (mer än 20).
 
 ### <a name="high-throughput-queue"></a>Hög genomströmning kön
+
 Mål: Maximera genomströmningen i en enskild kö. Antalet avsändare och mottagare är liten.
 
 * Använda en partitionerad kö för bättre prestanda och tillgänglighet.
@@ -179,11 +190,13 @@ Mål: Maximera genomströmningen i en enskild kö. Antalet avsändare och mottag
 * Ange antalet prefetch till 20 gånger de högsta hastighetsprestanda av alla mottagare av ett fabriken. Detta minskar antalet överföringar för Service Bus-klient-protokollet.
 
 ### <a name="multiple-high-throughput-queues"></a>Flera hög genomströmning köer
+
 Mål: Maximera totala genomflödet i flera köer. Dataflöde för en enskild kö är måttlig eller hög.
 
 Hämta maximalt dataflöde i flera köer med de inställningar som anges för att maximera genomströmningen i en enskild kö. Dessutom kan använda olika fabriker för att skapa klienter som skicka eller ta emot från olika köer.
 
 ### <a name="low-latency-queue"></a>Låg latens kön
+
 Mål: Minimera svarstiden för slutpunkt till slutpunkt för en kö eller ett ämne. Antalet avsändare och mottagare är liten. Dataflöde för kön är liten eller Måttlig.
 
 * Använda en partitionerad kö för förbättrad tillgänglighet.
@@ -193,6 +206,7 @@ Mål: Minimera svarstiden för slutpunkt till slutpunkt för en kö eller ett ä
 * Om du använder flera klienter, anger du antalet prefetch till 0. Genom att göra får andra klienten det andra meddelandet när den första klienten fortfarande bearbetar det första meddelandet.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Kö med ett stort antal avsändare
+
 Mål: Maximera genomströmningen i en kö eller ett ämne med ett stort antal avsändare. Varje avsändare skickar meddelanden med en måttlig hastighet. Antalet mottagare är liten.
 
 Service Bus kan upp till 1 000 samtidiga anslutningar till en meddelandeentitet (eller 5000 använder AMQP). Den här gränsen tillämpas på namnområdesnivån och köer-avsnitt-prenumerationer är begränsad av antalet samtidiga anslutningar per namnområde. För köer delas antalet mellan avsändare och mottagare. Om alla 1000 anslutningar krävs för avsändare, bör du ersätta kön med ett ämne och en enda prenumeration. Ett ämne accepterar upp till 1 000 samtidiga anslutningar från avsändare, medan prenumerationen accepterar en ytterligare 1000 samtidiga anslutningar från mottagare. Om högst 1 000 samtidiga avsändare krävs ska avsändare skicka meddelanden i Service Bus-protokollet via HTTP.
@@ -207,6 +221,7 @@ För att maximera genomströmningen, gör du följande:
 * Ange antalet prefetch till 20 gånger de högsta hastighetsprestanda av alla mottagare av ett fabriken. Detta minskar antalet överföringar för Service Bus-klient-protokollet.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Kö med ett stort antal mottagare
+
 Mål: Maximera receive frekvensen för en kö eller en prenumeration med ett stort antal mottagare. Varje mottagare tar emot meddelanden med en måttlig hastighet. Antal avsändare är liten.
 
 Service Bus kan upp till 1 000 samtidiga anslutningar till en entitet. Om en kö kräver mer än 1000 mottagare, bör du ersätta kön med ett ämne och flera prenumerationer. Varje prenumeration kan stöda upp till 1000 samtidiga anslutningar. Mottagare kan också komma åt kön via HTTP-protokollet.
@@ -220,6 +235,7 @@ För att maximera genomströmningen, gör du följande:
 * Ange antalet prefetch till ett mindre värde (till exempel PrefetchCount = 10). Detta förhindrar att mottagarna inaktivitet medan andra mottagare har stora mängder meddelanden som cachelagras.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Avsnittet med ett litet antal prenumerationer
+
 Mål: Maximera genomströmningen i ett ämne med ett litet antal prenumerationer. Ett meddelande tas emot av många prenumerationer, vilket innebär att den kombinerade receive-hastigheten över alla prenumerationer är större än frekvensen skicka. Antal avsändare är liten. Antalet mottagare per prenumeration är liten.
 
 För att maximera genomströmningen, gör du följande:
@@ -233,6 +249,7 @@ För att maximera genomströmningen, gör du följande:
 * Ange antalet prefetch till 20 gånger de högsta hastighetsprestanda av alla mottagare av ett fabriken. Detta minskar antalet överföringar för Service Bus-klient-protokollet.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Avsnittet med ett stort antal prenumerationer
+
 Mål: Maximera genomströmningen i ett ämne med ett stort antal prenumerationer. Ett meddelande tas emot av många prenumerationer, vilket innebär att den kombinerade receive-hastigheten över alla prenumerationer är mycket större än överföringshastighet. Antal avsändare är liten. Antalet mottagare per prenumeration är liten.
 
 Avsnitt med ett stort antal prenumerationer exponera en låg totala genomflödet vanligtvis om alla meddelanden dirigeras till alla prenumerationer. Detta beror på att varje meddelande tas emot många gånger, och alla meddelanden som finns i ett ämne och alla prenumerationer lagras i samma Arkiv. Det antas att antalet avsändare och mottagare per prenumeration antal är litet. Service Bus stöder upp till 2 000 prenumerationer per avsnitt.
@@ -246,6 +263,7 @@ För att maximera genomströmningen, gör du följande:
 * Ange antalet prefetch till 20 gånger den förväntade receive frekvensen i sekunder. Detta minskar antalet överföringar för Service Bus-klient-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om hur du optimerar prestanda för Service Bus finns [partitionerade meddelandeentiteter][Partitioned messaging entities].
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient

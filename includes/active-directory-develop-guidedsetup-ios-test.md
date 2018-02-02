@@ -26,4 +26,4 @@ För att få åtkomst till användarkalendrar i kontexten för ett program måst
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

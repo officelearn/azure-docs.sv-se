@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över Reporting API: er för Enterprise-kunder
 API: er Reporting aktivera Enterprise Azure-kunder kan hämta programmässigt användnings- och faktureringsinformation till önskade verktyg för dataanalys. 
@@ -43,6 +43,9 @@ Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagge
 
 * **Prisdokument** – [Price Sheet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) ger den tillämpliga hastigheten för varje mätaren för den angivna registrering och fakturering Period. 
 
+## <a name="data-freshness"></a>Dataaktualitet
+Etags returneras i svaret ovan API. En ändring i Etag anger data har uppdaterats.  Skicka avbildade Etag i efterföljande anrop till samma API: et med samma parametrar med nyckeln ”If-None-Match” i rubriken i HTTP-begäran. Svarets statuskod är ”NotModified” om data inte har uppdaterats ytterligare och inga data kommer att returneras. API returnerar den fullständiga datauppsättningen för den nödvändiga tidsperioden när en etag-ändring.
+
 ## <a name="helper-apis"></a>Helper-API: er
  **Lista över fakturering punkter** – [fakturering punkter API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returnerar en lista över fakturering punkter som har förbrukningsdata för den angivna registreringen i omvänd kronologisk ordning. Varje Period innehåller en egenskap som pekar på API-väg för de fyra datauppsättningarna - BalanceSummary, UsageDetails, Marketplace-debiteringar och Prisdokument.
 
@@ -50,10 +53,10 @@ Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagge
 ## <a name="api-response-codes"></a>API-svarskoder  
 |Svarets statuskod|Meddelande|Beskrivning|
 |-|-|-|
-|200| OKEJ|Inga fel|
+|200| Ok|Inget fel|
 |401| Behörighet saknas| API-nyckel hittades inte, ogiltig upphört att gälla osv.|
-|404| Inte tillgänglig| Rapporten slutpunkten hittades inte|
-|400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA siffror osv.|
+|404| Ej tillgänglig| Rapporten slutpunkten hittades inte|
+|400| Felaktig förfrågan| Ogiltiga parametrar – datumintervall, EA siffror osv.|
 |500| Serverfel| Unexoected fel vid bearbetning av begäran| 
 
 

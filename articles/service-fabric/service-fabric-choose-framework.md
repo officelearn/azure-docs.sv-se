@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a68db62f87bca5c641db310823588df6fb74f75e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programming översikt över säkerhetsmodell
 Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan du använda Service Fabric-API: er för att dra full nytta av funktioner och ramverk för programmet för plattformen. Tjänster kan också vara alla kompilerade körbara program som skrivits i valfritt språk eller en kod som körs i en behållare finns bara på ett Service Fabric-kluster.
@@ -45,7 +45,7 @@ Reliable Services kan också vara tillståndsbaserad exklusivt för Service Fabr
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core är ett nytt öppen källkod och plattformsoberoende ramverk för att bygga moderna molnbaserade Internetanslutna program, till exempel webbappar, IoT-appar och mobila serverdelar. Service Fabric integreras med ASP.NET Core så att du kan skriva ASP.NET Core både tillståndslösa och tillståndskänsliga program som utnyttjar tillförlitliga samlingar och Service Fabric avancerade orchestration-funktioner.
 
-[Lär dig mer om ASP.NET Core i Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) eller Kom igång genom att [skriver din första ASP.NET Core Service Fabric-program](service-fabric-add-a-web-frontend.md).
+[Lär dig mer om ASP.NET Core i Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) eller Kom igång genom att [skriver din första ASP.NET Core Service Fabric-program](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Tillförlitliga aktören framework är byggda på Reliable Services ett programramverk som implementerar virtuella aktören mönster, baserat på aktören designmönstret. Tillförlitliga aktören framework används oberoende enheter beräkning och tillstånd med Enkeltrådig körning kallas aktörer. Ramverket för tillförlitlig aktören innehåller inbyggd kommunikation för aktörer och förinställda tillstånd beständighet och skalbar konfigurationer.
@@ -55,7 +55,7 @@ Reliable Actors själva är ett programramverk som bygger på Reliable Services,
 [Mer information om Reliable Actors](service-fabric-reliable-actors-introduction.md) eller Kom igång genom att [skriva din första tillförlitliga aktören-tjänst](service-fabric-reliable-actors-get-started.md)
 
 
-[Skapa en frontend-tjänst med ASP.NET Core](service-fabric-add-a-web-frontend.md)
+[Skapa en frontend-tjänst med ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ## <a name="next-steps"></a>Nästa steg
 [Översikt över Service Fabric och behållare](service-fabric-containers-overview.md)

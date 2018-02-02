@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för Eclipse för att skapa Spark-program för ett HDInsight-kluster
 
@@ -35,7 +35,7 @@ Använda HDInsight Tools i Azure Toolkit för Eclipse för att utveckla Spark-pr
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, som används för Eclipse IDE-körningsmiljön. Du kan ladda ned det från den [Oracle webbplats](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -44,7 +44,7 @@ Använda HDInsight Tools i Azure Toolkit för Eclipse för att utveckla Spark-pr
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Installera HDInsight-verktyg i Azure Toolkit för Eclipse och Scala plugin-program
-### <a name="install-hdinsight-toolsazure-toolkit-for"></a>Installera HDInsight Toolsazure toolkit för
+### <a name="install-azure-toolkit-for-eclipse"></a>Installera Azure Toolkit för Eclipse
 HDInsight-verktyg för Eclipse är tillgänglig som en del av Azure Toolkit för Eclipse. Installationsanvisningar finns i [installerar Azure Toolkit för Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 ### <a name="install-the-scala-plug-in"></a>Installera Scala plugin-program
 När du öppnar Eclipse identifierar HDInsight verktyget automatiskt om du har installerat Scala plugin-programmet. Välj **OK** fortsätta och följ sedan anvisningarna för att installera plugin-programmet från Marketplace Eclipse.

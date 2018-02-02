@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Säkerhetskopiering och återställning i SQL Data Warehouse
 Den här artikeln beskriver egenskaperna för säkerhetskopiering i SQL Data Warehouse. Använda säkerhetskopiering av data warehouse för att återställa en databas ögonblicksbild till den primära regionen eller återställa en geo-säkerhetskopia till din geo länkas region. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>GEO-säkerhetskopieringar
 SQL Data Warehouse säkerhetskopierar geo-en gång per dag för att en [parad Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till servern i området geo länkas. GEO-säkerhetskopiering gör att du kan återställa datalagret om du inte kommer åt ögonblicksbilder i din primära region.
 
-GEO-säkerhetskopior är aktiverade som standard. Om ditt data warehouse är optimerad för elasticitet, kan du [avanmälas](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) om du vill. Du kan inte välja bort geo-säkerhetskopior med den optimerade för beräkning prestandanivå.
+GEO-säkerhetskopior är aktiverade som standard. Om ditt data warehouse är optimerad för elasticitet, kan du [avanmälas](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopior med den optimerade för beräkning prestandanivå.
 
 ## <a name="backup-costs"></a>Kostnaderna för säkerhetskopiering
 Du ser växeln Azure har en artikel för Azure Premium-lagring och ett radobjekt för geo-redundant lagring. Premium-lagring tillägget är den totala kostnaden för att lagra data i den primära region som innehåller ögonblicksbilder.  Geo-redundant tillägget omfattar kostnaden för att lagra geo-säkerhetskopior.  

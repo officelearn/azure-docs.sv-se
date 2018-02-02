@@ -1,6 +1,6 @@
 ---
 title: "Använda Visual Studio-koden för att felsöka C#-modulen med Azure IoT kant | Microsoft Docs"
-description: "Felsöka C#-modulen med Azure IoT gränsen i VS-kod"
+description: "Felsöka C#-modulen med Azure IoT gränsen i Visual Studio-koden."
 services: iot-edge
 keywords: 
 author: shizn
@@ -9,59 +9,59 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1ab67cd8aaf59cde3157fcb877ce13f10cb432bb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-visual-studio-code-to-debug-c-module-with-azure-iot-edge"></a>Använda Visual Studio-koden till debug C#-modulen med Azure IoT kant
-Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att felsöka IoT kant-moduler.
+# <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Använda Visual Studio-koden för att felsöka C#-modulen med Azure IoT kant
+Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att felsöka dina Azure IoT kant-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller kan du simulera enheten IoT kanten på utvecklingsdatorn.
+Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som utvecklingsdatorn. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller du kan simulera enheten IoT kanten på utvecklingsdatorn.
 
-Kontrollera att du har slutfört följande kurser innan du börjar den här vägledningen.
+Innan du börjar den här vägledningen måste du slutföra följande kursen:
 - [Använd Visual Studio-koden för att utveckla C#-modulen med Azure IoT kant](how-to-vscode-develop-csharp-module.md)
 
-När du slutför föregående kursen, bör du ha följande till hands,
-- En lokal Docker-registret som körs på utvecklingsdatorn. Du rekommenderas för att använda en lokal Docker-registret för prototyp och testning.
-- Den `Program.cs` med senaste filter modulen kod.
-- En uppdaterad `deployment.json` filen för modulen sensor och filtermodul.
-- En kant körning som körs på utvecklingsdatorn.
+Du bör ha följande till hands när du har slutfört föregående kursen:
+- En lokal Docker-registret som körs på utvecklingsdatorn. Det här är för prototyper och testning.
+- Den `Program.cs` filen med den senaste filter modulen kod.
+- En uppdaterad `deployment.json` -filen för modulerna sensor och filter.
+- En IoT-Edge-körning som körs på utvecklingsdatorn.
 
-## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Skapa din IoT-Edge-modul för felsökning syfte
-1. Om du vill starta felsökning, måste du använda den **dockerfile.debug** att återskapa docker-avbildning och distribuera lösningar Edge igen. Klicka på mappen Docker för att öppna den i VS kod explorer. Klicka på den `linux-x64` mapp, högerklickar du på den **Dockerfile.debug**, och klicka på **skapa IoT kant modulen Docker bild**.
+## <a name="build-your-iot-edge-module-for-debugging"></a>Skapa din IoT-Edge-modul för felsökning
+1. Starta felsökning med **dockerfile.debug** att återskapa Docker-avbildning och distribuera kant för IoT-lösningen igen. Välj mappen Docker att öppna den i Visual Studio Code Explorer. Välj sedan den **linux x64** mapp, högerklickar du på **Dockerfile.debug**, och välj **skapa IoT kant modulen Docker bild**.
 
-    ![Skapa debug-bild](./media/how-to-debug-csharp-module/build-debug-image.png)
+    ![Skärmbild av VS kod Explorer](./media/how-to-debug-csharp-module/build-debug-image.png)
 
-3. I den **Välj mappen** och bläddra till eller ange `./bin/Debug/netcoreapp2.0/publish`. Klicka på **Välj mapp som EXE_DIR**.
-4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filtermodule:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filtermodule:latest`.
-5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg.
-6. Du kan återanvända den `deployment.json` att distribuera om. Skriv i kommandot paletten, och välj **kant: starta om Edge** att hämta dina filtermodul som körs med felsökningsversionen.
+3. I den **Välj mappen** och bläddra till eller ange **./bin/Debug/netcoreapp2.0/publish**. Välj sedan **Välj mapp som EXE_DIR**.
+4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filtermodule:latest`. Om du distribuerar till lokala registret ska: `localhost:5000/filtermodule:latest`.
+5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i föregående steg.
+6. Du kan återanvända den `deployment.json` att distribuera om. Skriv i paletten kommando, och välj **kant: starta om Edge** att hämta dina filtermodul som körs med felsökningsversionen.
 
 ## <a name="start-debugging-in-vs-code"></a>Starta felsökning i VS-kod
-1. Gå till VS kod felsökningsfönstret. Tryck på **F5** och välj **IoT Edge(.Net Core)**
+1. Gå till felsökningsfönstret VS-kod. Tryck på **F5**, och välj **IoT Edge(.NET Core)**.
 
-    ![Tryck på F5](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Skärmbild av VS kod felsökningsfönstret](./media/how-to-debug-csharp-module/f5-debug-option.png)
 
-2. I `launch.json`, gå till **felsöka IoT kant anpassad modul (.NET Core)** avsnittet och Fyll i den `<container_name>`under `pipeArgs`. Det bör vara `filtermodule` i den här självstudiekursen.
+2. I `launch.json`, bläddra till den **felsöka IoT kant anpassad modul (.NET Core)** avsnitt. Under **pipeArgs**, Fyll i den `<container_name>`. Det bör vara `filtermodule` i den här självstudiekursen.
 
-    ![Ändra pipeArgs](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Skärmbild av VS kod felsökningsfönstret](./media/how-to-debug-csharp-module/f5-debug-option.png)
 
-3. Gå till Program.cs. Lägga till en brytpunkt i den `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
-4. Tryck på **F5** igen. Markera processen för att ansluta till. I den här självstudiekursen bör processens namn vara`FilterModule.dll`
+3. Bläddra till **Program.cs**. Lägga till en brytpunkt i den `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
+4. Tryck på **F5** igen, och välj den process för att ansluta till. I den här självstudiekursen processens namn bör vara `FilterModule.dll`.
 
-    ![Ansluta till en process](./media/how-to-debug-csharp-module/attach-process.png)
+    ![Skärmbild av VS kod felsökningsfönstret](./media/how-to-debug-csharp-module/attach-process.png)
 
-5. Du kan se variabler i vänsterpanelen i VS kod Debug-fönstret. 
+5. Du kan se variabler i vänsterpanelen i felsökningsfönstret VS-kod. 
 
 > [!NOTE]
-> Ovanstående exempel visar hur du felsökning .net Core IoT kant moduler i behållare. Den är baserad på felsökningsversionen av den `Dockerfile.debug`, som innehåller VSDBG (.NET Core kommandoradsverktyget felsökare) i behållaren avbildningen när du skapar den. Vi rekommenderar att du direkt använda eller anpassa den `Dockerfile` utan VSDBG för produktionsklara IoT kant moduler när du har slutfört felsökning C#-moduler.
+> Föregående exempel visar hur du felsöka .NET Core IoT kant moduler i behållare. Den är baserad på felsökningsversionen av den `Dockerfile.debug`, som innehåller VSDBG (.NET Core kommandoradsverktyget felsökare) i behållaren avbildningen när du skapar den. När du är klar med att felsöka C#-moduler rekommenderar vi du direkt använda eller anpassa `Dockerfile` utan VSDBG för produktionsklara IoT kant moduler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen skapas en IoT-Edge-modul och distribuerats för felsökning ändamål och starta felsökning i VS-kod. Du kan fortsätta in på något av följande kurser vill veta mer om andra scenarier när du utvecklar Azure IoT gränsen i VS-kod. 
+I kursen får du skapat en gräns för IoT-modul och distribuerat för felsökning. Du startade felsökning i VS-kod. Mer information om andra scenarier när du utvecklar Azure IoT gränsen i VS koden finns: 
 
 > [!div class="nextstepaction"]
 > [Utveckla och distribuera C#-modulen i VS-kod](how-to-vscode-develop-csharp-module.md)

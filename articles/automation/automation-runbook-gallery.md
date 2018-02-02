@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 91aa10b1e7dfbe47107257fa0a5fe14f7b43ff71
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation Runbook- och stänga
 Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn istället för att skapa egna runbooks och moduler i Azure Automation.  Du kan antingen använda de här scenarierna utan ändringar eller använda dem som en startpunkt och redigera dem för dina specifika krav.
@@ -37,11 +37,8 @@ Du kan bara importera direkt från Runbook-galleriet med Azure-portalen. Du kan 
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importera en runbook från Runbook-galleriet med Azure-portalen
 1. Öppna ditt Automation-konto på Azure Portal.
-2. Öppna listan med runbooks genom att klicka på panelen **Runbooks**.
-3. Klicka på **Bläddra galleriet** knappen.
-   
-    ![Galleriet knappen Bläddra](media/automation-runbook-gallery/browse-gallery-button.png)
-4. Leta upp det Galleriobjekt som du vill och väljer att visa dess egenskaper.
+2. Under **Processautomatisering**, klicka på **Runbooks-galleriet**
+3. Leta upp det Galleriobjekt som du vill och väljer att visa dess egenskaper. Du kan ange ytterligare sökparametrarna för utgivaren och typ till vänster.
    
     ![Bläddra galleri](media/automation-runbook-gallery/browse-gallery.png)
 5. Klicka på **Visa projekt** att visa objektet i den [TechNet Script Center](http://gallery.technet.microsoft.com/).
@@ -94,14 +91,8 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
    
     ![PowerShell-modulinformation](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. Installera modulen direkt i Azure Automation, klicka på den **importera** knappen.
-   
-    ![Importera modulen knappen](media/automation-runbook-gallery/module-import-button.png)
 8. När du klickar på knappen Import på den **importera** rutan visas det namn som du ska importera. Om alla beroenden är installerade på **OK** knappen aktiveras. Om du saknar beroenden, måste du importera dem innan du kan importera den här modulen.
-9. Klicka på **OK** att importera modulen. Medan Azure Automation importerar en modul till ditt konto, extraherar metadata om modulen och cmdletar.
-   
-    ![Importera modulsida](media/automation-runbook-gallery/module-import-blade.png)
-   
-    Det kan ta ett par minuter eftersom varje aktivitet måste ska extraheras.
+9. På den **importera** klickar du på **OK** att importera modulen. Medan Azure Automation importerar en modul till ditt konto, extraherar metadata om modulen och cmdletar. Det kan ta ett par minuter eftersom varje aktivitet måste ska extraheras.
 10. Får du ett första meddelande som modulen distribueras och ytterligare ett meddelande när den har slutförts.
 11. När modulen har importerats kan du se tillgängliga aktiviteter och du kan använda sina resurser i runbooks och Desired State Configuration.
 

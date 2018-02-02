@@ -3,8 +3,8 @@ title: "Tjänsten kvoter och gränser för Azure Batch | Microsoft Docs"
 description: "Lär dig mer om standard Azure Batch-kvoter, gränser och begränsningar och hur du begär kvoten ökar"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -55,7 +55,7 @@ Om du använde en tidigare version av Batch-API för att skapa ett batchkonto me
 
 <sup>1</sup> azure Storage-gränsen för högsta blob-blockstorlek<br />
 <sup>2</sup> innehåller resursfiler och miljövariabler<br />
-<sup>3</sup> högsta livstid för en aktivitet från när den har lagts till jobbet när den har slutförts är 7 dagar. Slutförda aktiviteter finns kvar på obestämd tid; data för aktiviteter som inte slutförs inom den maximala livstiden är inte tillgänglig.
+<sup>3</sup> högsta livstid för en aktivitet från när den har lagts till jobbet när den har slutförts är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 
 
 ## <a name="view-batch-quotas"></a>Visa Batch-kvoter

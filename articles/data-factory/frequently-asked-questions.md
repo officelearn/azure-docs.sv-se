@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln gäller för version 2 av Azure Data Factory-tjänsten. Den innehåller svar på vanliga frågor om Data Factory.  
@@ -68,7 +68,7 @@ Nu har du friheten att modellera ett flöde format som krävs för dataintegreri
 Mer information finns i [Självstudier: kontrollera flöden](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Distribuera SSIS-paket till Azure 
-Om du vill flytta SSIS-arbetsbelastningar du skapa en Datafabrik version 2 och etablera en Azure-SSIS-integrering körning. Azure-SSIS-integrering runtime är en helt hanterad kluster på virtuella Azure-datorer (noder) som är dedikerad för att köra SSIS-paket i molnet. Stegvisa instruktioner finns i [distribuera SSIS-paket till Azure](tutorial-deploy-ssis-packages-azure.md) kursen. 
+Om du vill flytta SSIS-arbetsbelastningar du skapa en Datafabrik version 2 och etablera en Azure-SSIS-integrering körning. Azure-SSIS-integrering runtime är en helt hanterad kluster på virtuella Azure-datorer (noder) som är dedikerad för att köra SSIS-paket i molnet. Stegvisa instruktioner finns i [distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md) kursen. 
  
 
 ### <a name="sdks"></a>SDK:er

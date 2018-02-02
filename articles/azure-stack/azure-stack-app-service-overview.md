@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3f0add4cf48ebcb4235fb05aa8bfa0b5365848c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Översikt över App Service på Azure Stack
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 Azure Apptjänst Azure-stacken är en plattform som en-tjänst (PaaS) erbjuds med Microsoft Azure som är tillgängliga för Azure-stacken. Tjänsten kan kunderna - interna eller externa – skapa webb-, API- och Azure Functions program för alla plattformar och enheter. De kan integrera dina appar med lokala program och automatisera affärsprocesserna. Azure Stack molnoperatörer kan köra kunden appar på helt hanterade virtuella datorer (VM) med deras val av delade VM-resurser eller dedikerade virtuella datorer.
 

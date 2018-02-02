@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Använda Draft med Azure Container Service och Azure Container Registry för att skapa ett program och distribuera det till Kubernetes
 
@@ -32,7 +32,7 @@ Du kan enkelt [skapa ett nytt Azure Container Registry](../../container-registry
       az group create --name draft --location eastus
       ```
 
-2. Skapa en ACR bild registret med hjälp av [az acr skapa](/cli/azure/acr#create) och kontrollera att den `--admin-enabled` alternativet är inställt på `true`.
+2. Skapa en ACR bild registret med hjälp av [az acr skapa](/cli/azure/acr#az_acr_create) och kontrollera att den `--admin-enabled` alternativet är inställt på `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +40,7 @@ Du kan enkelt [skapa ett nytt Azure Container Registry](../../container-registry
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Skapa en Azure Container Service med Kubernetes
 
-Nu är du redo att använda [az acs create](/cli/azure/acs#create) för att skapa ett ACS-kluster med Kubernetes som `--orchestrator-type`-värde.
+Nu är du redo att använda [az acs create](/cli/azure/acs#az_acs_create) för att skapa ett ACS-kluster med Kubernetes som `--orchestrator-type`-värde.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -220,7 +220,7 @@ Din domänleverantör har ett eget sätt att tilldela DNS-servrar. Gör så här
     ```
 
 2. Skapa en DNS-zon för din domän.
-Använd kommandot [az network dns zone create](/cli/azure/network/dns/zone#create) för att erhålla namnservrar för att delegera DNS-kontroll till Azure DNS för din domän.
+Använd kommandot [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) för att erhålla namnservrar för att delegera DNS-kontroll till Azure DNS för din domän.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

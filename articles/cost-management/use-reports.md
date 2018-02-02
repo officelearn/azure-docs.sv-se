@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 92bb4f2a6458057613bdbcb749026781111a778d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-cost-management-reports"></a>Använda rapporter för kostnad
+# <a name="use-cost-management-reports"></a>Använda Cost Management-rapporter
 
 Den här artikeln beskriver hur du använder olika kostnad rapporter i Cloudyn-portalen. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. En översikt över hur Cloudyn rapporter finns i [förstå kostnad rapporter](understading-cost-reports.md). Artikeln beskriver också olika alternativ och fält som används i de flesta rapporter.
 
@@ -135,7 +135,7 @@ Här är exempel på samma information i en tabellvy.
 
 
 
-### <a name="cost-over-time-report"></a>Rapporten kostnaden över tid
+### <a name="cost-over-time-report"></a>Rapport för kostnad över tid
 
 Kostnaden över tid rapporten visar utgifter över tid så att du kan se trender och identifiera oegentligheter i distributionen. Den visas i stort sett kostnaderna fördelade över en definierad period. Rapporten innehåller de huvudsakliga kostnaden deltagare inklusive kostnader och enstaka reserverade instans avgifter som används under en vald tidsperiod. Principer som angetts i kostnaden Manager 360 graders kan användas i den här rapporten.
 

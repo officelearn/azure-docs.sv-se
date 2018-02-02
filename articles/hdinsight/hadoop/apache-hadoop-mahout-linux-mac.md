@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4674008523704b9b1fb86de8606641f6140e2910
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generera filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Hadoop i HDInsight (SSH)
 
@@ -30,7 +30,7 @@ Lär dig hur du använder den [Apache Mahout](http://mahout.apache.org) machine 
 
 Mahout är en [maskininlärning] [ ml] -biblioteket för Apache Hadoop. Mahout innehåller algoritmer för bearbetning av data, till exempel filtrering, klassificering, och klustring. I den här artikeln använder du en rekommendation motor för att generera filmrekommendationer som baseras på dina vänner har sett filmer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Linux-baserat HDInsight-kluster. Information om hur du skapar en finns [komma igång med Linux-baserade Hadoop i HDInsight][getstarted].
 
@@ -45,13 +45,13 @@ Mer information om versionen av Mahout i HDInsight finns [HDInsight versioner oc
 
 ## <a name="recommendations"></a>Förstå rekommendationer
 
-En av de funktioner som tillhandahålls av Mahout är en rekommendation motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (inställningar för artikeln). Mahout kan sedan utföra samtidigt förekomst analysen för att avgöra: *användare som har en inställning för ett objekt har också en inställning för dessa andra objekt*. Mahout bestämmer användare med liknande objekt inställningar som kan användas för att ge rekommendationer.
+En av de funktioner som tillhandahålls av Mahout är en rekommendation motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (inställningar för artikeln). Mahout kan sedan utföra samtidigt förekomsten analysen för att avgöra: *användare som har en inställning för ett objekt har också en inställning för dessa andra objekt*. Mahout bestämmer användare med liknande objekt inställningar som kan användas för att ge rekommendationer.
 
 Följande arbetsflöde är en förenklad exempel som använder filmdata:
 
-* **Samtidigt förekomst**: Joe Alice och Bob alla tyckte *Star krig*, *i Empire strejker tillbaka*, och *tillbaka Jedi*. Mahout anger att användare också som en av dessa filmer som de andra två.
+* **Samtidigt förekomsten**: Joe Alice och Bob alla tyckte *Star krig*, *i Empire strejker tillbaka*, och *tillbaka Jedi*. Mahout anger att användare också som en av dessa filmer som de andra två.
 
-* **Samtidigt förekomst**: Bob och Alice också tyckte *i Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som även gillade föregående tre filmer som dessa tre filmer.
+* **Samtidigt förekomsten**: Bob och Alice också tyckte *i Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som även gillade föregående tre filmer som dessa tre filmer.
 
 * **Likhet rekommendation**: Joe eftersom tyckte om de första tre filmerna, Mahout tittar på filmer som andra med liknande inställningar tyckte om, men Johan har inte bevakade (tyckte/klassificerad). I det här fallet Mahout rekommenderar *i Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
 

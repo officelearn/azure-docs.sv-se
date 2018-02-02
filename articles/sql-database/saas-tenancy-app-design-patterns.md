@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS databasen innehavare mönster
 
@@ -96,7 +96,7 @@ Azure SQL-databasen innehåller verktyg som krävs för att konfigurera, överva
 
 Azure SQL Database-plattform har många funktioner för hantering av stort antal databaser i skala, till exempel väl över 100 000 databaser.  Dessa funktioner gör databasen per klient mönstret rimligt.
 
-Anta exempelvis att ett system har en databas som 1000-klient som bara en databas.  Databasen kan ha 20 index.  Om systemet konverterar till med 1000 stöd för en innehavare databaser, stiger quatity av index till 20 000.  I SQL-databas som en del av [automatisk justering][docu-sql-db-automatic-tuning-771a], funktionerna för automatisk indexering är aktiverade som standard.  Automatisk indexering hanterar du alla 20 000 index och deras pågående optimeringar skapa och släpp.  Dessa automatiserade åtgärder som sker inom en individuell databas och de inte samordnas eller begränsade av liknande åtgärder i andra databaser.  Automatisk indexering behandlar index annorlunda än upptagen databaser i en ledig databas.  Den här typen av index management anpassning är opraktiska i databasen per klient skala om den här aktiviteten för hantering av stora var du tvungen att manuellt.
+Anta exempelvis att ett system har en databas som 1000-klient som bara en databas.  Databasen kan ha 20 index.  Om systemet konverterar till med 1000 stöd för en innehavare databaser, stiger antalet index till 20 000.  I SQL-databas som en del av [automatisk justering][docu-sql-db-automatic-tuning-771a], funktionerna för automatisk indexering är aktiverade som standard.  Automatisk indexering hanterar du alla 20 000 index och deras pågående optimeringar skapa och släpp.  Dessa automatiserade åtgärder som sker inom en individuell databas och de inte samordnas eller begränsade av liknande åtgärder i andra databaser.  Automatisk indexering behandlar index annorlunda än upptagen databaser i en ledig databas.  Den här typen av index management anpassning är opraktiska i databasen per klient skala om den här aktiviteten för hantering av stora var du tvungen att manuellt.
 
 Andra funktioner som kan skalas efter era behov inkluderar följande:
 
@@ -175,7 +175,7 @@ Stöd för en innehavare databaser för prenumeranten klienter kan placeras i re
 
 I följande tabell sammanfattas skillnaderna mellan de huvudsakliga innehavare modellerna.
 
-| Mätning | Fristående app | Databasen per klient | Delat flera innehavare |
+| Mätning | Fristående app | Database-per-tenant | Delat flera innehavare |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Skala | Medel<br />1-100-tal | Mycket hög<br />100 1-000-tal | Obegränsat<br />1 1,000,000s |
 | Klientisolering | Mycket hög | Hög | Låg; Förutom alla singleton-klient (det är enbart i en Huvudmålservern db). |

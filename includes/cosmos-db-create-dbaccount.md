@@ -17,7 +17,7 @@
 
     Klicka sedan på **Skapa**.
 
-    ![Det nya kontobladet för Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Den nya sidan konto för Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 4. Skapa konto tar några minuter. När kontot skapas i portalen visas den **distribuerar Azure Cosmos DB** panelen till höger kan du behöva rulla åt höger på instrumentpanelen för att se panelen. Det finns också en förloppsindikator som visas längst upp på skärmen. Du kan titta på antingen området för pågår. 
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
-ms.translationtype: MT
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -53,7 +53,10 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Om klient-ID: N för käll- och -prenumerationer inte är samma, måste du kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) att flytta resurser till en ny klient.
+  Om klient-ID: N för käll- och -prenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N: 
+
+  * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
+  * [Hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Tjänsten måste göra det möjligt att flytta resurser. Den här artikeln innehåller tjänster som kan flytta resurser och tjänster som inte aktiverar flytta resurser.
 3. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
@@ -93,7 +96,7 @@ Du kan flytta de flesta resurser via självbetjäning åtgärder visas i den hä
 
 Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) när du behöver:
 
-* Flytta dina resurser till en ny Azure-konto (och Azure Active Directory-klient).
+* Flytta dina resurser till en ny Azure-konto (och Azure Active Directory-klient) och du behöver hjälp med instruktionerna i föregående avsnitt.
 * Flytta klassiska resurser men har problem med begränsningar.
 
 ## <a name="services-that-enable-move"></a>Tjänster som gör att flytta
@@ -319,7 +322,7 @@ Att flytta en virtuell dator har registrerats i **Azure backup** mellan resursgr
  1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
  2. Flytta den virtuella datorn till målresursgruppen
  3. Skydda den på nytt under samma/nya valvet användare kan återställa från tillgängliga återställningspunkter som skapats före flyttningen.
-Om användaren flyttar den virtuella datorn säkerhetskopierade alla prenumerationer, desamma steg 1 och 2. Användaren behöver skydda den virtuella datorn under ett nytt valv finns / i målprenumerationen i steg 3. Recovery Services valvet valvautentiseringsuppgifter support mellan säkerhetskopieringar för prenumerationen.
+Om användaren flyttar den virtuella datorn säkerhetskopierade alla prenumerationer, desamma steg 1 och 2. Användaren behöver skydda den virtuella datorn under ett nytt valv finns / i målprenumerationen i steg 3. Recovery Services-ventilen stöder inte mellan prenumeration säkerhetskopieringar.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-begränsningar
 

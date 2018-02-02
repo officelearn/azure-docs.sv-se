@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Dataströmmen stordata i ett data warehouse
 
@@ -74,7 +74,7 @@ Den här kursen behöver du:
 
 ## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
 
-För att förenkla den här artikeln kan distribuera du den nödvändiga infrastrukturen med en Resource Manager-mall. Om du vill visa de resurser som har distribuerats på [mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). I förhandsversionen händelse rutnätet stöder **westus2** och **westcentralus** regioner. Använd någon av dessa regioner för resursgruppens plats.
+För att förenkla den här artikeln kan distribuera du den nödvändiga infrastrukturen med en Resource Manager-mall. Om du vill visa de resurser som har distribuerats på [mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Använd någon av de [regioner som stöds](overview.md) för resursgruppens plats.
 
 Om du använder Azure CLI använder du:
 

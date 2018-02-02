@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7a980a9a4f0a4fa22e72aa9d6eec83865250a084
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-publisher-guide"></a>Azure Marketplace Publisher Guide
 
@@ -225,7 +225,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 
 |**Krav**  |**Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
-|**Deltagande principer**    |  Granska villkoren för Azure Marketplace-utgivaren [here](file:///C:/Users/ellacroi/Downloads/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Granska Azure Marketplace deltagande principer [här] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, utvärderingsversion, Transact        |
+|**Deltagande principer**    | Granska Azure Marketplace deltagande principer [här] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, utvärderingsversion, Transact        |
 |**Integrering med Microsoft**    | Azure Marketplace-erbjudanden bör utnyttja eller utöka Microsoft Azure-tjänster, till exempel beräkning, nätverk och lagring och justera i en befintlig Azure Marketplace-kategori databaser, säkerhet, nätverk, t.ex. Den fullständiga listan [här](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, utvärderingsversion, Transact        |
 |**Målgrupp**    | Azure Marketplace-erbjudanden måste vara för IT-proffs, molnet utvecklare eller andra tekniska kundroller.       |  Lista, utvärderingsversion, Transact 
 |**Administrera leads**    | Du måste aktivera din CRM (Marketo, Microsoft Dynamics eller Salesforce) för att acceptera lead data för att ta emot leads från Marketplace.        |   Lista, utvärderingsversion, Transact      |

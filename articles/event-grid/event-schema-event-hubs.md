@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure händelse rutnätet Händelseschema för händelsehubbar
 
@@ -44,7 +44,9 @@ Den här händelsen i exemplet visar schemat för en händelse hubbar händelse 
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -55,26 +57,28 @@ En händelse har följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | Sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. |
-| Ämne | Sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | Sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | Sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | Sträng | Unik identifierare för händelsen. |
-| Data | Objektet | Event hub händelsedata. |
+| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
+| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Event hub händelsedata. |
+| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| fileUrl | Sträng | Sökvägen till filen avbildning. |
-| Filtyp | Sträng | Avbilda filen filtyp. |
-| partitions-ID | Sträng | Fragment-ID: t. |
+| fileUrl | sträng | Sökvägen till filen avbildning. |
+| Filtyp | sträng | Avbilda filen filtyp. |
+| partitionId | sträng | Fragment-ID: t. |
 | sizeInBytes | heltal | Filstorleken. |
 | eventCount | heltal | Antalet händelser i filen. |
 | firstSequenceNumber | heltal | Det minsta sekvensnumret från kön. |
 | lastSequenceNumber | heltal | Det sista sekvensnumret från kön. |
-| firstEnqueueTime | Sträng | Första gången från kön. |
-| lastEnqueueTime | Sträng | Senast från kön. |
+| firstEnqueueTime | sträng | Första gången från kön. |
+| lastEnqueueTime | sträng | Senast från kön. |
 
 ## <a name="next-steps"></a>Nästa steg
 

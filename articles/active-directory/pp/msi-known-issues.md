@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8194e6bab35fe7a486fcc3bf0cdf5b00fcd9000c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
@@ -61,9 +61,12 @@ Där:
 ### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Finns det RBAC-roller för tilldelade användaridentiteter?
 Ja:
 1. MSI-deltagare: 
+
 - Kan: CRUD användartilldelade identiteter. 
 - Kan inte: Tilldela en användare som tilldelats en resurs identitet. (d.v.s. tilldela identitet till en virtuell dator)
+
 2. MSI-Operator: 
+
 - Kan: Tilldela en identitet för användaren som har tilldelats till en resurs. (d.v.s. tilldela identitet till en virtuell dator)
 - Det går inte att: CRUD användartilldelade identiteter.
 
@@ -118,10 +121,9 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - Det enda sättet att ta bort alla användare som tilldelats MSI: er tilldelas genom att aktivera systemet MSI. 
 - Etablering av VM-tillägget till en virtuell dator kan misslyckas på grund av fel i DNS-sökning. Starta om den virtuella datorn och försök igen. 
-- Azure CLI: `Az resource show` och `Az resource list` misslyckas på en virtuell dator med en användare som tilldelats MSI. Som en tillfällig lösning kan använda`az vm/vmss show`
+- Om du lägger till en 'obefintlig' MSI kommer den virtuella datorn misslyckas. *Obs: Korrigering misslyckas tilldela identitet om MSI inte finns, används platta ut*
 - Azure Storage-kursen är endast tillgängligt i centrala oss EUAP för tillfället. 
-- När en användare tilldelas MSI beviljas åtkomst till en resurs visar IAM-bladet för den här resursen ”det går inte att komma åt data”. Som en tillfällig lösning kan använda CLI för att visa och redigera rolltilldelningar för den här resursen.
-- Skapar en användare som tilldelats MSI med ett understreck i namnet stöds inte.
+- Skapar en användare som tilldelats MSI med specialtecken (dvs understreck) i namn stöds inte.
 - Om att lägga till en annan användare har tilldelats identitet, kanske clientID inte tillgänglig för begäranden token för den. Starta om MSI-VM-tillägget med följande två bash-kommandon som en lösning:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: ff882889aba7add77d974500ac13a474523b3b53
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser i Händelsehubbar i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb, det kan omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -26,45 +26,28 @@ Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan m
 Den här artikeln är en medlem i den [integrera Azure API Management med Händelsehubbar](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video och beskriver hur du loggar händelser för API Management med hjälp av Händelsehubbar i Azure.
 
 ## <a name="create-an-azure-event-hub"></a>Skapa ett Azure Event Hub
-Om du vill skapa en ny Händelsehubb, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Service Bus**  -> **Händelsehubb**->**Snabbregistrering**. Ange namnet på en Händelsehubb region, väljer en prenumeration och ett namnområde. Om du inte har skapat ett namnområde kan du skapa en genom att skriva ett namn i den **Namespace** textruta. När alla egenskaper har konfigurerats, klickar du på **skapa en ny Händelsehubb** att skapa Händelsehubben.
 
-![Skapa händelsehubb][create-event-hub]
-
-Gå sedan till den **konfigurera** för din nya Event Hub och skapa två **delade åtkomstprinciper**. Namn på det första **sändande** och ge den **skicka** behörigheter.
-
-![Skicka princip][sending-policy]
-
-Namn på det andra **tar emot**, ger det **lyssna** behörigheter och klickar på **spara**.
-
-![Emot princip][receiving-policy]
-
-Varje princip för delad åtkomst gör att program kan skicka och ta emot händelser till och från Event Hub. Om du vill komma åt anslutningssträngar för dessa principer, navigera till den **instrumentpanelen** Event Hub och klicka på fliken **anslutningsinformationen**.
-
-![Anslutningssträng][event-hub-dashboard]
-
-Den **sändande** anslutningssträngen som används när du loggar händelser, och **tar emot** anslutningssträngen som används när du hämtar händelser från Event Hub.
-
-![Anslutningssträng][event-hub-connection-string]
+Detaljerade anvisningar om hur du skapar en händelsehubb och hämta anslutningssträngar som du behöver för att skicka och ta emot händelser till och från Event Hub finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-api-management-logger"></a>Skapa en API Management-logg
 Nu när du har en Händelsehubb nästa steg är att konfigurera en [loggaren](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) i API Management-tjänsten så att den kan logga händelser till Händelsehubben.
 
 API Management loggare konfigureras med hjälp av den [API Management REST API](http://aka.ms/smapi). Innan du använder REST API för första gången, granska den [krav](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) och se till att du har [aktiverat åtkomst till REST API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-Gör en HTTP PUT-begäran med hjälp av följande URL: en mall för att skapa en logg.
+Göra en HTTP PUT-begäran med hjälp av följande URL: en mall för att skapa en logg:
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Ersätt `{your service}` med namnet på din API Management service-instans.
-* Ersätt `{new logger name}` med önskat namn för din nya meddelandeloggfiler. Du sedan hänvisar till det här namnet när du konfigurerar den [loggen till eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) princip
+* Ersätt `{new logger name}` med önskat namn för din nya meddelandeloggfiler. Du hänvisar till det här namnet när du konfigurerar den [loggen till eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) princip
 
-Lägg till följande huvuden i begäran.
+Lägg till följande huvuden för begäran:
 
 * Content-Type: application/json
 * Auktorisering: SharedAccessSignature 58...
   * Anvisningar för att generera den `SharedAccessSignature` finns [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Ange text på begäran med hjälp av följande mall.
+Ange text på begäran med hjälp av följande mall:
 
 ```json
 {
@@ -84,31 +67,29 @@ Ange text på begäran med hjälp av följande mall.
 När du gör begäran om loggaren skapas en statuskod för `201 Created` returneras.
 
 > [!NOTE]
-> Andra möjliga returkoder och skälen finns [skapa en loggaren](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Att se hur utföra andra åtgärder, till exempel listan, uppdatera och ta bort, finns det [loggaren](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) dokumentationen för enheten.
+> Andra möjliga returkoder och skälen finns [skapa en loggaren](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Information om hur du utför andra åtgärder, till exempel listan-, update- och delete finns i [loggaren](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) dokumentationen för enheten.
 >
 >
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Konfigurera principer för logg-eventhubs
+
 Du kan konfigurera loggen till eventhubs principer till önskade logghändelser när du har konfigurerat din loggaren i API-hantering. Log-eventhubs principen kan användas i avsnittet princip för inkommande eller utgående princip-avsnittet.
 
-För att konfigurera principer, logga in på den [Azure-portalen](https://portal.azure.com), navigera till din API Management-tjänst och klicka på **Publisher portal** åt publisher-portalen.
-
-![Utgivarportalen][publisher-portal]
-
-Klicka på **principer** Markera önskad produkt och API i API Management-menyn till vänster och klicka på **Lägg till princip**. I det här exemplet lägger vi till en princip för att den **Echo API** i den **obegränsad** produkten.
-
-![Lägg till princip][add-policy]
-
-Placera markören i den `inbound` princip för och klicka på den **loggen till EventHub** princip för att infoga den `log-to-eventhub` Principmall för instruktionen.
-
-![Principredigerare][event-hub-policy]
+1. Bläddra till APIM-instansen.
+2. Välj fliken API.
+3. Välj API: N som du vill lägga till principen. I det här exemplet lägger vi till en princip för att den **Echo API** i den **obegränsad** produkten.
+4. Välj **alla åtgärder**.
+5. Välj fliken Design överst på skärmen.
+6. Klicka på triangel (bredvid penna) i fönstret inkommande eller utgående bearbetning.
+7. Välj redigeraren. Mer information finns i [så att ange eller redigera principer](set-edit-policies.md).
+8. Placera markören i den `inbound` eller `outbound` princip.
+9. I fönstret till höger, Välj **avancerade principer** > **loggen till EventHub**. Detta infogar den `log-to-eventhub` Principmall för instruktionen.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-
 Ersätt `logger-id` med namnet på API Management-logg som du konfigurerade i föregående steg.
 
 Du kan använda ett uttryck som returnerar en sträng som värde för den `log-to-eventhub` element. En sträng som innehåller datum och tid, tjänstnamn, förfrågnings-id, ip-adressen för begäran och åtgärdsnamn loggas i det här exemplet.
@@ -123,12 +104,7 @@ Klicka på **spara** att spara den uppdaterade principkonfigurationen. Så snart
 * Mer information om API-hantering och Händelsehubbar-integrering
   * [Loggaren enhetsreferens](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [principreferens för loggen till eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Övervaka dina API: er med Azure API Management, Händelsehubbar och Runscope](api-management-log-to-eventhub-sample.md)    
-
-## <a name="watch-a-video-walkthrough"></a>Titta på en videogenomgång
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
->
->
+  * [Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope](api-management-log-to-eventhub-sample.md)    
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

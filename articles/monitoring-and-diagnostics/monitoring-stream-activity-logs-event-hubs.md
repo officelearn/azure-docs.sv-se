@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/06/2017
+ms.date: 01/30/2018
 ms.author: johnkem
-ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Dataströmmen Azure aktivitetsloggen i Händelsehubbar
 Den [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) kan strömmas i nära realtid för alla program med alternativet ”Export” inbyggda i portalen eller genom att aktivera Service Bus regel-Id i en logg profil via Azure PowerShell Cmdlet: ar eller Azure CLI.
@@ -35,16 +35,17 @@ Du kan aktivera strömning av aktivitetsloggen programmässigt eller via portale
 Namnområdet för service bus eller händelse hubb behöver inte finnas i samma prenumeration som prenumerationen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 
 ### <a name="via-azure-portal"></a>Via Azure-portalen
-1. Navigera till den **aktivitetsloggen** blad med hjälp av menyn till vänster i portalen.
+1. Navigera till den **aktivitetsloggen** blad med hjälp av alla tjänster söka på vänster sida av portalen.
    
-    ![Navigera till aktivitetsloggen i portalen](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Klicka på den **exportera** längst upp på bladet.
+    ![Navigera till aktivitetsloggen i portalen](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
+2. Klicka på den **exportera** längst upp i aktiviteten loggen bladet.
    
-    ![Exportera-knappen i portalen](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Du kan välja de regioner där du vill dataströmmen händelser och Service Bus-Namespace som du vill att en Händelsehubb skapas för direktuppspelning av dessa händelser i bladet som visas.
+    ![Exportera-knappen i portalen](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+3. Du kan välja de regioner där du vill dataströmmen händelser och Service Bus-Namespace som du vill att en Händelsehubb skapas för direktuppspelning av dessa händelser i bladet som visas. Välj **alla regioner**.
    
-    ![Exportera aktivitetsloggen bladet](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    ![Exportera aktivitetsloggen bladet](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
 4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart till din prenumeration.
+5. Om du har flera prenumerationer måste du upprepa den här åtgärden och skicka alla data till samma händelsehubben.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 Om det finns redan en logg-profil, måste du först ta bort den här profilen.
@@ -53,8 +54,10 @@ Om det finns redan en logg-profil, måste du först ta bort den här profilen.
 2. I så fall använder `Remove-AzureRmLogProfile` att ta bort den.
 3. Använd `Set-AzureRmLogProfile` att skapa en profil:
 
-```
+```powershell
+
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+
 ```
 
 Regel-ID för Service Bus är en sträng med formatet: {service bus-resurs-ID} /authorizationrules/ {namn}, till exempel 
@@ -66,7 +69,7 @@ Om det finns redan en logg-profil, måste du först ta bort den här profilen.
 2. I så fall använder `azure insights logprofile delete` att ta bort den.
 3. Använd `azure insights logprofile add` att skapa en profil:
 
-```
+```azurecli-interactive
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 

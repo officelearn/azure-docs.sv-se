@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Ställ in haveriberedskap för lokala fysiska servrar till Azure
 
@@ -33,7 +33,7 @@ Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Win
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en server
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -64,7 +64,7 @@ Kontrollera att kontot har behörighet för replikering av virtuella datorer til
 
 ### <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
-Konfigurera en [Azure-nätverk](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Konfigurera en [Azure-nätverk](../virtual-network/quick-create-portal.md).
 
 - Virtuella Azure-datorer placeras i det här nätverket när de skapas efter växling vid fel.
 - Nätverket måste finnas i samma region som Recovery Services-valvet
@@ -142,7 +142,7 @@ Välj och kontrollera target-resurser.
 2. Ange distributionsmodellen som mål.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![mål](./media/tutorial-physical-to-azure/network-storage.png)
+   ![Mål](./media/tutorial-physical-to-azure/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip

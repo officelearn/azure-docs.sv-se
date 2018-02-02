@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight 
 
@@ -76,7 +76,7 @@ De tre viktiga parametrar som kan användas för konfiguration av Spark beroende
 De tre konfigurationsparametrarna kan konfigureras på klusternivå (för alla program som körs på klustret) eller kan anges för varje enskilt program.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ändra parametrarna med Ambari UI
-1. Ambari UI klickar du på **Spark**, klickar du på **Contigs**, och expandera sedan **anpassad spark-standarder**.
+1. Ambari UI klickar du på **Spark**, klickar du på **konfigurationerna**, och expandera sedan **anpassad spark-standarder**.
 
     ![Ange parametrar med Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Standardvärdena är bra att ha fyra Spark-program som körs samtidigt på klustret. Du kan ändra dessa värden i användargränssnittet, som visas i följande skärmbild:

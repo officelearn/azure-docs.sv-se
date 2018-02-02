@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela funktioner några grundläggande tekniska begrepp och komponenter, oavsett språk eller bindning som du använder. Innan du går till learning information som är specifika för ett visst språk eller bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -53,9 +53,9 @@ Den `bindings` egenskapen är där du kan konfigurera både utlösare och bindni
 
 | Egenskap | Värdetyper / | Kommentarer |
 | --- | --- | --- |
-| `type` |Sträng |Bindningstyp. Till exempel `queueTrigger`. |
+| `type` |sträng |Bindningstyp. Till exempel `queueTrigger`. |
 | `direction` |'i', 'out' |Anger om bindningen för mottagning av data i funktionen eller skicka data från funktionen. |
-| `name` |Sträng |Namnet som används för det bundna data i funktionen. Detta är ett argumentnamn; för C# JavaScript är det nyckeln i en lista med nyckel/värde. |
+| `name` |sträng |Namnet som används för det bundna data i funktionen. Detta är ett argumentnamn; för C# JavaScript är det nyckeln i en lista med nyckel/värde. |
 
 ## <a name="function-app"></a>Funktionsapp
 En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans i Azure App Service. Alla funktioner i en funktionsapp delar samma prisavtal, kontinuerlig distribution och versionen av körningsmiljön. Funktioner på flera språk kan dela appen med samma funktion. Se en funktionsapp som ett sätt att ordna och hantera dina funktioner tillsammans. 
@@ -102,7 +102,7 @@ När flera utlösande händelser inträffar snabbare än en enkeltrådig funktio
 
 ## <a name="functions-runtime-versioning"></a>Funktioner runtime versionshantering
 
-Du kan konfigurera version av körningsmiljön funktioner med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”1 ~” att appen funktionen ska använda 1 enligt dess huvudversion. Funktionen appar uppgraderas till varje ny delversion när de blir tillgängliga. Mer information, inklusive hur du visar den exakta versionen av appen funktionen finns [så avsedda för Azure Functions-runtime versioner](functions-versions.md).
+Du kan konfigurera version av körningsmiljön funktioner med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”1 ~” att appen funktionen ska använda 1 enligt dess huvudversion. Funktionen appar uppgraderas till varje ny delversion när de blir tillgängliga. Mer information, inklusive hur du visar den exakta versionen av appen funktionen finns [så avsedda för Azure Functions-runtime versioner](set-runtime-version.md).
 
 ## <a name="repositories"></a>Centrallager
 Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:
@@ -110,7 +110,7 @@ Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:
 * [Azure Functions-runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Azure Functions-portalen](https://github.com/projectkudu/AzureFunctionsPortal)
 * [Azure Functions-mallar](https://github.com/Azure/azure-webjobs-sdk-templates/)
-* [Azure WebJobs-SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
 * [Azure WebJobs-SDK-tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Bindningar

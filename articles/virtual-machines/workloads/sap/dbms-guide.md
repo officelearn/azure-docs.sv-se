@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -345,7 +345,7 @@ Följande guider är tillgängliga för avsnittet SAP-distribution på Azure:
 
 Följande information för SAP är relaterade till avsnittet SAP i Azure:
 
-| Nummer | Rubrik |
+| Nummer | Namn |
 | --- | --- |
 | [1928533] |SAP-program i Azure: produkter och Virtuella Azure-typer |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -1323,7 +1323,7 @@ På samma sätt för alla Virtuella Azure-instans typer som stöds av SAP, är d
 
 Från det här perspektivet rekommenderas att använda den nya typen D-serien eller DS-serien (i kombination med Azure Premium Storage) Azure VM, eftersom de har 60% snabbare processorer än A-serien. För den högsta RAM-minne och CPU-belastningen kan du använda G-serien och GS-serien (i kombination med Azure Premium Storage) virtuella datorer med den senaste Intel? Xeon? processor E5 v3-familjen, som har två gånger med minne och fyra gånger solid-state drive-lagring (SSD) D/DS-serien.
 
-#### <a name="storage-configuration"></a>Lagringskonfigurationen
+#### <a name="storage-configuration"></a>Lagringskonfiguration
 Eftersom SAP liveCache är baserad på SAP MaxDB teknik, Azure storage bästa praxis rekommendationer för SAP MaxDB enligt kapitel [lagringskonfiguration] [ dbms-guide-8.4.1] gäller också för SAP liveCache. 
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>Dedikerade virtuella Azure-datorn för liveCache
@@ -1360,7 +1360,7 @@ Om du vill ta reda på Windows-version som stöds för SAP Content Server på Az
 Vi rekommenderar starkt att använda den senaste versionen av Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Riktlinjer för SAP innehållsserver konfiguration för SAP installationer i virtuella Azure-datorer
-#### <a name="storage-configuration"></a>Lagringskonfigurationen
+#### <a name="storage-configuration"></a>Lagringskonfiguration
 Om du konfigurerar SAP innehållsservern för att lagra filer i databasen SAP MaxDB alla Azure-lagring best practices rekommendation för SAP MaxDB enligt kapitel [lagringskonfiguration] [ dbms-guide-8.4.1] gäller också för SAP innehållsserver scenario. 
 
 Om du konfigurerar SAP innehållsservern för att lagra filer i filsystemet, rekommenderas att använda en dedikerad logisk enhet. Med lagringsutrymmen för Windows kan du också öka logiska diskens storlek och IOPS genomströmning som beskrivs i kapitlet [programvara RAID][dbms-guide-2.2]. 
@@ -1406,7 +1406,7 @@ SAP på IBM DB2 för LUW på virtuella Microsoft Azure-tjänster stöds från oc
 Mer information om stöds SAP-produkter och Virtuella Azure-typer finns i SAP-kommentar [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 för Linux, UNIX- och riktlinjer för Windows-konfiguration för SAP installationer i virtuella Azure-datorer
-#### <a name="storage-configuration"></a>Lagringskonfigurationen
+#### <a name="storage-configuration"></a>Lagringskonfiguration
 Alla databasfiler måste lagras i NTFS-filsystemet som är baserat på direkt anslutna diskar. Diskarna monteras på Azure-dator och baseras i Azure sidan BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller hanterade diskar (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Alla typer av nätverksenheter eller fjärresurser som följande Azure Filtjänster är **inte** stöds för databasfilerna: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/Archive/2014/05/12/Introducing-Microsoft-Azure-File-Service.aspx>
@@ -1462,7 +1462,7 @@ SAP på IBM DB2 för LUW på virtuella Microsoft Azure-tjänster stöds från oc
 Mer information om stöds SAP-produkter och Virtuella Azure-typer finns i SAP-kommentar [1928533].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM DB2 för Linux, UNIX- och riktlinjer för Windows-konfiguration för SAP installationer i virtuella Azure-datorer
-#### <a name="storage-configuration"></a>Lagringskonfigurationen
+#### <a name="storage-configuration"></a>Lagringskonfiguration
 Alla databasfiler måste vara lagrad i ett filsystem som baseras på direkt anslutna diskar. Diskarna monteras på Azure-dator och baseras i Azure sidan BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller hanterade diskar (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Alla typer av nätverksenheter eller fjärresurser som följande Azure Filtjänster är **inte** stöds för databasfilerna:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/Archive/2014/05/12/Introducing-Microsoft-Azure-File-Service.aspx>

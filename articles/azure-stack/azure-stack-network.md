@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Nätverksanslutning
+# <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om Azure-stacken nätverk infrastruktur som hjälper dig att bestämma hur du ska integrera Azure Stack bäst i din befintliga nätverksmiljö. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Den här /24 (254 värd-IP)-nätverk är privat för stacken för Azure-region (
 - **Interna virtuella IP-nätverket**. A/25 nätverket att endast internt VIP för belastningsutjämnare för programvara.
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack infrastruktur för nätverk
-Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men behålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL), den förväntas inte dirigeras utöver kantlinje växlar förutom en liten intervallet samma storlek som en minst/27 nätverk som används av några av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
+Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men hålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL). Det är inte förväntas dirigeras utöver kantlinje växlar förutom ett mindre intervall samma storlek som en minst/27 nätverk som används av vissa av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
 
 ### <a name="public-infrastructure-network"></a>Infrastruktur för offentliga nätverk
-Detta/27 nätverk är det mycket små intervallet från Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registreringen till Azure och ska vara dirigerbara till nätverket för felsökning.
+Detta/27 nätverket är liten mellan Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registreringen till Azure och ska vara dirigerbara till nätverket för felsökning.
 
 ### <a name="public-vip-network"></a>Offentligt VIP-nätverk
 Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder minst 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
@@ -82,12 +82,7 @@ Du behöver göra Azure Stack tjänster tillgängliga för användare från utan
 ### <a name="ports-and-urls"></a>URL: er och portar
 Se Azure Stack-tjänster (till exempel portaler, Azure Resource Manager, DNS, osv) tillgängliga till externa nätverk, måste du tillåta inkommande trafik till dessa slutpunkter för specifika URL-adresser, portar och protokoll.
  
-I en distribution där en transparent proxy överordnad länk till en traditionell proxyserver måste du tillåta specifika portar och URL: er för utgående kommunikation. Dessa inkluderar portar och URL: er för identitet, marketplace syndikering, korrigeringsfil och uppdateringen, registrering och användningsdata.
-
-Mer information finns i:
-- [Inkommande portar och protokoll](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Utgående portar och URL: er](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta specifika portar och URL: er för både [inkommande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) och [utgående](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) kommunikation. Dessa inkluderar portar och URL: er för identitet, marketplace syndikering, korrigeringsfil och uppdateringen, registrering och användningsdata.
 
 ## <a name="next-steps"></a>Nästa steg
-[Azure Stack kantlinje anslutning](azure-stack-border-connectivity.md)
+[Kantlinje anslutning](azure-stack-border-connectivity.md)

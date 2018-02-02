@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 513855084c8b89d97b049f1df2ec24d0f9789afe
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -32,7 +32,7 @@ Datorer i din miljö kan anslutas direkt till Log Analytics eller om du redan ö
 
 ## <a name="overview"></a>Översikt
 
-![log-Analytics-Agent-Direct-Connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Innan du analysera och fungerar på insamlade data, behöver du först installera och ansluta agenter för alla datorer som du vill skicka data till logganalys-tjänsten. Du kan installera agenter på datorerna lokalt med hjälp av kommandoraden installationen eller med önskad tillstånd Configuration (DSC) i Azure Automation. 
 
@@ -42,7 +42,11 @@ Agent för Linux och Windows är inte bara för att ansluta till logganalys, det
 
 Om din IT-säkerhetsprinciper inte tillåter datorer i nätverket för att ansluta till Internet, kan agenten konfigureras för att ansluta till OMS-Gateway för att ta emot information om konfiguration och skicka insamlade data beroende på lösningen som du har aktiverat. Mer information och anvisningar om hur du konfigurerar ditt Linux- eller Windows-agenten kan kommunicera via en OMS-Gateway till Log Analytics-tjänsten finns [ansluta datorer till OMS med OMS-gatewayen](log-analytics-oms-gateway.md). 
 
-## <a name="prerequisites"></a>Krav
+> [!NOTE]
+> Agenten för Windows har endast stöd för Transport Layer Security (TLS) 1.0- och 1.1.  
+> 
+
+## <a name="prerequisites"></a>Förutsättningar
 Granska följande information för att verifiera att du uppfyller systemkraven innan du börjar.
 
 ### <a name="windows-operating-system"></a>Windows-operativsystem

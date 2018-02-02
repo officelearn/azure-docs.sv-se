@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -118,6 +118,9 @@ Du kan använda Microsoft Azure-portalen för att skapa den virtuella datorn bas
 Vi rekommenderar starkt att du utveckla den virtuella Hårddisken i molnet genom att använda Remote Desktop Protocol (RDP). Du ansluter till RDP med användarnamn och lösenord har angetts under etableringen.
 
 > [!IMPORTANT]
+> **Använd inte skivor hanteras.** Den virtuella datorn som används för att utveckla den virtuella Hårddisken till molnet måste inte baseras på diskar som hanteras som för närvarande inte stöder skapandet av en avbildning från dem.
+> Skapa den virtuella datorn i valfri funktion ändra standard för diskar hanteras.
+
 > Om du utvecklar dina VHD lokalt (vilket inte rekommenderas), se [och skapa en avbildning av virtuell dator lokalt](marketplace-publishing-vm-image-creation-on-premise.md). Hämta den virtuella Hårddisken är inte nödvändigt om du utvecklar i molnet.
 >
 >

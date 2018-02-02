@@ -3,7 +3,7 @@ title: "Förstå Azure IoT Hub jobb | Microsoft Docs"
 description: "Utvecklarhandbok - schemaläggning av jobb ska köras på flera enheter anslutna till din IoT-hubb. Jobb kan uppdatera taggar och önskade egenskaper och anropa direkt metoder på flera enheter."
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -105,7 +105,7 @@ I följande lista visar egenskaper och motsvarande beskrivningar som kan använd
 | --- | --- |
 | **jobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program som starttid (ISO 8601) för jobbet. |
-| **Sluttid** |IoT-hubb som datum (ISO 8601) för när jobbet har slutförts. Gäller endast när jobbet når tillståndet 'slutförda'. |
+| **endTime** |IoT-hubb som datum (ISO 8601) för när jobbet har slutförts. Gäller endast när jobbet når tillståndet 'slutförda'. |
 | **typ** |Typer av jobb: |
 | | **scheduledUpdateTwin**: ett jobb som används för att uppdatera en uppsättning egenskaper eller taggar. |
 | | **scheduledDeviceMethod**: ett jobb som används för att anropa en metod för enheten på en uppsättning twins för enheten. |
@@ -130,11 +130,11 @@ Andra referensavsnitten i utvecklarhandboken för IoT-hubben är:
 * [IoT-hubbslutpunkter] [ lnk-endpoints] beskriver de olika slutpunkter som varje IoT-hubb visar för körning och hanteringsåtgärder.
 * [Begränsning och kvoter] [ lnk-quotas] beskriver kvoterna som gäller för IoT-hubb-tjänsten och bandbreddsbegränsning beteende som händer när du använder tjänsten.
 * [Azure IoT-enheten och tjänsten SDK] [ lnk-sdks] Listar olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT-hubben.
-* [IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning] [ lnk-query] beskriver IoT-hubb frågespråk som du kan använda för att hämta information från IoT-hubb om enheten twins och jobb.
+* [IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning] [ lnk-query] beskriver frågespråket i IoT-hubb. Använd den här frågespråket för att hämta information från IoT-hubb om enheten twins och jobb.
 * [Stöd för IoT-hubb MQTT] [ lnk-devguide-mqtt] ger mer information om stöd för IoT-hubb för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du är intresserad av följande IoT-hubb kursen:
+Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande IoT-hubb kursen:
 
 * [Schemat och sändning jobb][lnk-jobs-tutorial]
 

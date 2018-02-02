@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -30,7 +30,7 @@ Använd den här kursen och kom igång med Azure Cosmos DB loggning via Azure-po
 
 ## <a name="what-is-logged"></a>Vad är inloggad?
 
-* Alla autentiserade REST API för SQL-begäranden är inloggad, som innehåller misslyckade begäranden på grund av behörigheter för åtkomst, systemfel eller felaktiga begäranden. Stöd för MongoDB, diagram och tabell-API: er är inte tillgänglig.
+* Alla autentiserade backend-förfrågningar (TCP/REST) loggas över alla API: er, vilket inkluderar misslyckade begäranden på grund av behörigheter för åtkomst, systemfel eller felaktiga begäranden. Stöd för användaren initieras diagram, Cassandra, och tabellen API-begäranden är inte tillgängliga.
 * Åtgärder på själva databasen, som innehåller CRUD-åtgärder på alla dokument, behållare och databaser.
 * Åtgärder på nycklar, vilket innefattar att skapa, ändra eller ta bort de här nycklarna.
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.
@@ -54,8 +54,8 @@ Den här kursen behöver du följande resurser:
     * **Arkivet till ett lagringskonto**. Om du vill använda det här alternativet behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portalen finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ instruktionerna för att skapa en Resource Manager allmänna konto. Återgå sedan till den här sidan i portalen för att markera ditt lagringskonto. Det kan ta några minuter för nyskapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Dataströmmen till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och händelsen hubb att ansluta till. Om du vill skapa ett namnområde för Händelsehubbar finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återgå sedan till den här sidan i portalen för att välja Event Hub namnområde och principen.
     * **Skicka till logganalys**.     Om du vill använda det här alternativet Använd en befintlig arbetsyta eller skapa en ny logganalys-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar loggarna i logganalys finns [visa loggar i logganalys](#view-in-loganalytics).
-    * **Logga DataPlaneRequests**. Välj det här alternativet för att logga diagnostik för SQL, diagram och tabellen API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
-    * **Logga MongoRequests**. Välj det här alternativet för att logga diagnostik för MongoDB-API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
+    * **Logga DataPlaneRequests**. Välj det här alternativet för att logga backend-begäranden från Azure Cosmos DB underliggande distribuerade plattformen för SQL, diagram, MongoDB, Cassandra och tabellen API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
+    * **Logga MongoRequests**. Välj det här alternativet för att logga användarinitierad begäranden från Azure Cosmos DB klientdelen betjänar MongoDB API-konton.  Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Mått begäranden**. Välj det här alternativet för att lagra utförliga data i [Azure mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
 
 3. Klicka på **Spara**.
@@ -416,7 +416,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | ActivityId | activityId_g | Unikt GUID för den loggade åtgärden. |
 | userAgent | userAgent_s | En sträng som anger klientanvändaragent begäran utfördes. Formatet är {användarnamn för agenten} / {version}.|
 | resourceType | ResourceType | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databas, samling, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
-| statusCode |statusCode_s | Svarsstatus för åtgärden. |
+| statuskod |statusCode_s | Svarsstatus för åtgärden. |
 | requestResourceId | Resurs-ID | Resurs-ID som rör begäran, kan peka databaseRid, collectionRid eller documentRid beroende på den åtgärd som utförs.|
 | clientIpAddress | clientIpAddress_s | Klientens IP-adress. |
 | requestCharge | requestCharge_s | Antalet RUs som används av åtgärden |

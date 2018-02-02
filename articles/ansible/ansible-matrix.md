@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: da5d1a8277d87a771b080ef9cefb3b40448d1563
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible modul och version matris
 
@@ -33,6 +33,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | azure_rm_virtualmachine                     | Ja          | Ja                         | Ja                                 | 
 | azure_rm_virtualmachine_extension           | Ja          | Ja                         | Ja                                 | 
 | azure_rm_virtualmachine_scaleset            | Ja          | Ja                         | Ja                                 | 
+| azure_rm_image                              |              | Ja                         | Ja                                 | 
 | **Nätverk**                    |           |                          |                                  | 
 | azure_rm_virtualnetwork                     | Ja          | Ja                         | Ja                                 | 
 | azure_rm_virtualnetwork_facts               | Ja          | Ja                         | Ja                                 | 
@@ -45,13 +46,16 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | azure_rm_dnsrecordset_facts                 | Ja          | Ja                         | Ja                                 | 
 | azure_rm_dnszone                            | Ja          | Ja                         | Ja                                 | 
 | azure_rm_dnszone_facts                      | Ja          | Ja                         | Ja                                 | 
-| **Storage**                    |           |                          |                                  | 
 | azure_rm_loadbalancer                       | Ja          | Ja                         | Ja                                 | 
 | azure_rm_loadbalancer_facts                 | Ja          | Ja                         | Ja                                 | 
-| azure_rm_applicationgateway                 | -            | Ja                         |                                     | 
-| azure_rm_applicationgateway_facts           | -            | -                           | Ja                                 | 
-| azure_rm_securitygroup                      | -            | -                           | Ja                                 | 
-| azure_rm_securitygroup_facts                | -            | -                           | Ja                                 | 
+| azure_rm_appgw                              | -            | -                           | Ja                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Ja                                 | 
+| azure_rm_appgwroute                         | -            | -                           | Ja                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | Ja                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | Ja                                 |
+| azure_rm_securitygroup                      | Ja          | Ja                         | Ja                                 | 
+| azure_rm_appgwroutetable_facts              | Ja          | Ja                         | Ja                                 | 
+| **Storage**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Ja          | Ja                         | Ja                                 | 
 | azure_rm_storageaccount_facts               | Ja          | Ja                         | Ja                                 | 
 | azure_rm_storageblob                        | Ja          | Ja                         | Ja                                 | 
@@ -59,7 +63,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | azure_rm_managed_disk_facts                 | Ja          | Ja                         | Ja                                 | 
 | **Behållare**                    |           |                          |                                  | 
 | azure_rm_acs                                | Ja          | Ja                         | Ja                                 | 
-| azure_rm_containerinstance                  | -            | Ja                        |                                     | 
+| azure_rm_containerinstance                  | -            | Ja                         | Ja                                 | 
 | azure_rm_containerinstance_facts            | -            | -                           | Ja                                 | 
 | azure_rm_containerregistry                  | -            | Ja                         | Ja                                 | 
 | azure_rm_containerregistry_facts            | -            | -                           | Ja                                 | 
@@ -73,7 +77,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | **Databaser**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Ja                         | Ja                                 | 
 | azure_rm_sqlserver_facts                    | -            | -                           | Ja                                 | 
-| azure_rm_sqldatabase                        | -            | -                           | Ja                                 | 
+| azure_rm_sqldatabase                        | -            | Ja                         | Ja                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Ja                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Ja                                 | 
 | azure_rm_sqlelasticpool_facts               | -            | -                           | Ja                                 | 
@@ -81,7 +85,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | azure_rm_sqlfirewallrule_facts              | -            | -                           | Ja                                 | 
 | azure_rm_mysqlserver                        | -            | Ja                         | Ja                                 | 
 | azure_rm_mysqlserver_facts                  | -            | -                           | Ja                                 | 
-| azure_rm_mysqldatabase                      | -            | -                           | Ja                                 | 
+| azure_rm_mysqldatabase                      | -            | Ja                         | Ja                                 | 
 | azure_rm_mysqldatabase_facts                | -            | -                           | Ja                                 | 
 | azure_rm_mysqlfirewallrule                  | -            | -                           | Ja                                 | 
 | azure_rm_mysqlfirewallrule_facts            | -            | -                           | Ja                                 | 
@@ -89,12 +93,17 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan etablera Azure-
 | azure_rm_mysqlconfiguration_facts           | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlserver                   | -            | Ja                         | Ja                                 | 
 | azure_rm_postgresqlserver_facts             | -            | -                           | Ja                                 | 
-| azure_rm_postgresqldatabase                 | -            | -                           | Ja                                 | 
+| azure_rm_postgresqldatabase                 | -            | Ja                         | Ja                                 | 
 | azure_rm_postgresqldatabase_facts           | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlfirewallrule             | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlfirewallrule_facts       | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Ja                                 | 
+| **Key Vault**                    |           |                          |                                  | 
+| azure_rm_keyvault                           | -            | -                           | Ja                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | Ja                                 |
+| azure_rm_keyvaultkey                        | -            | -                           | Ja                                 |
+| azure_rm_keyvaultsecret                     | -            | -                           | Ja                                 |
 
 ## <a name="introduction-to-azuremodule"></a>Introduktion till azure_module
 Den [azure_module playbook rollen](https://galaxy.ansible.com/Azure/azure_modules/) innehåller de senaste ändringarna och korrigeringarna för Azure moduler från den [devel gren av databasen som Ansible](https://github.com/ansible/ansible/tree/devel). Om du inte kan vänta på nästa version av Ansibles är installerar rollen azure_module ett bra alternativ.

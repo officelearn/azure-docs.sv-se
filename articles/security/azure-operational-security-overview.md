@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure operativ säkerhet
 Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. [Azure operativ säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) är ett ramverk som innehåller informationen som gjorts via en mängd funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program och djup medvetenhet om cyber security hotbilden i grunden.
@@ -52,11 +52,11 @@ Huvudfunktionerna i OMS tillhandahålls genom en uppsättning tjänster som kör
 ### <a name="automation"></a>Automation
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) gör det möjligt för användare att automatisera de manuella, långvariga, felbenägna och ofta återkommande uppgifter som utförs ofta i en miljö med molnet och företagets. Det sparar tid och ökar tillförlitligheten i vanliga administrativa uppgifter och schemalägger dem även så att de kan utföras automatiskt med jämna mellanrum. Du kan automatisera processer med hjälp av runbooks eller automatisera konfigurationshantering med Desired State Configuration.
 
-### <a name="backup"></a>Säkerhetskopiering
+### <a name="backup"></a>Backup
 [Azure-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) är den Azure-baserad tjänst som du kan använda för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. Finns det [Azure Backup komponenter tabellen](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Webbplatsåterställning
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) ger verksamhetskontinuitet genom att dirigera replikering av lokala virtuella och fysiska datorer till Azure, eller till en sekundär plats. Om din primära plats inte är tillgänglig görs en växling till den sekundära platsen så att användarna kan fortsätta att arbeta och sedan görs en återställning när systemen fungerar som de ska igen. Intelligent och effektiv hotidentifiering.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) ger verksamhetskontinuitet genom att dirigera replikering av lokala virtuella och fysiska datorer till Azure, eller till en sekundär plats. Om din primära plats inte är tillgänglig görs en växling till den sekundära platsen så att användarna kan fortsätta att arbeta och sedan görs en återställning när systemen fungerar som de ska igen. Använd Azure Security Center för att utföra intelligent och effektiv hotidentifiering.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) är Microsofts omfattande identitet som en tjänst (IDaaS) som:
@@ -158,5 +158,5 @@ Mogen jobbar med DevOps anta flera av följande metoder. Dessa metoder [involver
 Om du vill lära dig mer om OMS-säkerhet och granska lösningen finns i följande artiklar:
 
 - [Operations Management Suite | Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Övervaka och åtgärda säkerhetsaviseringar i Operations Management Suite säkerhet och granska lösningen](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Övervakning av resurser i Operations Management Suite säkerhet och granska lösningen](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Övervaka och åtgärda säkerhetsaviseringar i Operations Management Suite säkerhet och granska lösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Övervakning av resurser i Operations Management Suite säkerhet och granska lösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

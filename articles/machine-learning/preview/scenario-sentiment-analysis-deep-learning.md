@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Sentiment analys med djup Learning med Azure Machine Learning
 
-Sentiment analys är en välkänd uppgift i sfären av naturligt språk bearbetning. Med en uppsättning texter är syftet att avgöra sentiment av texten. Syftet med den här lösningen är att använda CNTK som serverdelen för Keras (en modell nivån bibliotek, tillhandahåller övergripande byggblock för att utveckla djup learning-modeller) och implementera sentiment analys från film granskningar.
+Sentiment analys är en välkänd uppgift i sfären av naturligt språk bearbetning. Med en uppsättning texter är syftet att avgöra sentiment av texten. Syftet med den här lösningen är att använda djupgående utbildning för att förutsäga sentiment från film granskningar.
 
 Lösningen finns på https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 

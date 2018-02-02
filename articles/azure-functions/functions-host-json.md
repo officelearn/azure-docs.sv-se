@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 58fc58049e346d60c0882a91bd04485746a15cbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
 
@@ -49,6 +49,13 @@ I följande exempel *host.json* filen har alla angivna möjliga alternativ.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -132,16 +139,16 @@ Kontroller av [provtagning funktion i Application Insights](functions-monitoring
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|IsEnabled|false|Aktiverar eller inaktiverar provtagning.| 
+|isEnabled|falskt|Aktiverar eller inaktiverar provtagning.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka provtagning börjar.| 
 
-## <a name="eventhub"></a>EventHub
+## <a name="eventhub"></a>eventHub
 
 Konfigurationsinställningar för [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>funktioner
+## <a name="functions"></a>functions
 
 En lista över funktioner som värd för jobbet ska köras.  En tom matris innebär att köra alla funktioner.  Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionen appar använda den *function.json* `disabled` egenskapen i stället för den här egenskapen i *host.json*.
 
@@ -161,6 +168,30 @@ Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mell
 }
 ```
 
+## <a name="healthmonitor"></a>healthMonitor
+
+Konfigurationsinställningar för [värden hälsoövervakning](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Egenskap  |Standard | Beskrivning |
+|---------|---------|---------| 
+|aktiverad|sant|Om funktionen är aktiverad. | 
+|healthCheckInterval|10 sekunder|Tidsintervallet mellan regelbunden hälsa kontrollerar. | 
+|healthCheckWindow|2 minuter|Ett skjutfönster tid används tillsammans med den `healthCheckThreshold` inställningen.| 
+|healthCheckThreshold|6|Maximalt antal gånger hälsotillståndskontroll kan misslyckas innan värden återvinning initieras.| 
+|counterThreshold|0.80|Tröskelvärdet som en prestandaräknare betraktas som ohälsosamt.| 
+
 ## <a name="http"></a>http
 
 Konfigurationsinställningar för [http-utlösare och bindningar](functions-bindings-http-webhook.md).
@@ -177,7 +208,7 @@ Unikt ID för en värd för jobbet. Vara kan en gemen GUID med bindestreck bort.
 }
 ```
 
-## <a name="logger"></a>Loggaren
+## <a name="logger"></a>logger
 
 Kontroller filtrering för loggar som skrivits av en [ILogger objekt](functions-monitoring.md#write-logs-in-c-functions) eller [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -224,9 +255,9 @@ Konfigurationsinställningar för [lagring-utlösare och bindningar](functions-b
 |visibilityTimeout|0|Det går inte att tidsintervallet mellan nya försök vid bearbetning av ett meddelande.| 
 |batchSize|16|Antal meddelanden i kö att hämta och bearbeta parallellt. Det högsta antalet är 32.| 
 |maxDequeueCount|5|Antal gånger för bearbetning av ett meddelande innan du flyttar till skadligt kön.| 
-|newBatchThreshold|batchSize-2|Tröskelvärdet som en ny grupp med meddelanden hämtas.| 
+|newBatchThreshold|batchSize/2|Tröskelvärdet som en ny grupp med meddelanden hämtas.| 
 
-## <a name="servicebus"></a>ServiceBus
+## <a name="servicebus"></a>serviceBus
 
 Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md).
 
@@ -270,7 +301,7 @@ Konfigurationsinställningar för loggarna som du skapar med hjälp av en `Trace
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|consoleLevel|Info|Spårning-nivå för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
+|consoleLevel|info|Spårning-nivå för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
 |fileLoggingMode|debugOnly|Spårning-nivå för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories

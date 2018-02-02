@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Använda tjänsten Azure Import/Export för offline kopia av data till Data Lake Store
 I den här artikeln får du lära dig hur att kopiera stora datamängder (> 200 GB) till ett Azure Data Lake Store med hjälp av offline kopiera metoder som den [Azure Import/Export service](../storage/common/storage-import-export-service.md). Den fil som används som exempel i den här artikeln är särskilt 339,420,860,416 byte eller om 319 GB på disken. Vi ska anropa den här filen 319GB.tsv.
 
 Tjänsten Azure Import/Export hjälper dig att överföra stora mängder data säkrare till Azure Blob storage med leverans hårddiskar till ett Azure-datacenter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du ha följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,6 +33,7 @@ Innan du börjar måste du ha följande:
 * **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Förbereder data
+
 Innan du använder tjänsten Import/Export kan dela filen ska överföras **till kopiorna som är mindre än 200 GB** i storlek. Importverktyget fungerar inte med filer som är större än 200 GB. I den här självstudiekursen kommer vi dela upp filen mängder 100 GB. Du kan göra detta med hjälp av [Cygwin](https://cygwin.com/install.html). Cygwin har stöd för Linux-kommandon. I det här fallet använder du följande kommando:
 
     split -b 100m 319GB.tsv

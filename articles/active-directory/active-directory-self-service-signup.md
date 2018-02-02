@@ -1,5 +1,5 @@
 ---
-title: "Självbetjäning eller viral registreringen i Azure Active Directory | Microsoft Docs"
+title: "Självbetjäning eller utvärderingsversioner registreringen i Azure Active Directory | Microsoft Docs"
 description: "Använd självbetjäningsregistrering i en Azure Active Directory (Azure AD)-klient"
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 Den här artikeln förklarar självbetjäningsregistrering och hur du stöd i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, se [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
@@ -46,7 +46,12 @@ Administratörer har två självbetjäning kontroller idag. De kan styra om:
 En administratör kan konfigurera de här funktionerna med följande cmdlet Set-MsolCompanySettings-parametrarna för Azure AD:
 
 * **AllowEmailVerifiedUsers** styr om en användare kan skapa eller Anslut till en ohanterad katalog. Om du anger parametern $false inga e-post verifierade användare kan ansluta till katalogen.
-* **AllowAdHocSubscriptions** styr möjligheten för användare att utföra självbetjäningsregistrering. Om du anger parametern $false kan ingen användare utföra självbetjäningsregistrering.
+* **AllowAdHocSubscriptions** styr möjligheten för användare att utföra självbetjäningsregistrering. Om du anger parametern $false kan ingen användare utföra självbetjäningsregistrering. 
+  
+  > [!NOTE]
+  > Trafikflöde och PowerApps utvärderingsversion signups inte styrs av den **AllowAdHocSubscriptions** inställningen. Mer information finns i följande artiklar:
+  > * [Hur kan jag förhindra att Mina befintliga användare börjar använda Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Flöda i din organisation frågor och svar](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Hur fungerar kontrollerna som tillsammans?
 Dessa två parametrar kan användas tillsammans för att definiera mer exakt kontroll över självbetjäningsregistrering. Till exempel följande kommando gör att användarna kan utföra självbetjäningsregistrering, men endast om de användarna som redan har ett konto i Azure AD (med andra ord användare som behöver en verifierad e-post konto skapas först kan inte utföra självbetjäningsregistrering):

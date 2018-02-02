@@ -1,6 +1,6 @@
 ---
-title: "Skapa lösningar för hantering i Operations Management Suite (OMS) | Microsoft Docs"
-description: "Hanteringslösningar utöka funktionerna i Operations Management Suite (OMS) genom att tillhandahålla paketerade hanteringsscenarier som kunder kan lägga till sina OMS-arbetsyta.  Den här artikeln innehåller information om hur du kan skapa lösningar för hantering som ska användas i din egen miljö eller göras tillgängligt för kunderna."
+title: "Skapa en management lösningsfilen i Azure | Microsoft Docs"
+description: "Management-lösningar ger paketerade hanteringsscenarier som kunder kan lägga till sina Azure-miljön.  Den här artikeln innehåller information om hur du kan skapa lösningar för hantering som ska användas i din egen miljö eller göras tillgängligt för kunderna."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Skapa en management lösningsfilen i Operations Management Suite (OMS) (förhandsgranskning)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en management lösningsfilen i Azure (förhandsversion)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.  
+> Den här är dokumentationen preliminär för att skapa lösningar för hantering i Azure som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.  
 
-Lösningar för hantering i Operations Management Suite (OMS) implementeras som [Resource Manager-mallar](../azure-resource-manager/resource-manager-template-walkthrough.md).  Aktiviteten huvudsakliga Lär dig hur du skapar hanteringslösningar learning så [skapar en mall](../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unik information om mallar som används för lösningar och hur du konfigurerar vanliga lösning resurser.
+Lösningar för hantering i Azure implementeras som [Resource Manager-mallar](../azure-resource-manager/resource-manager-template-walkthrough.md).  Aktiviteten huvudsakliga Lär dig hur du skapar hanteringslösningar learning så [skapar en mall](../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unik information om mallar som används för lösningar och hur du konfigurerar vanliga lösning resurser.
 
 
 ## <a name="tools"></a>Verktyg
@@ -53,7 +53,8 @@ Den grundläggande strukturen i en fil för management-lösning är detsamma som
 ## <a name="parameters"></a>Parametrar
 [Parametrarna](../azure-resource-manager/resource-group-authoring-templates.md#parameters) är värden som du behöver från användaren när de installerar hanteringslösningen.  Det finns standardparametrar som har alla lösningar och du kan lägga till ytterligare parametrar som krävs för din lösning.  Hur användare ange parametervärden när de installerar lösningen beror på en viss parameter och hur lösningen installeras.
 
-När en användare installerar din lösning för hantering via den [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) eller [Azure-snabbstartsmallar](operations-management-suite-solutions.md#finding-and-installing-management-solutions) uppmanas de att välja en [OMS-arbetsytan och Automation-kontot](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Dessa används för att fylla i värdena för var och en av parametrarna som standard.  Användaren uppmanas inte att direkt ange värden för parametrarna standard, men de uppmanas att ange värden för alla ytterligare parametrar.
+När en användare installerar din lösning för hantering via den [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) eller [Azure-snabbstartsmallar](operations-management-suite-solutions.md#finding-and-installing-management-solutions) uppmanas de att välja en [logganalys-arbetsytan och automatisering kontot](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Dessa används för att fylla i värdena för var och en av parametrarna som standard.  Användaren uppmanas inte att direkt ange värden för parametrarna standard, men de uppmanas att ange värden för alla ytterligare parametrar.
+
 
 När användaren installerar lösningen [en annan metod](operations-management-suite-solutions.md#finding-and-installing-management-solutions), måste de ange ett värde för alla parametrar som standard och alla ytterligare parametrar.
 
@@ -168,8 +169,9 @@ I så fall måste du referera till variabelvärden genom lösningen med syntax *
 ### <a name="dependencies"></a>Beroenden
 Den **dependsOn** element anger en [beroende](../azure-resource-manager/resource-group-define-dependencies.md) på en annan resurs.  När lösningen har installerats skapas en resurs tills alla dess beroenden har skapats.  Till exempel din lösning kan [startar en runbook](operations-management-suite-solutions-resources-automation.md#runbooks) när den är installerad med hjälp av en [jobbet resurs](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Resursen jobbet är beroende av resursen runbook för att se till att runbooken har skapats innan jobbet har skapats.
 
-### <a name="oms-workspace-and-automation-account"></a>OMS-arbetsytan och Automation-konto
-Av hanteringslösningar kräver en [OMS-arbetsytan](../log-analytics/log-analytics-manage-access.md) innehåller vyer och en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview) ska innehålla runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren kommer [ange arbetsytan och kontot](operations-management-suite-solutions.md#oms-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du överväga följande punkter.
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsyta och Automation-konto
+Av hanteringslösningar kräver en [logganalys-arbetsytan](../log-analytics/log-analytics-manage-access.md) innehåller vyer och en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview) ska innehålla runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren kommer [ange arbetsytan och kontot](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du överväga följande punkter.
+
 
 ## <a name="solution-resource"></a>Lösning för resurs
 Varje lösning kräver att en resurs i den **resurser** element som definierar själva lösningen.  Det har en typ av **Microsoft.OperationsManagement/solutions** och har följande struktur. Detta inkluderar [standardparametrar](#parameters) och [variabler](#variables) som vanligtvis används för att definiera egenskaperna för lösningen.
@@ -227,7 +229,7 @@ Den **plan** entiteten av lösningen resursen har egenskaper i följande tabell.
 | namn |Namnet för lösningen. |
 | version |Version av lösningen som bestäms av författaren. |
 | produkt |Unik sträng som identifierar lösningen. |
-| Publisher |Utgivaren av lösningen. |
+| publisher |Utgivaren av lösningen. |
 
 
 

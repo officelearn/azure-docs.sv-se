@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -36,7 +36,7 @@ Den här artikeln beskriver hur du skapar, ändra och ta bort virtuella nätverk
 
 Innan du börjar de uppgifter som beskrivs i den här artikeln måste uppfylla följande krav:
 
-- Om du inte har använt för att arbeta med virtuella nätverk, rekommenderar vi att du läser övningen i [skapa ditt första Azure-nätverk](virtual-network-get-started-vnet-subnet.md). Den här övningen hjälper dig att bekanta dig med virtuella nätverk.
+- Om du inte har använt för att arbeta med virtuella nätverk, rekommenderar vi att du läser övningen i [skapa ditt första Azure-nätverk](quick-create-portal.md). Den här övningen hjälper dig att bekanta dig med virtuella nätverk.
 - Mer information om begränsningar för virtuella nätverk, granska [Azure gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Logga in på Azure-portalen, Azure kommandoradsverktyget (Azure CLI) eller Azure PowerShell med hjälp av Azure-konto. Om du inte har ett Azure-konto kan du registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du planerar att använda PowerShell-kommandon för att slutföra de uppgifter som beskrivs i den här artikeln, måste du först [installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Se till att du har den senaste versionen av Azure PowerShell-cmdlets som är installerad. Om du vill få hjälp med PowerShell-kommandon i exemplen, ange `get-help <command> -full`.
@@ -57,7 +57,7 @@ Skapa ett virtuellt nätverk:
         - 255.255.255.255/32 (Broadcast)
         - 127.0.0.0/8 (Loopback)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (interna DNS)
+        - 168.63.129.16/32 (Internal DNS)
 
       Även om du kan definiera bara ett adressutrymme när du skapar det virtuella nätverket, kan du lägga till flera adressutrymmen när det virtuella nätverket har skapats. Information om hur du lägger till ett adressutrymme för ett befintligt virtuellt nätverk finns [Lägg till eller ta bort ett adressutrymme](#add-address-spaces) i den här artikeln.
 
@@ -82,7 +82,7 @@ Skapa ett virtuellt nätverk:
 |Verktyget|Kommando|
 |---|---|
 |Azure CLI|[Skapa AZ network vnet](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Ny AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>Visa virtuella nätverk och inställningar
 
@@ -127,7 +127,7 @@ Du kan lägga till och ta bort adressutrymmen för ett virtuellt nätverk. Ett a
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (interna DNS)
+- 168.63.129.16/32 (Internal DNS)
 
 Lägga till eller ta bort ett adressutrymme:
 
@@ -189,12 +189,12 @@ Du kan ta bort ett virtuellt nätverk endast om det finns inga resurser som är 
 |Verktyget|Kommando|
 |---|---|
 |Azure CLI|[ta bort Azure-nätverk-vnet](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Ta bort-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill skapa en virtuell dator och koppla den till ett virtuellt nätverk, se [skapa ett virtuellt nätverk och ansluta virtuella datorer](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Om du vill skapa en virtuell dator och koppla den till ett virtuellt nätverk, se [skapa ett virtuellt nätverk och ansluta virtuella datorer](quick-create-portal.md#create-virtual-machines).
 - Om du vill filtrera nätverkstrafiken mellan undernät i ett virtuellt nätverk finns [skapa nätverkssäkerhetsgrupper](virtual-networks-create-nsg-arm-pportal.md).
 - To-peer-ett virtuellt nätverk till ett annat virtuellt nätverk, se [skapa ett virtuellt nätverk som peering](virtual-network-create-peering.md#portal).
 - Mer information om alternativ för att ansluta ett virtuellt nätverk till ett lokalt nätverk, se [om VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Överföra filer med IoT-hubb
 
@@ -96,7 +96,7 @@ Följande referensavsnitt ge mer information om hur du överför filer från en 
 
 ## <a name="file-upload-notifications"></a>Filen överför meddelanden
 
-När en enhet meddelar IoT-hubb som en överföringen är klar, kan du kan också IoT-hubb generera ett meddelande som innehåller namn och lagring platsen för filen.
+När en enhet meddelar IoT-hubb som en överföringen är klar, du kan också genererar ett meddelande som innehåller namn och lagring platsen för filen IoT-hubb.
 
 Enligt beskrivningen i [slutpunkter][lnk-endpoints], IoT-hubb levererar filen överför meddelanden via en slutpunkt för service-riktade (**/messages/servicebound/fileuploadnotifications**) som meddelanden. Receive-semantik för filen överför meddelanden är desamma som för meddelanden moln till enhet och har samma [meddelandet livscykel][lnk-lifecycle]. Varje meddelande som hämtas från filen överför aviseringsslutpunkten är en JSON-post med följande egenskaper:
 
@@ -153,7 +153,7 @@ Nu du har lärt dig hur du överför filer från enheter med hjälp av IoT-hubb,
 * [Anropa en metod som är direkt på en enhet][lnk-devguide-directmethods]
 * [Schema-jobb på flera enheter][lnk-devguide-jobs]
 
-Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du är intresserad av följande IoT-hubb kursen:
+Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande IoT-hubb kursen:
 
 * [Hur du överför filer från enheter till molnet med IoT-hubb][lnk-fileupload-tutorial]
 

@@ -12,19 +12,19 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/30/2018
 ms.author: sethm;shvija
-ms.openlocfilehash: 4cc9a0b9eaabb15a5a316e094deb178ef2219692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16fafd8f786f86dfbe701a8d4a61ad6b261b1590
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Händelsehubbar med nav- och konsumenten händelsegruppen med en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde av typen Event Hubs, med en händelsehubb och en konsumentgrupp. Artikeln visar hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
+Den här artikeln visar hur du använder en Azure Resource Manager-mall för att skapa ett namnområde av typen [Händelsehubbar](event-hubs-what-is-event-hubs.md), med en händelsehubb och en konsumentgrupp. Artikeln visar hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
 Den fullständiga mallen finns i [NAV- och konsumenten grupp händelsemallen] [ Event Hub and consumer group template] på GitHub.
 
@@ -34,20 +34,21 @@ Den fullständiga mallen finns i [NAV- och konsumenten grupp händelsemallen] [ 
 > 
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
-Med den här mallen distribuerar du ett Händelsehubbar namnområde med en händelsehubb och en konsumentgrupp.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) är en tjänst för händelsebearbetning som används för att tillhandahålla en händelse- och telemetriingång till Azure i massiv skala med kort svarstid och hög tillförlitlighet.
+Med den här mallen kan du distribuera ett Händelsehubbar namnområde med en händelsehubb och en konsumentgrupp.
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
 [![Distribuera till Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametrar
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar baserat på projektet som du distribuerar eller baserat på miljön som du distribuerar. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärdet i mallen definierar de resurser som har distribuerats.
+
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Du bör definiera en parameter för värden som varierar baserat på projektet som du distribuerar eller baserat på miljön som du distribuerar. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärdet i mallen definierar de resurser som har distribuerats.
 
 Mallen definierar följande parametrar:
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
+
 Namnet på namnområdet för Event Hubs som ska skapas.
 
 ```json
@@ -57,6 +58,7 @@ Namnet på namnområdet för Event Hubs som ska skapas.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
+
 Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 
 ```json
@@ -66,6 +68,7 @@ Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 ```
 
 ### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+
 Namnet på konsumentgrupp som skapats för händelsehubben.
 
 ```json
@@ -75,6 +78,7 @@ Namnet på konsumentgrupp som skapats för händelsehubben.
 ```
 
 ### <a name="apiversion"></a>apiVersion
+
 API-versionen av mallen.
 
 ```json
@@ -84,7 +88,8 @@ API-versionen av mallen.
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar ett namnområde av typen **EventHubs**, med en händelsehubb och en konsumentgrupp.
+
+Skapar ett namnområde av typen **EventHubs**, med en händelsehubb och en konsumentgrupp:
 
 ```json
 "resources":[  
@@ -128,21 +133,25 @@ Skapar ett namnområde av typen **EventHubs**, med en händelsehubb och en konsu
 ```
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)

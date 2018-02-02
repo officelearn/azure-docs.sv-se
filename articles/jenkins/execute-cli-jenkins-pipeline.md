@@ -15,17 +15,17 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuera till Azure App Service med Jenkins och Azure CLI
-Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). I den här självstudiekursen skapar du en CI/CD-pipeline på en Azure VM att:
+Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). I den här självstudien skapar du en CI/CD-pipeline på en virtuell Azure-dator och lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator Jenkins
+> * Skapa en virtuell dator i Jenkins
 > * Konfigurera Jenkins
 > * Skapa en webbapp i Azure
 > * Förbereda en GitHub-databas
@@ -56,13 +56,13 @@ sudo apt-get install -y maven
 Azure autentiseringsuppgifter krävs för att köra Azure CLI.
 
 * I instrumentpanelen Jenkins klickar du på **autentiseringsuppgifter -> System ->**. Klicka på **globala credentials(unrestricted)**.
-* Klicka på **lägga till autentiseringsuppgifter** att lägga till en [Microsoft Azure-tjänstens huvudnamn](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) genom att fylla i prenumerations-ID, klient-ID, Klienthemligheten och OAuth 2.0-Token för slutpunkt. Ange ett ID för användning i senare steg.
+* Klicka på **lägga till autentiseringsuppgifter** att lägga till en [Microsoft Azure-tjänstens huvudnamn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) genom att fylla i prenumerations-ID, klient-ID, Klienthemligheten och OAuth 2.0-Token för slutpunkt. Ange ett ID för användning i senare steg.
 
 ![Lägga till autentiseringsuppgifter](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Skapa en Azure App Service för att distribuera Java-webbapp
 
-Skapa en Azure App Service-plan med den **lediga** priser nivå med hjälp av den [az programtjänstplan skapa](/cli/azure/appservice/plan#create) CLI-kommando. Programtjänstplan definierar de fysiska resurserna som används som värd för dina appar. Alla program som har tilldelats en programtjänstplan dela dessa resurser, så att du kan spara kostnader när värd för flera appar. 
+Skapa en Azure App Service-plan med den **lediga** priser nivå med hjälp av den [az programtjänstplan skapa](/cli/azure/appservice/plan#az_appservice_plan_create) CLI-kommando. Programtjänstplan definierar de fysiska resurserna som används som värd för dina appar. Alla program som har tilldelats en programtjänstplan dela dessa resurser, så att du kan spara kostnader när värd för flera appar. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -121,7 +121,7 @@ När web app definitionen är klar, visas Azure CLI information liknar följande
 
 ### <a name="configure-java"></a>Konfigurera Java 
 
-Ställa in Java runtime-konfiguration som din app behöver med den [uppdatering az apptjänst web-config](/cli/azure/appservice/web/config#update) kommando.
+Ställa in Java runtime-konfiguration som din app behöver med den [uppdatering az apptjänst web-config](/cli/azure/appservice/web/config#az_appservice_web_config_update) kommando.
 
 Följande kommando konfigurerar webbprogram för att köra på en senaste Java 8 JDK och [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -167,7 +167,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="verify-your-web-app"></a>Kontrollera ditt webbprogram
 Om du vill verifiera WAR distribuerats filen till ditt webbprogram. Öppna en webbläsare:
 
-* Gå till http://&lt;programnamn >.azurewebsites.net/api/calculator/ping  
+* Go to http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
 Du ser:
 
         Welcome to Java Web App!!! This is updated!
@@ -225,7 +225,7 @@ Web App på Linux stöder olika sätt att göra distribution, vilket är att anv
 Du har konfigurerat en Jenkins pipeline som checkar ut källkoden i GitHub-repo i den här självstudiekursen. Kör Maven för att skapa en war-fil och sedan använder Azure CLI för att distribuera till Azure App Service. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator Jenkins
+> * Skapa en virtuell dator i Jenkins
 > * Konfigurera Jenkins
 > * Skapa en webbapp i Azure
 > * Förbereda en GitHub-databas

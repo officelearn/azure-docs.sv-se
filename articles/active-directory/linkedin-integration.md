@@ -1,45 +1,58 @@
 ---
-title: Konfigurera LinkedIn-integrering i Azure AD | Microsoft Docs
-description: "Beskriver hur du aktiverar eller inaktiverar LinkedIn-integrering för Microsoft-appar i Azure Active Directory."
+title: "Aktivera eller inaktivera LinkedIn-integrering för Office-program i Azure Active Directory | Microsoft Docs"
+description: "Beskriver hur du aktiverar eller inaktiverar LinkedIn-integrering för Microsoft-appar i Azure Active Directory"
 services: active-directory
-author: jeffgilb
+author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 15c161542d6826e6aeb5f708a0d9c3fa1f1885e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Aktivera LinkedIn-integrering i Azure Active Directory
-Aktivera LinkedIn-integrering kan användarna åtkomst till både offentliga LinkedIn-data och, om företaget väljer att deras personliga LinkedIn-nätverket från Microsoft-appar. Varje användare kan välja separat ansluta sitt arbetskonto till deras LinkedIn-konto.
-
-### <a name="linkedin-integration-from-your-end-users-perspective"></a>LinkedIn integration från dina slutanvändare perspektiv
-När slutanvändare i din organisation ansluter sina LinkedIn-konton till sina arbetskonton, är de lättare identifiera de personer som de arbetar med inom och utanför organisationen. Ansluta de två kontona kan användarens LinkedIn-anslutningar och data för användarprofiler som ska användas i Microsoft-appar som din organisation, men de kan alltid välja genom att ta bort behörigheten för LinkedIn att dela data. Integrationen använder också offentligt tillgängliga profilinformation och användarna kan välja om du vill dela sina offentliga profil- och med Microsoft-program via LinkedIn sekretessinställningar.
-
->[!NOTE]
-> Aktiverar LinkedIn-integrering i Azure AD kan appar och -tjänster åtkomst till vissa av dina slutanvändare information. Läs den [sekretesspolicy för Microsoft](https://privacy.microsoft.com/privacystatement/) lära dig mer om överväganden för sekretess när du aktiverar LinkedIn-integrering i Azure AD. 
-
-## <a name="enable-linkedin-integration"></a>Aktivera LinkedIn-integrering
-LinkedIn-integrering för företag är aktiverad som standard i Azure AD. Så, när den här funktionen görs tillgänglig för din klient, alla användare i din organisation kan se LinkedIn-funktioner och -profiler. Om du aktiverar LinkedIn-integrering kan användare i din organisation använder LinkedIn-funktioner i Microsoft-tjänster, till exempel visa profiler när du får ett e-postmeddelande i Outlook. Inaktiverar den här funktionen förhindrar åtkomst till LinkedIn-funktioner och stoppar användaranslutningar för kontot och Datadelning mellan LinkedIn och din organisation via Microsoft-tjänster.
+# <a name="linkedin-integration-for-office-applications"></a>LinkedIn-integrering för Office-program
+Den här artikeln förklarar hur du begränsa antalet användare som LinkedIn-integrering finns i Azure Active Directory (AD Azure). LinkedIn-integrering är aktiverad som standard när du har lagt till din klient, som ger användare åtkomst till offentliga LinkedIn-data i några av sina Microsoft-appar. Varje användare kan oberoende av varandra välja att ansluta sina arbets- eller skolkonto konto till deras LinkedIn-konto.
 
 > [!IMPORTANT]
-> Den här funktionen är inte tillgänglig för gå-lokala och statliga myndigheter innehavare. Dessutom Azure AD uppdaterar tjänsten, till exempel LinkedIn integrationsmöjligheter distribueras inte till alla Azure-klienter på samma gång. Du kan inte aktivera LinkedIn-integrering med Azure AD förrän den här funktionen har återställts till din Azure-klient.
+> LinkedIn integration distribueras inte till alla Azure AD-klienter på samma gång. När den är distribuerat till din Azure-klient, är LinkedIn-integrering aktiverad som standard. LinkedIn-integrering är inte tillgänglig för gå-lokala och statliga myndigheter innehavare. 
 
-1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/) med ett konto som är en global administratör för katalogen.
+## <a name="linkedin-integration-from-the-user-perspective"></a>LinkedIn integration ur användarens perspektiv
+När användarna i din organisation ansluter sina LinkedIn konto till sitt arbete eller skola, [de tillåta LinkedIn att tillhandahålla data](https://www.linkedin.com/help/linkedin/answer/84077) som ska användas i Microsoft-appar och tjänster som din organisation tillhandahåller. [Användare kan koppla konton](https://www.linkedin.com/help/linkedin/answer/85097), som tar bort behörigheten för LinkedIn att dela data med Microsoft. LinkedIn integration använder offentligt tillgängliga LinkedIn-profilinformation. [Användarna kan styra hur sina egna LinkedIn-profilen visas](https://www.linkedin.com/help/linkedin/answer/83) med LinkedIn sekretessinställningar, till exempel om deras profil kan visas i Microsoft-appar.
+
+## <a name="privacy-considerations"></a>Överväganden för sekretess
+Aktiverar LinkedIn-integrering i Azure AD kan Microsoft-appar och -tjänster åtkomst till vissa av dina användare LinkedIn information. Läs den [sekretesspolicy för Microsoft](https://privacy.microsoft.com/privacystatement/) lära dig mer om överväganden för sekretess när du aktiverar LinkedIn-integrering i Azure AD. 
+
+## <a name="manage-linkedin-integration"></a>Hantera LinkedIn-integrering
+LinkedIn-integrering för företag är aktiverad som standard i Azure AD. Om du aktiverar LinkedIn-integrering kan alla användare i din organisation använder LinkedIn-funktioner i Microsoft-tjänster, till exempel visa LinkedIn-profiler i Outlook. Inaktivera LinkedIn integration tar bort LinkedIn-funktioner från Microsoft-appar och tjänster och stoppar Datadelning mellan LinkedIn och din organisation via Microsoft-tjänster.
+
+### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Aktivera eller inaktivera LinkedIn-integrering för din organisation i Azure-portalen
+
+1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-klient.
 2. Välj **användare och grupper**.
 3. På den **användare och grupper** bladet väljer **användarinställningar**.
-4. Under **LinkedIn Integration**, Välj Ja eller Nej för att aktivera eller inaktivera LinkedIn-integration.
+4. Under **LinkedIn Integration**väljer **Ja** eller **nr** att aktivera eller inaktivera LinkedIn-integration.
    ![Aktivera LinkedIn-integrering](./media/linkedin-integration/LinkedIn-integration.PNG)
+
+### <a name="enable-or-disable-linkedin-integration-for-your-organizations-office-2016-apps-using-group-policy"></a>Aktivera eller inaktivera LinkedIn-integrering för din organisation Office 2016 appar med hjälp av Grupprincip
+
+1. Hämta den [filer för Office 2016 administrativa mallar (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
+2. Extrahera den **ADMX** filer och kopiera dem till din **centrallager**.
+3. Öppna Grupprinciphantering.
+4. Skapa ett grupprincipobjekt med följande inställning: **Användarkonfiguration** > **Administrationsmallar** > **Microsoft Office 2016**  >  **Diverse** > **möjliggör Integration LinkedIn**.
+5. Välj **aktiverat** eller **inaktiverade**.
+  * När principen är **aktiverad**, **visa LinkedIn-funktioner i Office-program** hittades i dialogrutan Alternativ för Office 2016 är aktiverad. Det innebär också att användare i organisationen kan använda LinkedIn-funktionerna i Office-programmen.
+  * När principen är **inaktiverad**, **visa LinkedIn-funktioner i Office-program** hittades i alternativen för Office 2016 dialogrutan anges till inaktiverat tillstånd och slutanvändarna kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina program för Office 2016. 
+
+Den här principen påverkar endast Office 2016 appar för en lokal dator. Användare kan se LinkedIn-funktioner i profilen kort i Office 365, även om de inaktivera LinkedIn i sina appar för Office 2016. 
 
 ### <a name="learn-more"></a>Läs mer 
 * [LinkedIn information och funktioner i Microsoft-appar](https://go.microsoft.com/fwlink/?linkid=850740)
@@ -47,6 +60,6 @@ LinkedIn-integrering för företag är aktiverad som standard i Azure AD. Så, n
 * [LinkedIn hjälp och support](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan använda följande länk för att aktivera eller inaktivera LinkedIn-integrering med Azure AD från Azure portal:
+Du kan använda följande länk för att visa din aktuella LinkedIn-integreringsinställningen i Azure-portalen:
 
 [Konfigurera LinkedIn-integrering](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 

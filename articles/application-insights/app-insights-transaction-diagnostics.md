@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8c1d8600b7f4aaa1e95f4acfbbdd55fdbfebb8fb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig mellan olika komponenter transaktion diagnostik
 
@@ -26,7 +26,7 @@ Förhandsgranskningen introducerar en ny enhetlig diagnostik-miljö som korreler
 
 ## <a name="what-does-component-mean-in-the-context-of-application-insights"></a>Vad innebär komponent i samband med Application Insights?
 
-Komponenter är oberoende av varandra distribuerbara delar i tillämpningsprogrammet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller tillgång till telemetri som genereras av dessa programkomponenter. 
+Komponenter är oberoende av varandra distribuerbara delar i tillämpningsprogrammet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller tillgång till telemetri som genereras av dessa programkomponenter.
 
 * Komponenter som skiljer sig från ”observerade” externa beroenden, till exempel SQL, EventHub etc. som team/organisationen inte kanske har åtkomst till (kod eller telemetri).
 * Komponenterna köras i valfritt antal instanser för server-roll-behållare.
@@ -40,11 +40,11 @@ Aktivera ”Unified information: E2E transaktion diagnostik” från den [förha
 
 ![Aktivera förhandsgranskning](media/app-insights-e2eTxn-diagnostics/previews.png)
 
-Den här förhandsgranskningen är tillgänglig för serversidan begäranden, beroenden och undantag. Du kan komma åt den nya upplevelsen från **sökresultat**, **prestanda**, eller **fel** prioritering upplevelser. Förhandsgranskningen ersätter motsvarande klassiska information blad. 
+Den här förhandsgranskningen är tillgänglig för serversidan begäranden, beroenden och undantag. Du kan komma åt den nya upplevelsen från **sökresultat**, **prestanda**, eller **fel** prioritering upplevelser. Förhandsgranskningen ersätter motsvarande klassiska information blad.
 
 ![Prestandaprover](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
 
-## <a name="transaction-diagnostics-experience"></a>Transaktionen diagnostik upplevelse 
+## <a name="transaction-diagnostics-experience"></a>Transaktionen diagnostik upplevelse
 Den här vyn har tre viktiga delar: en transaktion mellan komponent diagram, en tidssekvens lista över all telemetri från en viss komponent åtgärd och informationsfönstret för alla valda telemetri objekt till vänster.
 
 ![Viktiga delar](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
@@ -77,6 +77,10 @@ Det här fönstret visar information för de valda objekten från någon av två
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler och snapshot-felsökare
 
 [Application Insights profiler](app-insights-profiler.md) eller [ögonblicksbild felsökare](app-insights-snapshot-debugger.md) hjälp med diagnostiken i koden nivå av prestanda och fel. Du kan se profiler-spårningar eller ögonblicksbilder från alla komponenter med en enda på med den här miljön.
+
+Om du inte kunde hämta Profiler fungerar, kontakta**serviceprofilerhelp@microsoft.com**
+
+Om du inte kunde hämta ögonblicksbild felsökare fungerar, kontakta**snapshothelp@microsoft.com**
 
 ![Felsökare integrering](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

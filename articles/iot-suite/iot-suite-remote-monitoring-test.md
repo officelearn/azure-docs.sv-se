@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testa din lösning med simulerade enheter
 
@@ -77,6 +77,10 @@ I den här guiden får du lära dig hur man:
 > * Simulera anpassade beteende
 > * Lägga till en ny enhet på instrumentpanelen
 > * Skicka telemetri om anpassade från en befintlig typ av enhet
+
+Följande videoklipp visar en genomgång av simulerade och verkliga enheter som ansluter till den fjärranslutna övervakningslösning:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

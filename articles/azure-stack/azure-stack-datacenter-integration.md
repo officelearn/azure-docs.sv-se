@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integrering överväganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -27,9 +27,7 @@ Om du är intresserad av en Azure-stacken integrerat system, bör du förstå n�
 > [!NOTE]
 > Azure-stacken system med flera noder kan endast köpas från auktoriserade maskinvaruleverantörer. 
 
-Att distribuera Azure-stacken som det finns en uppsättning beslut som du behöver göra korrekt integrera Azure stacken med din miljö. Du måste ge den här informationen till din leverantör under planeringsprocessen och vara klar för maskinvaruleverantören innan distributionen startar för att gå smidigt och snabbt processen.
-
-Adressintervall upplysningar över nätverk, säkerhet och identitetsinformation med många viktiga beslut som kan kräva att information från många olika områden och beslutsfattare. Därför kanske du måste dra in personer från flera team i din organisation så att du har all nödvändig information som är klar innan du påbörjar distributionen. Det hjälper dig för att tala med din maskinvaruleverantör vid insamling av den här informationen som de kan ha råd bra att fattar ditt beslut.
+Du måste förse din leverantör planeringsinformation innan distribution startas för att gå smidigt och snabbt processen för att distribuera Azure-stacken. Adressintervall upplysningar över nätverk, säkerhet och identitetsinformation med många viktiga beslut som kan kräva att information från många olika områden och beslutsfattare. Därför kanske du måste dra in personer från flera team i din organisation så att du har all nödvändig information som är klar innan du påbörjar distributionen. Det hjälper dig för att tala med din maskinvaruleverantör vid insamling av den här informationen som de kan ha råd bra att fattar ditt beslut.
 
 Du kan behöva göra vissa före distributionen konfigurationsändringar i din nätverksmiljö när du undersöker och samla in nödvändig information. Det kan vara att reservera IP-adressutrymmen för Azure-stacken lösningen, hur du konfigurerar dina routrar, växlar och brandväggar för att förbereda för anslutningen till de nya Azure-stacken lösning växlarna. Se till att ha ämne området experten sida upp till hjälpa dig med planeringen.
 
@@ -38,7 +36,7 @@ Azure-stacken är ett förseglat system där infrastrukturen som är låst både
 
 För dagliga hantering och åtgärder finns det ingen obegränsad administratörsåtkomst till infrastrukturen. Azure Stack-operatorer måste hantera systemet via administratörsportalen eller via Azure Resource Manager (via PowerShell eller REST API). Det finns ingen åtkomst till datorn av andra hanteringsverktyg, till exempel Hyper-V Manager eller hanteraren för redundanskluster. Program från andra tillverkare (till exempel agenter) kan inte installeras i komponenterna i Azure Stack-infrastruktur för att skydda datorn. Samverkan med externa hanterings- och säkerhetsprogramvara görs via PowerShell eller REST API.
 
-När en högre nivå av åtkomst krävs för att felsöka problem som inte är löst aviseringen medling steg måste du arbeta med stöd för. Det finns en metod för att tillhandahålla tillfällig fullständig administratörsåtkomst till systemet för att utföra mer avancerade åtgärder via Support. 
+När en högre nivå av åtkomst krävs för att felsöka problem som inte är löst aviseringen medling steg måste du arbeta med Microsoft-supporten. Det finns en metod för att tillhandahålla tillfällig fullständig administratörsåtkomst till systemet för att utföra mer avancerade åtgärder via support. 
 
 ## <a name="identity-considerations"></a>Identity-överväganden
 
@@ -179,7 +177,10 @@ För att replikera data till en sekundär plats och dirigera programmet redundan
 > [!IMPORTANT]
 > Vid den första versionen av integrerade system ska vi stöder skydd tekniker som arbetar på gästnivå för en virtuell IaaS-dator. Du kan inte installera agenter på underliggande infrastruktur-servrar.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="learn-more"></a>Läs mer
 
 - Information om användningsområden, köpa, partners och OEM maskinvaruleverantörer finns i [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
 - Information om plan och geo tillgänglighet för Azure-stacken integrerade system finns i faktabladet: [Azure stacken: ett tillägg för Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Nästa steg
+[Azure Stack anslutning distributionsmodeller](azure-stack-connection-models.md)

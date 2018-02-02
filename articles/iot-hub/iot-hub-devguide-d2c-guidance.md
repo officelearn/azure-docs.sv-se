@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Vägledning för enhet till moln kommunikation
 Skicka information från appen enhet till lösningens serverdel, IoT-hubb visar när tre alternativ:
@@ -34,10 +34,10 @@ Här följer en detaljerad jämförelse av olika kommunikationsalternativen enhe
 | Scenario | Telemetri tidsserier och aviseringar. Till exempel 256 KB sensor databatchar skickas var femte minut. | Tillgängliga funktioner och -villkor. Till exempel aktuell enhet anslutningsläget, till exempel mobilnät eller Wi-Fi. Synkroniserar tidskrävande arbetsflöden, till exempel konfiguration och programvaruuppdateringar. | Mediefiler. Stora (vanligtvis komprimerade) telemetri batchar. |
 | Lagring och hämtning | Lagras tillfälligt i IoT Hub, upp till 7 dagar. Sekventiell läsning. | Lagras av IoT-hubb i dubbla för enheten. Hämta med hjälp av den [IoT-hubb frågespråket][lnk-query]. | Lagras i Azure Storage-konto för användaren. |
 | Storlek | Upp till 256 KB-meddelanden. | Maximal rapporterade egenskaper storleken är 8 KB. | Maximal filstorlek som stöds av Azure Blob Storage. |
-| frekvens | Hög. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Medel. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Låg. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. |
+| Frekvens | Hög. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Medel. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. | Låg. Mer information finns i [IoT-hubb begränsar][lnk-quotas]. |
 | Protokoll | Tillgängligt på alla protokoll. | Tillgängligt med MQTT eller AMQP. | Tillgängliga när du använder alla protokoll, men kräver HTTPS på enheten. |
 
-Det är möjligt att ett program kräver att både skicka information som en telemetri tidsserie eller meddela och göra den tillgänglig i enheten dubbla. I det här scenariot kan du välja något av följande alternativ:
+Ett program kan behöva skicka information både som en telemetri tidsserier eller en varning och göra den tillgänglig i enheten dubbla. I det här scenariot kan du välja något av följande alternativ:
 
 * Appen enheten skickar meddelandet enhet till moln och rapporterar en Egenskapsändring.
 * Lösningens serverdel kan lagra informationen på den enheten dubbla taggar när den tar emot meddelandet.

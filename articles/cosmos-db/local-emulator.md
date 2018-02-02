@@ -4,7 +4,7 @@ description: "Med Azure Cosmos DB-emulatorn kan du utveckla och testa programmet
 services: cosmos-db
 documentationcenter: 
 keywords: Azure Cosmos DB-emulatorn
-author: arramac
+author: David-Noble-at-work
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
-ms.author: arramac
-ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danoble
+ms.openlocfilehash: daaa628fae3e495a0c9c7a3c74e643caa56fb18b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/14/2017
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker-hubb](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker-källa</strong></td>
@@ -39,6 +39,9 @@ ms.lasthandoff: 12/14/2017
 </table>
   
 Azure-emulatorn Cosmos DB tillhandahåller en lokal miljö som emulerar Azure DB som Cosmos-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa programmet lokalt, utan att skapa en Azure-prenumeration eller kostnader. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan växla du till med ett Azure DB som Cosmos-konto i molnet.
+
+> [!NOTE]
+> Just nu stöder Data Explorer i emulatorn endast SQL API samlingar och MongoDB-samlingar. Tabeller, diagram och Cassandra behållare stöds inte fullt ut. 
 
 Den här artikeln omfattar följande aktiviteter: 
 
@@ -62,9 +65,6 @@ Vi rekommenderar att komma igång med att titta på nedanstående video, där Ki
 Azure-emulatorn Cosmos DB ger en hög återgivning emulering av tjänsten Azure Cosmos DB. Den stöder identiska funktioner som Azure Cosmos DB, inklusive stöd för att skapa och hämtning av JSON-dokument, etablering och skalning samlingar och köra lagrade procedurer och utlösare. Du kan utveckla och testa program med hjälp av Azure Cosmos DB emulatorn och distribuera dem till Azure på global nivå genom att bara göra en enda konfigurationen av anslutningens slutpunkt för Azure Cosmos DB.
 
 Medan vi har skapat en lokal emulering hög återgivning av tjänsten faktiska Azure Cosmos DB är implementeringen av Azure Cosmos DB-emulatorn än tjänsten. Till exempel använder Azure Cosmos DB-emulatorn standard OS-komponenter, till exempel det lokala filsystemet för beständighet och HTTPS-protokoll-stacken för anslutning. Detta innebär att vissa funktioner som förlitar sig på Azure-infrastrukturen som globala replikering, en siffra millisekunds fördröjning för läsning/skrivning och justerbara konsekvensnivåer inte är tillgängliga via Azure Cosmos DB-emulatorn.
-
-> [!NOTE]
-> Data Explorer i emulatorn stöder endast skapandet av SQL API samlingar och MongoDB samlingar just nu. Data Explorer i emulatorn stöder för närvarande inte att skapa tabeller och diagram. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten 
 Eftersom Azure Cosmos DB-emulatorn är en emulerade miljö som körs på en lokal developer-arbetsstation, finns det vissa skillnader i funktionalitet mellan emulatorn och ett Azure DB som Cosmos-konto i molnet:
@@ -103,7 +103,7 @@ Azure Cosmos-DB-emulatorn som standard körs på den lokala datorn (”localhost
 
 Azure-emulatorn Cosmos DB installeras som standard till den `C:\Program Files\Azure Cosmos DB Emulator` directory. Du kan också starta och stoppa emulator från kommandoraden. Se [kommandoradsverktyget referens](#command-line) för mer information.
 
-## <a name="start-data-explorer"></a>Starta Data Explorer
+## <a name="start-data-explorer"></a>Start Data Explorer
 
 När Azure DB som Cosmos-emulatorn startar visas automatiskt Azure Cosmos DB Data Explorer i webbläsaren. Adressen visas som [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Om du stänger Utforskaren och vill öppna den igen senare, kan du öppna URL: en i webbläsaren eller starta från Azure Cosmos-DB-emulatorn i Windows-ikon som visas nedan.
 
@@ -189,7 +189,7 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
   <td></td>
 </tr>
 <tr>
-  <td>[Hjälp]</td>
+  <td>[Help]</td>
   <td>Visar lista med kommandoradsargument som stöds.</td>
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
@@ -197,13 +197,13 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>Avstängning</td>
   <td>Stänger ned Azure Cosmos DB-emulatorn.</td>
-  <td>CosmosDB.Emulator.exe Shutdown</td>
+  <td>CosmosDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
   <td>Anger den sökväg där du kan lagra filer. Standardvärdet är % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: en tillgänglig sökväg</td>
 </tr>
 <tr>
@@ -257,19 +257,19 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>PartitionCount</td>
   <td>Anger det maximala antalet partitionerade samlingar. Se [ändra antalet samlingar](#set-partitioncount) för mer information.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: maximalt antal tillåtna enskilda partitionssamlingar. Standardvärdet är 25. Högsta tillåtna är 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
   <td>Anger antalet partitioner för en partitionerad samling standard.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; standardvärdet är 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Aktiverar åtkomst till emulatorn över ett nätverk. Du måste också ange/Key =&lt;key_string&gt; eller/KeyFile =&lt;file_name&gt; att aktivera nätverksåtkomst.</td>
-  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>eller<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess/KeyFile =&lt;filnamn&gt;</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>eller<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -287,7 +287,7 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
 <tr>
   <td>Konsekvens</td>
   <td>Ange standardnivån för konsekvens för kontot.</td>
-  <td>CosmosDB.Emulator.exe /Consistency =&lt;konsekvenskontroll&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
   <td>&lt;konsekvenskontroll&gt;: värdet måste vara något av följande [konsekvensnivåer](consistency-levels.md): Session starka, Eventual eller BoundedStaleness.  Standardvärdet är Session.</td>
 </tr>
 <tr>
@@ -404,6 +404,14 @@ Om du vill samla in felsökning spårningar, kör du följande kommandon från e
 2. Skriv i sökrutan Windows **appar och funktioner** och klicka på den **appar och funktioner (systeminställningar)** resultat.
 3. Bläddra till i listan över appar **Azure Cosmos DB emulatorn**, markerar du den, klickar du på **avinstallera**, bekräfta och klickar på **avinstallera** igen.
 4. När appen avinstalleras, navigera till C:\Users\<användare > \AppData\Local\CosmosDBEmulator och ta bort mappen. 
+
+## <a name="change-list"></a>Ändringslista
+
+Du kan kontrollera versionsnumret genom att högerklicka på emulatorikonen lokala i Aktivitetsfältet och klicka på den om menyalternativet.
+
+### <a name="120-released-on-january-26-2018"></a>1,20 släpptes 26 januari 2018
+
+* Som standard aktiverade MongoDB aggregering pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 

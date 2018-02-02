@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Fa
 Den här genomgången i den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL hanteras-instans (privat förhandsvisning).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
-Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](tutorial-deploy-ssis-packages-azure.md).
+Skapa en Azure-SSIS-integrering körning om du inte har någon av följande steg för steg-anvisningarna i den [genomgång: distribuera SSIS-paket](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory-Användargränssnittet (Azure portal)
 I det här avsnittet använder du Data Factory UI för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
@@ -43,13 +43,13 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
 2. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. I den **nya datafabriken** anger **ADFTutorialDataFactory** för den **namn**. 
+2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
-     ![Ny data factory-sida](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
-   Namnet på Azure Data Factory måste vara **globalt unikt**. Ändra namnet på data factory (till exempel yournameADFTutorialDataFactory) om du ser följande fel för namnfältet. Se [Data Factory - namnregler](naming-rules.md) artikel för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
-     ![Namnet är inte tillgängligt - fel](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+     ![Namnet är inte tillgängligt – fel](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
@@ -58,30 +58,30 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
          
     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V2 (förhandsgranskning)** för **versionen**.
-5. Välj **plats** för datafabriken. Endast de platser som stöds av Data Factory visas i den nedrullningsbara listan. Data lagras (Azure Storage, Azure SQL Database, etc.) och beräknar (HDInsight osv.) som används av datafabriken kan finnas på andra platser.
+5. Välj **plats** för datafabriken. Endast platser som stöds av Data Factory visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas på andra platser.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
     ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. När den har skapats visas den **Data Factory** sidan som visas i bilden.
+9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
     ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. Klicka på **författare & övervakaren** rutan för att starta programmet Azure Data Factory användaren användargränssnittet (UI) i en separat flik. 
+10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med aktiviteten lagrad procedur
 I det här steget kan använda du Data Factory-Användargränssnittet för att skapa en pipeline. Du lägger till en lagrad procedur aktivitet i pipelinen och konfigurera den för att köra SSIS-paket med hjälp av sp_executesql lagrade proceduren. 
 
 1. Klicka på sidan komma igång **skapa pipeline**: 
 
-    ![Kom igång sida](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+    ![Sidan Kom igång](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. I den **aktiviteter** verktygslådan Expandera **SQL-databas**, och musen **lagrade proceduren** aktivitet pipeline desginer ytan. 
 
     ![Dra och släpp lagrade proceduren aktivitet](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. I egenskapsfönstret för aktiviteten lagrad procedur växla till den **konto för SQL** och på **+ ny**. Skapa en anslutning till Azure SQL-databas som är värd för SSIS-katalogen (SSIDB-databasen). 
    
-    ![Knappen Nytt länkad tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. I den **ny länkade tjänst** fönster, gör du följande: 
+    ![Knapp för ny länkad tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
+4. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Välj **Azure SQL Database** för **typen**.
     2. Välj din Azure SQL-server som är värd för SSIDB-databasen för den **servernamn** fältet.
@@ -107,9 +107,9 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
         ```
 
         ![Länkad Azure SQL Database-tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Om du vill verifiera konfigurationen pipeline, klickar du på **verifiera** i verktygsfältet. Stäng den **Pipeline verifieringsrapport**, klickar du på  **>>** .
+6. Om du vill verifiera konfigurationen pipeline, klickar du på **verifiera** i verktygsfältet. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
-    ![Validera pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
+    ![Verifiera pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publicera pipeline till Data Factory genom att klicka på **publicera alla** knappen. 
 
     ![Publicera](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
@@ -119,11 +119,11 @@ I det här avsnittet utlösa en pipeline-körning och övervaka den.
 
 1. Klicka på för att utlösa en pipeline som kör **utlösaren** i verktygsfältet och på **aktivera nu**. 
 
-    ![Aktivera nu](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Växla till den **övervakaren** fliken till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **uppdatera**.
+    ![Utlös nu](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+2. Växla till fliken **Övervaka** till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
 
     ![Pipelinekörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
-3. Klicka på **visa Aktivitetskörningar** länken i den **åtgärder** kolumn. Du ser bara en aktivitet som körs som pipelinen har endast en aktivitet (lagrade proceduren aktivitet).
+3. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara en aktivitet som körs som pipelinen har endast en aktivitet (lagrade proceduren aktivitet).
 
     ![Aktiviteten körs](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4 kan du köra följande **frågan** mot SSISDB databasen i Azure SQL-server för att kontrollera att paketet körs. 
 

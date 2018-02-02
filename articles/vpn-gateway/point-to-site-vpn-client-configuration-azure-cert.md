@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 01/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7fe8d5e473e2c8281b1d6c8d7d5423294c428678
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för interna Azure certifikat autentisering P2S-konfigurationer
 
 Konfigurationsfiler för VPN-klienten finns i en zip-fil. Konfigurationsfiler ange inställningar som krävs för en ursprunglig Windows eller Mac IKEv2 VPN-klient att ansluta till ett virtuellt nätverk via punkt-till-plats-anslutningar som använder interna Azure certifikatautentisering.
-
->[!NOTE]
->IKEv2 för P2S finns för närvarande i en förhandsversion.
->
 
 ### <a name="workflow"></a>P2S-arbetsflöde
 
@@ -101,7 +97,7 @@ Klicka på **Lägg till** att importera.
   ![Nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 3. I den **allmänna** mappen från den **VpnSettings.xml** fil, kopiera den **VpnServer** taggvärde. Klistra in det här värdet i den **serveradress** och **fjärr-ID för** för profilen.
 
-  ![serverinformation](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
+  ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
 4. Klicka på **autentiseringsinställningar** och välj **certifikat**. 
 
   ![autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
@@ -113,7 +109,7 @@ Klicka på **Lägg till** att importera.
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 7. I den **lokalt ID** anger namnet på certifikatet (från steg 6). I det här exemplet är det ”ikev2Client.com”. Klicka på **tillämpa** för att spara ändringarna.
 
-  ![tillämpa](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+  ![använd](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. På den **nätverk** dialogrutan klickar du på **tillämpa** spara alla ändringar. Klicka på **Anslut** att starta P2S-anslutning till Azure VNet.
 
 ## <a name="next-steps"></a>Nästa steg

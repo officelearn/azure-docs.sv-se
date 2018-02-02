@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -90,7 +90,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 
 * <a id="afs-region-availability"></a>
 **Vilka regioner som stöds för Azure filsynkronisering (förhandsgranskning)?**  
-    Azure filsynkronisering är för närvarande tillgängligt i östra USA, västra USA, västra Europa, Östra Australien och Sydostasien. Stöd för flera områden läggs medan vi mot allmän tillgänglighet. Mer information finns i [regional tillgänglighet](storage-sync-files-planning.md#region-availability).
+    Azure filsynkronisering är för närvarande finns i östra, Kanada Central, östra USA, Sydostasien, Storbritannien, Syd, Västeuropa och USA, västra. Stöd för flera områden läggs medan vi mot allmän tillgänglighet. Mer information finns i [regional tillgänglighet](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Kan jag ha domänanslutna och icke-domänanslutna servrar i gruppen samma synkronisering?**  

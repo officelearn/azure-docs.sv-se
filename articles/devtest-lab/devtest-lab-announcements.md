@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Efter ett meddelande till ett labb i Azure DevTest Labs
 
@@ -47,6 +47,13 @@ Meddelande-funktionen är avsedd att användas för tillfälliga meddelanden.  D
 
 1. Så här skapar du ett meddelande för användare i den här övningen, **aktiverad** till **Ja**.
 
+1. Du kan ange en **förfallodatum** att ange ett datum och tid då meddelandet inte längre visas för användare. Om du inte anger ett förfallodatum, förblir tillkännagivandet tills du inaktivera den.
+
+   > [!NOTE]
+   > När meddelandet upphör att gälla den inte längre visas för användare, men finns kvar i den **Lab meddelande** fönstret. Du kan göra ändringar och återaktivera det så att den aktiveras igen.
+   >
+   >
+
 1. Ange en **meddelande rubrik** och **meddelandetext**.
 
    Rubriken kan vara upp till 100 tecken och är visas för användaren på översiktssidan för den testmiljön. Om användaren väljer rubrik, visas meddelandetext.
@@ -58,7 +65,7 @@ Meddelande-funktionen är avsedd att användas för tillfälliga meddelanden.  D
 
 1. Välj **spara** när ditt meddelande är redo att skicka.
 
-Om du inte längre vill visa det här meddelandet för labbet användare tillbaka till den **Lab meddelande** sidan och ange **aktiverad** till **nr**.
+Om du inte längre vill visa det här meddelandet för labbet användare tillbaka till den **Lab meddelande** sidan och ange **aktiverad** till **nr**. Om du har angett ett förfallodatum som har meddelandet inaktiverats automatiskt vid denna tidpunkt.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Steg för användare att visa ett meddelande
 

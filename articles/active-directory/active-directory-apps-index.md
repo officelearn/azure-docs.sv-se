@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -137,7 +137,7 @@ Automatisera skapande, underhållet och borttagningen av användaridentiteter i 
 | Läs mer om hur det fungerar och vanliga frågor och svar |[Automatisera användaren etablering och avetablering för SaaS-appar](active-directory-saas-app-provisioning.md) |
 | Konfigurera hur information mappas mellan Azure AD och SaaS-appar |[Anpassa attributmappning](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Skriva uttryck för attributmappning](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Så här aktiverar du Automatisk etablering till någon app som har stöd för protokollet SCIM |[Konfigurera automatisk Användaretablering till någon SCIM-Enabled-App](active-directory-scim-provisioning.md) |
-| Rapport om och felsökning av användaretablering |[Rapportering om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)<br><br>[Etablering meddelanden](active-directory-saas-account-provisioning-notifications.md)<br><br>[Felsökning av användaretablering](active-directory-application-provisioning-content-map.md) |
+| Rapport om och felsökning av användaretablering |[Rapportering om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)<br><br>[Felsökning av användaretablering](active-directory-application-provisioning-content-map.md) |
 | Begränsa vem som hämtar tilldelas en applikation baserat på deras attributvärden |[Omfångsfilter](active-directory-saas-scoping-filters.md) |
 
 Automatisk användaretablering är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för obegränsade program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), sedan kan du [använda grupper för att hantera vilka användare få etableras](#managing-access-to-applications).

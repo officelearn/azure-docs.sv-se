@@ -1,6 +1,6 @@
 ---
-title: "Skapa en lösning i OMS | Microsoft Docs"
-description: "Hanteringslösningar utöka funktionerna i Operations Management Suite (OMS) genom att tillhandahålla paketerade hanteringsscenarier som kunder kan lägga till sina OMS-arbetsyta.  Den här artikeln innehåller information om hur du kan skapa lösningar för hantering som ska användas i din egen miljö eller göras tillgängligt för kunderna."
+title: "Skapa en lösning i Azure | Microsoft Docs"
+description: "Lösningar för hantering med scenarier med hantering av paketerade i Azure som kunder kan lägga till sina logganalys-arbetsytan.  Den här artikeln innehåller information om hur du kan skapa lösningar för hantering som ska användas i din egen miljö eller göras tillgängligt för kunderna."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0f5d42292c8e885491aed55ada129f05cb3bcd35
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Skapa en lösning i Operations Management Suite (OMS) (förhandsgranskning)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.
+> Den här är dokumentationen preliminär för att skapa lösningar för hantering i Azure som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.
 
-[Hanteringslösningar](operations-management-suite-solutions.md) utöka funktionerna i Operations Management Suite (OMS) genom att tillhandahålla paketerade hanteringsscenarier som kunder kan lägga till sina OMS-arbetsyta.  Den här artikeln beskriver en grundläggande process för att skapa en lösning som passar för de vanligaste krav.  Om du har använt till att skapa lösningar för hantering kan du använda den här processen som en startpunkt och sedan utnyttja begrepp för mer komplexa lösningar som dina behov utvecklas.
+[Hanteringslösningar](operations-management-suite-solutions.md) ange paketerade hanteringsscenarier som kunder kan lägga till sina logganalys-arbetsytan.  Den här artikeln beskriver en grundläggande process för att skapa en lösning som passar för de vanligaste krav.  Om du har använt till att skapa lösningar för hantering kan du använda den här processen som en startpunkt och sedan utnyttja begrepp för mer komplexa lösningar som dina behov utvecklas.
 
 ## <a name="what-is-a-management-solution"></a>Vad är en lösning?
 
-Lösningar för hantering innehåller OMS och Azure-resurser som arbetar tillsammans för att uppnå ett visst scenario för övervakning.  De är implementerade som [resurshantering mallar](../azure-resource-manager/resource-manager-template-walkthrough.md) som innehåller information om hur du installerar och konfigurerar sina befintliga resurser när lösningen har installerats.
+Lösningar för hantering innehåller Azure-resurser som arbetar tillsammans för att uppnå ett visst hanteringsscenario.  De är implementerade som [resurshantering mallar](../azure-resource-manager/resource-manager-template-walkthrough.md) som innehåller information om hur du installerar och konfigurerar sina befintliga resurser när lösningen har installerats.
 
 Basic-strategi är att starta din lösning för hantering genom att skapa de enskilda komponenterna i Azure-miljön.  När du har funktionen fungerar kan du kan starta paketera dem till en [management lösningsfilen](operations-management-suite-solutions-solution-file.md). 
 
@@ -37,7 +37,7 @@ Basic-strategi är att starta din lösning för hantering genom att skapa de ens
 ## <a name="design-your-solution"></a>Utforma din lösning
 De vanligaste mönster som en lösning för visas i följande diagram.  De olika komponenterna i det här mönstret beskrivs i den nedan.
 
-![OMS-lösning: översikt](media/operations-management-suite-solutions-creating/solution-overview.png)
+![Lösning: översikt](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Datakällor

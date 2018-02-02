@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Utvecklarhandbok för Azure IoT-hubb
 
@@ -42,10 +42,10 @@ Den här IoT-hubb Utvecklarhandbok innehåller följande artiklar:
   * [Skicka meddelanden moln till enhet från IoT-hubb][devguide-messages-c2d].
   * [Skapa och läsa IoT-hubb][devguide-format].
 * [Överföra filer från en enhet] [ devguide-upload] beskriver hur du kan ladda upp filer från en enhet. Artikeln innehåller även information om ämnen, till exempel meddelanden överföringen kan skicka.
-* [Hantera identiteter för enheten i IoT-hubb] [ devguide-identities] beskriver vilken information varje IoT-hubb registret identitetslagringar och hur du kan komma åt och ändra den.
+* [Hantera identiteter för enheten i IoT-hubb] [ devguide-identities] beskriver vilken information varje IoT-hubb identitetslagringar för registret. Artikeln beskriver också hur du kan komma åt och ändra den.
 * [Kontrollera åtkomsten till IoT-hubb] [ devguide-security] beskriver säkerhetsmodell som används för att ge åtkomst till IoT-hubb funktioner för både enheter och molnet komponenter. Artikeln innehåller information om hur du använder token och X.509-certifikat och information om de behörigheter som du kan ge.
-* [Använd twins för enheten för att synkronisera tillstånd och konfigurationer] [ devguide-device-twins] beskriver den *enheten dubbla* koncept och funktioner som det visar till exempel synkronisera en enhet med dubbla sin enhet. Artikeln innehåller information om data som lagras i en delad enhet.
-* [Anropa en metod som är direkt på en enhet] [ devguide-directmethods] beskriver livscykeln för en direkt metod, information om hur du anropa metoder i en enhet från backend-app och hantera den direkta metoden på enheten.
+* [Använd twins för enheten för att synkronisera tillstånd och konfigurationer] [ devguide-device-twins] beskriver den *enheten dubbla* begrepp. Artikeln också beskrivs funktioner enheten twins exponera, till exempel synkronisera en enhet med dubbla sin enhet. Artikeln innehåller information om data som lagras i en delad enhet.
+* [Anropa en metod som är direkt på en enhet] [ devguide-directmethods] beskriver livscykeln för en direkt metod. Artikeln beskriver hur du anropa metoder i en enhet från backend-app och hantera den direkta metoden på enheten.
 * [Schemalägga jobb på flera enheter] [ devguide-jobs] beskriver hur du schemalägger jobb på flera enheter. Artikeln beskriver hur du skicka jobb som utför uppgifter som att köra en direkt metod, uppdaterar en enhet med en delad enhet. Det beskriver också hur du fråga status för ett jobb.
 * [Referera - Välj ett kommunikationsprotokoll] [ devguide-protocol] beskriver kommunikationsprotokoll att IoT-hubben har stöd för kommunikation mellan och visas de portar som ska vara öppen.
 * [Referens - IoT-hubbslutpunkter] [ devguide-endpoints] beskriver de olika slutpunkter som varje IoT-hubb visar för körning och hanteringsåtgärder. Artikeln beskriver också hur du kan skapa ytterligare slutpunkter i din IoT-hubb och hur du använder en gateway för fältet Aktivera anslutning till din IoT-hubb slutpunkter i scenarier som inte är standard.

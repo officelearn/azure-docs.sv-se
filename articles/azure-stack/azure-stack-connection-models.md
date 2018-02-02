@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure-stacken integrerat system anslutning modeller
 Om du är intresserad av en Azure-stacken integrerat system, måste du förstå [flera datacenter integration överväganden](azure-stack-datacenter-integration.md) för distribution av Azure-stacken att avgöra hur systemet passar i ditt datacenter. Du måste dessutom bestämma exakt hur du ska integrera Azure Stack i molnmiljön hybrid. Den här artikeln innehåller en översikt över dessa viktiga beslut, inklusive Azure-anslutningen, identitet store och fakturering modellen beslut.
@@ -46,5 +46,7 @@ Du kan välja att distribuera Azure-stacken ansluten till internet (och Azure) e
 När du har valt Azure anslutning modellen som ska användas för distribution av Azure-stacken är måste ytterligare, anslutning beroende beslut göras för Identitetslagret och faktureringsadress. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [Azure anslutna Azure-stacken distributionsbeslut](azure-stack-connected-deployment.md)
-- Lär dig mer om [Azure kopplas från Azure-stacken distributionsbeslut](azure-stack-disconnected-deployment.md)
+
+[Azure anslutna Azure-stacken distributionsbeslut](azure-stack-connected-deployment.md)
+
+[Azure frånkopplade Azure Stack distributionsbeslut](azure-stack-disconnected-deployment.md)

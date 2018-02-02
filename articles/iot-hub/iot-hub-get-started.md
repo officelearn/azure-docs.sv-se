@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT-hubb komma igång Självstudier
 
 Du kan använda Azure IoT Hub och SDK för Azure IoT-enhet för att skapa lösningar för Sakernas Internet (IoT):
 
 * Azure IoT Hub är en helt hanterad tjänst i molnet som ansluter, övervakar och hanterar IoT-enheter på ett säkert sätt. Använd SDK: er för Azure IoT-enhet för att implementera din IoT-enheter.
-* Använd en IoT-gateway i mer komplexa IoT-scenarier. Till exempel när du behöver Tänk till exempel äldre enheter, kostnader för bandbredd, principer för säkerhet och sekretess eller edge databearbetning. I så fall kan använda du Azure IoT Edge för att implementera en gateway som ansluter enheter till din IoT-hubb.
+* Använd en IoT-gateway i mer komplexa IoT-scenarier. Till exempel när du behöver Tänk till exempel äldre enheter, kostnader för bandbredd, principer för säkerhet och sekretess eller edge databearbetning. I dessa fall kan använda [Azure IoT kant](https://docs.microsoft.com/azure/iot-edge/) att implementera en gateway som ansluter enheter till din IoT-hubb.
 
 ## <a name="what-the-tutorials-cover"></a>Självstudierna omfattar
 
@@ -41,9 +41,9 @@ Ansluta en IoT-enhet eller gateway för Azure IoT Hub. Du kan välja en fysisk e
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                       | [Arduino i VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Adafruit ludd HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 sak Dev       | [Arduino][Th_Ard]              |
-| Adafruit ludd M0              | [Arduino][M0_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | Simulerade enhet på datorn           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online enheten simulatorn         | [Raspberry Pi (Node.js)][Ol_Sim] |
 

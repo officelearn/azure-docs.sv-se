@@ -5,18 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="understanding-cost-reports"></a>Förstå kostnad rapporter
+# <a name="understanding-cost-reports"></a>Förstå kostnadsrapporter
 
 Den här artikeln hjälper dig att förstå Cloudyn rapporter grundläggande struktur och funktioner. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. När du har läst den här artikeln är redo att använda alla rapporter. Många funktioner som standard är tillgängliga under olika rapporter, så att du kan navigera i rapporter utan problem. Rapporter kan anpassas och du kan välja mellan flera alternativ för att beräkna och visa resultat.
 

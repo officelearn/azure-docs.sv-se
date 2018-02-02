@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: f0a18f940cf3b4bbedd4b8e5c89cbbeb1bafef77
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Skapa en Programgateway med SSL-avslutning med hjälp av Azure CLI
 
@@ -137,17 +137,6 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Installera NGINX
 
-Du kan använda valfri redigerare som du vill skapa filen i molnet-gränssnittet. Ange `sensible-editor cloudConfig.json` att se en lista över tillgängliga redigerare för att skapa filen. Skapa en fil med namnet customConfig.json i din aktuella shell och klistra in följande konfiguration:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
-  "commandToExecute": "./install_nginx.sh"
-}
-```
-
-Kör kommandot i shell-fönstret:
-
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -155,7 +144,8 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings @cloudConfig.json
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
@@ -172,7 +162,7 @@ az network public-ip show \
 
 ![Säker varning](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**. Din NGINX-webbplatsen visas som i följande exempel:
+Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**. Din skyddade NGINX-webbplats visas sedan som i exemplet nedan:
 
 ![Testa bas-URL i Programgateway](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 

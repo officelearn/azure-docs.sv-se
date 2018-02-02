@@ -2,17 +2,17 @@
 title: "Azure händelse rutnätet leverans och försök igen"
 description: "Beskriver hur Azure händelse rutnätet ger händelser och hur den hanterar felande meddelanden."
 services: event-grid
-author: djrosanova
+author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: darosa
-ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.date: 01/30/2018
+ms.author: tomfitz
+ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
 
@@ -58,11 +58,11 @@ Händelsen rutnätet använder en exponentiell backoff i principen för leverans
 6. 30 minuter
 7. 1 timme
 
-Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksintervall.
+Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksintervall. Efter en timme försöks händelse leverans en gång i timmen.
 
 ## <a name="retry-duration"></a>Försök varaktighet
 
-Under förhandsgranskning, Azure händelse rutnätet upphör att gälla alla händelser som inte levereras inom två timmar.
+Azure händelse rutnätet upphör att gälla alla händelser som inte levereras inom 24 timmar.
 
 ## <a name="next-steps"></a>Nästa steg
 

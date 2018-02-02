@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 915f90fd5d969d5544d56e5bec754b799f349015
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med hjälp av Azure-behållare registret webhooks
 
@@ -20,7 +20,7 @@ En Azure-behållaren registret lagrar och hanterar privata Docker behållare bil
 
 Mer information om webhook begäranden finns [Schemareferens för Azure-behållare registret webhook](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-behållaren registret - skapa en behållare registret i din Azure-prenumeration. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
 * Docker CLI - att konfigurera den lokala datorn som en Docker-värd och komma åt Docker CLI-kommandona installera [Docker-motorn](https://docs.docker.com/engine/installation/).
@@ -48,7 +48,7 @@ Exempelformulär för webhook:
 
 ## <a name="create-webhook-azure-cli"></a>Skapa webhook Azure CLI
 
-Om du vill skapa en webhook med hjälp av Azure CLI, använder den [az acr webhook skapa](/cli/azure/acr/webhook#create) kommando.
+Om du vill skapa en webhook med hjälp av Azure CLI, använder den [az acr webhook skapa](/cli/azure/acr/webhook#az_acr_webhook_create) kommando.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -68,7 +68,7 @@ Tidigare med hjälp av webhook för behållaren image push- och borttagningsåtg
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill testa en ACR webhook med Azure CLI, använder den [az acr webhook ping](/cli/azure/acr/webhook#ping) kommando.
+Om du vill testa en ACR webhook med Azure CLI, använder den [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) kommando.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

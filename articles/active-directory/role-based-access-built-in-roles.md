@@ -3,24 +3,23 @@ title: "Åtgärder och NotActions - Azure rollbaserad åtkomstkontroll (RBAC) | 
 description: "Det här avsnittet beskriver den inbyggda i roller för rollbaserad åtkomstkontroll (RBAC). Rollerna läggs till kontinuerligt, så kontrollera dokumentationen uppdateringen."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/30/2018
+ms.author: curtand
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 43a958129b3c86f5e7a596b992d793a600c46dfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -68,7 +67,9 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Redis-Cache deltagare](#redis-cache-contributor) |Kan hantera Redis-cache |
 | [Schemaläggaren jobbet samlingar deltagare](#scheduler-job-collections-contributor) |Kan hantera scheduler-jobbsamlingar |
 | [Sök Service deltagare](#search-service-contributor) |Kan hantera search-tjänster |
-| [Säkerhetshantering](#security-manager) |Kan hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
+| [Säkerhet Admin](#security-administrator) | I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redigera säkerhetsprinciper, Visa aviseringar och rekommendationerna, stänga aviseringar och rekommendationer |
+| [Säkerhetshantering](#security-manager) | Kan hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer |
+| [Säkerhet läsare](#security-reader) | I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhetsprinciper, visa säkerhetsstatus, men det går inte att göra ändringar |
 | [Site Recovery-deltagare](#site-recovery-contributor) | Kan hantera Site Recovery på Recovery Services-valvet |
 | [Site Recovery-operatorn](#site-recovery-operator) | Kan hantera redundans och återställning efter fel åtgärder Site Recovery i Recovery Services-valvet |
 | [Site Recovery läsare](#site-recovery-reader) | Kan visa alla Site Recovery-hanteringsåtgärder  |
@@ -506,21 +507,50 @@ Kan hantera Search-tjänster
 | Microsoft.Search/searchServices/* |Skapa och hantera search-tjänster |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
+### <a name="security-administrator"></a>Säkerhetsadministratör
+I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redigera säkerhetsprinciper, Visa aviseringar och rekommendationerna, stänga aviseringar och rekommendationer
+
+| **Åtgärder** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Läs roller och rolltilldelningar |
+| Microsoft.Authorization/policyAssignments/* | Skapa och hantera principtilldelningar |
+| Microsoft.Authorization/policySetDefinitions/* | Skapa och hantera principen anger |
+| Microsoft.Authorization/policyDefinitions/* | Skapa och hantera principdefinitioner |
+| Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
+| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
+| Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
+| Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
+| Microsoft.Support/* |Skapa och hantera supportärenden |
+
 ### <a name="security-manager"></a>Säkerhetshanteraren
 Kan hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer
 
 | **Åtgärder** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Läs roller och rollen tilldelningar |
-| Microsoft.ClassicCompute/*/read |Läsa konfigurationsinformation klassisk compute virtuella datorer |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Spara konfigurationen för virtuella datorer |
+| Microsoft.Authorization/*/read |Läs roller och rolltilldelningar |
+| Microsoft.ClassicCompute/*/read |Läsa konfigurationsinformation klassiska virtuella datorer |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Spara konfigurationen för klassiska virtuella datorer |
 | Microsoft.ClassicNetwork/*/read |Läsa konfigurationsinformation om klassiska nätverket |
-| Microsoft.Insights/alertRules/* |Skapa och hantera aviseringsregler |
+| Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Läs hälsotillståndet för resurser |
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Security/* |Skapa och hantera säkerhetskomponenter och principer |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
+
+### <a name="security-reader"></a>Säkerhetsläsare
+I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhetsprinciper, visa säkerhetsstatus, men det går inte att göra ändringar
+
+| **Åtgärder** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Läs roller och rolltilldelningar |
+| Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
+| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
+| Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
+| Microsoft.Support/* |Skapa och hantera supportärenden |
+| Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery-bidragsgivare
 Kan hantera alla Site Recovery-hanteringsåtgärder, förutom att skapa Recovery Services-valvet och tilldela behörigheter till andra användare
@@ -872,3 +902,4 @@ Kan hantera webbplatser, men inte alla web-planer som de är anslutna
 * [Anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md): Lär dig att skapa anpassade roller som passar dina åtkomstbehov.
 * [Skapa en profil över åtkomständringshistorik](role-based-access-control-access-change-history-report.md): hålla reda på hur du ändrar rolltilldelningar i RBAC.
 * [Rollbaserad åtkomstkontroll felsökning](role-based-access-control-troubleshooting.md): få förslag om hur du löser vanliga problem.
+* [Behörigheter i Azure Security Center](../security-center/security-center-permissions.md)

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -50,7 +50,7 @@ Kan du behöva ge avdelning administratörer, kontot ägare och enterprise admin
 
 Rekommendation information är bara tillgängligt för konton som är aktiverade. Visas inte någon rekommendation information i **optimering** rapportera kategorier för konton som är *inaktiverade*, inklusive:
 
-- Optimering Manager
+- Optimization Manager
 - Storlek för optimering
 - Ineffektiviteter
 
@@ -89,7 +89,7 @@ Om du ändrar din e-postadress i Cloudyn från standardadressen i Azure, ditt ko
 
 Vi rekommenderar att du skapar minst två Cloudyn administratörskonton om ett konto blir låst.
 
-Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Använd [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Undvik att använda Cloudyn direkt URL https://app.cloudyn.com.
 

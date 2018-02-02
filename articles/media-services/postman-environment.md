@@ -1,11 +1,24 @@
- ---
-Rubrik: importera Postman miljön för Azure Media Services REST-anrop beskrivning: det här avsnittet innehåller en definition av Postman miljön för Azure Media Services REST-anrop.
-tjänster: media services dokumentationcenter: '' författare: Juliako manager: cfowler editor: ''
-
-MS.Service: media services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: artikel ms.date: 2017-01/04 ms.author: juliako
-
 ---
-
+title: "Importera Postman miljön för Azure Media Services REST-anrop"
+description: "Det här avsnittet innehåller en definition av Postman miljön för Azure Media Services REST-anrop."
+services: media-services
+documentationcenter: 
+author: Juliako
+manager: cfowler
+editor: 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2018
+ms.author: juliako
+ms.openlocfilehash: aa3e1bb4c6ae53e24e3153dd55f6a6d07e29e091
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/01/2018
+---
 # <a name="import-the-postman-environment"></a>Importera Postman-miljö 
 
 Den här artikeln innehåller en definition av den **Postman** miljövariabler som används i [Postman samling](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST API: er. Miljö och samling filer som används av den [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) kursen.

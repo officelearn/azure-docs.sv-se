@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
@@ -40,7 +40,7 @@ Grafiska Azure Automation-runbooks har förbättrats och fått en funktion för 
 
 När det finns en kritisk aktivitet som genererar ett fel eller ett undantag är det viktigt att förhindra att nästa aktivitet i din runbook behandlas samt att hantera felet på rätt sätt. Detta är särskilt viktigt när runbooks stöder en företags- eller tjänståtgärdsprocess.
 
-För varje aktivitet som kan producera ett fel kan runbook-redigeraren lägga till en fellänk som pekar till andra aktiviteter.  Målaktiviteten kan vara av valfri typ: kodaktivitet, anrop av en cmdlet, anrop av en annan runbook och så vidare.
+För varje aktivitet som kan producera ett fel kan runbook-redigeraren lägga till en fellänk som pekar till andra aktiviteter. Målaktiviteten kan vara av valfri typ: kodaktivitet, anrop av en cmdlet, anrop av en annan runbook och så vidare.
 
 Målaktiviteten kan dessutom ha utgående länkar. Dessa länkar kan vara vanliga länkar eller fellänkar. Det innebär att runbook-författaren kan implementera komplex felhanteringslogik utan att behöva använda en kodaktivitet. Den rekommenderade metoden är att skapa en särskild runbook för felhantering med gemensamma funktioner, men detta är inte obligatoriskt. Felhanteringslogiken i en PowerShell-kodaktivitet är inte det enda alternativet.  
 
@@ -63,7 +63,7 @@ När du har konfigurerat den här inställningen skapar du en aktivitet som hant
 
 I följande exempel hämtar en runbook en variabel som innehåller datornamnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Felhanteringsexempel för Automation Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Aktiviteten **Get-AutomationVariable** och **Start AzureRmVm** har konfigurerats för att konvertera undantag till fel.  Om det är problem med att hämta variabeln eller att starta den virtuella datorn genereras fel.<br><br> ![Felhantering i Automation Runbook, aktivitetsinställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+Aktiviteten **Get-AutomationVariable** och **Start AzureRmVm** har konfigurerats för att konvertera undantag till fel. Om det är problem med att hämta variabeln eller att starta den virtuella datorn genereras fel.<br><br> ![Felhantering i Automation Runbook, aktivitetsinställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 Fellänkar flödar från dessa aktiviteter till en enda **felhanteringsaktivitet** (en kodaktivitet). Den här aktiviteten konfigureras med ett enkelt PowerShell-uttryck med hjälp av nyckelordet *Throw* för att stoppa bearbetningen tillsammans med *$Error.Exception.Message* för att hämta det meddelande som beskriver det aktuella undantaget.<br><br> ![Automation Runbook-felhantering, kodexempel](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

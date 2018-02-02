@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera paket insamlingar med Azure Nätverksbevakaren med hjälp av portalen
 
@@ -80,6 +80,7 @@ De egenskaper som kan definieras på en paketinsamling är:
 
 **Samla in konfiguration**
 
+- **Lokal filsökväg** -lokal sökväg på den virtuella datorn där paketinsamling sparas (endast giltigt när **[fil]** har valts). Du måste ange en giltig sökväg. Om du använder en Linux-dator sökvägen måste börja med / var / avbildas.
 - **Lagringskontot** -anger om paketinsamling sparas i ett lagringskonto.
 - **Filen** -avgör om en paketinsamling sparas lokalt på den virtuella datorn.
 - **Storage-konton** – markerat lagringskonto för att spara paketinsamling i. Standardplatsen är name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription https://{storage konto-id} /resourcegroups/ {resursgruppens name}/providers/microsoft.compute/virtualmachines/{virtual datornamn} / {åå} / {MM} / {DD} / packetcapture_ {HH}_{MM}_{SS} _ {XXX} CAP. (Endast aktiverad om **lagring** har valts)

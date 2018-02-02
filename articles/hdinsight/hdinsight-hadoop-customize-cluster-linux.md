@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -55,7 +55,7 @@ Se följande dokument för mer information om arbete med åtkomst hantering:
 
 ## <a name="understanding-script-actions"></a>Förstå skriptåtgärder
 
-En skriptåtgärd är Bash-skript som du anger en URI för och parametrar för. Skriptet körs på noder i HDInsight-klustret. Följande är egenskaper och funktioner för skriptåtgärder.
+En skriptåtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster. Följande är egenskaper och funktioner för skriptåtgärder.
 
 * Måste vara lagrade på en URI som är tillgänglig från HDInsight-klustret. Följande är möjliga lagringsplatser:
 
@@ -79,9 +79,7 @@ En skriptåtgärd är Bash-skript som du anger en URI för och parametrar för. 
 
 * Kan vara **beständiga** eller **ad hoc-**.
 
-    **Beständiga** skript används till arbetsnoder som lagts till i klustret när skriptet har körts. Till exempel när du ökar klustringen.
-
-    Ett bestående skript kan även använda ändringar till en annan nod, till exempel en huvudnod.
+    **Beständiga** skript används för att anpassa nya arbetsnoder som lagts till i klustret via skalning åtgärder. Ett bestående skript kan även använda ändringar till en annan nod, till exempel en huvudnod när skalning åtgärder vidtas.
 
   > [!IMPORTANT]
   > Beständiga skriptåtgärder måste ha ett unikt namn.
@@ -94,30 +92,32 @@ En skriptåtgärd är Bash-skript som du anger en URI för och parametrar för. 
   > Skript som misslyckas inte är beständiga, även om du uttryckligen har angett att de ska.
 
 * Kan acceptera **parametrar** som används vid körningen av skriptet.
+
 * Kör med **rätt behörighet för rotmappen** på klusternoderna.
-* Kan användas via den **Azure-portalen**, **Azure PowerShell**, **Azure CLI**, eller **HDInsight .NET SDK**
+
+* Kan användas via den **Azure-portalen**, **Azure PowerShell**, **Azure CLI v1.0**, eller **HDInsight .NET SDK**
 
 Klustret sparar en historik över alla skript som har varit kördes. Historiken är användbart när du vill söka efter ID för ett skript för befordran och degradering åtgärder.
 
 > [!IMPORTANT]
 > Det finns inget automatiskt sätt att ångra de ändringar som gjorts av en skriptåtgärd. Manuellt återställa ändringarna eller ange ett skript som kastar dem.
 
-
 ### <a name="script-action-in-the-cluster-creation-process"></a>Skriptåtgärder i klusterskapandeprocessen
 
 Används när klustret skapas med skriptåtgärder avses skiljer sig från skriptet åtgärder som kördes på ett befintligt kluster:
 
 * Skriptet **automatiskt beständiga**.
+
 * En **fel** i skriptet kan orsaka klusterskapandeprocessen misslyckas.
 
 Följande diagram illustrerar när skriptet körs under skapandeprocessen:
 
 ![HDInsight-kluster anpassning och faserna när klustret skapas][img-hdi-cluster-states]
 
-Skriptet körs medan HDInsight konfigureras. I det här skedet skriptet körs parallellt på noderna i klustret och körs med rotprivilegier på noderna.
+Skriptet körs medan HDInsight konfigureras. Skriptet körs parallellt på noderna i klustret och körs med rotprivilegier på noderna.
 
 > [!NOTE]
-> Eftersom skriptet körs med privilegium för roten på noderna i klustret, kan du utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Om du stoppar tjänster måste du kontrollera att tjänsten Ambari och andra Hadoop-relaterade tjänster är igång innan körningen för skriptet. Dessa tjänster används för att avgöra korrekt hälsotillstånd och tillstånd för klustret medan det skapas.
+> Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Hadoop-relaterade tjänster. Om du stoppar tjänster måste du kontrollera att tjänsten Ambari och andra Hadoop-relaterade tjänster som körs innan skriptet har slutförts. Dessa tjänster används för att avgöra korrekt hälsotillstånd och tillstånd för klustret medan det skapas.
 
 
 När klustret skapas, kan du använda flera skriptåtgärder samtidigt. Dessa skript anropas i den ordning som de har angetts.
@@ -130,12 +130,12 @@ När klustret skapas, kan du använda flera skriptåtgärder samtidigt. Dessa sk
 
 ### <a name="script-action-on-a-running-cluster"></a>Skriptåtgärder på ett kluster som körs
 
-Till skillnad från skriptet åtgärder som används när klustret skapas ett fel i ett skript kördes på ett kluster som redan körs orsakar automatiskt inte klustret för att ändra till ett felaktigt tillstånd. När ett skript är klar bör klustret återgå till tillståndet ”körs”.
+Ett fel i ett skript kördes på en redan körs klustret inte automatiskt att klustret för att ändra till ett felaktigt tillstånd. När ett skript är klar bör klustret återgå till tillståndet ”körs”.
 
 > [!IMPORTANT]
 > Även om klustret har tillståndet 'körs', har misslyckade skriptet delats saker. Ett skript kan till exempel ta bort filer som behövs i klustret.
 >
-> Åtgärder som skript köras med rotprivilegier, så bör du se till att du förstår vad vi gör ett skript innan den tillämpas på ditt kluster.
+> Åtgärder som skript köras med rotprivilegier. Kontrollera att du förstår vad vi gör ett skript innan den tillämpas på ditt kluster.
 
 När du använder ett skript i ett kluster, klustertillstånd ändras från **kör** till **godkända**, sedan **HDInsight configuration**, och slutligen tillbaka till  **Kör** för lyckad skript. Skriptstatus är inloggad i historiken för skriptåtgärder och du kan använda den här informationen för att avgöra om skriptet har lyckats eller misslyckats. Till exempel den `Get-AzureRmHDInsightScriptActionHistory` PowerShell-cmdlet kan användas för att visa status för ett skript. Den returnerar information liknar följande:
 
@@ -144,7 +144,7 @@ När du använder ett skript i ett kluster, klustertillstånd ändras från **k�
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!NOTE]
+> [!IMPORTANT]
 > Om du har ändrat kluster-användarlösenord (admin) när klustret har skapats, misslyckas skriptet åtgärder har körts för det här klustret. Om du har några beständiga skriptåtgärder arbetsnoder som mål, misslyckas dessa skript när du skalar klustret.
 
 ## <a name="example-script-action-scripts"></a>Exempelskript skript åtgärd
@@ -153,20 +153,20 @@ Skriptet åtgärd skript kan användas via följande verktyg:
 
 * Azure Portal
 * Azure PowerShell
-* Azure CLI
+* Azure CLI v1.0
 * HDInsight .NET SDK
 
 HDInsight tillhandahåller skript för att installera följande komponenter i HDInsight-kluster:
 
 | Namn | Skript |
 | --- | --- |
-| **Lägg till ett Azure Storage-konto** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxaddstorageaccountv01/Add-Storage-Account-v01.SH. Se [lägga till ytterligare lagringsutrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md). |
-| **Installera Hue** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxhueconfigactionv02/Install-Hue-uber-v02.SH. Se [installerar och använder Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). |
-| **Installera Presto** |https://Raw.githubusercontent.com/hdinsight/Presto-hdinsight/Master/installpresto.SH. Se [installerar och använder Presto på HDInsight-kluster](hdinsight-hadoop-install-presto.md). |
-| **Installera Solr** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxsolrconfigactionv01/solr-Installer-v01.SH. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). |
-| **Installera Giraph** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxgiraphconfigactionv01/giraph-Installer-v01.SH. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). |
-| **Läsa in Hive-bibliotek** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxsetupcustomhivelibsv01/Setup-customhivelibs-v01.SH. Se [lägga till Hive-bibliotek i HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
-| **Installera eller uppdatera Mono** | https://hdiconfigactions.BLOB.Core.Windows.NET/Install-Mono/Install-Mono.Bash. Se [installera eller uppdatera Mono på HDInsight](hdinsight-hadoop-install-mono.md). |
+| **Lägg till ett Azure Storage-konto** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. Se [lägga till ytterligare lagringsutrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md). |
+| **Installera Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Se [installerar och använder Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md). |
+| **Installera Presto** |https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh. Se [installerar och använder Presto på HDInsight-kluster](hdinsight-hadoop-install-presto.md). |
+| **Installera Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Se [installerar och använder Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). |
+| **Installera Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Se [installerar och använder Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). |
+| **Läsa in Hive-bibliotek** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Se [lägga till Hive-bibliotek i HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
+| **Installera eller uppdatera Mono** | https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash. Se [installera eller uppdatera Mono på HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Använd en skriptåtgärd när klustret skapas
 
@@ -194,8 +194,8 @@ Det här avsnittet innehåller exempel på olika sätt som du kan använda scrip
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript __anpassad__. Annars väljer du något av de angivna skript. |
     | Namn |Ange ett namn för skriptåtgärden. |
-    | Bash-skript URI |Ange URI till det skript som anropas för att anpassa klustret. |
-    | Zookeeper-HEAD/Worker |Ange noderna (**Head**, **Worker**, eller **ZooKeeper**) som anpassning skriptet körs. |
+    | Bash-skript-URI |Ange URI för skriptet. |
+    | Zookeeper-HEAD/Worker |Ange noderna (**Head**, **Worker**, eller **ZooKeeper**) som skriptet körs. |
     | Parametrar |Ange parametrar, om det krävs av skriptet. |
 
     Använd den __spara den här skriptåtgärden__ så att skriptet ska användas vid skalning åtgärder.
@@ -271,8 +271,8 @@ I det här avsnittet lär du dig hur du vidtar skriptåtgärder på ett kluster 
     | --- | --- |
     | Välj ett skript | Om du vill använda ett eget skript __anpassade__. Välj annars en skriptet. |
     | Namn |Ange ett namn för skriptåtgärden. |
-    | Bash-skript URI |Ange URI till det skript som anropas för att anpassa klustret. |
-    | Zookeeper-HEAD/Worker |Ange noderna (**Head**, **Worker**, eller **ZooKeeper**) som anpassning skriptet körs. |
+    | Bash-skript-URI |Ange URI för skriptet. |
+    | Zookeeper-HEAD/Worker |Ange noderna (**Head**, **Worker**, eller **ZooKeeper**) som skriptet körs. |
     | Parametrar |Ange parametrar, om det krävs av skriptet. |
 
     Använd den __spara den här skriptåtgärden__ post att kontrollera att skriptet tillämpas under skalning åtgärder.
@@ -298,9 +298,10 @@ När åtgärden har slutförts får du information som liknar följande:
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Tillämpa en skriptåtgärd till ett kluster som körs från Azure CLI
 
-Innan du fortsätter bör du kontrollera att du har installerat och konfigurerat Azure CLI. Mer information finns i [installerar Azure CLI](../cli-install-nodejs.md).
+Innan du fortsätter bör du kontrollera att du har installerat och konfigurerat Azure CLI. Mer information finns i [installera Azure CLI 1.0](../cli-install-nodejs.md).
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+> [!IMPORTANT]
+> HDInsight kräver Azure CLI 1.0. Azure CLI 2.0 innehåller för närvarande inte kommandon för att arbeta med HDInsight.
 
 1. Om du vill växla till läget Azure Resource Manager, använder du följande kommando på kommandoraden:
 
@@ -458,7 +459,7 @@ Om klustret har skapats misslyckas på grund av ett skriptfel, behålls loggarna
 
     * **Zookeeper-nod** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Alla stdout och stderr för motsvarande värden har överförts till lagringskontot. Det finns en **utdata -\*.txt** och **fel -\*.txt** för varje skriptåtgärd. Utdata *.txt-filen innehåller information om URI: N för skript som får köras på värden. Exempel
+* Alla stdout och stderr för motsvarande värden har överförts till lagringskontot. Det finns en **utdata -\*.txt** och **fel -\*.txt** för varje skriptåtgärd. Utdata *.txt-filen innehåller information om URI: N för skript som får köras på värden. Följande är ett exempel på den här informationen:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 

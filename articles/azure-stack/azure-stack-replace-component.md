@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersätta en maskinvarukomponent på Azure-stacken skala enhet nod
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver den allmänna processen för att ersätta maskinvaru
 
 Följande är icke växlas komponenter:
 
-- CPU *
+- CPU*
 - Minne *
 - Moderkortet/hanteringsstyrenhet för baskort (BMC) / video kort
 - Disk-styrenhet/värdbusskort (HBA) / bakplan
@@ -44,11 +44,11 @@ Följande flöde diagram visar den allmänna FRU-processen att ersätta en icke 
 
 * Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
 
-** Om maskinvaruleverantören OEM utför ersättningen komponent och uppdaterar den inbyggda programvaran kan variera beroende på du stöder kontrakt.
+** Om maskinvaruleverantören OEM utför utbyte av komponenter och uppdateringar av den inbyggda programvaran kan variera baserat på ditt supportavtal.
 
 ## <a name="review-alert-information"></a>Granska aviseringsinformation
 
-Azure-stacken hälsotillstånd och övervakningssystemet spårar hälsotillståndet för nätverkskort och dataenheter som styrs av Storage Spaces Direct. Den spårar inte andra maskinvarukomponenter. Aviseringar som aktiveras för alla andra maskinvarukomponenter i leverantörsspecifika maskinvara övervakningslösning som körs på värden för maskinvara livscykel.
+Azure-stacken hälsotillstånd och övervakningssystemet spårar hälsotillståndet för nätverkskort och dataenheter som styrs av Storage Spaces Direct. Den spårar inte andra maskinvarukomponenter. Aviseringar som aktiveras för alla andra maskinvarukomponenter i leverantörsspecifika maskinvara övervakningslösning som körs på värden för maskinvara livscykel.  
 
 ## <a name="component-replacement-process"></a>Process för ersättning av komponenter
 
@@ -60,7 +60,7 @@ Följande steg ger en översikt över processen för att byta komponent. Följ i
    > Dock endast en nod kan tar slut och stängas av på samma gång utan att S2D (Storage Spaces Direct).
 
 2. När noden skala enhet är i underhållsläge, använda den [stängs](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
- 
+
    > [!NOTE]
    > Använd webbgränssnittet baseboard management controller (BMC) i stället förmodan som inte fungerar stänga av åtgärden.
 
@@ -74,4 +74,3 @@ Följande steg ger en översikt över processen för att byta komponent. Följ i
 
 - Information om du vill ersätta en växlas fysisk disk finns [ersätta en disk](azure-stack-replace-disk.md).
 - Information om du vill ersätta en fysisk nod finns [ersätta en scale unit nod](azure-stack-replace-node.md).
-- 

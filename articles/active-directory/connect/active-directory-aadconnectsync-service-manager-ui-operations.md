@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>På fliken synkronisering Service Manager-åtgärder
 
@@ -34,7 +34,7 @@ Den **Status** kolumnen är den viktigaste informationen och visar de svåraste 
 
 | Status | Kommentera |
 | --- | --- |
-| stopped-* |Kör kunde inte slutföras. Till exempel om fjärrdatorn är igång och kan inte kontaktas. |
+| stoppats-\* |Kör kunde inte slutföras. Till exempel om fjärrdatorn är igång och kan inte kontaktas. |
 | stopped-error-limit |Det finns fler än 5 000 fel. Kör har automatiskt stoppats på grund av det stora antalet fel. |
 | slutförda -\*-fel |Kör slutfördes, men det finns fel (färre än 5 000) som bör undersökas. |
 | slutförda -\*-varningar |Kör slutfördes, men vissa data är inte i det förväntade tillståndet. Om du har fel sedan är det här meddelandet vanligtvis bara ett symtom. Du bör inte undersöka varningar förrän du har åtgärdat felen. |

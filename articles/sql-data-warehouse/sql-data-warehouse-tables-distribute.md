@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
 
@@ -121,7 +121,7 @@ För att minimera dataflyttning, markerar du en kolumn för distribution som:
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Vad du gör om ingen av kolumnerna som är en bra distribution kolumn
 
-När det finns inga bra kandidat kolumner, Överväg att använda resursallokering som distributionsmetod för.
+Om ingen av kolumnerna har tillräckligt med distinkta värden för en distribution kan du skapa en ny kolumn som en sammansatt av en eller flera värden. Använd kolumnen sammansatta distributionsplatsen som en kopplingskolumn i frågor för att undvika dataflytt vid körning av fråga.
 
 Nästa steg är att läsa in data i tabellen när du utformar en distribuerad hash-tabell.  För att läsa in vägledning, se [översikt över inläsning](sql-data-warehouse-overview-load.md). 
 

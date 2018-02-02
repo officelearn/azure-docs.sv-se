@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT-hubb
 
 Skicka meddelanden från enhet till moln för att skicka tidsserier telemetri och aviseringar från dina enheter till din lösningens serverdel, från en enhet till IoT-hubben. En beskrivning av andra enhet till moln-alternativ som stöds av IoT-hubb finns [enhet till moln kommunikation vägledning][lnk-d2c-guidance].
 
-Du skickar meddelanden från enhet till moln via en enhet riktade slutpunkt (**/devices/ {deviceId} / meddelanden/händelser**). Routningsregler och vidarebefordra meddelanden till en av slutpunkterna service-riktade på din IoT-hubb. Regler för routning använda sidhuvuden och innehållet i de meddelanden från enhet till moln passerar genom din hubb för att avgöra var du vill dirigera dem. Som standard meddelanden dirigeras till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Därför kan du använda standard [Händelsehubbar integrering och SDK] [ lnk-compatible-endpoint] att ta emot meddelanden från enhet till moln i din lösningens serverdel.
+Du skickar meddelanden från enhet till moln via en enhet riktade slutpunkt (**/devices/ {deviceId} / meddelanden/händelser**). Routningsregler och vidarebefordra meddelanden till en av slutpunkterna service-riktade på din IoT-hubb. Regler för routning använda sidhuvuden och innehållet i meddelandena från enhet till moln för att avgöra var du vill dirigera dem. Som standard meddelanden dirigeras till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Därför kan du använda standard [Händelsehubbar integrering och SDK] [ lnk-compatible-endpoint] att ta emot meddelanden från enhet till moln i din lösningens serverdel.
 
 IoT-hubb implementerar enhet till moln-meddelanden med hjälp av en strömmande meddelandemönster används. IoT-hubb meddelanden från enhet till moln är mer som [Händelsehubbar] [ lnk-event-hubs] *händelser* än [Service Bus] [ lnk-servicebus] *meddelanden* att en stor volym med händelser som passerar den tjänst som kan läsas av flera läsare.
 
@@ -36,11 +36,11 @@ Enhet till moln meddelanden med IoT-hubben har följande egenskaper:
 * IoT-hubb kan miljontals samtidigt anslutna enheter (se [kvoter och begränsning][lnk-quotas]).
 * IoT-hubb kan inte godtycklig partitionering. Meddelanden från enhet till moln partitioneras baserat på deras ursprung **deviceId**.
 
-Mer information om skillnaderna mellan de IoT-hubb och Händelsehubbar tjänster finns [jämförelse av Azure IoT Hub och Azure Event Hubs][lnk-comparison].
+Mer information om skillnaderna mellan IoT-hubb och Händelsehubbar finns [jämförelse av Azure IoT Hub och Azure Event Hubs][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Skicka ej telemetri trafik
 
-Ofta skicka enheter förutom telemetridatapunkter, meddelanden och förfrågningar som kräver separat utförande och hantering i lösningens serverdel. Till exempel kritiska aviseringar som skall utlösa en specifik åtgärd i serverdelen. Du kan enkelt skriva en [routningsregel] [ lnk-devguide-custom] att skicka dessa typer av meddelanden till en slutpunkt som är dedikerad till bearbetningen baserat på antingen ett sidhuvud på meddelandet eller ett värde i meddelandetexten.
+Ofta skicka enheter förutom telemetri, meddelanden och förfrågningar som kräver separat utförande och hantering i lösningens serverdel. Till exempel kritiska aviseringar som skall utlösa en specifik åtgärd i serverdelen. Du kan skriva en [routningsregel] [ lnk-devguide-custom] att skicka dessa typer av meddelanden till en slutpunkt som är dedikerad till bearbetningen baserat på antingen ett sidhuvud på meddelandet eller ett värde i meddelandetexten.
 
 Mer information om det bästa sättet att bearbeta den här typen av meddelande finns i [Självstudier: bearbeta meddelanden från enhet till moln IoT-hubb] [ lnk-d2c-tutorial] kursen.
 

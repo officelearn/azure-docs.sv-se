@@ -1,5 +1,5 @@
 ---
-title: "Metodtips för OMSManagement lösning | Microsoft Docs"
+title: "Hanteringslösning i Azure Metodtips | Microsoft Docs"
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Metodtips för att skapa lösningar för hantering i Operations Management Suite (OMS) (förhandsgranskning)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Metodtips för att skapa lösningar för hantering i Azure (förhandsversion)
 > [!NOTE]
-> Den här är dokumentationen preliminär för att skapa lösningar för hantering i OMS som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.  
+> Den här är dokumentationen preliminär för att skapa lösningar för hantering i Azure som för närvarande finns i förhandsgranskningen. Ett schema som beskrivs nedan kan ändras.  
 
-Den här artikeln innehåller metodtips för [att skapa en management lösningsfil](operations-management-suite-solutions-solution-file.md) i Operations Management Suite (OMS).  Den här informationen kommer att uppdateras när ytterligare metodtips identifieras.
+Den här artikeln innehåller metodtips för [att skapa en management lösningsfil](operations-management-suite-solutions-solution-file.md) i Azure.  Den här informationen kommer att uppdateras när ytterligare metodtips identifieras.
 
 ## <a name="data-sources"></a>Datakällor
 - Datakällor kan vara [konfigurerats med en Resource Manager-mall](../log-analytics/log-analytics-template-workspace-configuration.md), men de bör inte ingå i en lösningsfil.  Det beror på att konfigurera datakällor inte är för närvarande idempotent vilket innebär att din lösning kan du skriva över befintliga konfigurationen i användarens arbetsyta.<br><br>Lösningen kan exempelvis kräva varnings- och händelser från i programmets händelselogg.  Om du anger detta som en datakälla i din lösning, riskerar du att ta bort händelser med Information om användaren har konfigurerat i arbetsytan.  Om du ingår alla händelser, det kan du samla mycket informationshändelser i användarens arbetsyta.

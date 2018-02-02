@@ -2,22 +2,20 @@
 title: Integration av Azure Stack datacenter - DNS
 description: "Lär dig att integrera Azure Stack DNS med ditt datacenter DNS"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: victorh
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integration av Azure Stack datacenter - DNS
-
-*Gäller för: Azure Stack integrerat system*
-
 För att kunna komma åt Azure Stack slutpunkter (`portal`, `adminportal`, `management`, `adminmanagement`osv.)  Du måste integrera Azure Stack DNS-tjänster med DNS-servrar som är värdar för DNS-zoner som du vill använda i Azure-stacken från utanför Azure-stacken.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure-stacken DNS-namnområde
@@ -127,7 +125,7 @@ Villkorlig vidarebefordran kan inte användas i scenarier där du har angett din
 
 Exempel:
 
-- Företagets DNS-domännamn:`contoso.com`
+- Corporate DNS Domain Name: `contoso.com`
 - Azure-stacken externa DNS-domännamn:`azurestack.contoso.com`
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegera externa DNS-zonen till Azure-stacken
@@ -140,4 +138,4 @@ De flesta DNS-registratorer måste du ange minst två DNS-servrar för att slutf
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Integration av Azure Stack datacenter - identitet](azure-stack-integrate-identity.md)
+[Integrering med brandväggen](azure-stack-firewall.md)

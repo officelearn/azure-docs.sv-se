@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera programmet på virtuella datorer
 Om du vill köra program på instanser i en skaluppsättning för virtuella datorer (VM), måste du först installera programkomponenterna och filer som krävs. Den här artikeln introducerar sätt att skapa en anpassad VM-avbildning för instanser i en skala eller köra automatiskt installera skript på befintliga VM-instanser. Du också lära dig hur du hanterar programmet eller OS-uppdateringar i en skaluppsättning.
@@ -43,11 +43,11 @@ För att minska konfigurationshantering och tid för att etablera en virtuell da
 
 
 ## <a name="already-provisioned"></a>Installera en app med tillägget för anpassat skript
-Tillägget för anpassat skript hämtar och kör skript på Azure Virtual Machines. Det här tillägget är användbart för post distributionskonfiguration, Programvaruinstallation eller någon annan konfiguration / hanteringsaktivitet. Skript kan hämtas från Azure storage eller GitHub eller tillhandahålls på Azure-portalen vid körning av tillägget.
+Tillägget för anpassat skript hämtar och kör skript på Azure Virtual Machines. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning.
 
 Tillägget för anpassat skript kan integreras med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller Azure Virtual Machine REST API. 
 
-Mer information finns i [tillägget för anpassat skript översikt](../virtual-machines/windows/extensions-customscript.md).
+Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/windows/extensions-customscript.md).
 
 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
@@ -94,7 +94,7 @@ Om uppgraderingen principen på din skaluppsättning är *manuell*, uppdatera VM
 ### <a name="use-azure-cli-20"></a>Använda Azure CLI 2.0
 För att använda tillägget för anpassat skript med Azure CLI, kan du skapa en JSON-fil som definierar vilka filer som ska få och kommandon som ska köras. Dessa JSON-definitioner kan återanvändas i set-distributioner att tillämpa konsekvent tillämpning installerar.
 
-Skapa en fil med namnet i din aktuella shell *customConfig.json* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloudConfig.json` att skapa filen och se en lista över tillgängliga redigerare.
+Skapa en fil med namnet i din aktuella shell *customConfig.json* och klistra in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloudConfig.json` för att skapa filen och visa en lista över tillgängliga redigeringsprogram.
 
 ```json
 {
@@ -103,7 +103,7 @@ Skapa en fil med namnet i din aktuella shell *customConfig.json* och klistra in 
 }
 ```
 
-Tillämpa konfigurationen av tillägget för anpassat skript till VM-instanser i nivå med [az vmss tillägget set](/cli/azure/vmss/extension#set). I följande exempel gäller den *customConfig.json* konfiguration för att den *myScaleSet* VM-instanser i resursgruppen med namnet *myResourceGroup*. Ange egna namn på följande sätt:
+Tillämpa konfigurationen av tillägget för anpassat skript till VM-instanser i nivå med [az vmss tillägget set](/cli/azure/vmss/extension#az_vmss_extension_set). I följande exempel gäller den *customConfig.json* konfiguration för att den *myScaleSet* VM-instanser i resursgruppen med namnet *myResourceGroup*. Ange egna namn på följande sätt:
 
 ```azurecli
 az vmss extension set \
@@ -166,13 +166,13 @@ Om uppgraderingen principen på din skaluppsättning är *manuell*, uppdatera VM
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installera en app till en Linux-VM med molnet initiering
-[Molnet init](https://cloudinit.readthedocs.io/latest/) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
+[Cloud-init](https://cloudinit.readthedocs.io/latest/) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
 
 Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
 
 Mer information, inklusive exempel *moln init.txt* fil, se [använda molnet init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
 
-Om du vill skapa en skalningsuppsättning och använder en moln-init-fil, lägger du till den `--custom-data` parametern till den [az vmss skapa](/cli/azure/vmss#create) kommando och ange namnet på en moln-init-fil. I följande exempel skapas en uppsättning med namnet skala *myScaleSet* i *myResourceGroup* och konfigurerar VM-instanser med en fil med namnet *moln init.txt*. Ange egna namn på följande sätt:
+Om du vill skapa en skalningsuppsättning och använder en moln-init-fil, lägger du till den `--custom-data` parametern till den [az vmss skapa](/cli/azure/vmss#az_vmss_create) kommando och ange namnet på en moln-init-fil. I följande exempel skapas en uppsättning med namnet skala *myScaleSet* i *myResourceGroup* och konfigurerar VM-instanser med en fil med namnet *moln init.txt*. Ange egna namn på följande sätt:
 
 ```azurecli
 az vmss create \

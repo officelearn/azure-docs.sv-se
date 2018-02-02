@@ -2,19 +2,19 @@
 title: "Behållaren arbetsbelastningar på Azure Batch | Microsoft Docs"
 description: "Lär dig hur du kör program från behållaren bilder på Azure Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Köra behållarprogram på Azure Batch
 
@@ -25,7 +25,7 @@ Med hjälp av behållare ger ett enkelt sätt att köra batchaktiviteter utan at
 Den här artikeln förutsätter förtrogenhet med Docker behållare begrepp och hur du skapar en Batch-pool och jobb med hjälp av .NET SDK. Kodavsnitten är avsedda att användas i ett klientprogram som liknar den [DotNetTutorial exempel](batch-dotnet-get-started.md), och är exempel på kod som du behöver stöd för behållarprogram i en Batch.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * SDK-versioner: det Batch SDK stöd behållaren bilder i följande versioner:
     * Batch REST API-version 2017-09-01.6.0

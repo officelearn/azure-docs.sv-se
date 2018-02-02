@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -242,7 +242,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|timeout = ”heltal”|Det går inte att timeoutintervall i sekunder innan anropet till serverdelstjänsten.|Nej|300 sekunder|  
+|timeout="integer"|Det går inte att timeoutintervall i sekunder innan anropet till serverdelstjänsten.|Nej|300 sekunder|  
 |Följ omdirigeringar = ”true &#124; FALSE ”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|falskt|  
   
 ### <a name="usage"></a>Användning  
@@ -333,15 +333,15 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
-|loggen till eventhub|Rotelementet. Värdet för det här elementet är sträng att logga in till din event hub.|Ja|  
+|log-to-eventhub|Rotelementet. Värdet för det här elementet är sträng att logga in till din event hub.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|  
 |---------------|-----------------|--------------|  
-|loggaren-id|Id för loggaren registrerats API Management-tjänsten.|Ja|  
-|partitions-id|Anger index för partitionen som meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-key` används.|  
-|Partitionsnyckeln|Anger det värde som används för tilldelning av partitionen när meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-id` används.|  
+|logger-id|Id för loggaren registrerats API Management-tjänsten.|Ja|  
+|partition-id|Anger index för partitionen som meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-key` används.|  
+|partition-key|Anger det värde som används för tilldelning av partitionen när meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-id` används.|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -376,13 +376,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
-|mock-svar|Rotelementet.|Ja|  
+|mock-response|Rotelementet.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|--------------|  
-|statuskod|Anger Svarets statuskod och används för att välja motsvarande exempel eller schema.|Nej|200|  
+|status-code|Anger Svarets statuskod och används för att välja motsvarande exempel eller schema.|Nej|200|  
 |innehållstyp|Anger `Content-Type` svar huvudets värde och används för att välja motsvarande exempel eller schema.|Nej|Ingen|  
   
 ### <a name="usage"></a>Användning  
@@ -441,9 +441,9 @@ status code and media type. If no example or schema found, the content is empty.
 |tillstånd|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Gäller inte|  
 |antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Gäller inte|  
 |interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Gäller inte|  
-|Max-intervall|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Gäller inte|  
+|max-interval|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Gäller inte|  
 |delta|Ett positivt tal i sekunder som anger att vänta intervall ökning. Används för att implementera linjär och exponentiella retry-algoritmer.|Nej|Gäller inte|  
-|första-fast-återförsök|Om värdet `true` , första nytt försök utförs omedelbart.|Nej|`false`|  
+|first-fast-retry|Om värdet `true` , första nytt försök utförs omedelbart.|Nej|`false`|  
   
 > [!NOTE]
 >  När bara den `interval` anges **fast** intervall för nya försök utförs.  
@@ -488,15 +488,15 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
 |returnera svar|Rotelementet.|Ja|  
-|set-huvud|En [set-huvudet](api-management-transformation-policies.md#SetHTTPheader) princip-satsen.|Nej|  
+|set-header|En [set-huvudet](api-management-transformation-policies.md#SetHTTPheader) princip-satsen.|Nej|  
 |Ange brödtext|En [set brödtext](api-management-transformation-policies.md#SetBody) princip-satsen.|Nej|  
-|Ange status|En [Ange status](api-management-advanced-policies.md#SetStatus) princip-satsen.|Nej|  
+|set-status|En [Ange status](api-management-advanced-policies.md#SetStatus) princip-satsen.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|  
 |---------------|-----------------|--------------|  
-|svaret variabelnamn|Namnet på variabeln kontexten refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt|Valfri.|  
+|response-variable-name|Namnet på variabeln kontexten refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt|Valfri.|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -553,9 +553,9 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
-|en-sätt-begäran om att skicka|Rotelementet.|Ja|  
+|send-one-way-request|Rotelementet.|Ja|  
 |url|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
-|Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
+|metod|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
 |brödtext|Begärantexten.|Nej|  
   
@@ -563,7 +563,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
@@ -634,7 +634,7 @@ status code and media type. If no example or schema found, the content is empty.
 |-------------|-----------------|--------------|  
 |Skicka begäran|Rotelementet.|Ja|  
 |url|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
-|Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
+|metod|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
 |brödtext|Begärantexten.|Nej|  
   
@@ -642,10 +642,10 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
-|svaret variabelnamn = ”sträng”|Om den inte finns `context.Response` används.|Nej|Gäller inte|  
-|timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|  
-|Ignorera fel|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|falskt|  
+|mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|response-variable-name="string"|Om den inte finns `context.Response` används.|Nej|Gäller inte|  
+|timeout="integer"|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|  
+|ignore-error|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|falskt|  
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
@@ -684,9 +684,9 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|URL = ”sträng”|Proxy-URL i form av http://host:port.|Ja|Gäller inte|  
-|UserName = ”sträng”|Användarnamnet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
-|lösenord = ”sträng”|Lösenordet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
+|url="string"|Proxy-URL i form av http://host:port.|Ja|Gäller inte|  
+|username="string"|Användarnamnet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
+|password="string"|Lösenordet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
 
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -778,14 +778,14 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
-|Ange status|Rotelementet.|Ja|  
+|set-status|Rotelementet.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|kod = ”heltal”|HTTP-statuskoden ska returneras.|Ja|Gäller inte|  
-|Orsak = ”sträng”|En beskrivning av orsaken för att returnera statuskoden.|Ja|Gäller inte|  
+|code="integer"|HTTP-statuskoden ska returneras.|Ja|Gäller inte|  
+|reason="string"|En beskrivning av orsaken för att returnera statuskoden.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

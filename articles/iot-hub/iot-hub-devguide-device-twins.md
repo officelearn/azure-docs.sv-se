@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enheten twins i IoT-hubb
 
@@ -58,47 +58,49 @@ En enhet dubbla är en JSON-dokument som innehåller:
 
 I följande exempel visas en enhet dubbla JSON-dokumentet:
 
-        {
-            "deviceId": "devA",
-            "etag": "AAAAAAAAAAc=", 
-            "status": "enabled",
-            "statusReason": "provisioned",
-            "statusUpdateTime": "0001-01-01T00:00:00",
-            "connectionState": "connected",
-            "lastActivityTime": "2015-02-30T16:24:48.789Z",
-            "cloudToDeviceMessageCount": 0, 
-            "authenticationType": "sas",
-            "x509Thumbprint": {     
-                "primaryThumbprint": null, 
-                "secondaryThumbprint": null 
-            }, 
-            "version": 2, 
-            "tags": {
-                "$etag": "123",
-                "deploymentLocation": {
-                    "building": "43",
-                    "floor": "1"
-                }
-            },
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata" : {...},
-                    "$version": 1
-                },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": 55,
-                    "$metadata" : {...},
-                    "$version": 4
-                }
-            }
+```json
+{
+    "deviceId": "devA",
+    "etag": "AAAAAAAAAAc=", 
+    "status": "enabled",
+    "statusReason": "provisioned",
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "connected",
+    "lastActivityTime": "2015-02-30T16:24:48.789Z",
+    "cloudToDeviceMessageCount": 0, 
+    "authenticationType": "sas",
+    "x509Thumbprint": {     
+        "primaryThumbprint": null, 
+        "secondaryThumbprint": null 
+    }, 
+    "version": 2, 
+    "tags": {
+        "$etag": "123",
+        "deploymentLocation": {
+            "building": "43",
+            "floor": "1"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata" : {...},
+            "$version": 1
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": 55,
+            "$metadata" : {...},
+            "$version": 4
+        }
+    }
+}
+```
 
 I rotobjektet enheten identitetsegenskaper, och behållarobjekt för `tags` och båda `reported` och `desired` egenskaper. Den `properties` behållaren innehåller vissa skrivskyddad element (`$metadata`, `$etag`, och `$version`) beskrivs i den [enhetens dubbla metadata] [ lnk-twin-metadata] och [Optimistisk samtidighet] [ lnk-concurrency] avsnitt.
 
@@ -112,26 +114,32 @@ I det förra exemplet, enhet dubbla innehåller en `batteryLevel` egenskap som r
 I föregående exempel är den `telemetryConfig` enheten dubbla önskad och rapporterade egenskaper används av lösningens serverdel och enheter appen synkronisera telemetri konfigurationen för den här enheten. Exempel:
 
 1. Lösningens serverdel egenskapen önskade med önskad konfiguration-värde. Här är del av dokumentet med de önskade egenskapen:
-   
-        ...
-        "desired": {
-            "telemetryConfig": {
-                "sendFrequency": "5m"
-            },
-            ...
+
+    ```json
+    ...
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
         },
         ...
+    },
+    ...
+    ```
+
 2. Enheten appen meddelas ändra omedelbart om ansluten, eller vid första återanslutning. Appen enheten rapporterar den uppdaterade konfigurationen (eller ett fel villkor med hjälp av den `status` egenskap). Här är del av rapporterade egenskaper:
-   
-        ...
-        "reported": {
-            "telemetryConfig": {
-                "sendFrequency": "5m",
-                "status": "success"
-            }
-            ...
+
+    ```json
+    ...
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
         }
         ...
+    }
+    ...
+    ```
+
 3. Lösningens serverdel kan spåra resultatet av åtgärden configuration mellan många olika enheter, av [frågar] [ lnk-query] twins för enheten.
 
 > [!NOTE]
@@ -144,23 +152,26 @@ Du kan använda twins för att synkronisera långvariga åtgärder, t.ex uppdate
 ## <a name="back-end-operations"></a>Backend-åtgärder
 Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomiska åtgärder exponeras via HTTPS:
 
-* **Hämta enheten dubbla med id**. Den här åtgärden Returnerar enheten dubbla dokument, inklusive taggar och önskade och rapporterade Systemegenskaper.
+* **Hämta enheten dubbla efter ID**. Den här åtgärden Returnerar enheten dubbla dokument, inklusive taggar och önskade och rapporterade Systemegenskaper.
 * **Delvis uppdatera enheten dubbla**. Den här åtgärden kan lösningens serverdel delvis uppdaterar taggar eller önskade egenskaper i en delad enhet. Delvis uppdatering uttrycks som ett JSON-dokument som läggs till eller uppdaterar en egenskap. Ange egenskaper `null` tas bort. I följande exempel skapas en ny önskad egenskap med värdet `{"newProperty": "newValue"}`, skriver över det befintliga värdet av `existingProperty` med `"otherNewValue"`, och tar bort `otherOldProperty`. Några andra ändringar har gjorts i befintliga egenskaper eller taggar:
-   
-        {
-            "properties": {
-                "desired": {
-                    "newProperty": {
-                        "nestedProperty": "newValue"
-                    },
-                    "existingProperty": "otherNewValue",
-                    "otherOldProperty": null
-                }
+
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
             }
         }
+    }
+    ```
+
 * **Ersätt egenskaper**. Den här åtgärden aktiverar lösningens serverdel att skriva över alla befintliga egenskaper och ersätta ett nytt JSON-dokument för `properties/desired`.
 * **Ersätt taggar**. Den här åtgärden aktiverar lösningens serverdel att skriva över alla befintliga taggar och ersätta ett nytt JSON-dokument för `tags`.
-* **Ta emot meddelanden med dubbla**. Den här åtgärden kan lösningens serverdel ska meddelas när dubbla ändras. Om du vill göra det, IoT-lösningen behöver skapa en väg och datakällan ska vara lika med *twinChangeEvents*. Inga dubbla meddelanden skickas som standard, som är det inför finns ingen sådan vägar. Om ändringshastigheten är för hög eller av andra orsaker, till exempel internt fel IoT-hubben kan skicka endast ett meddelande som innehåller alla ändringar. Så om ditt program måste tillförlitliga granskning och loggning av alla mellanliggande tillstånd, sedan fortfarande rekommenderas att du använder D2C meddelanden. Dubbla meddelandet innehåller egenskaperna och innehållet.
+* **Ta emot meddelanden med dubbla**. Den här åtgärden kan lösningens serverdel ska meddelas när dubbla ändras. Om du vill göra det, IoT-lösningen behöver skapa en väg och datakällan ska vara lika med *twinChangeEvents*. Inga dubbla meddelanden skickas som standard, som är det inför finns ingen sådan vägar. Om ändringshastigheten är för hög eller av andra orsaker, till exempel internt fel IoT-hubben kan skicka endast ett meddelande som innehåller alla ändringar. Om ditt program måste tillförlitliga granskning och loggning av alla mellanliggande tillstånd, bör du därför använda meddelanden från enhet till moln. Dubbla meddelandet innehåller egenskaperna och innehållet.
 
     - Egenskaper
 
@@ -169,11 +180,11 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
     $iothub-meddelande-källa | twinChangeEvents |
-    $content-kodning | UTF-8 |
+    $content-encoding | utf-8 |
     deviceId | ID för enheten |
     hubName | Namnet på IoT-hubb |
     operationTimestamp | [ISO8601] tidsstämpeln för åtgärden |
-    iothub-meddelande-schema | deviceLifecycleNotification |
+    iothub-message-schema | deviceLifecycleNotification |
     opType | ”replaceTwin” eller ”updateTwin” |
 
     Meddelandet Systemegenskaper föregås av `'$'` symbolen.
@@ -181,7 +192,8 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
     - Innehåll
         
     Det här avsnittet innehåller dubbla ändringarna i en JSON-format. Samma format används som en korrigering, med skillnaden att den kan innehålla alla två avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
-    ```
+
+    ```json
     {
         "properties": {
             "desired": {
@@ -198,10 +210,10 @@ Lösningens serverdel körs på den enheten dubbla med hjälp av följande atomi
             }
         }
     }
-    ``` 
+    ```
 
 Stöd för alla föregående operationer [Optimistisk samtidighet] [ lnk-concurrency] och kräver den **ServiceConnect** behörighet, som definieras i den [säkerhet] [ lnk-security] artikel.
- 
+
 Förutom dessa åtgärder kan lösningens serverdel
 
 * Fråga enhet-twins med hjälp av SQL-liknande [IoT-hubb frågespråket][lnk-query].
@@ -225,23 +237,25 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 * Alla värden i JSON-objekt kan vara följande typer av JSON: boolean, nummer, sträng, objekt. Matriser är inte tillåtna. Det maximala värdet för heltal är 4503599627370495 och det lägsta värdet för heltal är-4503599627370496.
 * JSON-objekt i taggar, önskade och rapporterade egenskaper kan ha högst 5. Följande objekt är till exempel giltig:
 
-        {
-            ...
-            "tags": {
-                "one": {
-                    "two": {
-                        "three": {
-                            "four": {
-                                "five": {
-                                    "property": "value"
-                                }
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
                             }
                         }
                     }
                 }
-            },
-            ...
-        }
+            }
+        },
+        ...
+    }
+    ```
 
 * Alla strängvärden kan vara högst 4 KB längd.
 
@@ -254,48 +268,50 @@ IoT-hubb avvisar alla åtgärder som kan öka storleken på dessa dokument än g
 IoT-hubb underhåller tidsstämpel för den senaste uppdateringen för varje JSON-objekt i enheten dubbla önskad och rapporterade egenskaper. Tidsstämplar i UTC och kodats i den [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Exempel:
 
-        {
-            ...
-            "properties": {
-                "desired": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m"
-                    },
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": {
-                                "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
-                    "$version": 23
+                    "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "reported": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": "success"
-                    }
-                    "batteryLevel": "55%",
-                    "$metadata": {
-                        "telemetryConfig": {
-                            "sendFrequency": "5m",
-                            "status": {
-                                "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                            },
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        }
-                        "batteryLevel": {
-                            "$lastUpdated": "2016-04-01T16:35:48.789Z"
-                        },
-                        "$lastUpdated": "2016-04-01T16:24:48.789Z"
-                    },
-                    "$version": 123
-                }
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
+            },
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
             }
-            ...
+            "batteryLevel": "55%",
+            "$metadata": {
+                "telemetryConfig": {
+                    "sendFrequency": "5m",
+                    "status": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
+                },
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
+    }
+    ...
+}
+```
 
 Denna information lagras på varje nivå (inte bara löv i JSON-strukturen) för att spara uppdateringar som tar bort objektnycklar.
 
@@ -336,7 +352,7 @@ Nu har du fått veta om enheten twins du vill ha i följande IoT-hubb developer 
 * [Anropa en metod som är direkt på en enhet][lnk-methods]
 * [Schema-jobb på flera enheter][lnk-jobs]
 
-Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du är intresserad av IoT-hubb följande kurser:
+Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande kurser för IoT-hubb:
 
 * [Hur du använder enheten dubbla][lnk-twin-tutorial]
 * [Hur du använder identiska enhetsegenskaper][lnk-twin-properties]

@@ -3,7 +3,7 @@ title: "Integrera externa övervakningslösning med Azure-stacken | Microsoft Do
 description: "Lär dig mer om att integrera Azure stacken med en extern övervakningslösning i ditt datacenter."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 01/31/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
 
@@ -78,13 +79,13 @@ Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 
 | Parameter | Beskrivning | Exempel |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administratör) slutpunkt |https://adminmanagement.Local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administratör) slutpunkt  | https://adminmanagement.Local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administratör) slutpunkt |https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administratör) slutpunkt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Admin prenumerations-ID | Hämta via administratörsportal eller PowerShell |
-| *Användarnamn* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | Operatorn prenumeration lösenord | mittlösenord |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *region* |  Namn på Azure Stack område | lokala |
+| *User_name* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
+| *User_password* | Operatorn prenumeration lösenord | mypassword |
+| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Namn på Azure Stack område | lokal |
 |  |  |
 
 * PowerShell GUID som tillhandahålls är universal. Du kan använda den för varje distribution.
@@ -139,7 +140,7 @@ Begäran hämtar alla aktiva och stängda aviseringar för providern standardabo
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|HÄMTA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 ”      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argument**
@@ -149,7 +150,7 @@ Begäran hämtar alla aktiva och stängda aviseringar för providern standardabo
 |armendpoint     |  Azure Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{Externa FQDN}. Om den externa FQDN är till exempel *azurestack.external* och regionnamn är *lokala*, och sedan Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.       |
 |subid     |   Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.      |
 |RegionName     |    Regionnamn med Azure Stack-distributionen.     |
-|API-version     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
+|api-version     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
 |     |         |
 
 **Svar**
@@ -205,7 +206,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |  Argumentet  |Beskrivning  |
 |---------|---------|
-|*ID*     |      Unikt ID för aviseringen.   |
+|*id*     |      Unikt ID för aviseringen.   |
 |*Namn*     |     Internt namn för aviseringen.   |
 |*typ*     |     Resursdefinitionen.    |
 |*Plats*     |       Namn på område.     |
@@ -228,13 +229,13 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
 |*serviceregistrationid*     |    ID för en registrerad service.   |
 |*allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
-|*tillstånd*     |    Tillstånd för avisering.   |
+|*state*     |    Tillstånd för avisering.   |
 |*Rubrik*     |    Aviseringen rubrik.   |
 |*impactedresourceid*     |     ID för påverkas resurs.    |
 |*ImpactedresourceDisplayName*     |     Namnet på resursen påverkas.  |
 |*closedByUserAlias*     |   Användaren som stängde aviseringen.      |
 
-### <a name="close-alert"></a>Stäng avisering
+### <a name="close-alert"></a>Stäng avisering 
 
 **Förfrågan**
 
@@ -242,7 +243,7 @@ Begäran stänger en avisering med ett unikt ID.
 
 |Metod    |Förfrågans URI  |
 |---------|---------|
-|PLACERA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 ”    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argument**
 
@@ -252,7 +253,7 @@ Begäran stänger en avisering med ett unikt ID.
 |*armendpoint*     |   Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement.{RegionName}.{Externa FQDN}. Om den externa FQDN är till exempel *azurestack.external* och regionnamn är *lokala*, och sedan Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.     |
 |*RegionName*     |   Regionnamn med Azure Stack-distributionen.      |
-|*API-version*     |    Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.     |
+|*api-version*     |    Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.     |
 |*alertid*     |    Unikt ID för aviseringen.     |
 
 **Brödtext**
@@ -348,7 +349,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |  Argumentet  |Beskrivning  |
 |---------|---------|
-|*ID*     |      Unikt ID för aviseringen.   |
+|*id*     |      Unikt ID för aviseringen.   |
 |*Namn*     |     Internt namn för aviseringen.   |
 |*typ*     |     Resursdefinitionen.    |
 |*Plats*     |       Namn på område.     |
@@ -371,7 +372,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
 |*serviceregistrationid*     |    ID för en registrerad service.   |
 |*allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
-|*tillstånd*     |    Tillstånd för avisering.   |
+|*state*     |    Tillstånd för avisering.   |
 |*Rubrik*     |    Aviseringen rubrik.   |
 |*impactedresourceid*     |     ID för påverkas resurs.    |
 |*ImpactedresourceDisplayName*     |     Namnet på resursen påverkas.  |
@@ -386,7 +387,7 @@ Begäran hämtar hälsostatus för alla registrerade providrar.
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|HÄMTA    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 ”   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argument**
@@ -397,7 +398,7 @@ Begäran hämtar hälsostatus för alla registrerade providrar.
 |*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Om den externa FQDN är azurestack.external och regionnamn är lokal är Resource Manager-slutpunkten https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.    |
 |*RegionName*     |     Regionnamn med Azure Stack-distributionen.    |
-|*API-version*     |   Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
+|*api-version*     |   Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
 
 
 **Svar**
@@ -434,13 +435,13 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argumentet  |Beskrivning  |
 |---------|---------|
-|*ID*     |   Unikt ID för aviseringen.      |
+|*Id*     |   Unikt ID för aviseringen.      |
 |*Namn*     |  Internt namn för aviseringen.       |
 |*typ*     |  Resursdefinitionen.       |
 |*Plats*     |  Namn på område.       |
 |*tagg*     |     Resurstaggar.    |
 |*registrationId*     |   Unik registrering för resursprovidern.      |
-|*Visningsnamn*     |Visningsnamn för resurs-providern.        |
+|*displayName*     |Visningsnamn för resurs-providern.        |
 |*namnområde*     |   API-namnområdet resursprovidern implementerar.       |
 |*routePrefix*     |    URI för att interagera med resursprovidern.     |
 |*serviceLocation*     |   Den här resursprovidern har registrerats med region.      |
@@ -457,7 +458,7 @@ Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|HÄMTA     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 ”    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argument**
 
@@ -466,7 +467,7 @@ Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
 |*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Om den externa FQDN är azurestack.external och regionnamn är lokal är Resource Manager-slutpunkten https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.         |
 |*RegionName*     |  Regionnamn med Azure Stack-distributionen.       |
-|*API-version*     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.       |
+|*api-version*     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.       |
 |*RegistrationID* |Registrerings-ID för en viss resurs-provider. |
 
 **Svar**
@@ -502,7 +503,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Argumentet  |Beskrivning  |
 |---------|---------|
-|*ID*     |   Unikt ID för aviseringen.      |
+|*Id*     |   Unikt ID för aviseringen.      |
 |*Namn*     |  Internt namn för aviseringen.       |
 |*typ*     |  Resursdefinitionen.       |
 |*Plats*     |  Namn på område.       |
@@ -515,8 +516,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI för resursen.   |
 |*alertSummary*     |   Sammanfattning av kritiska och varningsaviseringar hälsostatus.     |
 
+## <a name="learn-more"></a>Läs mer
+
+Information om inbyggda hälsoövervakning finns [övervaka hälsotillstånd och aviseringar i Azure-stacken](azure-stack-monitor-health.md).
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om inbyggda hälsoövervakning finns [övervaka hälsotillstånd och aviseringar i Azure-stacken](azure-stack-monitor-health.md).
-
-
+[Integrering av säkerhet](azure-stack-integrate-security.md)

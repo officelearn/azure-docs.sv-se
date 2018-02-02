@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
 
@@ -26,7 +26,7 @@ ASP.NET Core är ett nytt öppen källkod och plattformsoberoende ramverk för a
 
 Den här artikeln är utförliga instruktioner för hur ASP.NET Core värdtjänster i Service Fabric Reliable Services med hjälp av den **Microsoft.ServiceFabric.AspNetCore.** * uppsättning NuGet-paket.
 
-En inledande självstudiekurs om ASP.NET Core i Service Fabric och anvisningar om hur din utvecklingsmiljö konfigurera finns i [bygga en webbklientdel för ditt program med hjälp av ASP.NET Core](service-fabric-add-a-web-frontend.md).
+En inledande självstudiekurs om ASP.NET Core i Service Fabric och anvisningar om hur din utvecklingsmiljö konfigurera finns i [skapa ett .NET-program](service-fabric-tutorial-create-dotnet-app.md).
 
 Resten av den här artikeln förutsätter att du redan är bekant med ASP.NET Core. Om inte, vi rekommenderar att läsa igenom den [ASP.NET grunderna](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -104,7 +104,7 @@ HttpSys bygger på den [Windows http-Server API](https://msdn.microsoft.com/libr
 
 Följande diagram illustrerar hur HttpSys använder den *http.sys* kernel-drivrutinen i Windows för delning av port:
 
-![HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys i en tillståndslös tjänst
 Att använda `HttpSys` i en tillståndslös tjänst åsidosätta den `CreateServiceInstanceListeners` metod och returnera ett `HttpSysCommunicationListener` instans:
@@ -309,7 +309,7 @@ När exponerad mot Internet, ska en tillståndslösa tjänsten använda en välk
 |  |  | **Anteckningar** |
 | --- | --- | --- |
 | Webbserver | kestrel | Kestrel är prioriterade webbservern som stöds i Windows och Linux. |
-| Portkonfiguration | Statisk | En välkänd statisk port ska konfigureras i den `Endpoints` konfigurationen av ServiceManifest.xml, till exempel 80 för HTTP och 443 för HTTPS. |
+| Portkonfiguration | statisk | En välkänd statisk port ska konfigureras i den `Endpoints` konfigurationen av ServiceManifest.xml, till exempel 80 för HTTP och 443 för HTTPS. |
 | ServiceFabricIntegrationOptions | Ingen | Den `ServiceFabricIntegrationOptions.None` bör användas när du konfigurerar Service Fabric-integrering mellanprogram så att tjänsten inte försöker verifiera inkommande begäranden för en unik identifierare. Externa användare av ditt program vet inte unikt identifierande information som används av mellanprogram. |
 | Antal instanser | -1 | I vanliga användningsområden ska instansantalet inställningen anges för ”1” så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
 
@@ -336,7 +336,7 @@ Tillståndslösa tjänster som endast anropas från inom klustret ska använda u
 | Webbserver | kestrel | Även om HttpSys kan användas för interna tillståndslösa tjänster, är Kestrel rekommenderade servern så att flera instanser av tjänsten att dela en värd.  |
 | Portkonfiguration | dynamiskt tilldelade | Flera repliker på en tillståndskänslig tjänst kan dela en värdprocess eller värdoperativsystemet och därför måste unika portar. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar med dynamisk porttilldelning felaktig identitet problemet som beskrivs ovan. |
-| InstanceCount | alla | Instansantalet inställning kan anges till ett värde krävs för att använda tjänsten. |
+| InstanceCount | valfri | Instansantalet inställning kan anges till ett värde krävs för att använda tjänsten. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Endast internt tillståndskänslig ASP.NET Core-tjänsten
 Tillståndskänsliga tjänster som endast anropas från inom klustret ska använda dynamiskt tilldelade portar för samarbete mellan flera tjänster. Du rekommenderas följande konfiguration:

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="remove-azure-automation-hybrid-runbook-workers"></a>Ta bort Azure Automation Hybrid Runbook Worker
+# <a name="remove-azure-automation-hybrid-runbook-workers"></a>Ta bort Azure Automation Hybrid Runbook Worker-arbeten
 
-Du kan 
+Funktionen Hybrid Runbook Worker i Azure Automation kan du köra runbooks direkt på den dator där rollen och mot resurser i miljön för att hantera de lokala resurserna. Den här artikeln tar dig igenom stegen för att ta bort en worker-Hybrid från en lokal dator.
 
 ## <a name="removing-hybrid-runbook-worker"></a>Tar bort Hybrid Runbook Worker
 
@@ -40,8 +40,8 @@ Du kan ta bort en eller flera Runbook Worker-hybrider från en grupp och du tar 
 Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker från varje dator som är medlem i gruppen med hjälp av proceduren som visades tidigare och utför sedan följande steg för att ta bort gruppen.  
 
 1. Öppna Automation-kontot i Azure-portalen.
-1. Välj den **Hybrid Worker grupper** panelen och i den **Hybrid Worker grupper** bladet Välj den grupp som du vill ta bort.  När du har valt en viss grupp av **Hybrid worker-gruppen** egenskapsbladet visas.<br> ![Bladet hybrid Runbook Worker-grupp](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
-1. Klicka på egenskapsbladet för den valda gruppen **ta bort**.  Ett meddelande visas där du ombeds bekräfta åtgärden, Välj **Ja** om du är säker på att du vill fortsätta.<br> ![Ta bort grupp bekräftelsedialogruta](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
+1. Under **Processautomatisering** Välj **Hybrid Worker grupper**. Välj den grupp som du vill ta bort.  När du har valt en viss grupp av **Hybrid worker-gruppen** egenskapsbladet visas.<br> ![Bladet hybrid Runbook Worker-grupp](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
+2. Klicka på egenskapsbladet för den valda gruppen **ta bort**.  Ett meddelande visas där du ombeds bekräfta åtgärden, Välj **Ja** om du är säker på att du vill fortsätta.<br> ![Ta bort grupp bekräftelsedialogruta](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
 
 ## <a name="next-steps"></a>Nästa steg
 

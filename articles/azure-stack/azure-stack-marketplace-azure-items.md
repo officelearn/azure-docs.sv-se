@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 01/27/2018
 ms.author: JeffGoldner
-ms.openlocfilehash: d6a0cbf696d59cec5b70e147de2879a311d88687
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -38,8 +38,6 @@ Du rekommenderas att ladda ned dessa när det finns uppdateringar för VM-tillä
 | ![](media/azure-stack-marketplace-azure-items/cse.png) | [VM-åtkomst för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Hämta uppdateringen till den i box-versionen av VMAccess för Linux-tillägg. Det är viktigt om du planerar att använda Debian virtuella Linux-datorer.</b> | Microsoft | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Linux |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Windows |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro djup Security tillägget för Linux. | Trend Micro | Linux |
-| ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro djup Security tillägget för Windows. | Trend Micro | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine-bilder och Lösningsmallar
 
@@ -47,7 +45,7 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 
 |  | Objektnamnet | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
-| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Företagsklass lösningar som är enkel att distribuera, kostnadseffektiv, fokuserar på programmet och användarcentrerad. Dessa avbildningar uppdateras regelbundet med de senaste korrigeringarna. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Företagsklass lösningar som är enkel att distribuera, kostnadseffektiv, fokuserar på programmet och användarcentrerad. Dessa avbildningar uppdateras regelbundet med de senaste korrigeringarna. <b>Viktig information: bilder hämtas innan 18 januari 2018 måste tas bort och ersätts med de senaste versionerna.</b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Distribution av Fjärrskrivbordstjänster (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Skapa en grundläggande distribution av Remote Desktop Services (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 Trial på Windows Server 2012 Datacenter och 2017 för Visual Studio community edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016-utvärderingsversion på Windows Server 2016 Datacenter. | Microsoft |

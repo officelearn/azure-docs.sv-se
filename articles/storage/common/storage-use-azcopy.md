@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
@@ -646,13 +646,13 @@ Det standardmönster för filen som används när inga filmönstret har angetts 
 
 **Gäller för:** Blobbar, filer
 
-### <a name="destkeystorage-key"></a>/ DestKey: ”lagringsnyckel”
+### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
 
 Anger lagringskontonyckel för målresurs.
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="destsassas-token"></a>/ DestSAS: ”sas-token”
+### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
 Anger en delad signatur åtkomst (SAS) med behörigheter för Läs- och skrivbehörighet för mål (om tillämpligt). Omge SAS med dubbla citattecken, eftersom det kanske innehåller kommandoradsverktyget specialtecken.
 
@@ -662,7 +662,7 @@ Om käll- och båda blobbar, måste mål-blob finnas inom samma lagringskonto so
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="sourcekeystorage-key"></a>/ SourceKey: ”lagringsnyckel”
+### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
 
 Anger lagringskontonyckel för käll-resurs.
 
@@ -678,7 +678,7 @@ Om källan är en filresurs eller tabell, en nyckel eller en SAS måste anges.
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="s"></a>/ S
+### <a name="s"></a>/S
 
 Anger rekursiv kopieringsåtgärd. AzCopy kopierar alla blobbar eller filer som matchar det angivna mönstret, inklusive de på undermappar i rekursiva läge.
 
@@ -700,7 +700,7 @@ AzCopy egenskapen alltid Content-MD5 för ett Azure blob eller en fil efter öve
 
 **Gäller för:** Blobbar, filer
 
-### <a name="snapshot"></a>/ Ögonblicksbild
+### <a name="snapshot"></a>/Snapshot
 
 Anger om du vill överföra ögonblicksbilder. Det här alternativet gäller endast om källan är en blob.
 
@@ -710,7 +710,7 @@ Som standard kopieras inte ögonblicksbilder.
 
 **Gäller för:** Blobbar
 
-### <a name="vverbose-log-file"></a>/ V: [utförlig log-fil]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Utdata utförlig statusmeddelanden till en loggfil.
 
@@ -718,7 +718,7 @@ Som standard heter den utförliga loggfilen AzCopyVerbose.log i `%LocalAppData%\
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="zjournal-file-folder"></a>/ Z: [journal-filmapp]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Anger en mapp för att återuppta en åtgärd journalen.
 
@@ -736,7 +736,7 @@ Observera att återuppta en åtgärd från en journal-fil som skapats av en tidi
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="parameter-file"></a>/@:"parameter-File”
+### <a name="parameter-file"></a>/@:"parameter-file"
 
 Anger en fil som innehåller parametrar. AzCopy bearbetar parametrarna i filen, precis som om de hade angetts på kommandoraden.
 
@@ -750,11 +750,11 @@ Du kan ange flera svarsfiler. Observera dock att AzCopy inte stöder kapslade sv
 
 ### <a name="y"></a>/Y
 
-Förhindrar att alla meddelanden för bekräftelse av AzCopy.
+Förhindrar att alla meddelanden för bekräftelse av AzCopy. Det här alternativet kan också använda lässkyddad SAS-token för scenarion för överföring av data när /XO och /XN inte har angetts.
 
 **Gäller för:** Blobbar, filer, tabeller
 
-### <a name="l"></a>/ L
+### <a name="l"></a>/L
 
 Anger en åtgärd. Inga data kopieras.
 
@@ -789,7 +789,7 @@ Undantar en äldre käll-resurs. Resursen kopieras inte om den senaste ändrings
 
 **Gäller för:** Blobbar, filer
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Överför bara filer med någon av de angivna attributen.
 
@@ -808,7 +808,7 @@ Tillgängliga attribut inkluderar:
 
 **Gäller för:** Blobbar, filer
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Undantar filer med någon av de angivna attributen.
 
@@ -827,7 +827,7 @@ Tillgängliga attribut inkluderar:
 
 **Gäller för:** Blobbar, filer
 
-### <a name="delimiterdelimiter"></a>/ Avgränsare: ”avgränsare”
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Anger ett avgränsningstecken som används för att avgränsa virtuella kataloger i ett blob-namn.
 
@@ -837,7 +837,7 @@ Det här alternativet gäller endast för att ladda ned blobbar.
 
 **Gäller för:** Blobbar
 
-### <a name="ncnumber-of-concurrent-operations"></a>/ NC: ”många-för-samtidiga-operationer”
+### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
 
 Anger antalet samtidiga åtgärder.
 
@@ -859,7 +859,7 @@ Anger att den `destination` resursen är en blob som är tillgängliga i den lok
 
 **Gäller för:** Blobbar, tabeller
 
-### <a name="pkrskey1key2key3"></a>/ PKRS ”: key&#1;key2 key&#3;...”
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Delar partitionsnyckelintervallet om du vill aktivera Exportera tabelldata parallellt, vilket ökar hastigheten för exporten.
 
@@ -905,7 +905,7 @@ Det här alternativet krävs under importen för att hitta datafilerna.
 
 **Gäller för:** tabeller
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 Anger om du vill kopiera synkront blobbar eller filer mellan två Azure Storage-slutpunkter.
 
@@ -915,7 +915,7 @@ Du kan använda det här alternativet när du kopierar filer i Blob storage fill
 
 **Gäller för:** Blobbar, filer
 
-### <a name="setcontenttypecontent-type"></a>/ SetContentType: ”content-type”
+### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
 
 Anger MIME content-type för mål-BLOB eller filer.
 

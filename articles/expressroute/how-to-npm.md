@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -46,6 +46,7 @@ Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en 
 * Västra Europa 
 * Östra USA 
 * Sydostasien 
+* Syd Östra Australien
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -174,16 +175,13 @@ För monitoring agentservrar som finns i Azure måste du konfigurera regler för
 
 Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Steg 4: Begäran till godkända arbetsytan
-
 >[!NOTE]
 >Kontrollera att du har installerat agenterna (server-agenten lokalt och Azure-server-agent) och har kört PowerShell-skriptet innan du fortsätter med det här steget.
 >
 >
 
-Innan du kan börja använda funktionen ExpressRoute övervakning av NPM, måste du ansöka om för att få din arbetsyta i listan över godkända. [Klicka här för att gå till sidan och fylla i formuläret](https://aka.ms/npmcohort). (Tips: du kanske vill öppna den här länken i ett nytt fönster eller flik). Vitlistning av processen kan ta minst en arbetsdag. När vitlistning har slutförts får du ett e-postmeddelande.
 
-## <a name="setupmonitor"></a>Steg 5: Konfigurera NPM för ExpressRoute-övervakning
+## <a name="setupmonitor"></a>Steg 4: Konfigurera NPM för ExpressRoute-övervakning
 
 >[!WARNING]
 >Inte fortsätta förrän ditt arbetsområde har godkända och du får ett e-postbekräftelse.
@@ -208,7 +206,7 @@ När du har fyllt i föregående avsnitt och kontrollera att du blivit godkända
 
   ![övervakning av paneler](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Steg 6: Visa övervakning paneler
+## <a name="explore"></a>Steg 5: Visa övervakning paneler
 
 ### <a name="dashboard"></a>Sidan för nätverk Prestandaövervakaren
 

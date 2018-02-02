@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -528,6 +528,8 @@ Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-ut
 ## <a name="trigger---limits"></a>Utlösaren - gränser
 
 Längden för HTTP-begäranden är begränsad till 100 kilobyte (102,400) och URL-längd är begränsad till 4 kB (4 096). Dessa värden anges av den `httpRuntime` elementet av runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
+Om en funktion som använder HTTP-utlösaren inte slutföra inom cirka 2,5 minuter, gateway kommer-timeout och returnera ett HTTP 502-fel. Funktionen kommer att fortsätta köras, men kan inte returnera ett HTTP-svar. För avancerade funktioner rekommenderar vi att du följer asynkront mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns [skala och värd - förbrukning planera](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Utlösaren - host.json egenskaper
 

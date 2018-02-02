@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -85,11 +85,11 @@ Framtida versioner av Windows Server läggs när de blir tillgängliga. Tidigare
 | Funktion | Stöd för status | Anteckningar |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Fullt stöd | Windows ACL: er bevaras av Azure filen synkronisering och tillämpas av Windows Server på server-slutpunkter. Windows ACL: er (ännu inte) stöds av Azure-filer om filer kan nås direkt i molnet. |
-| Hårda länkar | Överhoppad | |
-| Symboliska länkar | Överhoppad | |
+| Hårda länkar | Hoppades över | |
+| Symboliska länkar | Hoppades över | |
 | Monteringspunkter | Delvis | Monteringspunkter kan vara roten för en serverslutpunkt för, men de hoppas över som ingår i en serverslutpunkt-namnområdet. |
-| Vägkorsningar | Överhoppad | Till exempel Distributed File System DfrsrPrivate och DFSRoots mappar. |
-| Referenspunkter | Överhoppad | |
+| Vägkorsningar | Hoppades över | Till exempel Distributed File System DfrsrPrivate och DFSRoots mappar. |
+| Referenspunkter | Hoppades över | |
 | NTFS-komprimering | Fullt stöd | |
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men de synkroniseras till molnet som en fullständig fil. Ändrar filens innehåll i molnet (eller på en annan server), är filen inte längre sparse när ändringen har hämtats. |
 | Alternativa dataströmmar (ADS) | Bevaras, men inte synkroniserats | |
@@ -131,7 +131,7 @@ Följande lösningar är kända för att stödja hoppar över offline-filer:
 
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee slutpunktssäkerhet](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (se ”Genomsök bara vad du behöver” på sidan 90 i PDF-filen)
-- [Kaspersky antivirusprogram](https://support.kaspersky.com/4684)
+- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
 - [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
 - [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
 
@@ -158,11 +158,13 @@ Azure filsynkronisering är endast tillgänglig i följande regioner i förhands
 
 | Region | Datacenter-plats |
 |--------|---------------------|
-| Östra USA | Virginia, USA |
-| Västra USA | California, USA |
-| Västra Europa | Nederländerna |
+| Östra Australien | New South Wales |
+| Centrala Kanada | Toronto |
+| Östra USA | Virginia |
 | Sydostasien | Singapore |
-| Östra Australien | Nya Syd Wales, Australien |
+| Storbritannien, södra | London |
+| Västra Europa | Nederländerna |
+| Västra USA | Kalifornien |
 
 I preview stöder synkroniserar endast med en Azure-filresurs som finns i samma region som synkroniseringstjänsten för lagring.
 

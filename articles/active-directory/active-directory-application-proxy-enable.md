@@ -3,7 +3,7 @@ title: "Azure AD App Proxy - börja installera connector | Microsoft Docs"
 description: "Aktivera Application Proxy på Azure-portalen och installera anslutningsverktyget för omvänd proxy."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: MarkusVi
 manager: mtillman
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
-ms.author: billmath
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 09497144ef4047c1191f3c02afccb881d48aaf3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Kom igång med Application Proxy och installera connector
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
@@ -57,8 +57,8 @@ För att förbereda din miljö för Azure AD Application Proxy, måste du först
 
 3. Microsoft använder fyra adresser för att verifiera certifikat. Tillåt åtkomst till följande URL-adresser om du inte gjort det för andra produkter:
    * mscrl.microsoft.com:80
-   * CRL.microsoft.com:80
-   * OCSP.msocsp.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
    * www.microsoft.com:80
 
 4. Din anslutningstjänst behöver åtkomst till login.windows.net och login.microsoftonline.com för registreringen.
@@ -74,7 +74,7 @@ För att förbereda din miljö för Azure AD Application Proxy, måste du först
 
 4. Välj **hämta Connector**.
 
-   ![Hämta Connector](./media/active-directory-application-proxy-enable/download_connector.png)
+   ![Hämta anslutningsprogram](./media/active-directory-application-proxy-enable/download_connector.png)
 
 5. Kör **AADApplicationProxyConnectorInstaller.exe** på den server som du har förberett och som uppfyller kraven.
 6. Följ installationsanvisningarna i guiden. Under installationen uppmanas du att registrera anslutningsverktyget med programproxyn för din Azure AD-klient.

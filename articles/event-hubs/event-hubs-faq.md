@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Händelsehubbar
 
@@ -40,7 +40,7 @@ Du välja uttryckligen Händelsehubbar genomflödesenheter, antingen via Azure-p
 
 * Upp till 1 MB per sekund för ingångshändelser (händelser skickas till en händelsehubb), men inga fler än 1000 ingångshändelser, hanteringsåtgärder eller kontrollen API-anrop per sekund.
 * Upp till 2 MB per sekund av utgång händelser (händelser används från en händelsehubb).
-* Upp till 84 GB händelse lagring (tillräckligt för loggperioden 24-timmarsformat).
+* Upp till 84 GB händelselagring (tillräckligt för standardlagringstiden på 24 timmar).
 
 Event debiteras Hubs varje timme, baserat på det maximala antalet enheter som är markerade under den angivna timmen. Du kan automatiskt [öka antalet genomflödesenheter](event-hubs-auto-inflate.md) som ökar din användning.
 
@@ -58,7 +58,7 @@ Med hjälp av den [automatiskt öka](event-hubs-auto-inflate.md) -funktionen kan
 Ja, så länge som alla händelsehubbar finns i samma namnområde.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Vad är den högsta bevarandeperioden för händelser?
-Event Hubs standardnivån stöder för närvarande en högsta loggperioden 7 dagar. Observera att händelsehubbar inte avsedd som en permanent datalager. Mer än 24 timmar kvarhållningsperioder är avsedda för scenarier där det är praktiskt att spela upp en händelseström i samma system. till exempel för att träna eller kontrollera en ny maskininlärningsmodell på befintliga data. Om du behöver meddelandet kvarhållning utöver 7 dagar, så att [Event Hubs avbilda](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) på din händelse hubb hämtar data från din händelsehubb till lagringskonto eller Azure Data Lake-tjänstkontot du väljer. Aktivera avbilda ådrar sig en kostnad som baseras på dina köpta Genomflödesenhet.
+Event Hubs standardnivån stöder för närvarande en högsta loggperioden 7 dagar. Observera att händelsehubbar inte är avsedda för permanent datalagring. Mer än 24 timmar kvarhållningsperioder är avsedda för scenarier där det är praktiskt att spela upp en händelseström i samma system. till exempel för att träna eller kontrollera en ny maskininlärningsmodell på befintliga data. Om du behöver meddelandet kvarhållning utöver 7 dagar, så att [Event Hubs avbilda](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) på din händelse hubb hämtar data från din händelsehubb till lagringskonto eller Azure Data Lake-tjänstkontot du väljer. Aktivera avbilda ådrar sig en kostnad som baseras på dina köpta Genomflödesenhet.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Där är Händelsehubbar i Azure?
 Händelsehubbar i Azure är tillgänglig i alla regioner som stöds Azure. En lista över finns det [Azure-regioner](https://azure.microsoft.com/regions/) sidan.  
@@ -66,7 +66,8 @@ Händelsehubbar i Azure är tillgänglig i alla regioner som stöds Azure. En li
 ## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
-Tänk på att partitionen förlita dig på en händelsehubb kan du inte ändras efter installationen. Det är viktigt att tänka om hur många partitioner som du behöver för att komma igång med detta i åtanke. 
+
+Observera att antalet partitioner i en händelsehubb inte kan ändras efter installationen. Det är viktigt att tänka om hur många partitioner som du behöver för att komma igång med detta i åtanke. 
 
 Händelsehubbar är utformad för att tillåta en enskild partition läsare per konsumentgrupp. Standardinställningen för fyra partitioner är tillräcklig för de flesta användningsområden. Om du vill skala din händelsebearbetning kanske du vill överväga att lägga till ytterligare partitioner. Det finns ingen gräns för specifika genomströmning på en partition, men sammanställda genomflöde i namnområdet begränsas av antalet genomflödesenheter. Om du ökar antalet genomflödesenheter i namnområdet du ytterligare partitioner för att tillåta läsare att få sina egna maximalt dataflöde.
 
@@ -81,7 +82,7 @@ Fullständig information om priser för Händelsehubbar finns i [Händelsehubbar
 Standardnivån för Event Hubs tillåter meddelandet kvarhållning punkter som är längre än 24 timmar för 7 dagar. Om storleken på det totala antalet lagrade händelser överskrider tillåten lagring för antalet valda genomflödesenheter (84 GB per genomflödesenhet), debiteras som överskrider tillåtna storleken på den publicerade Azure Blob storage hastigheten. Tillåten lagring i varje genomflödesenhet omfattar alla lagringskostnader för kvarhållningsperioder 24 timmar (standard) även om genomflödesenhet används till maximalt ingång ersättning.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Hur lagringsstorlek Händelsehubbar beräknas och debiteras?
-Den totala storleken på alla lagrade händelser, inklusive alla interna kostnader för händelsen huvuden eller på disk lagring strukturer i alla händelsehubbar mäts under dagen. Vid slutet av dagen beräknas den högsta lagringsstorleken. Den dagliga tillåten lagring beräknas baserat på det minsta antalet enheter som valts under dagen (varje genomflödesenhet ger en justering med 84 GB). Om den totala storleken överskrider tillåten för beräknade dagliga lagring, överdriven lagringen debiteras med Azure Blob storage-priser (på den **lokalt Redundant lagring** hastighet).
+Den totala storleken på alla lagrade händelser, inklusive alla interna kostnader för händelsen huvuden eller på disk lagring strukturer i alla händelsehubbar mäts under dagen. Vid slutet av dagen beräknas den högsta lagringsstorleken. Den dagliga lagringskvoten beräknas baserat på det minsta antal dataflödesenheten som valdes under dagen (varje dataflödesenhet ger en kvot på 84 GB). Om den totala storleken överskrider tillåten för beräknade dagliga lagring, överdriven lagringen debiteras med Azure Blob storage-priser (på den **lokalt Redundant lagring** hastighet).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Hur beräknas Händelsehubbar ingångshändelser?
 Varje händelse skickas till en händelsehubb räknas som ett fakturerbar meddelande. En *ingång händelse* definieras som en enhet som är mindre än eller lika med 64 KB. Alla händelser som är mindre än eller lika med 64 KB stort anses vara en fakturerbar händelse. Om händelsen är större än 64 KB, beräknas antalet händelser som fakturerbar enligt händelsestorleken i multiplar av 64 KB. Till exempel en 8 KB händelse skickas till händelsehubben faktureras som en händelse, men en 96 KB meddelandet som skickades till händelsehubben faktureras som två händelser.
@@ -89,7 +90,7 @@ Varje händelse skickas till en händelsehubb räknas som ett fakturerbar meddel
 Händelser som används från en händelsehubb, samt hanteringsåtgärder och kontroll anrop, till exempel kontrollpunkter räknas inte som en fakturerbar ingångshändelser men påförs upp till genomflödet enhet ersättningen.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Gäller asynkrona anslutning avgifter för Händelsehubbar
-Anslutningen avgifter gäller bara när protokollet AMQP används. Det finns inga avgifter för anslutning för att skicka händelser med hjälp av HTTP, oavsett antalet skickar datorer eller enheter. Om du planerar att använda AMQP (till exempel för att uppnå effektivare händelse strömning eller för att aktivera dubbelriktad kommunikation i IoT-kommandot och kontrollera scenarier) finns på [Händelsehubbar prisinformation](https://azure.microsoft.com/pricing/details/event-hubs/) sidan för ytterligare information om hur många anslutningar ingår i varje tjänstnivå.
+Anslutningen avgifter gäller bara när protokollet AMQP används. Du debiteras inga anslutningsavgifter för att skicka händelser via HTTP, oavsett antalet sändande system eller enheter. Om du planerar att använda AMQP (till exempel för att uppnå effektivare händelse strömning eller för att aktivera dubbelriktad kommunikation i IoT-kommandot och kontrollera scenarier) finns på [Händelsehubbar prisinformation](https://azure.microsoft.com/pricing/details/event-hubs/) sidan för ytterligare information om hur många anslutningar ingår i varje tjänstnivå.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Hur faktureras Event Hubs Capture?
 Avbilda aktiveras när alla händelsehubb i namnområdet har aktiverat alternativet avbildning. Event Hubs avbilda faktureras timvis per köpta genomflödesenhet. Som antalet genomströmning enhet ökas eller minskas, visar Event Hubs avbilda fakturering ändringarna i steg om hela timme. Mer information om händelsen hubbar avbilda fakturering finns [Händelsehubbar prisinformation](https://azure.microsoft.com/pricing/details/event-hubs/).

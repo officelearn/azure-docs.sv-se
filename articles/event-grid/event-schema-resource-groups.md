@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7435d87f9aaa906c3f6758186b64f3458cb9716
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure händelse rutnätet Händelseschema för resursgrupper
 
@@ -39,7 +39,7 @@ I följande exempel visas schemat för en resurs som skapas händelse:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -56,8 +56,10 @@ I följande exempel visas schemat för en resurs som skapas händelse:
         "status":"Succeeded",
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Schemat för en resurs tas bort händelse är ungefär:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -91,27 +95,29 @@ En händelse har följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | Sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. |
-| Ämne | Sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | Sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | Sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | Sträng | Unik identifierare för händelsen. |
-| Data | Objektet | Händelsedata för resurs-grupp. |
+| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
+| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsedata för resurs-grupp. |
+| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Auktorisering | Sträng | Det begärda tillståndet för åtgärden. |
-| Anspråk | Sträng | Egenskaperna för anspråk. |
-| correlationId | Sträng | En Operations-ID för felsökning. |
-| httpRequest | Sträng | Information om åtgärden. |
-| resourceProvider | Sträng | Resursprovidern utför åtgärden. |
-| resourceUri | Sträng | URI för resursen i åtgärden. |
-| operationName | Sträng | Åtgärden som utfördes. |
-| status | Sträng | Status för åtgärden. |
-| subscriptionId | Sträng | Prenumerations-ID för resursen. |
-| Klient-ID | Sträng | Klient-ID för resursen. |
+| Auktorisering | sträng | Det begärda tillståndet för åtgärden. |
+| Anspråk | sträng | Egenskaperna för anspråk. |
+| correlationId | sträng | En Operations-ID för felsökning. |
+| httpRequest | sträng | Information om åtgärden. |
+| resourceProvider | sträng | Resursprovidern utför åtgärden. |
+| resourceUri | sträng | URI för resursen i åtgärden. |
+| operationName | sträng | Åtgärden som utfördes. |
+| status | sträng | Status för åtgärden. |
+| subscriptionId | sträng | Prenumerations-ID för resursen. |
+| tenantId | sträng | Klient-ID för resursen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

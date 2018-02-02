@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 446e39f57448cbc0cd9a6f93a388159d7eca5863
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Logga in Account och Azure Active Directory-användare i ett enda program
 Tidigare hade programutvecklare som ville stöder både personliga Microsoft-konton och fungerar konton från Azure Active Directory att integrera med två separata system. Azure Active Directory (AD Azure) v2.0-slutpunkten introducerar en ny autentisering-API-version som förenklar processen. Azure AD v2.0-slutpunkten kan logga in från båda typer av konton med hjälp av en enkel integrering. Program som använder Azure AD v2.0-slutpunkten kan också använda REST-API: er från den [Microsoft Graph API](https://graph.microsoft.io) genom att använda någon typ av konto.
@@ -51,4 +51,4 @@ Utforska detaljerad information om Azure AD-plattformen v2.0-slutpunkten:
 > [!NOTE]
 > Om du behöver bara logga in arbets- och skolkonton konton från Azure Active Directory, börja med den [Azure AD-guide för utvecklare](active-directory-developers-guide.md). Azure AD v2.0-slutpunkten är avsedd att användas av utvecklare som uttryckligen måste du logga in personliga Microsoft-konton.
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

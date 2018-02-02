@@ -4,20 +4,20 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Självstudier: Azure Active Directory-integrering med Veritas Enterprise Vault.cloud enkel inloggning
 
@@ -31,7 +31,7 @@ Integrera Veritas Enterprise Vault.cloud enkel inloggning med Azure AD ger dig f
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Veritas Enterprise Vault.cloud enkel inloggning, behöver du följande:
 
@@ -110,7 +110,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. I den **identifierare** textruta använder URL-Adressen i datacentret
+
+    | Datacenter| Webbadress |
+    |----------|----|
+    | Nordamerika| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Asien och stillahavsområdet| `https://auth.syd.archivecloud.net`|
+
+    c. I den **Reply URL** textruta använder URL-Adressen i datacentret
+
+    | Datacenter| Webbadress |
+    |----------|----|
+    | Nordamerika| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Asien och stillahavsområdet| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Veritas Enterprise Vault.cloud klientfilerna supportteamet](https://www.veritas.com/support/.html) att hämta det här värdet. 

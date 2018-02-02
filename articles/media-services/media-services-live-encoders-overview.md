@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 68aaf0fda2e60c5736ab020c15e516144e11d68e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31254788b840ccc1f1017df3c533e84b9c99f10d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Hur du konfigurerar lokala kodare när du använder Azure Media Services för att skapa dataströmmar i multibithastighet
 Det här avsnittet listar lokal livekodare som du kan använda för att avbilda dina direktsända händelser och skicka en direktsänd dataström med enkel bithastighet till AMS kanaler (som är live encoding aktiverat) för vidare bearbetning. Avsnittet innehåller också länkar till kurser som visar hur du konfigurerar listade kodare.
@@ -26,8 +26,11 @@ Det här avsnittet listar lokal livekodare som du kan använda för att avbilda 
 ## <a name="elemental-live"></a>Elemental Live
 Information om hur du konfigurerar den [grundämne Live](http://www.elementaltechnologies.com/products/elemental-live) att skicka en direktsänd dataström med enkel bithastighet till en AMS-kanal finns [konfigurera grundämne Live](media-services-configure-elemental-live-encoder.md).
 
-## <a name="flash-media-live-encoder"></a>Flash Media Livekodare
-Information om hur du konfigurerar den [Flash Live mediekodare](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) kodare att skicka en direktsänd dataström med enkel bithastighet till en AMS-kanal finns [konfigurera FMLE](media-services-configure-fmle-live-encoder.md) .
+## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
+Information om hur du konfigurerar den [Flash Live mediekodare](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) kodare att skicka en direktsänd dataström med enkel bithastighet till en AMS-kanal finns [konfigurera FMLE](media-services-configure-fmle-live-encoder.md).
+
+## <a name="haivision-kb-encoder"></a>Haivision KB Encoder
+Information om hur du konfigurerar den [Haivision KB kodare](https://www.haivision.com/products/kb-series/) att skicka en direktsänd dataström med enkel bithastighet till en AMS-kanal finns [konfigurera Haivision KB kodare](media-services-configure-kb-live-encoder.md).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Information om hur du konfigurerar den [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) att skicka en direktsänd dataström med enkel bithastighet till en AMS-kanal finns [konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
@@ -41,6 +44,6 @@ Information om hur du konfigurerar den [Tricaster](http://newtek.com/products/tr
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 

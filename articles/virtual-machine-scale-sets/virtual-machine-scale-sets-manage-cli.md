@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en virtuell dator-skala med Azure CLI 2.0
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
@@ -28,7 +28,7 @@ Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste versionen 
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
-Om du vill visa allmän information om en skalningsuppsättning [az vmss visa](/cli/azure/vmss#show). I följande exempel hämtar information om skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna namn på följande sätt:
+Om du vill visa allmän information om en skalningsuppsättning [az vmss visa](/cli/azure/vmss#az_vmss_show). I följande exempel hämtar information om skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna namn på följande sätt:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skaluppsättning
 Föregående kommandona visade information om din skaluppsättning och VM-instanser. Du kan ändra kapacitet för att öka eller minska antalet instanser i skaluppsättning. Skaluppsättning skapar eller tar bort antalet virtuella datorer som krävs och sedan konfigurerar de virtuella datorerna för att ta emot trafik för programmet.
 
-Om du vill se antalet instanser som du har för närvarande i en skaluppsättning [az vmss visa](/cli/azure/vmss#show) och fråga på *sku.capacity*:
+Om du vill se antalet instanser som du har för närvarande i en skaluppsättning [az vmss visa](/cli/azure/vmss#az_vmss_show) och fråga på *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Du kan manuellt öka eller minska antalet virtuella datorer i skaluppsättningen med [az vmss skala](/cli/azure/vmss#scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
+Du kan manuellt öka eller minska antalet virtuella datorer i skaluppsättningen med [az vmss skala](/cli/azure/vmss#az_vmss_scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
 
 ```azurecli
 az vmss scale \
@@ -99,7 +99,7 @@ Följande exempel stoppar instans *0* i skaluppsättningen namngivna *myScaleSet
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Stoppade virtuella datorer är allokerade och fortsätter att avgifter för beräkning. Om du istället vill att de virtuella datorerna till att frigöra och endast avgifter lagring använder [az vmss frigöra](/cli/azure/vmss#deallocate). Avgränsa varje instans-ID om du vill frigöra flera virtuella datorer med ett blanksteg. I följande exempel stoppar och tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
+Stoppade virtuella datorer är allokerade och fortsätter att avgifter för beräkning. Om du istället vill att de virtuella datorerna till att frigöra och endast avgifter lagring använder [az vmss frigöra](/cli/azure/vmss#az_vmss_deallocate). Avgränsa varje instans-ID om du vill frigöra flera virtuella datorer med ett blanksteg. I följande exempel stoppar och tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -107,7 +107,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skaluppsättning
-Starta en eller flera virtuella datorer i en skaluppsättning med [az vmss starta](/cli/azure/vmss#start). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID för startas alla virtuella datorer i skaluppsättning. Avgränsa varje instans-ID för att starta flera virtuella datorer med ett blanksteg.
+Starta en eller flera virtuella datorer i en skaluppsättning med [az vmss starta](/cli/azure/vmss#az_vmss_start). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID för startas alla virtuella datorer i skaluppsättning. Avgränsa varje instans-ID för att starta flera virtuella datorer med ett blanksteg.
 
 Följande exempel startar instans *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
 
@@ -117,7 +117,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skaluppsättning
-Om du vill starta om en eller flera virtuella datorer i en skaluppsättning använder [az vmss starta om](/cli/azure/vmss#restart). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer startas om. Om du inte anger ett instans-ID för alla virtuella datorer i skaluppsättning har startats om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett blanksteg.
+Om du vill starta om en eller flera virtuella datorer i en skaluppsättning använder [az vmss starta om](/cli/azure/vmss#az_vmss_restart). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer startas om. Om du inte anger ett instans-ID för alla virtuella datorer i skaluppsättning har startats om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett blanksteg.
 
 I följande exempel startar om instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
 

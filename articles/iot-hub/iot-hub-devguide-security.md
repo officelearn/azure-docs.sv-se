@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -72,7 +72,7 @@ Mer information om hur du skapar och använder säkerhetstoken finns [IoT-hubb s
 
 Varje protokoll som stöds, till exempel MQTT, AMQP och HTTPS, transport token på olika sätt.
 
-När du använder MQTT CONNECT-paketet har deviceId som ClientId, {iothubhostname} / {deviceId} i fältet för användarnamn och en SAS-token i fältet lösenord. {iothubhostname} ska vara fullständig CName för IoT-hubb (till exempel contoso.azure-devices.net).
+När du använder MQTT CONNECT-paket har deviceId som ClientId, `{iothubhostname}/{deviceId}` i fältet för användarnamn och en SAS-token i fältet lösenord. `{iothubhostname}`ska vara fullständig CName för IoT-hubb (till exempel contoso.azure-devices.net).
 
 När du använder [AMQP][lnk-amqp], IoT-hubb stöder [SASL OFORMATERAD] [ lnk-sasl-plain] och [AMQP anspråk baserade-säkerhet] [ lnk-cbs].
 

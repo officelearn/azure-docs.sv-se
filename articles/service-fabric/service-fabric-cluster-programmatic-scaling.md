@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala Service Fabric-klustret via programmering 
 
@@ -93,7 +93,7 @@ Som när du lägger till en nod manuellt lägga till en skaluppsättning för in
 
 Skalning i liknar skala ut. Den faktiska virtuella skaluppsättning ändringar är praktiskt taget samma. Men som har diskuterats tidigare, Service Fabric endast rensas automatiskt bort noder med en hållbarhet guld eller Silver. Så i Brons hållbarhet skala i fallet är det nödvändigt att interagera med Service Fabric-klustret för att stänga av noden som ska tas bort och sedan ta bort dess tillstånd.
 
-Förbereda noden för avstängning innebär att hitta noden ska tas bort (den nyligen tillagda noden) och inaktivera den. För icke-seed noder nyare noder kan hittas genom att jämföra `NodeInstanceId`. 
+Förbereda noden för avstängning gäller att hitta noden ska tas bort (den nyligen tillagda virtuella scale set instansen) av och inaktivera den. Virtual machine scale set instanser numreras i den ordning som de har lagts till, så nyare noder kan hittas genom att jämföra siffersuffix i de noder namn (som matchar den underliggande virtuella datorns skaluppsättning ange instansnamn). 
 
 ```csharp
 using (var client = new FabricClient())
@@ -101,11 +101,14 @@ using (var client = new FabricClient())
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
         .Where(n => n.NodeType.Equals(NodeTypeToScale, StringComparison.OrdinalIgnoreCase))
         .Where(n => n.NodeStatus == System.Fabric.Query.NodeStatus.Up)
-        .OrderByDescending(n => n.NodeInstanceId)
+        .OrderByDescending(n =>
+        {
+            var instanceIdIndex = n.NodeName.LastIndexOf("_");
+            var instanceIdString = n.NodeName.Substring(instanceIdIndex + 1);
+            return int.Parse(instanceIdString);
+        })
         .FirstOrDefault();
 ```
-
-Seed noder är olika och följ inte nödvändigtvis konventionen större instans-ID: N tas bort först.
 
 När noden ska tas bort finns, den kan inaktiveras och tas bort med hjälp av samma `FabricClient` instans och `IAzure` instansen från tidigare.
 

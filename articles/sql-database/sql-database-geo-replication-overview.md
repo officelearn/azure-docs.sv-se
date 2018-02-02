@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Översikt: Redundans grupper och aktiv geo-replikering
 Aktiv geo-replikering kan du konfigurera upp till fyra läsbara sekundära databaser på samma eller olika data center platser (regioner). Sekundära databaser är tillgängliga för frågor och växling vid fel om det finns ett avbrott för data center eller oförmåga att ansluta till den primära databasen. Växling vid fel måste initieras manuellt med hjälp av användaren. Efter växling vid fel har den nya primärt en annan anslutning slutpunkt. 
@@ -71,7 +71,7 @@ Funktionen aktiv geo-replikering innehåller följande viktiga funktioner:
 * **Flera läsbara sekundärservrar**: två eller flera sekundära databaser öka redundans och nivå av skydd för den primära databasen och program. Om det finns flera sekundära databaser, förblir programmet skyddat även om en av de sekundära databaserna misslyckas. Om det finns endast en sekundär databas och misslyckas, exponeras programmet för högre risk förrän en ny sekundär databas har skapats.
 
    > [!NOTE]
-   > Om du använder aktiv geo-replikering för att skapa ett globalt distribuerat program och behöver ange skrivskyddad åtkomst till data i mer än fyra segions kan du skapa sekundär för en sekundär (en process som kallas länkning). Det här sättet kan du uppnå praktiskt taget obegränsade skalan för databasreplikering. Dessutom minskar länkning kostnader för replikering från den primära databasen. En kompromiss är bättre replikeringsfördröjning på lövnivå mest sekundära databaser. 
+   > Du kan skapa sekundär för en sekundär (en process som kallas länkning) om du använder aktiv geo-replikering för att skapa ett globalt distribuerat program och behöver ange skrivskyddad åtkomst till data i mer än fyra områden. Det här sättet kan du uppnå praktiskt taget obegränsade skalan för databasreplikering. Dessutom minskar länkning kostnader för replikering från den primära databasen. En kompromiss är bättre replikeringsfördröjning på lövnivå mest sekundära databaser. 
    >
 
 * **Stöd för elastiska poolen databaser**: aktiv geo-replikering kan konfigureras för alla databaser i en elastisk pool. Den sekundära databasen kan vara i en annan elastisk pool. För vanliga databaser kan sekundär vara en elastisk pool och vice versa så länge tjänstnivåer är samma. 
@@ -142,9 +142,9 @@ Som beskrivits tidigare, automatisk redundans grupper (i förhandsversion) och a
 
 | Kommando | Beskrivning |
 | --- | --- |
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd Lägg till sekundär på SERVER argumentet för att skapa en sekundär databas för en befintlig databas och startar datareplikering |
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd växling vid fel eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas för att vara primär att initiera redundans |
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd ta bort sekundär på servern att avbryta en datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd Lägg till sekundär på SERVER argumentet för att skapa en sekundär databas för en befintlig databas och startar datareplikering |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd växling vid fel eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas för att vara primär att initiera redundans |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Använd ta bort sekundär på servern att avbryta en datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
 | [sys.geo_replication_links (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga replikeringslänkar för varje databas på den logiska Azure SQL Database-servern. |
 | [sys.dm_geo_replication_link_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar senast replikering, senaste replikeringsfördröjning och annan information om replikeringslänken för en angiven SQL-databas. |
 | [sys.dm_operation_status (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databasåtgärder, inklusive statusen för länkar för databasreplikering. |
@@ -156,15 +156,15 @@ Som beskrivits tidigare, automatisk redundans grupper (i förhandsversion) och a
 | Cmdlet | Beskrivning |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hämtar en eller flera databaser. |
-| [Ny AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
-| [Ange AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Växlar en sekundär databas för att vara primär initiera växling vid fel. |
-| [Ta bort AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Avbryter datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Växlar en sekundär databas för att vara primär initiera växling vid fel. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Avbryter datareplikering mellan en SQL-databas och den angivna sekundära databasen. |
 | [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hämtar geo-replikeringslänkar mellan en Azure SQL Database och en resursgrupp eller SQL Server. |
-| [Ny AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Det här kommandot skapar en redundansväxlingsgrupp och registrerar den på både primära och sekundära servrar|
-| [Ta bort AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Tar bort gruppen växling vid fel från servern och tar bort alla sekundära databaser ingår i gruppen |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Det här kommandot skapar en redundansväxlingsgrupp och registrerar den på både primära och sekundära servrar|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Tar bort gruppen växling vid fel från servern och tar bort alla sekundära databaser ingår i gruppen |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Hämtar grupp redundans-konfiguration |
-| [Ange AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Ändrar konfigurationen för failover-grupp |
-| [Växeln-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Utlösare för växling vid fel i gruppen redundans till den sekundära servern |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Ändrar konfigurationen för failover-grupp |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Utlösare för växling vid fel i gruppen redundans till den sekundära servern |
 |  | |
 
 > [!IMPORTANT]

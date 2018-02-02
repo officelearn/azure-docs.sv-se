@@ -47,4 +47,4 @@ Om en backend-API: N inte kräver ett omfång (rekommenderas inte), kan du anvä
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

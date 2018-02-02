@@ -64,4 +64,4 @@ Du kan begränsa inloggning åtkomsten till endast användarkonton som finns i e
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Använda en anpassad metod för att verifiera utfärdare
 Du kan implementera en anpassad metod för att verifiera certifikatutfärdare med hjälp av den **IssuerValidator** parameter. Mer information om hur du använder den här parametern Läs mer om den [TokenValidationParameters klassen](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) på MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

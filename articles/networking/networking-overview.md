@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -159,6 +159,6 @@ Några av Azure nätverkstjänster finns en kostnad, medan andra är ledigt. Vis
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa din första virtuella nätverk och ansluta ett fåtal virtuella datorer, genom att slutföra stegen i den [skapa din första virtuella nätverket](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- Skapa din första virtuella nätverk och ansluta ett fåtal virtuella datorer, genom att slutföra stegen i den [skapa din första virtuella nätverket](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - Ansluta datorn till ett virtuellt nätverk genom att slutföra stegen i den [konfigurerar en punkt-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - Belastningsutjämna Internet-trafik till offentliga servrar genom att slutföra stegen i den [skapa en Internetriktade belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.

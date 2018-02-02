@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -32,7 +32,11 @@ I den här guiden får du lära dig hur man:
 > * Uppdatera den inbyggda programvaran i dina enheter
 > * Ordna dina tillgångar
 
-## <a name="prerequisites"></a>Krav
+Följande videoklipp visar en genomgång av den fjärranslutna övervakningslösning:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen behöver en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
@@ -75,10 +79,10 @@ Operatörer på Contoso vet de tröskelvärden som avgör om en enhet fungerar k
 
 | Regelnamn | Beskrivning | Tröskelvärde | Allvarsgrad | Berörda enheter |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Kylaggregat tryck för hög | Aviseringar om chillers nå högre än normalt tryck nivåer   |P > 250 psi       | Kritiskt | Chillers            |
-| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T > 80&deg; F |Kritiskt | Prototyper enheter |
+| Kylaggregat tryck för hög | Aviseringar om chillers nå högre än normalt tryck nivåer   |P > 250 psi       | Kritiska | Chillers            |
+| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T > 80&deg; F |Kritiska | Prototyper enheter |
 | Motorn tanken tom  | Aviseringar om motorn bränsletanken går tom                     | F < 5 gallon | Information     | Motorer             |
-| Högre än normal last temperatur | Aviseringar om lastbils last temperatur är högre än normalt                 | T < 45&deg; F |Varning  | Lastbilar              |
+| Högre än normal last temperatur | Aviseringar om lastbils last temperatur är högre än normalt                 | T<45&deg; F |Varning  | Lastbilar              |
 | Snabba vibration stoppades      | Aviseringar om snabba slutar helt (baserat på vibration nivå)                     | V < 0,1 mm |Varning  | Hissar           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Fungera exempeldistribution Contoso

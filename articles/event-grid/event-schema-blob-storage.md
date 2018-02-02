@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure händelse rutnätet Händelseschema för Blob storage
 
@@ -51,7 +51,9 @@ I följande exempel visas schemat för en blob som skapats i händelsen:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Schemat för en blob bort händelse är ungefär:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -84,27 +88,29 @@ En händelse har följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | Sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. |
-| Ämne | Sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | Sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | Sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | Sträng | Unik identifierare för händelsen. |
-| Data | Objektet | BLOB storage händelsedata. |
+| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
+| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | BLOB storage händelsedata. |
+| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| api | Sträng | Åtgärden som utlöste händelsen. |
-| ClientRequestId | Sträng | Klienten genererade, täckande värde med en 1 KB tecken. När du har aktiverat storage analytics loggning registreras den i analytics-loggarna. |
-| begärande-ID | Sträng | Den unika identifieraren för begäran. Använda det för felsökning av begäran. |
-| ETag | Sträng | Det värde som du kan använda för att utföra åtgärder enligt villkor. |
-| ContentType | Sträng | Innehållstyp som angetts för blob. |
+| api | sträng | Åtgärden som utlöste händelsen. |
+| clientRequestId | sträng | Klienten genererade, täckande värde med en 1 KB tecken. När du har aktiverat storage analytics loggning registreras den i analytics-loggarna. |
+| requestId | sträng | Den unika identifieraren för begäran. Använda det för felsökning av begäran. |
+| ETag | sträng | Det värde som du kan använda för att utföra åtgärder enligt villkor. |
+| contentType | sträng | Innehållstyp som angetts för blob. |
 | contentLength | heltal | Storleken på blobben i byte. |
-| BlobType | Sträng | Typ av blob. |
-| URL: en | Sträng | Sökvägen till blob. |
-| sequencer | Sträng | Ett användar-kontrollerade värde som du kan använda för att spåra förfrågningar. |
-| storageDiagnostics | Objektet | Information om lagring diagnostik. |
+| blobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
+| url | sträng | Sökvägen till blob. |
+| sequencer | sträng | Ett användar-kontrollerade värde som du kan använda för att spåra förfrågningar. |
+| storageDiagnostics | objekt | Information om lagring diagnostik. |
  
 ## <a name="next-steps"></a>Nästa steg
 

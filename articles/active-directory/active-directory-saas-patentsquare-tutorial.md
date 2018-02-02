@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2738af56782dbe8c917afd942e3f6b1eada026b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
-ms.translationtype: HT
+ms.openlocfilehash: 47ba146d18a20cf6c7e7480d74a02ba354486988
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Självstudier: Azure Active Directory-integrering med PatentSQUARE
 
@@ -118,7 +118,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-patentsquare-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **PatentSQUARE** sida, måste du skicka den hämtade **XML-Metadata för** till [PatentSQUARE supportteamet](http://www.panasonic.com/jp/company/pstc.html). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+6. Konfigurera enkel inloggning på **PatentSQUARE** sida, måste du skicka den hämtade **XML-Metadata för** till [PatentSQUARE supportteamet](https://www.panasonic.com/jp/business/its/patentsquare.html). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,7 +158,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-patentsquare-test-user"></a>Skapa en testanvändare PatentSQUARE
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i PatentSQUARE. Arbeta med [PatentSQUARE supportteamet](http://www.panasonic.com/jp/company/pstc.html) att lägga till användare i PatentSQUARE-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i PatentSQUARE. Arbeta med [PatentSQUARE supportteamet](https://www.panasonic.com/jp/business/its/patentsquare.html) att lägga till användare i PatentSQUARE-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

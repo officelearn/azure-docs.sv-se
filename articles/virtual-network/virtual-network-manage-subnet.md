@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du lägger till, ändra och ta bort ett undernä
 
 Innan du börjar de uppgifter som beskrivs i den här artikeln måste uppfylla följande krav:
 
-- Om du inte har använt för att arbeta med virtuella nätverk, rekommenderar vi att du läser övningen i [skapa ditt första Azure-nätverk](virtual-network-get-started-vnet-subnet.md). Den här övningen hjälper dig att bekanta dig med virtuella nätverk.
+- Om du inte har använt för att arbeta med virtuella nätverk, rekommenderar vi att du läser övningen i [skapa ditt första Azure-nätverk](quick-create-portal.md). Den här övningen hjälper dig att bekanta dig med virtuella nätverk.
 - Mer information om begränsningar för virtuella nätverk, granska [Azure gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Logga in på Azure-portalen, Azure kommandoradsverktyget (Azure CLI) eller Azure PowerShell med hjälp av Azure-konto. Om du inte har ett Azure-konto kan du registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du planerar att använda PowerShell-kommandon för att slutföra de uppgifter som beskrivs i den här artikeln, måste du först [installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Se till att du har den senaste versionen av Azure PowerShell-cmdlets som är installerad. Om du vill få hjälp med PowerShell-kommandon i exemplen, ange `get-help <command> -full`.
@@ -67,7 +67,7 @@ Lägg till ett undernät:
 |Verktyget|Kommando|
 |---|---|
 |Azure CLI|[Skapa AZ undernät för virtuellt nätverk](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Nya AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [lägga till AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Ändra inställningar för undernätet
 
@@ -85,7 +85,7 @@ Du kan ändra nätverkssäkerhetsgrupper och vägtabeller användaråtkomst till
 |Verktyget|Kommando|
 |---|---|
 |Azure CLI|[AZ network vnet undernät uppdatering](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Ange AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="delete-subnet"></a>Ta bort ett undernät
@@ -103,8 +103,8 @@ Du kan ta bort ett undernät om det finns inga resurser i undernätet. Om det fi
 |Verktyget|Kommando|
 |---|---|
 |Azure CLI|[ta bort AZ nätverks-virtuella nätverk](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Ta bort AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att skapa en virtuell dator i ett undernät, se [skapa ett virtuellt nätverk och distribuera virtuella datorer i undernätet](virtual-network-get-started-vnet-subnet.md#create-vms).
+För att skapa en virtuell dator i ett undernät, se [skapa ett virtuellt nätverk och distribuera virtuella datorer i undernätet](quick-create-portal.md#create-virtual-machines).

@@ -1,24 +1,26 @@
 ---
-title: "Azure händelse rutnätet Händelseschema"
+title: Azure Event Grid event schema
 description: "Beskriver de egenskaper som har angetts för händelser med Azure händelse rutnätet"
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: caa709fdc2a59472ee812bde91f7300396aa5755
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-event-grid-event-schema"></a>Azure händelse rutnätet Händelseschema
+# <a name="azure-event-grid-event-schema"></a>Azure Event Grid event schema
 
 Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem krävs strängegenskaper och ett objekt för data som krävs. Egenskaper är gemensamma för alla händelser från alla utgivare. Dataobjekt som innehåller egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-avsnitt.
 
 Händelser skickas till Azure händelse rutnät i en matris som kan innehålla flera händelseobjekt. Om det finns endast en enskild händelse, har en längd på 1 i matrisen. Matrisen kan ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
+
+Du kan hitta JSON-schema för händelsen rutnätet händelsen och varje Azure utgivare datanyttolasten i den [Händelseschema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Händelseschema
 
@@ -34,7 +36,9 @@ I följande exempel visas de egenskaper som används av alla utgivare:
     "eventTime": string,
     "data":{
       object-unique-to-each-publisher
-    }
+    },
+    "dataVersion": string,
+    "metadataVersion": string
   }
 ]
 ```
@@ -62,7 +66,9 @@ Schemat för en Azure Blob storage-händelse är till exempel:
       "storageDiagnostics": {
         "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
       }
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -73,12 +79,14 @@ Alla händelser som innehåller samma följande översta data:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | Sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. |
-| Ämne | Sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | Sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | Sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | Sträng | Unik identifierare för händelsen. |
-| Data | Objektet | Händelsedata är specifika för resursprovidern. |
+| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
+| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsedata är specifika för resursprovidern. |
+| dataVersion | sträng | Schemaversion av dataobjektets primärnycklar. Utgivaren definierar schemaversionen. |
+| metadataVersion | sträng | Schemaversion för metadata för händelsen. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
 
 Läs om egenskaperna i dataobjektet i händelsekällan:
 

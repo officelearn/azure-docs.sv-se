@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Den här grupperingen frågan skulle returnera ett resultat som liknar följande exempel. Här kan tre enheter rapporterar lyckad konfiguration, två fortfarande använder konfigurationen och en rapporterade ett fel. 
+Den här grupperingen frågan returnerar ett resultat av följande slag:
 
 ```json
 [
@@ -149,6 +149,8 @@ Den här grupperingen frågan skulle returnera ett resultat som liknar följande
     }
 ]
 ```
+
+I det här exemplet tre enheter rapporteras lyckad konfiguration, två fortfarande använder konfigurationen och en rapporterade ett fel.
 
 Projektionsfrågor kan utvecklare returnerar bara de egenskaper som de är intresserad av. Till exempel kopplas om du vill hämta den senaste aktivitetstiden för alla enheter, Använd följande fråga:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Observera hur **frågan** instans-objekt med en storlek (upp till 100) och sedan flera sidor kan hämtas genom att anropa den **GetNextAsTwinAsync** metoder flera gånger.
-Observera att frågeobjektet innehåller flera **nästa***, beroende på alternativet deserialisering krävs av frågan, till exempel dubbla eller jobb enhetsobjekt eller vanligt JSON som ska användas när du använder projektioner.
+Den **frågan** instans-objekt med en storlek (upp till 100). Sedan flera sidor som hämtas genom att anropa den **GetNextAsTwinAsync** metoder flera gånger.
+
+Frågeobjektet visar flera **nästa** värden, beroende på det alternativ för deserialisering som behövs för frågan. Till exempel dubbla eller jobb enhetsobjekt eller vanligt JSON när du använder projektioner.
 
 ### <a name="nodejs-example"></a>Node.js-exempel
 Frågefunktioner som exponeras av den [Azure IoT service SDK för Node.js] [ lnk-hub-sdks] i den **registret** objekt.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Observera hur **frågan** instans-objekt med en storlek (upp till 100) och sedan flera sidor kan hämtas genom att anropa den **nextAsTwin** metoder flera gånger.
-Observera att frågeobjektet innehåller flera **nästa***, beroende på alternativet deserialisering krävs av frågan, till exempel dubbla eller jobb enhetsobjekt eller vanligt JSON som ska användas när du använder projektioner.
+Den **frågan** instans-objekt med en storlek (upp till 100). Sedan flera sidor som hämtas genom att anropa den **nextAsTwin** metoden flera gånger.
+
+Frågeobjektet visar flera **nästa** värden, beroende på det alternativ för deserialisering som behövs för frågan. Till exempel dubbla eller jobb enhetsobjekt eller vanligt JSON när du använder projektioner.
 
 ### <a name="limitations"></a>Begränsningar
+
 > [!IMPORTANT]
-> Frågeresultatet kan ha några minuter för fördröjning i förhållande till de senaste värdena i enheten twins. Om frågar enskild enhet twins-ID: t är det alltid bättre att använda hämta enheten dubbla API, som alltid innehåller de senaste värdena och som har högre throttling-begränsning.
+> Frågeresultatet kan ha några minuter för fördröjning i förhållande till de senaste värdena i enheten twins. Om frågar enskild enhet twins-ID: t, använder du hämta device dubbla API. Detta API alltid innehåller de senaste värdena och har högre throttling-begränsning.
 
 För närvarande jämförelser stöds endast mellan primitiva typer (inga objekt), till exempel `... WHERE properties.desired.config = properties.reported.config` stöds endast om dessa egenskaper har primitiva värden.
 
 ## <a name="get-started-with-jobs-queries"></a>Kom igång med jobb-frågor
+
 [Jobb] [ lnk-jobs] ger dig ett sätt att utföra åtgärder på uppsättningar av enheter. Varje enhet dubbla innehåller information om de jobb som den är en del i en samling som heter **jobb**.
 Logiskt
 
@@ -243,7 +249,7 @@ Logiskt
 Den här samlingen är för närvarande frågbar som **devices.jobs** frågespråket i IoT-hubben.
 
 > [!IMPORTANT]
-> För närvarande returneras egenskapen jobb aldrig när du frågar enheten twins (frågor som innehåller 'från enheter-). Endast kan nås direkt med frågor med `FROM devices.jobs`.
+> För närvarande returneras egenskapen jobb aldrig när du frågar enheten twins. Det vill säga de frågor som innehåller 'från enheter ”. Egenskapen jobb kan endast nås direkt med frågor med `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ För närvarande en sökning på **devices.jobs** stöder inte:
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Enhet till moln meddelandevägar fråga uttryck
 
-Med hjälp av [enhet till moln vägar][lnk-devguide-messaging-routes], kan du konfigurera IoT-hubb för att skicka meddelanden från enhet till moln till olika slutpunkter som är baserade på uttryck som utvärderas mot enskilda meddelanden.
+Med hjälp av [enhet till moln vägar][lnk-devguide-messaging-routes], kan du konfigurera IoT-hubb för att skicka meddelanden från enhet till moln till olika slutpunkter. Sändning av baseras på uttryck som utvärderas mot enskilda meddelanden.
 
-Vägen [villkoret] [ lnk-query-expressions] använder samma IoT-hubb-frågespråket i villkoren för dubbla och jobb. Väg villkor utvärderas på meddelandehuvuden och brödtext. Din routning frågeuttryck kan innebära endast meddelanderubriker, endast meddelandetexten, eller båda meddelande sidhuvuden och meddelande. IoT-hubb förutsätter ett visst schema för sidhuvuden och meddelandetexten för att vidarebefordra meddelanden. I följande avsnitt beskrivs vad som krävs för IoT-hubb att dirigera korrekt.
+Vägen [villkoret] [ lnk-query-expressions] använder samma IoT-hubb-frågespråket i villkoren för dubbla och jobb. Väg villkor utvärderas på meddelandehuvuden och brödtext. Din routning frågeuttryck kan omfatta endast meddelanderubriker i meddelandetexten eller båda. IoT-hubb förutsätter ett visst schema för sidhuvuden och meddelandetexten för att vidarebefordra meddelanden. I följande avsnitt beskrivs vad som krävs för IoT-hubb att dirigera korrekt.
 
 ### <a name="routing-on-message-headers"></a>Routning på meddelanderubriker
 
@@ -311,7 +317,7 @@ IoT-hubb förutsätter följande JSON-representation av meddelandehuvuden för m
 ```
 
 Meddelandet Systemegenskaper föregås av `'$'` symbolen.
-Egenskaper för användare nås alltid med deras namn. Om ett användarnamn för egenskapen händer med sammanfaller med en systemegenskap (exempelvis `$to`), egenskapen hämtas med den `$to` uttryck.
+Egenskaper för användare nås alltid med deras namn. Om ett användarnamn för egenskapen sammanfaller med en systemegenskap (exempelvis `$to`), egenskapen hämtas med den `$to` uttryck.
 Du kan alltid komma åt Systemegenskapen med hakparenteser `{}`: du kan till exempel använda uttrycket `{$to}` att komma åt Systemegenskapen `to`. Inom hakparenteser egenskapsnamn hämta alltid Systemegenskapen motsvarande.
 
 Kom ihåg att egenskapsnamn är skiftlägeskänsliga.
@@ -342,7 +348,7 @@ Referera till den [uttryck och villkor] [ lnk-query-expressions] avsnittet för 
 
 ### <a name="routing-on-message-bodies"></a>Routning på meddelandetext
 
-IoT-hubb kan endast vidarebefordra baserat på meddelandetexten innehållet om meddelandetexten är korrekt formaterad JSON kodning i UTF-8, UTF-16 eller UTF-32. Ange innehållstypen i meddelandet för att `application/json` och Innehållskodning till någon av teckenkodningar som stöds UTF i meddelandena. Om något av huvudena har angetts försöker inte IoT-hubb utvärdera eventuella frågeuttryck som rör innehållet mot meddelandet. Om meddelandet inte är ett JSON-meddelande, eller om meddelandet inte anger content-type och Innehållskodning, kan du fortfarande använda meddelanderoutning för att vidarebefordra meddelandet baserat på meddelandena.
+IoT-hubb kan endast vidarebefordra baserat på meddelandetexten innehållet om meddelandetexten är korrekt formaterad JSON kodning i UTF-8, UTF-16 eller UTF-32. Ange innehållstypen i meddelandet för att `application/json`. Ange det innehåll som kodning av UTF teckenkodningar som stöds i meddelandena. Om något av huvudena har angetts försöker inte IoT-hubb utvärdera eventuella frågeuttryck som rör innehållet mot meddelandet. Om meddelandet inte är ett JSON-meddelande, eller om meddelandet inte anger content-type och Innehållskodning, kan du fortfarande använda meddelanderoutning för att vidarebefordra meddelandet baserat på meddelandena.
 
 Du kan använda `$body` i frågeuttrycket att skicka meddelandet. Du kan använda en enkel body-referens, brödtext matrisreferens eller flera body-referenser i frågeuttrycket. Din frågeuttryck kan också kombinera en brödtext referens med en referens för sidhuvudet. Följande är alla giltig fråga uttryck:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en fråga för IoT-hubb
-Alla IoT-hubb fråga består av väljer och från satser med valfria WHERE och GROUP BY-satser. Varje fråga körs på en mängd JSON-dokument, till exempel enhet twins. FROM-satsen anger dokumentsamlingen till hävdade på (**enheter** eller **devices.jobs**). Sedan används filter i WHERE-satsen. Med aggregeringar, resultatet av det här steget grupperas som angetts i GROUP BY-satsen och för varje grupp skapas en rad som angetts i SELECT-satsen.
+Alla IoT-hubb fråga består av väljer och från satser med valfria WHERE och GROUP BY-satser. Varje fråga körs på en mängd JSON-dokument, till exempel enhet twins. FROM-satsen anger dokumentsamlingen till hävdade på (**enheter** eller **devices.jobs**). Sedan används filter i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som anges i GROUP BY-satsen. En rad genereras för varje grupp som angetts i SELECT-satsen.
 
 ```sql
 SELECT <select_list>
@@ -374,7 +380,7 @@ Tillåtna villkor beskrivs i avsnittet [uttryck och villkor][lnk-query-expressio
 
 ## <a name="select-clause"></a>SELECT-satsen
 Den **väljer < select_list >** är obligatoriskt och anger vilka värden hämtas från frågan. Det anger JSON-värden som används för att generera nya JSON-objekt.
-För varje element i delmängden filtrerade (och alternativt grupperade) i mängden från genererar Projektionsfasen ett nytt JSON-objekt med de värden som anges i SELECT-satsen.
+För varje element i delmängden filtrerade (och alternativt grupperade) i mängden från genererar Projektionsfasen ett nytt JSON-objekt. Det här objektet har skapats med de värden som anges i SELECT-satsen.
 
 Nedan följer grammatik i SELECT-satsen:
 
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 För närvarande markeringen satser skiljer sig **Välj*** stöds endast i sammanställd frågor för enheten twins.
 
 ## <a name="group-by-clause"></a>GROUP BY-sats
-Den **GROUP BY < group_specification >** -satsen är ett valfritt steg som kan utföras efter det filter som angetts i WHERE-satsen och innan projektionen som anges i listan Välj. Grupperas dokument baserat på värdet för ett attribut. Dessa grupper används för att generera sammanställda värden som anges i SELECT-satsen.
+Den **GROUP BY < group_specification >** -satsen är ett valfritt steg som körs efter det filter som angetts i WHERE-satsen och innan projektionen som anges i listan Välj. Grupperas dokument baserat på värdet för ett attribut. Dessa grupper används för att generera sammanställda värden som anges i SELECT-satsen.
 
 Ett exempel på en fråga med GROUP BY är:
 
@@ -433,7 +439,7 @@ På en hög nivå, en *uttryck*:
 * Returnerar en instans av en JSON-typ (till exempel booleskt värde, antal, sträng, matris eller objekt).
 * Definieras av manipulera data från enheten JSON-dokumentet och konstanter med hjälp av inbyggda operatorer och funktioner.
 
-*Villkor* är uttryck som utvärderas till ett booleskt värde. En konstant som skiljer sig boolesk **true** anses **FALSKT** (inklusive **null**, **Odefinierad**, valfri instans av objektet eller matrisen valfri sträng och tydligt av booleskt **FALSKT**).
+*Villkor* är uttryck som utvärderas till ett booleskt värde. En konstant som skiljer sig boolesk **SANT** anses **FALSKT**. Den här regeln innehåller **null**, **Odefinierad**, valfri instans av objektet eller matrisen och valfri sträng av booleskt **FALSKT**.
 
 Syntaxen för uttryck är:
 
@@ -500,8 +506,8 @@ Följande matematiska funktioner stöds i vägar villkor:
 | Square(x) | Returnerar kvadratroten av det angivna numeriska värdet. |
 | CEILING(x) | Returnerar det minsta heltalsvärdet större än eller lika med det angivna numeriska uttrycket. |
 | FLOOR(x) | Returnerar det största heltalet mindre än eller lika med det angivna numeriska uttrycket. |
-| Sign(x) | Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.|
-| Rot(x) | Returnerar kvadratroten av det angivna numeriskt värdet. |
+| SIGN(x) | Returnerar positivt (+ 1), noll (0) eller minustecken (-1) för det angivna numeriskt uttrycket.|
+| SQRT(x) | Returnerar kvadratroten av det angivna numeriskt värdet. |
 
 I vägar villkor stöds följande typkontroll och omvandling funktioner:
 
@@ -514,7 +520,7 @@ I vägar villkor stöds följande typkontroll och omvandling funktioner:
 | IS_NULL | Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är null. |
 | IS_NUMBER | Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är ett tal. |
 | IS_OBJECT | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett JSON-objekt. |
-| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är en primitiv (string, Boolean, numeriska eller `null`). |
+| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typ av det angivna uttrycket är en primitiv (string, Boolean, numeriska och eller `null`). |
 | IS_STRING | Returnerar ett booleskt värde som anger om det angivna uttrycket är en sträng. |
 
 Följande sträng-funktioner stöds i vägar villkor:

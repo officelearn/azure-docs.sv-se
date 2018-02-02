@@ -15,24 +15,25 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 525df7ddb8cd569bfd361da10d14ae08c1a721e0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema-uppdateringar för Logikappar i Azure - 1 juni 2016
 
-Den här nya schemat och API-version för Logikappar i Azure innehåller viktiga förbättringar som gör logikappar mer tillförlitlig och enklare att använda:
+Den [uppdaterat schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) och API-version för Logikappar i Azure innehåller viktiga förbättringar som gör logikappar mer tillförlitlig och enklare att använda:
 
 * [Scope](#scopes) låter dig kapsla åtgärder som en samling åtgärder.
 * [Villkor och slingor](#conditions-loops) är nu förstklassigt åtgärder.
 * Mer exakta ordning för åtgärder med körs den `runAfter` egenskapen ersätta`dependsOn`
 
-Att uppgradera dina logic apps från 1 augusti 2015 preview schemat till den 1 juni 2016-schemat [kolla avsnittet Uppgradera](##upgrade-your-schema).
+Att uppgradera dina logic apps från 1 augusti 2015 preview schemat till den 1 juni 2016-schemat [kolla avsnittet Uppgradera](#upgrade-your-schema).
 
 <a name="scopes"></a>
-## <a name="scopes"></a>Scope
+
+## <a name="scopes"></a>Omfång
 
 Det här schemat innehåller scope, så att du kan gruppera tillsammans eller kapslade åtgärder i varandra. Ett villkor kan exempelvis innehålla ytterligare villkor. Lär dig mer om [omfång syntax](../logic-apps/logic-apps-loops-and-scopes.md), eller läsa det här exemplet grundläggande omfång:
 
@@ -57,6 +58,7 @@ Det här schemat innehåller scope, så att du kan gruppera tillsammans eller ka
 ```
 
 <a name="conditions-loops"></a>
+
 ## <a name="conditions-and-loops-changes"></a>Villkor och slingor ändringar
 
 I tidigare schemat har versioner, villkor och slingor parametrar som är associerade med en enda åtgärd. Det här schemat lyfter denna begränsning så villkor och slingor visas nu som Åtgärdstyper. Lär dig mer om [slingor och scope](../logic-apps/logic-apps-loops-and-scopes.md), eller läsa det här enkla exemplet för en åtgärd som villkoret:
@@ -86,6 +88,7 @@ I tidigare schemat har versioner, villkor och slingor parametrar som är associe
 ```
 
 <a name="run-after"></a>
+
 ## <a name="runafter-property"></a>Egenskapen 'runAfter'
 
 Den `runAfter` egenskapen ersätter `dependsOn`, ger högre precision när du anger kör ordning för åtgärder baserat på status för tidigare åtgärder.
@@ -104,7 +107,7 @@ Den `dependsOn` egenskapen var synonym med ”åtgärden kördes och lyckades”
 
 ## <a name="upgrade-your-schema"></a>Uppgradera schemat
 
-Uppgradera till det nya schemat tar bara några steg. Uppgraderingsprocessen innehåller kör uppgraderingsskriptet, spara i en ny logikapp och du kan eventuellt att skriva över tidigare logikappen.
+Uppgradera till den [senaste schemat](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), du behöver bara behöver vidta några åtgärder. Uppgraderingsprocessen innehåller kör uppgraderingsskriptet, spara i en ny logikapp och du kan eventuellt att skriva över tidigare logikappen.
 
 1. Öppna logikappen i Azure-portalen.
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: 05b1f11158233a7c02950320741b405429a08d50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i din IoT-hubb
 
@@ -74,11 +74,11 @@ Du kan inaktivera enheter genom att uppdatera den **status** -egenskapen för en
 
 ## <a name="import-and-export-device-identities"></a>Importera och exportera enheten identiteter
 
-Du kan exportera enheten identiteter i grupp från en IoT-hubb identitetsregistret med hjälp av asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt][lnk-endpoints]. Export är långvariga jobb som använder en kundens blob-behållare för att spara enhetens identitetsdata läses från identitetsregistret.
+Använda asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt] [ lnk-endpoints] att exportera enheten identiteter i grupp från en IoT-hubb identitetsregistret. Export är långvariga jobb som använder en kundens blob-behållare för att spara enhetens identitetsdata läses från identitetsregistret.
 
-Du kan importera enheten identiteter gruppvis till identitetsregistret för en IoT-hubb med hjälp av asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt][lnk-endpoints]. Import är långvariga jobb som använder data i en kundens blob-behållare för att skriva data på enheten identitet till identitetsregistret.
+Använda asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt] [ lnk-endpoints] importera enheten identiteter gruppvis till identitetsregistret för en IoT-hubb. Import är långvariga jobb som använder data i en kundens blob-behållare för att skriva data på enheten identitet till identitetsregistret.
 
-Detaljerad information om import och export API: er finns [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis]. Om du vill veta mer om hur du kör import och exportera jobben, se [Massredigera hantering av identiteter för IoT-hubb enheten][lnk-bulk-identity].
+Mer information om import och export API: er finns [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis]. Om du vill veta mer om hur du kör import och exportera jobben, se [Massredigera hantering av identiteter för IoT-hubb enheten][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Enhetsetableringen
 
@@ -110,12 +110,12 @@ Egenskaper: Meddelandet Systemegenskaper föregås av `'$'` symbolen.
 $content-typ | application/json |
 $iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
 $iothub-meddelande-källa | deviceLifecycleEvents |
-$content-kodning | UTF-8 |
+$content-encoding | utf-8 |
 opType | **createDeviceIdentity** eller **deleteDeviceIdentity** |
 hubName | Namnet på IoT-hubb |
 deviceId | ID för enheten |
 operationTimestamp | ISO8601 tidsstämpeln för åtgärden |
-iothub-meddelande-schema | deviceLifecycleNotification |
+iothub-message-schema | deviceLifecycleNotification |
 
 Body: Det här avsnittet är i JSON-format och representerar dubbla av skapade enhetens identitet. Exempel:
 
@@ -147,7 +147,7 @@ Enheten identiteter representeras som JSON-dokument med följande egenskaper:
 | Egenskap | Alternativ | Beskrivning |
 | --- | --- | --- |
 | deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| ID för virtuella datorer |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
+| generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
 | ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
 | auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
 | auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
@@ -180,7 +180,7 @@ Nu när du har lärt dig hur du använder identitetsregistret IoT-hubb, kan du �
 * [Anropa en metod som är direkt på en enhet][lnk-devguide-directmethods]
 * [Schema-jobb på flera enheter][lnk-devguide-jobs]
 
-Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du är intresserad av följande IoT-hubb kursen:
+Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande IoT-hubb kursen:
 
 * [Kom igång med Azure IoT-hubb][lnk-getstarted-tutorial]
 

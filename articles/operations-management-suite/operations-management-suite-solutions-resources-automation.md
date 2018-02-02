@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Lägga till Azure Automation-resurser för en OMS-hanteringslösning (förhandsgranskning)
 > [!NOTE]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [och skapa lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med följande information.
 
 - Så här [skapar en lösning för](operations-management-suite-solutions-creating.md).
@@ -40,7 +40,7 @@ Den här artikeln förutsätter att du redan är bekant med följande informatio
 - Så här [skapar Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation-konto
-Alla resurser i Azure Automation finns i en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview).  Enligt beskrivningen i [OMS arbetsytan och Automation-konto](operations-management-suite-solutions.md#oms-workspace-and-automation-account) Automation-kontot inte finns med i hanteringslösningen men måste finnas innan lösningen är installerad.  Lösning installationen misslyckas om det inte är tillgänglig.
+Alla resurser i Azure Automation finns i en [Automation-konto](../automation/automation-security-overview.md#automation-account-overview).  Enligt beskrivningen i [OMS arbetsytan och Automation-konto](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Automation-kontot inte finns med i hanteringslösningen men måste finnas innan lösningen är installerad.  Lösning installationen misslyckas om det inte är tillgänglig.
 
 Namnet på varje Automation resursen innehåller namnet på dess Automation-konto.  Detta görs i lösningen med den **accountName** parameter som i följande exempel på en runbook-resurs.
 
@@ -171,7 +171,7 @@ I följande tabell beskrivs egenskaperna för autentiseringsuppgifter resurser.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Användarnamn |Användarnamn för autentiseringsuppgifter. |
+| userName |Användarnamn för autentiseringsuppgifter. |
 | lösenord |Lösenordet för autentiseringsuppgifterna. |
 
 
@@ -201,7 +201,7 @@ I följande tabell beskrivs egenskaperna för schemalägga resurser.
 |:--- |:--- |
 | description |Valfri beskrivning för schemat. |
 | startTime |Anger starttiden för ett schema som ett DateTime-objekt. En sträng kan tillhandahållas om det kan konverteras till en giltig DateTime. |
-| IsEnabled |Anger om schemat har aktiverats. |
+| isEnabled |Anger om schemat har aktiverats. |
 | interval |Typ av intervall för schemat.<br><br>dag<br>timme |
 | frequency |Frekvensen som schemat ska utlösas i antal dagar eller timmar. |
 
@@ -281,10 +281,10 @@ Om du anger det initiala värdet för variabeln, måste den konfigureras som rä
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| Sträng   | Värdet omges av dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
+| sträng   | Värdet omges av dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
 | numeriskt  | Numeriskt värde med enkla citattecken.| "64" | 64 |
-| Booleskt värde  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | SANT |
-| Datum och tid | Serialiserad date-värde.<br>Du kan använda cmdleten ConvertTo Json i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date ”2017-5/24 13:14:57” \| ConvertTo Json | ”\\/Date(1495656897378)\\/” | 2017-05-24 13:14:57 |
+| boolesk  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | "true" | sant |
+| datetime | Serialiserad date-värde.<br>Du kan använda cmdleten ConvertTo Json i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date ”2017-5/24 13:14:57” \| ConvertTo Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler
 Management-lösningen behöver inte definiera [global modul](../automation/automation-integration-modules.md) används av dina runbooks eftersom de alltid är tillgängliga i ditt Automation-konto.  Du behöver innehåller en resurs för alla moduler som används av dina runbooks.

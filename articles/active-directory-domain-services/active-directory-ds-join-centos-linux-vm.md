@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 65a9e4267c8883db5c8d8bfc5e0167577cd969d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Anslut en CentOS Linux-dator till en hanterad domän
 Den här artikeln visar hur du kopplar en CentOS Linux-dator i Azure till en Azure AD Domain Services-hanterad domän.
@@ -34,7 +34,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 
 ## <a name="provision-a-centos-linux-virtual-machine"></a>Etablera en virtuell dator för CentOS Linux
 Etablera en CentOS virtuell dator i Azure, med någon av följande metoder:
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -82,11 +82,11 @@ De nödvändiga paketen är installerat på den virtuella Linux-datorn, är näs
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE]
-      > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
+    > [!NOTE]
+    > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:  
+      * Se till att domänen kan nås från den virtuella datorn (försök ping).  
+      * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgänglig. 
+      * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna i den hanterade domänen.  
       >
 
 2. Initiera Kerberos. Skriv följande kommando i terminalen SSH:

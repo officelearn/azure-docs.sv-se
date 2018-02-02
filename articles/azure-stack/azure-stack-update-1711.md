@@ -3,7 +3,7 @@ title: Azure-stacken 1711 Update | Microsoft Docs
 description: "Lär dig mer om vad som finns i 1711 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-stacken 1711 uppdatering
 
@@ -62,7 +62,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 nya funktioner och korrigeringar
 
 - [14 november 2017 – KB4048953 (OS-version 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
 Det här avsnittet innehåller kända problem som kan uppstå under installationen av uppdateringen 1711.
@@ -97,7 +97,7 @@ Det här avsnittet innehåller efter installationen kända problem med build **2
 
    - Du kan se en tom rad längst upp i listan. Du måste fortfarande kunna markera ett objekt som förväntat.
    - Om listan över objekt i den nedrullningsbara listrutan är kort kan kanske du inte visa något av objektnamn.
-   - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom. 
+   - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom.
 
         > [!NOTE]
         > Du kan skriva namnet på den prenumeration eller resursgrupp (om du vet att den) Undvik de två sista problem, eller kan du använda PowerShell i stället.
@@ -118,18 +118,18 @@ Det här avsnittet innehåller efter installationen kända problem med build **2
 - Du kan konfigurera en virtuell dator tillgänglighetsuppsättning endast med en feldomän på en och en uppdateringsdomän i en.
 - Det finns inga marketplace-upplevelse för att skapa virtuella datorer. Du kan skapa en skala som anges med hjälp av en mall.
 - Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Nätverk
 - Du kan inte skapa en belastningsutjämnare med en offentlig IP-adress med hjälp av portalen. Som en tillfällig lösning kan använda du PowerShell för att skapa belastningsutjämnaren.
 - När du skapar en Utjämning av nätverksbelastning måste du skapa en regel för network adress translation (NAT). Om du inte får ett fel när du försöker lägga till en NAT-regel när belastningsutjämnaren har skapats.
 - Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
 - Azure Stack-operatörer kanske inte kan distribuera, ta bort, ändra Vnet eller Nätverkssäkerhetsgrupper. Det här problemet visas främst på efterföljande update försök av samma paket. Detta beror på ett paketering problem med en uppdatering som för närvarande är under undersökningen.
 - Internt Load Balancing (ILB) hanterar felaktigt MAC-adresser för backend-virtuella datorer som bryter Linux-instanser.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 
+- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU.
 - Skapande av objekt direkt på SQL- och MySQL som värd för servrar som inte utförs av resursprovidern stöds inte och kan resultera i ett felaktigt tillstånd.
- 
+
 #### <a name="app-service"></a>App Service
 - Användaren måste registrera lagringsresursprovidern innan de skapar sin första Azure-funktion i prenumerationen.
 
@@ -149,7 +149,7 @@ I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den 
 - **Aktiverar infrastruktur för säkerhetskopiering på ASDK är endast avsedd för testning.**  
   Infrastruktur säkerhetskopieringar kan användas för att återställa med flera noder lösningar. Du kan aktivera infrastrukturen för säkerhetskopiering på ASDK men det går inte att testa återställning.
 
-Mer information finns i [säkerhetskopia och återställa data för Azure-stacken med Backup-tjänsten infrastruktur](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Mer information finns i [säkerhetskopia och återställa data för Azure-stacken med Backup-tjänsten infrastruktur](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Hämta uppdateringen
 

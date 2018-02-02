@@ -3,8 +3,8 @@ title: "Felsöka en webbapp i Azure App Service med Visual Studio"
 description: "Lär dig hur du felsöker ett Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda Visual Studio 2013."
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -117,9 +117,9 @@ Om det detaljerade felmeddelandet inte ger tillräcklig information, och du kan 
 
 Fjärrfelsökning fungerar inte i Express-versioner av Visual Studio.
 
-Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en ASP.NET-webbapp i Azure][app-service-web-get-started-dotnet.md].
+Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md).
 
-1. Öppna webbprojekt som du skapade i [skapa en ASP.NET-webbapp i Azure][app-service-web-get-started-dotnet.md].
+1. Öppna webbprojekt som du skapade i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md).
 
 2. Öppna *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en
 
 5. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
 
-6. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-webbapp i Azure][app-service-web-get-started-dotnet.md]. Klicka på inställningar.
+6. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md). Klicka på inställningar.
 
 7. I den **publicera** dialogrutan klickar du på den **inställningar** fliken och ändra sedan **Configuration** till **felsöka**, och klicka sedan på  **Spara**.
 
@@ -222,7 +222,7 @@ Fjärrfelsökning fungerar bara med kontinuerliga Webbjobb. Schemalagda och på 
 
 15. Logga in med dina autentiseringsuppgifter för Azure och klicka på webbjobbsnamnet att gå till sidan för din Webbjobb.
 
-     ![Klicka på ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
+     ![Click ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
      Instrumentpanelen visar att den `GenerateThumbnail` funktion som kördes nyligen.
 
@@ -336,11 +336,11 @@ För information om hur du skapar program som loggar in WebJobs, se [hur du arbe
 5. Lägg till i adressfältet i webbläsarfönstret *trace.axd* till URL och tryck på RETUR (URL: en är liknar http://localhost:53370/trace.axd).
 6. På den **programmet Trace** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
 
-    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
     Den **begär information** visas, och i den **spårningsinformation** avsnitt visas utdata från trace-satser som du lade till den `Index` metoden.
 
-    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
     Som standard `trace.axd` endast är tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärransluten webbprogram, kan du lägga till `localOnly="false"` till den `trace` element i den *Web.config* -fil, som visas i följande exempel:
 

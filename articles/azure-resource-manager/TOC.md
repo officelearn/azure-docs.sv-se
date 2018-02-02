@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Resource Manager?](resource-group-overview.md)
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
@@ -20,8 +21,6 @@
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
 ### [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
-
 
 ## Distribuera
 ### Azure PowerShell

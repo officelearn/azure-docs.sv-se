@@ -1,6 +1,7 @@
 - name: Dokumentation om Security Center
   href: index.yml
-- name: Översikt
+- name: |
+    Översikt
   items:
     - name: Om Security Center
       href: security-center-intro.md
@@ -146,6 +147,8 @@
           href: security-center-search.md
     - name: Azure-loggintegrering
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Dataexport till SIEM
+      href: security-center-export-data-to-siem.md
     - name: Scenarier
       items:
         - name: Incidenthantering

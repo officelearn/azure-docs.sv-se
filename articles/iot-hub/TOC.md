@@ -41,10 +41,11 @@
 
 # Instruktionsguider
 ## Planera
-### [Jämförelse mellan IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
+### [Jämföra IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Skala din lösning](iot-hub-scaling.md)
 ### [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
 ### [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
+### [Jämföra meddelande- och händelsedirigering](iot-hub-event-grid-routing-comparison.md)
 ## [Utveckla](iot-hub-how-to.md)
 ### [Utvecklarguide](iot-hub-devguide.md)
 #### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
@@ -52,6 +53,7 @@
 #### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
 ##### [Skicka meddelanden från enhet till moln till IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Läsa meddelanden från enhet till moln från den inbyggda slutpunkten](iot-hub-devguide-messages-read-builtin.md)
+##### [Reagera på IoT Hub-händelser](iot-hub-event-grid.md)
 ##### [Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln](iot-hub-devguide-messages-read-custom.md)
 ##### [Skicka meddelanden från moln till enhet från IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Skapa och läsa IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)

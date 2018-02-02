@@ -1,6 +1,7 @@
 - name: Dokumentation om Functions
   href: index.yml
-- name: Översikt
+- name: |
+    Översikt
   items:
     - name: Om Functions
       href: functions-overview.md
@@ -63,6 +64,8 @@
       href: functions-cli-samples.md
 - name: Begrepp
   items:
+    - name: Jämföra 1.x och 2.x
+      href: functions-versions.md
     - name: Skalning och värdtjänster
       href: functions-scale.md
     - name: Utlösare och bindningar
@@ -89,7 +92,8 @@
       href: functions-runtime-overview.md
     - name: Bestående funktioner
       items:
-        - name: Översikt
+        - name: |
+            Översikt
           href: durable-functions-overview.md
         - name: Bindningar
           href: durable-functions-bindings.md
@@ -146,7 +150,7 @@
         - name: Hantera en funktionsapp
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Ange körningsversion
-          href: functions-versions.md
+          href: set-runtime-version.md
     - name: Övervaka
       href: functions-monitoring.md
     - name: Integrera
@@ -183,6 +187,8 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-cosmosdb.md
+        - name: Event Grid
+          href: functions-bindings-event-grid.md
         - name: Händelsehubbar
           href: functions-bindings-event-hubs.md
         - name: Extern fil

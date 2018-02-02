@@ -1,6 +1,7 @@
 - name: Dokumentation om Azure Logic Apps
   href: index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Vad är Azure Logic Apps?
       href: logic-apps-overview.md
@@ -62,25 +63,7 @@
         - name: Skydda dina logikappar
           href: logic-apps-securing-a-logic-app.md
         - name: Utveckla anpassade anslutningsappar
-          items:
-            - name: Översikt över anpassade anslutningsappar
-              href: custom-connector-overview.md
-            - name: 'Skapa anslutningsappar från webb-API:er'
-              href: custom-connector-build-web-api-app-tutorial.md
-            - name: Säkra anslutningsappar med Azure AD
-              href: custom-connector-azure-active-directory-authentication.md
-            - name: 'Beskriva API:er med Postman'
-              href: custom-connector-api-postman-collection.md
-            - name: Utöka OpenAPI för anpassade anslutningsappar
-              href: custom-connector-openapi-extensions.md
-            - name: Skapa och registrera en OpenAPI-anslutningsapp
-              href: logic-apps-custom-connector-register.md
-            - name: Skapa och registrera en SOAP-anslutningsapp
-              href: logic-apps-soap-connector-create-register.md
-            - name: Certifiera din anslutningsapp
-              href: custom-connector-submit-certification.md
-            - name: Vanliga frågor och svar om anpassade anslutningsappar
-              href: custom-connector-faq.md
+          href: custom-connector-overview.md
         - name: 'Utveckla anpassade API:er'
           items:
             - name: 'Skapa anpassade API:er för logikappar'
@@ -140,6 +123,8 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Lägga till kartor för XML-transformering
           href: logic-apps-enterprise-integration-maps.md
+        - name: Transformera JSON
+          href: logic-apps-enterprise-integration-liquid-transform.md
         - name: Lägga till säkerhetscertifikat
           href: logic-apps-enterprise-integration-certificates.md
         - name: Felsöka B2B-fel

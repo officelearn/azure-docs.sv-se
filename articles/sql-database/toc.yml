@@ -1,9 +1,12 @@
 - name: Dokumentation om SQL DB
   href: index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Om SQL DB
       href: sql-database-technical-overview.md
+    - name: PaaS eller IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -59,7 +62,7 @@
       href: sql-database-powershell-samples.md
 - name: Begrepp
   items:
-    - name: Tjänstfunktioner
+    - name: Databastjänst
       items:
         - name: Servrar och databaser
           href: sql-database-servers-databases.md
@@ -73,42 +76,23 @@
           href: sql-database-elastic-pool.md
         - name: Anslutningsarkitektur
           href: sql-database-connectivity-architecture.md
-        - name: Brandväggsregler
-          href: sql-database-firewall-configure.md
-        - name: Brandväggsregler för virtuellt nätverk
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: 'DTU:er och eDTU:er'
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
           href: sql-database-benchmark-overview.md
-        - name: PaaS eller IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Granskning
-          href: sql-database-auditing.md
-        - name: Hotidentifiering
-          href: sql-database-threat-detection.md
-        - name: Säkerhetskopior av databasen
-          href: sql-database-automated-backups.md
-        - name: Kvarhållning av säkerhetskopior
-          href: sql-database-long-term-retention.md
-        - name: Redundansgrupper
-          href: sql-database-geo-replication-overview.md
-        - name: Elastiskt klientbibliotek
-          href: sql-database-elastic-database-client-library.md
-        - name: Elastiska frågor
-          href: sql-database-elastic-query-overview.md
-        - name: Elastiska transaktioner
-          href: sql-database-elastic-transactions-overview.md
-        - name: Elastiska jobb
-          href: sql-database-elastic-jobs-overview.md
-        - name: Sårbarhetsbedömning för SQL
-          href: sql-vulnerability-assessment.md
         - name: Vanliga funktioner i SQL Server
           href: sql-database-features.md
+    - name: Hög tillgänglighet
+      href: sql-database-high-availability.md
     - name: Säkerhet
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-security-overview.md
+        - name: Brandväggsregler
+          href: sql-database-firewall-configure.md
+        - name: Brandväggsregler för virtuellt nätverk
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Åtkomstkontroll
           href: sql-database-control-access.md
         - name: Azure AD
@@ -117,16 +101,29 @@
           href: sql-database-manage-logins.md
         - name: Multifaktorautentisering
           href: sql-database-ssms-mfa-authentication.md
+        - name: Granskning
+          href: sql-database-auditing.md
+        - name: Hotidentifiering
+          href: sql-database-threat-detection.md
         - name: Tabellgranskning och TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Datamaskning
+        - name: Dynamisk datamaskning
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Hög tillgänglighet
-      href: sql-database-high-availability.md
+        - name: Sårbarhetsbedömning
+          href: sql-vulnerability-assessment.md
+        - name: Dataidentifiering och -klassificering
+          href: sql-database-data-discovery-and-classification.md
     - name: Verksamhetskontinuitet
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-business-continuity.md
+        - name: Säkerhetskopior av databasen
+          href: sql-database-automated-backups.md
+        - name: Kvarhållning av säkerhetskopior
+          href: sql-database-long-term-retention.md
+        - name: Redundansgrupper
+          href: sql-database-geo-replication-overview.md
         - name: Återställning av databaser
           href: sql-database-recovery-using-backups.md
         - name: Konfigurera säkerhet
@@ -143,7 +140,8 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migrera till SQL Database
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-cloud-migrate.md
         - name: Ändringar i T-SQL
           href: sql-database-transact-sql-information.md
@@ -161,7 +159,8 @@
           href: sql-database-sync-data.md
     - name: Övervaka och finjustera
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-troubleshoot-performance.md
         - name: Prestandaövervakning
           href: sql-database-single-database-monitor.md
@@ -183,8 +182,17 @@
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skala ut
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-elastic-scale-introduction.md
+        - name: Elastiskt klientbibliotek
+          href: sql-database-elastic-database-client-library.md
+        - name: Elastiska frågor
+          href: sql-database-elastic-query-overview.md
+        - name: Elastiska transaktioner
+          href: sql-database-elastic-transactions-overview.md
+        - name: Elastiska jobb
+          href: sql-database-elastic-jobs-overview.md
         - name: Shardkartor
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routning för frågor
@@ -211,7 +219,8 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: sql-database-develop-overview.md
         - name: JSON-data
           href: sql-database-json-features.md
@@ -299,6 +308,8 @@
           href: sql-database-advisor-portal.md
         - name: Aktivera automatisk inställning
           href: sql-database-automatic-tuning-enable.md
+        - name: Automatisk inställning av e-postaviseringar
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Prestandafelsökning för Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: 'Använda DMV:er för att övervaka prestanda'

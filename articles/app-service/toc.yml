@@ -1,6 +1,7 @@
 - name: Dokumentation om App Service
   href: index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Om Web Apps
       href: app-service-web-overview.md
@@ -41,6 +42,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java med MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python med PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 – Skapa RESTful-API
       href: app-service-web-tutorial-rest-api.md
     - name: 2 – Mappa anpassad domän

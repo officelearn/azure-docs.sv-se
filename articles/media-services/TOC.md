@@ -117,6 +117,7 @@
 ### [Konfigurera lokala kodare för användning med molnkodare](media-services-live-encoders-overview.md)
 #### [Elemental Live-kodare](media-services-configure-elemental-live-encoder.md)
 #### [FMLE-kodare](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB-kodare](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster-kodare](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast-kodare](media-services-configure-wirecast-live-encoder.md)
 ### [Hantera långvariga åtgärder](media-services-dotnet-long-operations.md)

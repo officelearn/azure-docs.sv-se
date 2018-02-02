@@ -177,6 +177,16 @@
 ##### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Användaretablering och -avetablering till SaaS-appar](active-directory-saas-app-provisioning.md)
+#### [Självstudier om appintegration](active-directory-saas-tutorial-list.md)
+#### [Automatisera etablering till SCIM-aktiverade appar](active-directory-scim-provisioning.md)
+#### [Anpassa attributmappningar](active-directory-saas-customizing-attribute-mappings.md)
+#### [Skriva uttryck för attributmappningar](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Använda omfångsfilter](active-directory-saas-scoping-filters.md)
+#### [Rapportera om automatisk användaretablering](active-directory-saas-provisioning-reporting.md)
+#### [Felsöka användaretablering](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
 #### Kom igång
@@ -220,7 +230,7 @@
 #### [Avancerad certifikatsignering för SAML-appar](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Dölja ett program från en användarmiljö](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrera AD FS-appar till Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
@@ -265,7 +275,8 @@
 
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
-#### [Tilldela administratörsroller](active-directory-users-assign-role-azure-portal.md)
+#### [Tilldela administratörsroll till en användare](active-directory-users-assign-role-azure-portal.md)
+#### [Jämföra behörigheter för medlemmar och gästanvändare](users-default-permissions.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 ### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
@@ -285,7 +296,7 @@
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Platsvillkor](active-directory-conditional-access-locations.md)
-#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
@@ -307,7 +318,7 @@
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kom igång](active-directory-certificate-based-authentication-get-started.md)
+#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)
@@ -322,8 +333,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrera andra tjänster med Azure AD]()
-### [Aktivera LinkedIn-integrering](linkedin-integration.md)
+## Integrera andra tjänster med Azure AD
+### [Integrera LinkedIn med Azure AD](linkedin-integration.md)
 
 ## [Distribuera AD DS på virtuella Azure-datorer](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory på virtuella Azure-datorer](active-directory-deploying-ws-ad-guidelines.md)

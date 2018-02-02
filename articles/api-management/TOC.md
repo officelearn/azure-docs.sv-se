@@ -1,5 +1,6 @@
 # [Dokumentation om Azure API Management](index.yml)
 # Översikt
+
 ## [Om API Management](api-management-key-concepts.md)
 # Snabbstarter
 ## [Skapa en instans – portalen](get-started-create-service-instance.md)
@@ -17,7 +18,7 @@
 # Exempel
 ## [Principer](policy-samples.md)
 ## [Azure PowerShell](powershell-samples.md)
-# Koncept
+# Begrepp
 ## [Terminologi](api-management-terminology.md)
 ## Principer
 ### [Översikt](api-management-howto-policies.md)
@@ -42,7 +43,7 @@
 ## Cache
 ### [Lägg till cachelagring för att förbättra prestandan](api-management-howto-cache.md)
 ## Skydda din serverdel
-### [Skydda Webb-API-serverdelen med AAD](api-management-howto-protect-backend-with-aad.md)
+### [Skydda Webb-API-serverdelen med Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Skapa ett virtuellt nätverk](api-management-using-with-vnet.md)
 ### [Anslut till ett internt virtuellt nätverk](api-management-using-with-internal-vnet.md)
 ### [Integrera Application Gateway i internt VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -50,8 +51,8 @@
 ## Anpassa utvecklarupplevelsen
 ### [Ändra innehåll och layout](api-management-modify-content-layout.md)
 ### [Anpassa systemsidor med mallar](api-management-developer-portal-templates.md)
-### [Autentisering med AAD](api-management-howto-aad.md)
-### [Autentisering med AAD B2C](api-management-howto-aad-b2c.md)
+### [Autentisering med Azure AD](api-management-howto-aad.md)
+### [Autentisering med Azure AD B2C](api-management-howto-aad-b2c.md)
 ### [Delegerad autentisering](api-management-howto-setup-delegation.md)
 ### [E-postaviseringar och mallar](api-management-howto-configure-notifications.md)
 ### [Aktivera OAuth-stöd för konsolen](api-management-howto-oauth2.md)

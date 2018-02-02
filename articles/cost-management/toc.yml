@@ -1,6 +1,7 @@
 - name: Azure Cost Management-dokumentation
   href: index.yml
-- name: Översikt
+- name: |
+    Översikt
   items:
     - name: Vad är kostnadshantering?
       href: overview.md
@@ -23,12 +24,16 @@
       href: tutorial-forecast-spending.md
     - name: 4 – Hantera kostnader
       href: tutorial-manage-costs.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Förstå kostnadsrapporter
       href: understading-cost-reports.md
 - name: Instruktionsguider
   items:
+    - name: Aktivera Azure-prenumerationer och -konton
+      href: activate-subs-accounts.md
+    - name: Lägga till utökade mått för virtuella datorer
+      href: azure-vm-extended-metrics.md
     - name: Använda Cost Management-rapporter
       href: use-reports.md
 - name: Resurser

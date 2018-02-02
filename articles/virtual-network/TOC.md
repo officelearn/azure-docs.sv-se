@@ -16,7 +16,9 @@
 ### [Listor för åtkomstkontroll](virtual-networks-acl.md)
 
 # Kom igång
-## [Skapa ditt första virtuella nätverk](virtual-network-get-started-vnet-subnet.md)
+## [Skapa virtuellt nätverk – Portal](quick-create-portal.md)
+## [Skapa virtuellt nätverk – PowerShell](quick-create-powershell.md)
+## [Skapa virtuellt nätverk – Azure CLI](quick-create-cli.md)
 
 # Gör så här för att
 ## Planera och designa

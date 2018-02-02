@@ -1,6 +1,7 @@
 - name: Dokumentation om Data Factory V2
   href: index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Introduktion till Data Factory
       href: introduction.md
@@ -37,7 +38,7 @@
           href: tutorial-copy-data-tool.md
         - name: Användargränssnitt
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 – Kopiera lokala data i molnet
       items:
@@ -90,7 +91,7 @@
       items:
         - name: Användargränssnitt
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Exempel
   items:
@@ -350,6 +351,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Anropa SSIS-paket med hjälp av en lagrad proceduraktivitet
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Schemalägga Azure SSIS Integration Runtime
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Skapa utlösare
       items:
         - name: Skapa en schemautlösare

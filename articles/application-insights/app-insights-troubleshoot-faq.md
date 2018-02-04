@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -69,7 +69,7 @@ Informationen beror på vilken typ av projekt. För ett webbprogram:
 * Lägger till de här filerna i projektet:
 
   * ApplicationInsights.config.
-  * AI.js
+  * ai.js
 * Installerar dessa NuGet-paket:
 
   * *Application Insights API* -core API
@@ -82,7 +82,7 @@ Informationen beror på vilken typ av projekt. För ett webbprogram:
 * Infogar objekt till:
 
   * Web.config
-  * Packages.config-fil
+  * packages.config
 * (Nytt projekt endast - om du [lägga till Application Insights till ett befintligt projekt][start], du måste göra det manuellt.) Infogar kodavsnitt i koden för klienten och servern att initiera dem med Application Insights-resurs-ID. Till exempel i en MVC-app infogas kod huvudsida Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur uppgraderar jag från äldre versioner av SDK?
@@ -121,7 +121,7 @@ Från andra källor, om du konfigurerar dem:
 * [Azure-diagnostik](app-insights-azure-diagnostics.md)
 * [Docker-behållare](app-insights-docker.md)
 * [Importera tabellerna till Analytics](app-insights-analytics-import.md)
-* [OMS (logganalys)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan jag filtrera bort eller ändra vissa telemetri?
@@ -152,7 +152,7 @@ Ta en titt på [datalagring och sekretess][data].
 
 Detta är möjligt om koden skickar dessa data. Det kan också inträffa om variabler i stackspår innehåller personligt identifierbar information. Utvecklingsgruppen bör utföra riskbedömningar för att säkerställa att PII hanteras korrekt. [Lär dig mer om datalagring och sekretess](app-insights-data-retention-privacy.md).
 
-Den sista oktetten klienten webbadress anges alltid till 0 när införandet av portalen.
+**Alla** oktetterna i webbadressen klienten alltid har angetts till 0 när attributen geo plats slås upp.
 
 ## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Min iKey är synlig i min webbsideskällan. 
 

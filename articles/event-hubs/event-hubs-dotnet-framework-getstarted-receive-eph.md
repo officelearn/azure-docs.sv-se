@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ta emot händelser från Azure Event Hubs med .NET Framework
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig att skriva ett .NET Framework-konsolp
 
 [EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av [EventProcessorHost][Event Processor Host] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet på att [skala ut händelsebearbetning][Scale out Event Processing with Event Hubs] visar hur man använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -49,11 +49,11 @@ För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett
 2. Klicka på **Lagring** och sedan på **Lagringskonto**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. På bladet **Skapa lagringskonto** anger du ett namn för lagringskontot. Välj en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. Klicka sedan på **Skapa**.
+3. I den **skapa lagringskonto** rutan Ange ett namn för lagringskontot. Välj en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. Klicka sedan på **Skapa**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. Klicka på det nyligen skapade lagringskontot i listan över lagringskonton.
-5. På bladet för lagringskontot klickar du på **Åtkomstnycklar**. Kopiera värdet för **nyckel1** och använd det senare i de här självstudierna.
+5. I fönstret storage-konto klickar du på **åtkomstnycklar**. Kopiera värdet för **nyckel1** och använd det senare i de här självstudierna.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 

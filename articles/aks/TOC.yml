@@ -1,6 +1,7 @@
 - name: Azure Container Service (AKS)
   href: ./index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Om AKS
       href: intro-kubernetes.md
@@ -77,3 +78,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videoklipp
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md

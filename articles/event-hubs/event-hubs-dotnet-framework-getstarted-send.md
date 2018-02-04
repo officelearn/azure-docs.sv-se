@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Skicka händelser till Azure Event Hubs med .NET Framework
 
@@ -39,7 +39,7 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
 ## <a name="create-a-sender-console-application"></a>Skapa ett avsändarkonsolprogram
 
-I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till din händelsehubb.
+I det här avsnittet kan du skriva en Windows-konsolapp som skickar händelser till din event hub.
 
 1. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
    

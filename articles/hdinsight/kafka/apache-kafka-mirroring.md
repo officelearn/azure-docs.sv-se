@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 87b5912e7f9244dc1be74ac357200122b194dbdc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka avsnitt med Kafka på HDInsight
 
@@ -120,7 +120,7 @@ Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det ä
     export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Ersätt `$CLUSTERNAME` med namnet på källklustret. När du uppmanas, ange lösenordet för kluster-inloggningskonto (admin).
+    Ersätt `$CLUSTERNAME` med namnet på källklustret. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
 3. Skapa ett ämne med namnet `testtopic`, använder du följande kommando:
 
@@ -187,7 +187,7 @@ Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det ä
     echo $DEST_BROKERHOSTS
     ```
 
-    Ersätt `$CLUSTERNAME` med namnet på målklustret. När du uppmanas, ange lösenordet för kluster-inloggningskonto (admin).
+    Ersätt `$CLUSTERNAME` med namnet på målklustret. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
     Den `echo` kommandot returnerar informationen som liknar följande:
 
@@ -210,7 +210,42 @@ Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det ä
 
     Mer information producenten konfiguration finns i [producenten konfigurationerna](https://kafka.apache.org/documentation#producerconfigs) på kafka.apache.org.
 
-## <a name="start-mirrormaker"></a>Starta MirrorMaker
+5. Använd följande kommandon för att hitta Zookeeper-värdar för målklustret:
+
+    ```bash
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+    Ersätt `$CLUSTERNAME` med namnet på målklustret. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
+
+7. Standardkonfigurationen för Kafka på HDInsight tillåter inte automatisk generering av avsnitt. Du måste använda en av följande alternativ innan du börjar spegling:
+
+    * **Skapa ämnena på målklustret**: det här alternativet kan du ange antalet partitioner och replikering faktorn.
+
+        Du kan skapa avsnitt i förväg med hjälp av följande kommando:
+
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        ```
+
+        Ersätt `testtopic` med namnet på avsnittet om du vill skapa.
+
+    * **Konfigurera klustret för att skapa en automatisk avsnittet**: det här alternativet kan MirrorMaker att automatiskt skapa ämnen, men det kan skapa dem med ett annat antal partitioner eller replikering faktor än käll-avsnittet.
+
+        Utför de här stegen för att konfigurera målklustret för att automatiskt skapa avsnitt:
+
+        1. Från den [Azure-portalen](https://portal.azure.com), Välj mål Kafka klustret.
+        2. Översikt över kluster Välj __klusterinstrumentpanel__. Välj sedan __instrumentpanelen för HDInsight-klustret__. När du uppmanas du autentisera med inloggningsuppgifterna (admin) för klustret.
+        3. Välj den __Kafka__ tjänsten i listan till vänster på sidan.
+        4. Välj __konfigurationerna__ i mitten på sidan.
+        5. I den __Filter__ , ange ett värde för `auto.create`. Detta filtrerar listan över egenskaper och visar den `auto.create.topics.enable` inställningen.
+        6. Ändra värdet för `auto.create.topics.enable` till true, och välj sedan __spara__. Lägga till en anteckning och välj sedan __spara__ igen.
+        7. Välj den __Kafka__ tjänsten, Välj __starta om__, och välj sedan __starta om alla berörda__. När du uppmanas, Välj __bekräfta starta om alla__.
+
+## <a name="start-mirrormaker"></a>Start MirrorMaker
 
 1. Från SSH-anslutning till den **mål** bör du använda följande kommando för att starta processen MirrorMaker:
 
@@ -243,19 +278,17 @@ Du kan skapa ett virtuellt Azure-nätverk och Kafka kluster manuellt, men det ä
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Ersätt `$CLUSTERNAME` med namnet på källklustret. När du uppmanas, ange lösenordet för kluster-inloggningskonto (admin).
+    Ersätt `$CLUSTERNAME` med namnet på källklustret. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
      När du kommer till en tom rad med en markör Skriv i några textmeddelanden. Meddelandet har skickats till ämnet den **källa** klustret. När du är klar kan du använda **Ctrl + C** att avsluta processen producenten.
 
-3. Från SSH-anslutning till den **mål** klustret använder **Ctrl + C** att avsluta processen MirrorMaker. Använd följande kommandon för att kontrollera att artikeln och meddelanden har replikerats till målet:
+3. Från SSH-anslutning till den **mål** klustret använder **Ctrl + C** att avsluta processen MirrorMaker. Det kan ta flera sekunder att avsluta processen. Om du vill kontrollera att meddelandena som har replikerats till målet, använder du följande kommando:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Ersätt `$CLUSTERNAME` med namnet på målklustret. När du uppmanas, ange lösenordet för kluster-inloggningskonto (admin).
+    Ersätt `$CLUSTERNAME` med namnet på målklustret. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
     I listan med avsnitt innehåller nu `testtopic`, som skapas när MirrorMaster speglar avsnittet från källklustret till målet. Meddelanden som hämtas från avsnittet är samma som har angetts på källklustret.
 

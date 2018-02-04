@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
 Övervakning är att samla in och analysera data för att avgöra prestanda, hälsotillstånd och tillgänglighet för dina affärsprogram och resurser som den är beroende av. En effektiv övervakning strategi hjälper dig att förstå den detaljerade driften av de olika komponenterna i ditt program och att öka din drifttid genom att meddela dig om kritiska problem så att du kan lösa dem innan de hunnit bli problem.
 
-Azure innehåller flera tjänster som individuellt utför en specifik roll eller aktivitet i övervakningsutrymmet och tillsammans levererar en heltäckande lösning för att samla in, analysera och fungerar på telemetri från ditt program och de underliggande Azure-resurserna support.  De kan också fungera om du vill övervaka viktiga lokala resurser för att tillhandahålla en hybrid övervakning miljö.   Det första steget i att utveckla en fullständig övervakning strategi för ditt program är att förstå de verktyg och data som är tillgängliga. 
+Azure innehåller flera tjänster som individuellt utför en specifik roll eller aktivitet i övervakningsutrymmet och tillsammans levererar en heltäckande lösning för att samla in, analysera och fungerar på telemetri från ditt program och de underliggande Azure-resurserna support.  De kan också fungera om du vill övervaka kritiska lokala resurser för att tillhandahålla en hybrid övervakning miljö.   Det första steget i att utveckla en fullständig övervakning strategi för ditt program är att förstå de verktyg och data som är tillgängliga. 
 
 Följande diagram visar en översikt över de olika komponenterna som arbetar tillsammans för att tillhandahålla övervakning av Azure-resurser.  Alla dessa beskrivs i följande avsnitt med länkar till detaljerad teknisk information.
 

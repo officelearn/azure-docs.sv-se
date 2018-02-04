@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure AD Connect-synkronisering: Konfigurera önskad plats för Office 365-resurser
-Syftet med det här avsnittet är leder dig igenom hur du konfigurerar PreferredDataLocation i Azure AD Connect Sync. När en kund använder flera Geo funktionerna i Office 365, används det här attributet för att ange den geografiska platsen användardata Office 365.
+Syftet med det här avsnittet är leder dig igenom hur du konfigurerar PreferredDataLocation i Azure AD Connect Sync. När en kund använder flera Geo funktionerna i Office 365, används det här attributet för att ange den geografiska platsen användardata Office 365. Villkoren **region** och **Geo** används utbytbara.
 
 > [!IMPORTANT]
 > Flera Geo är för närvarande under förhandsgranskning. Kontakta din Microsoft-representant om du vill delta i förhandsgranskningsprogrammet.
@@ -29,36 +29,41 @@ Syftet med det här avsnittet är leder dig igenom hur du konfigurerar Preferred
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Aktivera synkroniseringen av PreferredDataLocation
-Som standard finns Office 365-resurser för dina användare i samma region som Azure AD-klienten. Till exempel om din klient finns i Nordamerika finns sedan Exchange-postlådor användare också i Nordamerika. För en organisation med flera nationella kanske detta inte optimalt. Genom att ange attributet preferredDataLocation kan användarens region definieras.
+Som standard finns Office 365-resurser för dina användare i samma geo som Azure AD-klienten. Till exempel om din klient finns i Nordamerika finns sedan Exchange-postlådor användare också i Nordamerika. För en organisation med flera nationella kanske detta inte optimalt. Genom att ange attributet preferredDataLocation kan användarens geo definieras.
 
-Med inställningarna för det här attributet kan du ha användarens Office 365 resurser, till exempel postlåda och OneDrive, i samma region som användaren och fortfarande har en klient för hela organisationen.
+Med inställningarna för det här attributet kan du ha användarens Office 365 resurser, till exempel postlåda och OneDrive, i samma geo som användaren och fortfarande har en klient för hela organisationen.
 
 > [!IMPORTANT]
 > För att få flera Geo, måste du ha minst 5000 platser i din prenumeration på Office 365
 >
 >
 
+En lista över alla regioner för Office 365 finns i [där är dina data finns](https://aka.ms/datamaps).
+
 Regioner i Office 365 för flera Geo är:
 
-| Region | Beskrivning |
+| Geografi | preferredDataLocation värde |
 | --- | --- |
-| NAM | Nordamerika |
-| EUR | Europa |
-| APC | Asien och stillahavsområdet |
-| JPN | Japan |
-| AUS | Australien |
-| CAN | Kanada |
-| GBR | Storbritannien |
-| LAM | Latinamerika |
+| Asien och stillahavsområdet | APC |
+| Australien | AUS |
+| Kanada | CAN |
+| Europeiska unionen | EUR |
+| Indien | IND |
+| Japan | JPN |
+| Sydkorea | KOR |
+| Storbritannien | GBR |
+| USA | NAM |
 
-Inte alla Office 365-arbetsbelastningar stöder för att en användares region.
+* Om en geo inte visas i den här tabellen, till exempel Sydamerika, kan sedan den inte användas för flera Geo.
+* Indien och Sydkorea regioner är bara tillgängligt för kunder med fakturerings-adresser och licenser i dessa regioner.
+* Inte alla Office 365-arbetsbelastningar kan använda för att en användares geo.
 
 Azure AD Connect har stöd för synkronisering av den **PreferredDataLocation** attribut för **användaren** objekt i version 1.1.524.0 och efter. Följande ändringar har införts mer specifikt:
 
 * Schemat för objekttypen **användaren** i Azure AD-koppling har utökats för att inkludera PreferredDataLocation attribut, som är av typen enstaka string.
 * Schemat för objekttypen **Person** i metaversum utökas för att inkludera PreferredDataLocation attribut som är av typen string och enkelvärdesattribut.
 
-Som standard aktiveras inte attributet PreferredDataLocation för synkronisering. Den här funktionen är avsedd för större organisationer och inte alla skulle dra nytta av den. Du måste också identifiera ett attribut för Office 365-region för dina användare eftersom det inte finns några PreferredDataLocation attribut i lokala Active Directory. Detta kommer att vara olika för varje organisation.
+Som standard aktiveras inte attributet PreferredDataLocation för synkronisering. Den här funktionen är avsedd för större organisationer och inte alla skulle dra nytta av den. Du måste också identifiera ett attribut för Office 365 geo för dina användare eftersom det inte finns några PreferredDataLocation attribut i lokala Active Directory. Detta kommer att vara olika för varje organisation.
 
 > [!IMPORTANT]
 > Azure AD kan för närvarande attributet PreferredDataLocation på både synkroniserade objekt och i molnet användaren objekt för att vara direkt konfigureras med Azure AD PowerShell. När du har aktiverat synkronisering av attributet PreferredDataLocation, måste du sluta använda Azure AD PowerShell för att konfigurera attributet på **synkroniseras användarobjekt** som Azure AD Connect åsidosätter dem baserat på käll-attributvärden i lokala Active Directory.
@@ -245,13 +250,13 @@ Källattribut från en lokal Active Directory och PreferredDataLocation från Az
 ## <a name="step-8-verify-the-result"></a>Steg 8: Kontrollera resultatet
 Det är nu tid att verifiera konfigurationen och aktivera den för användarna.
 
-1. Lägg till regionen i det valda attributet för en användare. Listan över tillgängliga regioner finns i [tabellen](#enable-synchronization-of-preferreddatalocation).  
+1. Lägg till geografiska i det valda attributet för en användare. Listan över tillgängliga geo finns i [tabellen](#enable-synchronization-of-preferreddatalocation).  
 ![AD-attribut som läggs till en användare](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Vänta på attributet som ska synkroniseras till Azure AD.
 3. Använder Exchange Online PowerShell, kontrollera att den postlåda regionen har ställts in korrekt.  
 ![Postlåda region som angetts för en användare i Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Under förutsättning att din klient har markerats för att kunna använda den här funktionen, flyttas postlådan till rätt region. Detta kan kontrolleras genom att titta på namnet på server där postlådan finns.
-4. Om du vill verifiera att den här inställningen har effektiva över många postlådor, använder du skriptet i den [Technet-galleriet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Skriptet har också en lista över alla Office 365 Datacenter server prefix och vilken region som den finns i. Den kan användas som en referens i föregående steg för att kontrollera platsen för postlådan.
+Under förutsättning att din klient har markerats för att kunna använda den här funktionen, flyttas postlådan till rätt geo. Detta kan kontrolleras genom att titta på namnet på server där postlådan finns.
+4. Om du vill verifiera att den här inställningen har effektiva över många postlådor, använder du skriptet i den [Technet-galleriet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Det här skriptet har också en lista över alla Office 365 Datacenter server prefix och vilka geo-replikering finns i. Den kan användas som en referens i föregående steg för att kontrollera platsen för postlådan.
 
 ## <a name="next-steps"></a>Nästa steg
 

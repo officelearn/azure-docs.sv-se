@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för att få åtkomst till resurser
 
@@ -46,7 +46,7 @@ Om du vill konfigurera ett huvudnamn för tjänsten måste använda du:
 
 | Kommando | Beskrivning |
 | ------- | ----------- | 
-| [Ny AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Skapar ett Azure Active Directory-tjänstens huvudnamn |
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Skapar ett Azure Active Directory-tjänstens huvudnamn |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Tilldelar den angivna RBAC-rollen till den angivna säkerhetsobjekt i det specificerade omfånget. |
 
 
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om ”: PrincipalNotFound: Principal {ID} finns inte i katalogen”.
+Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
 
 Följande skript kan du ange en omfattning än standard-prenumeration och försöker rolltilldelningen om ett fel uppstår:
 
@@ -128,7 +128,7 @@ Några objekt att notera skriptet:
 * Om du vill ge åtkomst identitet till standard-prenumeration, behöver inte ange parametrarna ResourceGroup eller prenumerations-ID.
 * Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp.
 *  I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om ”: PrincipalNotFound: Principal {ID} finns inte i katalogen”.
+* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
 * Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
 
 
@@ -160,7 +160,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om ”: PrincipalNotFound: Principal {ID} finns inte i katalogen”.
+Exemplet i viloläge i 20 sekunder att tillåta lite tid för den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
 
 Följande skript kan du ange en omfattning än standard-prenumeration och försöker rolltilldelningen om ett fel inträffar. Du måste ha Azure PowerShell 2.0 på Windows 10 eller Windows Server 2016.
 
@@ -223,7 +223,7 @@ Några objekt att notera skriptet:
 * Om du vill ge åtkomst identitet till standard-prenumeration, behöver inte ange parametrarna ResourceGroup eller prenumerations-ID.
 * Ange parametern ResourceGroup bara när du vill begränsa omfattningen av rolltilldelningen i en resursgrupp.
 * I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om ”: PrincipalNotFound: Principal {ID} finns inte i katalogen”.
+* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
 * Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
 
 Om du **inte har Windows 10 eller Windows Server 2016 Technical Preview**, måste du hämta den [självsignerat certifikat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) från Microsoft Script Center. Extrahera innehållet och importera den cmdlet som du behöver.
@@ -321,7 +321,7 @@ Några objekt att notera skriptet:
 
 * Åtkomst är begränsad till prenumerationen.
 * I det här exemplet du lägga till tjänstens huvudnamn i deltagarrollen. Andra roller, se [RBAC: inbyggda roller](../active-directory/role-based-access-built-in-roles.md).
-* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om ”: PrincipalNotFound: Principal {ID} finns inte i katalogen”.
+* Skriptet i viloläge under 15 sekunder till en stund innan den nya tjänsten säkerhetsobjekt att spridas i Azure Active Directory. Om skriptet inte vänta tillräckligt länge visas ett felmeddelande om: ”Principal {ID} finns inte i katalogen {DIR-ID}”.
 * Om du behöver ge service principal åtkomst till flera prenumerationer eller resursgrupper kör den `New-AzureRMRoleAssignment` cmdleten igen med olika omfång.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Ange certifikat via automatisk PowerShell-skript

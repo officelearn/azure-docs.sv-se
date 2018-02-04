@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 9025982d2a350941ef82733292ebbf15ab48d7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Matris som stöds för den här versionen 
 När koden läser in data med hjälp av Azure Machine Learning-datakällor eller Azure Machine Learning Data förberedelser, komma antingen Pandas eller Spark dataframe, följande kombinationer av experimentet compute miljöer och data platser stöds:
 
-|     |Lokala filer  |Azure Blob Storage  |SQL Server-databasen ***  |
+|     |Lokala filer  |Azure Blob Storage  |SQL Server database***  |
 |---------|---------|---------|---------|---------|
 |Lokala Python    |     Stöds    |Stöds inte         | Stöds inte        |         |
 |Docker (Linux VM) Python     |Stöds endast projektfiler *         | Stöds inte        |        Stöds inte |         |

@@ -1,6 +1,6 @@
 ---
 title: Programavbildningen i Azure Application Insights | Microsoft Docs
-description: "En visuell presentation av beroenden mellan komponenter för appar som är märkta med KPI: er och -varningar."
+description: "Övervaka komplexa program topologier med program-karta"
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Programavbildningen i Application Insights
-I [Azure Application Insights](app-insights-overview.md), programavbildningen är en visuell layout av beroenden för programkomponenter. Varje komponent visas KPI: er som belastning, prestanda, fel och varningar som hjälper dig att identifiera någon komponent som orsakar ett prestandaproblem eller fel. Du kan klicka på via från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster, kan du också klicka via Azure Diagnostics, till exempel SQL Database Advisor-rekommendationer.
+# <a name="application-map-triage-distributed-applications"></a>Programavbildningen: Prioritering distribuerade program
+Programavbildningen hjälper dig att upptäcka flaskhalsar eller fel surfpunkter för alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en programkomponent eller dess beroenden; har hälsa KPI och aviseringar status. Du kan klicka på via från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster, kan du också klicka via Azure Diagnostics, till exempel SQL Database Advisor-rekommendationer.
 
-Du kan fästa en programavbildningen Azure instrumentpanelen, om det är fullt fungerande som andra diagram. 
+## <a name="what-is-a-component"></a>Vad är en komponent?
 
-## <a name="open-the-application-map"></a>Öppna programmet karta
-Öppna kartan från bladet översikt för programmet:
+Komponenter är oberoende av varandra distribuerbara delar i tillämpningsprogrammet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller tillgång till telemetri som genereras av dessa programkomponenter. 
 
-![Öppna appen karta](./media/app-insights-app-map/01.png)
+* Komponenter som skiljer sig från ”observerade” externa beroenden, till exempel SQL, EventHub etc. som team/organisationen inte kanske har åtkomst till (kod eller telemetri).
+* Komponenterna köras i valfritt antal instanser för server-roll-behållare.
+* Komponenter kan vara separat Application Insights instrumentation nycklar (även om prenumerationer är olika) eller olika roller som rapporterar till en enda Application Insights instrumentation nyckel. Förhandsgranska kartan upplevelsen visar komponenterna oavsett hur de är konfigurerade.
 
-![App-karta](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Sammansatta programavbildningen (förhandsgranskning)
+*Detta är en tidig förhandsgranskning och vi kommer att lägga till fler funktioner till den här kartan. Vi vill gärna höra dina synpunkter på den nya upplevelsen. Du kan växla mellan förhandsgranskning och klassiska upplevelser enkelt.*
+
+Aktivera ”sammansatta programavbildningen” från den [förhandsgranskningar listan](app-insights-previews.md), eller klicka på ”Preview karta” i växla i det övre högra hörnet. Du kan använda den här växla för att växla tillbaka till den klassiska upplevelsen.
+![Aktivera preview karta](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Den här förhandsgranskningen ersätter tidigare ”programavbildningen Mult-role” förhandsgranskningen. För tillfället används för att visa hela topologi i flera nivåer av komponenten programberoenden. Ge oss dina synpunkter, vi kommer att lägga till flera funktioner som liknar klassiska kartan stöder.
+
+Du kan se fullständiga programmet topologi i flera nivåer av relaterade programkomponenter. Komponenter kan vara olika Application Insights-resurser eller olika roller i en enskild resurs. App-kartan hittar komponenter genom följande anrop för HTTP-beroendet mellan servrar med Application Insights SDK installerad. 
+
+Det här upplevelsen börjar med progressiv identifiering av komponenter. När du först läsa in förhandsgranskningen utlöses en uppsättning frågor för att identifiera de komponenter som hör till den här komponenten. En knapp i det övre vänstra hörnet uppdateras med antalet komponenter i ditt program eftersom de identifieras. 
+![Förhandsgranska karta](media/app-insights-app-map/preview.png)
+
+När du klickar på ”Uppdatera kartan komponenter” uppdateras kartan med alla komponenter som identifierats tills som pekar.
+![Förhandsgranska inlästa karta](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Den här identifieringen steget är inte nödvändigt om alla komponenter är roller i en enda Application Insights-resurs. Den inledande inläsningen för ett sådant program har alla dess komponenter.
+
+En av de viktiga mål med den nya upplevelsen ska visualisera komplexa topologier med hundratals komponenter. Den nya upplevelsen stöder zoomning och lägger till information som du zooma in. Du kan zooma ut om du vill visa flera komponenter i korthet och fortfarande plats komponenter med högre fel priser. 
+
+![Zooma nivåer](media/app-insights-app-map/zoom-levels.png)
+
+Klicka på någon komponent Se relaterade insikter och gå till prestanda och fel prioritering upplevelse för den komponenten.
+
+![Utfällbar](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Klassiska programavbildningen
 
 Kartan visar:
 
@@ -38,9 +67,11 @@ Kartan visar:
 * Server-sida-komponent
 * Beroenden för klient- och serverkomponenter
 
+![App-karta](./media/app-insights-app-map/02.png)
+
 Du kan expandera och komprimera beroende länken grupper:
 
-![Dölj](./media/app-insights-app-map/03.png)
+![komprimera](./media/app-insights-app-map/03.png)
 
 Om du har många beroenden av en typ (SQL, http-etc.), kan de visas grupperade. 
 
@@ -99,22 +130,6 @@ För vissa typer av resurser visas resurshälsa överst i felfönstret. Till exe
 
 Du kan klicka på resursnamnet att visa standard översikt måtten för resursen.
 
-## <a name="end-to-end-system-app-maps"></a>Slutpunkt till slutpunkt system app maps
-
-*Kräver SDK version 2.3 eller senare*
-
-Om programmet har flera komponenter – till exempel en backend-tjänst dessutom till webb-app - så att du kan visa dem på en inbyggd app-karta.
-
-![Ange filter](./media/app-insights-app-map/multi-component-app-map.png)
-
-App-kartan hittar servernoder genom att följa alla HTTP-beroendeanrop mellan servrar med Application Insights SDK installerad. Varje Application Insights-resurs förväntas innehålla en server.
-
-### <a name="multi-role-app-map-preview"></a>Flera rollen app karta (förhandsgranskning)
-
-Förhandsgranskningsfunktion flera rollen app kartan kan du använda app-karta med flera servrar som skickar data till samma Application Insights-resurs / instrumentation nyckel. Servrar i kartan segmenterade av egenskapen cloud_RoleName på telemetri objekt. Ange *flera rollen programavbildningen* till *på* från förhandsversioner bladet för att aktivera den här konfigurationen.
-
-Den här metoden kan det vara önskvärt i ett micro-services-program, eller i andra scenarier där du vill matcha händelser över flera servrar i en enda Application Insights-resurs.
-
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -127,4 +142,4 @@ Lämna feedback via portalen feedback-alternativet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portalen](https://portal.azure.com)

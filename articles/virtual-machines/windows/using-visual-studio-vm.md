@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"></a> Visual Studio-avbildningar i Azure
 Med Visual Studio körs i en förkonfigurerad Azure virtuell dator (VM) är det enklaste och snabbaste sättet att gå från grunden till en utvecklingsmiljö upp och körs.  -Avbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://portal.azure.com/). Bara starta en virtuell dator och av du fortsätter.
@@ -27,14 +27,14 @@ Med Visual Studio körs i en förkonfigurerad Azure virtuell dator (VM) är det 
 Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Vilka konfigurationer och versioner är tillgängliga?
-I Azure Marketplace hitta avbildningar för de senaste versionerna av större: 2017 för Visual Studio och Visual Studio 2015.  Varje huvudversion finns du ursprungligen utgiven (aka RTW) version och de ”senaste” uppdaterade versionerna.  För var och en av dessa olika versioner kan du hitta i Visual Studio Enterprise och Visual Studio Community-versionerna.
+I Azure Marketplace hitta avbildningar för de senaste versionerna av större: 2017 för Visual Studio och Visual Studio 2015.  Varje huvudversion finns du ursprungligen utgiven (aka RTW) version och de ”senaste” uppdaterade versionerna.  För var och en av dessa olika versioner kan du hitta i Visual Studio Enterprise och Visual Studio Community-versionerna.  Vi uppdaterar dessa avbildningar minst varje månad för att inkludera de senaste uppdateringarna för Visual Studio och Windows.  När namnen på avbildningarna förblir detsamma, innehåller varje avbildning beskrivning installerade produktversionen och bildens för' datum.
 
-|               Versionen              |          Versioner            |    Produktversion    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - Latest (version 15.5) |    Enterprise, Community     |     Version 15.5.3    |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |     Version 15.0.7    |
-|   Visual Studio 2015 - Latest (Update 3)   |    Enterprise, Community     | Version 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | Ingen (har upphört att gälla för underhåll) |          ---          |
+|               Versionen              |          Versioner            |     Produktversion     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - Latest (version 15.5) |    Enterprise, Community     |      Version 15.5.3     |
+|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      Version 15.0.7     |
+|   Visual Studio 2015 - Latest (Update 3)   |    Enterprise, Community     |  Version 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              Ingen            | (Upphört att gälla för underhåll) |
 
 > [!NOTE]
 > I enlighet med Microsoft behandling av princip, ursprungligen utgiven (aka RTW) version av Visual Studio 2015 har upphört att gälla för behandling.  Visual Studio 2015 Update 3 är därför den enda återstående versionen som erbjuds för produktserie Visual Studio 2015.
@@ -52,20 +52,32 @@ Varje avbildning innehåller rekommenderade funktionerna i den Visual Studio-ver
 
 Det här är den kommandorad som vi använder för att installera Visual Studio när du bygger avbildningar:
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * Lägg till Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * Lägg till Microsoft.Net.Component.4.6.2.SDK ^
-   * Lägg till Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * Lägg till Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 Om bilderna inte innehåller en funktion för Visual Studio som du behöver kan du ange denna feedback via verktyget feedback (övre högra hörnet på sidan).
 
 ## <a name="what-size-vm-should-i-choose"></a>Hur stor VM ska jag välja?
-Det är enkelt att etablera en ny virtuell dator och Azure erbjuder en mängd olika storlekar för virtuella datorer.  Precis som med alla maskinvara förvärv, som du vill utjämna prestanda jämfört med kostnaden.  Eftersom Visual Studio är ett kraftfullt, flertrådade program, som du vill att en VM-storlek som innehåller minst två processorer och 7 GB minne.  Mer information om de senaste datorstorlekar finns [storlekar för Windows-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Det är enkelt att etablera en ny virtuell dator och Azure erbjuder en mängd olika storlekar för virtuella datorer.  Precis som med alla maskinvara förvärv, som du vill utjämna prestanda jämfört med kostnaden.  Eftersom Visual Studio är ett kraftfullt, flertrådade program, som du vill att en VM-storlek som innehåller minst 2 processorer och 7 GB minne.  Det här är de rekommenderade VM-storlekarna för Visual Studio-bilder:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+Mer information om de senaste datorstorlekar finns [storlekar för Windows-datorer i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 Med Azure, du låst inte med din första Välj – du kan balansera ditt första val om du ändrar storlek på den virtuella datorn.  Du kan antingen etablera en ny virtuell dator med en lämpligare storlek eller ändra storlek på en befintlig virtuell dator till olika underliggande maskinvara.  Mer information finns i [ändra storlek på en Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 

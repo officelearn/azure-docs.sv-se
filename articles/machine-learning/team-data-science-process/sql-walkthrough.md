@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: fashah;bradsev
-ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team vetenskap av data i praktiken: använder SQL Server
 I den här kursen går igenom processen att skapa och distribuera en maskininlärningsmodell med hjälp av SQL Server och ett offentligt tillgängliga dataset – [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Förfarandet som följer en standard datavetenskap arbetsflödet: infognings- och utforska data, tekniker funktioner för att underlätta learning, och sedan skapa och distribuera en modell.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8186e86bd7a441fcefb0759d75ded6f063a4722f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
 Dessa vanliga frågor svar på vanliga frågor om att använda och inköp ClearDB MySQL databaser till Azure Web Apps.
@@ -80,7 +80,7 @@ Nej. Du kan inte skapa ytterligare användare, men du kan skapa nya databaser p�
 Ja, uppgradera Grundserie databaser kan vara lokalt (grundläggande 60 via grundläggande 500). Pro serier kan inte uppgraderas på plats (Pro 125 via Pro 1000) utom Pro 60. Vi stöder inte uppgradering Pro 60 databasen för närvarande. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>När jag migrera mina resurser från en prenumeration till en annan min ClearDB MySQL-databas migreras samt?
-När du utför resursmigrering alla prenumerationer, vissa [begränsningar](app-service/app-service-move-resources.md) tillämpas. En ClearDB MySQL-databas är en tjänst från tredje part och därför migreras inte under migreringen av Azure-prenumeration. Om du inte hantera migreringen av MySQL-databasen innan du migrerar Azure-resurser, kan du inaktivera ClearDB MySQL-databaser. Migrera manuellt databaserna först och sedan utföra migrering på Azure-prenumeration för din webbapp. 
+När du utför resursmigrering alla prenumerationer, vissa [begränsningar](azure-resource-manager/resource-group-move-resources.md#app-service-limitations) tillämpas. En ClearDB MySQL-databas är en tjänst från tredje part och därför migreras inte under migreringen av Azure-prenumeration. Om du inte hantera migreringen av MySQL-databasen innan du migrerar Azure-resurser, kan du inaktivera ClearDB MySQL-databaser. Migrera manuellt databaserna först och sedan utföra migrering på Azure-prenumeration för din webbapp. 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>Jag har nått utgiftsgränsen på min prenumeration. Jag har tagit bort gränsen och min App Service är online, men databasen inte är tillgänglig. Hur aktiverar jag ClearDB databasen igen?
 Kontakta [ClearDB support](https://www.cleardb.com/developers/help/support) aktivera databasen igen. Ange dem med din Azure-prenumeration information och databasen namn.

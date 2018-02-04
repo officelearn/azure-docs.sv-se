@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3343dbe0093ad8fbeebe5893d44abdbe356e1789
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testa din lösning med simulerade enheter
 
@@ -131,24 +131,24 @@ Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.
 1. Om du vill aktivera SSH-åtkomst till den virtuella datorn, kör du följande kommando med namnet på din nätverkssäkerhetsgruppen från föregående steg:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Om du vill visa listan över regler för inkommande trafik i nätverket, kör du följande kommando:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Om du vill ändra lösenordet för virtuell dator till ett lösenord som du vet att köra följande kommando. Använd namnet på den virtuella datorn som du antecknade tidigare och ett lösenord som du väljer:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Att hitta IP-adressen för den virtuella datorn, använder du följande kommando och anteckna den offentliga IP-adressen:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. Du kan nu använda SSH för att ansluta till den virtuella datorn. Den `ssh` kommandot är förinstallerade i molnet-gränssnittet. Använd den offentliga IP-adressen från föregående steg, och när du uppmanas att göra lösenordet som du konfigurerade för den virtuella datorn:

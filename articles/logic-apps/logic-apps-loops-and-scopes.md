@@ -3,7 +3,7 @@ title: "Skapa slingor och scope eller debatch data i arbetsflöden - Azure Logic
 description: "Skapa slingor att gå igenom data, gruppen åtgärder till scope, eller debatch data för att starta flera arbetsflöden i Azure Logic Apps."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: ecfan
 manager: anneta
 editor: 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: LADocs; estfan
+ms.openlocfilehash: 64b8f414efe8cd886589084f05e04486c9a0d05c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps-slingor, -omfattningar och Debatching
   
@@ -139,7 +139,7 @@ En utlösare kan ibland visas en matris med objekt som du vill debatch och start
 }
 ```
 
-## <a name="scopes"></a>Scope
+## <a name="scopes"></a>Omfång
 
 Det är möjligt att gruppera en serie åtgärder tillsammans med en omfattning.  Scope är användbara för att implementera undantagshantering.  I Designern kan du lägga till ett nytt scope och börja lägga till alla åtgärder i den.  Du kan definiera scope i kodvy som i följande exempel:
 

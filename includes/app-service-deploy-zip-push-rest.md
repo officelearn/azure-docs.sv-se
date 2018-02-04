@@ -7,7 +7,7 @@ I följande exempel använder cURL-verktyget för att skicka en förfrågan som 
 Ersätt den `<deployment_user>` med användarnamnet för dina autentiseringsuppgifter för distribution. När du uppmanas av cURL, Skriv in lösenordet. Information om hur du ställer in autentiseringsuppgifter för distribution för din app finns [ange och återställa användarnivå autentiseringsuppgifter](../articles/app-service/app-service-deployment-credentials.md#userscope).   
 
 ```bash
-curl POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
 Denna begäran utlöser push-distribution från den överförda ZIP-filen. Du kan granska aktuella och tidigare distributioner med hjälp av https://<app_name>.scm.azurewebsites.net/api/deployments-slutpunkt som visas i exemplet nedan cURL. Igen och Ersätt `<app_name>` med namnet på din app och `<deployment_user>` med användarnamnet för dina autentiseringsuppgifter för distribution.

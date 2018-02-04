@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/02/2018
 ms.author: magoedte
-ms.openlocfilehash: d12743b752c42e6a7373e9c15df6dac71b7f9d27
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med logganalys
 
@@ -66,11 +66,11 @@ Informationen nedan lista över proxy- och brandväggsinställningarna configura
 |*.azure-automation.net | 443 | Ja | 
 
 ### <a name="linux-operating-systems"></a>Linux-operativsystem
-Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också köra på andra distributioner som inte finns.
+Följande Linux-distributioner stöds officiellt.  Linux-agenten kan också köra på andra distributioner som inte finns.  Om inget annat anges stöds alla mindre versioner för varje större version i listan.  
 
 * Amazon Linux 2012.09 till 2015.09 (x86/x64)
-* CentOS Linux 5, 6 och 7 (x86/x64)
-* Oracle Linux 5, 6 och 7 (x86/x64)
+* CentOS Linux 5, 6 och 7 (x86/x64)  
+* Oracle Linux 5, 6 och 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 och 7 (x86/x64)
 * Debian GNU/Linux 6, 7 och 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)

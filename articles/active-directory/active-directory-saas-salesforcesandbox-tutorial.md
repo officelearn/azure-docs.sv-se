@@ -3,7 +3,7 @@ title: "Självstudier: Azure Active Directory-integrering med Salesforce Sandbox
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce Sandbox."
 services: active-directory
 documentationCenter: na
-author: jeevansd
+author: MarkusVi
 manager: mtillman
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: jeedes
-ms.openlocfilehash: 801088bd63f025ca7cb1f9e4fe66b9c6f7f93453
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: markvi
+ms.openlocfilehash: d5c2b74995e0c0794628e2c79f66969835e0fabb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Självstudier: Azure Active Directory-integrering med Salesforce Sandbox
 
@@ -31,7 +31,7 @@ Integrera Salesforce Sandbox med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Salesforce Sandbox behöver du följande:
 
@@ -168,7 +168,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     h. SFDC har inte stöd för SAML logga ut.  Som en tillfällig lösning kan du klistra in 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0' till den **identitet providern logga ut URL** textruta.
 
-    Jag. Som **providern initierade begära Tjänstbindning**väljer **HTTP POST**. 
+    i. Som **providern initierade begära Tjänstbindning**väljer **HTTP POST**. 
 
     j. Klicka på **Spara**.
 

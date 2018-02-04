@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Auktorisera användare för Ambari Views
 
-[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan synkronisera nya användare <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i Ambari stöds för både domänanslutna HDInsight-kluster och standard HDInsight-kluster.
+[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan [synkronisera nya användare](hdinsight-sync-aad-users-to-cluster.md) lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i Ambari stöds för både domänanslutna HDInsight-kluster och standard HDInsight-kluster.
 
 Active Directory-användare kan logga in på noderna i med sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera klustret interaktioner med andra godkända slutpunkter som Hue, Ambari-vyer, ODBC, JDBC, PowerShell och REST API: er.
 
@@ -145,5 +145,4 @@ Vi har tilldelats vårt Azure AD-domänanvändare ”hiveuser2” den *klustret 
 * [Konfigurera principer för Hive i HDInsight-domänansluten](./domain-joined/apache-domain-joined-run-hive.md)
 * [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md)
 * [Använd vyn Hive med Hadoop i HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Synkronisera Azure AD-användare i klustret](hdinsight-sync-aad-users-to-cluster.md)

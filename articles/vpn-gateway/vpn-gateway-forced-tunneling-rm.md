@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2017
+ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
@@ -123,15 +123,22 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Skapa en Gateway med en standardwebbplats. Det här steget tar en stund att slutföra ibland 45 minuter eller mer, eftersom du skapar och konfigurerar en gateway.<br> Den **- GatewayDefaultSite** är cmdlet-parameter som tillåter framtvingad routningskonfiguration att fungera, så var noga med för att konfigurera den här inställningen korrekt. Om du ser ValidateSet fel om värdet GatewaySKU kontrollerar du att du har installerat den [senaste versionen av PowerShell-cmdlets](#before). Den senaste versionen av PowerShell-cmdlets innehåller nya godkända värden för den senaste Gateway-SKU: er.
+6. Skapa den virtuella nätverksgatewayen. Det här steget tar en stund att slutföra ibland 45 minuter eller mer, eftersom du skapar och konfigurerar en gateway. Om du ser ValidateSet fel om värdet GatewaySKU kontrollerar du att du har installerat den [senaste versionen av PowerShell-cmdlets](#before). Den senaste versionen av PowerShell-cmdlets innehåller nya godkända värden för den senaste Gateway-SKU: er.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
   $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Upprätta plats-till-plats VPN-anslutningar.
+7. Tilldela en standardwebbplats till den virtuella nätverksgatewayen. Den **- GatewayDefaultSite** är cmdlet-parameter som tillåter framtvingad routningskonfiguration att fungera, så var noga med för att konfigurera den här inställningen korrekt. 
+
+  ```powershell
+  $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
+  $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
+  ```
+8. Upprätta plats-till-plats VPN-anslutningar.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

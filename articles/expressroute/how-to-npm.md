@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
 ---
@@ -43,7 +43,8 @@ Du kan:
 
 Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en arbetsyta som ligger på något av följande områden:
 
-* Västra Europa 
+* Västra Europa
+* Västra centrala USA
 * Östra USA 
 * Sydostasien 
 * Syd Östra Australien
@@ -57,14 +58,13 @@ Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en 
     * Installera övervakning agenter på lokala servrar och virtuella Azure-datorer.
     * Konfigurera inställningarna för övervakning agenten servrarna så att övervakningsagenter kommunicera. (Öppna portar i brandväggen, osv.)
 3. Konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta övervakning agenten installeras på virtuella Azure-datorer kan kommunicera med lokal övervakning agenter.
-4. Begäran om att godkända NPM-arbetsytan.
-5. Konfigurera övervakning: automatiskt identifiera och hantera vilka nätverk som visas i NPM.
+4. Konfigurera övervakning: automatiskt identifiera och hantera vilka nätverk som visas i NPM.
 
 Om du redan använder Network Performance Monitor för att övervaka andra objekt eller tjänster och du redan har arbetsytan i något av regionerna som stöds, kan du hoppa över steg 1 och 2 och börjar din konfiguration med steg3.
 
-## <a name="configure"></a>Steg 1: Skapa en arbetsyta
+## <a name="configure"></a>Steg 1: Skapa en arbetsyta (i den prenumeration som har Vnet som är kopplad till ExpressRoute Circuit(s))
 
-1. I den [Azure-portalen](https://portal.azure.com), Sök i listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
+1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har Vnet peerkoppla till ExpressRoute-krets. Sök i listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Längst ned i huvudsakliga **Network Performance Monitor** klickar du på **skapa** att öppna **Network Performance Monitor - skapa nya lösningen** sidan. Klicka på **OMS-arbetsyta - Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan arbetsytan.
@@ -105,7 +105,7 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
 
   ![PowerShell-skript](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje server som övervakning
+### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje övervakning server (för varje virtuella nätverk som du vill övervaka)
 
 Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutning (d.v.s. lokalt, Azure Vnet) för redundans. Använd följande steg för att installera agenter:
 
@@ -127,6 +127,8 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
 6. På den **klar att installera** sidan Granska dina val och klicka sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
 8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen av det och kontrollera att agenten är ansluten till Operational Insights (OMS). När du är ansluten till OMS agenten visas ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite**.
+
+9. Upprepa detta för varje virtuellt nätverk som du behöver övervakas.
 
 ### <a name="proxy"></a>2.3: konfigurera proxyinställningar (valfritt)
 
@@ -165,7 +167,7 @@ Port 8084 öppnas som standard. Du kan använda en anpassad port genom att ange 
 >
 >
 
-Öppna ett PowerShell-fönster med administrativ behörighet på agentservrar. Kör den [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) PowerShell-skript (som du hämtade tidigare). Använd inte några parametrar.
+Öppna ett PowerShell-fönster med administrativ behörighet på agentservrar. Kör den [EnableRules](https://aka.ms/npmpowershellscript) PowerShell-skript (som du hämtade tidigare). Använd inte några parametrar.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/vir
 
 ## <a name="setupmonitor"></a>Steg 4: Konfigurera NPM för ExpressRoute-övervakning
 
->[!WARNING]
->Inte fortsätta förrän ditt arbetsområde har godkända och du får ett e-postbekräftelse.
->
->
-
-När du har fyllt i föregående avsnitt och kontrollera att du blivit godkända kan du konfigurera övervakning.
+När du har slutfört föregående avsnitt, kan du konfigurera övervakning.
 
 1. Navigera till översiktsikon Network Performance Monitor genom att gå till den **alla resurser** sidan och klicka på listan över godkända NPM arbetsytan.
 

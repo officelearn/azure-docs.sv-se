@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Med Batch VM med låg prioritet
 
-Azure Batch har låg prioritet virtuella datorer (VM) för att minska kostnaden för Batch-arbetsbelastningar. VM med låg prioritet möjliggör nya typer av Batch-arbetsbelastningar genom att tillhandahålla mycket datorkraft som också är ekonomiskt.
-
-Låg prioritet VMs utnyttja överflödiga kapacitet i Azure. När du anger låg prioritet virtuella datorer i din pooler kan Azure Batch automatiskt använda den här överskott när det är tillgängligt.
-
-Förhållandet för med låg prioritet virtuella datorer är dessa virtuella datorer kan avbrytas om någon överskott kapacitet finns i Azure. Därför är låg prioritet mest lämpliga för vissa typer av arbetsbelastningar. Använd VM med låg prioritet för batch- och asynkron bearbetning arbetsbelastningar där slutförandetid jobbet är flexibel och vad som ska distribueras till många virtuella datorer.
-
+Azure Batch har låg prioritet virtuella datorer (VM) för att minska kostnaden för Batch-arbetsbelastningar. Låg prioritet VMs Se nya typer av arbetsbelastningar som är möjligt genom att aktivera mycket datorkraft som ska användas för en mycket låg kostnad Batch.
+ 
+Låg prioritet VMs utnyttja överflödiga kapacitet i Azure. När du anger låg prioritet virtuella datorer i din pooler kan Azure Batch använda den här överskott när det är tillgängligt.
+ 
+Förhållandet för med låg prioritet virtuella datorer är att dessa virtuella datorer kanske inte tillgänglig för att allokera eller kan avbrytas när som helst, beroende på tillgänglig kapacitet. Därför är låg prioritet mest lämpliga för vissa typer av arbetsbelastningar. Använd VM med låg prioritet för batch- och asynkron bearbetning arbetsbelastningar där slutförandetid jobbet är flexibel och vad som ska distribueras till många virtuella datorer.
+ 
 Låg prioritet VMs erbjuds till en betydligt mindre pris jämfört med dedikerade virtuella datorer. Information om priser, se [Batch priser](https://azure.microsoft.com/pricing/details/batch/).
 
 

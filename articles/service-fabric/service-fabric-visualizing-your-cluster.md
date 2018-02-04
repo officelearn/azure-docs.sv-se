@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -35,6 +35,9 @@ Använd följande länkar för att hämta Service Fabric Explorer som ett skrivb
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
+- macOS
+  - https://aka.ms/sfx-macos
+
 > [!NOTE]
 > Skrivbordsversionen av Service Fabric Explorer kan ha fler eller färre funktioner än stöd för kluster. Du kan återgå till Service Fabric Explorer-versionen som distribuerats till klustret för att säkerställa kompatibilitet för alla funktioner.
 >
@@ -44,7 +47,7 @@ Använd följande länkar för att hämta Service Fabric Explorer som ett skrivb
 
 Service Fabric Explorer finns också i Service Fabric-klustret HTTP management-slutpunkten. Bläddra till klustrets HTTP-slutpunkt för hantering i valfri webbläsare – till exempel https://clusterFQDN:19080 om du vill starta SFX i en webbläsare.
 
-För utvecklare arbetsstation installationen kan du starta Service Fabric-Utforskaren på din lokala klustret genom att gå till http://localhost:19080/Explorer. Titta på den här artikeln [förbereda din utvecklingsmiljö](service-fabric-get-started.md).
+För utvecklare arbetsstation installationen kan du starta Service Fabric-Utforskaren på din lokala klustret genom att gå till https://localhost:19080/Explorer. Titta på den här artikeln [förbereda din utvecklingsmiljö](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
 Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”ansluta till localhost” för att ansluta till det lokala klustret på din arbetsstation.

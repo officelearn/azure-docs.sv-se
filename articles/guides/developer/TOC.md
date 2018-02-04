@@ -1,7 +1,6 @@
 # Översikt
+
 ## [Utvecklarguide](azure-developer-guide.md) 
-## [Översikt över Azure-tjänster](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Portalöversikt](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK:er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snabbstart
@@ -36,7 +35,7 @@
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
-# Koncept
+# Begrepp
 ## [Fakturering och prenumerationer](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
 ## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)

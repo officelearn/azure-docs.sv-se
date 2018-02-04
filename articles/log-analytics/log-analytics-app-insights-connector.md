@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: e3ff3d9c667e00995daa2023a7137870247b9ab3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights Connector lösning (förhandsgranskning) i Operations Management Suite (OMS)
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning) 
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
-Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användare göra med din app när den är övervakad med [Programinsikter](../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare finns i Application Insights är tillgängliga i OMS. När du integrerar dina Application Insights-appar med OMS ökas visningen av dina program genom att låta igen och programdata på ett ställe. Med samma vyer kan du samarbeta med din apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både program- och plattform problem.
+Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användare göra med din app när den är övervakad med [Programinsikter](../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare finns i Application Insights är tillgängliga i logganalys. När du integrerar dina Application Insights-appar med logganalys ökas visningen av dina program genom att låta igen och programdata på ett ställe. Med samma vyer kan du samarbeta med din apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både program- och plattform problem.
 
 När du använder lösningen kan du:
 
 - Visa alla dina appar i Application Insights på en plats, även om de finns i olika Azure-prenumerationer
 - Korrelera infrastrukturdata med programdata
 - Visualisera programdata med perspektiv i loggen Sök
-- Pivotera från logganalys data i appen Application Insights i OMS och Azure portaler
+- Pivotera från logganalys data i appen Application Insights i Azure-portalen
 
 ## <a name="connected-sources"></a>Anslutna källor
 
@@ -63,8 +63,8 @@ Data blir tillgängliga i cirka 30 minuter och panelen Application Insights uppd
 
 Andra punkter att tänka på:
 
-- Du kan bara koppla Application Insights appar till en OMS-arbetsyta.
-- Du kan bara koppla [Standard eller Premium Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till OMS logganalys. Du kan dock använda den kostnadsfria nivån av logganalys.
+- Du kan bara koppla Application Insights appar till en logganalys-arbetsytan.
+- Du kan bara koppla [Standard eller Premium Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till logganalys. Du kan dock använda den kostnadsfria nivån av logganalys.
 
 ## <a name="management-packs"></a>Hanteringspaket
 
@@ -129,7 +129,7 @@ Perspektiv komponenter uppdateras beroende på frågan. Detta innebär att du ka
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Pivotera till en app i Azure-portalen
 
-Application Insights Connector blad är utformade att pivotera till den valda appen Application Insights *när du använder OMS-portalen*. Du kan använda lösningen som en övergripande övervakning plattform som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen gå till den i OMS sökning eller du kan pivotera direkt i appen Application Insights.
+Application Insights Connector blad är utformade att pivotera till den valda appen Application Insights *när du använder OMS-portalen*. Du kan använda lösningen som en övergripande övervakning plattform som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen gå till den i logganalys sökning eller du kan pivotera direkt i appen Application Insights.
 
 Om du vill pivotera, klickar du på ellipserna (**...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
 
@@ -140,7 +140,7 @@ Om du vill pivotera, klickar du på ellipserna (**...** ) som visas i slutet av 
 
 ### <a name="sample-corrected-data"></a>Korrigerade exempel data
 
-Application Insights ger  *[provtagning korrigering](../application-insights/app-insights-sampling.md)*  för att minska telemetri trafik. När du aktiverar provtagning på appen Application Insights hämta minskat antal poster som lagras i Application Insights och i OMS. Medan datakonsekvens bevaras i den **Application Insights Connector** sida och perspektiv, bör du manuellt korrigera samplade data för dina egna frågor.
+Application Insights ger  *[provtagning korrigering](../application-insights/app-insights-sampling.md)*  för att minska telemetri trafik. När du aktiverar provtagning på appen Application Insights hämta minskat antal poster som lagras i Application Insights och i logganalys. Medan datakonsekvens bevaras i den **Application Insights Connector** sida och perspektiv, bör du manuellt korrigera samplade data för dina egna frågor.
 
 Här är ett exempel på provtagning korrigering i en sökning i loggen:
 
@@ -162,7 +162,7 @@ Lösningen tar emot telemetri följande typer av data från dina anslutna appar 
 - Sidvisningar – för din arbetsyta för att ta emot sidvisningar, måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Anpassade händelser – för din arbetsyta för att ta emot anpassade händelser, måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Data tas emot av OMS från Application Insights vartefter det blir tillgängligt.
+Data tas emot av logganalys från Application Insights vartefter det blir tillgängligt.
 
 ## <a name="output-data"></a>Utdata
 

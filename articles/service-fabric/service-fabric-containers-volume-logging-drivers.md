@@ -14,9 +14,9 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
 ---
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter stöder inte mappning SMB monteringar behållare ([som stöds bara på Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Detta förhindrar nätverksmappningen för volymen och Azure-filer volym drivrutiner på versioner som är äldre än 1709. 
+> Windows Server 2016 Datacenter stöder inte mappning SMB monteringar behållare ([som stöds bara på Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Den här begränsningen förhindrar nätverksmappningen för volymen och Azure-filer volym drivrutiner på versioner som är äldre än 1709. 
 >   
 
 
@@ -53,8 +53,9 @@ Plugin-program har angetts i applikationsmanifestet på följande sätt:
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Description>Calculator Application</Description>
     <Parameters>
-        <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
       <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
     </Parameters>
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
@@ -66,7 +67,7 @@ Plugin-program har angetts i applikationsmanifestet på följande sätt:
           <DriverOption Name="test" Value="vale"/>
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
-        <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
+        <Volume Source="[MyStorageVar]" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
         <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
@@ -83,6 +84,8 @@ Plugin-program har angetts i applikationsmanifestet på följande sätt:
 
 Den **källa** taggen för den **volym** element som refererar till källmappen. Källmappen kan vara en mapp på den virtuella datorn som är värd för behållarna eller en fjärransluten beständiga arkivet. Den **mål** taggen är platsen som den **källa** mappas till i behållaren körs. Därför måste ditt mål för en plats som redan finns i en behållare.
 
+Parametrar för program stöds för volymer som visas i föregående manifestet fragment (leta efter `MyStoreVar` exempel använda).
+
 När du anger en plugin-volym, skapar Service Fabric automatiskt volymen med hjälp av de angivna parametrarna. Den **källa** taggen är namnet på volymen och **drivrutinen** anger drivrutinens volym plugin-programmet. Alternativen kan specificeras med hjälp av den **DriverOption** tagga på följande sätt:
 
 ```xml
@@ -93,4 +96,4 @@ När du anger en plugin-volym, skapar Service Fabric automatiskt volymen med hj�
 Om en drivrutin för Docker-loggen har angetts som du behöver distribuera agenter (eller behållare) för att hantera loggarna i klustret. Den **DriverOption** tagg kan användas för att ange alternativ för logg-drivrutinen.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill distribuera behållare till ett Service Fabric-kluster, se [distribuera en behållare för Service Fabric](service-fabric-deploy-container.md).
+Om du vill distribuera behållare till ett Service Fabric-kluster finns i artikeln [distribuera en behållare för Service Fabric](service-fabric-deploy-container.md).

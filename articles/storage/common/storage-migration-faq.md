@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 54ca65ac6fa794c542fc07cd64458b17c327d56d
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor och svar om Azure Storage-migrering
 
@@ -280,7 +280,7 @@ Ge andra användare åtkomst till lagringsresurser:
       
     - **AzCopy**: Lägg till **-sekundär** till lagringskontots namn i URL: en för den sekundära slutpunkten. Exempel:  
      
-      https://storageaccountname-Secondary.BLOB.Core.Windows.NET/vhds/BlobName.VHD
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS-token**: använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använder signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -294,6 +294,10 @@ Men du kan använda icke-HTTPS anpassade domäner. Mer information finns i [konf
 Det går inte att komma åt ett storage-konto direkt med hjälp av FTP. Du kan dock konfigurera en virtuell Azure-dator och sedan installera en FTP-server på den virtuella datorn. Du kan ha FTP-servern lagrar filer på en resurs i Azure-filer eller på en datadisk som är tillgänglig för den virtuella datorn.
 
 Om du bara vill ladda ned data utan att använda Lagringsutforskaren eller ett liknande program, kanske du kan använda en SAS-token. Mer information finns i [använder signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
+
+**Hur migrerar Blobbar från ett lagringskonto till en annan?**
+
+ Du kan göra detta med hjälp av vår [Blob migreringsskriptet](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

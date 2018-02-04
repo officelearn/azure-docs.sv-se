@@ -3,7 +3,7 @@ title: "Tilldela en MSI-åtkomst till en Azure-resurs som använder Azure portal
 description: "Stegvisa instruktioner för att tilldela en MSI på en resursåtkomst till en annan resurs med hjälp av Azure portal."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 88abc2a9836633e5d88a91e59f7078a388b26068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 9e88fab3f4250c99c73c8e3e573b6f5c926eeb69
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Tilldela en hanterade tjänstidentiteten åtkomst till en resurs med hjälp av Azure portal
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 När du har konfigurerat en Azure-resurs med en hanterad tjänst identitet (MSI), kan du ge MSI-åtkomst till en annan resurs, precis som alla säkerhetsobjekt. Den här artikeln visar hur du ge en Azure-dator MSI åtkomst till ett Azure storage-konto med hjälp av Azure portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

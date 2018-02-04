@@ -3,21 +3,21 @@ title: "Använda en Windows VM-MSI för åtkomst till Azure Storage med hjälp a
 description: "En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Storage, med hjälp av en SAS-autentiseringsuppgifter i stället för en åtkomstnyckeln för lagringskontot."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: fbe46b952b72d3379ba3eb0ff8c84b9d036752e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 0986c4470c233a21a88624f0affedb5986d86589
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Använda en Windows VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter
 
@@ -33,7 +33,7 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 > * Ge dina VM-åtkomst till ett lagringskonto SAS i Resource Manager 
 > * Få en åtkomsttoken med hjälp av den Virtuella datorns identitet och använda den för att hämta SAS från Resource Manager 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

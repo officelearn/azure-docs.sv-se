@@ -3,7 +3,7 @@ title: "Använda en användare som tilldelats MSI på en Linux-VM för åtkomst 
 description: "En självstudiekurs som vägleder dig genom processen att använda en användaren tilldelas hanterade tjänsten identitet (MSI) på en Linux-VM för att komma åt Azure Storage."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1d8641fef3a60ffcde6d0a4ac7e30d4e6cd3b169
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att få åtkomst till Azure Storage
 

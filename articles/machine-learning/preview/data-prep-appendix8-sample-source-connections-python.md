@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: 125911a47192a6bb37582a3ecf7cf14c8e2cc96f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 02/01/2018
+ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exempel på anpassade källan anslutningar (Python) 
 Innan du läser den här bilagan läsa [Python utökningsbarhet översikt](data-prep-python-extensibility-overview.md).

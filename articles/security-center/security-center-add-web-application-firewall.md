@@ -1,6 +1,6 @@
 ---
 title: "Lägg till en brandvägg för webbaserade program i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna ** lägga till en web application firewall ** och ** slutför programmet skydd **."
+description: "Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna **lägga till en brandvägg för webbaserade program** och **Slutför programskydd**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 01/31/2018
 ms.author: terrylan
-ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Lägg till en brandvägg för webbaserade program i Azure Security Center
 Azure Security Center kan rekommenderar att du lägger till en brandvägg för webbaserade program (Brandvägg) från en Microsoft-partner att skydda dina webbprogram. Det här dokumentet vägleder dig genom ett exempel på hur du använder den här rekommendationen.
 
 En Brandvägg rekommendation visas för alla offentliga Internetriktade IP-adresser (instans nivå IP eller Load belastningsutjämnade IP) som har en nätverkssäkerhetsgrupp med öppna webbplats för inkommande portar (80,443).
 
-Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker målobjekt för webbaserade program på virtuella datorer samt på Apptjänst-miljö. En App Service miljö (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan alternativet för Azure App Service som tillhandahåller en helt isolerad och dedikerad miljö för Azure App Service-program som körs på ett säkert sätt. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).
+Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot attacker webbaserade program på virtuella datorer och externa Apptjänstmiljöer som mål. En App Service miljö (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan alternativet för Azure App Service som tillhandahåller en helt isolerad och dedikerad miljö för Azure App Service-program som körs på ett säkert sätt. Mer information om ASE finns i [dokumentationen till App Service-miljö](../app-service/environment/intro.md).
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det här dokumentet är inte en stegvis guide.
@@ -33,25 +33,25 @@ Security Center rekommenderar att du etablerar en Brandvägg för att skydda mot
 >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-1. I den **rekommendationer** bladet väljer **säkra webbprogram med hjälp av Brandvägg för webbaserade program**.
+1. Under **rekommendationer**väljer **säkra webbprogram med hjälp av Brandvägg för webbaserade program**.
    ![Skydda webb-program][1]
-2. I den **skydda ditt webbprogram med hjälp av Brandvägg för webbaserade program** bladet Välj ett webbprogram. Den **lägga till en brandvägg för webbaserade program** blad öppnas.
+2. Under **skydda ditt webbprogram med hjälp av Brandvägg för webbaserade program**, Välj ett webbprogram. **Lägg till en brandvägg för webbaserade program** öppnas.
    ![Lägga till en brandvägg för webbappar][2]
 3. Du kan välja att använda en befintlig Brandvägg för webbaserade program om det är tillgängligt eller du kan skapa en ny. I det här exemplet finns det inga befintliga WAFs så skapar vi en Brandvägg.
 4. Välj en lösning för att skapa en Brandvägg, i listan med integrerade partnerleverantörer. I det här exemplet väljer vi **Barracuda Brandvägg för webbaserade program**.
-5. Den **Barracuda Brandvägg för webbaserade program** öppnas ett blad med information om Partnerlösningen. Välj **skapa** i bladet information.
+5. **Barracuda Brandvägg för webbaserade program** öppnar ger information om Partnerlösningen. Välj **Skapa**.
 
    ![Brandväggen information bladet][3]
 
-6. Den **ny Brandvägg för webbaserade program** blad öppnas, där du kan utföra **VM-konfiguration** steg och ange **Brandvägg Information**. Välj **VM-konfiguration**.
-7. I den **VM-konfiguration** bladet anger du information som krävs för att få igång den virtuella datorn som kör Brandvägg.
+6. **Ny Brandvägg för webbaserade program** öppnas, där du kan utföra **VM-konfiguration** steg och ange **Brandvägg Information**. Välj **VM-konfiguration**.
+7. Under **VM-konfiguration**, anger du information som krävs för att få igång den virtuella datorn som kör Brandvägg.
    ![VM-konfiguration][4]
-8. Gå tillbaka till den **ny Brandvägg för webbaserade program** och välj **Brandvägg Information**. I den **Brandvägg Information** bladet du konfigurera Brandvägg sig själv. Steg 7 kan du konfigurera den virtuella datorn som Brandvägg körs på och steg 8 kan du etablera Brandvägg sig själv.
+8. Gå tillbaka till **ny Brandvägg för webbaserade program** och välj **Brandvägg Information**. Under **Brandvägg Information**, du konfigurerar Brandvägg sig själv. Steg 7 kan du konfigurera den virtuella datorn som Brandvägg körs på och steg 8 kan du etablera Brandvägg sig själv.
 
-## <a name="finalize-application-protection"></a>Slutför programskydd
-1. Gå tillbaka till den **rekommendationer** bladet. En ny post skapades när du har skapat Brandvägg, kallas **Slutför programskydd**. Den här posten kan du vet att du måste slutföra processen för att koppla samman Brandvägg i det virtuella Azure-nätverket så att den kan skydda programmet.
+## <a name="finalize-application-protection"></a>Slutföra programskydd
+1. Gå tillbaka till **rekommendationer**. En ny post skapades när du har skapat Brandvägg, kallas **Slutför programskydd**. Den här posten kan du vet att du måste slutföra processen för att koppla samman Brandvägg i det virtuella Azure-nätverket så att den kan skydda programmet.
 
-   ![Slutför programskydd][5]
+   ![Slutföra programskydd][5]
 
 2. Välj **Slutför programskydd**. Ett nytt blad öppnas. Du kan se att det finns ett program som måste ha sin trafik dirigeras om.
 3. Välj webbprogrammet. Då öppnas ett blad som ger steg för att slutföra inställningarna för webbprogrammet brandväggen. Utför stegen och välj sedan **begränsa trafik**. Security Center sedan gör kablar upp.

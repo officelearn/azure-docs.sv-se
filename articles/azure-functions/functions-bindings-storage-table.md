@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0fd6de8b59400270e42d428664df74d81d790f62
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
@@ -64,7 +64,7 @@ public class TableStorage
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
         TraceWriter log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -354,7 +354,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**tableName** | **TableName** | Namnet på tabellen.| 
 |**partitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**rowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**ta** |**Ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**take** |**Ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 

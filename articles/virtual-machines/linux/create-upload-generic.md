@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,7 +33,7 @@ Alla distributioner som körs på Azure måste uppfylla vissa krav för att prov
 
 Det är därför som vi rekommenderar att du börjar med en av våra [Linux på Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) när det är möjligt. I följande artiklar hjälper dig att förbereda de olika påtecknade Linux-distributioner som stöds i Azure:
 
-* **[CentOS-baserade distributioner](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -143,6 +143,7 @@ Den [Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-
 * Azure Linux-agenten kräver Python v2.6 +.
 * Agenten kräver också pyasn1 python-modulen. De flesta distributioner ger detta som ett separat paket som kan installeras.
 * Azure Linux-agenten kanske inte kompatibelt med NetworkManager i vissa fall. Många av de RPM/Deb-paket som tillhandahålls av distributioner konfigurera NetworkManager som en konflikt i waagent-paketet och därmed kommer att avinstallera NetworkManager när du installerar Linux-agenten.
+* Azure Linux-agenten måste vara ovanför den lägsta versionen som stöds, finns i den här artikeln [information](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Systemkrav för allmänna Linux
 

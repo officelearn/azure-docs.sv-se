@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Använda Apache Kafka med Storm på HDInsight
 
@@ -119,7 +119,7 @@ Det här projektet innehåller två topologier:
 * **KafkaReader**: definieras av den **reader.yaml** filen, den här topologin läser data från Kafka med KafkaSpout med Apache Storm och sedan loggar data STDOUT.
 
     Den här topologin använder Storm-HdfsBolt för att skriva data till standardlagring för Storm-kluster.
-### <a name="flux"></a>Som
+### <a name="flux"></a>Flux
 
 Topologierna definieras med hjälp av [som](https://storm.apache.org/releases/1.1.0/flux.html). Som introducerades i Storm-0.10.x och du kan avgränsa topologi konfigurationen från koden. Topologier som använder ramverket som definieras topologin i en YAML-fil. YAML-filen kan vara ingår i topologin. Det kan också vara en fristående fil som används när du skickar in topologin. Som stöder också variabeln ersättning vid körning, som används i det här exemplet.
 

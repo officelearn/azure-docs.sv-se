@@ -3,7 +3,7 @@ title: "Tilldela en MSI-åtkomst till en Azure-resurs, med hjälp av Azure CLI"
 description: "Steg för steg instruktioner för att tilldela en MSI på en resurs som har åtkomst till en annan resurs, med hjälp av Azure CLI."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
-ms.author: bryanla
-ms.openlocfilehash: 15a7d43da7b5a700ae84a42d59a7f01f1711c5cd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: daveba
+ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad tjänst identitet (MSI) åtkomst till en resurs med hjälp av Azure CLI
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Computing serverlösa databasen med hjälp av Azure-funktioner
 
@@ -35,7 +35,7 @@ Azure Cosmos-databas och Azure Functions kan du integrera dina databaser och ser
 * Binda en funktion till en Azure Cosmos DB samlingen med en **utdatabindning**. Utdata bindningar skriva data till en behållare när en funktion har slutförts.
 
 > [!NOTE]
-> Just nu är arbeta Azure Cosmos DB utlösare, bindningar för inkommande och utgående bindningar med SQL-API och Graph API konton.
+> Just nu fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar endast med SQL API och Graph API-konton.
 
 Följande diagram visar var och en av dessa tre integreringar: 
 
@@ -101,7 +101,7 @@ I retail-implementeringar när en användare lägger till ett objekt till deras 
 
 **Implementering:** flera Azure Cosmos DB utlösare lyssnar på en samling
 
-1. Du kan skapa flera Azure-funktioner genom att lägga till Azure Cosmos DB utlösare för varje - som lyssnar på samma ändra feed att handla kundvagn data. Observera att när flera funktioner lyssna på samma ändra feed, en ny samling lån krävs för varje funktion.
+1. Du kan skapa flera Azure-funktioner genom att lägga till Azure Cosmos DB utlösare för varje - som lyssnar på samma ändra feed att handla kundvagn data. Observera att när flera funktioner lyssna på samma ändra feed, en ny samling lån krävs för varje funktion. Mer information om lease samlingar finns [förstå ändra Feed Processor biblioteket](change-feed.md#understand-cf).
 2. När ett nytt objekt läggs till i kundvagn användare anropade varje funktion oberoende av ändringen feed från behållaren i kundvagn.
     * En funktion kan använda innehållet i den aktuella korgen vill ändra visningen av andra objekt som användaren kan ha intresse av.
     * En annan funktion kan uppdatera inventering summor.

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/29/2018
 ms.author: juliako
-ms.openlocfilehash: 96bd97abf598414ebc88e955437c02873ff43ca8
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2743ef7e60371329bcad0090733eb8e40560c5f1
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community
 Den här Azure Media Services (AMS) community-sidan beskrivs olika sätt som du kan hämta uppdateringar om AMS. Du kan också visa nya videoklipp och poddsändningar, frågor och ge feedback.   
@@ -29,26 +29,27 @@ Den här Azure Media Services (AMS) community-sidan beskrivs olika sätt som du 
 - [Skydda dina mediefiler med AES-kryptering](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
 - [Azure Media Services ingående för utvecklare](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
 - [Azure Media Indexer skapas automatiskt betyg för mediet](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
-- [Microsoft Videostabilisera i Azure Media Services med Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/) 
+
 
 ## <a name="provide-feedback-and-make-suggestions"></a>Ge feedback och förslag
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Beskrivning
 ### <a name="twitter"></a>Twitter
-Använd den [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter referensen till Följ AMS nyheter och uppdateringar på Twitter. Du kan använda den [ @AzureSupport ](https://twitter.com/azuresupport) twitter-referens för att begära support på Twitter.  
+Använd den [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter referensen till kontaktar du oss eller följa uppdateringar på Twitter. Du kan använda den [ @AzureSupport ](https://twitter.com/azuresupport) twitter-referens för att begära support på Twitter.  
 
 ### <a name="online-forums"></a>Onlineforum
 Följande forum kan användas för att ställa frågor om aktuella produkter och funktioner.
 
-MSDN är för närvarande AMS primära forum.
+MSDN är för närvarande Media Services-teamet primära community-forum.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
+Teamet övervakar även märkta på Stack Overflow med 'azure-media services-frågor.
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Kontakta-teamet
-Azure Media Services primära e-post är:  **mediaservices@microsoft.com** .
+Azure Media Services som stöd för primär e-post är:  **amshelp@microsoft.com** .
 
 I följande tabell visas e-postadressen till funktionen sub team:
 

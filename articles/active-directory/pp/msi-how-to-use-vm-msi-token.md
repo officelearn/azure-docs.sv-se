@@ -3,7 +3,7 @@ title: "Hur du använder en Användartilldelad hanterade tjänstidentiteten för
 description: "Stegvisa åtkomst anvisningar och exempel för att använda en Användartilldelad MSI från en Azure VM för att skaffa en OAuth-token."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c9bf052ecb2e9c79e0eb627a0fd709d587125cd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Skaffa en åtkomst-token för en virtuell dator Användartilldelad hanteras Service identitet (MSI)
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Den här artikeln innehåller olika exempel på kod och skript för token förvärv, samt information om viktiga ämnen, till exempel hantering token upphör att gälla och HTTP-fel.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Den här artikeln innehåller olika exempel på kod och skript för token förvärv, samt information om viktiga ämnen, till exempel hantering token upphör att gälla och HTTP-fel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -144,7 +145,7 @@ Det här avsnittet beskrivs möjliga felsvar. En ”200 OK” status är ett lyc
 | 401 obehörig | unknown_source | Okänd källa  *\<URI\>* | Kontrollera att din HTTP GET-begäran URI är korrekt formaterad. Den `scheme:host/resource-path` del måste anges som `http://localhost:50342/oauth2/token`. Se ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parametervärde, innehåller en parameter mer än en gång eller på annat sätt är felaktig. |  |
 |           | unauthorized_client | Klienten har inte behörighet att begära en åtkomst-token med den här metoden. | På grund av en begäran som inte använder lokal loopback för att anropa tillägget eller på en virtuell dator som inte har en MSI som konfigurerats på rätt sätt. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](msi-qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration. |
-|           | Om ACCESS_DENIED | Resursägare eller auktorisering servern nekade begäran. |  |
+|           | access_denied | Resursägare eller auktorisering servern nekade begäran. |  |
 |           | unsupported_response_type | Auktorisering servern stöder inte att erhålla en åtkomst-token med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt format. |  |
 | 500 Internt serverfel | okänt | Det gick inte att hämta token från Active directory. Mer information finns i loggarna i  *\<filsökväg\>* | Kontrollera att MSI har aktiverats på den virtuella datorn. Se [konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av Azure portal](msi-qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.<br><br>Kontrollera också att din HTTP GET URI-begäran har formaterats korrekt, särskilt resursen URI som angetts i frågesträngen. Finns i ”exempelbegäran” i den [hämta en token som använder HTTP](#get-a-token-using-http) avsnittet exempelvis eller [Azure-tjänster som stöder Azure AD-autentisering](msi-overview.md#azure-services-that-support-azure-ad-authentication) en lista över tjänster och deras respektive resurs-ID.

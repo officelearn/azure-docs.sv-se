@@ -34,7 +34,7 @@ Följande avsnitt innehåller mer information om stödjande tekniker och länkar
 
 Besök den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) för Linux och Windows VM-avbildningar och utformad för HPC-lösningar. Exempel:
 
-* [RogueWave CentOS-baserade HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
+* [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server för HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 *  [TIBCO rutnätet Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure datavetenskap virtuell dator för Windows och Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
@@ -57,14 +57,14 @@ Kör anpassade eller kommersiella HPC-program i Azure. Flera exempel i det här 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB distribuerad databehandling Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
 ### <a name="graphics-and-rendering"></a>Grafik och återgivning
 
-* [Autodesk Maya 3ds Max och Arnold](../articles/batch/batch-rendering-service.md) på Azure Batch (förhandsgranskning)
+* [Autodesk Maya 3ds Max och Arnold](../articles/batch/batch-rendering-service.md) på Azure Batch 
 
 ### <a name="ai-and-deep-learning"></a>AI och djup learning
 
@@ -103,11 +103,12 @@ SaaS-providers och utvecklare kan använda Batch SDK: er och verktyg för att in
 
 Lär dig att:
 
-* [Komma igång med Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Komma igång med Batch](../articles/batch/quick-run-dotnet.md)
 * [Använd Azure Batch-kodexempel](https://github.com/Azure/azure-batch-samples)
 * [Med Batch VM med låg prioritet](../articles/batch/batch-low-pri-vms.md)
 * [Kör av HPC-arbetsbelastningar med Batch skeppsvarv](https://github.com/Azure/batch-shipyard)
 * [Använd R-språket med Batch](https://github.com/Azure/doAzureParallel)
+* [Kör verktyget Azure distribuerade Data tekniker på Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Arbetsbelastningen chefer
 
@@ -127,6 +128,7 @@ Storskaliga Batch och HPC-arbetsbelastning har krav på datalagring och åtkomst
 Läs mer:
 
 * [Parallell filsystem för HPC-lagring på Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Högpresterande lagringslösningar för molnet från [Avere](http://www.averesystems.com/about-us/about-avere) (nu [ansluten med Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Relaterade Azure-tjänster
@@ -139,11 +141,14 @@ Virtuella Azure-datorer, virtuella datorer, Batch och relaterade beräknings-tj�
 * [Fillagring](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Data och analys
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) för Hadoop-kluster i Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>AI och kognitiva tjänster
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Nätverk
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -160,7 +165,7 @@ Virtuella Azure-datorer, virtuella datorer, Batch och relaterade beräknings-tj�
 Här följer exempel på kunder som har löst affärsproblem med Azure HPC-lösningar:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA globala P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)

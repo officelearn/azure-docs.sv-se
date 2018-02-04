@@ -6,21 +6,22 @@ documentationcenter:
 author: MarkusVi
 manager: mtillman
 editor: 
-featureFlags: clicktale
+featureFlags:
+- clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -74,7 +75,7 @@ Den information som du får en identifierad risk händelse är bundet till din A
 
 Med Azure AD Premium P1-versionen visas identifieringar som inte omfattas av din licens som händelsen risk logga in med ytterligare risk upptäcktes.
 
-Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-reporting-risk-events.md).
+Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events).
  
 
 ---
@@ -89,7 +90,7 @@ Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](act
 Du kan nu bättre hantera hur Office 365-program visas på användarnas åtkomst paneler via en ny Användarinställning. Det här alternativet är användbart för att minska mängden appar i en användares åtkomst panelerna om du vill visa bara Office-appar i Office-portalen. Inställningen finns i den **användarinställningar** och etiketteras **användare kan bara visa Office 365-appar i Office 365-portalen**.
  
 
-Mer information finns i [dölja ett program från användarens upplevelse i Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+Mer information finns i [dölja ett program från användarens upplevelse i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
 ---
  
@@ -109,7 +110,7 @@ Webbläsartillägget för Mina appar finns nu tillgänglig via ett enkelt verkty
 - Genvägar till nyligen använda appar från tillägget
 - Tillägget är tillgängliga för gräns, Chrome och Firefox.
  
-Mer information finns i [Mina appar säker inloggning tillägget](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+Mer information finns i [Mina appar säker inloggning tillägget](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
 ---
 
@@ -154,9 +155,9 @@ Som en del av övergången till en ny Administratörskonsol, har vi gjort 2 nya 
 
 Mer information finns i:
 
-- [Kom igång med Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Kom igång med Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
-- [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+- [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 
 
 ---
@@ -226,7 +227,7 @@ Ett alternativ för administratörer kräver användarna att expandera användni
 
 Välj antingen **på** eller **av** användare måste expandera användningsvillkoren. Den **på** inställningen kräver att användarna ska visa användningsvillkoren innan du godkänner dem.
 
-Mer information finns i [Azure AD-användningsvillkor Använd funktion (förhandsgranskning)](active-directory-tou.md).
+Mer information finns i [Azure AD-användningsvillkor Använd funktion (förhandsgranskning)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
  
 ---
  
@@ -239,7 +240,7 @@ Mer information finns i [Azure AD-användningsvillkor Använd funktion (förhand
  
 Du kan använda begränsade aktivering för att aktivera berättigade Azure-resurs rolltilldelningar med mindre självständigt än de ursprungliga tilldelningen standardvärdena. Ett exempel är om du tilldelade till ägare av en prenumeration i din klient. Du kan aktivera ägarrollen för upp till fem resurser som ingår i prenumerationen (till exempel resursgrupper och virtuella datorer) med begränsade aktivering. Ange omfång aktiveringen kan minska risken för körning oönskade ändringar av kritiska Azure-resurser.
 
-Mer information finns i [vad är Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+Mer information finns i [vad är Azure AD Privileged Identity Management?](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure).
  
 ---
  
@@ -342,7 +343,7 @@ Idag, blockeras åtkomst när du använder det här villkoret. När förhandsgra
 
 Leta efter den här funktionen och mer information finns i kommande bloggar och viktig information. 
 
-Mer information finns i [villkorlig åtkomst i Azure AD](active-directory-conditional-access-azure-portal.md).
+Mer information finns i [villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
  
 ---
@@ -357,7 +358,7 @@ Mer information finns i [villkorlig åtkomst i Azure AD](active-directory-condit
 
 
 
-Följande appar är tänkta att läggas till i listan över [godkända klientprogram](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Följande appar är tänkta att läggas till i listan över [godkända klientprogram](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
@@ -365,8 +366,8 @@ Följande appar är tänkta att läggas till i listan över [godkända klientpro
 
 Mer information finns i:
 
-- [Godkända klienten app-krav](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
+- [Godkända klienten app-krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -408,7 +409,7 @@ Om det finns problem med anslutningen till din lokala tillbakaskrivning klient, 
 - En länk till dokumentationen som hjälper dig att lösa problemet. 
 
 
-Mer information finns i [lokalt integration](active-directory-passwords-how-it-works.md#on-premises-integration).
+Mer information finns i [lokalt integration](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-how-it-works#on-premises-integration).
 
  
 ---
@@ -427,9 +428,9 @@ Mer information finns i [lokalt integration](active-directory-passwords-how-it-w
 
 
 
-Du kan nu begränsa åtkomst till Office 365 och andra Azure AD-anslutna molnappar till [godkända klientappar](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) som stöder Intune app protection-principer med hjälp av [Azure AD app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md). Intune app protection-principer används för att konfigurera och skydda företagets data på dessa program.
+Du kan nu begränsa åtkomst till Office 365 och andra Azure AD-anslutna molnappar till [godkända klientappar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) som stöder Intune app protection-principer med hjälp av [Azure AD app-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune app protection-principer används för att konfigurera och skydda företagets data på dessa program.
 
-Genom att kombinera [app-baserade](active-directory-conditional-access-mam.md) med [enhetsbaserad](active-directory-conditional-access-policy-connected-applications.md) principer för villkorlig åtkomst, har du möjlighet att skydda data för personliga och företagets enheter.
+Genom att kombinera [app-baserade](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) med [enhetsbaserad](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) principer för villkorlig åtkomst, har du möjlighet att skydda data för personliga och företagets enheter.
 
 Följande villkor och kontroller är nu tillgängliga för användning med app-baserad villkorlig åtkomst:
 
@@ -447,7 +448,7 @@ Följande villkor och kontroller är nu tillgängliga för användning med app-b
 - Kräv godkänd klientapp
 
 
-Mer information finns i [Azure AD app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md).
+Mer information finns i [Azure AD app-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
 
  
 ---
@@ -471,7 +472,7 @@ Nu hittar du alla dina enheter som är anslutna till Azure AD och enhetsrelatera
 - Hitta BitLocker-nycklar för dina Azure AD-anslutna enheter, hantera din enhet med Intune och mycket mer.
 - Hantera Azure AD-enhetsrelaterade inställningar.
 
-Mer information finns i [hantera enheter med hjälp av Azure portal](device-management-azure-portal.md).
+Mer information finns i [hantera enheter med hjälp av Azure portal](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
 
 
 
@@ -496,7 +497,7 @@ Du kan nu inkludera (eller exkludera) macOS som en enhet plattform villkor i din
 Mer information finns i:
 
 - [Skapa en enhetsefterlevnadsprincip för macOS enheter med Intune](https://aka.ms/macoscompliancepolicy)
-- [Villkorlig åtkomst i Azure AD](active-directory-conditional-access-azure-portal.md)
+- [Villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
  
@@ -517,7 +518,7 @@ NPS-tillägget för Azure Multi-Factor Authentication lägger till molnbaserade 
 Det här tillägget har skapats för organisationer som vill skydda virtuella privata nätverksanslutningar utan att distribuera Azure Multi-Factor Authentication-servern. Nätverksprincipservern tillägg fungerar som ett kort mellan RADIUS och molnbaserad Azure Multi-Factor Authentication för att tillhandahålla en andra faktor-autentisering för federerad eller synkroniserade användare.
 
 
-Mer information finns i [integrera din befintliga infrastruktur för Network Policy Server med Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md).
+Mer information finns i [integrera din befintliga infrastruktur för Network Policy Server med Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-extension).
 
  
 ---
@@ -556,7 +557,7 @@ I administrationscentret för Azure AD kan du nu:
 **Produkten kapaciteten:** identitet säkerhet och skydd
 
 
-Följande appar har lagts till i listan över [godkända klientprogram](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
+Följande appar har lagts till i listan över [godkända klientprogram](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - Microsoft Planner
 - Azure Information Protection 
@@ -564,8 +565,8 @@ Följande appar har lagts till i listan över [godkända klientprogram](active-d
 
 Mer information finns i:
 
-- [Godkända klienten app-krav](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)
-- [Azure AD app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
+- [Godkända klienten app-krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
 
 
 ---
@@ -580,7 +581,7 @@ Mer information finns i:
  
 Nu kan du använda ”eller” (kräver en av de markerade kontrollerna) för villkorlig åtkomstkontroller. Du kan använda den här funktionen när du skapar principer med ”eller” mellan åtkomstkontroller. Du kan till exempel använda den här funktionen för att skapa en princip som kräver att användaren måste logga in med hjälp av Multi-Factor authentication ”eller” på en kompatibel enhet.
 
-Mer information finns i [kontrollerna i Azure AD villkorlig åtkomst](active-directory-conditional-access-controls.md).
+Mer information finns i [kontrollerna i Azure AD villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
 
  
 ---
@@ -634,7 +635,7 @@ På grund av de nya funktionerna som rapporten API: er under/Reports slutpunkten
 
 
 
-Azure AD stöder automatisk inloggning fältet identifiering för program som återger en HTML-Användarfält namn och lösenord. De här stegen finns dokumenterade i [så att automatiskt samla in inloggning fält för ett program](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Du hittar den här funktionen genom att lägga till en *icke-galleriet* på den **företagsprogram** sidan i den [Azure-portalen](http://aad.portal.azure.com). Du kan också konfigurera den **enkel inloggning** läge för den här nya programmet till **lösenordsbaserade enkel inloggning**, ange en URL och spara sedan sidan.
+Azure AD stöder automatisk inloggning fältet identifiering för program som återger en HTML-Användarfält namn och lösenord. De här stegen finns dokumenterade i [så att automatiskt samla in inloggning fält för ett program](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Du hittar den här funktionen genom att lägga till en *icke-galleriet* på den **företagsprogram** sidan i den [Azure-portalen](http://aad.portal.azure.com). Du kan också konfigurera den **enkel inloggning** läge för den här nya programmet till **lösenordsbaserade enkel inloggning**, ange en URL och spara sedan sidan.
  
 Den här funktionen har tillfälligt inaktiverats på grund av ett problem med tjänsten. Problemet har lösts och fältet för automatisk inloggning identifieringen är tillgänglig igen.
 
@@ -656,7 +657,7 @@ Multifaktorautentisering (MFA) är en viktig del av att skydda din organisation.
 
 Med den här offentliga förhandsversionen är en integrerad del av kärnor Azure AD-konfiguration av MFA hantering och rapportering. Du kan nu hantera MFA management portal-funktionerna i Azure AD-upplevelse.
 
-Mer information finns i [referens för rapportering av MFA i Azure portal](active-directory-reporting-activity-sign-ins-mfa.md). 
+Mer information finns i [referens för rapportering av MFA i Azure portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins-mfa). 
 
 
 ---
@@ -679,7 +680,7 @@ Du kan använda Azure AD-villkor för användning i följande scenarier:
 - Särskilda villkor för användning baserat på en användares attribut (till exempel läkare kontra sjuksköterskor) eller inrikes kontra internationella anställda, utförs av dynamiska grupper
 - Särskilda villkor för användning av åtkomst till Hög inverkan branschspecifika appar, t.ex. Salesforce
 
-Mer information finns i [användningsvillkoren för Azure AD](active-directory-tou.md).
+Mer information finns i [användningsvillkoren för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
 
 
 ---
@@ -700,7 +701,7 @@ Du kan hantera, styr och övervaka åtkomst till Azure-resurser (förhandsgransk
 
 Alla resurser i Azure-portalen som använder funktionen Azure RBAC kan dra nytta av säkerhets- och hanteringsfunktioner för livscykel som Azure AD Privileged Identity Management har att erbjuda.
 
-Mer information finns i [Privileged Identity Management för Azure-resurser](privileged-identity-management/azure-pim-resource-rbac.md).
+Mer information finns i [Privileged Identity Management för Azure-resurser](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 
 ---
@@ -721,7 +722,7 @@ Organisationer kan använda åtkomst granskningar (förhandsversion) för att ef
 
 Du kan samla in åtkomstgranskningskontroller i program som är relevanta för din organisation för att spåra granskningar för efterlevnad eller riskkänsliga program.
 
-Mer information finns i [åtkomst till Azure AD granskar](active-directory-azure-ad-controls-access-reviews-overview.md).
+Mer information finns i [åtkomst till Azure AD granskar](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview).
 
 
 ---
@@ -738,7 +739,7 @@ Mer information finns i [åtkomst till Azure AD granskar](active-directory-azure
 
 Nu hantera appar som visas på användarnas portaler via en ny **dölja app** egenskapen. Du kan dölja appar för att i fall där appen paneler visas för backend-tjänster eller dubbla paneler och oreda användarnas app startprogram. Att växlingsknappen är i den **egenskaper** avsnitt av appen från tredje part och etiketteras **synligt för användaren?** Du kan även dölja en app programmässigt med hjälp av PowerShell. 
 
-Mer information finns i [dölja tredjepartsprogram från användarens upplevelse i Azure AD](active-directory-coreapps-hide-third-party-app.md). 
+Mer information finns i [dölja tredjepartsprogram från användarens upplevelse i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app). 
 
 
 **Vad är tillgängliga?**

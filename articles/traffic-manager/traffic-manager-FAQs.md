@@ -4,7 +4,7 @@ description: "Den här artikeln innehåller svar på vanliga frågor och svar om
 services: traffic-manager
 documentationcenter: 
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 02/01/2018
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager vanliga frågor (FAQ)
 
@@ -321,42 +321,7 @@ Traffic Manager använder värdhuvuden hälsokontroller för HTTP och HTTPS. Vä
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Vilka är de IP-adresser som kontrollerar hälsotillståndet kommer?
 
-Följande lista innehåller IP-adresser som kontrollerar hälsa för Traffic Manager kan kommer. Du kan använda den här listan så att inkommande anslutningar från dessa IP-adresser tillåts på slutpunkterna kontrollera dess hälsostatus.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
-* 52.173.90.107
-* 52.173.250.232
-* 104.45.149.110
-* 40.114.5.197
-* 52.240.151.125
-* 52.240.144.45
-* 13.65.95.152
-* 13.65.92.252
-* 40.78.67.110
-* 104.42.192.195
+Klicka på [här](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) att visa JSON-fil som listar IP-adresser från vilka Traffic Manager hälsokontroller kan kommer. Granska IP-adresser som anges i JSON-filen så att inkommande anslutningar från dessa IP-adresser tillåts på slutpunkterna kontrollera dess hälsostatus.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Hur många hälsokontroller till min slutpunkten ges från Traffic Manager?
 
@@ -368,7 +333,7 @@ Antalet Traffic Manager hälsa kontrollerar nå slutpunkten beror på följande:
 
 ### <a name="how-do-i-configure-nested-profiles"></a>Hur konfigurerar kapslade profiler?
 
-Kapslade Traffic Manager-profiler kan konfigureras med både Azure Resource Manager och den klassiska Azure REST API: er, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI-kommandona. De stöds också via den nya Azure-portalen. De stöds inte i den klassiska portalen.
+Kapslade Traffic Manager-profiler kan konfigureras med både Azure Resource Manager och den klassiska Azure REST API: er, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI-kommandona. De stöds också via den nya Azure-portalen.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Stöd för hur många lager med kapsling har Traffic Manager?
 

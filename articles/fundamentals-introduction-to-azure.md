@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
 ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="introducing-microsoft-azure"></a>Introduktion till Microsoft Azure
 Microsoft Azure är Microsofts programplattform för det offentliga molnet.  Syftet med den här artikeln är att ge dig en grund för att förstå grunderna i Azure, även om du inte känner till något om cloud computing.
@@ -82,7 +82,7 @@ För utveckling stöder Web Apps .NET, PHP, Node.js, Java och Python tillsammans
 Web Apps är avsedd att vara användbara för företag, utvecklare och web design myndigheter. För företag är det ett enkelt att hantera, skalbar, mycket säkert och hög tillgänglighet lösning för att köra förekomst webbplatser. När du behöver konfigurera en webbplats, är det bäst att börja med Azure-Webbappar och fortsätta till molntjänster när du behöver en funktion som inte är tillgänglig. Se slutet av avsnittet ”beräkning” för flera länkar som kan hjälpa dig att välja mellan alternativen.
 
 ### <a name="cloud-services"></a>Cloud Services
-![Azure-molntjänst](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
+![Azure Cloud Service](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Bild: Azure Cloud Services tillhandahåller en mycket skalbar anpassad kod körs på en plattform som en tjänst (PaaS)-miljö*
 
 Anta att du vill skapa en moln-program som har stöd för många samtidiga användare, inte kräver mycket administration och aldrig kraschar. Du kanske en upprättad programvaruleverantör, till exempel som har beslutat att omfatta programvara som en tjänst (SaaS) genom att skapa en version av ett program i molnet. Eller kanske är en Startup som skapar en konsument-program som du förväntar dig att öka snabbt. Om du bygger på Azure, vilka körningsmodell bör du använda?
@@ -151,7 +151,7 @@ BLOB-lagring som används av andra Azure-funktioner (inklusive virtuella datorer
 Ett program som lagrar video, massiv filer eller andra binär information kan använda BLOB för enkel och billig lagring. Blobbar används också ofta tillsammans med andra tjänster som Content Delivery Network, som vi ska tala om senare.  
 
 ### <a name="import--export"></a>Import/Export
-![Azure-importen Export Service](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
+![Azure Import Export Service](./media/fundamentals-introduction-to-azure/ImportExportIntroNew.png)  
 
 *Bild: Azure Import / Export ger möjlighet att leverera en fysisk hårddisk eller från Azure och snabbare och billigare stora mängder data Importera eller exportera.*  
 
@@ -162,8 +162,8 @@ Ibland vill du att flytta stora mängder data till Azure. Som skulle ta lång ti
 * **Stora datamigrering** -när du har stora mängder data (terabyte) som du vill överföra till Azure Import/Export-tjänsten är ofta mycket snabbare och kanske billigare än att överföra den via internet. När data är i blobbar, kan du bearbeta det till andra former, till exempel tabellagring eller en SQL-databas.
 * **Arkiverade dataåterställning** -du kan använda Import/Export för att Microsoft överför stora mängder data lagras i Azure Blob Storage till en lagringsenhet som du skickar och har enheten levereras till en plats som du önskar. Eftersom detta ta lite tid är den inte ett bra alternativ för katastrofåterställning. Det är bäst för arkiverade data som du inte behöver snabb åtkomst till.
 
-### <a name="file-service"></a>Tjänsten File
-![Tjänsten Azure File](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
+### <a name="file-service"></a>File Service
+![Azure File Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
 *Bild: Azure Filtjänster tillhandahåller SMB \\ \\server\share sökvägar för program som körs i molnet.*
 
 Lokalt, är det vanligt att stora mängder lagring av filer som är tillgängligt via Server Message Block (SMB) protokollet använder en \\ \\Server\share format. Azure har nu en tjänst som gör att du kan använda det här protokollet i molnet. Program som körs i Azure kan använda den för att dela filer mellan virtuella datorer med hjälp av välbekanta filsystem API: er som ReadFile och WriteFile. Filerna kan dessutom också nås på samma gång via ett REST-gränssnitt som ger dig åtkomst till resurser från lokala när du också konfigurera ett virtuellt nätverk. Azure Files är byggt på blob-tjänsten så att det ärver den samma tillgänglighet, hållbarhet, skalbarhet och geo-redundans är inbyggda i Azure Storage.
@@ -419,7 +419,7 @@ Service Bus innehåller en publicera och prenumerera-funktion som kallas ämnen 
 När du ställer in där det finns många meddelanden som är alla viktig, men olika underordnade system behöver bara lyssna på olika delar av kommunikationen, Service Bus-ämne och -prenumerationer är ett bra alternativ.
 
 ### <a name="biztalk-services"></a>BizTalk Services
-![BizTalk-tjänst](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
+![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Bild: BizTalk-tjänst ger möjlighet att omvandla XML-meddelanden format i molnet.*
 
 Ibland behöver ansluta datorer som kommunicerar med olika meddelanden format. Det är vanligt för företag att ha olika databasen scheman och XML-meddelanden format, även om en gemensam standard är tillgänglig. Du kan använda BizTalk Server lokalt för att integrera olika system i stället för att skriva mycket anpassade kod.  Azure BizTalk-tjänster innehåller samma typ av tjänst, men i molnet. Du kan betalar bara vad du använder och oroa dig inte om skala som du skulle behöva lokalt.
@@ -522,7 +522,7 @@ En mer visuell översikt över hur Media Services fungerar kan du hämta den [Az
 ## <a name="commerce"></a>Handel
 Ökningen av programvara som en tjänst förändrar hur vi skapa program. Det även Omforma hur vi säljer program. Eftersom SaaS-program finns i molnet är logiskt att dess potentiella kunder ska söka efter lösningar online. Och den här ändringen gäller för data samt vad gäller program. Varför bör inte personer ut till molnet för kommersiellt tillgängliga datauppsättningar? Microsoft adresser båda dessa problem med den [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
-![Azure handel](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
+![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Bild: Azure Marketplace och Azure Store kan du söka efter och köpa Azure-program och kommersiella datauppsättningar och använda dem som en del av din Azure-program.**
 
 Skillnaden mellan dem är att Marketplace ligger utanför Azure-portalen, men Store kan nås från i portalen. Potentiella kunder kan söka efter Azure-program som uppfyller deras behov. Kunder kan söka efter kommersiell datauppsättningar, inklusive demografisk data, ekonomiska data, geografiska data och mycket mer. När de hittar något de som kommer de åt den från leverantören, direkt via Marketplace eller Store-webbplatser eller i vissa fall från Azure-portalen. Program kan också använda API: et för Bing Search via Marketplace ge dem åtkomst till web sökresultaten.

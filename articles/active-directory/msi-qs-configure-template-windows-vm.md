@@ -3,7 +3,7 @@ title: "Hur du konfigurerar MSI på en virtuell dator i Azure med hjälp av en m
 description: "Stegvisa instruktioner för att konfigurera en hanterad tjänst identitet (MSI) på en Azure-dator med en Azure Resource Manager-mall."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 047c4f69ae520c730d063246d41702207c55a0b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 814cc66b2138932a250223570d04c63e409df7cf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanteras tjänstidentitet med hjälp av en mall
 
@@ -27,7 +27,7 @@ Hanterad Service identitet (MSI) ger Azure-tjänster med en automatiskt hanterad
 
 Lär dig hur du aktiverar och ta bort MSI för en Azure-dator med en Azure Resource Manager-Distributionsmall i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

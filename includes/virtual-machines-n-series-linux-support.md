@@ -4,7 +4,11 @@
 ### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>Instanser av NC-NCv2 och ND - NVIDIA CUDA drivrutiner
 | Distribution | Drivrutin |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-baserad 7.3 | NVIDIA CUDA 9.1, drivrutinen gren R387 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/> CentOS 7.3 eller 7.4 | NVIDIA CUDA 9.1, drivrutinen gren R390 |
+
+> [!IMPORTANT]
+> Se till att du installerar eller uppgraderar till de senaste drivrutinerna för CUDA för din distribution. Drivrutiner som är äldre än version R390 kan ha problem med uppdaterade Linux kärnor.
+>
 
 ### <a name="nv-instances---nvidia-grid-drivers"></a>NV-instanser – NVIDIA GRID-drivrutiner
 

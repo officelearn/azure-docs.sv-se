@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Pausa och återuppta beräkningen för en Azure SQL Data Warehouse i PowerShell
 Använda PowerShell för att pausa beräkning för en Azure SQL Data Warehouse att minska kostnaderna. Återuppta databearbetning när du är redo att använda datalagret.
@@ -59,15 +59,16 @@ Följ dessa steg för att hitta platsen för ditt informationslager.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **SQL-databaser** i den vänstra sidan av Azure-portalen.
-3. Välj **mySampleDataWarehouse** från den **SQL-databaser** sidan. Datalagret öppnas. 
+3. Välj **mySampleDataWarehouse** från den **SQL-databaser** sidan. Datalagret öppnas.
 
     ![Namn och resursen servergrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Skriv ned namnet på datalager som ska användas som databasnamn på. Även Skriv ned namnet på servern och resursgruppen. Du använder dem i pausen och återuppta kommandon.
-5. Om din server är foo.database.windows.net Använd bara den första delen som servernamn i PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver 20171113.database.windows.net. Vi använder **newserver 20171113** som servernamn i PowerShell-cmdleten.
+4. Skriv ned namnet på datalager, vilket är namnet på databasen. Även Skriv ned namnet på servern och resursgruppen. Du 
+5.  dessa i kommandona paus och fortsätt.
+6. Om din server är foo.database.windows.net Använd bara den första delen som servernamn i PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver 20171113.database.windows.net. Ta bort suffixet och använda **newserver 20171113** som servernamn i PowerShell-cmdleten.
 
 ## <a name="pause-compute"></a>Pausa beräkning
-Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använder databasen under natten och helger, kan du pausa under dessa tider och återuppta under dagen. Du kommer inte att debiteras för beräkningsresurser när databasen har pausats. Du kommer dock fortsätta att debiteras för lagring. 
+Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använder databasen under natten och helger, kan du pausa under dessa tider och återuppta under dagen. Är gratis för beräkningsresurser när databasen har pausats. Dock fortsätta att debiteras för lagring. 
 
 Pausa en databas genom att använda den [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. Följande exempel pausar ett data warehouse med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver 20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
 

@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/26/2017
+ms.date: 01/29/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 34dee9511822acec46ba4854729939b84f3c06c6
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importera en BACPAC-fil till en ny Azure SQL-databas
 
@@ -27,10 +27,6 @@ När du behöver importera en databas från ett arkiv eller när du migrerar fr�
 
 > [!IMPORTANT] 
 > När du migrerar din databas till Azure SQL Database måste välja du att databasen på den aktuella kompatibilitetsnivån (nivå 100 för AdventureWorks2008R2 databasen) eller på en högre nivå. Mer information om effekterna och alternativ för att driva en databas på en specifik kompatibilitetsnivå finns [ändra DATABASENS kompatibilitetsnivån](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Se även [ALTER OMFÅNG DATABASKONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) information om ytterligare databasnivå inställningar som rör kompatibilitetsnivåer.   >
-
-> [!NOTE]
-> Om du vill importera en BACPAC till en ny databas, måste du först skapa en logisk Azure SQL Database-server. En självstudiekurs visar hur du migrerar en SQL Server-databas till Azure SQL Database med SQLPackage finns [migrera en SQL Server-databas](sql-database-migrate-your-sql-server-database.md)
->
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Importera från en BACPAC-fil med hjälp av Azure portal
 

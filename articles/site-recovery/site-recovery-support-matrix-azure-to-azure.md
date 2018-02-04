@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6157ec92433830998c275b3b01b32f25c8d9f758
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
 
@@ -151,11 +151,11 @@ Virtuella datorer migreras med hjälp av Site Recovery | Stöds | Om det är en 
 
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**
 --- | --- | ---
-Maximal storlek för OS-disk | 2 048 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximal storlek för OS-disk | 2048 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Maximal datadiskstorleken | 4095 GB | Referera till [diskar som används av virtuella datorer.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Antalet datadiskar | Upp till 64 som stöds av en viss Azure VM-storlek | Referera till [storlekar för virtuella Azure-datorn](../virtual-machines/windows/sizes.md)
-Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt vägledning för Azure. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
-Förändringstakten för data på disken | Högst 6 Mbit/s per disk | Om genomsnittliga ändra frekvensen på disken är kontinuerligt utöver 6 Mbit/s, replikering ska inte fånga. Om det är en databearbetning burst och förändringstakten för data som är större än 6 Mbit/s under en viss tid och handlar, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
+Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har exkluderats från replikering alltid. Du bör inte spärra beständiga data diskutrymme enligt Azure guida ND. Referera till [diskutrymme på Azure Virtual Machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) för mer information.
+Förändringstakten för data på disken | Högst 10 Mbit/s per disk för Premium-lagring och 2 Mbit/s per disk för standardlagring | Om förändringstakten genomsnittlig data på disken är utöver 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) kontinuerligt, kommer inte replikeringen att fånga upp. Om det är en databearbetning burst och förändringstakten för data som är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
 Diskar på standard storage-konton | Stöds |
 Diskar på premium storage-konton | Stöds | Om en virtuell dator har diskar som är fördelade på premium- och standard storage-konton, kan du välja ett annat mål storage-konto för varje disk så du får samma lagringskonfigurationen i målregionen
 Hanterad standarddiskar | Stöds inte |  
@@ -170,7 +170,7 @@ GRS | Stöds |
 RA-GRS | Stöds |
 ZRS | Stöds inte |  
 Kall och het lagring | Stöds inte | Virtuella diskar stöds inte på kall och het lagring
-Virtuella nätverksslutpunkter (Azure Storage brandväggar och virtuella nätverk)  | Nej | Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte. 
+Virtuella nätverksslutpunkter (Azure Storage brandväggar och virtuella nätverk)  | Nej | Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte.
 Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generella V1 storage-konton
 
 >[!IMPORTANT]
@@ -189,7 +189,7 @@ NSG för den virtuella datorn (klassisk)| Stöds | Du måste koppla NSG till nä
 Reserverade IP: N (statisk IP) / behålla käll-IP | Stöds | Om nätverkskortet på den Virtuella källdatorn har en statisk IP-konfiguration och mål-undernät har samma IP-Adressen tillgänglig, tilldelas redundans VM. Om mål-undernätet inte har samma IP-Adressen finns är en tillgänglig IP-adresser i undernätet reserverad för den här virtuella datorn. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.
 Dynamisk IP| Stöds | Om nätverkskortet på den Virtuella källdatorn har dynamisk IP-konfiguration, nätverkskortet på failover VM är också dynamisk som standard. Du kan ange en fast IP-adress för valfritt ' replikerade objekt > Inställningar > beräkning och nätverk > nätverksgränssnitt '. Du kan markera nätverkskortet och ange undernät och IP-önskat.
 Traffic Manager-integrering | Stöds | Du konfigurera din traffic manager så att trafiken dirigeras till slutpunkten i källan region regelbundet och slutpunkten i målregionen vid redundans.
-Azure hanterade DNS | Stöds |
+Azure managed DNS | Stöds |
 Anpassad DNS  | Stöds |    
 Oautentiserad Proxy | Stöds | Referera till [nätverk riktlinjerna.](site-recovery-azure-to-azure-networking-guidance.md)    
 Autentiserad proxyserver | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med hjälp av Azure Site Recovery.    

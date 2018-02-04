@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans kopiera aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +36,17 @@ Kopieringsaktiviteten i Azure Data Factory finns två sätt att hantera inkompat
  ## <a name="supported-scenarios"></a>Scenarier som stöds
 Kopieringsaktiviteten stöder tre scenarier för identifiering, hoppar över och loggning inkompatibla data:
 
-- **Inkompatibilitet mellan källdatatyp och interna Mottagartypen**. <br/><br/> Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller tre kolumner av typen INT. CSV-filen rader som innehåller numeriska data, till exempel 123,456,789 har kopierats till arkivet sink. Men de rader som innehåller icke-numeriska värden, till exempel 123,456, abc identifieras som inkompatibel och hoppas över.
-- **Matchningsfel i antalet kolumner mellan käll- och sink**. <br/><br/> Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner har kopierats till arkivet mottagare. CSV-filen rader som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
-- **Primärnyckelfel vid skrivning till en relationsdatabas**.<br/><br/> Till exempel: kopiera data från en SQLServer till en SQL-databas. En primär nyckel har definierats i sink SQL-databasen, men ingen primär nyckel har definierats i källan SQLServer. Duplicerade rader som finns i källan kan inte kopieras till sink. Kopieringsaktiviteten kopieras bara den första raden i källdata till sink. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
+- **Inkompatibilitet mellan källdatatyp och interna Mottagartypen**. 
+
+    Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller tre kolumner av typen INT. CSV-filen rader som innehåller numeriska data, till exempel 123,456,789 har kopierats till arkivet sink. Men de rader som innehåller icke-numeriska värden, till exempel 123,456, abc identifieras som inkompatibel och hoppas över.
+
+- **Matchningsfel i antalet kolumner mellan käll- och sink**.
+
+    Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner har kopierats till arkivet mottagare. CSV-filen rader som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
+
+- **Primärnyckelfel vid skrivning till en relationsdatabas**.
+
+    Till exempel: kopiera data från en SQLServer till en SQL-databas. En primär nyckel har definierats i sink SQL-databasen, men ingen primär nyckel har definierats i källan SQLServer. Duplicerade rader som finns i källan kan inte kopieras till sink. Kopieringsaktiviteten kopieras bara den första raden i källdata till sink. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
 
 >[!NOTE]
 >Den här funktionen gäller inte när kopieringsaktiviteten är konfigurerad för att anropa externa datainläsning mekanism inklusive [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data i SQL Data Warehouse med PolyBase använda Polybases interna feltolerans stöd genom att ange ”[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)” i en Kopieringsaktivitet.

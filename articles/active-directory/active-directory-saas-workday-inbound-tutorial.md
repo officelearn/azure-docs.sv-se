@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -164,13 +164,17 @@ Du måste skapa en säkerhetsgrupp för obegränsad integration system och tilld
     ![Systemsäkerhetsgrupp](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Systemsäkerhetsgrupp")  
 
 ### <a name="configure-security-group-options"></a>Konfigurera alternativ för säkerhet
-I det här steget beviljar du ny grupp säkerhetsbehörigheter **hämta** och **placera** åtgärder på objekt som skyddas av säkerhetsprinciper för följande domän:
+I det här steget ska du ge domänens säkerhet princip behörigheter för worker-data som skyddas av säkerhetsprinciper för följande domän:
 
-* Externa konto-etablering
-* Worker Data: Public Worker rapporter
-* Worker Data: Alla positioner
-* Worker Data: Current bemanning Information
-* Worker Data: Business titel på Worker profil
+
+| Åtgärd | Domain Security Policy |
+| ---------- | ---------- | 
+| Hämta och skicka |  Externa konto-etablering |
+| Hämta och skicka | Worker Data: Public Worker rapporter |
+| Hämta och skicka | Worker Data: Alla positioner |
+| Hämta och skicka | Worker Data: Current bemanning Information |
+| Hämta och skicka | Worker Data: Business titel på Worker profil |
+| Visa och ändra | Worker Data: E-post |
 
 **Konfigurera alternativ för säkerhet:**
 
@@ -348,7 +352,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa och uppdatera |
 | **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera |
-| **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | userPrincipalName     |     | Skapa och uppdatera                                                   
+| **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | userPrincipalName     |     | Skrivas i Skapa endast                                                   
 | **Växel (\[namnet\]”, OU standardanvändare, OU = = användare, OU = standard, OU = platser, DC = contoso, DC = com”, ”Dallas” ”, OU standardanvändare, OU = = användare, OU Dallas, OU = platser, DC = = contoso, DC = com”, ”Austin” ”OU standardanvändare, OU = = Användare, OU Austin, OU = platser, DC = = contoso, DC = com ”,” Seattle ””, OU standardanvändare, OU = = användare, OU Seattle, OU = = platser, DC = contoso, DC = com ”,” London ””, OU standardanvändare, OU = = användare, OU London, OU = platser, DC = = contoso, DC = com ”)**  | parentDistinguishedName     |     |  Skapa och uppdatera |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Del 3: Konfigurera lokal synkronisering agent
@@ -638,11 +642,121 @@ När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 
 5. En klar skrivs en översikt över kontrollrapport den **etablering** fliken enligt nedan.
 
+
+## <a name="customizing-the-list-of-workday-user-attributes"></a>Anpassa lista över användarattribut för Workday
+Arbetsdagen tillhandahållning av appar för Active Directory och Azure AD innehåller en standardlistan över Workday användarattribut som du kan välja från. De här listorna är dock inte omfattande. Workday stöder många hundratals möjliga användarattribut som kan vara antingen standard eller unik för din Workday-klient. 
+
+Azure AD Etablerar tjänsten stöder möjligheten att anpassa listan eller Workday-attribut innehåller alla attribut som visas i den [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) driften av personal-API.
+
+Om du vill göra detta måste du använda [Workday Studio](https://community.workday.com/studio-download) att extrahera XPath-uttryck som representerar de attribut som du vill använda och Lägg sedan till dem i etablering konfigurationen med hjälp av avancerade attributet editor i Azure-portalen.
+
+**Att hämta ett XPath-uttryck för ett Workday användarattribut:**
+
+1. Hämta och installera [Workday Studio](https://community.workday.com/studio-download). Du behöver en arbetsdag community-konto för åtkomst till installationsprogrammet.
+
+2. Hämta filen Workday Human_Resources Gränssnittsbeskrivningar från denna URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+
+3. Starta arbetsdagar Studio.
+
+4. I kommandofältet väljer du den **Workday > Test-webbtjänsten i Tester** alternativet.
+
+5. Välj **externa**, och välj Human_Resources WSDL-filen som du hämtade i steg 2.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+
+6. Ange den **plats** till `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, men ersätt ”IMPL-CC” med den faktiska instanstyp och ”klient” med din verkliga innehavarens namn.
+
+7. Ange **åtgärden** till **Get_Workers**
+
+8.  Klicka på små **konfigurera** länken nedan rutorna begäran och svar för att ange dina Workday-autentiseringsuppgifter. Kontrollera **autentisering**, och ange användarnamn och lösenord för kontot Workday-integrering system. Se till att formatera användarnamnet som name@tenant, och lämna den **WS-Security UsernameToken** alternativ som valts.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+
+9. Välj **OK**.
+
+10. Den **begära** rutan klistra in XML-koden nedan och ange **Employee_ID** till medarbetare-ID för en verklig användare i din Workday-klient. Välj en användare som har attributet fylls i om du vill extrahera.
+
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <env:Body>
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+          <wd:Request_References wd:Skip_Non_Existing_Instances="true">
+            <wd:Worker_Reference>
+              <wd:ID wd:type="Employee_ID">21008</wd:ID>
+            </wd:Worker_Reference>
+          </wd:Request_References>
+        </wd:Get_Workers_Request>
+      </env:Body>
+    </env:Envelope>
+    ```
+ 
+11. Klicka på den **skicka begäran** (grön pil) för att köra kommandot. Om lyckas svaret ska visas i den **svar** fönstret. Kontrollera svaret på Kontrollera den innehåller data för användar-ID du angav och inte ett fel.
+
+12. Om det lyckas, kopiera XML-filen från den **svar** fönstret och spara den som en XML-fil.
+
+13. I kommando-fältet i Studio för Workday Välj **fil > öppen fil...**  och öppna XML-filen som du just har sparat. Då öppnas den i Workday Studio XML-redigeraren.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+
+14. I trädet filen navigera genom **/env:Envelope > ENV > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** att hitta dina användardata. 
+
+15. Under **wd:Worker**, hitta attributet som du vill lägga till och markera den.
+
+16. Kopiera XPath-uttrycket för din valda attribut från den **dokumentsökväg** fältet.
+
+17. Ta bort den **/env:Envelope / ENV / wd:Get_Workers_Response / wd:Response_Data /** prefix från det kopierade uttrycket. 
+
+18. Om det sista objektet i det kopierade uttrycket är en nod (exempel ”: / wd:Birth_Date”), lägger **/text()** i slutet av uttrycket. Detta är inte nödvändigt om det sista objektet är ett attribut (exempel ”:/@wd:type”).
+
+19. Resultatet bör vara ungefär `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Det här är vad du kopierar till Azure-portalen.
+
+
+**Lägg till din anpassade Workday användarattribut i konfigurationen av etablering:**
+
+1. Starta den [Azure-portalen](https://portal.azure.com), och gå till avsnittet etablering arbetsdagen etablering programmet, enligt beskrivningen tidigare i den här kursen.
+
+2. Ange **Status för etablering** till **av**, och välj **spara**. Detta bidrar till att ändringarna börjar gälla endast när du är klar.
+
+3. Under **mappningar**väljer **synkronisera anställda för OnPremises** (eller **synkronisera arbetare till Azure AD**).
+
+4. Bläddra längst ned på nästa skärm och välj **visa avancerade alternativ**.
+
+5. Välj **redigera attributlistan för Workday**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+
+6. Bläddra längst ned i attributlistan till där indatafält är.
+
+7. För **namn**, ange ett namn för din attribut.
+
+8. För **typen**, Välj typ som motsvarar korrekt till attribut (**sträng** är de vanligaste).
+
+9. För **API uttryck**, ange det XPath-uttryck som du kopierade från Workday Studio. Exempel:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+
+10. Välj **lägga till attributet**.
+
+    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+
+11. Välj **spara** ovan, och sedan **Ja** till dialogrutan. Stäng fönstret attributmappning om det fortfarande är öppet.
+
+12. Tillbaka på primära **etablering** väljer **synkronisera anställda för OnPremises** (eller **synkronisera arbetare till Azure AD**) igen.
+
+13. Välj **Lägg till ny mappning**.
+
+14. Din nya attributet bör nu visas i den **källattribut** lista.
+
+15. Lägga till en mappning för din nya attributet efter behov.
+
+16. När du är klar, Kom ihåg att ange **Status för etablering** tillbaka till **på** och spara.
+
+
 ## <a name="known-issues"></a>Kända problem
 
 * När du kör den **Lägg till ADSyncAgentAzureActiveDirectoryConfiguration** Powershell-kommandot, det är för närvarande ett känt problem med global administratörsbehörighet fungerar inte om de använder en anpassad domän (exempel: admin@contoso.com) . Som en tillfällig lösning kan skapa och använda ett konto som global administratör i Azure AD med en onmicrosoft.com-domän (exempel: admin@contoso.onmicrosoft.com).
 
 * En tidigare med visas inte i Azure AD-klienter finns i Europeiska unionen-granskningsloggarna är löst. Dock krävs ytterligare konfigurationen för Azure AD-klienter i EU. Mer information finns i [del 3: konfigurera lokal synkronisering agent](#Part 3: Configure the on-premises synchronization agent)
+
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Självstudier: Konfigurera enkel inloggning mellan Workday och Azure Active Directory](active-directory-saas-workday-tutorial.md)

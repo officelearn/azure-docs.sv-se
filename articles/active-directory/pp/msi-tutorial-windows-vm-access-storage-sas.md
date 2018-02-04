@@ -3,22 +3,22 @@ title: "Använda en Windows VM-MSI för åtkomst till Azure Storage med hjälp a
 description: "En självstudiekurs som visar hur du använder en Windows VM hanterade tjänsten identitet (MSI) för åtkomst till Azure Storage, med hjälp av en SAS-autentiseringsuppgifter i stället för en åtkomstnyckeln för lagringskontot."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0c6150c01c8ca31bba748741b2285cb4f29beaa6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Använda en Windows VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter
 
@@ -94,7 +94,7 @@ Senare kommer att ladda upp och hämta en fil till det nya lagringskontot. Efter
 3. Klicka på **+ behållare** överst på sidan och en ”ny behållare” panelen bilder ut.
 4. Namnge behållaren, Välj en åtkomstnivå och klicka sedan på **OK**. Det namn du angav används senare under kursen. 
 
-    ! [Skapa lagring container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Create storage container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Ge den Virtuella datorns MSI-åtkomst för att använda en SAS-lagring 
 

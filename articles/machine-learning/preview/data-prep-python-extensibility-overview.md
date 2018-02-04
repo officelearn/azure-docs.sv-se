@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -29,7 +29,7 @@ Data förberedelser har följande anpassade steg där användare kan skriva kod:
 * Lägg till kolumn
 * Avancerat filter
 * Transformera dataflöde
-* Transformera Partition
+* Transform Partition
 
 * De här stegen stöds inte för närvarande i ett Spark-körning.
 
@@ -125,7 +125,7 @@ eller
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Använda anpassade moduler
-I transformera dataflöde (skript), skriver du python kod så här:
+I transformera dataflöde (skript), skriver du följande Python-kod
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-I Lägg till kolumn (skript), och ange koden Block = modulen och skriva python kod efter:
+I Lägg till kolumn (skript), och ange koden Block = modulen och skriva följande kod för Python
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Körningen av olika kontexter (lokal, docker spark), peka absolut sökväg på rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
+För att köra en olika peka kontexter (lokal, Docker, Spark), absolut sökväg på rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
 
 
 ## <a name="column-data"></a>Kolumndata 
@@ -303,7 +303,7 @@ def transform(df):
 ```
   
 
-## <a name="transform-partition"></a>Transformera Partition  
+## <a name="transform-partition"></a>Transform Partition  
 ### <a name="purpose"></a>Syfte 
 Transformera Partition tillägget punkten kan du omvandla en partition av dataflödet. Du har åtkomst till en Pandas dataframe som innehåller alla kolumner och rader för den aktuella partitionen. Din kod måste returnera en Pandas dataframe med de nya data. 
 

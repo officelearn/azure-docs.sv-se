@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: c75624d8551adabbd993d22ac4901ca26ef40d51
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Vidarebefordra meddelanden med IoT-hubben (Java)
 
@@ -126,6 +126,9 @@ I det här avsnittet kan du ändra appen för enheter som du skapade i den [Kom 
 I det här avsnittet skapar du en Service Bus-kö, ansluta till din IoT-hubb och konfigurera din IoT-hubb för att skicka meddelanden till kön baserat på förekomsten av en egenskap i meddelandet. Mer information om hur du bearbeta meddelanden från Service Bus-köer finns [Kom igång med köer][lnk-sb-queues-java].
 
 1. Skapa en Service Bus-kö som beskrivs i [Kom igång med köer][lnk-sb-queues-java]. Anteckna namnet på namnområdet och kön.
+
+    > [!NOTE]
+    > Service Bus-köer och ämnen som används som IoT-hubbslutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **inte åtkomlig** i Azure-portalen.
 
 2. Öppna din IoT-hubb i Azure-portalen och klicka på **slutpunkter**.
 

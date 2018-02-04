@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4387f3ed56f1adb562e29b9d152d113859c88b06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c6a18bedec6eca5ff25d205bccecc23ecd342744
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 Tabellen nedan hjälper dig att avgöra vilken metod för att starta en runbook i Azure Automation som är mest lämpliga för ditt specifika scenario. Den här artikeln innehåller information om hur du startar en runbook med Azure-portalen och med Windows PowerShell. Information om de andra metoderna finns i övrig dokumentation som du kan komma åt från länkarna nedan.
 
-| **METODEN** | **EGENSKAPER** |
+| **METODEN** | **CHARACTERISTICS** |
 | --- | --- |
-| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Autentisera med Azure inloggning åtkomst. |
+| [Azure-portalen](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Autentisera med Azure inloggning åtkomst. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Anropa från kommandoraden med Windows PowerShell-cmdlets.<br> <li>Kan ingå i automatisk lösning med flera steg.<br> <li>Begäran har autentiserats med certifikat eller OAuth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status.<br> <li>Klienten behöver stöd för PowerShell-cmdlets. |
-| [Azure Automation-API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Mest flexibla metoden, men även de flesta komplexa.<br> <li>Anropa från valfri egen kod som kan göra HTTP-begäranden.<br> <li>Begäran som autentiserats med certifikat eller Oauth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status. |
+| [Azure Automation API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Mest flexibla metoden, men även de flesta komplexa.<br> <li>Anropa från valfri egen kod som kan göra HTTP-begäranden.<br> <li>Begäran som autentiserats med certifikat eller Oauth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden. *Om du anropar en Python-runbook med hjälp av API måste JSON-nyttolast serialiseras.*<br> <li>Spåra jobbets status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta runbook från http-begäran.<br> <li>Autentisera med säkerhets-token i URL: en.<br> <li>Klienten kan inte åsidosätta parametervärden som anges när skapa webhooken. Runbook kan definiera en enda parameter som fylls i med information för HTTP-begäran.<br> <li>Ingen möjlighet att spåra jobbstatus via Webhooksadressen. |
 | [Svara på Azure avisering](../log-analytics/log-analytics-alerts.md) |<li>Starta en runbook som svar på Azure avisering.<br> <li>Konfigurera webhook för runbook och länk till varning.<br> <li>Autentisera med säkerhets-token i URL: en. |
 | [Schema](automation-schedules.md) |<li>Runbook starta automatiskt på varje timme, dag, vecka eller månad schema.<br> <li>Ändra schema via Azure-portalen, PowerShell-cmdlets eller Azure API.<br> <li>Ange parametervärden som ska användas med schemat. |
@@ -40,9 +40,9 @@ Följande bild illustrerar detaljerade steg för steg i livscykeln för en runbo
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>Starta en runbook med Azure-portalen
 1. Välj i Azure-portalen **Automation** och klicka sedan på namnet på ett automation-konto.
 2. På navmenyn väljer **Runbooks**.
-3. På den **Runbooks** bladet Välj en runbook och klicka sedan på **starta**.
-4. Om runbooken har parametrar uppmanas du att ange värden med en textruta för varje parameter. Se [Runbookparametrar](#Runbook-parameters) nedan för mer information om parametrar.
-5. På den **jobbet** bladet kan du visa statusen för runbook-jobbet.
+3. På den **Runbooks** sidan, Välj en runbook och klicka sedan på **starta**.
+4. Om runbooken har parametrar, uppmanas du att ange värden med en textruta för varje parameter. Se [Runbookparametrar](#Runbook-parameters) nedan för mer information om parametrar.
+5. På den **jobbet** sida, du kan visa statusen för runbook-jobbet.
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Starta en runbook med Windows PowerShell
 Du kan använda den [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) att starta en runbook med Windows PowerShell. Följande exempelkod startar en runbook med namnet Test-Runbook.
@@ -78,12 +78,12 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 ```
 
 ## <a name="runbook-parameters"></a>Runbook-parametrar
-När du startar en runbook från Azure Portal eller Windows PowerShell skickas instruktionen via Azure Automation-webbtjänsten. Den här tjänsten stöder inte parametrar med komplexa datatyper. Om du måste ange ett värde för en komplex parameter, så måste du anropa den infogad från en annan runbook enligt beskrivningen i [underordnade runbooks i Azure Automation](automation-child-runbooks.md).
+När du startar en runbook från Azure portal eller Windows PowerShell skickas instruktionen via Azure Automation-webbtjänsten. Den här tjänsten stöder inte parametrar med komplexa datatyper. Om du måste ange ett värde för en komplex parameter, så måste du anropa den infogad från en annan runbook enligt beskrivningen i [underordnade runbooks i Azure Automation](automation-child-runbooks.md).
 
-Azure Automation-webbtjänsten tillhandahåller särskilda funktioner för parametrar med vissa datatyper som beskrivs i följande avsnitt.
+Azure Automation-webbtjänsten tillhandahåller särskilda funktioner för parametrar med vissa datatyper som beskrivs i följande avsnitt:
 
 ### <a name="named-values"></a>Namngivna värden
-Om parametern är datatypen [objekt] så att du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Värde1', Name2: 'Value2', Name3: 'Value3'}*. Dessa värden måste vara enkla typer. Runbooken får parametern som ett [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) med egenskaper som motsvarar varje namngivet värde.
+Om parametern är datatypen [objekt] så att du kan använda följande JSON-format för att skicka en lista över namngivna värden: *{Name1: 'Värde1', Name2: 'Value2', Name3: 'Value3'}*. Dessa värden måste vara enkla typer. Runbook får parametern som ett [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) med egenskaper som motsvarar varje namngivet värde.
 
 Överväg följande test-runbook som accepterar en parameter med namnet användare.
 
@@ -109,7 +109,7 @@ Följande text kan användas för user-parameter.
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
-Detta resulterar i följande utdata.
+Detta resulterar i följande utdata:
 
 ```
 Joe
@@ -144,7 +144,7 @@ Följande text kan användas för user-parameter.
 ["Joe","Smith",2,true]
 ```
 
-Detta resulterar i följande utdata.
+Detta resulterar i följande utdata:
 
 ```
 Joe
@@ -174,13 +174,13 @@ Följande text kan användas för den användaren parametern under förutsättni
 My Credential
 ```
 
-Om användarnamnet i autentiseringsuppgiften var *jsmith*, detta resulterar i följande utdata.
+Om användarnamnet i autentiseringsuppgiften var *jsmith*, detta resulterar i följande utdata:
 
 ```
 jsmith
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Runbook-arkitekturen i aktuella artikeln ger en översikt över runbooks hantera resurserna i Azure och lokala med Hybrid Runbook Worker.  Mer information om att köra Automation-runbooks i ditt datacenter, referera till [Runbook Worker-hybrider](automation-hybrid-runbook-worker.md).
+* Runbook-arkitekturen i aktuella artikeln ger en översikt över runbooks hantera resurserna i Azure och lokala med Hybrid Runbook Worker. Mer information om att köra Automation-runbooks i ditt datacenter, referera till [Runbook Worker-hybrider](automation-hybrid-runbook-worker.md).
 * Mer information om att skapa modulbaserade runbooks som ska användas av andra runbooks för specifika eller vanliga funktioner avser [underordnade Runbooks](automation-child-runbooks.md).
 

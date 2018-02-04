@@ -6,7 +6,7 @@ Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och föl
 Login-AzureRmAccount
 ```
 
-Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. Det här exemplet används **eastus**. Lagra det i en variabel och använd variabeln så att du kan ändra den på en enda plats.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I det här exemplet används **eastus**. Lagra det i en variabel och använd variabeln så att du kan ändra den på en enda plats.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -31,7 +31,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage `
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 ```

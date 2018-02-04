@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline.
@@ -667,6 +667,14 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |ObservedCapacity|Observerad kapacitet|Antal|Medel|Den kapacitet som rapporteras till autoskalning vid körning.|Inga dimensioner|
 |ScaleActionsInitiated|Skalningsåtgärder har initierats|Antal|Totalt|Riktningen på skalningsåtgärden.|ScaleDirection|
 
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+
+|Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
+|---|---|---|---|---|---|
+|ServiceApiHit|Totalt antal Service API-träffar|Antal|Totalt antal|Totalt antal Service API-träffar|ActivityType ActivityName|
+|ServiceApiLatency|Total svarstid för Service API|Millisekunder|Antal, medel, Minimum, maximalt|Total svarstid för Service API-begäranden|ActivityType ActivityName, StatusCode|
+|ServiceApiResult|Totalt antal Service API-resultat|Antal|Totalt antal|Totalt antal Service API-resultat|ActivityType ActivityName, StatusCode|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
@@ -842,9 +850,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Outgoing.mpns.throttled|MPNS – begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som inte levererades eftersom MPNS begränsar den här appen (WNS MPNS: 406 Ogiltigt format).|Inga dimensioner|
 |Outgoing.mpns.invalidnotificationformat|MPNS – ogiltigt meddelandeformat|Antal|Totalt|Antal push-meddelanden som inte levererades eftersom nyttolasten för meddelanden var för stor.|Inga dimensioner|
 |Outgoing.mpns.channeldisconnected|MPNS – frånkopplad kanal|Antal|Totalt|Antal push-meddelanden som inte levererades på grund av att ChannelURI i registreringen frånkopplades (MPNS-status: 412 hittades inte).|Inga dimensioner|
-|Outgoing.mpns.dropped|MPNS – utelämnade meddelanden|Antal|Totalt|Antal push-meddelanden som utelämnats av MPNS (MPNS-svarshuvud: X-NotificationStatus: QueueFull eller Suppressed).|Inga dimensioner|
-|Outgoing.mpns.pnserror|MPNS-fel|Antal|Totalt|Antal push-meddelanden som inte levererades på grund av kommunikationsproblem med MPNS.|Inga dimensioner|
-|Outgoing.mpns.authenticationerror|MPNS-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som inte levererades eftersom PNS inte godkände de angivna autentiseringsuppgifterna eller på grund av att autentiseringsuppgifterna är blockerade.|Inga dimensioner|
+|outgoing.mpns.dropped|MPNS – utelämnade meddelanden|Antal|Totalt|Antal push-meddelanden som utelämnats av MPNS (MPNS-svarshuvud: X-NotificationStatus: QueueFull eller Suppressed).|Inga dimensioner|
+|outgoing.mpns.pnserror|MPNS-fel|Antal|Totalt|Antal push-meddelanden som inte levererades på grund av kommunikationsproblem med MPNS.|Inga dimensioner|
+|outgoing.mpns.authenticationerror|MPNS-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som inte levererades eftersom PNS inte godkände de angivna autentiseringsuppgifterna eller på grund av att autentiseringsuppgifterna är blockerade.|Inga dimensioner|
 |notificationhub.pushes|Alla utgående meddelanden|Antal|Totalt|Alla utgående meddelanden i meddelandehubben|Inga dimensioner|
 |incoming.all.requests|Alla inkommande förfrågningar|Antal|Totalt|Totalt antal inkommande förfrågningar för en meddelandehubb|Inga dimensioner|
 |incoming.all.failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade förfrågningar för en meddelandehubb|Inga dimensioner|
@@ -853,7 +861,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|QueryDuration||Antal|Medel||Inga dimensioner|
+|QueryDuration|Frågan varaktighet|Antal|Medel|DAX-frågor varaktighet i det sista intervallet|Inga dimensioner|
 |QueryPoolJobQueueLength|Trådar: Kölängd frågan poolen jobb|Antal|Medel|Antal jobb i kö i trådpoolen för frågan.|Inga dimensioner|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

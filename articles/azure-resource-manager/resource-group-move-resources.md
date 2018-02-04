@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/01/2018
 ---
@@ -190,43 +190,29 @@ Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det vir
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 
-När du arbetar med Apptjänst-appar kan flytta du inte endast en App Service-plan. Om du vill flytta Apptjänst-appar är alternativen:
+Begränsningar för att flytta resurser Apptjänst variera beroende på om du flyttar resurser inom en prenumeration eller till en ny prenumeration.
 
-* Flytta App Service-plan och alla andra resurser i Apptjänst i resursgruppen till en ny resursgrupp som inte redan har App Service-resurser. Det här kravet innebär måste du flytta även Apptjänst resurser som inte är associerad med App Service-plan.
-* Flytta apparna till en annan resursgrupp men behålla alla programtjänstplaner i den ursprungliga resursgruppen.
+### <a name="moving-within-the-same-subscription"></a>Flytta inom samma prenumeration
 
-Programtjänstplanen behöver inte finnas i samma resursgrupp som appen för appen ska fungera korrekt.
+När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta de överförda SSL-certifikat. Men du kan flytta en Webbapp till den nya resursgruppen utan att flytta det överförda SSL-certifikatet och din app SSL fortfarande fungerar. 
 
-Om till exempel din resursgrupp innehåller:
+Följ dessa steg om du vill flytta SSL-certifikat med webbprogrammet:
 
-* **Web-a** som är associerad med **planera en**
-* **Web-b** som är associerad med **plan b**
+1.  Ta bort det överförda certifikatet från Web App.
+2.  Flytta webbprogrammet.
+3.  Överför certifikatet till det webbprogram som har flyttats.
 
-Alternativen är:
+### <a name="moving-across-subscriptions"></a>Flytt mellan prenumerationer
 
-* Flytta **web-a**, **planera en**, **web-b**, och **plan b**
-* Flytta **web-a** och **web-b**
-* Flytta **web-a**
-* Flytta **web-b**
+När du flyttar en Webbapp _över prenumerationer_, gäller följande begränsningar:
 
-Alla andra kombinationer involverar lämnar bakom en resurstyp som kan finnas kvar när du flyttar en apptjänstplan (någon typ av App Service-resurs).
-
-Om ditt webbprogram finns i en annan resursgrupp än dess App Service-plan, men du vill flytta både en ny resursgrupp, måste du flytta i två steg. Exempel:
-
-* **Web-a** finns i **web-grupp**
-* **Planera en** finns i **plan-grupp**
-* Du vill **web-a** och **planera en** finns i **kombineras grupp**
-
-För att åstadkomma detta steg, utför du två separata flytta åtgärderna i följande ordning:
-
-1. Flytta den **web-a** till **plan-grupp**
-2. Flytta **web-a** och **planera en** till **kombineras grupp**.
-
-Du kan flytta ett certifikat för App Service till en ny resursgrupp eller prenumeration utan problem. Om webbappen innehåller ett SSL-certifikat som du köpt externt och överförs till appen, måste du radera certifikatet innan du flyttar webbprogrammet. Exempelvis kan du utföra följande steg:
-
-1. Ta bort det överförda certifikatet från webbappen
-2. Flytta webbappen
-3. Överför certifikatet till webbappen
+- Mål resursgruppens namn får inte ha några befintliga resurser i Apptjänst. Apptjänst resurser inkluderar:
+    - Web Apps
+    - App Service-planer
+    - Överförda eller importerade SSL-certifikat
+    - Apptjänstmiljöer
+- Alla Apptjänst resurser i resursgruppen måste flyttas tillsammans.
+- Apptjänst resurser kan bara flyttas från resursgruppen där de skapades. Om en App Service-resursen är inte längre i dess ursprungliga resursgrupp, det måste flyttas tillbaka till den ursprungliga resursgruppen först och sedan den flyttas över prenumerationer. 
 
 ## <a name="classic-deployment-limitations"></a>Klassisk distribution begränsningar
 

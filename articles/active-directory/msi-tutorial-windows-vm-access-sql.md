@@ -3,7 +3,7 @@ title: "Använda en Windows VM-MSI för åtkomst till Azure SQL"
 description: "En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure SQL."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: dfa5c75c803be0cda05b2906c3615300ad84bca6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
 
@@ -30,7 +30,7 @@ Den här kursen visar hur du använder en hanterad tjänst identitet (MSI) för 
 > * Ge dina VM-åtkomst till en Azure SQL-server
 > * Hämta en åtkomst-token med VM-identitet och använda den för att fråga en Azure SQL-server
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

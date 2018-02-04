@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: rafats
-ms.openlocfilehash: d179f2880b026cb10db53c1218507e7d1e396b8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
 
@@ -179,6 +179,7 @@ Vänster klienten startades första och den startade övervakningen alla partiti
 
 Observera att om du har två serverlösa Azure funktioner som krävs för övervakning i samma samling och använder samma lånet och sedan de två funktionerna kan få olika dokument, beroende på hur processor-biblioteket beslutar att åtgärd partitionerna.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Förstå ändra Feed Processor-biblioteket
 
 Det finns fyra huvudsakliga komponenter för att implementera ändra Feed Processor: samlingen övervakade, lån samlingen, värd för händelsebearbetning och konsumenterna. 

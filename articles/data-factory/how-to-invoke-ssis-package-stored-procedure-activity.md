@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -75,7 +75,7 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
 1. Klicka på sidan komma igång **skapa pipeline**: 
 
     ![Sidan Kom igång](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. I den **aktiviteter** verktygslådan Expandera **SQL-databas**, och musen **lagrade proceduren** aktivitet pipeline desginer ytan. 
+2. I den **aktiviteter** verktygslådan Expandera **SQL-databas**, och musen **lagrade proceduren** aktiviteten till designytan pipeline. 
 
     ![Dra och släpp lagrade proceduren aktivitet](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. I egenskapsfönstret för aktiviteten lagrad procedur växla till den **konto för SQL** och på **+ ny**. Skapa en anslutning till Azure SQL-databas som är värd för SSIS-katalogen (SSIDB-databasen). 
@@ -94,11 +94,11 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
         ![Länkad Azure SQL Database-tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Växla till i egenskapsfönstret för den **lagrade proceduren** fliken från den **konto för SQL** fliken och gör följande: 
 
-    1. För den **lagrat procedurnamn** fältet Ange `sp_executesql` . 
+    1. För den **lagrat procedurnamn** fältet Ange `sp_executesql`. 
     2. Klicka på **+ ny** i den **lagrade procedurparametrar** avsnitt. 
     3. För **namn** för parametern, ange **infogandekolumner**. 
-    4. För **typen** för parametern, ange **sträng** . 
-    5. För **värdet** för parametern, ange följande SQL-fråga.
+    4. För **typen** för parametern, ange **sträng**. 
+    5. För **värdet** för parametern, ange följande SQL-fråga:
 
         I SQL-frågan anger rätt värden för den **mappnamn**, **projekt_namn**, och **paketnamn** parametrar. 
 
@@ -133,7 +133,9 @@ I det här avsnittet utlösa en pipeline-körning och övervaka den.
 
     ![Kontrollera paketet körningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-Du kan också skapa en schemalagd utlösare för din pipeline så att pipelinen körs enligt ett schema (houly, varje dag, osv.). Ett exempel finns [och skapa en datafabrik - Data Factory gränssnitt](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+> [!NOTE]
+> Du kan också skapa en schemalagd utlösare för din pipeline så att pipelinen körs enligt ett schema (varje timme, varje dag, osv.). Ett exempel finns [och skapa en datafabrik - Data Factory gränssnitt](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 I det här avsnittet använder du Azure PowerShell för att skapa Data Factory-pipelinen med en lagrad procedur-aktivitet som anropar ett SSIS-paket. 
@@ -321,7 +323,7 @@ I det föregående steget anropas i pipeline på begäran. Du kan också skapa e
     }    
     ```
 2. I **Azure PowerShell**, växla till den **C:\ADF\RunSSISPackage** mapp.
-3. Kör den **Set AzureRmDataFactoryV2Trigger** för att skapa utlösaren. 
+3. Kör den **Set AzureRmDataFactoryV2Trigger** cmdlet, vilket skapar utlösaren. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"

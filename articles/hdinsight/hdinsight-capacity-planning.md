@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -67,9 +67,7 @@ Vi rekommenderar 4 till 8 storage-konton i ett kluster 48-noder. Även om det ka
 
 ## <a name="choose-a-cluster-type"></a>Välj en typ av kluster
 
-Typ av kluster anger arbetsbelastningen ditt HDInsight-kluster är konfigurerat för att köras, till exempel Hadoop, Storm, Kafka eller Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Varje typ av kluster har en specifik distributionstopologi som innehåller kraven för storlek och antalet noder.
+Typ av kluster anger arbetsbelastningen ditt HDInsight-kluster är konfigurerat för att köras, till exempel Hadoop, Storm, Kafka eller Spark. En detaljerad beskrivning av de tillgängliga klustertyperna finns [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har en specifik distributionstopologi som innehåller kraven för storlek och antalet noder.
 
 ## <a name="choose-the-vm-size-and-type"></a>Välj VM-storlek och typ
 
@@ -96,9 +94,7 @@ Du kan skala ut klustret för att uppfylla kraven för inläsning av belastning 
 
 ### <a name="cluster-lifecycle"></a>Klustret livscykel
 
-Du debiteras för ett kluster livslängd. Om det finns endast vissa tider som du behöver ditt kluster upp och körs, kan du skapa på begäran-kluster med Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-Du kan också skapa PowerShell-skript som etablerar och ta bort klustret och sedan schemalägga dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
+Du debiteras för ett kluster livslängd. Om det finns endast vissa tider som du behöver dina kluster upp och igång, kan du [skapa på begäran-kluster med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Du kan också skapa PowerShell-skript som etablerar och ta bort klustret och sedan schemalägga dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > När ett kluster tas bort raderas även dess standard Hive metastore. Använd en extern metadataarkivet, t.ex Azure-databas eller Oozie för att bevara metastore för nästa återskapar för klustret.

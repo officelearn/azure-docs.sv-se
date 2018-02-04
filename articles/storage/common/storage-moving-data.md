@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Flytta data till och från Azure Storage
 Om du vill flytta lokala data till Azure Storage (eller vice versa) finns det flera olika sätt att göra detta. Den metod som passar dig bäst beror på ditt scenario. Den här artikeln ger en snabb överblick över olika scenarier och lämpliga erbjudanden för varje kriterium.
@@ -41,9 +41,9 @@ Kolla vår lista över [Azure lagringsutforskare](../storage-explorers.md) vill 
 Om du behöver eller inte bekvämare med kommandoradsverktyget (t.ex. systemadministratörer) följer här några alternativ för du bör tänka på:
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy är ett Windows-kommandoradsverktyg för högpresterande kopiering av data till och från Azure Storage. Du kan också kopiera data inom ett lagringskonto eller mellan olika lagringskonton.
+AzCopy är ett kommandoradsverktyg för högpresterande kopiering av data till och från Azure Storage. Du kan också kopiera data inom ett lagringskonto eller mellan olika lagringskonton. AzCopy är tillgänglig på [Windows](storage-use-azcopy.md) på [Linux](storage-use-azcopy-linux.md).
 
-Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) vill veta mer.
+Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) eller [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md) vill veta mer.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell är en modul som tillhandahåller cmdletar för att hantera tjänster på Azure. Det är ett uppgiftsbaserat kommandoradsgränssnitt och skriptspråk som utformats specifikt för systemadministration.

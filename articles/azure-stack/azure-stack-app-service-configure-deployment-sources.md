@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -49,8 +49,7 @@ Du måste ha en GitHub-konto för att slutföra åtgärden. Du kanske vill anvä
 2. Ange en **programnamn** till exempel - användning på Azure-stacken.
 3. Ange den **webbsida URL**. Webbsida URL-Adressen måste vara Azure Stack Portal-adress. Till exempel https://portal.local.azurestack.external.
 4. Ange en **Programbeskrivningen**.
-5. Ange den **auktorisering återanrop URL**.  I en standarddistribution av Azure-stacken är URL: en i formuläret-https://portal.local.azurestack.external/tokenauthorize om du använder en annan domän ersättning din domän för azurestack.local.
-    ![GitHub - registrera ett nytt program med värden som fylls i][4]
+5. Ange den **auktorisering återanrop URL**.  I en standarddistribution av Azure-stacken är URL: en i formuläret-https://portal.local.azurestack.external/tokenauthorize om du använder en annan domän ersättning din domän för local.azurestack.external ![GitHub - registrera en ny program med värden som fylls i][4]
 6. Klicka på **registrera program**.  Nu visas med en lista över sidan i **klient-ID** och **Klienthemlighet** för programmet.
     ![GitHub - färdiga programmet registrering][5]
 7.  I en ny webbläsarflik eller logga in på Azure-stacken Admin Portal (https://adminportal.local.azurestack.external) som tjänstadministratör.

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Skapa en insticksenhet för IoT som fungerar som en transparent gateway - förhandsgranskning
 
@@ -104,12 +104,12 @@ För att kunna konfigurera din IoT-Edge-enhet som en gateway måste du konfigure
 
 Vi förutsätter följande namn från skriptexemplen ovan:
 
-| Resultat | Bash-skript | PowerShell |
-| ------ | ----------- | ---------- |
-| Certifikat för enhet | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
-| Privata nyckel | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
-| Certifikatkedja för enhet | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT-hubb ägare Certifikatutfärdare | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
+| Resultat | Filnamn |
+| ------ | --------- |
+| Certifikat för enhet | `certs/new-edge-device.cert.pem` |
+| Privata nyckel | `private/new-edge-device.cert.pem` |
+| Certifikatkedja för enhet | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT-hubb ägare Certifikatutfärdare | `certs/azure-iot-test-only.root.ca.cert.pem`  |
 
 Ger information för enheten och certifikat till IoT kant-körningsmiljön. 
  

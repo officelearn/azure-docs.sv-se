@@ -1,6 +1,6 @@
 ---
 title: "Lägg till Azure logganalys hanteringslösningar | Microsoft Docs"
-description: "Operations Management Suite (OMS) / Log Analytics hanteringslösningar är en samling logik och visualisering data förvärv regler som ger mått pivoteras runt ett specifikt problem."
+description: "Lösningar för hantering i Azure är en samling av logik och visualisering data förvärv regler som ger mått pivoteras runt ett specifikt problem."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 6c7d8d6946d89e4c6541636287e3022c444e0eb8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Lägg till Azure logganalys hanteringslösningar i arbetsytan
 
-Hanteringslösningar för log Analytics är en samling **logik**, **visualiseringen**, och **data förvärv regler** som ger mått pivoteras runt en viss problemet område. Den här artikeln visar hur du lägger till och ta bort för en arbetsyta med hjälp av Azure portal finns hanteringslösningar som stöds av logganalys. Du kan också lägga till lösningar på OMS-portalen med galleriet lösningar.
+Hanteringslösningar för log Analytics är en samling **logik**, **visualiseringen**, och **data förvärv regler** som ger mått pivoteras runt en viss problemet område. Den här artikeln visar hur du lägger till och ta bort för en arbetsyta med hjälp av Azure portal finns hanteringslösningar som stöds av logganalys.
 
 Hanteringslösningar Tillåt djupare insikter om:
 
@@ -34,9 +34,9 @@ Hanteringslösningar Tillåt djupare insikter om:
 > [!NOTE]
 > Logganalys innehåller logg-sökning, så du inte behöver installera en lösning för att aktivera den. Men får du datavisualiseringar, föreslagna sökningar och insikter genom att lägga till hanteringslösningar din arbetsyta.
 
-Med den här artikeln kan du lägga till hanteringslösningar till en arbetsyta med hjälp av Azure portal Marketplace. När du har lagt till en lösning data samlas in från servrar i din infrastruktur och skickas till OMS-tjänsten. Bearbetning av OMS tar service vanligtvis några minuter till en timme. När tjänsten bearbetar data, kan du visa den i OMS.
+Med den här artikeln kan du lägga till hanteringslösningar till en arbetsyta med hjälp av Azure portal Marketplace. När du har lagt till en lösning data samlas in från servrar i din infrastruktur och skickas till logganalys. Bearbetning vanligtvis tar några minuter till en timme. När tjänsten bearbetar data, kan du visa den i logganalys.
 
-Du kan enkelt ta bort en hanteringslösning när den inte längre behövs. När du tar bort en lösning för skickas dess data inte till OMS. Om du är på den kostnadsfria prisnivån kan tar bort en lösning minska mängden data som används kan hjälpa dig under dagliga kvoten av data.
+Du kan enkelt ta bort en hanteringslösning när den inte längre behövs. När du tar bort en lösning för skickas dess data inte till logganalys. Om du är på den kostnadsfria prisnivån kan tar bort en lösning minska mängden data som används kan hjälpa dig under dagliga kvoten av data.
 
 ## <a name="view-available-management-solutions"></a>Visa tillgängliga lösningar
 
@@ -80,14 +80,14 @@ Alla lösningar i följande tabell är tillgängliga i Azure-portalen och lösni
 | [Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [Varningshantering](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [Application Insights Connector (förhandsgranskning)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
 | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [Azure Nätverkssäkerhetsgruppen Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br>Per&nbsp;nod&nbsp;(OMS)                                                                          | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto|
 | [Azure Web Apps-analys](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 |[Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)                                                                       | Kräver en klassiska Backup-valvet.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [Kapacitet och prestanda (förhandsgranskning)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Spårning av ändringar](log-analytics-change-tracking.md)                                       | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Spårning av ändringar](log-analytics-change-tracking.md)                                       | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
 | [Behållare](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [IT Service Management Connector](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)     | |
 | HDInsight HBase övervakning <br>(Förhandsversion)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
@@ -104,7 +104,7 @@ Alla lösningar i följande tabell är tillgängliga i Azure-portalen och lösni
 | Starta/stoppa virtuella datorer utanför arbetstid<br>(Förhandsversion)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
 | [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [System Center Operations Manager Assessment (förhandsgranskning)](log-analytics-scom-assessment.md)  | <ul><li>Insikter och analys</li><li>Log Analytics</li></ul>        | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
 | [Uppdateringsefterlevnad (förhandsgranskning)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [Uppgraderingsberedskap](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [VMware övervakning (förhandsgranskning)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
@@ -126,14 +126,14 @@ Gemenskapen tillhandahålls lösningar som är tillgängliga från den [Azure ma
 ## <a name="data-collection-details"></a>Information om samlingen
 Följande tabeller visar data collection metoder och annan information om hur data samlas in för Log Analytics hanteringslösningar och datakällor. Tabellerna kategoriseras efter lösning erbjudanden som motsvarar [prenumeration prisnivåer](https://go.microsoft.com/fwlink/?linkid=827926). Aktiviteten logganalys-lösning är tillgänglig för alla prisnivåer kostnadsfritt.
 
-Log Analytics Windows-agenten och System Center Operations Manager-agenten är i princip samma. Windows-agenten innehåller ytterligare funktioner för att tillåta att ansluta till OMS-arbetsytan och vidarebefordra via en proxyserver. Om du använder en Operations Manager-agenten måste vara mål som en OMS-agenten kan kommunicera med OMS. Operations Manager-agenter i den här tabellen är OMS-agenter som är anslutna till Operations Manager. Se [ansluta Operations Manager till logganalys](log-analytics-om-agents.md) information om hur du ansluter din befintliga miljö för Operations Manager till OMS.
+Log Analytics Windows-agenten och System Center Operations Manager-agenten är i princip samma. Windows-agenten innehåller ytterligare funktioner för att tillåta att ansluta till logganalys-arbetsytan och vidarebefordra via en proxyserver. Om du använder en Operations Manager-agenten måste vara mål som en OMS-agenten kan kommunicera med logganalys. Operations Manager-agenter i den här tabellen är OMS-agenter som är anslutna till Operations Manager. Se [ansluta Operations Manager till logganalys](log-analytics-om-agents.md) information om hur du ansluter din befintliga Operations Manager-miljö till logganalys.
 
 > [!NOTE]
-> Agent som du använder bestämmer hur data skickas till OMS, med följande villkor:
+> Agent som du använder bestämmer hur data skickas till logganalys, med följande villkor:
 > - Du använda antingen Windows-agenten eller en Operations Manager-anslutna OMS-agent.
-> - När Operations Manager krävs, skickas Operations Manager agent-data för lösningen alltid till OMS med hjälp av Operations Manager-hanteringsgruppen. Dessutom när Operations Manager krävs används endast Operations Manager-agenten av lösningen.
-> - När Operations Manager krävs inte och visas Operations Manager-agentinformationen skickas till OMS med hanteringsgruppen och Operations Manager agent-data skickas alltid till OMS med hanteringsgrupper. Windows-agenter kringgå hanteringsgruppen och skicka data direkt till OMS.
-> - När data för Operations Manager-agenten inte skickas med hjälp av en hanteringsgrupp, är data skickas direkt till OMS – kringgå hanteringsgruppen.
+> - När Operations Manager krävs, skickas Operations Manager agent-data för lösningen alltid till Log Analytics med hjälp av Operations Manager-hanteringsgruppen. Dessutom när Operations Manager krävs används endast Operations Manager-agenten av lösningen.
+> - När Operations Manager krävs inte och visas som Operations Manager agent-data skickas till logganalys med hanteringsgruppen och sedan Operations Manager agent data skickas alltid till logganalys med hanteringsgrupper. Windows-agenter kringgå hanteringsgruppen och skicka data direkt till Log Analytics.
+> - När data för Operations Manager-agenten inte skickas med hjälp av en hanteringsgrupp, är data skickas direkt till Log Analytics – kringgå hanteringsgruppen.
 
 ### <a name="insight--analytics--log-analytics"></a>Insight & Analytics / Log Analytics
 
@@ -242,7 +242,7 @@ Följande information gäller för både offentliga och privata förhandsversion
 * Saker fungerar kanske inte alltid.
   * Skickar intervall från att vara en mindre illustrerar via till något inte fungerar alls.
 * Det finns en risk för att förhandsgranskningen ska ha en negativ inverkan på dina system / miljö.
-  * Vi försöker undvika negativa saker händer till system som du använder med OMS men ibland oväntat saker.
+  * Vi försöker undvika negativa saker händer till system som du använder men ibland oväntat saker.
 * Dataförlust / kan skadas.
 * Vi be dig att samla in diagnostikloggar eller andra data för att felsöka problem.
 * Funktionen eller lösning kan tas bort (tillfälligt eller permanent).

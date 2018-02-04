@@ -16,20 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 85383cc32e67db1f7e6964dc0b55bf3977311d40
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 49277871026e79b871b0216c05e051a1c93336b3
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>Arkitektur för Hadoop i HDInsight
+# <a name="hadoop-architecture-in-hdinsight"></a>Hadoop-arkitektur i HDInsight
 
 Hadoop innehåller två grundläggande komponenter, hög densitet File System (HDFS) som tillhandahåller lagring och ännu en annan resurs förhandlare (YARN) som tillhandahåller bearbetning. Med funktioner för lagring och bearbetning blir ett kluster kan köra MapReduce program för att utföra den önskade databearbetningen.
 
 > [!NOTE]
-> Ett HDFS vanligtvis inte har distribuerats i HDInsight-klustret för att tillhandahålla lagring. I stället används ett HDFS-kompatibla gränssnitt lager av Hadoop-komponenter. Den faktiska lagringskapacitet tillhandahålls av Azure Storage eller Azure Data Lake Store. För Hadoop, MapReduce-jobb som körs på HDInsight-kluster som kör som om det fanns en HDFS och kräver inga ändringar att stödja sina lagringsbehov. Lagring utlagd i Hadoop i HDInsight, men YARN bearbetning förblir en central del. 
-
-<!--   As described in [HDInsight architecture](hdinsight-architecture.md)  -->
+> Ett HDFS vanligtvis inte har distribuerats i HDInsight-klustret för att tillhandahålla lagring. I stället används ett HDFS-kompatibla gränssnitt lager av Hadoop-komponenter. Den faktiska lagringskapacitet tillhandahålls av Azure Storage eller Azure Data Lake Store. För Hadoop, MapReduce-jobb som körs på HDInsight-kluster som kör som om det fanns en HDFS och kräver inga ändringar att stödja sina lagringsbehov. Lagring utlagd i Hadoop i HDInsight, men YARN bearbetning förblir en central del. Mer information finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Den här artikeln beskriver YARN och hur den samordnar körningen av program på HDInsight.
 
@@ -56,8 +54,7 @@ Alla typer av HDInsight-kluster distribuera YARN. Resurshanteraren distribueras 
 
 ![YARN i HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 * [Använda MapReduce i Hadoop i HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-<!--  * [HDInsight Architecture](hdinsight-architecture.md)  -->
+* [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;fashah;garye
-ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev;garye
+ms.openlocfilehash: df1e658d532dcb23fdf0aa14bfad59e98c8ff7a8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i en SQL Server-VM på Azure som hjälper algoritmer Lär dig mer effektivt från data. Du kan använda SQL- eller programmeringsspråk som Python för att utföra den här uppgiften. Båda metoderna visas här.
@@ -32,7 +32,7 @@ Detta **menyn** länkar till avsnitt som beskriver hur du skapar funktioner för
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)

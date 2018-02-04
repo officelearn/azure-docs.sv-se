@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluter till lokala datakällor med Azure-lokala Data Gateway
 Lokala datagateway fungerar som en brygga som tillhandahåller säker dataöverföring mellan lokala datakällor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region fungerar även den senaste versionen av gatewayen med Azure Logikappar, Power BI, Power appar och Microsoft Flow. Du kan associera flera tjänster i samma region med en enda gateway. 
@@ -28,11 +28,11 @@ Hämtar installationsprogrammet gatewayen första gången är en process i fyra 
 
 - **Hämta och kör installationsprogrammet** -det här steget installerar gateway-tjänsten på en dator i din organisation. Du också logga in på Azure med ett konto i din [klientorganisationens](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (gästkonton) stöds inte.
 
-- **Registrera din gateway** – i det här steget kan du ange ett namn och återställning för din gateway och välj en region som registrerar din gateway med Gateway-Molntjänsten. Gateway-resurs **måste vara registrerat i samma region** som Analysis Services-servrar. 
+- **Registrera din gateway** – i det här steget kan du ange ett namn och återställning för din gateway och välj en region som registrerar din gateway med Gateway-Molntjänsten. Gatewayresursen kan registreras i en region, men vi rekommenderar den vara i samma region som Analysis Services-servrar. 
 
 - **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i din Azure-prenumeration.
 
-- **Anslut dina servrar till din gateway-resurs** -när du har en gateway-resurs i din prenumeration kan du börja ansluter dina servrar. Du kan ansluta flera servrar och andra resurser, under förutsättning att de inte finns i regionen.
+- **Anslut dina servrar till din gateway-resurs** -när du har en gateway-resurs i din prenumeration kan du börja ansluter dina servrar. Du kan ansluta flera servrar och andra resurser till den.
 
 Om du vill komma igång nu direkt, se [installera och konfigurera lokala datagateway](analysis-services-gateway-install.md).
 
@@ -69,17 +69,17 @@ Följande är fullständigt kvalificerat domännamn som används av gateway.
 
 | Domännamn | Utgående portar | Beskrivning |
 | --- | --- | --- |
-| *. powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
-| *. powerbi.com |443 |HTTPS |
-| *. analysis.windows.net |443 |HTTPS |
-| *. login.windows.net |443 |HTTPS |
-| *. servicebus.windows.net |5671-5672 |Avancerade Message Queuing-protokollet (AMQP) |
-| *. servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) |
-| *. frontend.clouddatahub.net |443 |HTTPS |
-| *. core.windows.net |443 |HTTPS |
+| *.powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
+| *.powerbi.com |443 |HTTPS |
+| *.analysis.windows.net |443 |HTTPS |
+| *.login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |5671-5672 |Avancerade Message Queuing-protokollet (AMQP) |
+| *.servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) |
+| *.frontend.clouddatahub.net |443 |HTTPS |
+| *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *. msftncsi.com |443 |Används för att testa internet-anslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
-| *.microsoftonline p.com |443 |Används för autentisering beroende på konfiguration. |
+| *.msftncsi.com |443 |Används för att testa internet-anslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
+| *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
 
 ### <a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 Du kan tvinga gateway att kommunicera med Azure Service Bus med hjälp av HTTPS i stället för direkt TCP; men kan detta avsevärt minska prestanda. Du kan ändra den *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* filen genom att ändra värdet från `AutoDetect` till `Https`. Den här filen finns vanligtvis i *C:\Program Files\On lokala datagateway*.
@@ -131,7 +131,7 @@ Du kan använda verktyg från tredje part Azure hastighet testa appen för att m
 **En**: Nej Windows-tjänsten måste ha ett giltigt Windows-konto. Som standard körs tjänsten med tjänst-SID NT SERVICE\PBIEgwService.
 
 **Q**: hur gör jag gäller en gateway? <br/>
-**En**: I för att ta över en gateway (genom att köra installationsprogrammet/ändra i Kontrollpanelen > program) måste du vara ägare för gateway-resurs i Azure och har återställningsnyckeln. Gateway-resursägare kan konfigureras i åtkomstkontroll.
+**En**: att ta över en gateway (genom att köra installationsprogrammet/ändra i Kontrollpanelen > program), måste du vara ägare för gateway-resurs i Azure och har återställningsnyckeln. Gateway-resursägare kan konfigureras i åtkomstkontroll.
 
 ### <a name="high-availability"></a>Hög tillgänglighet och disaster recovery
 
@@ -144,7 +144,7 @@ Du kan använda verktyg från tredje part Azure hastighet testa appen för att m
 ## <a name="troubleshooting"></a>Felsökning
 
 **Q**: Varför ser jag min gateway i listan över gateway-instanser vid försök att skapa en gateway-resurs i Azure? <br/>
-**En**: det finns två möjliga orsaker. Första är en resurs redan har skapats för gatewayen i aktuellt eller några andra prenumerationer. Om du vill undvika den möjligheten att räkna upp resurser av typen **lokala Data Gateways** från portalen. Se till att markera alla prenumerationer vid uppräkning av alla resurser. Observera att när resursen skapas gatewayen inte visas i listan över gateway-instanser i Skapa resurs för Gateway-portaler. Det andra alternativet är att Azure AD-identiteten för den användare som installerade gatewayen skiljer sig från användaren loggat in på Azure-portalen. Lös detta genom att logga in på portalen med samma konto som den användare som har installerat din gateway.
+**En**: det finns två möjliga orsaker. Första är en resurs redan har skapats för gatewayen i aktuellt eller några andra prenumerationer. Om du vill undvika den möjligheten att räkna upp resurser av typen **lokala Data Gateways** från portalen. Se till att markera alla prenumerationer vid uppräkning av alla resurser. När resursen skapas visas gatewayen inte i listan över gateway-instanser i Skapa resurs för Gateway-portaler. Det andra alternativet är att Azure AD-identiteten för den användare som installerade gatewayen skiljer sig från användaren loggat in på Azure-portalen. Lös genom att logga in på portalen med samma konto som den användare som har installerat din gateway.
 
 **Q**: hur kan jag se vilka frågor som ska skickas till den lokala datakällan? <br/>
 **En**: du kan aktivera frågespårning som innehåller de förfrågningar som skickas. Kom ihåg att ändra frågan spåra tillbaka till det ursprungliga värdet när du är klar felsökning. Lämna frågespårning aktiverad skapar större loggar.
@@ -158,7 +158,7 @@ Du kan också titta på Verktyg som datakällan har för spårning frågor. Du k
 
 Många problem kan ansluta när gateway-versionen blir inaktuella. Kontrollera att du använder den senaste versionen som allmän bra. Om du inte har uppdaterat en gateway för en månad eller längre, kan du du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService användare)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService Performance Log Users)
 
 Du kan få detta fel om du försöker installera gatewayen på en domänkontrollant, vilket inte stöds. Se till att du distribuerar gatewayen på en dator som inte är en domänkontrollant.
 

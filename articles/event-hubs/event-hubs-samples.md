@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
 
@@ -33,7 +33,7 @@ Mer information om olika versioner av .NET Framework finns [ramverk och mål](/d
 
 Flera exempel kommer att läggas till med tiden, så kom tillbaka ofta efter uppdateringar.
 
-## <a name="net-standard"></a>Standard för .NET
+## <a name="net-standard"></a>.NET Standard
 
 Följande exempel visar hur du skickar och tar emot händelser med hjälp av den [händelsehubbklient](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) för den [.NET standardbibliotek](/dotnet/articles/standard/library).
 
@@ -45,7 +45,7 @@ Den [börjar skicka](https://github.com/Azure/azure-event-hubs/tree/master/sampl
 
 Den [börja ta emot med den värd för händelsebearbetning](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) prov är ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med hjälp av den värd för händelsebearbetning.
 
-## <a name="net-framework"></a>.NET framework   
+## <a name="net-framework"></a>.NET Framework   
 
 De här exemplen visar olika funktioner i Azure Event Hubs, riktad på [biblioteket för .NET Framework](/dotnet/framework/index).
  
@@ -60,10 +60,6 @@ Den [Event Hubs komma igång](https://code.msdn.microsoft.com/Service-Bus-Event-
 ### <a name="scale-out-event-processing"></a>Skala ut händelsebearbetning 
 
 Den [skala ut händelsebearbetning](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exempel visar hur du använder den [värd för händelsebearbetning](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) att fördela belastningen av Händelsehubbar dataströmmen förbrukning. Den visar hur du implementerar den **EventProcessor** och **EventProcessorFactory** objekt som ska hanteras händelseströmmen. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Hämtar data från SQL till en händelsehubb
-
-Den [dra SQL-data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) exemplet visar hur du hämtar data från en SQLtabell och skicka den till en händelsehubb ska användas som indata i underordnade analytiska program.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Hämta webbdata till en händelsehubb 
 

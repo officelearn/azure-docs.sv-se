@@ -3,21 +3,21 @@ title: "Använda en virtuell Linux-MSI för åtkomst till Azure Key Vault"
 description: "En självstudiekurs som vägleder dig genom processen med att använda en Linux VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: f6b6d50ad2abd737260299ac94f335dcc6ad9cc5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Använd en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
 
@@ -32,7 +32,7 @@ Lär dig att:
 > * Ge dina VM-åtkomst till en hemlighet som lagras i ett Nyckelvalv 
 > * Hämta en åtkomst-token med VM-identitet och använda den för att hämta hemligheten från Nyckelvalvet 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

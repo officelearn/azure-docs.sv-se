@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Vidarebefordra meddelanden med IoT-hubben (Python)
 
@@ -117,6 +117,9 @@ I det här avsnittet kan du ändra appen för enheter som du skapade i den [Kom 
 I det här avsnittet skapar både en Service Bus-kö och ett lagringskonto, Anslut dem till din IoT-hubb och konfigurera din IoT-hubb för att skicka meddelanden till kön baserat på förekomsten av en egenskap på meddelandet och alla meddelanden till lagringskontot. Mer information om hur du bearbeta meddelanden från Service Bus-köer finns [Kom igång med köer] [ lnk-sb-queues-node] och hur du hanterar lagring finns [komma igång med Azure Storage] [Azure Storage].
 
 1. Skapa en Service Bus-kö som beskrivs i [Kom igång med köer][lnk-sb-queues-node]. Anteckna namnet på namnområdet och kön.
+
+    > [!NOTE]
+    > Service Bus-köer och ämnen som används som IoT-hubbslutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **inte åtkomlig** i Azure-portalen.
 
 1. Öppna din IoT-hubb i Azure-portalen och klicka på **slutpunkter**.
 

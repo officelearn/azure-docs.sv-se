@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 88d71510c1d966c3250891eb9a430503959a91ba
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Du kan kopiera data från Sybase-databas till alla stöds sink-datalagret. En li
 
 Mer specifikt stöder den här Sybase-anslutningen:
 
-- Sybase **version 16 och högre**.
+- SAP Sybase SQL var som helst (ASA) **version 16 och högre**; IQ och ASE stöds inte.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
 ## <a name="prerequisites"></a>Förutsättningar

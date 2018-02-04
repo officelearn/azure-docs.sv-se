@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Stöds kontrollanter för förberedelse av förhandsversionen av Azure Machine Learning-data
 Det här dokumentet beskriver uppsättningen kontrollanter som är tillgängliga i den här förhandsgranskningen.
 
-## <a name="the-halo-effect"></a>Halo effekt 
+## <a name="the-halo-effect"></a>Halo-effekt 
 Vissa kontrollanter stöder halo effekt. Den här effekten använder två olika färger att omedelbart visar ändringen visuellt från en transformering. Grå representerar värde innan den senaste transformeringen och blå visas det aktuella värdet. Detta kan vara aktiverad och inaktiverad i alternativ.
 
 ## <a name="graphical-filtering"></a>Grafisk filtrering 
@@ -52,6 +52,7 @@ Den här Inspector stöder halo effekt.
 - Standardantalet buckets (mappen regel) 
 - Visa halo
 - Kernel densitet ritytans överlägget (Gaussisk kernel) 
+- Använd en logaritmisk skala
 
 
 ### <a name="actions"></a>Åtgärder
@@ -65,6 +66,7 @@ Den här inspector visar en frekvenstabell med värden för den kolumnen är mar
 - Fallande
 - Är null/felvärdena
 - Visa halo
+- Använd en logaritmisk skala
 
 
 ### <a name="actions"></a>Åtgärder 

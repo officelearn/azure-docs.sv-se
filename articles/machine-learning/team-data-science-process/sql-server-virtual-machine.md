@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 063709a22540e22d1eb6f1c6a6ff777e95f6a29a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye;bradsev
+ms.openlocfilehash: 6a97e1afb761191874b7a54b1951cb6ef9c4b07e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="heading"></a>Bearbeta Data i SQL Server-dator på Azure
 Det här dokumentet innehåller information om hur att utforska data och generera data som lagras i en SQL Server-VM på Azure-funktioner. Detta kan göras med data wrangling med hjälp av SQL eller med ett programmeringsspråk som Python.

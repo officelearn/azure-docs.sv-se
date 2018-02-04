@@ -1,4 +1,4 @@
-  Gå nu till bladet Cosmos DB-konto och klicka på **Nycklar**, eftersom vi kommer att använda dessa värden i webbprogrammet vi ska skapa nu.
+  Nu gå till sidan Azure DB som Cosmos-kontot och klickar på **nycklar**, enligt dessa värden används i webbprogrammet som du skapar nästa.
 
-![Skärmdump av Azure Portal som visar Cosmos DB-konto med knappen Nycklar markerad i bladet Cosmos DB-konto och värdena URI, PRIMÄRNYCKEL och SEKUNDÄRNYCKEL markerade på bladet Nycklar](./media/cosmos-db-keys/keys.png)
+![Skärmbild av Azure-portalen med knappen nycklar markerad på sidan för Azure DB som Cosmos-konto](./media/cosmos-db-keys/keys.png)
 

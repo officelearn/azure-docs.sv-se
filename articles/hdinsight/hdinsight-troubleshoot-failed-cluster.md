@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 59382931d4b5478888238760b268af7f962a10b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller inte alls HDInsight-kluster
+# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
 Om ett HDInsight-kluster långsam eller misslyckas med en felkod, har du flera alternativ för felsökning. Om dina jobb tar längre tid att köra än väntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från klustret, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till att dessa fördröjningar är dock inte tillräckligt skalning. När du skapar ett nytt HDInsight-kluster, Välj lämpliga [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
@@ -112,7 +112,7 @@ Om det uppstår fördröjningar i klustret, kan du överväga att starta om dina
 
 HDInsight-kluster består av olika typer av noder som kör på virtuella instanser. Varje nod kan övervakas för negativa effekter på resurser, problem med nätverksanslutningen och andra problem som kan sakta ned klustret. Varje kluster innehåller två huvudnoderna och de flesta klustertyper innehåller en kombination av arbetare och kant-noder. 
 
-<!-- For a description of the various nodes each cluster type uses, see [HDInsight Architecture](hdinsight-architecture.md). -->
+En beskrivning av varje typ av kluster använder olika noder finns [ställa in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](hdinsight-hadoop-provision-linux-clusters.md).
 
 I följande avsnitt beskrivs hur du kontrollerar hälsotillståndet för varje nod och övergripande klustret.
 
@@ -134,7 +134,7 @@ $ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton
 
 Ambari visas ett varningsmeddelande som visar de värdar som WebHCat-tjänsten har stoppats. Du kan försöka att få igång tjänsten WebHCat säkerhetskopiera genom att starta om tjänsten på värden.
 
-![Starta om servern WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
 Om en WebHCat-server inte kommer fortfarande, kontrollerar du operations loggen för misslyckade meddelanden. Mer information finns i `stderr` och `stdout` filer som refereras på noden.
 
@@ -255,7 +255,7 @@ Heap Dumpar innehåller en ögonblicksbild av programmets minne, inklusive värd
 
 HDInsight-kluster är förkonfigurerade med standardinställningar för relaterade tjänster, till exempel Hadoop, Hive, HBase och så vidare. Beroende på vilken typ av kluster, dess maskinvarukonfiguration, dess antal noder, vilka typer av jobb du använder, och data du arbetar med (och hur dessa data bearbetas) du kan behöva optimera din konfiguration.
 
-<!-- For detailed instructions on optimizing performance configurations for most scenarios, see [Changing configurations with Ambari](hdinsight-changing-configs-via-ambari.md). When using Spark, see [Optimizing Spark jobs for performance](spark/apache-spark-perf.md).  -->
+Detaljerade instruktioner om hur du optimerar prestandakonfigurationer för de flesta fall finns [optimera klusterkonfigurationer med Ambari](hdinsight-changing-configs-via-ambari.md). När du använder Spark, se [optimera Spark jobb för prestanda](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Steg 7: Återskapa felet på ett annat kluster
 

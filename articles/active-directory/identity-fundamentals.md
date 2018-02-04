@@ -21,7 +21,7 @@ ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azure Identitetshantering
 
-Eftersom fler och fler digitala företagsresurser live utanför företagsnätverket, i molnet och på enheter, blir nödvändigt med en bra molnbaserade identitets- och lösning. Molnbaserad identiteter är nu det bästa sättet att behålla kontrollen över och insyn i hur och när användare åtkomst till företagets program och data.
+Eftersom fler och fler digitala företagsresurser lever utanför företagsnätverket, i molnet och på enheter, blir nödvändigt med en bra molnbaserade identitets- och lösning. Molnbaserad identiteter är nu det bästa sättet att behålla kontrollen över och insyn i hur och när användare åtkomst till företagets program och data.
 
 Microsoft har skydda molnbaserade identiteter för över tio år och nu med [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), skydd datorerna är tillgängliga för dig. Med Azure AD Kontrollera Företagsadministratörer enkelt användar- och accountability med bättre säkerhet och styrning än någonsin tidigare.
 

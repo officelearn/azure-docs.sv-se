@@ -1,115 +1,115 @@
 ---
-title: "Hantera kostnader med hjälp av Azure kostnaden Management | Microsoft Docs"
-description: "Hantera kostnader med hjälp av kostnaden tilldelning och showback och chargeback-rapporter."
+title: Hantera kostnader med Azure Cost Management | Microsoft Docs
+description: "Hantera kostnader med hjälp av kostnadsallokering och detaljerad kostnadsrapportering."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Hantera kostnader med hjälp av Azure kostnaden Management
+# <a name="manage-costs-by-using-azure-cost-management"></a>Hantera kostnader med Azure Cost Management
 
-Du hanterar kostnader och skapa showback-rapporter i Azure kostnaden Management med Cloudyn genom att allokera kostnaderna baserat på taggar. Processen för att fördela tilldelar förbrukade molnresurser kostnader. Kostnaderna fördelas fullständigt när alla resurser som är kategoriserade med taggar. När kostnader fördelas kan du tillhandahålla showback eller återbetalning till användarna med instrumentpaneler och rapporter. Många resurser kan dock ej taggade eller untaggable när du börjar använda hantering av kostnaden.
+Du hanterar kostnader och skapar showback-rapporter i Azure Cost Management by Cloudyn genom att allokera kostnader baserat på taggar. Vid kostnadsallokeringen tilldelas kostnader till dina förbrukade molnresurser. Kostnaderna är helt allokerade när alla resurser är kategoriserade med taggar. När kostnaderna har allokerats kan du visa showback- eller chargeback-information för användarna på instrumentpaneler och i rapporter. Många resurser kanske däremot inte är taggade eller inte kan taggas när du börjar använda Cost Management.
 
-Du kanske vill få ersättning för engineering kostnader. Du behöver för att kunna visa din teknikteamet som du behöver ett specifikt belopp baserat på resurskostnader. Visa en rapport för alla förbrukade resurser som är märkta *engineering*.
+Till exempel kanske du vill få ersättning för ingenjörskostnader. Du måste kunna visa ingenjörsteamet att du behöver ett specifikt belopp baserat på resurskostnader. Du kan visa en rapport med alla förbrukade resurser som är taggade med *engineering*.
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Använd anpassade taggar när du vill fördela kostnader.
-> * Skapa showback och återbetalningsrapporter.
+> * Använder anpassade taggar för allokering av kostnader.
+> * Skapar showback- och chargeback-rapporter.
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Använd anpassade taggar när du vill fördela kostnader
+## <a name="use-custom-tags-to-allocate-costs"></a>Använda anpassade taggar för allokering av kostnader
 
-När du börjar kostnadsallokering, är det första du gör definiera omfattningen med hjälp av en modell för kostnad. Metoden ändras inte kostnader, distribuerar dem. När du skapar en kostnad modell segmentera dina data genom kostnaden entiteten, konto eller prenumeration och flera taggar. Vanliga exempel taggar kan innehålla ett fakturering koden, kostnadsställe eller gruppnamn. Taggar hjälpa dig att utföra showback eller återbetalning till andra delar av organisationen.
+När du börjar allokera kostnader ska du först definiera omfattningen med hjälp av en kostnadsmodell. Kostnadsmodellen ändrar inte kostnaderna utan fördelar dem. När du skapar en kostnadsmodell delar du upp data efter kostnadsenhet, konto eller prenumeration, samt med flera olika taggar. Vanliga exempel på taggar kan vara en faktureringskod, ett kostnadsställe eller ett gruppnamn. Taggarna hjälper dig även med showback eller chargeback till andra delar av organisationen.
 
-Om du vill skapa en anpassad kostnad allokering modell **kostnaden** &gt; **kostnaden Management** &gt; **kostnadsallokering 360 graders** på rapportens-menyn.
+Om du vill skapa en anpassad kostnadsallokeringsmodell väljer du **Cost** (Kostnad) &gt; **Cost Management** (Kostnadshantering) &gt; **Cost Allocation 360°** (Kostnadsallokering 360°) i rapportmenyn.
 
-![Kostnad allokering 360 markering](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Kostnadsallokering 360° valt](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-På den **kostnaden allokering 360** väljer **Lägg till** och ange sedan ett namn och beskrivning för kostnad-modellen. Markera alla konton eller enskilda konton. Om du vill använda enskilda konton kan du välja flera konton från flera leverantörer av molntjänster. Klicka sedan på **kategorisering** att välja vilka identifierade taggar som kategorisera informationen. Välj taggar (kategori) som du vill inkludera i din modell. I följande exempel visas den **enhet** taggen är markerad.
+På sidan **Cost Allocation 360°** (Kostnadsallokering 360°) väljer du **Add** (Lägg till) och ange sedan ett namn och en beskrivning för kostnadsmodellen. Välj antingen alla konton eller enskilda konton. Om du vill använda enskilda konton kan du välja flera konton från flera molntjänstproviders. Klicka sedan på **Categorization** (Kategorisering) för att välja vilka identifierade taggar som kategoriserar dina kostnadsdata. Välj de taggar (kategorier) som du vill ta med i modellen. I följande exempel visas taggen **Unit**.
 
-![Exempel kostnaden modellen kategorisering](./media/tutorial-manage-costs/cost-model01.png)
-
-
-
-Exemplet visar att $14,444 är ej kategoriserade (utan taggar).
-
-Välj därefter **okategoriserade resurser** och välj tjänster som har tilldelats kostnader. Definiera regler för att allokera kostnader.
-
-Du kanske vill vidta Azure storage-kostnaderna och fördela kostnaderna lika till virtuella Azure-datorer (VM). Om du vill göra det, Välj den **Azure-lagring** tjänsten, Välj **proportionell mot kategoriserat**, och välj sedan **Virtuella och Azure**. Markera **skapa**.
-
-![Exempel kostnaden modellen allokeringsregel för jämn fördelning](./media/tutorial-manage-costs/cost-model02.png)
+![Exempel på kategorisering i kostnadsmodell](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-I ett annat exempel kanske du vill allokera alla Azure-nätverkskostnader för en specifik enhet i din organisation. Om du vill göra det, Välj den **Azure/Network** tjänst och välj sedan **Explicit Distribution**. Sedan värdet 100 procent för distribution och väljer du enheten –**G&amp;A** i följande bild:
+Exemplet visar att 14 444 USD inte är kategoriserade (saknar taggar).
 
-![Exempel kostnaden modellen allokeringsregel för en viss affärsenhet](./media/tutorial-manage-costs/cost-model03.png)
+Välj sedan **Uncategorized Resources** (Okategoriserade resurser) och välj de tjänster som har kostnader som inte allokerats. Definiera sedan regler för allokering av kostnaderna.
+
+Till exempel kanske du vill ta Azure Storage-kostnaderna och fördela dem lika mellan de virtuella Azure-datorerna. Om du vill göra det väljer du tjänsten **Azure/Storage**, **Proportional to Categorized** (Proportionellt mot kategoriserade) och sedan **Azure/VM**. Välj sedan **Create** (Skapa).
+
+![Exempel på allokeringsregel för jämn fördelning i kostnadsmodell](./media/tutorial-manage-costs/cost-model02.png)
 
 
 
-Skapa ytterligare allokeringsregler för alla återstående kategoriserad resurser.
+I ett annat exempel kanske du vill allokera alla Azure-nätverkskostnader till en specifik affärsenhet i organisationen. Om du vill göra det väljer du tjänsten **Azure/Network** och sedan **Explicit Distribution** (Explicit fördelning). Ange sedan fördelningsvärdet till 100 procent och välj affärsenheten – **G&amp;A** i följande bild:
 
-Om du har några lediga Amazon Web Services (AWS) reserverade instanser kan du tilldela dem taggade kategorier med **reserverade instanser**.
+![Exempel på allokeringsregel för en viss affärsenhet i kostnadsmodell](./media/tutorial-manage-costs/cost-model03.png)
 
-Om du vill visa information om de val du gjorde att allokera kostnader, Välj **sammanfattning**. Spara din information och fortsätta arbeta med ytterligare regler senare väljer **Spara som utkast**. Om du vill spara din information och har Cloudyn börja bearbeta kostnaden allokering modellen, väljer du **spara och aktivera**.
 
-I listan över modeller kostnaden visar dina nya kostnaden modellen med **Bearbetningsstatus**. Det kan ta lite tid innan Cloudyn-databasen uppdateras med din modell kostnaden. När bearbetningen är klar uppdateras status till **slutförd**. Du kan sedan visa data från kostnaden modellen i analysrapporten kostnad under **utökad filter** &gt; **kostnaden modellen**.
 
-### <a name="category-manager"></a>Kategori Manager
+Skapa ytterligare allokeringsregler för återstående okategoriserade resurser.
 
-Kategorin är en Datarensning verktyg som hjälper dig att koppla värdena i flera kategorier (taggar) för att skapa nya. Det är ett enkelt regelbaserad verktyg där du väljer en kategori och skapa regler för att koppla befintliga värden. Du kan till exempel ha befintliga kategorierna för **R&amp;D** och **dev** där både motsvarar gruppen utveckling.
+Om du har några lediga reserverade AWS-instanser (Amazon Web Services) kan du tilldela dem till taggade kategorier med **Reserved Instances** (Reserverade instanser).
 
-Klicka på symbolen växel i övre högra och välj i portalen Cloudyn **kategori Manager**. Välj om du vill skapa en ny kategori på plustecknet (**+**). Ange ett namn för kategori och sedan under **nycklar**, ange kategori-nycklar som du vill inkludera i den nya kategorin.
+Om du vill visa information om de val du gjort i allokeringen av kostnader väljer du **Summary** (Sammanfattning). Om du vill spara informationen och fortsätta arbeta med reglerna senare väljer du **Save As Draft** (Spara som utkast). Om du vill spara informationen och låta Cloudyn börja bearbeta modellen för kostnadsallokering väljer du **Save and Activate** (Spara och aktivera).
 
-När du definierar en regel kan du lägga till flera värden med ett eller-villkor. Du kan också göra vissa grundläggande sträng-åtgärder. Klicka på symbolen tre punkter för båda fallen (**...** ) till höger om **regel**.
+Du ser den nya kostnadsmodellen i listan med modeller, med statusen **Processing** (Bearbetas). Det kan ta lite tid innan Cloudyn-databasen uppdateras med din kostnadsmodell. När bearbetningen är klar uppdateras statusen till **Completed** (Slutförd). Du kan sedan visa data från kostnadsmodellen i rapporten Cost Analysis under **Extended Filters** (Utökade filter) &gt; **Cost Model** (Kostnadsmodell).
 
-Definiera en ny regel i den **regler** område, skapa en ny regel. Ange till exempel **dev** under **regler** och ange sedan **R&amp;D** under **åtgärder**. När du är klar sparar du en ny kategori.
+### <a name="category-manager"></a>Category Manager
 
-Följande bild visar ett exempel på regler som har skapats för en ny kategori som heter **arbetsbelastning**:
+Category Manager är ett verktyg för datarensning som hjälper dig att koppla värden från flera kategorier (taggar) för att skapa nya. Det är ett enkelt och regelbaserat verktyg där du väljer en kategori och skapar regler för att koppla befintliga värden. Du kanske till exempel har de befintliga kategorierna **R&amp;D** och **dev**, där både avser utvecklingsgruppen.
 
-![Exempel kategori](./media/tutorial-manage-costs/category01.png)
+Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Category Manager**. Välj plustecknet (**+**) om du vill skapa en ny kategori. Ange ett namn för kategori och ange sedan de kategorinycklar du vill ta med i den nya kategorin under **Keys** (Nycklar).
 
-### <a name="tag-sources-and-reports"></a>Taggen källor och rapporter
+När du definierar en regel kan du lägga till flera värden med ett OR-villkor. Du kan också utföra vissa grundläggande strängåtgärder. I båda fallen klickar du på symbolen med tre punkter (**...** ) till höger om **Rule** (Regel).
 
-Taggdata som visas i Cloudyn rapporter har sitt ursprung på tre platser:
+Om du vill definiera en ny regel skapar du den i området **Rules** (Regler). Ange till exempel **dev** under **Rules** och sedan **R&amp;D** under **Actions** (Åtgärder). När du är färdig sparar du den nya kategorin.
 
-- Providern molnresurser API: er
-- Molntjänstleverantör för fakturering API: er
+Följande bild visar ett exempel på regler som har skapats för en ny kategori som heter **Work-Load**:
+
+![Exempelkategori](./media/tutorial-manage-costs/category01.png)
+
+### <a name="tag-sources-and-reports"></a>Taggkällor och rapporter
+
+De taggdata du ser i Cloudyn-rapporter har sitt ursprung på tre platser:
+
+- Molnproviderns resurs-API:er
+- Molnproviderns fakturerings-API:er
 - Manuellt skapade taggar från följande källor:
-    - Cloudyn entitetstaggar - användardefinierade metadata som tillämpas på Cloudyn entiteter
-    - Kategori Manager - data Rensa verktyg som skapar nya etiketter baserat på regler som tillämpas på befintliga taggar
+    - Cloudyn-entitetstaggar – användardefinierade metadata som tillämpas på Cloudyn-entiteter
+    - Category Manager – ett verktyg för datarensning som skapar nya taggar baserat på regler som tillämpas på befintliga taggar
 
-Om du vill visa molnet providern taggar i Cloudyn kostnadsrapporter måste du skapa en anpassad kostnad allokering modell med kostnaden allokering 360. Gör du genom att gå till **kostnaden** > **kostnaden Management** > **kostnaden allokering 360**, Välj önskade taggar och definiera regler för hantering av ej taggade kostnader. Skapa sedan en ny modell för kostnad. Du kan därefter kan visa rapporter i kostnaden allokering analys att visa, filtrera och sortera på Azure-resurs-taggar.
+Om du vill visa molnproviderns taggar i Cloudyn-kostnadsrapporter måste du skapa en anpassad kostnadsallokeringsmodell med Cost Allocation 360. Det gör du genom att gå till **Cost** > **Cost Management** > **Cost Allocation 360**, välja önskade taggar och definiera regler för hantering av otaggade kostnader. Skapa sedan en ny kostnadsmodell. Sedan kan du visa rapporter i Cost Allocation Analysis och du kan visa, filtrera och sortera efter dina Azure-resurstaggar.
 
-Azure-resurstaggar visas endast i **kostnaden allokering Analysis** rapporter.
+Azure-resurstaggar visas bara i **Cost Allocation Analysis**-rapporter.
 
-Molnet providern fakturering taggar visas i alla kostnadsrapporter.
+Molnproviderns faktureringstaggar visas i alla kostnadsrapporter.
 
-Cloudyn entitetstaggar och taggar som du skapar manuellt visas i alla kostnadsrapporter.
+Cloudyn-entitetstaggar och taggar du skapar manuellt visas i alla kostnadsrapporter.
 
 
-## <a name="create-showback-and-chargeback-reports"></a>Skapa showback och återbetalningsrapporter
+## <a name="create-showback-and-chargeback-reports"></a>Skapa showback- och chargeback-rapporter
 
-Metoden organisationer använder för att utföra showback och återbetalning varierar avsevärt. Du kan dock använda alla instrumentpaneler och rapporter i Cloudyn portal som bas för något ändamål. Du kan ge användaråtkomst till alla i din organisation så att de kan visa instrumentpaneler och rapporter på begäran. Alla kostnader analys rapporterna stöder showback eftersom de visar användare resurser som de förbrukas. Och de tillåta användare att detaljerat kostnad eller användning av data som är specifik för deras grupp i din organisation.
+Vilka metoder som organisationer använder för showback och chargeback varierar mycket. Du kan dock använda alla instrumentpaneler och rapporter i Cloudyn-portal som grund för båda ändamålen. Du kan ge åtkomst till valfri användare i organisationen så att de kan visa instrumentpaneler och rapporter på begäran. Alla Cost Analysis-rapporter har stöd för showback, eftersom de visar användarna vilka resurser de har förbrukat. Användare kan även visa detaljerad information om kostnader och data som är specifik för deras grupp i organisationen.
 
-Om du vill visa resultat för att fördela öppna rapporten kostnad och välj modellen kostnad som du skapade. Sedan kan du lägga till en gruppering av en eller flera taggar om du valde i modellen kostnaden.
+Om du vill visa resultatet av en kostnadsallokering öppnar du Cost Analysis-rapporten och väljer den kostnadsmodell du skapade. Lägg sedan till en gruppering enligt en eller flera av taggarna som valts i kostnadsmodellen.
 
-![Kostnad analysrapporten](./media/tutorial-manage-costs/cost-analysis.png)
+![Cost Analysis-rapport](./media/tutorial-manage-costs/cost-analysis.png)
 
-Du kan enkelt skapa och spara rapporter som fokuserar på specifika tjänster som används av specifika grupper. Du kan till exempel ha en avdelning som använder virtuella Azure-datorer i stor utsträckning. Du kan skapa en rapport som har filtrerats på Azure Virtual Machines att visa användnings- och kostnader.
+Du kan enkelt skapa och spara rapporter som fokuserar på specifika tjänster som förbrukats av specifika grupper. Du kan till exempel ha en avdelning som använder många virtuella Azure-datorer. Du kan skapa en rapport som har filtrerats på virtuella Azure-datorer för att visa förbrukning och kostnader.
 
-Om du behöver ange ögonblicksbilddata till andra grupper kan du exportera en rapport i PDF- eller CSV-format.
+Om du behöver visa ögonblicksbilddata för andra grupper kan du exportera rapporter i PDF- eller CSV-format.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -117,12 +117,12 @@ Om du behöver ange ögonblicksbilddata till andra grupper kan du exportera en r
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Använd anpassade taggar när du vill fördela kostnader.
-> * Skapa showback och återbetalningsrapporter.
+> * Använder anpassade taggar för allokering av kostnader.
+> * Skapar showback- och chargeback-rapporter.
 
 
 
-Mer information om att komma igång med Cloudyn och dess funktioner i förväg Cloudyn-dokumentationen.
+Mer information om att komma igång med Cloudyn och att använda alla funktioner finns i Cloudyn-dokumentationen.
 
 > [!div class="nextstepaction"]
-> [Cloudyn dokumentation](https://support.cloudyn.com/hc/)
+> [Cloudyn-dokumentationen](https://support.cloudyn.com/hc/)

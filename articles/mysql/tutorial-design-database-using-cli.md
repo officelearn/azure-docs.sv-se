@@ -1,36 +1,36 @@
 ---
-title: "Utforma din första Azure-databas för MySQL - databas i Azure CLI | Microsoft Docs"
-description: "Den här självstudiekursen beskrivs hur du skapar och hanterar Azure-databas för MySQL-server och databas med hjälp av Azure CLI 2.0 från kommandoraden."
+title: "Skapa din första Azure Database for MySQL-databas – Azure CLI | Microsoft Docs"
+description: "I den här självstudien beskrivs hur du skapar och hanterar en Azure Database for MySQL-server och en databas med Azure CLI 2.0 från kommandoraden."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.custom: mvc
-ms.openlocfilehash: f17f2cab39b42341886ed86e1c08569ca8f5eff0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5f323086ce66a504188c1834d20873a52a990311
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Utforma din första Azure-databas för MySQL-databas
+# <a name="design-your-first-azure-database-for-mysql-database"></a>Skapa din första Azure Database for MySQL-databas
 
-Azure MySQL-databas är en relationsdatabastjänst i molnet Microsoft utifrån MySQL Community Edition databasmotorn. I kursen får du använder Azure CLI (command-line-interface) och andra verktyg att lära dig hur du:
+Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som är baserad på databasmotorn MySQL Community Edition. I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 
 > [!div class="checklist"]
-> * Skapa en Azure-databas för MySQL
-> * Konfigurera server-brandväggen
-> * Använd [mysql kommandoradsverktyget](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) att skapa en databas
-> * Läs in exempeldata
-> * Frågedata
+> * Skapa en Azure Database för MySQL-server
+> * Konfigurera serverbrandväggen
+> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
+> * Läsa in exempeldata
+> * Ställa frågor mot data
 > * Uppdatera data
 > * Återställa data
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI 2.0]( /cli/azure/install-azure-cli) på din dator för att köra kodblock i den här självstudiekursen.
+Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI 2.0]( /cli/azure/install-azure-cli) lokalt när du ska köra kodblocken i den här självstudiekursen.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en [Azure-resursgrupp](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) med [az gruppen skapa](https://docs.microsoft.com/cli/azure/group#az_group_create) kommando. En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp.
+Skapa en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp.
 
 I följande exempel skapas en resursgrupp med namnet `mycliresource` på platsen `westus`.
 
@@ -51,7 +51,7 @@ az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
-Skapa en Azure-databas för MySQL-server med az mysql-servern skapa kommando. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
+Skapa en Azure Database for MySQL-server med kommandot az mysql server create. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
 I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `mycliresource` med namnet `mycliserver`. Servern har en administratörsinloggning med namnet `myadmin` och lösenordet `Password01!`. Servern skapas med prestandanivån **Basic** och **50** beräkningsenheter som delas mellan alla databaser på servern. Du kan skala beräkning och lagring uppåt eller nedåt beroende på behoven i dina appar.
 
@@ -60,9 +60,9 @@ az mysql server create --resource-group mycliresource --name mycliserver --locat
 ```
 
 ## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
-Skapa en Azure-databas för MySQL servernivå brandväggsregel med az mysql server-brandväggsregeln skapa kommando. En brandväggsregel på servernivå som tillåter ett externt program **mysql** kommandoradsverktyget eller MySQL-arbetsstationen för att ansluta till servern via brandväggen MySQL på Azure-tjänsten. 
+Skapa en Azure Database för MySQL-brandväggsregel på servernivå med kommandot az mysql server firewall-rule create. En brandväggsregel på servernivå gör att externa program, som kommandoradsverktyget **mysql** eller MySQL Workbench, kan ansluta till servern via Azure MySQL-tjänstens brandvägg. 
 
-I följande exempel skapas en brandväggsregel för en fördefinierad adressintervallet. Det här exemplet visar hela möjliga intervallet av IP-adresser.
+I följande exempel skapas en brandväggsregel för ett fördefinierat adressintervall. Exemplet visar hela intervallet med möjliga IP-adresser.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -100,27 +100,27 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
 }
 ```
 
-## <a name="connect-to-the-server-using-mysql"></a>Ansluta till servern med mysql
-Använd den [mysql kommandoradsverktyget](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) att upprätta en anslutning till din Azure-databas för MySQL-servern. I det här exemplet är kommandot:
+## <a name="connect-to-the-server-using-mysql"></a>Anslut till servern med mysql
+Använd [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att upprätta en anslutning till din Azure Database for MySQL-server. I det här exemplet är kommandot:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Skapa en tom databas
-När du är ansluten till servern kan du skapa en tom databas.
+När du är ansluten till servern ska du skapa en tom databas.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
 
-Kör följande kommando för att växla anslutningen till den nya databasen i Kommandotolken:
+Kör följande kommando från prompten för att växla anslutningen till databasen du skapade nyss:
 ```sql
 mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure-databasen för MySQL-databas, utföra vissa grundläggande uppgifter:
+Nu när du vet hur du ansluter till Azure Database for MySQL-databasen kan du utföra några grundläggande uppgifter:
 
-Först skapar en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som innehåller information om maskinvaruinventering.
+Skapa först en tabell och läs in lite data till den. Vi skapar en tabell som innehåller lagerinformation.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -129,57 +129,57 @@ CREATE TABLE inventory (
 );
 ```
 
-## <a name="load-data-into-the-tables"></a>Läser in data i tabeller
-Nu när du har en tabell att infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
+## <a name="load-data-into-the-tables"></a>Läs in data till tabellerna
+Nu när du har en tabell kan du infoga lite data i den. Kör följande fråga i den öppna kommandotolken så at du löser in några datarader.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Nu har du två rader med exempeldata i tabellen som du skapade tidigare.
+Nu har du två rader med exempeldata i tabellen du skapade tidigare.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Fråga efter och uppdatera data i tabeller
-Kör följande fråga för att hämta information från databastabellen.
+## <a name="query-and-update-the-data-in-the-tables"></a>Ställ frågor mot och uppdatera data i tabellerna
+Kör följande frågor för att hämta information från databastabellen.
 ```sql
 SELECT * FROM inventory;
 ```
 
-Du kan också uppdatera data i tabeller.
+Du kan även uppdatera data i tabellerna.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Raden uppdateras i enlighet med detta när du hämtar data.
+Raden uppdateras när du hämtar data.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Återställa en databas till en tidigare tidpunkt
-Anta att du av misstag har tagit bort den här tabellen. Detta är något du lätt kan återställa från. Azure MySQL-databas kan du gå tillbaka till valfri punkt i tiden i den senaste upp till 35 dagar och en återställningspunkt i tid till en ny server. Du kan använda den här nya servern för att återställa dina data. Följande steg återställa exempelserver till en innan tabellen har lagts till.
+Anta att du har tagit bort den här tabellen av misstag. Det här är något som inte är helt enkelt att ångra. Med Azure Database for MySQL kan du gå tillbaka till valfri tidpunkt under de senaste 35 dagarna och återställa tidpunkten på en ny server. Du kan använda den nya servern till att återställa dina data. Följande steg återställer exempelservern till en tidpunkt innan tabellen lades till.
 
-För återställning behöver du följande information:
+Du behöver följande information vid återställningen:
 
-- Återställningspunkt: Välj en i tidpunkt som inträffar innan servern har ändrats. Måste vara större än eller lika med värdet i källdatabasen äldsta säkerhetskopiering.
-- Målservern: Ange ett nytt servernamn som du vill återställa till
-- Källservern: Ange namnet på den server som du vill återställa från
-- Plats: Du kan inte välja regionen, som standard är det samma som källservern
+- Återställningspunkt: Välj en tidpunkt innan servern ändrades. Måste vara senare än eller lika med källdatabasens äldsta säkerhetskopiering.
+- Målserver: Ange ett nytt servernamn som du vill återställa till.
+- Källserver: Ange namnet på den server du vill återställa från.
+- Plats: Du kan inte välja region, som standard är det samma som källservern.
 
 ```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
-Att återställa servern och [återställa till point-in-time](./howto-restore-server-portal.md) innan tabellen har tagits bort. Återställa en server till en annan tidpunkt skapar en dubblett ny server som den ursprungliga servern från och med punkten tidpunkt du anger under förutsättning att det är inom kvarhållningsperioden för din [tjänstnivån](./concepts-service-tiers.md).
+Återställ servern [till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. När du återställer en server till en annan tidpunkt skapas en dubblett av den ursprungliga servern vid den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [tjänstnivå](./concepts-service-tiers.md).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen har du lärt dig att:
+I den här självstudien fick du lärda dig att:
 > [!div class="checklist"]
-> * Skapa en Azure-databas för MySQL
-> * Konfigurera server-brandväggen
-> * Använd [mysql kommandoradsverktyget](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) att skapa en databas
-> * Läs in exempeldata
-> * Frågedata
+> * Skapa en Azure Database för MySQL-server
+> * Konfigurera serverbrandväggen
+> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
+> * Läsa in exempeldata
+> * Ställa frågor mot data
 > * Uppdatera data
 > * Återställa data
 
 > [!div class="nextstepaction"]
-> [Azure-databas för MySQL - Azure CLI-exempel](./sample-scripts-azure-cli.md)
+> [Azure Database for MySQL – Azure CLI-exempel](./sample-scripts-azure-cli.md)

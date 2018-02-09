@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för Event Hubs med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för [Event Hubs](event-hubs-what-is-event-hubs.md) med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
 Den här artikeln visar även hur du anger att händelser ska samlas in i Azure Storage Blobs eller en Azure Data Lake Store, utifrån det mål som du väljer.
 
@@ -42,11 +42,7 @@ För fullständiga mallar, klicka på följande GitHub-länkar:
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 
-Med den här mallen distribuerar du ett namnområde för Event Hubs med en händelsehubb och aktiverar även [Event Hubs Capture](event-hubs-capture-overview.md).
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) är en tjänst för händelsebearbetning som används för att tillhandahålla en händelse- och telemetriingång till Azure i massiv skala med kort svarstid och hög tillförlitlighet. Med Event Hubs Capture kan du automatiskt leverera strömmande data i Event Hubs till Azure Blob Storage eller Azure Data Lake Store inom en angiven tid eller ett visst storleksintervall som du kan välja själv.
-
-Klicka på följande knapp om du vill aktivera Event Hubs Capture i Azure Storage:
+Med den här mallen distribuerar du ett namnområde för Event Hubs med en händelsehubb och aktiverar även [Event Hubs Capture](event-hubs-capture-overview.md). Med Event Hubs Capture kan du automatiskt leverera strömmande data i Event Hubs till Azure Blob Storage eller Azure Data Lake Store inom en angiven tid eller ett visst storleksintervall som du kan välja själv. Klicka på följande knapp om du vill aktivera Event Hubs Capture i Azure Storage:
 
 [![Distribuera till Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ Mallen definierar följande parametrar.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Namnet på [namnområdet för Event Hubs](event-hubs-create.md) som ska skapas.
+Namnet på namnområdet för Event Hubs som ska skapas.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ Namnet på [namnområdet för Event Hubs](event-hubs-create.md) som ska skapas.
 
 ### <a name="eventhubname"></a>eventHubName
 
-Namnet på händelsehubben som skapats i [namnområdet för Event Hubs](event-hubs-create.md).
+Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 
 ```json
 "eventHubName":{  

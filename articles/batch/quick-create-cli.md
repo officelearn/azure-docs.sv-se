@@ -1,0 +1,212 @@
+---
+title: "Azure Snabbstart – Köra Batch-jobb – CLI"
+description: "Lär dig snabbt att köra ett Batch-jobb med Azure CLI."
+services: batch
+author: dlepow
+manager: jeconnoc
+ms.service: batch
+ms.devlang: azurecli
+ms.topic: quickstart
+ms.date: 01/16/2018
+ms.author: danlep
+ms.custom: mvc
+ms.openlocfilehash: f4a9235db7431b531864272d220006dbe8340924
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/01/2018
+---
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
+
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure CLI för att skapa ett Batch-konto, en *pool* med beräkningsnoder (virtuella datorer) och ett *jobb* som kör *aktiviteterna* på poolen. Varje exempelaktivitet kör ett grundläggande kommando på en av noderna i poolen. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
+
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus2*.
+
+```azurecli-interactive 
+az group create \
+    --name myResourceGroup \
+    --location eastus2
+```
+
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+
+Du kan länka ett allmänt Azure-lagringskonto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna. Skapa ett lagringskonto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+
+```azurecli-interactive
+az storage account create \
+    --resource-group myResourceGroup \
+    --name mystorageaccount \
+    --location eastus2 \
+    --sku Standard_LRS
+```
+
+## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
+
+Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az_batch_account_create) kommando. Du behöver ett konto för att skapa beräkningsresurser (pooler med datornoder) och Batch-jobb.
+
+I följande exempel skapas en Batch-kontot med namnet *mybatchaccount* i *myResourceGroup* och länkar det lagringskonto som du skapade.  
+
+```azurecli-interactive 
+az batch account create \
+    --name mybatchaccount \
+    --storage-account mystorageaccount \
+    --resource-group myResourceGroup \
+    --location eastus2
+```
+
+Du måste autentisera med Batch för att skapa och hantera beräkningspooler och jobb. Logga in på kontot med kommandot [az batch account login](/cli/azure/batch/account#az_batch_account_login). När du har loggat in använder dina `az batch`-kommandon den här kontokontexten.
+
+```azurecli-interactive 
+az batch account login \
+    --name mybatchaccount \
+    --resource-group myResourceGroup \
+    --shared-key-auth
+```
+
+## <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
+
+Nu när du har ett Batch-konto kan du skapa en exempelpool med Linux-beräkningsnoder med hjälp av kommandot [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). I följande exempel skapas en pool med namnet *mypool* av 2 noder i storlek *Standard_A1_v2* som kör Ubuntu 16.04 LTS. Föreslagen nodstorlek erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
+ 
+```azurecli-interactive
+az batch pool create \
+    --id mypool --vm-size Standard_A1_v2 \
+    --target-dedicated-nodes 2 \
+    --image canonical:ubuntuserver:16.04.0-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 16.04" 
+```
+
+Batch skapar poolen omedelbart, men det tar några minuter att allokera och starta beräkningsnoderna. Under denna tid är poolen i tillståndet `resizing`. Om du vill se status för poolen kör du kommandot [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). Det här kommandot visar alla egenskaper för poolen och du kan fråga efter specifika egenskaper. Följande kommando hämtar allokeringstillståndet för poolen:
+
+```azurecli-interactive
+az batch pool show --pool-id mypool \
+    --query "allocationState"
+```
+
+Fortsätt med följande steg för att skapa ett jobb och aktiviteter medan pooltillståndet ändras. Poolen är redo att köra aktiviteter när allokeringstillståndet är `steady` och alla noderna körs. 
+
+## <a name="create-a-job"></a>Skapa ett jobb
+
+Nu när du har en pool ska du skapa ett jobb att köra på den.  Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Skapa ett Batch-jobb med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az_batch_job_create). Följande exempel skapar jobbet *myjob* på poolen *mypool*. Från början har jobbet inga aktiviteter.
+
+```azurecli-interactive 
+az batch job create \
+    --id myjob \
+    --pool-id mypool
+```
+
+## <a name="create-tasks"></a>Skapa aktiviteter
+
+Använd nu kommandot [az batch task create](/cli/azure/batch/task#az_batch_task_create) för att skapa några aktiviteter att köra i jobbet. I det här exemplet skapar du fyra identiska aktiviteter. Varje aktivitet kör en `command-line` för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder. När du använder Batch är det på den här kommandoraden som anger du din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
+
+Följande Bash-skript skapar 4 parallella aktiviteter(*mytask1* till *mytask4*).
+
+```azurecli-interactive 
+for i in {1..4}
+do
+   az batch task create \
+    --task-id mytask$i \
+    --job-id myjob \
+    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
+done
+```
+
+Kommandoutdata visar inställningarna för alla aktiviteter. Batch distribuerar aktiviteterna till beräkningsnoderna.
+
+## <a name="view-task-status"></a>Visa status för aktivitet
+
+När du har skapat en aktivitet köar Batch den så att den körs på poolen. Aktiviteten körs när en nod är tillgänglig att köra den.
+
+Använd kommandot [az batch task show](/cli/azure/batch/task#az_batch_task_show) för att visa status för Batch-aktiviteterna. I följande exempel visas information om *mytask1* som körs på en av noderna i poolen.
+
+```azurecli-interactive 
+az batch task show \
+    --job-id myjob \
+    --task-id mytask1
+```
+
+Kommandoutdata innehåller många detaljer, men observera `exitCode` på kommandoraden och `nodeId`. En `exitCode` på 0 anger att kommandoradsaktiviteten har slutförts. `nodeId` anger ID för den poolnod som aktiviteten kördes på.
+
+## <a name="view-task-output"></a>Visa aktivitetens utdata
+
+Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task#az_batch_task_file_list). Följande kommando visar filer som skapas av *mytask1*: 
+
+```azurecli-interactive 
+az batch task file list \
+    --job-id myjob \
+    --task-id mytask1 \
+    --output table
+```
+
+De utdata som genereras liknar följande:
+
+```
+Name        URL                                                                                         Is Directory      Content Length
+----------  ------------------------------------------------------------------------------------------  --------------  ----------------
+stdout.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/stdout.txt  False                  695
+certs       https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/certs       True
+wd          https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/wd          True
+stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/mytask1/files/stderr.txt  False                     0
+
+```
+
+Om du vill hämta en av utdatafilerna till en lokal katalog ska du använda kommandot [az batch task file download](/cli/azure/batch/task#az_batch_task_file_download). I det här exemplet finns aktivitetens utdata i `stdout.txt`. 
+
+```azurecli-interactive
+az batch task file download \
+    --job-id myjob \
+    --task-id mytask1 \
+    --file-path stdout.txt \
+    --destination ./stdout.txt
+```
+
+Du kan visa innehållet i `stdout.txt` i en textredigerare. Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna.
+
+```
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
+AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
+AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
+AZ_BATCH_TASK_USER=_azbatch
+AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
+AZ_BATCH_JOB_ID=myjob
+AZ_BATCH_NODE_IS_DEDICATED=true
+AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
+AZ_BATCH_POOL_ID=mypool-linux
+AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_ACCOUNT_NAME=mybatchaccount
+AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
+```
+## <a name="clean-up-resources"></a>Rensa resurser
+Om du vill fortsätta med Batch-självstudier och -exempel ska du använda Batch-kontot och det länkade lagringskontot som skapats i denna snabbstart. Själva Batch-kontot kostar ingenting.
+
+Du debiteras för pooler medan noderna körs, även om inga jobb har schemalagts. När du inte längre behöver en pool ska du ta bort den med kommandot [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete):
+
+```azurecli-interactive
+az batch pool delete --pool-id mypool
+```
+
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, Batch-kontot, pooler och alla relaterade resurser. Ta bort resurserna på följande sätt:
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här snabbstarten skapade du ett Batch-konto, en Batch-pool och ett Batch-jobb. Jobbet kördes exempelaktiviteter och du visade utdata som skapats på en av noderna. Nu när du förstår nyckelbegreppen för Batch-tjänsten är du redo att testa Batch med mer realistiska arbetsbelastningar i större skala. Om du vill veta mer om Azure Batch ska du fortsätta med Azure Batch-självstudierna. 
+
+
+> [!div class="nextstepaction"]
+> [Azure Batch-självstudier](./tutorial-parallel-dotnet.md)

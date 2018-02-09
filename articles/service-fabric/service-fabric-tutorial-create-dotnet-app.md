@@ -1,6 +1,6 @@
 ---
 title: "Skapa ett .NET-program för Service Fabric | Microsoft Docs"
-description: "Lär dig hur du skapar ett program med en ASP.NET Core frontend och en tillförlitlig tjänst tillståndskänslig backend- och distribuera programmet till ett kluster."
+description: "Se hur du skapar ett program med en ASP.NET Core-klientdel och en tillförlitlig serverdel med en tillståndskänslig tjänst, och hur du distribuerar programmet till ett kluster."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,69 +12,69 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2018
+ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f4b3c766ee46233cd4ec2d195e39d0b68516952f
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: 467abe321fba166f1b862ae9f254c4943ba9e488
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Skapa och distribuera ett program med en webb-API för ASP.NET Core frontend-tjänst och en tillståndskänslig backend-tjänst
-Den här kursen ingår i en serie.  Du får lära dig att skapa ett Azure Service Fabric-program med en ASP.NET Core Web API-klient och en tillståndskänslig backend-tjänst för att lagra data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstning programmet manuellt, kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [igenom röstning exempelprogrammet](#walkthrough_anchor).
+# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
+Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).
 
 ![Diagram över programmet](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-I delen en av serierna kan du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en ASP.NET Core Web API-tjänst som en tillståndskänslig tillförlitlig tjänst
-> * Skapa ett webbprogram för ASP.NET Core-tjänst som en tillståndslös webbtjänst
-> * Använd omvänd proxy för att kommunicera med tjänsten tillståndskänslig
+> * Skapa en ASP.NET Core Web API-tjänst som en tillståndskänslig, tillförlitlig tjänst
+> * Skapa en ASP.NET Core-webbprogramtjänst som en tillståndskänslig, tillförlitlig webbtjänst
+> * Använda omvänd proxy för att kommunicera med den tillståndskänsliga tjänsten
 
-I den här självstudiekursen serien lär du dig hur du:
+I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett .NET Service Fabric-program
-> * [Distribuera programmet till ett kluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * [Konfigurera CI/CD: N med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar den här kursen:
-- Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installera Visual Studio 2017](https://www.visualstudio.com/) 15.3 eller senare med den **Azure-utveckling** och **ASP.NET och web development** arbetsbelastningar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar den här självstudien:
+- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Installera Visual Studio 2017](https://www.visualstudio.com/) version 15.3 eller senare med arbetsbelastningarna **Azure Development** och **ASP.NET och webbutveckling**.
 - [Installera Service Fabric SDK](service-fabric-get-started.md)
 
-## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Web API-tjänst som en tillförlitlig tjänst
-Först skapa webben frontend röstning programkonfigurationen med ASP.NET Core. ASP.NET Core är ett lätt, plattformsoberoende utveckling som du kan använda för att skapa moderna webbgränssnittet och webb-API: er. För att få en förståelse av hur ASP.NET Core kan integreras med Service Fabric, rekommenderar vi starkt läsa igenom den [ASP.NET Core i Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artikel. Nu kan du följa den här kursen och kom igång snabbt. Läs mer om ASP.NET Core i den [ASP.NET Core-dokumentation](https://docs.microsoft.com/aspnet/core/).
+## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst
+Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Core är ett lätt, plattformsoberoende utvecklingsverktyg som du kan använda för att skapa moderna webbgränssnitt och webb-API: er. För att du ska förstå hur ASP.NET Core kan integreras med Service Fabric rekommenderar vi att du läser igenom artikeln [ASP.NET Core i Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md). Just nu kan du bara följa den här kursen och komma igång snabbt. Läs mer om ASP.NET Core i [ASP.NET Core-dokumentationen](https://docs.microsoft.com/aspnet/core/).
 
 1. Starta Visual Studio som **administratör**.
 
-2. Skapa ett projekt med **filen**->**ny**->**projekt**
+2. Skapa ett projekt med **Arkiv**->**Nytt**->**Projekt**
 
 3. Klicka på **Moln > Service Fabric-program** i dialogrutan **Nytt projekt**.
 
-4. Ge programmet namnet **Röstningsdatabasen** och tryck på **OK**.
+4. Ge programmet namnet **Röstning** och tryck på **OK**.
 
    ![Dialogrutan Nytt projekt i Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. På den **nya Service Fabric Service** väljer **tillståndslös ASP.NET Core**, och namnge din tjänst **VotingWeb**.
+5. På sidan **Ny Service Fabric-tjänst** väljer du **Tillståndslös ASP.NET Core** och ger din tjänst namnet **VotingWeb**.
    
    ![Välja ASP.NET-webbtjänst i dialogrutan Ny tjänst](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Nästa sida innehåller en uppsättning av ASP.NET Core projektmallar. Den här kursen väljer **webbprogram (Model-View-Controller)**. 
+6. På nästa sida finns en uppsättning ASP.NET Core-projektmallar. För den här kursen väljer du **Webbprogram (Model-View-Controller)**. 
    
    ![Välj typ av ASP.NET-projekt](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
-   Visual Studio skapar ett program och ett tjänstprojekt och visar dem i Solution Explorer.
+   Visual Studio skapar ett programprojekt och ett tjänstprojekt, och de visas i Solution Explorer.
 
-   ![Solution Explorer efter skapandet av program med ASP.NET core Web API-tjänsten]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![Solution Explorer när ett program med ASP.NET Core Web API-tjänst har skapats]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-angularjs-to-the-votingweb-service"></a>Lägg till AngularJS i VotingWeb-tjänst
-Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bower support](/aspnet/core/client-side/bower). Lägg först till en konfigurationsfil för Bower i projektet.  I Solution Explorer högerklickar du på **VotingWeb** och välj **Lägg till nytt objekt ->**. Välj **Web** och sedan **Bower konfigurationsfilen**.  Den *bower.json* filen har skapats.
+### <a name="add-angularjs-to-the-votingweb-service"></a>Lägg till AngularJS till VotingWeb-tjänsten
+Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bower-stöd](/aspnet/core/client-side/bower). Lägg först till en konfigurationsfil för Bower i projektet.  I Solution Explorer högerklickar du på **VotingWeb** och väljer **Lägg till->Nytt objekt**. Välj **Webb** och sedan **Bower-konfigurationsfil**.  Filen *bower.json* skapas.
 
-Öppna *bower.json* och lägga till poster för vinkel och vinkel bootstrap och sedan spara ändringarna.
+Öppna *bower.json* och lägg till poster för vinkel och vinkel-bootstrap. Spara sedan ändringarna.
 
 ```json
 {
@@ -90,10 +90,10 @@ Lägg till [AngularJS](http://angularjs.org/) till tjänsten med hjälp av [Bowe
   }
 }
 ```
-När det sparas den *bower.json* filen Angular har installerats i ditt projekt *wwwroot/lib* mapp. Dessutom visas inom den *beroenden/Bower* mapp.
+När du sparar filen *bower.json* installeras Angular i projektets *wwwroot/lib*-mapp. Den visas också i mappen *Beroenden/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Uppdatera site.js-filen
-Öppna den *wwwroot/js/site.js* fil.  Ersätt innehållet med JavaScript som används av hem-vyer:
+Öppna filen *wwwroot/js/site.js*.  Ersätt innehållet med det JavaScript som används av Start-vyerna:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -132,8 +132,8 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 }]);
 ```
 
-### <a name="update-the-indexcshtml-file"></a>Uppdatera Index.cshtml-filen
-Öppna den *Views/Home/Index.cshtml* -fil, vyn specifika för Home-styrenhet.  Ersätt innehållet med följande och sedan spara ändringarna.
+### <a name="update-the-indexcshtml-file"></a>Uppdatera filen Index.cshtml
+Öppna filen *Vyer/Start/Index.cshtml* -fil, den vy som används för Start.kontrollanten.  Byt ut innehållet mot följande och spara sedan ändringarna.
 
 ```html
 @{
@@ -195,8 +195,8 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Uppdatera _Layout.cshtml-filen
-Öppna den *Views/Shared/_Layout.cshtml* -fil, standardlayout för ASP.NET-app.  Ersätt innehållet med följande och sedan spara ändringarna.
+### <a name="update-the-layoutcshtml-file"></a>Uppdatera filen _Layout.cshtml
+Öppna filen *Vyer/Delad/_Layout.cshtml*, som är standardlayouten för ASP.NET-programmet.  Byt ut innehållet mot följande och spara sedan ändringarna.
 
 ```html
 <!DOCTYPE html>
@@ -226,12 +226,12 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 </html>
 ```
 
-### <a name="update-the-votingwebcs-file"></a>Uppdatera VotingWeb.cs-filen
-Öppna den *VotingWeb.cs* filen, vilket skapar ASP.NET Core Webbvärden inuti tillståndslösa tjänsten WebListener webbservern.  
+### <a name="update-the-votingwebcs-file"></a>Uppdatera filen VotingWeb.cs
+Öppna filen *VotingWeb.cs* som skapar ASP.NET Core WebHost i den tillståndslösa tjänsten med hjälp av WebListener-webbservern.  
 
-Lägg till den `using System.Net.Http;` direktivet överst i filen.  
+Lägg till `using System.Net.Http;`-direktivet överst i filen.  
 
-Ersätt den `CreateServiceInstanceListeners()` fungerar med följande och sedan spara ändringarna.
+Byt ut funktionen `CreateServiceInstanceListeners()` mot följande och spara sedan ändringarna.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -264,7 +264,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Också lägga till den `GetVotingDataServiceName` metod som returnerar namnet på tjänsten när avsökas:
+Lägg även till metoden `GetVotingDataServiceName`, som returnerar tjänstnamnet när den avsöks:
 
 ```csharp
 internal static Uri GetVotingDataServiceName(ServiceContext context)
@@ -274,9 +274,9 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Lägga till filen VotesController.cs
-Lägg till en domänkontrollant som definierar röstning åtgärder. Högerklickar du på den **domänkontrollanter** mapp, välj sedan **Lägg till -> Ny-objekt > klassen**.  Namn på filen ”VotesController.cs” och klicka på **Lägg till**.  
+Lägg till en kontrollant som definierar röstningsåtgärderna. Högerklicka på mappen **Kontrollanter** och välj sedan **Lägg till-> Nytt objekt->Klass**.  Ge filen namnet ”VotesController.cs” och klicka på **Lägg till**.  
 
-Ersätt filens innehåll med följande och sedan spara ändringarna.  Senare i [uppdateringsfil VotesController.cs](#updatevotecontroller_anchor), den här filen ändras för att läsa och skriva röstning data från backend-tjänst.  För tillfället returnerar styrenheten statiska strängdata till vyn.
+Byt ut filens innehåll mot följande och spara sedan ändringarna.  Längre fram, i [Uppdatera filen VotesController.cs](#updatevotecontroller_anchor), ändras den här filen för att läsa och skriva röstningsdata från serverdelstjänsten.  För tillfället returneras statiska strängdata till vyn av kontrollanten.
 
 ```csharp
 namespace VotingWeb.Controllers
@@ -319,7 +319,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### <a name="configure-the-listening-port"></a>Konfigurera lyssningsporten
-När VotingWeb frontend-tjänst skapas väljer slumpmässigt en port för tjänsten för att lyssna på i Visual Studio.  Tjänsten VotingWeb fungerar som klientdel för det här programmet och godkänner externa trafiken, så vi binda tjänsten till ett fast och vet port korrekt.  Den [tjänstmanifestet](service-fabric-application-and-service-manifests.md) deklarerar Tjänsteslutpunkter. I Solution Explorer öppnar *VotingWeb/PackageRoot/ServiceManifest.xml*.  Hitta de **Endpoint** resurs i den **resurser** avsnittet och ändra den **Port** värde till mellan 80, eller till en annan port. För att distribuera och köra programmet lokalt, måste programmet lyssningsporten vara öppen och tillgänglig på datorn.
+När klientdelstjänsten VotingWeb skapas väljer Visual Studio slumpmässigt en port där tjänsten ska lyssna.  VotingWeb-tjänsten fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port.  I [tjänstmanifestet](service-fabric-application-and-service-manifests.md) anges tjänstens slutpunkter. I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest.xml*.  Leta rätt på resursen **Slutpunkt** i avsnittet **Resurser** och ändra värdet för **Port** till 80, eller till någon annan port. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
 
 ```xml
 <Resources>
@@ -332,55 +332,50 @@ När VotingWeb frontend-tjänst skapas väljer slumpmässigt en port för tjäns
   </Resources>
 ```
 
-Uppdatera också egenskapsvärdet programmets URL i röst-projektet så att en webbläsare öppnas till rätt port när du felsöker med 'F5'.  I Solution Explorer, väljer du den **Röstningsdatabasen** projekt och uppdatera den **programmets URL** egenskapen.
+Uppdatera också egenskapsvärdet för Program-URL i projektet Voting så att en webbläsare öppnas till rätt port när du felsöker med F5.  I Solution Explorer väljer du projektet **Voting** och uppdaterar egenskapen **Program-URL**.
 
-![Programmets URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
+![Program-URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Distribuera och köra programmet lokalt
-Du kan nu gå vidare och köra programmet. Tryck på `F5` i Visual Studio för att distribuera programmet för felsökning. `F5`misslyckas om du inte tidigare öppna Visual Studio som **administratör**.
+Du kan nu köra appen. Tryck på `F5` i Visual Studio för att distribuera programmet för felsökning. `F5` misslyckas om du inte tidigare öppnade Visual Studio som **administratör**.
 
 > [!NOTE]
-> Första gången du kör och distribuerar programmet lokalt, skapar Visual Studio ett lokalt kluster för felsökning.  Skapa ett kluster kan ta en stund. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
+> Första gången du kör och distribuerar programmet lokalt, skapar Visual Studio ett lokalt kluster för felsökning.  Det kan ta lite tid att skapa klustret. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
 
 Ditt webbprogram bör nu se ut så här:
 
-![ASP.NET Core frontend](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
+![ASP.NET Core-klientdel](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Om du vill stoppa felsökningen av programmet, gå tillbaka till Visual Studio och tryck på **SKIFT + F5**.
+Om du vill stoppa felsökningen av programmet går du tillbaka till Visual Studio och trycker på **SKIFT + F5**.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Lägg till en tillståndskänslig backend-tjänst i ditt program
-Nu när ett ASP.NET Web API-tjänsten körs i programmet, gå vidare och lägga till en tillståndskänslig tillförlitlig tjänst för att lagra vissa data i programmet.
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>Lägg till en tillståndskänslig serverdelstjänst i ditt program
+Nu när ett ASP.NET Web API-tjänsten körs i programmet kan du fortsätta med att lägga till en tillståndskänslig tillförlitlig tjänst för att lagra data i programmet.
 
-Service Fabric kan du konsekvent och tillförlitligt sätt lagra dina data direkt i din tjänst med hjälp av tillförlitliga samlingar. Tillförlitliga samlingar är en uppsättning med hög tillgänglighet och tillförlitlig Samlingsklasser som känner till alla som har använt C#-samlingar.
+I Service Fabric kan du konsekvent och tillförlitligt lagra dina data direkt i tjänsten med hjälp av tillförlitliga samlingar. En tillförlitlig samling är en uppsättning samlingsklasser med hög tillgänglighet och tillförlitlighet som är välbekanta för alla som har använt C#-samlingar.
 
-I den här självstudiekursen skapar du en tjänst som lagrar counter-värdet i en tillförlitlig samling.
+I den här självstudiekursen skapar du en tjänst som lagrar ett räknarvärde i en tillförlitlig samling.
 
-1. I Solution Explorer högerklickar du på **Services** i programmet projektet och välj **Lägg till > nya Service Fabric Service**.
+1. I Solution Explorer högerklickar du på **Tjänster** i programprojektet och väljer **Lägg till > Ny Service Fabric-tjänst**.
     
-2. I den **nya Service Fabric Service** dialogrutan Välj **Stateful ASP.NET Core**, och ger den namnet tjänsten **VotingData** och tryck på **OK**.
+2. I dialogrutan **Ny Service Fabric-tjänst** väljer du **Tillståndskänslig ASP.NET Core**, ger tjänsten namnet **VotingData** och trycker på **OK**.
 
     ![Dialogrutan Ny tjänst i Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    När service-projekt har skapats har du två tjänster i ditt program. Du kan lägga till fler tjänster på samma sätt som du fortsätta att skapa ditt program. Båda kan vara oberoende versionsnummer och uppgraderade.
+    När tjänstprojektet har skapats har du två tjänster i ditt program. Du kan lägga till fler tjänster på samma sätt allt eftersom du fortsätter att bygga på ditt program. Tjänsterna kan ha olika versionsnummer och uppgraderas fristående.
 
-3. Nästa sida innehåller en uppsättning av ASP.NET Core projektmallar. Den här kursen väljer **Web API**.
+3. På nästa sida finns en uppsättning ASP.NET Core-projektmallar. För den här självstudiekursen väljer du **Webb-API**.
 
     ![Välj typ av ASP.NET-projekt](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-    Visual Studio skapar ett service-projekt och visar dem i Solution Explorer.
+    Visual Studio skapar ett tjänstprojekt och visar det i Solution Explorer.
 
     ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
-### <a name="add-the-votedatacontrollercs-file"></a>Lägga till filen VoteDataController.cs
+### <a name="add-the-votedatacontrollercs-file"></a>Lägga till filen VotesDataController.cs
 
-I den **VotingData** projektet genom att högerklicka på den **domänkontrollanter** mapp, välj sedan **Lägg till -> Ny-objekt > klassen**. Namn på filen ”VoteDataController.cs” och klicka på **Lägg till**. Ersätt filens innehåll med följande och sedan spara ändringarna.
+I projektet **VotingData** högerklickar du på mappen **Kontrollanter** och väljer **Lägg till->Nytt objekt->Klass**. Ge filen namnet "VoteDataController.cs" och klicka på **Lägg till**. Byt ut filens innehåll mot följande och spara sedan ändringarna.
 
 ```csharp
-// ------------------------------------------------------------
-//  Copyright (c) Microsoft Corporation.  All rights reserved.
-//  Licensed under the MIT License (MIT). See License.txt in the repo root for license information.
-// ------------------------------------------------------------
-
 namespace VotingData.Controllers
 {
     using System.Collections.Generic;
@@ -410,9 +405,9 @@ namespace VotingData.Controllers
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
             {
-                IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<string, int>> list = await votesDictionary.CreateEnumerableAsync(tx);
 
-                IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
+                Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<string, int>> enumerator = list.GetAsyncEnumerator();
 
                 List<KeyValuePair<string, int>> result = new List<KeyValuePair<string, int>>();
 
@@ -466,16 +461,16 @@ namespace VotingData.Controllers
 
 
 ## <a name="connect-the-services"></a>Ansluta tjänsterna
-I nästa steg, ansluta de två tjänsterna och gör frontwebbservern programmet get och set röstning information från backend-tjänsten.
+I nästa steg ansluter du de två tjänsterna och får webbprogrammets klientdel att hämta och ange röstningsinformation från serverdelstjänsten.
 
-Service Fabric ger fullständig flexibilitet i hur du kommunicerar med tillförlitlig tjänster. I ett enskilt program kanske tjänster som är tillgängliga via TCP. Andra tjänster som kan nås via en HTTP-REST-API och fortfarande andra tjänster kan vara tillgänglig via webben sockets. Bakgrund alternativen och kompromisser ingår, se [kommunicerar med tjänster](service-fabric-connect-and-communicate-with-services.md).
+I Service Fabric har du full flexibilitet i kommunikationen med tillförlitliga tjänster. I ett och samma program kan du ha tjänster som är tillgängliga TCP. Andra tjänster som kan nås via ett HTTP-REST-API och ännu fler tjänster kan vara tillgängliga via webbsockets. Bakgrundsinformation om de tillgängliga alternativen och vilka kompromisser du kan behöva göra finns i [Kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md).
 
-I den här kursen använder [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
+I den här självstudiekursen använder du [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
-### <a name="update-the-votescontrollercs-file"></a>Uppdatera VotesController.cs-filen
-I den **VotingWeb** projektet öppnar den *Controllers/VotesController.cs* fil.  Ersätt den `VotesController` klassen definition innehållet med följande och sedan spara ändringarna.
+### <a name="update-the-votescontrollercs-file"></a>Uppdatera filen VotesController.cs
+I projektet **VotingWeb** öppnar du filen *Controllers/VotesController.cs*.  Byt ut innehållet i klassdefinition `VotesController` mot följande och spara sedan ändringarna.
 
 ```csharp
 public class VotesController : Controller
@@ -604,12 +599,12 @@ När du röstar i programmet händer följande:
 3. Serverdelstjänsten tar den inkommande begäran och lagrar det uppdaterade resultatet i en tillförlitlig ordlista, som replikeras till flera noder i klustret och sparas på disken. Alla programdata lagras i klustret, så det behövs ingen databas.
 
 ## <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
-När du felsöker programmet i Visual Studio använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. Lagra data i backend-tjänsten med hjälp av en tillförlitlig ordlista i det här programmet. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Voting** i Visual Studio.
+När du felsöker programmet i Visual Studio använder du ett lokalt utvecklingskluster för Service Fabric. Du kan välja att anpassa felsökningen så att det passar ditt scenario. I det här programmet lagras data i serverdelstjänsten med hjälp av en tillförlitlig ordlista. Visual Studio tar som standard bort programmet när du stoppar felsökningsprogrammet. När programmet tas bort kommer även data i serverdelstjänsten att tas bort. Om du vill spara data mellan felsökningssessionerna kan du ändra **programmets felsökningsläge** som en egenskap i projektet **Röstning** i Visual Studio.
 
 Gör så här om du vill se vad som händer i koden:
-1. Öppna den **VotesController.cs** fil och anger en brytpunkt i webb-API: er **placera** metod (rad 63) – du kan söka efter filen i Solution Explorer i Visual Studio.
+1. Öppna filen **VotesController.cs** och konfigurera en brytpunkt i webb-API:ns metod **Put** (rad 63). Du kan söka efter filen i Solution Explorer i Visual Studio.
 
-2. Öppna den **VoteDataController.cs** fil och anger en brytpunkt i den här web API **placera** metod (rad 53).
+2. Öppna filen **VoteDataController.cs** och konfigurera en brytpunkt i denna webb-API:s **Put**-metod (rad 53).
 
 3. Gå tillbaka till webbläsaren och klicka på ett röstningsalternativ eller lägg till ett nytt röstningsalternativ. Du kommer till den första brytpunkten i webbklientens api-kontroll.
     
@@ -617,30 +612,30 @@ Gör så här om du vill se vad som händer i koden:
     
     ![Lägg till röst för frontwebbtjänst](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Först skapar Webbadressen till ReverseProxy för backend-tjänst **(1)**.
-    3. Skicka den HTTP PUT-begäran till ReverseProxy **(2)**.
-    4. Slutligen returnera svar från backend-tjänsten på klienten **(3)**.
+    2. Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
+    3. Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
+    4. Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
 
 4. Tryck på **F5** för att fortsätta
     1. Du befinner dig nu på brytpunkten i serverdelstjänsten.
     
     ![Lägg till röst för serverdelstjänst](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. I den första raden i metoden **(1)** använder den `StateManager` att hämta eller lägga till en tillförlitlig ordlista som heter `counts`.
+    2. På den första raden i metoden **(1)** använder du `StateManager` för att hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
     3. All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
-    4. Uppdatera värdet för den aktuella nyckeln för alternativet röstning i transaktionen, och genomför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
+    4. I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
 5. Tryck på **F5** för att fortsätta
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.
 
 
 ## <a name="next-steps"></a>Nästa steg
-I denna del av kursen får du lära dig hur du:
+I den här självstudiedelen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en ASP.NET Core Web API-tjänst som en tillståndskänslig tillförlitlig tjänst
-> * Skapa ett webbprogram för ASP.NET Core-tjänst som en tillståndslös webbtjänst
-> * Använd omvänd proxy för att kommunicera med tjänsten tillståndskänslig
+> * Skapa en ASP.NET Core Web API-tjänst som en tillståndskänslig, tillförlitlig tjänst
+> * Skapa en ASP.NET Core-webbprogramtjänst som en tillståndskänslig, tillförlitlig webbtjänst
+> * Använda omvänd proxy för att kommunicera med den tillståndskänsliga tjänsten
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]

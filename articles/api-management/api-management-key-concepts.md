@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
 
@@ -30,7 +30,7 @@ Följande videoklipp innehåller en översikt över Azure API Management och dem
 > 
 > 
 
-Det här avsnittet innehåller en översikt över vanliga scenarier som innefattar APIM.  Det ger också en kort översikt över APIM-systemets huvudkomponenter. Avsnittet ger sedan en detaljerad översikt över varje komponent.
+Den här artikeln innehåller en översikt över vanliga scenarier som innefattar APIM.  Det ger också en kort översikt över APIM-systemets huvudkomponenter. Artikeln ger sedan en detaljerad översikt över varje komponent.
 
 ## <a name="overview"></a>Översikt
 
@@ -51,14 +51,14 @@ Systemet består av följande komponenter:
   * Transformerar ditt API direkt utan kodändringar.
   * Cachelagrar backend-svar om detta konfigurerats.
   * Loggar metadata i anrop för analysändamål.
-* **Utgivarportalen** är det administrativa gränssnittet där du konfigurerar ditt API-program. Använd portalen om du vill:
+* **Azure-portalen** är det administrativa gränssnittet där du konfigurerar ditt API-program. Använd portalen om du vill:
   
   * Definiera eller importera API-schemat.
   * Paketera API:er till produkter.
   * Konfigurera principer som kvoter eller transformationer i API:erna.
   * Få insikter från analyser.
   * Hantera användare.
-* **utvecklarportalen** är en fundamental webbportal för utvecklare, där de kan:
+* **Utvecklarportalen** är en fundamental webbportal för utvecklare, där de kan:
   
   * Få tillgång till API-dokumentation.
   * Testa ett API via den interaktiva konsolen.
@@ -105,7 +105,7 @@ När utvecklare prenumererar på en produkt får de tillgång till den primära 
 Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invite developers] och [Associera grupper med utvecklare][How to associate groups with developers].
 
 ## <a name="policies"> </a> Principer
-Principer är en kraftfull funktion i API Management som gör att utgivaren kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
+Principer är en kraftfull funktion i API Management som gör att Azure-portalen kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
 
 Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) och [Ange variabel](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) och [Principuttryck](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

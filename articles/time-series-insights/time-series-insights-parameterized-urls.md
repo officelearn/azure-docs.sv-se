@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -63,14 +63,16 @@ Godkända värden motsvarar **quick time**-menyn i Time Series Insights Explorer
 
 Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren för en Time Series Insights-vy, där:
 
-- `name=<string>`
+- ”name”:”<string>”
   - Namnet på *villkoret*.
-- `splitBy=<string>`
+- ”splitBy”:”<string>”
   - Kolumnnamnet att *dela med*.
-- `measureName=<string>`
+- ”measureName”:”<string>”
   - Kolumnnamnet för *mått*.
-- `predicate=<string>`
+- ”predicate”:”<string>”
   - *Where*-sats för filtrering på serversidan.
+-  ”useSum”:”true”
+  - Detta är en valfri parameter som anger att summering ska användas för din åtgärd.  Observera att om den valda åtgärden är ”Händelser” väljs antalet som standard.  Om ”Händelser” inte är markerat väljs medelvärdet som standard.  
 
 Parametern multiChartStack = <true/false> aktiverar stapling i diagrammet och parametern multiChartSameScale = <true/false> aktiverar samma y-axelskala över villkoren i en valfri parameter.  
 

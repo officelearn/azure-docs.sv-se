@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuera ett Service Fabric Windows-behållarprogram i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -35,7 +35,7 @@ I den här snabbstarten lär du dig att:
 > * Utveckla och distribuera ett Service Fabric-program
 > * Distribuera behållarprogrammet till Azure
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En Azure-prenumeration (du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * En utvecklingsdator som kör:
   * Visual Studio 2015 eller Visual Studio 2017.
@@ -79,24 +79,44 @@ Konfigurera behållarens portmappning (port till värd) genom att ange en `PortB
 En fullständig ApplicationManifest.xml -exempelfil finns i slutet av den här artikeln.
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du antingen välja att skapa ett eget kluster, eller använda ett partykluster.
+Om du vill distribuera programmet till ett kluster i Azure kan du antingen välja att gå med i ett partykluster eller [skapa ett eget kluster på Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster.  
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. 
 
-Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Certifikatet och värdet **Anslutningens slutpunkt** används i följande steg.
 
-Skriv ned anslutningsslutpunkten, som du ska använda i följande steg.  
+![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+På en Windows-dator ska du installera PFX i certifikatarkivet *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Kom ihåg tumavtrycket för följande steg.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Distribuera programmet till Azure med hjälp av Visual Studio
 Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
 
 Högerklicka på **MyFirstContainer** i Solution Explorer och välj **Publicera**. Dialogrutan Publicera visas.
 
-![Dialogrutan Publicera](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och fyll i följande information.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades i föregående steg. 
 
-Ange anslutningsslutpunkten för klustret i fältet **Connection Endpoint** (Anslutningsslutpunkt). När du registrerar dig för partyklustret anger du anslutningsslutpunkten i webbläsaren, t.ex. `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klicka på **Publicera** så distribueras programmet.
+![Dialogrutan Publicera](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Öppna en webbläsare och gå till http://winh1x87d1d.westus.cloudapp.azure.com:80. Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
+Klicka på **Publicera**.
+
+Varje program i klustret måste ha ett unikt namn.  Partkluster är en offentlig, delad miljö men det kan finnas en konflikt med ett befintligt program.  Om det finns en namnkonflikt byter du namn på Visual Studio-projektet och distribuerar igen.
+
+Öppna en webbläsare och gå till http://zwin7fh14scd.westus.cloudapp.azure.com:80. Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Komplett exempel på Service Fabric-app och tjänstmanifest
 Här är de fullständiga tjänst- och programmanifesten som används i den här snabbstarten.
@@ -167,6 +187,7 @@ Här är de fullständiga tjänst- och programmanifesten som används i den här
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

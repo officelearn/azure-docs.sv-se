@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -26,9 +26,9 @@ Oavsett om en app eller tjänst körs i molnet eller lokalt, måste den ofta sam
 
 ## <a name="service-bus-fundamentals"></a>Grunderna i Service Bus
 
-Olika situationer kräver olika kommunikationsstilar. Ibland är den bästa lösningen att låta appar skicka och ta emot meddelanden via en enkel kö. I vissa situationer räcker det inte med en vanlig kö, utan det är bättre att använda en kö med en mekanism av typen publicera och prenumerera. I andra fall är allt som behövs en anslutning mellan apparna. Köer är överflödiga. Service Bus gör att du kan använda alla tre alternativ och ser till att dina appar kan interagera på flera olika sätt.
+Olika situationer kräver olika kommunikationsstilar. Ibland är den bästa lösningen att låta appar skicka och ta emot meddelanden via en enkel kö. I vissa situationer räcker det inte med en vanlig kö, utan det är bättre att använda en kö med en mekanism av typen publicera och prenumerera. I andra fall är allt som behövs en anslutning mellan apparna. Köer är överflödiga. Azure Service Bus gör att du kan använda alla tre alternativ och ser till att dina appar kan interagera på flera olika sätt.
 
-Service Bus är en molntjänst med flera klienter, vilket innebär att tjänsten delas av flera användare. Varje användare, till exempel en programutvecklare, skapar ett *namnområde*, och sedan definierar utvecklaren de kommunikationsmekanismer som han eller hon vill använda inom det här namnområdet. Bild 1 visar hur den här arkitekturen ser ut.
+Service Bus är en molntjänst med flera klienter, vilket innebär att tjänsten delas av flera användare. Varje användare, till exempel en programutvecklare, skapar ett *namnområde*, och sedan definierar utvecklaren de kommunikationsmekanismer som han eller hon vill använda inom det här namnområdet. Bild 1 visar den här arkitekturen:
 
 ![][1]
 
@@ -40,7 +40,7 @@ Du kan använda en eller flera instanser av tre olika kommunikationsmekanismer i
 * *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Ett ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
 * *Reläer* (relays), som ger dubbelriktad kommunikation. Till skillnad från köer och ämnen lagrar inte ett relä meddelanden som redan startats. Det är alltså inte en koordinator. I stället skickar reläet bara meddelandena vidare till målprogrammet.
 
-När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda den kön, det ämnet eller det reläet i sin kommunikation med varandra. 
+När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda kön, ämnet eller reläet i kommunikationen. 
 
 Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt vid vidarebefordran. Den här tjänsten kallas [WCF Relay](../service-bus-relay/relay-what-is-it.md). För köer och ämnen kan Windows-program använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer och ämnen med hjälp av [REST-API:er](/rest/api/servicebus/) via HTTP. 
 
@@ -48,13 +48,13 @@ Det är viktigt att förstå att även om själva Service Bus körs i molnet (de
 
 ## <a name="queues"></a>Köer
 
-Anta att du bestämmer dig för att ansluta två appar med hjälp av en Service Bus-kö. Bild 2 visar den här situationen.
+Anta att du bestämmer dig för att ansluta två appar med hjälp av en Service Bus-kö. Bild 2 visar den här situationen:
 
 ![][2]
 
 **Bild 2: Service Bus-köer erbjuder enkelriktade asynkrona köer.**
 
-Processen är enkel: En avsändare skickar ett meddelande till en Service Bus-kö och en mottagare hämtar meddelandet vid ett senare tillfälle. En kö kan ha bara en enkel mottagare, som bild 2 visar. Eller så kan flera program läsa från samma kö. I det senare fallet läses varje meddelande av enbart en mottagare. För en tjänst med multi-cast bör du istället använda ett ämne.
+En avsändare skickar ett meddelande till en Service Bus-kö och en mottagare hämtar meddelandet vid ett senare tillfälle. En kö kan ha bara en enkel mottagare, som bild 2 visar. Eller så kan flera program läsa från samma kö. I det senare fallet läses varje meddelande av enbart en mottagare. För en tjänst med multi-cast bör du istället använda ett ämne.
 
 Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna **Säljare="Ava"** och **Belopp= 10000**. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
@@ -68,17 +68,17 @@ Det andra alternativet, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.recei
 
 Observera vad som kan inträffa här: samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för denna händelse. För att förenkla identifiering av dubbletter har varje meddelande en unik [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId)-egenskap. Denna är som standard alltid densamma, oavsett hur många gånger meddelandet har lästs från en kö. 
 
-Köer är användbara i ett ganska stort antal situationer. De gör att appar kan kommunicera även när båda inte körs på samma gång, något som är särskilt praktiskt med batch- och mobilappar. En kö med flera mottagare ger också automatisk belastningsbalansering eftersom skickade meddelanden sprids ut bland dessa mottagare.
+Köer är användbara i ett ganska stort antal situationer. De gör att appar kan kommunicera även om båda inte körs på samma gång, något som är särskilt praktiskt för batch- och mobilappar. En kö med flera mottagare ger också automatisk belastningsbalansering eftersom skickade meddelanden sprids ut bland dessa mottagare.
 
 ## <a name="topics"></a>Ämnen
 
-Även om köer ofta är väldigt användbara, är de inte alltid den rätta lösningen. Ibland är det bättre att använda Service Bus-ämnen. Bild 3 ger dig en uppfattning om varför det är så.
+Även om köer ofta är väldigt användbara, är de inte alltid den rätta lösningen. Ibland är det bättre med ämnen. Bild 3 illustrerar det här:
 
 ![][3]
 
 **Bild 3: Baserat på de filter ett prenumererande program specificerar så kan det ta emot en del eller alla meddelanden som skickats till ett Service Bus-ämne.**
 
-Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till ett ämne på samma sätt som de skickar meddelanden till en kö. Och dessa meddelanden ser likadana ut som när de används i köer. Skillnaden är att ämnen gör att varje mottagande app kan skapa sin egen *prenumeration* genom att definiera ett *filter*. Prenumeranten kommer därefter endast att se de meddelanden som matchar filtret. Bild 3 visar till exempel en avsändare och ett ämne med tre prenumeranter, var och en med sitt eget filter:
+Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till ett ämne på samma sätt som de skickar meddelanden till en kö. Och dessa meddelanden ser likadana ut som när de används i köer. Skillnaden är att ämnen gör att varje mottagande app kan skapa en egen *prenumeration* och eventuellt definiera ett *filter*. Prenumeranten kommer därefter endast att se de meddelanden som matchar filtret. Bild 3 visar till exempel en avsändare och ett ämne med tre prenumeranter, var och en med sitt eget filter:
 
 * Prenumerant 1 får endast meddelanden som innehåller egenskapen *Säljare="Ava"*.
 * Prenumerant 2 tar emot meddelanden som innehåller egenskapen *Säljare="Ruth"* och/eller innehåller en egenskap för *belopp* vars värde är större än 100 000. Ruth kanske är försäljningschef så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
@@ -88,7 +88,7 @@ På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddel
 
 ## <a name="relays"></a>Reläer
 
-Både köer och ämnen ger dig enkelriktad, asynkron kommunikation via en koordinator. Trafiken flödar endast i en riktning och det finns ingen direkt anslutning mellan avsändarna och mottagarna. Men vad händer om du inte vill använda denna anslutning? Anta att dina appar både måste kunna skicka och ta emot meddelanden. Eller så kanske du vill ha en direktlänk mellan dem och du har inget behov av en koordinator för att lagra meddelanden. För att kunna hantera scenarier som detta tillhandahåller Service Bus *reläer* (relays), som visas på bild 4.
+Både köer och ämnen ger dig enkelriktad, asynkron kommunikation via en koordinator. Trafiken flödar endast i en riktning och det finns ingen direkt anslutning mellan avsändarna och mottagarna. Men vad händer om du inte vill använda denna anslutning? Anta att dina appar både måste kunna skicka och ta emot meddelanden. Eller så kanske du vill ha en direktlänk mellan dem och du har inget behov av en koordinator för att lagra meddelanden. För att kunna hantera scenarier som detta har Service Bus *reläer*, så som visas i bild 4:
 
 ![][4]
 
@@ -96,7 +96,7 @@ Både köer och ämnen ger dig enkelriktad, asynkron kommunikation via en koordi
 
 Den naturliga frågan när det gäller reläer är: varför bör jag använda ett relä? Även om jag inte behöver köer, varför göra så att appar kommunicerar via en molnbaserad tjänst i stället för att helt enkelt interagera direkt med varandra? Svaret är att det här med att prata direkt med varandra kan vara svårare än du tror.
 
-Anta att du vill ansluta två lokala appar. Båda körs på företagets eget datacenter. Var och en av dessa appar ligger bakom en brandvägg och varje datacenter använder antagligen nätadressöversättning (NAT). Brandväggen blockerar inkommande data på i princip alla portar och NAT-användningen antyder att datorerna där apparna körs inte har en fast IP-adress som gör att du kan nå dem direkt från en plats utanför datacentret. Utan extra hjälp är det problematiskt att ansluta dessa appar till varandra med hjälp av en offentlig internetanslutning.
+Anta att du vill ansluta två lokala appar. Båda körs på företagets eget datacenter. Var och en av dessa appar ligger bakom en brandvägg och varje datacenter använder antagligen nätadressöversättning (NAT). Brandväggen blockerar inkommande data på i princip alla portar och NAT-användningen antyder att datorn där apparna körs inte har en fast IP-adress som gör att du kan nå dem direkt från en plats utanför datacentret. Utan extra hjälp är det problematiskt att ansluta dessa appar till varandra med hjälp av en offentlig internetanslutning.
 
 Det kan hjälpa att använda ett Service Bus-relä. För att kommunicera i båda riktningarna via ett relä, upprättar varje app en utgående TCP-anslutning med Service Bus och håller den sedan öppen. All kommunikation mellan de två apparna överförs via dessa anslutningar. Eftersom varje anslutning har upprättats inifrån datacentret tillåter brandväggen inkommande trafik till varje app utan att öppna nya portar. Med hjälp av den här metoden kringgår du också problemet med NAT eftersom varje app har en konsistent slutpunkt i molnet under hela kommunikationen. Genom att utföra utbyte av data via reläet kan apparna undvika problem som annars skulle ha försvårat kommunikationen. 
 

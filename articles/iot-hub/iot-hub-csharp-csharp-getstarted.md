@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec9ff4a866ef8736ed260b4d17aa997433c1ef8d
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3ea8979f21fcc8a85e80db9b49377ba9a48836e2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Anslut din enhet till IoT Hub med hjälp av .NET
 
@@ -31,9 +31,9 @@ I slutet av den här självstudiekursen har du tre .NET-konsolappar:
 * **ReadDeviceToCloudMessages**, som visar telemetri som skickas av appen för enheter.
 * **SimulatedDevice**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av MQTT-protokollet.
 
-Du kan hämta eller klona Visual Studio-lösningen som innehåller de tre apparna från Github.
+Följ stegen i den här självstudien om du vill skapa exempelapparna från grunden. Du kan också [ladda ned](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip) eller klona en färdig Visual Studio-lösning från Github:
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
@@ -54,6 +54,7 @@ Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträ
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Ta emot meddelanden från enheten till molnet
+
 I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT Hub exponerar en [Azure Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheter till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. I självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] står det hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial]. (Den här självstudiekursen gäller Event Hub-kompatibla slutpunkter i IoT Hub.)
 
 > [!NOTE]
@@ -63,18 +64,18 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
 
     ![Nytt Visual C# Windows Classic Desktop-projekt][10a]
 
-2. Högerklicka i Solution Explorer på projektet **ReadDeviceToCloudMessages** och klicka sedan på **Hantera NuGet-paket**.
+1. Högerklicka i Solution Explorer på projektet **ReadDeviceToCloudMessages** och klicka sedan på **Hantera NuGet-paket**.
 
-3. I fönstret för **NuGet-pakethanteraren** letar du upp **WindowsAzure.ServiceBus**, väljer **Installera** och godkänner användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Azure Service Bus][lnk-servicebus-nuget], med alla dess beroenden. Det här paketet gör att programmet kan ansluta till Event Hub-kompatibla slutpunkter i din IoT Hub.
+1. I fönstret för **NuGet-pakethanteraren** letar du upp **WindowsAzure.ServiceBus**, väljer **Installera** och godkänner användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Azure Service Bus][lnk-servicebus-nuget], med alla dess beroenden. Det här paketet gör att programmet kan ansluta till Event Hub-kompatibla slutpunkter i din IoT Hub.
 
-4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med IoT Hub-anslutningssträngen som du skapade i avsnittet ”Skapa en IoT Hub”.
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med IoT Hub-anslutningssträngen som du skapade i avsnittet ”Skapa en IoT Hub”.
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +83,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
     static EventHubClient eventHubClient;
     ```
 
-6. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod i klassen **Program**:
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -102,7 +103,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
 
     Den här metoden använder en **EventHubReceiver**-instans för att ta emot meddelanden från alla IoT-hubbens ”enhet till molnet”-mottagarpartitioner. Observera att du skickar en `DateTime.Now`-parameter när du skapar **EventHubReceiver**-objektet, så att det bara tar emot meddelanden när det har startat. Detta filter är användbart i en testmiljö så att du kan se den aktuella uppsättningen meddelanden. I en produktionsmiljö ska din kod kontrollera att den bearbetar alla meddelanden. Mer information finns i självstudiekursen [Behandla meddelanden från enheten till molnet i IoT Hub][lnk-process-d2c-tutorial].
 
-7. Slutligen lägger du till följande rader till **Main**-metoden:
+1. Slutligen lägger du till följande rader till **Main**-metoden:
 
     ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -123,7 +124,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
     foreach (string partition in d2cPartitions)
     {
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-    }  
+    }
     Task.WaitAll(tasks.ToArray());
     ```
 
@@ -135,18 +136,18 @@ I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som s
 
     ![Nytt Visual C# Windows Classic Desktop-projekt][10b]
 
-2. Högerklicka på projektet **SimulatedDevice** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
+1. Högerklicka på projektet **SimulatedDevice** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
 
-3. Välj **Bläddra** i fönstret för **NuGet-pakethanteraren**, leta upp **Microsoft.Azure.Devices.Client**, välj **Installera** för att installera **Microsoft.Azure.Devices.Client**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [NuGet-paketet SDK för Azure IoT-enheter][lnk-device-nuget] och dess beroenden.
+1. Välj **Bläddra** i fönstret för **NuGet-pakethanteraren**, leta upp **Microsoft.Azure.Devices.Client**, välj **Installera** för att installera **Microsoft.Azure.Devices.Client**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [NuGet-paketet SDK för Azure IoT-enheter][lnk-device-nuget] och dess beroenden.
 
-4. Lägg till följande `using`-instruktion högst upp i filen **Program.cs**:
+1. Lägg till följande `using`-instruktion högst upp i filen **Program.cs**:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub hostname}` med det IoT Hub-värdnamn som du hämtade i avsnittet Skapa en IoT Hub. Ersätt `{device key}` med den enhetsnyckel som du hämtade i avsnittet Skapa en enhetsidentitet.
+1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub hostname}` med det IoT Hub-värdnamn som du hämtade i avsnittet Skapa en IoT Hub. Ersätt `{device key}` med den enhetsnyckel som du hämtade i avsnittet Skapa en enhetsidentitet.
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +155,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som s
     static string deviceKey = "{device key}";
     ```
 
-6. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod i klassen **Program**:
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -190,7 +191,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som s
 
     Den här metoden skickar ett nytt ”enhet till molnet”-meddelande varje sekund. Meddelandet innehåller ett JSON-serialiserat objekt med enhets-ID:t och ett slumpmässigt genererat nummer för att simulera en temperatursensor och en fuktighetssensor.
 
-7. Slutligen lägger du till följande rader till **Main**-metoden:
+1. Slutligen lägger du till följande rader till **Main**-metoden:
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -215,11 +216,11 @@ Nu är det dags att köra apparna.
 
     ![Egenskaper för startprojekt][41]
 
-2. Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din enhetsapp skickar till IoT Hub. Konsolens utdata från appen **ReadDeviceToCloudMessages** visar meddelandena som din IoT Hub tar emot.
+1. Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din enhetsapp skickar till IoT Hub. Konsolens utdata från appen **ReadDeviceToCloudMessages** visar meddelandena som din IoT Hub tar emot.
 
     ![Konsolens utdata från appar][42]
 
-3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT Hub:
+1. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT Hub:
 
     ![Panelen Användning på Azure Portal][43]
 
@@ -243,7 +244,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
 [10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
-
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

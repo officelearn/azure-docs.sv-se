@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: f160a3291357387fcef75d8c2257e6e37274b0e7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
 
@@ -28,12 +28,12 @@ Med [App Service on Linux](app-service-linux-intro.md) får du en automatiskt up
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installera Ruby 2.4.1 eller senare</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -90,19 +90,19 @@ Nu har appen konfigurerats. Navigera till `http://localhost:3000` i webbläsaren
 
 ## <a name="create-a-ruby-web-app-on-azure"></a>Skapa en Ruby-webbapp på Azure
 
-Det måste finnas en resursgrupp som innehåller de tillgångar som behövs för din webbapp. Du skapar en resursgrupp med kommandot [az group create]().
+Det måste finnas en resursgrupp som innehåller de tillgångar som behövs för din webbapp. Använd kommandot [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) för att skapa en resursgrupp.
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Använd kommandot [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) för att skapa en App Service-plan för din webbapp.
+Använd kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) för att skapa en apptjänstplan för din webbapp.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Utfärda därefter kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) för att skapa webbappen som använder den nya tjänstplanen. Observera att körningen har angetts till `ruby|2.3`. Glöm inte att ersätta `<app name>` med ett unikt appnamn.
+Utfärda därefter kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) för att skapa webbappen som använder den nya tjänstplanen. Observera att körningen har angetts till `ruby|2.3`. Glöm inte att ersätta `<app name>` med ett unikt appnamn.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-När distributionen är klar startar du om webbappen så att distributionen börjar gälla med hjälp av kommandot [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart):
+När distributionen är klar startar du om webbappen så att distributionen börjar gälla med hjälp av kommandot [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart):
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

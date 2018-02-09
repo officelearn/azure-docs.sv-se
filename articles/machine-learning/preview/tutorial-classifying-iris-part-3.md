@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -32,7 +32,7 @@ Den här självstudien är del tre i en serie med tre delar. I den här delen av
 
  Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Gå igenom de första två delarna i självstudieserien:
 
    * Gå igenom [självstudien Förbereda data](tutorial-classifying-iris-part-1.md), där du får skapa Machine Learning-resurser och installera Azure Machine Learning Workbench.
@@ -146,6 +146,17 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
    
    Klusternamnet är ett sätt att identifiera miljön. Platsen måste vara samma som för modellhanteringskontot som du skapade från Azure Portal.
 
+   Kontrollera statusen med följande kommando för att se om miljön är rätt konfigurerad:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Kontrollera att ”Provisioning State” (Etableringsstatus) har värdet ”Succeeded” (se nedan) innan du ställer in miljön i steg 5.
+
+   ![Etableringsstatus](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
 3. Skapa ett modellhanteringskonto. (Du behöver bara utföra den här konfigurationen en gång.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
@@ -158,7 +169,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
 5. Konfigurera miljön.
 
-   När installationen är klar använder du följande kommando för att ställa in de miljövariabler som behövs för operationalisering av miljön. Använd samma miljönamn, som du använde tidigare i steg 2. Använd samma resursgruppnamn som angavs i kommandofönstret när installationen slutfördes.
+   När installationen är klar använder du följande kommando för att ställa in de miljövariabler som behövs för operationalisering av miljön. Använd samma miljönamn som du använde tidigare i steg 2. Använd samma resursgruppnamn som angavs i kommandofönstret när installationen slutfördes.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
@@ -258,8 +269,9 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 
 2. Om du vill testa tjänsten kör du tjänstkörningskommandot som returnerades:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    Utdata är **”2”**, som är den förväntade klassen. (Dina resultat kan vara annorlunda.) 
 

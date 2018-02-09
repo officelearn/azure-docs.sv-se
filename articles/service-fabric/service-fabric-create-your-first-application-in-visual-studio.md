@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Skapa ditt första tillståndskänsliga tillförlitliga C# Service Fabric-program
 
@@ -81,6 +81,17 @@ När klustret är klart får du ett meddelande från programmet Local Cluster Ma
 När programmet startar visas loggboken **Diagnostik automatiskt**, där du kan se spårningsinformation från tjänsten.
    
 ![Loggboken Diagnostik][5]
+
+>[!NOTE]
+>Händelserna bör automatiskt starta spårningen i Diagnostikloggboken, men om du behöver konfigurera detta manuellt öppnar du först filen `ServiceEventSource.cs` i projektet **MyStatefulService**. Kopiera värdet för attributet `EventSource` överst i klassen `ServiceEventSource`. I exemplet nedan benämns händelsekällan `"MyCompany-MyApplication-MyStatefulService"`. I ditt fall kanske den heter något annat.
+>
+>![Hitta namnet på tjänstens händelsekälla][service-event-source-name]
+>
+>Klicka på kugghjulsikonen på fliken Diagnostikloggboken så att dialogrutan **ETW-leverantörer** öppnas. Kopiera och klistra in namnet på händelsekällan i textrutan **ETW-leverantörer**. Klicka på knappen **Använd**. Då startas händelsespårningen automatiskt.
+>
+>![Konfigurera händelsekällans namn för diagnostik][setting-event-source-name]
+>
+>Du bör nu se händelserna visas i fönstret Diagnostikhändelser.
 
 Med mallen för tillståndskänsliga tjänster visas en ökande räknare i metoden `RunAsync` i **MyStatefulService.cs**.
 
@@ -146,3 +157,5 @@ Mer information om [Reliable Services](service-fabric-reliable-services-introduc
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

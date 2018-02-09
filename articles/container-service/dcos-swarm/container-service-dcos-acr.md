@@ -1,6 +1,6 @@
 ---
-title: ACR med ett Azure DC/OS-kluster
-description: "Använda en Azure-behållare registret med ett DC/OS-kluster i Azure Container Service"
+title: "Använda ACR med ett Azure DC/OS-kluster"
+description: "Använd ett Azure-behållarregister med ett DC/OS-kluster i Azure Container Service"
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Använda ACR med ett DC/OS-klustret för att distribuera programmet
+# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Använd ACR med ett DC/OS-kluster till att distribuera ditt program
 
-I den här artikeln förklarar vi hur du använder Azure-behållare registret med ett DC/OS-kluster. Med hjälp av ACR kan du lagra och hantera avbildningar för behållaren privat. Den här kursen ingår följande uppgifter:
+I den här artikeln går vi igenom hur du använder Azure Container Registry med ett DC/OS-kluster. Med ACR kan du lagra och hantera behållaravbildningar privat. Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Distribuera Azure-behållare registret (vid behov)
-> * Konfigurera ACR autentisering på en DC/OS-klustret
-> * Överföra en bild i registret för Azure-behållare
-> * Kör en avbildning av behållare från registret för Azure-behållare
+> * distribuera Azure Container Registry (om det behövs)
+> * konfigurera ACR-autentisering i ett DC/OS-kluster
+> * ladda upp en avbildning till Azure Container Registry
+> * köra en behållaravbildning från Azure Container Registry.
 
-Du behöver en ACS DC/OS-klustret för att slutföra stegen i den här självstudiekursen. Om det behövs, [detta skriptexempel](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kan skapa en åt dig.
+Du behöver ett ACS DC/OS-klustret när du ska utföra stegen i den här självstudien. Om det behövs kan du skapa ett sådant med [detta skriptexempel](./../kubernetes/scripts/container-service-cli-deploy-dcos.md).
 
 För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
+## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Om det behövs, skapa ett Azure-behållare registret med den [az acr skapa](/cli/azure/acr#create) kommando. 
+Om det behövs skapar du ett Azure-behållarregister med kommandot [az acr create](/cli/azure/acr#az_acr_create). 
 
-I följande exempel skapas ett register med ett slumpmässigt Generera namn. Registret konfigureras också med en admin-kontot med den `--admin-enabled` argumentet.
+I följande exempel skapas ett register med ett slumpmässigt genererat namn. Registret konfigureras också med ett administratörskonto med argumentet `--admin-enabled`.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-När registret har skapats, Azure CLI matar ut data som liknar följande. Anteckna den `name` och `loginServer`, dessa används i senare steg.
+När registret har skapats ser utdata från Azure CLI ungefär så här: Anteckna `name` och `loginServer`, du använder dem i senare steg.
 
 ```azurecli
 {
@@ -64,87 +64,87 @@ När registret har skapats, Azure CLI matar ut data som liknar följande. Anteck
 }
 ```
 
-Hämta behållaren registret autentiseringsuppgifterna med hjälp av den [az acr autentiseringsuppgifter visa](/cli/azure/acr/credential) kommando. Ersätt den `--name` med den som anges i det sista steget. Ta del av lösenord, det behövs i ett senare steg.
+Hämta autentiseringsuppgifterna för behållarregistret med kommandot [az acr credential show](/cli/azure/acr/credential). Ersätt `--name` med namnet från föregående steg. Notera lösenordet, du behöver det i ett senare steg.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry23489
 ```
 
-Läs mer om Azure-behållare registret [introduktion till privata Docker behållare register](../../container-registry/container-registry-intro.md). 
+Mer information om Azure Container Registry finns i [Introduktion till privata Docker-behållarregister](../../container-registry/container-registry-intro.md). 
 
 ## <a name="manage-acr-authentication"></a>Hantera ACR-autentisering
 
-Det vanliga sättet push och pull-avbildningen från ett privat register är att först autentisera med registret. Om du vill göra det använder du den `docker login` på alla klienter som behöver åtkomst till privata registret. Eftersom ett DC/OS-kluster kan innehålla flera noder, som måste autentiseras med ACR, är det bra att automatisera processen över varje nod. 
+I det vanliga sättet att push- och pull-överföra avbildningar från ett privat register autentiserar du först med registret. Om du vill göra det skulle du använda kommandot `docker login` från de klienter som behöver åtkomst till det privata registret. Eftersom ett DC/OS-kluster kan innehålla många noder, som alla måste autentiseras i ACR, är det bra att automatisera den processen för varje nod. 
 
 ### <a name="create-shared-storage"></a>Skapa delad lagring
 
-Den här processen använder en Azure-filresurs som har monterats på varje nod i klustret. Om du inte redan har installerat delad lagring, se [konfigurera en filresurs i ett DC/OS-kluster](container-service-dcos-fileshare.md).
+I den här processen används en Azure-filresurs som har monterats vid varje nod i klustret. Om du inte redan har konfigurerat den delade lagringen kan du läsa [Konfigurera en filresurs i ett DC/OS-kluster](container-service-dcos-fileshare.md).
 
 ### <a name="configure-acr-authentication"></a>Konfigurera ACR-autentisering
 
-Först hämta det fullständiga Domännamnet för DC/OS-hanteraren och lagrar den i en variabel.
+Hämta först FQDN för DC/OS-huvudservern och lagra det i en variabel.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Skapa en SSH-anslutning med huvudservern (eller den första huvudservern) på ditt DC/OS-baserade kluster. Uppdatera användarnamnet om ett standardvärde används när klustret skapas.
+Skapa en SSH-anslutning med huvudservern (eller den första huvudservern) i ditt DC/OS-baserade kluster. Uppdatera användarnamnet om du använde något annat än standardvärdet när du skapade klustret.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Kör följande kommando för att logga in på Azure-behållare registret. Ersätt den `--username` med namnet på behållaren-registret och `--password` med något av de angivna lösenorden. Ersätt det sista argumentet *mycontainerregistry.azurecr.io* i exemplet med loginServer namn i registret för behållaren. 
+Kör sedan följande kommando för att logga in på Azure Container Registry. Ersätt `--username` med namnet på behållarregistret och `--password` med något av de angivna lösenorden. Ersätt det sista argumentet *mycontainerregistry.azurecr.io* i exemplet med namnet på inloggningsservern för behållarregistret. 
 
-Det här kommandot lagrar värdena autentisering lokalt under den `~/.docker` sökväg.
+Det här kommandot lagrar autentiseringsvärdena lokalt under sökvägen `~/.docker`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 
-Skapa en komprimerad fil som innehåller autentisering för behållaren registervärden.
+Skapa en komprimerad fil som innehåller autentiseringsvärdena för behållarregistret.
 
 ```azurecli-interactive
 tar czf docker.tar.gz .docker
 ```
 
-Kopiera filen till klusterdelade lagringen. Det här steget gör filen tillgänglig på alla noder i DC/OS-klustret.
+Kopiera den här filen till klustrets delade lagring. Det här steget gör filen tillgänglig vid alla noder i DC/OS-klustret.
 
 ```azurecli-interactive
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
-## <a name="upload-image-to-acr"></a>Överför avbildningen till ACR
+## <a name="upload-image-to-acr"></a>Ladda upp avbildningen till ACR
 
-Nu från en utvecklingsdator, eller andra system med Docker installerat, skapa en avbildning och överföra den till Azure-behållare registret.
+Använd en utvecklingsdator eller något annat system där Docker installerat, skapa en avbildning och ladda upp den till Azure-behållarregistret.
 
-Skapa en behållare från avbildningen Ubuntu.
+Skapa en behållare från Ubuntu-avbildningen.
 
 ```azurecli-interactive
 docker run ubuntu --name base-image
 ```
 
-Samla in behållaren nu till en ny avbildning. Avbildningens namn måste innehålla den `loginServer` namnet på behållaren registrywith ett format för `loginServer/imageName`.
+Fånga nu behållaren i en ny avbildning. Avbildningens namn måste innehålla `loginServer`-namnet för behållarregistret på formatet `loginServer/imageName`.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ````
 
-Logga in på Azure-behållaren registret. Ersätt namnet med loginServer namn, användarnamn--med namnet på behållaren-registret och--lösenordet med något av de angivna lösenorden.
+Logga in på Azure-behållarregistret. Ersätt namnet med loginServer-namnet, --username med namnet på behållarregistret och --password med något av de angivna lösenorden.
 
 ```azurecli-interactive
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
-Slutligen överför avbildningen till ACR-registret. Det här exemplet överför en bild med namnet DC/OS-demonstrationen.
+Ladda slutligen upp avbildningen till ACR-registret. I det här exemplet laddas en avbildning med namnet dcos-demo upp.
 
 ```azurecli-interactive
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
-## <a name="run-an-image-from-acr"></a>Kör en bild från ACR
+## <a name="run-an-image-from-acr"></a>Köra en avbildning från ACR
 
-Skapa en fil namn om du vill använda en avbildning från registret ACR *acrDemo.json* och kopiera följande text till den. Ersätt Avbildningsnamnet med behållarnamn registret loginServer och namn, till exempel `loginServer/imageName`. Anteckna den `uris` egenskapen. Den här egenskapen innehåller platsen för behållaren autentisering registerfilen, som i det här fallet är Azure-filresursen som är monterade på varje nod i DC/OS-klustret.
+Om du vill använda en avbildning från ACR-registret skapar du en fil med namnet *acrDemo.json* och kopierar följande text till den. Ersätt avbildningsnamnet med loginServer-namnet och avbildningsnamnet för behållarregistret, till exempel `loginServer/imageName`. Anteckna egenskapen `uris`. Den här egenskapen innehåller platsen för autentiseringsfilen för behållarregistret, som i det här fallet är Azure-filresursen som är monterad vid varje nod i DC/OS-klustret.
 
 ```json
 {
@@ -192,10 +192,10 @@ dcos marathon app add acrDemo.json
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du konfigurera DC/OS för att använda Azure Container registret, inklusive följande uppgifter:
+I den här självstudien har du konfigurerat DC/OS för att använda Azure Container Registry, och utfört följande uppgifter:
 
 > [!div class="checklist"]
-> * Distribuera Azure-behållare registret (vid behov)
-> * Konfigurera ACR autentisering på en DC/OS-klustret
-> * Överföra en bild i registret för Azure-behållare
-> * Kör en avbildning av behållare från registret för Azure-behållare
+> * distribuera Azure Container Registry (om det behövs)
+> * konfigurera ACR-autentisering i ett DC/OS-kluster
+> * ladda upp en avbildning till Azure Container Registry
+> * köra en behållaravbildning från Azure Container Registry.

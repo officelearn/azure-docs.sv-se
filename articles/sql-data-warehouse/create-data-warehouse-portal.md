@@ -1,5 +1,5 @@
 ---
-title: "Skapa ett SQL Data Warehouse – Azure Portal | Microsoft Docs"
+title: "Snabbstart: Skapa ett SQL informationslager – Azure Portal | Microsoft Docs"
 description: "Skapa en SQL Server, en brandväggsregel på servernivå och ett informationslager i Azure Portal för att skapa ett Azure SQL Data Warehouse. Skicka sedan frågor till den."
 keywords: "självstudier om SQL data warehouse, skapa ett SQL data warehouse"
 services: sql-database
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Skapa och skicka frågor till ett Azure SQL Data Warehouse i Azure Portal
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart:Skapa och skicka frågor till ett Azure SQL informationslager i Azure-portalen
 
 Skapa snabbt och skicka frågor till ett Azure SQL Data Warehouse med hjälp av Azure Portal.
 
@@ -33,7 +33,7 @@ Ladda ned och installera den senaste versionen av [SQL Server Management Studio]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
@@ -126,7 +126,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20171113.database.windows.net. 
 

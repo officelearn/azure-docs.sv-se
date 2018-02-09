@@ -3,8 +3,8 @@ title: "Komma igång med Azure CLI för Batch | Microsoft Docs"
 description: "Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser"
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -40,7 +40,7 @@ När du ska installera Azure CLI följer du stegen som beskrivs i [Installera Az
 
 ## <a name="command-help"></a>Kommandohjälp
 
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Exempel:
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Till exempel:
 
 * Om du vill få hjälp med `az`-kommandot anger du: `az -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
@@ -69,7 +69,7 @@ Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Az
 1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
 2. [Logga in med ett huvudnamn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
 
-I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/#login) på kommandoraden:
+I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/#az_login) på kommandoraden:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ I exemplen i avsnittet [Exempel på kommandoskript](#sample-shell-scripts) visas
 
 Du kan använda Azure CLI för att köra Batch-jobb från slutpunkt till slutpunkt utan att skriva kod. Batch-mallfiler har stöd för att skapa pooler, jobb och uppgifter med Azure CLI. Du kan också använda Azure CLI för att ladda upp jobbindatafiler till Azure Storage-kontot som är kopplat till Batch-kontot och ladda ned jobbutdatafiler därifrån. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)](batch-cli-templates.md).
 
-## <a name="sample-shell-scripts"></a>Exempel på kommandoskript
+## <a name="script-examples"></a>Skriptexempel
 
-I exempelskripten i följande tabell visas hur du använder Azure CLI-kommandon med Batch-tjänsten och Batch Management-tjänsten för att utföra vanliga uppgifter. Dessa exempelskript omfattar många av de kommandon som är tillgängliga i Azure CLI för Batch. 
-
-| Skript | Anteckningar |
-|---|---|
-| [Skapa ett Batch-konto](./scripts/batch-cli-sample-create-account.md) | Skapar ett Batch-konto och kopplar det till ett lagringskonto. |
-| [Lägga till ett program](./scripts/batch-cli-sample-add-application.md) | Lägger till ett program och laddar upp paketerade binärfiler.|
-| [Hantera Batch-pooler](./scripts/batch-cli-sample-manage-pool.md) | Visar hur du skapar, ändrar storlek på och hanterar pooler. |
-| [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md) | Visar hur du kör ett jobb och lägger till aktiviteter. |
+Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med Batch. De här exemplen omfattar många av de kommandon som är tillgängliga i Azure CLI för att skapa och hantera konton, pooler, jobb och uppgifter med Batch. 
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Exempel:
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Till exempel:
 
 ```azurecli
 az batch pool create my_batch_pool.json

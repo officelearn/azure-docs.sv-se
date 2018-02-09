@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs för Azure Container Service - förbereda ACR"
-description: "Självstudiekurs för Azure Container Service - förbereda ACR"
+title: "Självstudie för Azure Container Service – Förbereda ACR"
+description: "Självstudie för Azure Container Service – Förbereda ACR"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,62 +9,62 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 9d5486b3ac7ca0ef0f5824660ee8278de3f6fe80
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
+# <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container Registry
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure Container registret (ACR) är en Azure-baserade, privat registret för Docker behållare bilder. Den här självstudiekursen, en del två av sju, går igenom distribution av en instans av Azure-behållare registret och överföra en behållare avbildning till den. Slutfört stegen innefattar:
+Azure Container Registry (ACR) är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien, som är del två av sju, får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den. Det här är några av stegen:
 
 > [!div class="checklist"]
-> * Distribuera en Azure Container registret (ACR)-instans
-> * En avbildning av behållare för ACR-märkning
-> * Överför avbildningen till ACR
+> * distribuera en ACR-instans (Azure Container Registry)
+> * tagga en behållaravbildning för ACR
+> * ladda upp avbildningen till ACR.
 
-Den här ACR-instansen är integrerad med ett Azure Container Service Kubernetes kluster i efterföljande självstudiekurser. 
+I senare självstudier integreras den här ACR-instansen med ett Azure Container Service Kubernetes-kluster. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I den [tidigare kursen](./container-service-tutorial-kubernetes-prepare-app.md), en behållare avbildning har skapats för ett enkelt Azure röstning program. Om du inte har skapat appavbildning Azure röstning återgå till [kursen 1 – skapa behållaren bilder](./container-service-tutorial-kubernetes-prepare-app.md).
+I [föregående självstudie](./container-service-tutorial-kubernetes-prepare-app.md) skapade du en behållaravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – Skapa behållaravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
 
-Den här kursen kräver att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
+## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-När du distribuerar ett Azure Container registret, måste du först en resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+När du distribuerar ett Azure Container Registry behöver du först en resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). I det här exemplet en resursgrupp med namnet `myResourceGroup` skapas i den `westeurope` region.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). I det här exemplet ska vi skapa en resursgrupp med namnet `myResourceGroup` i regionen `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Skapa en Azure-behållare registret med den [az acr skapa](/cli/azure/acr#create) kommando. Namnet på en behållare registret **måste vara unika**.
+Skapa ett Azure-behållarregister med kommandot [az acr create](/cli/azure/acr#az_acr_create). Namnet på ett behållarregister **måste vara unikt**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-I resten av den här kursen använder vi `<acrname>` som platshållare för registret behållarnamn.
+I resten av den här självstudien använder vi `<acrname>` som platshållare för behållarregisternamnet.
 
-## <a name="container-registry-login"></a>Behållaren registret inloggning
+## <a name="container-registry-login"></a>Logga in på behållarregistret
 
-Använd den [az acr inloggning](https://docs.microsoft.com/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
+Använd kommandot [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) och logga in på ACR-instansen. Du måste ange det unika namn du angav för behållarregistret när det skapades.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar ett inloggningen lyckades meddelande när den har slutförts.
+Du får ett meddelande om att inloggningen lyckades när inloggningen är klar.
 
-## <a name="tag-container-images"></a>Taggen behållaren bilder
+## <a name="tag-container-images"></a>Tagga behållaravbildningar
 
-Om du vill se en lista över aktuella bilder i [docker bilder](https://docs.docker.com/engine/reference/commandline/images/) kommando.
+Om du vill se en lista med aktuella avbildningar använder du kommandot [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
 ```bash
 docker images
@@ -79,21 +79,21 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Varje behållare avbildning måste taggas med loginServer namn i registret. Den här etiketten används för routning vid push-installation behållaren avbildningar till en bild-registret.
+Varje behållaravbildning måste taggas med namnet på inloggningsservern för registret. Den här taggen används till routning när du push-överför behållaravbildningar till ett avbildningsregister.
 
-Kör följande kommando för att få namnet loginServer.
+Du hämtar namnet på inloggningsservern genom att köra följande kommando:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tagga nu den `azure-vote-front` avbildningen med loginServer av registret i behållaren. Lägg även till `:redis-v1` till slutet av avbildningens namn. Den här taggen anger den bildversionen.
+Tagga nu avbildningen `azure-vote-front` med namnet på inloggningsservern för behållarregistret. Lägg även till `:redis-v1` i slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-När taggade, köra [docker bilder] (https://docs.docker.com/engine/reference/commandline/images/) att bekräfta åtgärden.
+När det är taggat kör du [docker images] (https://docs.docker.com/engine/reference/commandline/images/) för att bekräfta åtgärden.
 
 ```bash
 docker images
@@ -109,11 +109,11 @@ redis                                                latest              a1b99da
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
 
-## <a name="push-images-to-registry"></a>Push-avbildningar till registret
+## <a name="push-images-to-registry"></a>Push-överför avbildningar till registret
 
-Tryck på `azure-vote-front` avbildningen till registret. 
+Push-överför avbildningen `azure-vote-front`till registret. 
 
-Med följande exempel ersätta ACR loginServer namn med loginServer från din miljö.
+Använd följande exempel och ersätt namnet på ACR-inloggningsservern med inloggningsnamnet från din miljö.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v1
@@ -121,9 +121,9 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 Detta tar några minuter att slutföra.
 
-## <a name="list-images-in-registry"></a>Lista över bilder i registret
+## <a name="list-images-in-registry"></a>Lista med avbildningar i registret
 
-Returnera en lista över bilder som har aviserats i Azure-behållare i registret användaren den [az acr databaslistan](/cli/azure/acr/repository#list) kommando. Uppdatera kommandot med namnet på ACR-instansen.
+Du kan returnera en lista med avbildningar som push-överförts till Azure-behållarregistret med kommandot [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Uppdatera kommandot med namnet på ACR-instansen.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -137,7 +137,7 @@ Result
 azure-vote-front
 ```
 
-Och sedan använda taggar för en viss bild visas den [az acr databasen Visa-taggar](/cli/azure/acr/repository#show-tags) kommando.
+Om du sedan vill se taggarna för en viss avbildning använder du kommandot [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -151,18 +151,18 @@ Result
 redis-v1
 ```
 
-Vid självstudiekursen slut har behållaren avbildningen lagrats i en privat Azure-behållare registret-instans. Den här avbildningen distribueras från ACR till ett kluster som Kubernetes i efterföljande självstudiekurser.
+När självstudien är färdig har behållaravbildningen lagrats i en privat Azure Container Registry-instans. Den här avbildningen distribueras från ACR till ett Kubernetes-kluster i efterföljande självstudier.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen förbereddes ett Azure Container registret för användning i ett Kubernetes ACS-kluster. Följande steg har slutförts:
+I den här självstudien förbereddes ett Azure-behållarregister för användning i ett ACS Kubernetes-kluster. Följande steg har slutförts:
 
 > [!div class="checklist"]
-> * Distribuera en Azure-behållare registret-instans
-> * En avbildning av behållaren har taggats för ACR
-> * Överföra avbildningen till ACR
+> * distribuera en Azure Container Registry-instans
+> * tagga en behållaravbildning för ACR
+> * ladda upp avbildningen till ACR.
 
-Gå vidare till nästa kurs mer information om hur du distribuerar ett Kubernetes kluster i Azure.
+Gå vidare till nästa självstudie om du vill lära dig hur du distribuerar ett Kubernetes-kluster i Azure.
 
 > [!div class="nextstepaction"]
-> [Distribuera Kubernetes kluster](./container-service-tutorial-kubernetes-deploy-cluster.md)
+> [Distribuera Kubernetes-kluster](./container-service-tutorial-kubernetes-deploy-cluster.md)

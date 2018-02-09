@@ -1,5 +1,5 @@
 ---
-title: Migrera SQLServer-databas till Azure SQL Database | Microsoft Docs
+title: Migrera en SQLServer-databas till Azure SQL Database | Microsoft Docs
 description: "Lär dig att migrera din SQL Server-databas till Azure SQL Database."
 services: sql-database
 documentationcenter: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrera din SQL Server-databas till Azure SQL Database
 
-Flytta SQL Server-databasen till Azure SQL Database är så enkelt som att skapa en tom SQL-databas i Azure och sedan använda den [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera databasen till Azure. I kursen får du lära dig att:
+Det är lika enkelt att flytta din SQL Server-databas till Azure SQL Database som att skapa en tom SQL-databas i Azure och sedan använda [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera databasen till Azure. I de här självstudierna får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tom Azure SQL-databas på Azure-portalen (med en ny eller befintlig Azure SQL Database-server)
-> * Skapa en brandvägg på servernivå i Azure-portalen (om inte tidigare har skapat)
-> * Använd den [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera SQL Server-databasen till tom Azure SQL-databas 
-> * Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att ändra egenskaperna för databasen.
+> * Skapa en brandvägg på servernivå på Azure-portalen (om ingen har skapats tidigare)
+> * Använda [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera din SQL Server-databas till den tomma Azure SQL-databasen 
+> * Använda [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att ändra egenskaperna för databasen.
 
-Om du inte har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
 - Installerat den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
-- Installerat den senaste versionen av den [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Du har identifierat och har åtkomst till en databas för att migrera. Den här kursen använder den [SQL Server 2008R2 AdventureWorks OLTP-databasen](https://msftdbprodsamples.codeplex.com/releases/view/59211) på en instans av SQL Server 2008R2 eller senare, men du kan använda alla databaser som du väljer. Åtgärda kompatibilitetsproblem genom att använda [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- Installerat den senaste versionen av [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+- Du har identifierat och har åtkomst till en databas att migrera. De här självstudierna använder [SQL Server 2008R2 AdventureWorks OLTP-databasen](https://msftdbprodsamples.codeplex.com/releases/view/59211) på en instans av SQL Server 2008R2 eller senare, men du kan använda valfri databas. Åtgärda kompatibilitetsproblem genom att använda [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -50,13 +50,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](sql-database-features.md). 
 
-Följ dessa steg om du vill skapa en tom SQL-databas. 
+Följ de här stegen om du vill skapa en tom SQL-databas. 
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
 2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
-   ![Skapa en tom databas](./media/sql-database-design-first-database/create-empty-database.png)
+   ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Fyll i följande information i SQL Database-formuläret (se föregående bild):   
 
@@ -67,22 +67,22 @@ Följ dessa steg om du vill skapa en tom SQL-databas.
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
-4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i den **nytt serverformulär** med följande information: 
+4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
 
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och specialtecken. |
+   | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
    ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Klicka på **Välj**.
 
-6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er och mängden lagring. Utforska alternativ för antalet dtu: er och lagring som är tillgängliga för varje tjänstnivå. 
+6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er och mängden lagring. Undersök alternativen för mängden DTU:er och lagringsutrymme som du har tillgång till på varje tjänstnivå. 
 
-7. Den här självstudiekursen, Välj den **Standard** servicenivå och Använd sedan skjutreglaget för att välja **100 dtu: er (S3)** och **400** GB lagringsutrymme.
+7. I de här självstudierna väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
 
    ![skapa databas-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -91,12 +91,12 @@ Följ dessa steg om du vill skapa en tom SQL-databas.
    > [!IMPORTANT]
    > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*I Premium-nivån finns för närvarande mer än 1 TB lagringsutrymme i följande regioner: Östra USA 2, USA, västra, Virginia (USA-förvaltad region), Europa, västra, Centrala Tyskland, Sydostasien, Östra Japan, Australien, östra, Centrala Kanada och Östra Kanada. Se [sidan 11-15 i Aktuella begränsningar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
-10. Välj en **sorteringen** för tom databas (använda standardvärdet för den här självstudiekursen). Mer information om sorteringar finns [sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Välj en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
 
@@ -118,7 +118,7 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 
    ![servernamn](./media/sql-database-get-started-portal/server-name.png) 
 
-3. Klicka på **ange serverbrandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
+3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
    ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
@@ -128,14 +128,14 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 
 6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Du kan nu ansluta till SQL Database-servern och dess databaser med SQL Server Management Studio, Data Migration Assistant eller ett annat verktyg som helst från den här IP-adressen med hjälp av server-administratörskonto som skapats i föregående procedur.
+Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Server Management Studio, Data Migration Assistant eller något annat verktyg från den här IP-adressen med det serveradministratörskonto som skapades i föregående procedur.
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
-Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-servern i Azure Portal. Du kan använda det fullständiga servernamnet för att ansluta till din Azure SQL-server med klientverktyg, inklusive stöd för migrering av Data och SQL Server Management Studio.
+Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-servern i Azure Portal. Du kan använda det fullständiga servernamnet för att ansluta till din Azure SQL-server med klientverktyg, inklusive Data Migration Assistant och SQL Server Management Studio.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
@@ -145,84 +145,84 @@ Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-serv
 
 ## <a name="migrate-your-database"></a>Migrera databasen
 
-Följ dessa steg för att använda den  **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)**  att kontrollera om databasen för migrering till Azure SQL Database och slutföra migreringen.
+Följ de här stegen för att använda **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** för att kontrollera om databasen är klar för migrering till Azure SQL Database och slutföra migreringen.
 
-1. Öppna den **Data Migration Assistant**. Du kan köra DMA på alla datorer med anslutning till SQL Server-instans som innehåller den databas som du planerar att migrera och anslutning till internet. Du behöver inte installera den på den dator där SQL Server-instansen som du migrerar. Brandväggsregeln som du skapade i föregående procedur måste vara för den dator som du kör Data Migration Assistant.
+1. Öppna **Data Migration Assistant**. Du kan köra DMA på alla datorer som är anslutna till den SQL Server-instans som innehåller den databas som du planerar att migrera och som är anslutna till internet. Du behöver inte installera DMS på värddatorn för den SQL Server-instans som du migrerar. Brandväggsregeln som du skapade i föregående procedur måste gälla för den dator som du kör Data Migration Assistant på.
 
-     ![Öppna assistenten för migrering av data](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
+     ![öppna data migration assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. I den vänstra menyn klickar du på **+ ny** att skapa en **Assessment** projekt. Fyll i de begärda värdena och klicka sedan på **skapa**:
+2. I den vänstra menyn klickar du på **+ Ny** för att skapa ett **Utvärderingsprojekt**. Fyll i de begärda värdena och klicka sedan på **Skapa**:
 
    | Inställning      | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Projekttypen | Migrering | Välja att bedöma din databas för migrering eller välja att utvärdera och migrering som en del av samma arbetsflöde |
-   |Projektets namn|Vägledning för migrering| Ett beskrivande namn |
-   |Typ av server| SQL Server | Detta är den enda källan som stöds för närvarande |
-   |Måltypen för server| Azure SQL Database| Alternativen är: Azure SQL Database, SQL Server, SQL Server på virtuella Azure-datorer |
-   |Migrering omfång| Schemat och data| Alternativen är: Schema- och data, schemat endast data |
+   | Projekttyp | Migrering | Välj att antingen utvärdera din databas för migrering eller välja att utvärdera och migrera som en del av samma arbetsflöde |
+   |Projektnamn|Självstudier för migrering| Ett beskrivande namn |
+   |Typ av källserver| SQL Server | Detta är den enda källan som stöds för närvarande |
+   |Typ av målserver| Azure SQL Database| Alternativen är: Azure SQL Database, SQL Server, SQL Server på virtuella Azure-datorer |
+   |Migreringsomfång| Schema och data| Alternativen är: Schema och data, endast schema, endast data |
    
-   ![nya data migrering assistenten projektet](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
+   ![nytt data migration assistant-projekt](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
-3.  På den **Välj källa** , Fyll i de begärda värdena och klickar sedan på **Anslut**:
+3.  På sidan **Välj källa** fyller du i de begärda värdena och klickar sedan på **Anslut**:
 
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | servernamn | Din servernamn eller IP-adress | Din servernamn eller IP-adress |
+    | servernamn | Ditt servernamn eller din IP-adress | Ditt servernamn eller din IP-adress |
     | Autentiseringstyp | Önskad autentiseringstyp| Alternativ: Windows-autentisering, SQL Server-autentisering, Active Directory-integrerad autentisering, Active Directory-lösenordsautentisering |
-    | Användarnamn | Ditt inloggningsnamn | Din inloggning måste ha **KONTROLLSERVERN** behörigheter |
-    | Lösenord| ditt lösenord | ditt lösenord |
-    | Anslutningsegenskaper| Välj **kryptera anslutning för** och **förtroende servercertifikat** som passar din miljö. | Välj egenskaperna som är lämpliga för Anslut till servern |
+    | Användarnamn | Ditt inloggningsnamn | Din inloggning måste ha **CONTROL SERVER**-behörighet |
+    | Lösenord| Ditt lösenord | Ditt lösenord |
+    | Anslutningsegenskaper| Välj det som passar din miljö av **Kryptera anslutning** eller **Lita på servercertifikatet**. | Välj de egenskaper som är lämpliga för att ansluta till din server |
 
-    ![ny migreringen Välj datakälla](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
+    ![ny datamigrering, välj källa](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-source.png)
 
-5. Välj en databas från en källserver för att migrera till Azure SQL Database och klicka sedan på **nästa**. För den här kursen finns bara en enskild databas.
+5. Välj en enskild databas från en källserver att migrera till Azure SQL Database och klicka sedan på **Nästa**. För de här självstudierna finns bara en enskild databas.
 
-6. På den **väljer mål** , Fyll i de begärda värdena och klickar sedan på **Anslut**:
+6. På sidan **Välj mål** fyller du i de begärda värdena och klickar sedan på **Anslut**:
 
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | ------------------ | ------------------------------------------------- | 
-    | servernamn | Azure databasserverns fullständigt kvalificerat namn | Fullständigt kvalificerade Azure Database servernamnet i föregående procedur |
-    | Autentiseringstyp | SQL Server-autentisering | SQL Server-autentisering är det enda alternativet som skrivs den här kursen, men Active Directory-integrerad autentisering och Active Directory-lösenordsautentisering stöds också av Azure SQL Database |
-    | Användarnamn | Ditt inloggningsnamn | Din inloggning måste ha **CONTROL DATABASE** källplatsens databas |
-    | Lösenord| ditt lösenord | ditt lösenord |
-    | Anslutningsegenskaper| Välj **kryptera anslutning för** och **förtroende servercertifikat** som passar din miljö. | Välj egenskaperna som är lämpliga för Anslut till servern |
+    | servernamn | Ditt fullständigt kvalificerade Azure Database-servernamn | Ditt fullständigt kvalificerade Azure Database-servernamn från föregående procedur |
+    | Autentiseringstyp | SQL Server-autentisering | SQL Server-autentisering är det enda alternativet i de här självstudierna, men Active Directory-integrerad autentisering och Active Directory-lösenordsautentisering stöds också av Azure SQL Database |
+    | Användarnamn | Ditt inloggningsnamn | Din inloggning måste ha behörigheten **CONTROL DATABASE** till källdatabasen |
+    | Lösenord| Ditt lösenord | Ditt lösenord |
+    | Anslutningsegenskaper| Välj det som passar din miljö av **Kryptera anslutning** eller **Lita på servercertifikatet**. | Välj de egenskaper som är lämpliga för att ansluta till din server |
 
-    ![nya data migreringen Välj mål](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
+    ![ny datamigrering, välj mål](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-target.png)
 
-7. Markera databasen från målservern som du skapade i föregående procedur och klicka sedan på **nästa** att starta källa databasen schemat assessment. För den här kursen finns bara en enskild databas. Observera att kompatibilitetsnivån för den här databasen är inställd på 140, vilket är standard kompatibilitetsnivån för alla nya databaser i Azure SQL Database.
+7. Markera databasen från målservern som du skapade i föregående procedur och klicka sedan på **Nästa** för att starta utvärderingsprocessen för databasschemat. För de här självstudierna finns bara en enskild databas. Observera att kompatibilitetsnivån för den här databasen är inställd på 140, vilket är standardkompatibilitetsnivån för alla nya databaser i Azure SQL Database.
 
    > [!IMPORTANT] 
-   > När du migrerar din databas till Azure SQL Database måste välja du att databasen på en angiven kompatibilitetsnivå för bakåtkompatibilitet. Mer information om effekterna och alternativ för att driva en databas på en specifik kompatibilitetsnivå finns [ändra DATABASENS kompatibilitetsnivån](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Se även [ALTER OMFÅNG DATABASKONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) information om ytterligare databasnivå inställningar som rör kompatibilitetsnivåer.
+   > När du migrerar din databas till Azure SQL Database kan du välja att köra databasen på en angiven kompatibilitetsnivå för bakåtkompatibilitet. Mer information om effekterna av och alternativ för att köra en databas på en specifik kompatibilitetsnivå finns i [Ändra databasens kompatibilitetsnivå](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). I [Ändra konfiguration av databasomfång](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) finns även information om ytterligare databasnivåinställningar som rör kompatibilitetsnivåer.
    >
 
-8. På den **Välj objekt** , när källan databasen schemat assessment processen är klar granskar du de objekt som valts för migrering och granska de objekt som innehåller problem. Granska till exempel den **dbo.uspSearchCandidateResumes** objekt för **SERVERPROPERTY('LCID')** funktionsändringar och **HumanResourcesJobCandidate** objekt för Fulltextsökning har ändrats. 
+8. På sidan **Välj objekt** ska du, när utvärderingen av källdatabasschemat har slutförts, granska de objekt som har valts för migrering och de objekt som innehåller problem. Kontrollera till exempel om objektet **dbo.uspSearchCandidateResumes** har några funktionsändringar för **SERVERPROPERTY('LCID')** och om objektet **HumanResourcesJobCandidate** har några fulltextsökningsändringar. 
 
    > [!IMPORTANT] 
-   > Beroende på databasens design och programmets design när du migrerar källdatabasen kan du behöva ändra antingen eller både databasen eller ditt program efter migreringen (och i vissa fall innan migreringen). Mer information om Transact-SQL-skillnader som kan påverka din migrering finns [lösa Transact-SQL-skillnader under migreringen till SQL Database](sql-database-transact-sql-information.md).
+   > Beroende på databasens och programmets design kan du, när du migrerar källdatabasen, behöva ändra någon av eller både databasen och ditt program efter migreringen (och i vissa fall före migreringen). Mer information om skillnader jämfört med Transact-SQL som kan påverka migreringen finns i [Azure SQL Database Transact-SQL skillnader](sql-database-transact-sql-information.md).
 
-     ![ny migrering bedömning och objektet dataurval](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
+     ![utvärdering av ny datamigrering och val av objekt](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results.png)
 
-9. Klicka på **generera SQL-skript** skripta schemaobjekt i källdatabasen. 
-10. Granska det här genererade skriptet och klicka sedan på **bredvid utfärda** som behövs för att granska de identifierade assessment problemen och rekommendationer. Exempelvis för fulltext-sökning rekommenderas det när du uppgraderar att testa dina program som utnyttjar funktionerna Full-Text. Du kan spara eller kopiera skript om du vill.
+9. Klicka på **Generera SQL-skript** för att skriva schemaobjekten i källdatabasen. 
+10. Granska det genererade skriptet och klicka sedan på **Nästa problem** vid behov för att granska de identifierade utvärderingsproblemen och rekommendationer. Rekommendationen för fulltextsökning är exempelvis att du, när du uppdaterar, testar dina program som utnyttjar fulltextfunktionerna. Du kan spara eller kopiera skriptet om du vill.
 
-     ![nya data skapas migreringsskriptet](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
+     ![ny datamigrering, genererat skript](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-generated-script.png)
 
-11. Klicka på **distribuera schemat** och titta på schemat migreringsprocessen.
+11. Klicka på **Distribuera schemat** och titta på schemamigreringsprocessen.
 
-     ![ny migrering schemat datamigrering](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
+     ![ny datamigrering, schemamigrering](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-schema-migration.png)
 
-12. När schemat migreringen är klar granskar du resultaten efter fel och klicka sedan, under förutsättning att det inte finns några, på **migrera data**.
-13. På den **Välj tabeller** granskar du de tabeller som valts för migrering och klicka sedan på **starta datamigrering**.
+12. När schemamigreringen är klar granskar du resultaten. Om det inte finns några fel klickar du på **Migrera data**.
+13. På sidan **Välj tabeller** granskar du de tabeller som valts för migrering och klickar sedan på **Starta datamigrering**.
 
-     ![datamigrering för migrering till nya data](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
+     ![ny datamigrering, datamigrering](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration.png)
 
 14. Titta på migreringsprocessen.
 
-     ![nya data migrering migrerar data](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
+     ![ny dat migrering, datamigreringsprocess](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-data-migration-process.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Ansluta till databasen med SSMS
 
-Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) att upprätta en anslutning till din Azure SQL Database-server.
+Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) för att upprätta en anslutning till Azure SQL Database-servern.
 
 1. Öppna SQL Server Management Studio.
 
@@ -230,8 +230,8 @@ Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Servertyp | Databasmotor | Det här värdet krävs |
-   | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170824.database.windows.net**. |
+   | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
+   | servernamn | Fullständigt kvalificerat servernamn | Namnet bör se ut ungefär så här: **mynewserver20170824.database.windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
@@ -246,15 +246,15 @@ Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 5. I Object Explorer expanderar du **Databaser** och sedan **mySampleDatabase** för att visa objekten i exempeldatabasen.
 
-   ![objekt i databasen](./media/sql-database-connect-query-ssms/connected.png)  
+   ![databasobjekt](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="change-database-properties"></a>Ändra egenskaper för databas
+## <a name="change-database-properties"></a>Ändra egenskaperna för databasen
 
-Du kan ändra den tjänstnivå och prestandanivå kompatibilitetsnivå med hjälp av SQL Server Management Studio. Under importen rekommenderar vi att du importerar till en högre nivå-databas för prestanda för bästa prestanda, men skala när importen är klar för att spara pengar tills du är redo att använda den importerade databasen aktivt. Ändra kompatibilitetsnivån kan ge bättre prestanda och åtkomst till de senaste funktionerna för Azure SQL Database-tjänsten. När du migrerar en äldre databas bevaras dess databasens kompatibilitetsnivå vid den lägsta stödda nivån som är kompatibel med databasen som importeras. Mer information finns i [förbättrad prestanda för frågor med nivå 130 i Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
+Du kan ändra tjänstnivån, prestandanivån och kompatibilitetsnivån med hjälp av SQL Server Management Studio. Under importen rekommenderar vi att du importerar till en databas på en högre prestandanivå för bästa prestanda, men att du skalar ner när importen är klar för att spara pengar, tills du är redo att använda den importerade databasen aktivt. Att ändra kompatibilitetsnivån kan ge bättre prestanda och åtkomst till de senaste funktionerna för Azure SQL Database-tjänsten. När du migrerar en äldre databas bevaras dess databaskompatibilitetsnivå på den lägsta nivån som stöds och är kompatibel med den databas som importeras. Mer information finns i [Förbättrad frågeprestanda med kompatibilitetsnivå 130 i Azure SQL Database](sql-database-compatibility-level-query-performance-130.md).
 
-1. Högerklicka i Object Explorer **mySampleDatabase** och klicka sedan på **ny fråga**. Ett frågefönster öppnas ansluten till din databas.
+1. I Object Explorer högerklickar du på **mySampleDatabase** och klickar sedan på **Ny fråga**. Ett frågefönster öppnas som är anslutet till databasen.
 
-2. Kör följande kommando för att ange tjänstnivån till **Standard** och prestandanivån uppdateras till **S1**.
+2. Kör följande kommando för att ange tjänstnivån till **Standard** och prestandanivån till **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 
@@ -267,14 +267,14 @@ Du kan ändra den tjänstnivå och prestandanivå kompatibilitetsnivå med hjäl
     ```
 
 ## <a name="next-steps"></a>Nästa steg 
-I den här kursen har du lärt dig att:
+I de här självstudierna lärde du dig att:
 
 > * Skapa en tom Azure SQL-databas på Azure-portalen 
-> * Skapa en brandvägg på servernivå i Azure-portalen 
-> * Använd den [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera SQL Server-databasen till tom Azure SQL-databas 
-> * Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att ändra egenskaperna för databasen.
+> * Skapa en brandväggsregel på servernivå på Azure-portalen 
+> * Använda [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) för att importera din SQL Server-databas till den tomma Azure SQL-databasen 
+> * Använda [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att ändra egenskaperna för databasen.
 
-Gå vidare till nästa kurs att lära dig att skydda databasen.
+Gå vidare till fler självstudier för att lära dig att skydda databasen.
 
 > [!div class="nextstepaction"]
 > [Skydda din Azure SQL-databas](sql-database-security-tutorial.md).

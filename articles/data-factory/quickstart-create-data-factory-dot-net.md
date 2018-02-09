@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azur
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -303,7 +303,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-Lägg till följande kod i **Main**-metoden som **utlöser en pipelinekörning**.
+Lägg till följande kod i **Main**-metoden för att **utlösa en pipelinekörning**.
 
 Med den här koden anger du också värden för parametrarna **inputPath** och **outputPath** som anges i pipeline med de faktiska värdena för sökvägarna för käll- och mottagar-blob.
 

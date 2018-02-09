@@ -1,6 +1,6 @@
 ---
-title: "Överför avbildningen data i molnet med Azure Storage | Microsoft Docs"
-description: "Använda Azure blob storage med ett webbprogram för att lagra programdata"
+title: "Överföra avbildningsdata i molnet med Azure Storage | Microsoft Docs"
+description: "Använda Azure blobblagring med ett webbprogram för att lagra programdata"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -14,35 +14,35 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Överför avbildningen data i molnet med Azure Storage
+# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Överföra avbildningsdata i molnet med Azure Storage
 
-Den här kursen ingår i en serie. Den här kursen visar hur du distribuerar ett webbprogram som använder Azure Storage-klientbibliotek för att ladda upp bilder till ett lagringskonto. När du är klar har du ett webbprogram lagra och visa bilder från Azure storage.
+Den här självstudien ingår i en serie. De här självstudierna visar hur du distribuerar ett webbprogram som använder Azure Storage-klientbiblioteket för att ladda upp avbildningar till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar avbildningar från Azure Storage.
 
-![Vyn för bilder behållare](media/storage-upload-process-images/figure2.png)
+![Vy för avbildningsbehållare](media/storage-upload-process-images/figure2.png)
 
-I delen en av serierna kan du lära dig hur du:
+I en del av serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
-> * Skapa en behållare och ange behörigheter
-> * Hämta en snabbtangent
-> * Konfigurera programinställningar
-> * Distribuera en Webbapp till Azure
-> * Interagera med webbprogrammet
+> * Skapar en behållare och anger behörigheter
+> * Hämtar en åtkomstnyckel
+> * Konfigurerar programinställningar
+> * Distribuerar en webbapp till Azure
+> * Interagerar med webbappen
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp 
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
  
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup`.
  
@@ -52,12 +52,12 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
  
-Exemplet överför bilder till en blob-behållare i ett Azure Storage-konto. Ett lagringskonto ger ett unikt namnområde för att lagra och komma åt dina Azure storage-dataobjekt. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
+Exemplet överför avbildningar till en blobb-behållare på ett Azure-lagringskonto. Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> I del 2 av kursen använder du prenumerationer på händelser för blob-lagring. Händelseprenumerationer är för närvarande stöds endast för Blob storage-konton i West centrala USA och västra USA 2. Du måste skapa ett Blob storage-konto som används av sample-appen för att lagra avbildningar och miniatyrer på grund av den här begränsningen.   
+> I del 2 av självstudierna använder du händelseprenumerationer för blobblagring. Händelseprenumerationer stöds för närvarande stöds endast för blobblagringskonton i västra centrala USA och västra USA 2. På grund av den här begränsningen måste du skapa ett blobblagringskonto som används av exempelappen för att lagra avbildningar och miniatyrer.   
 
-I följande kommando i stället använda egna globalt unikt namn för Blob storage-konto där du ser den `<blob_storage_account>` platshållare.  
+I följande kommando infogar du ditt globalt unika lagringskontonamn på blobblagringskontot istället för platshållaren `<blob_storage_account>`.  
 
 ```azurecli-interactive 
 az storage account create --name <blob_storage_account> \
@@ -65,13 +65,13 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>Skapa blob storage-behållare
+## <a name="create-blob-storage-containers"></a>Skapa blobblagringsbehållare
  
-Appen använder två behållare i Blob storage-konto. Behållare liknar mappar och används för lagring av BLOB. Den _bilder_ behållaren är där appen överför högupplösta bilder. I en senare del av serien appen Azure funktionen överför ändrade miniatyrbilder till den _tummen_ behållare. 
+Appen använder två behållare i blobblagringskontot. Behållare liknar mappar och används för att lagra blobbar. Det är till behållaren _avbildningar_ som appen överför högupplösta bilder. I en senare del av självstudierna överför en funktionsapp i Azure ändrade miniatyrbilder till behållaren för _miniatyrer_. 
 
-Hämta nyckel för storage-konto med hjälp av den [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list) kommando. Du använder den här för att skapa två behållare med hjälp av den [az lagringsbehållaren skapa](/cli/azure/storage/container#az_storage_container_create) kommando.  
+Hämta nyckeln till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Du använder den här nyckeln för att skapa två behållare med kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-I det här fallet `<blob_storage_account>` är namnet på Blob storage-konto som du skapade. Den _bilder_ behållare offentlig åtkomst har angetts till `off`, _tummen_ behållare offentlig åtkomst är inställd på `container`. Den `container` offentlig åtkomst inställningen miniatyrer ska visas för personer som finns på webbsidan.
+I det här fallet är `<blob_storage_account>` namnet på det blobblagringskonto som du skapade. Den offentliga åtkomsten för behållaren _avbildningar_ har angetts till `off`, medan den offentliga åtkomsten för behållaren _miniatyrer_ är inställd på `container`. Inställningen för offentlig åtkomst för `container` ska visas för personer som besöker webbsidan.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -89,7 +89,7 @@ echo "Make a note of your blob storage account key..."
 echo $blobStorageAccountKey 
 ``` 
 
-Anteckna din blob storage-kontonamnet och nyckeln. Exempelappen använder dessa inställningar för att ansluta till lagringskontot för att ladda upp bilder. 
+Anteckna namnet och nyckeln till ditt blobblagringskonto. Exempelappen använder dessa inställningar för att ansluta till lagringskontot för att överföra avbildningar. 
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan 
 
@@ -105,19 +105,19 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp 
 
-Webbprogrammet utrymme värd för app exempelkoden som distribueras från till exempel GitHub-lagringsplatsen. Skapa en [webbapp](../../app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create).  
+Webbappen erbjuder ett värdutrymme för exempelappens kod som visas på GitHub-exempellagringsplatsen. Skapa en [webbapp](../../app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create).  
  
-I följande kommando ersätter `<web_app>` med ett unikt namn (giltiga tecken är `a-z`, `0-9`, och `-`). Om `<web_app>` är inte unikt du får ett felmeddelande: _webbplats med namnet `<web_app>` finns redan._ Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.  
+I följande kommando ska du ersätta `<web_app>` med ett unikt namn (giltiga tecken är `a-z`, `0-9` och `-`). Om `<web_app>` inte är unikt får du ett felmeddelande om att _webbplatsen med det angivna namnet `<web_app>` redan finns._ Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive 
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuera exempelapp från GitHub-lagringsplatsen 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuera exempelappen från GitHub-lagringsplatsen 
 
-Apptjänst har stöd för flera olika sätt att distribuera innehåll till ett webbprogram. I kursen får du distribuera webbprogrammet från en [offentliga GitHub exempel lagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Konfigurera GitHub-distribution till webbprogrammet med den [az webapp källa distributionskonfiguration](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) kommando. Ersätt `<web_app>` med namnet på webbprogrammet som du skapade i föregående steg.
+App Service har stöd för flera olika sätt att distribuera innehåll till en webbapp. I de här självstudierna distribuerar du webbappen från en [offentlig GitHub exempellagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Konfigurera lokal Git-distribution till webbappen med kommandot [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Ersätt `<web_app>` med namnet på den webbapp som du skapade i föregående steg.
 
-Exempelprojektet innehåller en [ASP.NET MVC](https://www.asp.net/mvc) app som accepterar en avbildning, sparar det till ett lagringskonto och visar bilder från en miniatyr behållare. Webbprogrammet använder den [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), och [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namnområden från Azure storage kan interagera med Azure storage-klientbiblioteket. 
+Exempelprojektet innehåller en [ASP.NET MVC](https://www.asp.net/mvc)-app som accepterar en avbildning, sparar den till ett lagringskonto och visar avbildningar från en behållare med miniatyrer. Webbappen använder namnrymderna [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) och [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) från Azure Storage-klientbiblioteket för att interagera med Azure Storage. 
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -127,9 +127,9 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>Konfigurera inställningarna för webbappen 
 
-Exempel web app använder det [Azure Storage-klientbibliotek](/dotnet/api/overview/azure/storage?view=azure-dotnet) att begära åtkomst-token som används för att ladda upp bilder. Autentiseringsuppgifter för lagringskonto används av Storage SDK: N är inställda i programinställningar för webbappen. Lägg till tillämpningsinställningar distribuerad app med den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando. 
+Exempelwebbappen använder [Azure Storage-klientbiblioteket](/dotnet/api/overview/azure/storage?view=azure-dotnet) för att begära åtkomsttokens som används för att överföra avbildningar. Autentiseringsuppgifterna för lagringskonto som används av Storage SDK ställs in i webbappens programinställningar. Lägg till tillämpningsinställningar till den distribuerade appen med kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
 
-I följande kommando, `<blob_storage_account>` är namnet på Blob storage-konto och `<blob_storage_key>` är nyckeln som är associerade. Ersätt `<web_app>` med namnet på webbprogrammet som du skapade i föregående steg.     
+I följande kommando är `<blob_storage_account>` namnet på ditt blobblagringskonto och `<blob_storage_key>` är den associerade nyckeln. Ersätt `<web_app>` med namnet på den webbapp som du skapade i föregående steg.     
 
 ```azurecli-interactive 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -139,15 +139,15 @@ AzureStorageConfig__ThumbnailContainer=thumbs \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
-När webbappen har distribuerats och konfigurerats, kan du testa funktionen överför avbildningen i appen.   
+När webbappen har distribuerats och konfigurerats kan du testa funktionen för att ladda upp avbildningar i appen.   
 
 ## <a name="upload-an-image"></a>Ladda upp en avbildning 
 
-Om du vill testa webbprogrammet, bläddrar du till URL-Adressen till ditt publicerade program. Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`. Välj den **överföra foton** region välja och överföra en fil eller dra och släppa en fil på regionen. Bilden försvinner om laddats upp.
+Om du vill testa webbappen bläddrar du till URL-adressen till din publicerade app. Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`. Välj region vid **Överföra foton** överför en fil eller dra och släpp en fil på regionen. Bilden försvinner om överföringen lyckas.
 
-![ImageResizer app](media/storage-upload-process-images/figure1.png)
+![ImageResizer-app](media/storage-upload-process-images/figure1.png)
 
-I koden, den `UploadFiletoStorage` uppgift i den `Storagehelper.cs` används för att ladda upp bilder till den `images` behållare i storage-konto med den [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) metod. Följande kodexempel innehåller den `UploadFiletoStorage` aktivitet. 
+I exempelkoden används aktiviteten `UploadFiletoStorage` i filen `Storagehelper.cs` för att ladda upp avbildningar till behållaren `images` på lagringskontot med hjälp av metoden [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). Följande kodexempel innehåller aktiviteten `UploadFiletoStorage`. 
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -184,43 +184,43 @@ Följande klasser och metoder som används i den föregående aktiviteten:
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
-## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Kontrollera bilden visas i storage-konto
+## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Kontrollera att avbildningen visas på lagringskontot
 
-Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn, Välj **lagringskonton**, välj sedan namnet på ditt lagringskonto. Under **översikt**, Välj den **bilder** behållare.
+Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton**, välj sedan namnet på ditt lagringskonto. Under **Översikt** väljer du behållaren **avbildningar**.
 
-Verifiera bilden visas i behållaren.
+Kontrollera att avbildningen visas i behållaren.
 
-![Vyn för bilder behållare](media/storage-upload-process-images/figure13.png)
+![Vy för avbildningsbehållare](media/storage-upload-process-images/figure13.png)
 
-## <a name="test-thumbnail-viewing"></a>Testa miniatyr visning
+## <a name="test-thumbnail-viewing"></a>Testa miniatyrvisning
 
-Om du vill testa Miniatyr Visa ska du överför en bild till behållaren miniatyr för att säkerställa att programmet kan läsa miniatyr behållaren.
+Om du vill testa miniatyrvisning ska du överföra en avbildning till miniatyrbehållaren för att säkerställa att appen kan läsa miniatyrbehållaren.
 
-Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn, Välj **lagringskonton**, välj sedan namnet på ditt lagringskonto. Välj **behållare** under **Blob-tjänsten** och välj den **tummen** behållare. Välj **överför** att öppna den **överför blob** fönstret.
+Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton** och sedan namnet på ditt lagringskonto. Välj **Behållare** under **Blob-tjänst** och välj behållaren **Miniatyrer**. Välj **Överför** för att öppna fönstret **Överför blobb**.
 
-Välj en fil med filväljaren och välj **överför**.
+Välj en fil med filväljaren och välj **Överför**.
 
-Gå tillbaka till din app för att kontrollera att avbildningen har överförts till den **tummen** behållare är synligt.
+Gå tillbaka till din app för att kontrollera att avbildningen som har överförts till behållaren **Miniatyrer** syns.
 
-![Vyn för bilder behållare](media/storage-upload-process-images/figure2.png)
+![Vy för avbildningsbehållare](media/storage-upload-process-images/figure2.png)
 
-I den **tummen** behållare i Azure portal, Välj den avbildning du upp och markera **ta bort** att ta bort bilden. Del två seriens automatiserar du skapandet av miniatyrbilder, så inte behövs den här testavbildningen.
+I behållaren **Miniatyrer** på Azure-portalen väljer du den avbildning du överförde och väljer **Ta bort** för att ta bort avbildningen. I del två av självstudierna automatiserar du skapandet av miniatyrbilder, så att den här testbilden inte behövs.
 
-CDN kan aktiveras till att cachelagra innehåll från Azure storage-konto. Medan beskrivs inte i den här självstudiekursen, information om hur du aktiverar CDN med ditt Azure storage-konto, så kan du besöka: [integrera Azure storage-konto med Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+CDN kan aktiveras för att cachelagra innehåll från ditt Azure Storage-konto. Det beskrivs inte i de här självstudierna, men om du vill lära dig att aktivera CDN med ditt Azure Storage-konto kan du gå till: [Integrera ett Azure Storage-konto med Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I delen en av serierna du lärt dig om att konfigurera ett webbprogram som interagerar med lagring, till exempel hur du:
+I del ett av serien lärde du dig att konfigurera en webbapp som interagerar med lagring för att:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Skapa en behållare och ange behörigheter
-> * Hämta en snabbtangent
+> * Hämta en åtkomstnyckel
 > * Konfigurera programinställningar
-> * Distribuera en Webbapp till Azure
-> * Interagera med webbprogrammet
+> * Distribuera en webbapp till Azure
+> * Interagera med webbappen
 
-Gå till två tillhör serien mer information om hur du använder händelsen rutnätet för att utlösa en Azure-funktion för att ändra storlek på en bild.
+Gå till del två av serien för att lära dig att använda Event Grid för att utlösa en Azure-funktion för att ändra storlek på en avbildning.
 
 > [!div class="nextstepaction"]
-> [Använd händelsen rutnätet för att utlösa en Azure-funktion för att ändra storlek på en överförda bild](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Använd Event Grid för att utlösa en Azure-funktion för att ändra storlek på en överförd avbildning](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -1,8 +1,8 @@
-Skapa en apptjänstplan i resursgruppen med molnet Shell, den [az programtjänstplan skapa](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) kommando.
+Skapa i Cloud Shell en App Service-plan i resursgruppen med kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-I följande exempel skapas en apptjänstplan med namnet `myAppServicePlan` i den **Standard** prisnivån (`--sku S1`) och i en Linux-behållare (`--is-linux`).
+I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` i prisnivån **Standard** (`--sku S1`) och i en Linux-behållare (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

@@ -1,4 +1,4 @@
-Skapa en App Service-plan i Cloud Shell med kommandot [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+Skapa i Cloud Shell en App Service-plan med kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

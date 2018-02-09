@@ -1,6 +1,6 @@
 ---
-title: Skapa en Node.js och MongoDB-webbapp i Azure | Microsoft Docs
-description: "Lär dig hur du hämtar en Node.js-app som arbetar i Azure, med anslutning till en Cosmos-DB-databas med en anslutningssträng för MongoDB."
+title: Skapa en Node.js- och MongoDB-webbapp i Azure | Microsoft Docs
+description: "Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,65 +15,65 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Skapa en Node.js och MongoDB-webbapp i Azure
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Skapa en Node.js- och MongoDB-webbapp i Azure
 
 > [!NOTE]
-> Den här artikeln distribuerar en app till App Service i Windows. Du distribuerar till App Service på _Linux_, se [skapa en Node.js och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Azure Web Apps ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här kursen visar hur du skapar en Node.js-webbapp i Azure och ansluta den till en MongoDB-databas. När du är klar har du en medelvärde program (MongoDB, snabb, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull exempelprogrammet använder den [MEAN.js webbramverk](http://meanjs.org/).
+Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visas hur du skapar en Node.js-webbapp i Azure och ansluter den till en MongoDB-databas. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](http://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Detta får du får lära dig:
 
 > [!div class="checklist"]
-> * Skapa en MongoDB-databas i Azure
-> * Ansluta en Node.js-app till MongoDB
-> * Distribuera appen till Azure
-> * Uppdatera datamodellen och distribuera appen
-> * Dataströmmen diagnostiska loggar från Azure
-> * Hantera appen i Azure-portalen
+> * skapa en MongoDB-databas i Azure
+> * ansluta en Node.js-app till MongoDB
+> * distribuera appen till Azure
+> * uppdatera datamodellen och distribuera om appen
+> * strömma diagnostikloggar från Azure
+> * hantera appen i Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Node.js och NPM](https://nodejs.org/)
-1. [Installera Bower](https://bower.io/) (krävs av [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installera Gulp.js](http://gulpjs.com/) (krävs av [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Installera och köra MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [Installera Bower](https://bower.io/) (krävs för [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Installera Gulp.js](http://gulpjs.com/) (krävs för [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Installera och kör MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## <a name="test-local-mongodb"></a>Testa lokal MongoDB
 
-## <a name="test-local-mongodb"></a>Testa lokala MongoDB
+Öppna terminalfönstret och `cd` till `bin`-katalogen i MongoDB-installationen. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
 
-Öppna fönstret terminal och `cd` till den `bin` katalogen MongoDB-installationen. Du kan använda den här terminalfönster för att köra alla kommandon i den här självstudiekursen.
-
-Kör `mongo` i terminalen för att ansluta till din lokala MongoDB-servern.
+Kör `mongo` i terminalen för att ansluta till din lokala MongoDB-server.
 
 ```bash
 mongo
 ```
 
-Om anslutningen lyckas körs redan MongoDB-databas. Om inte, kontrollera att den lokala MongoDB-databasen har startats genom att följa stegen i [installera MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Ofta MongoDB installeras, men du måste fortfarande starta genom att köra `mongod`. 
+Om anslutningen lyckas körs redan MongoDB-databasen. Om inte ska du kontrollera att din lokala MongoDB-databas startar genom att följa stegen i [Install MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) (Installera MongoDB Community Edition). Ofta installeras MongoDB, men du måste ändå starta det genom att köra `mongod`. 
 
-När du är klar testning MongoDB-databas, Skriv `Ctrl+C` i terminalen. 
+När du har testat MongoDB-databasen skriver du `Ctrl+C` i terminalen. 
 
 ## <a name="create-local-nodejs-app"></a>Skapa lokal Node.js-app
 
-I det här steget kan du ställa in det lokala Node.js-projektet.
+I det här steget konfigurerar du det lokala Node.js-projektet.
 
 ### <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-I fönstret terminal `cd` till en arbetskatalog.  
+Använd kommandot `cd` för att komma till en arbetskatalog i terminalfönstret.  
 
 Klona exempellagringsplatsen med följande kommando. 
 
@@ -81,7 +81,7 @@ Klona exempellagringsplatsen med följande kommando.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-Det här exemplet databasen innehåller en kopia av den [MEAN.js databasen](https://github.com/meanjs/mean). Den ändras för att köras på Apptjänst (Mer information finns i databasen MEAN.js [filen Viktigt](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
+Den här exempellagringsplatsen innehåller en kopia av [MEAN.js-lagringsplatsen](https://github.com/meanjs/mean). Den ändras för att köras på App Service (mer information finns [filen Viktigt](https://github.com/Azure-Samples/meanjs/blob/master/README.md) för MEAN.js-lagringsplatsen).
 
 ### <a name="run-the-application"></a>Köra programmet
 
@@ -93,7 +93,7 @@ npm install
 npm start
 ```
 
-När appen har lästs in helt, se något som liknar följande meddelande:
+När appen har lästs in helt ser du något som liknar följande meddelande:
 
 ```console
 --
@@ -107,41 +107,41 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Gå till `http://localhost:3000` i en webbläsare. Klicka på **registrera dig** i den översta menyn och skapa en testanvändare. 
+Gå till `http://localhost:3000` i en webbläsare. Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en testanvändare. 
 
-MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa en användare och logga in sedan skriver din app data till den lokala MongoDB-databasen.
+MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa en användare och logga in skriver appen data till den lokala MongoDB-databasen.
 
 ![MEAN.js ansluter till MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Välj **Admin > Hantera artiklar** att lägga till vissa artiklar.
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
 
-Stoppa Node.js när som helst genom att trycka på `Ctrl+C` i terminalen. 
+Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-mongodb"></a>Skapa produktion MongoDB
+## <a name="create-production-mongodb"></a>Skapa produktions-MongoDB
 
-I det här steget skapar du en MongoDB-databas i Azure. När appen har distribuerats till Azure, använder den här databasen i molnet.
+I det här steget skapar du en MongoDB-databas i Azure. När appen har distribuerats till Azure används den här molndatabasen.
 
-Den här kursen används för MongoDB, [Azure Cosmos DB](/azure/documentdb/). Cosmos DB stöder MongoDB-klientanslutningar.
+För MongoDB använder den här självstudien [Azure Cosmos DB](/azure/documentdb/). Cosmos DB stöder MongoDB-klientanslutningar.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos-DB-konto
+### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto
 
-Molnet Shell, skapa ett Cosmos-DB-konto med den [az cosmosdb skapa](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) kommando.
+Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
-I följande kommando i stället använda ett unikt Cosmos-databasnamn för den  *\<cosmosdb_name >* platshållare. Det här namnet används som en del av Cosmos-DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos-DB-konton i Azure. Namnet måste innehålla endast små bokstäver, siffror och bindestreck (-) och måste vara mellan 3 och 50 tecken.
+I följande kommando ersätter du platshållaren *\<cosmosdb_name>* med ett unikt Cosmos DB-namn. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
-Den *--kind MongoDB* parametern aktiverar MongoDB-klientanslutningar.
+Parametern *--kind MongoDB* aktiverar MongoDB-klientanslutningar.
 
-När Cosmos-DB-kontot har skapats visas Azure CLI information liknar följande exempel:
+När Cosmos DB-kontot har skapats, visar Azure CLI information liknande följande exempel:
 
 ```json
 {
@@ -159,13 +159,13 @@ När Cosmos-DB-kontot har skapats visas Azure CLI information liknar följande e
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>Anslut appen till produktion MongoDB
+## <a name="connect-app-to-production-mongodb"></a>Ansluta en app till produktions-MongoDB
 
-I det här steget kan ansluta du MEAN.js exempelprogrammet till Cosmos-DB-databasen som du precis skapade, med hjälp av en anslutningssträng för MongoDB. 
+I det här steget, ansluter du ditt MEAN.js-exempelprogram till en Cosmos DB-databas som du just skapade med en MongoDB-anslutningssträng. 
 
-### <a name="retrieve-the-database-key"></a>Hämta databasens nyckel
+### <a name="retrieve-the-database-key"></a>Hämta databasnyckeln
 
-För att ansluta till databasen Cosmos DB, måste databasnyckeln för. I gränssnittet molnet använder den [az cosmosdb lista nycklar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) kommando för att hämta den primära nyckeln.
+För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. Använd kommandot [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) i Cloud Shell för att hämta primärnyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -187,9 +187,9 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurera anslutningssträngen i ditt Node.js-program
 
-I din lokala MEAN.js databas i den _config/env/_ mapp, skapa en fil med namnet _lokala production.js_. Som standard _.gitignore_ är konfigurerad för att behålla den här filen från databasen. 
+I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. Som standard konfigureras _.gitignore_ för att hålla filen utanför lagringsplatsen. 
 
-Kopiera följande kod till den. Se till att ersätta två  *\<cosmosdb_name >* platshållarna med Cosmos-DB databasnamn och Ersätt den  *\<primary_master_key >* platshållaren med nyckel du kopierade i föregående steg.
+Kopiera följande kod till den. Se till att ersätta de två platshållarna *\<cosmosdb_name>* med ditt Cosmos DB-databasnamn och ersätt platshållaren *\<primary_master_key>* med nyckeln som du kopierade i föregående steg.
 
 ```javascript
 module.exports = {
@@ -199,19 +199,19 @@ module.exports = {
 };
 ```
 
-Den `ssl=true` alternativet krävs eftersom [Cosmos DB kräver SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+Alternativet `ssl=true` krävs eftersom [Cosmos DB kräver SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Spara ändringarna.
 
-### <a name="test-the-application-in-production-mode"></a>Testa programmet i Produktionsläge 
+### <a name="test-the-application-in-production-mode"></a>Testa programmet i produktionsläge 
 
-Kör följande kommando för att minify och sedan paketera skript för produktionsmiljön. Den här processen genererar filer som behövs i produktionsmiljön.
+Kör följande kommando för att minimera och paketera skript för produktionsmiljön. Den här processen genererar de filer som behövs i produktionsmiljön.
 
 ```bash
 gulp prod
 ```
 
-Kör följande kommando för att använda den anslutningssträng som du konfigurerade i _config/env/local-production.js_.
+Kör följande kommando för att använda anslutningssträngen du konfigurerade i _config/env/local-production.js_.
 
 ```bash
 # Bash
@@ -222,9 +222,9 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-`NODE_ENV=production`anger miljövariabeln som talar om Node.js körs i produktionsmiljön.  `node server.js`startar Node.js-server med `server.js` i Lagringsplatsens rot. Detta är hur Node.js-programmet läses in i Azure. 
+`NODE_ENV=production` ställer in miljövariabeln som anvisar Node.js att köra i produktionsmiljön.  `node server.js` startar Node.js-servern med `server.js` i roten för lagringsplatsen. Så här läses Node.js-programmet in i Azure. 
 
-När appen har lästs in, kontrollera att den körs i produktionsmiljön:
+När appen är inläst ska du kontrollera att den körs i produktionsmiljön:
 
 ```console
 --
@@ -237,13 +237,13 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Gå till `http://localhost:8443` i en webbläsare. Klicka på **registrera dig** i den översta menyn och skapa en testanvändare. Om du lyckas skapa en användare och logga in, sedan skriver din app data till Cosmos-DB-databas i Azure. 
+Gå till `http://localhost:8443` i en webbläsare. Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en testanvändare. Om du lyckas skapa en användare och logga in skriver appen data till Cosmos DB-databasen i Azure. 
 
-Stoppa Node.js genom att skriva till terminalen och `Ctrl+C`. 
+I terminalen stoppar du Node.js genom att skriva `Ctrl+C`. 
 
 ## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
-I det här steget kan distribuera du MongoDB-anslutna Node.js-programmet till Azure App Service.
+I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azure App Service.
 
 ### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
 
@@ -253,25 +253,26 @@ I det här steget kan distribuera du MongoDB-anslutna Node.js-programmet till Az
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Som standard sparas projektet MEAN.js _config/env/local-production.js_ utanför Git-lagringsplats. Så för din Azure-webbapp använder du appinställningar för att definiera anslutningssträngen MongoDB.
+Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför Git-lagringsplatsen. Så för Azure-webbappen använder du appinställningar för att definiera MongoDB-anslutningssträngen.
 
-Ange app-inställningar i [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i molnet Shell. 
+Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. 
 
-I följande exempel konfigureras en `MONGODB_URI` appinställningen i ditt Azure webbapp. Ersätt den  *\<appnamn >*,  *\<cosmosdb_name >*, och  *\<primary_master_key >* platshållare.
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-webbappen. Ersätt platshållarna *\<app_name>*, *\<cosmosdb_name>* och *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-I Node.js-kod du åtkomst till den här appinställning med `process.env.MONGODB_URI`, precis som du skulle använda en miljövariabel. 
+I Node.js-koden får du åtkomst till den här appinställningen med `process.env.MONGODB_URI`, precis som för andra miljövariabler. 
 
-Öppna din lokala MEAN.js databas _config/env/production.js_ (inte _config/env/local-production.js_), som har produktionsmiljö specifik konfiguration. MEAN.js standardappen har redan konfigurerats för att använda den `MONGODB_URI` miljövariabel som du skapade.
+På din lokala MEAN.js-lagringsplats öppnar du _config/env/production.js_ (inte _config/env/local-production.js_), som har en specifik konfiguration för produktion-miljö. MEAN.js-standardappen är redan konfigurerade för att använda `MONGODB_URI`-miljövariabeln du har skapat.
 
 ```javascript
 db: {
@@ -304,40 +305,40 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ``` 
 
-Det kan hända att distributionen körs [Gulp](http://gulpjs.com/) när `npm install`. App Service körs inte Gulp eller Grunt uppgifter under distributionen, så att den här lagringsplatsen exempel har två ytterligare filer i rotkatalogen för att den: 
+Du kanske märker att distributionsprocessen kör [Gulp](http://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta: 
 
-- _.Deployment_ -den här filen talar om App Service för att köra `bash deploy.sh` som anpassade distributions-skriptet.
-- _Deploy.SH_ -skriptet anpassad distribution. Om du granska filen ser du att den körs `gulp prod` när `npm install` och `bower install`. 
+- _.deployment_ – Den här filen skickar ett meddelande till App Service om att köra `bash deploy.sh` som anpassat distributionsskript.
+- _deploy.sh_ – Det anpassade distributionsskriptet. Om du granskar filen ser du att den kör `gulp prod` efter `npm install` och `bower install`. 
 
-Du kan använda den här metoden för att lägga till något steg i distributionen Git-baserade. Om du startar om din Azure-webbapp när som helst kör inte App Service dessa automation-aktiviteter.
+Du kan använda den här metoden för att lägga till steg i din Git-baserade distributionen. När som helst när du startar om Azure-webbappen kör inte App Service om dessa automatiserade uppgifter.
 
 ### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen 
 
-Bläddra till den distribuerade webbappens med hjälp av webbläsaren. 
+Bläddra till den distribuerade webbappen via webbläsaren. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ``` 
 
-Klicka på **registrera dig** i den översta menyn och skapa en dummy användare. 
+Klicka på **Sign Up** (Registrera) på den översta menyn och skapa en låtsasanvändare. 
 
-Om du har lyckats och appen automatiskt loggar in på den skapade användaren, har MEAN.js-app i Azure anslutningen till databasen för MongoDB (Cosmos-DB). 
+Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.jsapp i Azure anslutning till MongoDB- databasen (Cosmos DB). 
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Välj **Admin > Hantera artiklar** att lägga till vissa artiklar. 
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar. 
 
-**Grattis!** Du kör en datadrivna Node.js-app i Azure App Service.
+**Grattis!** Du kör en datadriven Node.js-app i Azure App Service.
 
-## <a name="update-data-model-and-redeploy"></a>Uppdatera datamodellen och distribuera om
+## <a name="update-data-model-and-redeploy"></a>Uppdatera datamodell och distribuera om
 
-I det här steget kan du ändra den `article` data modell och publicera ändringarna till Azure.
+I det här steget ändrar du datamodellen `article` och publicerar din ändring i Azure.
 
 ### <a name="update-the-data-model"></a>Uppdatera datamodellen
 
 Öppna _modules/articles/server/models/article.server.model.js_.
 
-I `ArticleSchema`, lägga till en `String` typ som kallas `comment`. När du är klar schemat koden se ut så här:
+I `ArticleSchema` lägger du till `String`-typ med namnet `comment`. När du är klar bör schemakoden se ut så här:
 
 ```javascript
 var ArticleSchema = new Schema({
@@ -354,15 +355,15 @@ var ArticleSchema = new Schema({
 });
 ```
 
-### <a name="update-the-articles-code"></a>Uppdatera artiklar kod
+### <a name="update-the-articles-code"></a>Uppdatera artiklarnas kod
 
-Uppdatera resten av dina `articles` kod för att använda `comment`.
+Uppdatera resten av din `articles`-kod för att använda `comment`.
 
-Det finns fem filer som du behöver ändra: server-domänkontrollant och fyra klienten vyer. 
+Det finns fem filer som du måste ändra: serverkontrollanten och de fyra klientvyerna. 
 
 Öppna _modules/articles/server/controllers/articles.server.controller.js_.
 
-I den `update` fungera, lägga till en tilldelning för `article.comment`. Följande kod visar den färdiga `update` funktionen:
+I funktionen `update` lägger du till en uppgift för `article.comment`. Följande kod visar den slutförda `update`-funktionen:
 
 ```javascript
 exports.update = function (req, res) {
@@ -378,7 +379,7 @@ exports.update = function (req, res) {
 
 Öppna _modules/articles/client/views/view-article.client.view.html_.
 
-Ovanför avslutande `</section>` tagg, Lägg till följande rad att visa `comment` tillsammans med resten av artikeldata:
+Strax ovanför den avslutande `</section>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
 ```HTML
 <p class="lead" ng-bind="vm.article.comment"></p>
@@ -386,7 +387,7 @@ Ovanför avslutande `</section>` tagg, Lägg till följande rad att visa `commen
 
 Öppna _modules/articles/client/views/list-articles.client.view.html_.
 
-Ovanför avslutande `</a>` tagg, Lägg till följande rad att visa `comment` tillsammans med resten av artikeldata:
+Strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
 ```HTML
 <p class="list-group-item-text" ng-bind="article.comment"></p>
@@ -394,7 +395,7 @@ Ovanför avslutande `</a>` tagg, Lägg till följande rad att visa `comment` til
 
 Öppna _modules/articles/client/views/admin/list-articles.client.view.html_.
 
-I den `<div class="list-group">` element och ovanför avslutande `</a>` tagg, Lägg till följande rad att visa `comment` tillsammans med resten av artikeldata:
+I elementet `<div class="list-group">` och strax ovanför den avslutande `</a>`-taggen lägger du till följande rad för att visa `comment` tillsammans med resterande artikeldata:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -402,7 +403,7 @@ I den `<div class="list-group">` element och ovanför avslutande `</a>` tagg, L�
 
 Öppna _modules/articles/client/views/admin/form-article.client.view.html_.
 
-Hitta de `<div class="form-group">` element som innehåller skickaknappen som ser ut så här:
+Leta reda på elementet `<div class="form-group">` som innehåller skickaknappen som ser ut så här:
 
 ```HTML
 <div class="form-group">
@@ -410,7 +411,7 @@ Hitta de `<div class="form-group">` element som innehåller skickaknappen som se
 </div>
 ```
 
-Lägga till en annan ovanför den här taggen `<div class="form-group">` element som används för att redigera den `comment` fältet. Din nya element ska se ut så här:
+Precis ovanför taggen lägger du till ytterligare ett `<div class="form-group">`-element som gör att människor kan redigera fältet `comment`. Det nya elementet bör se ut ungefär så här:
 
 ```HTML
 <div class="form-group">
@@ -423,7 +424,7 @@ Lägga till en annan ovanför den här taggen `<div class="form-group">` element
 
 Spara alla ändringar.
 
-I det lokala terminalfönstret testa dina ändringar i Produktionsläge igen.
+Gå till det lokala terminalfönstret och testa dina ändringar i produktionsläget igen.
 
 ```bash
 # Bash
@@ -436,54 +437,54 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-Navigera till `http://localhost:8443` i en webbläsare och se till att du har loggat in.
+Gå till `http://localhost:8443` i en webbläsare och kontrollera att du är inloggad.
 
-Välj **Admin > Hantera artiklar**, lägga till en artikel genom att välja den  **+**  knappen.
+Välj **Administratör > Manage Articles** (Hantera artiklar) och lägg sedan till en artikel genom att välja knappen **+**.
 
-Du ser den nya `Comment` textruta nu.
+Nu ser du den nya textrutan `Comment`.
 
-![Tillagda kommentar fältet till artiklar](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+![Tillagda kommentarsfält till artiklar](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-Stoppa Node.js genom att skriva till terminalen och `Ctrl+C`. 
+I terminalen stoppar du Node.js genom att skriva `Ctrl+C`. 
 
-### <a name="publish-changes-to-azure"></a>Publicera ändringar i Azure
+### <a name="publish-changes-to-azure"></a>Publicera ändringar till Azure
 
-I det lokala terminalfönstret genomför ändringarna i Git och skicka koden ändringar till Azure.
+I det lokala terminalfönstret sparar du ändringarna i Git och push-överför sedan kodändringarna till Azure.
 
 ```bash
 git commit -am "added article comment"
 git push azure master
 ```
 
-En gång i `git push` är klar, gå till Azure webbapp och prova att använda de nya funktionerna.
+När `git push` har slutförts kan du gå till Azure-webbappen och prova att använda de nya funktionerna.
 
-![Ändringar i modellen och databasen publiceras på Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+![Modell- och databasändringar som är publicerade i Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
-Om du lagt till alla artiklar tidigare kan kan du fortfarande se dem. Befintliga data i Cosmos-databasen är inte förlorade. Dessutom dataschemat uppdateringarna och lämnar företaget dina befintliga data.
+Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga data i din Cosmos DB förloras inte. Dina uppdateringar till dataschemat håller dessutom dina befintliga data intakta.
 
-## <a name="stream-diagnostic-logs"></a>Dataströmmen diagnostikloggar 
+## <a name="stream-diagnostic-logs"></a>Strömma diagnostikloggar 
 
-Du kan hämta loggarna för konsolen skickas till terminalen när Node.js-programmet körs i Azure App Service. På så sätt kan du få samma diagnostiska meddelanden för att felsöka programfel.
+När Node.js-appen körs i Azure App Service kan du skicka konsolloggarna till din terminal. På så sätt kan du få samma diagnostikmeddelanden för att felsöka programfel.
 
-Starta loggen strömning med den [az webapp loggen pilslut](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) i molnet Shell.
+Starta loggströmningen genom att använda kommandot [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Uppdatera din Azure-webbapp i webbläsaren att hämta vissa webbtrafik när loggen streaming har startats. Nu kan du se loggarna för konsolen skickas till terminalen.
+Uppdatera Azure-webbappen i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Nu ser du konsolloggarna som skickas till terminalen.
 
-Stopploggen strömning när som helst genom att skriva `Ctrl+C`. 
+Stoppa loggströmningen när som helst genom att skriva `Ctrl+C`. 
 
-## <a name="manage-your-azure-web-app"></a>Hantera Azure-webbapp
+## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
 
-Gå till den [Azure-portalen](https://portal.azure.com) att se att webbappen som du skapade.
+Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
 
 Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Som standard visas på portalen ditt webbprogram **översikt** sidan. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. Flikar till vänster på sidan Visa sidorna annan konfiguration som du kan öppna.
+Som standard visar portalen dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -495,14 +496,14 @@ Som standard visas på portalen ditt webbprogram **översikt** sidan. På den h�
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Skapa en MongoDB-databas i Azure
-> * Ansluta en Node.js-app till MongoDB
-> * Distribuera appen till Azure
-> * Uppdatera datamodellen och distribuera appen
-> * Dataströmmen loggas från Azure till terminalen
-> * Hantera appen i Azure-portalen
+> * skapa en MongoDB-databas i Azure
+> * ansluta en Node.js-app till MongoDB
+> * distribuera appen till Azure
+> * uppdatera datamodellen och distribuera om appen
+> * strömma loggar från Azure till terminalen
+> * hantera appen i Azure-portalen.
 
-Gå vidare till nästa kurs att lära dig hur du mappar en anpassad DNS-namn till ditt webbprogram.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
 
 > [!div class="nextstepaction"] 
 > [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)

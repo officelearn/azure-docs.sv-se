@@ -1,91 +1,91 @@
 ---
-title: "Granska användning och kostnader i Azure kostnaden Management | Microsoft Docs"
-description: "Granska användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa varningar."
+title: "Granska användning och kostnader i Azure Cost Management | Microsoft Docs"
+description: "Granska användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa aviseringar."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="review-usage-and-costs"></a>Granska användning och kostnader
 
-Azure kostnaden hanteringen av Cloudyn visas användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data för användning och kostnader visas i Cloudyn instrumentpaneler och rapporter. Exemplen i den här kursen får du om granska användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
+I Azure Cost Management by Cloudyn ser du användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Spåra användning och kostnader trender
-> * Identifiera användning ineffektiviteter
-> * Skapa aviseringar för ovanliga utgifter eller överskridanden
+> * Spårar trender inom användning och kostnader
+> * Identifierar ineffektivitet i användningen
+> * Skapar aviseringar för onormalt höga kostnader
 
 
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
-Du kan granska alla användning och kostnader i Cloudyn-portalen. Öppna Cloudyn portalen från Azure-portalen eller navigera till https://azure.cloudyn.com och logga in.
+Du kan granska all användning och alla kostnader i Cloudyn-portalen. Öppna Cloudyn-portalen från Azure-portalen eller navigera till https://azure.cloudyn.com och logga in.
 
-## <a name="track-usage-and-cost-trends"></a>Spåra användning och kostnader trender
+## <a name="track-usage-and-cost-trends"></a>Spårar trender inom användning och kostnader
 
-Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid att identifiera trender. Om du vill börja söka vid trender, kan du använda rapporten faktiska kostnaden över tid. På menyn rapporter överst i portalen **kostnaden** > **kostnaden Analysis** > **faktiska kostnaden över tid**. När du först öppnar rapporten som inga grupper eller filter tillämpas på den.
+Du kan spåra faktiska utgifter för användning och kostnader med rapporter över tid där du kan identifiera trender. Om du vill börja leta efter trender kan du använda rapporten Actual Cost Over Time (Faktisk kostnad över tid). Gå till rapportmenyn längst upp i portalen och klicka på **Cost** (Kostnad) >  **Cost Analysis** (Kostnadsanalys)  >  **Actual Cost Over Time**. När du först öppnar rapporten används inga grupper eller filter.
 
 Här är en exempelrapport:
 
 ![exempelrapport](./media/tutorial-review-usage/actual-cost01.png)
 
-Rapporten visar alla utgiftsgränsen under de senaste 30 dagarna. Om du vill visa endast utgifter för Azure-tjänster, tillämpa tjänstgruppen och filtrera sedan för alla Azure-tjänster. Följande bild visar de filtrerade tjänsterna.
+I rapporten visas alla utgifter de senaste 30 dagarna. Om du bara vill visa utgifter för Azure-tjänster använder du gruppen Service och filtrerar på alla Azure-tjänster. I följande bild visas de filtrerade tjänsterna.
 
 ![filtrerade tjänster](./media/tutorial-review-usage/actual-cost02.png)
 
-I föregående exempel kördes mindre pengar för att starta på 2017-08-31 än innan. Den kostnadstrend fortsätter för olika tjänster för ungefär nio dagar. Sedan fortsätter ytterligare utgifter som tidigare. För många kolumner kan dock dölja en uppenbara trend. Du kan ändra rapporten till en rad eller område diagrammet för att se data som visas i andra vyer. Följande bild visar trenden tydligare.
+I föregående exempel spenderades mindre pengar från 2017-08-31 än innan. Den kostnadstrenden fortsatte för de olika tjänsterna i ungefär nio dagar. Sedan återgick kostnaderna till det normala. Det kan dock vara svårt att se en uppenbar trend om du har för många kolumner. Du kan ändra rapportvyn till ett linje- eller områdesdiagram för att se data i andra vyer. I följande bild ser du trenden tydligare.
 
-![Trend i rapporten](./media/tutorial-review-usage/actual-cost03.png)
+![trend i rapport](./media/tutorial-review-usage/actual-cost03.png)
 
-I det här exemplet kan se du tydligt att Azure Storage kosta ignorerade startar på 2017-08-31 medan utgifter på andra Azure-tjänster låg nivå. Så, vad som orsakade att minskning i utgifter? I det här exemplet vissa medarbetare var på semester från arbete och använde inte Storage-tjänst.
+I det här exemplet ser du tydligt att kostnaden för Azure Storage minskade 2017-08-31 medan utgifterna för andra Azure-tjänster låg kvar på samma nivå. Vad orsakade då de minskade utgifterna? I det här exemplet var några medarbetare på semester och använde inte Storage-tjänsten.
 
-Om du vill se en video som självstudiekurs om att spåra användning och kostnader trender, se [analysera ditt moln fakturering data jämfört med Azure kostnaden Management med Cloudyn](https://youtu.be/7LsVPHglM0g).
+Om du vill se en självstudievideo om att spåra trender i användning och kostnader kan du se [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analysera molnfaktureringsdata över tid med Azure Cost Management by Cloudyn).
 
-## <a name="detect-usage-inefficiencies"></a>Identifiera användning ineffektiviteter
+## <a name="detect-usage-inefficiencies"></a>Identifierar ineffektivitet i användningen
 
-Förbättra effektiviteten optimering rapporter, optimera användningen och identifiera sätt att spara pengar åt för molnresurser. De är särskilt användbart med kostnadseffektiv sizing rekommendationer är avsedda för att minska inaktiv eller dyr virtuella datorer.
+Med optimeringsrapporter kan du förbättra effektiviteten, optimera användningen och identifiera sätt att spara pengar på dina molnresurser. Rekommendationerna kring kostnadseffektiv storleksändring är avsedda att minska antalet inaktiva eller dyra virtuella datorer.
 
-Ett vanligt problem som påverkar organisationer när de ursprungligen flyttar resurser i till molnet är deras virtualiseringsstrategi för. De använder ofta en metod som liknar den som de används för att skapa virtuella datorer för lokala virtualiseringsmiljön. Och de förutsätter att minskas kostnaderna genom att flytta sina lokala virtuella datorer till molnet, som-är. Denna metod är inte troligt att minska kostnaderna.
+Ett vanligt problem som påverkar organisationer när de ursprungligen flyttar resurser till molnet är deras virtualiseringsstrategi. De använder ofta en metod som liknar den som användes till att skapa virtuella datorer i den lokala virtualiseringsmiljön. De antar även att de kan minska kostnaderna genom att flytta de lokala virtuella datorerna till molnet oförändrade. Den här metoden kommer dock förmodligen inte att minska kostnaderna.
 
-Problemet är att den befintliga infrastrukturen har betalats. Användare kan skapa och spara stora virtuella datorer som körs om de tyckte om, inaktiv eller inte och lite följd. Flytta stora eller inaktiv virtuella datorer till molnet är troligt att *öka* kostnader. Tilldelning av kostnad för resurser som är viktigt när du anger avtal med molntjänst-providers. Du måste betala för vad du gör om du använder resursen fullständigt eller inte.
+Problemet är att den befintliga infrastrukturen redan är betald. Användarna kunde skapa stora virtuella datorer och låta dem vara igång om de ville, inaktiva eller inte, utan att det gjorde något. Om stora eller inaktiva virtuella datorer flyttas till molnet kommer kostnaderna förmodligen att *öka*. Det är viktigt med kostnadsallokering för resurser när du tecknar avtal med en molntjänstprovider. Du måste betala för det du begär oavsett om du använder resursen fullt ut eller inte.
 
-Rapporten kostnadseffektiv Sizing rekommendationer identifierar potentiella årliga besparingar genom att jämföra VM-instans typen kapacitet till deras historiska CPU och minne användningsdata.  
+I rapporten Cost Effective Sizing Recommendations (Rekommendationer kring kostnadseffektiv storleksändring) identifieras potentiella årliga besparingar genom att jämföra kapaciteten hos olika typer av VM-instanser med historiska data kring användning av processor och minne.  
 
-Klicka på menyn rapporter överst i portalen **optimering** > **priser optimering** > **kostnadseffektiv Sizing rekommendationer**. Filtrera providern till Azure för att titta på endast virtuella Azure-datorer. Här är en exempelbild.
+Gå till rapportmenyn längst upp i portalen och klicka på **Optimizer** (Optimerare)  >  **Pricing Optimization** (Prisoptimering)  >  **Cost Effective Sizing Recommendations**. Filtrera providern som Azure för att endast titta på virtuella Azure-datorer. Här är en exempelbild.
 
 ![Virtuella Azure-datorer](./media/tutorial-review-usage/sizing01.png)
 
-I det här exemplet kunde $3,114 sparas genom att följa rekommendationerna för att ändra typer för VM-instans. Klicka på plustecknet (+) under **information** för första rekommendationen. Här följer information om den första rekommendationen.
+I det här exemplet kan du spara 3 114 USD genom att följa rekommendationerna för att ändra typerna av VM-instanser. Klicka på plustecknet (+) under **Details** (Detaljer) för den första rekommendationen. Här är lite information om den första rekommendationen.
 
-![rekommendation information](./media/tutorial-review-usage/sizing02.png)
+![information om rekommendation](./media/tutorial-review-usage/sizing02.png)
 
-Visa VM-instans-ID: N genom att klicka på plustecknet bredvid **listan över kandidater**.
+Visa ID:n för VM-instanser genom att klicka på plustecknet bredvid **List of Candidates** (Lista med kandidater).
 
-![Listan över kandidater](./media/tutorial-review-usage/sizing03.png)
+![Lista med kandidater](./media/tutorial-review-usage/sizing03.png)
 
-Om du vill se en självstudiekurs video upptäcka användning ineffektiviteter, se [optimera VM-storlek i Azure kostnaden Management med Cloudyn](https://youtu.be/1xaZBNmV704).
+Om du vill se en självstudievideo om att identifiera ineffektivitet i användningen kan du titta på [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Optimera VM-storlekar i Azure Cost Management by Cloudyn).
 
-## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar om onormal utgifter
+## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar för onormalt höga kostnader
 
-Du kan meddela berörda personer automatiskt för utgiftsgräns avvikelser och överskridandet risker. Du kan snabbt och enkelt skapa aviseringar med hjälp av rapporter att support aviseringar baserat på budget och kostnaden tröskelvärden.
+Du kan automatiskt meddela intressenter vid avvikelser i utgifterna och vid risk för höga utgifter. Du kan snabbt och enkelt skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader.
 
-Du skapar en avisering för alla utgiftsgränsen med kostnaden rapport. I det här exemplet rapporten den faktiska kostnaden över tid för att meddela dig när Azure VM utgifter närmar sig din totala budget. På menyn rapporter överst i portalen **kostnaden** > **kostnaden Analysis** > **faktiska kostnaden över tid**. Ange **grupper** till **Service** och ange **Filter på tjänsten** till **Virtuella och Azure**. I övre högra i rapporten klickar du på **åtgärder** och välj sedan **schemalägga rapport**.
+Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Gå till rapportmenyn längst upp i portalen och klicka på **Cost** (Kostnad) >  **Cost Analysis** (Kostnadsanalys)  >  **Actual Cost Over Time**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
 
-Använd den **schemaläggning** att skicka dig ett e-postmeddelande för rapporten med den frekvens som du vill använda. Alla taggar, gruppering och filtrering som du använde ingår i rapporten via e-post. Klicka på den **tröskelvärdet** väljer du fliken och välj **verklig kostnad vs. Tröskelvärde för**. Om du har en total budget 500 000 kr och du vill att avisering när kostnader nära ungefär hälften, skapa en **Red avisering** på 250 000 $ och en **gul avisering** på $240,000. Välj antal på varandra följande aviseringar. När du tar emot totalt antal aviseringar som du angav skickas ingen ytterligare aviseringar. Spara den schemalagda rapporten.
+På fliken **Scheduling** (Schemaläggning) kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Välj sedan antalet på varandra följande aviseringar. När du fått det antal aviseringar du angav skickas inga fler aviseringar. Spara den schemalagda rapporten.
 
 ![exempelrapport](./media/tutorial-review-usage/schedule-alert01.png)
 
-Du kan också välja procentsats kostnaden vs. Budget tröskelvärdet mått för att skapa aviseringar. Du kan använda budget procenttal i stället för värden med hjälp av den måtten.
+Du kan också välja tröskelvärdesmåttet Cost Percentage vs. Budget (Kostnadernas procentandel av budgeten) till att skapa aviseringar. Då kan du använda procentandelar av budgeten i stället för faktiska valutavärden.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -93,12 +93,12 @@ Du kan också välja procentsats kostnaden vs. Budget tröskelvärdet mått för
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Spåra användning och kostnader trender
-> * Identifiera användning ineffektiviteter
-> * Skapa aviseringar för ovanliga utgifter eller överskridanden
+> * Spårar trender inom användning och kostnader
+> * Identifierar ineffektivitet i användningen
+> * Skapar aviseringar för onormalt höga kostnader
 
 
-Gå vidare till nästa kurs att lära dig hur du styr åtkomst till data.
+Gå vidare till nästa självstudie om du vill lära dig att styra åtkomsten till data.
 
 > [!div class="nextstepaction"]
-> [Kontrollera åtkomsten till data](tutorial-user-access.md)
+> [Styra åtkomsten till data](tutorial-user-access.md)

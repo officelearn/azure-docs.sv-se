@@ -14,13 +14,17 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 4701d19cf3b10dc42a5df7cbcb82c0d458894247
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1a60c76b2687e4c6561eabf8a19dbfffffbe8681
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
+
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service i Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
+>
 
 Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Den här självstudiekursen visar hur du skapar en .NET Core-webbapp och ansluter den till en SQL Database. När du är klar har du en .NET Core MVC-app som körs i App Service.
 
@@ -29,12 +33,14 @@ Med [App Service ](app-service-web-overview.md) får du en automatiskt uppdatera
 Du lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en SQL Database i Azure
-> * Ansluta en .NET Core-app till SQL Database
-> * Distribuera appen till Azure
-> * Uppdatera datamodellen och omdistribuera appen
-> * Strömma diagnostikloggar från Azure
-> * Hantera appen i Azure-portalen
+> * skapa en SQL Database i Azure
+> * ansluta en .NET Core-app till SQL Database
+> * distribuera appen till Azure
+> * uppdatera datamodellen och distribuera om appen
+> * strömma diagnostikloggar från Azure
+> * hantera appen i Azure-portalen.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -43,15 +49,13 @@ För att slutföra den här kursen behöver du:
 1. [Installera Git](https://git-scm.com/)
 1. [Installera .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="create-local-net-core-app"></a>Skapa lokal .NET Core-app
+## <a name="create-local-net-core-app"></a>Skapa en lokal .NET Core-app
 
 I det här steget konfigurerar du det lokala .NET Core-projektet.
 
 ### <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-I terminalfönstret, `cd` till en arbetskatalog.
+Använd kommandot `cd` för att komma till en arbetskatalog i terminalfönstret.
 
 Kör följande kommandon för att klona exempellagringsplatsen och ändra dess rot.
 
@@ -60,7 +64,7 @@ git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-Exempelprojektet innehåller en grundläggande CRUD-app (create-read-update-delete) med hjälp av [Entity Framework Core](https://docs.microsoft.com/ef/core/).
+Exempelprojektet innehåller en grundläggande CRUD-app (create-read-update-delete) med [Entity Framework Core](https://docs.microsoft.com/ef/core/).
 
 ### <a name="run-the-application"></a>Köra programmet
 
@@ -72,7 +76,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa ett par _att-göra_-objekt.
+Gå till `http://localhost:5000` i en webbläsare. Välj länken **Skapa nytt** och skapa några _att-göra_-objekt.
 
 ![ansluter till SQL Database](./media/app-service-web-tutorial-dotnetcore-sqldb/local-app-in-browser.png)
 
@@ -92,16 +96,16 @@ För SQL Database används [Azure SQL Database](/azure/sql-database/) i den här
 
 ### <a name="create-a-sql-database-logical-server"></a>Skapa en logisk SQL Database-server
 
-Skapa i Cloud Shell en logisk SQL Database-server med kommandot [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
+Skapa en logisk SQL Database-server i Cloud Shell med kommandot [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Ersätt platshållaren *\<server_name>* med ett unikt namn för SQL Database. Det här namnet används som en del av SQL Database-slutpunkten `<server_name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken. Dessutom måste du ersätta *\<db_username >* och *\<db_password >* med ett användarnamn och lösenord som väljer själv. 
+Ersätt platshållaren *\<server_name>* med ett unikt namn för SQL Database. Det här namnet används som en del av SQL Database-slutpunkten `<server_name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt. Dessutom måste du ersätta *\<db_username>* och *\<db_password>* med ett giltigt användarnamn och lösenord. 
 
 
 ```azurecli-interactive
 az sql server create --name <server_name> --resource-group myResourceGroup --location "West Europe" --admin-user <db_username> --admin-password <db_password>
 ```
 
-När den logiska SQL Database-servern har skapats visar Azure CLI information liknande följande exempel:
+När den logiska SQL Database-servern har skapats visar Azure CLI information som liknar följande exempel:
 
 ```json
 {
@@ -123,7 +127,7 @@ När den logiska SQL Database-servern har skapats visar Azure CLI information li
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [Azure SQL Database-brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) med kommandot [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
+Skapa en [brandväggsregel på servernivå för Azure SQL Database](../sql-database/sql-database-firewall-configure.md) via kommandot [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -131,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Skapa en databas
 
-Skapa en databas med en [S0-prestandanivå](../sql-database/sql-database-service-tiers.md) på servern med kommandot [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Skapa en databas med en [S0-prestandanivå](../sql-database/sql-database-service-tiers.md) på servern med kommandot [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -145,7 +149,7 @@ Ersätt följande sträng med det *\<server_name>*, *\<db_username>* och *\<db_p
 Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-Detta är anslutningssträngen för .NET Core-appen. Kopiera den för användning senare.
+Detta är anslutningssträngen för .NET Core-appen. Kopiera den för senare bruk.
 
 ## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
@@ -165,13 +169,13 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Ange anslutningssträngar för din Azure-app genom att använda kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
+Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du veta om du kör i Azure, eftersom du använder SQLite för din lokala utvecklingsmiljö och SQL Database för din Azure-miljö.
+Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du hålla reda på om du kör i Azure, eftersom du använder SQLite som lokal utvecklingsmiljö och SQL Database som Azure-miljö.
 
 I följande exempel konfigureras appinställningen `ASPNETCORE_ENVIRONMENT` i Azure-webbappen. Ersätt platshållaren *\<app_name>*.
 
@@ -181,14 +185,14 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="connect-to-sql-database-in-production"></a>Ansluta till SQL Database i produktion
 
-Öppna Startup.cs i din lokala databas och leta upp följande kod:
+Öppna Startup.cs från din lokala lagringsplats och leta upp följande kod:
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
 ```
 
-Ersätt den med följande kod, som använder de miljövariabler som du tidigare har konfigurerat.
+Ersätt den med följande kod, som använder de miljövariabler du konfigurerade tidigare.
 
 ```csharp
 // Use SQL Database if in Azure, otherwise, use SQLite
@@ -205,7 +209,7 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 
 Om den här koden identifierar att den körs i produktion (vilket indikeras av Azure-miljön) så används den anslutningssträng du konfigurerade för att ansluta till SQL Database.
 
-Anropet `Database.Migrate()` hjälper dig när det körs i Azure, eftersom de databaser som .NET Core-appen behöver skapas automatiskt, baserat på migreringskonfigurationen. 
+Anropet `Database.Migrate()` är till hjälp när det körs i Azure, eftersom de databaser som .NET Core-appen behöver skapas automatiskt baserat på migreringskonfigurationen. 
 
 Spara dina ändringar och genomför den på Git-lagringsplatsen. 
 
@@ -259,11 +263,11 @@ Lägg till några att-göra-uppgifter.
 
 ## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
 
-I det här steget gör du en ändring i ditt databasschema och publicerar den på Azure.
+I det här steget gör du en ändring i ditt databasschema och publicerar den till Azure.
 
 ### <a name="update-your-data-model"></a>Uppdatera datamodellen
 
-Öppna _Models\Todo.cs_ i kodredigeraren. Lägg till följande egenskapen i klassen `ToDo`:
+Öppna _Models\Todo.cs_ i kodredigeraren. Lägg till följande egenskap i klassen `ToDo`:
 
 ```csharp
 public bool Done { get; set; }
@@ -271,7 +275,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Kör Code First Migrations lokalt
 
-Kör några kommandon för att göra uppdateringar i den lokala databasen.
+Kör några kommandon och gör uppdateringar i den lokala databasen.
 
 ```bash
 dotnet ef migrations add AddProperty
@@ -285,11 +289,11 @@ dotnet ef database update
 
 ### <a name="use-the-new-property"></a>Använda den nya egenskapen
 
-Gör några ändringar i koden för att använda egenskapen `Done`. För enkelhetens skull ska du i den här kursen bara ändra vyerna `Index` och `Create` för att se hur egenskapen fungerar.
+Gör några ändringar i koden så att du använder egenskapen `Done`. För att göra självstudien enklare ska du bara ändra vyerna `Index` och `Create` så att du ser hur egenskapen fungerar.
 
 Öppna _Controllers\TodosController.cs_.
 
-Hitta metoden `Create()` och lägg till `Done` i listan över egenskaper i attributet `Bind`. När du är klar ser metodsignaturen `Create()` ut som följande kod:
+Leta rätt på metoden `Create()` och lägg till `Done` i listan med egenskaper för attributet `Bind`. När du är klar ser signaturen för metoden `Create()` ut som följande kod:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -297,7 +301,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 
 Öppna _Views\Todos\Create.cshtml_.
 
-I Razor-koden bör du se elementet `<div class="form-group">` för `Description`, och sedan ett annat `<div class="form-group">`-element för `CreatedDate`. Omedelbart efter dessa två element ska du lägga till ett annat `<div class="form-group">`-element för `Done`:
+I Razor-koden bör du se ett `<div class="form-group">`-element för `Description` och sedan ett annat `<div class="form-group">`-element för `CreatedDate`. Direkt efter dessa två element ska du lägga till ett annat `<div class="form-group">`-element för `Done`:
 
 ```csharp
 <div class="form-group">
@@ -311,7 +315,7 @@ I Razor-koden bör du se elementet `<div class="form-group">` för `Description`
 
 Öppna _Views\Todos\Index.cshtml_.
 
-Sök efter det tomma elementet `<th></th>`. Lägg direkt ovanför det här elementet till följande Razor-kod:
+Sök efter det tomma `<th></th>`-elementet. Lägg till följande Razor-kod direkt ovanför det här elementet:
 
 ```csharp
 <th>
@@ -319,7 +323,7 @@ Sök efter det tomma elementet `<th></th>`. Lägg direkt ovanför det här eleme
 </th>
 ```
 
-Hitta elementet `<td>` som innehåller ”tag helpers” `asp-action`. Lägg direkt ovanför det här elementet till följande Razor-kod:
+Hitta elementet `<td>` som innehåller ”tag helpers” `asp-action`. Lägg till följande Razor-kod direkt ovanför det här elementet:
 
 ```csharp
 <td>
@@ -337,9 +341,9 @@ Kör appen lokalt.
 dotnet run
 ```
 
-Öppna webbläsaren och navigera till `http://localhost:5000/`. Du kan nu lägga till en att-göra-uppgift och markera **Klart**. Den ska sedan visas på din startsida som en slutförd uppgift. Kom ihåg att vyn `Edit` inte visar fältet `Done` eftersom du inte ändra vyn `Edit`.
+Öppna webbläsaren och navigera till `http://localhost:5000/`. Du kan nu lägga till en att-göra-uppgift och markera **Klart**. Den ska sedan visas på din startsida som en slutförd uppgift. Kom ihåg att vyn `Edit` inte innehåller fältet `Done` eftersom du inte ändrade vyn `Edit`.
 
-### <a name="publish-changes-to-azure"></a>Publicera ändringar i Azure
+### <a name="publish-changes-to-azure"></a>Publicera ändringar till Azure
 
 ```bash
 git commit -am "added done field"
@@ -350,11 +354,11 @@ När `git push` har slutförts kan du gå till Azure-webbappen och prova att anv
 
 ![Azure-webbapp efter Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
-Alla befintliga att-göra-uppgifter visas fortfarande. När du publicerar .NET Core-appen går befintliga data i SQL Database inte förlorade. Med Entity Framework Core Migrations ändras endast dataschemat, så befintliga data lämnas intakta.
+Alla befintliga att-göra-uppgifter visas fortfarande. När du publicerar om .NET Core-appen går inte befintliga data i SQL Database förlorade. Med Entity Framework Core Migrations ändras endast dataschemat, så att befintliga data lämnas intakta.
 
 ## <a name="manage-your-azure-web-app"></a>Hantera din Azure-webbapp
 
-Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp som du skapade.
+Gå till [Azure Portal](https://portal.azure.com) för att se den webbapp du skapade.
 
 Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
@@ -372,14 +376,14 @@ Som standard visar portalen dina webbappar på sidan **Översikt**. På den här
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Skapa en SQL Database i Azure
-> * Ansluta en .NET Core-app till SQL Database
-> * Distribuera appen till Azure
-> * Uppdatera datamodellen och omdistribuera appen
-> * Strömma loggar från Azure till terminalen
-> * Hantera appen i Azure-portalen
+> * skapa en SQL Database i Azure
+> * ansluta en .NET Core-app till SQL Database
+> * distribuera appen till Azure
+> * uppdatera datamodellen och distribuera om appen
+> * strömma loggar från Azure till terminalen
+> * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudiekurs för att lära dig hur du mappar ett anpassat DNS-namn till webbappen.
+Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.
 
 > [!div class="nextstepaction"]
 > [Mappa ett befintligt anpassat DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md)

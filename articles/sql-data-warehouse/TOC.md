@@ -10,6 +10,10 @@
 ## Pausa och återuppta beräkning
 ### [Portal](pause-and-resume-compute-portal.md)
 ### [PowerShell](pause-and-resume-compute-powershell.md)
+## Skala beräkning
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 
 # Självstudier
@@ -114,8 +118,6 @@
 ### [Analysera din arbetsbelastning](analyze-your-workload.md)
 
 ## Skala ut
-### [Hantera beräkning – portalen](sql-data-warehouse-manage-compute-portal.md)
-### [Hantera beräkning – PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Hantera beräkning – REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automatisera beräkningsnivåer](manage-compute-with-azure-functions.md)
 

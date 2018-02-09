@@ -1,6 +1,7 @@
 - name: Dokumentation om Azure Backup
   href: index.yml
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Vad är Azure Backup?
       href: backup-introduction-to-azure-backup.md
@@ -183,6 +184,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Felsöka Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Felsöka System Center Data Protection Manager
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Felsöka Azure Backup Agent
           href: backup-azure-mars-troubleshoot.md
 - name: Referens

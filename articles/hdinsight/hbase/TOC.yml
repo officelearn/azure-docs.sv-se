@@ -2,7 +2,8 @@
   href: /azure/hdinsight
 - name: HBase på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: |
+        Översikt
       href: apache-hbase-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -145,6 +146,9 @@
             - name: Använda Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Skala ett HDInsight-kluster
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Hantera loggar för ett HDInsight-kluster
           href: ../hdinsight-log-management.md
           maintainContext: true

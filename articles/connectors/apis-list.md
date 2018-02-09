@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Lista över anslutningsappar
 Du hittar utlösare och åtgärder som definierats av Swagger-beskrivningen för varje anslutningsapp, plus eventuella begränsningar i [Information om anslutningsapp](/connectors/).
@@ -82,7 +82,7 @@ Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välk�
 | --- | --- | --- | --- |
 | [![API-ikon][as2icon]<br/>**AS2</br>-avkodning**][as2decode] | [![API-ikon][as2icon]<br/>**AS2</br>-avkodning**][as2encode] | [![API-ikon][x12icon]<br/>**EDIFACT</br>-avkodning**][EDIFACTdecode] | [![API-ikon][x12icon]<br/>**EDIFACT</br>-kodning**][EDIFACTencode] |
 [![API-ikon][flatfileicon]<br/>**Flat fil</br>-kodning**][flatfiledoc] | [![API-ikon][flatfiledecodeicon]<br/>**Flat fil</br>-avkodning**][flatfiledecodedoc] | [![API-ikon][integrationaccounticon]<br/>**Integrationskonto<br/>**][integrationaccountdoc] | [![API-ikon][xmltransformicon]<br/>**Transformera<br/>XML**][xmltransformdoc] |
-| [![API-ikon][x12icon]<br/>**X12</br>-avkodning**][x12decode] | [![API-ikon][x12icon]<br/>**X12</br>-kodning**][x12encode] | [![API-ikon][xmlvalidateicon]<br/>**XML<br/>-verifiering**][xmlvalidatedoc] | |
+| [![API-ikon][x12icon]<br/>**X12</br>-avkodning**][x12decode] | [![API-ikon][x12icon]<br/>**X12</br>-kodning**][x12encode] | [![API-ikon][xmlvalidateicon]<br/>**XML<br/>-verifiering**][xmlvalidatedoc] | [![API-ikon][liquidicon]<br/>**Transformera <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
@@ -189,6 +189,7 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Läs mer om EDIFACT-avkodning för Enterprise-integration"
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Läs mer om EDIFACT-kodning för Enterprise-integration"
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Kolla upp scheman, kartor, partner med mera i ditt integrationskonto"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Lär dig mer om JSON-transformationer med Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Anslut till Box. Överföra, hämta, ta bort, visa filer och mycket mer "
@@ -328,3 +329,4 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

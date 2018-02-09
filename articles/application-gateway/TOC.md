@@ -43,6 +43,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurera omdirigering
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurera extern omdirigering
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Azure CLI](tutorial-external-site-redirect-powershell.md)
 ## Konfigurera webbappar som medlemmar i serverdelspool
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurera hälsotillståndsavsökningar

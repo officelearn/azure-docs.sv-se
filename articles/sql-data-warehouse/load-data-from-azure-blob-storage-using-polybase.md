@@ -1,6 +1,6 @@
 ---
-title: Ladda Polybase data - Azure Storage Blob till Azure SQL Data Warehouse | Microsoft Docs
-description: "En självstudiekurs som använder Azure portal och SQL Server Management Studio för att läsa in New York tag taxi data från Azure blobblagring till Azure SQL Data Warehouse."
+title: "Självstudier: Läsa in data med PolyBase – Azure blobblagring till Azure SQL Data Warehouse | Microsoft Docs"
+description: "Självstudier som använder Azure-portalen och SQL Server Management Studio för att läsa in New York-taxidata från Azure blobblagring till Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: 
 author: ckarst
@@ -17,42 +17,42 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Använd PolyBase för att läsa data från Azure blobblagring till Azure SQL Data Warehouse
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Självstudier: Använda PolyBase för att läsa in data från Azure blobblagring till Azure SQL Data Warehouse
 
-PolyBase är standard inläsning av teknik för att hämta data till SQL Data Warehouse. I den här kursen använder du PolyBase för att läsa New York tag taxi data från Azure blobblagring till Azure SQL Data Warehouse. I självstudiekursen används den [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) till: 
+PolyBase är standardinläsningstekniken för att hämta data till SQL Data Warehouse. I de här självstudierna använder du PolyBase för att läsa New York-taxidata från Azure blobblagring till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) för att: 
 
 > [!div class="checklist"]
-> * Skapa ett data warehouse i Azure-portalen
-> * Konfigurera en brandväggsregel på servernivå i Azure-portalen
-> * Anslut till data warehouse med SSMS
-> * Skapa en användare som utsetts för inläsning av data
-> * Skapa externa tabeller för data i Azure blob storage
-> * Använd CTAS T-SQL-instruktion för att läsa in data till datalagret
-> * Visa förloppet för data som har hämtats
-> * Skapa statistik på nyinlästa data
+> * Skapa ett informationslager på Azure-portalen
+> * Skapa en brandväggsregel på servernivå på Azure-portalen
+> * Ansluta till informationslagret med SSMS
+> * Skapa en användare som utsetts för att läsa in data
+> * Skapa externa tabeller för data i Azure blobblagring
+> * Använda CTAS T-SQL-instruktionen för att läsa in data till informationslagret
+> * Visa dataförloppet vid hämtning
+> * Skapa statistik på nyligen inlästa data
 
-Om du inte har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du börjar den här självstudiekursen, hämta och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL data warehouse
+## <a name="create-a-blank-sql-data-warehouse"></a>Skapa ett tomt SQL-informationslager
 
 Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](performance-tiers.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
-Följ dessa steg om du vill skapa en tom SQL data warehouse. 
+Följ de här stegen om du vill skapa ett tomt SQL-informationslager. 
 
 1. Klicka på knappen **Ny** längst upp till vänster i Azure Portal.
 
@@ -67,7 +67,7 @@ Följ dessa steg om du vill skapa en tom SQL data warehouse.
    | **Databasnamn** | mySampleDataWarehouse | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). | 
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Välj källa** | Tom databas | Anger om du vill skapa en tom databas. Observera att ett informationslager är en typ av databas.|
+   | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. Observera att ett informationslager är en typ av databas.|
 
     ![skapa ett informationslager](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -84,14 +84,14 @@ Följ dessa steg om du vill skapa en tom SQL data warehouse.
 
 5. Klicka på **Välj**.
 
-6. Klicka på **prestandanivån** att ange om datalagret har optimerats för elasticitet eller beräkning och antalet data warehouse enheter. 
+6. Klicka på **Prestandanivå** för att ange om informationslagret har optimerats för elasticitet eller beräkning och antalet informationslagerenheter. 
 
-7. Den här självstudiekursen, Välj den **optimerade för elasticitet** tjänstnivån. Skjutreglaget är som standard är inställt på **DW400**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. För de här självstudierna ska du välja prestandanivån **Optimerad för elasticitet**. Skjutreglaget är som standard är inställt på **DW400**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klicka på **Använd**.
-9. I SQL Data Warehouse-sidan väljer du en **sorteringen** för tom databas. Använd standardvärdet för den här kursen. Mer information om sorteringar finns [sorteringar](/sql/t-sql/statements/collations.md)
+9. På sidan för SQL-informationslager väljer du en **Sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations.md).
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
 
@@ -111,11 +111,11 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 
 1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver-20171113.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
-2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Klicka på servernamnet för att öppna serverinställningarna för.
+2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Klicka sedan på servernamnet för att öppna serverinställningarna.
 
     ![hitta servernamn](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Klicka på servernamnet för att öppna serverinställningarna för.
+3. Klicka på servernamnet för att öppna serverinställningarna.
 
     ![serverinställningar](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
@@ -136,7 +136,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
-Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Senare används det fullständigt kvalificerade namnet när du ansluter till servern.
+Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
@@ -155,7 +155,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver 20171113.database.windows.net**. |
+    | servernamn | Fullständigt kvalificerat servernamn | Namnet bör se ut ungefär så här: **mynewserver-20171113.database.windows.net**. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
@@ -164,23 +164,23 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
-5. Expandera **Databaser** i Object Explorer. Expandera **systemdatabaser** och **master** att visa objekt i master-databasen.  Expandera **mySampleDatabase** visa objekten i den nya databasen.
+5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **mySampleDatabase** så visas objekten i den nya databasen.
 
     ![databasobjekt](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Administratörskonto server är avsedd att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Data läses in är minne. [Minne maxkapacitet](performance-tiers.md#memory-maximums) definieras enligt [prestandanivån](performance-tiers.md), och [resursklassen](resource-classes-for-workload-management.md). 
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. [Minnesmaxkapacitet](performance-tiers.md#memory-maximums) definieras enligt [prestandanivå](performance-tiers.md) och [resursklass](resource-classes-for-workload-management.md). 
 
-Det är bäst att skapa en inloggning och användaren som är dedikerad för inläsning av data. Lägg till användaren läser in en [resursklassen](resource-classes-for-workload-management.md) som gör att en lämplig maximala minnesallokering.
+Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
-Eftersom du är ansluten som serveradministratören, kan du skapa inloggningar och användare. Följ dessa steg för att skapa en inloggning och användaren som kallas **LoaderRC20**. Tilldela användare till den **staticrc20** resursklassen. 
+Eftersom du för närvarande är ansluten som serveradministratör kan du skapa inloggningar och användare. Följ dessa steg för att skapa en inloggning och användare som kallas för **LoaderRC20**. Tilldela användaren resursklassen **staticrc20**. 
 
-1.  Högerklicka i SSMS, **master** att visa en nedrullningsbar meny, och välj **ny fråga**. Ett nytt frågefönster öppnas.
+1.  I SSMS högerklickar du på **Huvuddatabas** för att visa en nedrullningsbar meny och väljer **Ny fråga**. Ett nytt frågefönster öppnas.
 
-    ![Ny fråga i master](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
+    ![Ny fråga i huvuddatabas](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
-2. Ange dessa T-SQL-kommandon för att skapa en inloggning och som heter LoaderRC20, ersätter du ditt eget lösenord för a123STRONGpassword! i frågefönstret. 
+2. I frågefönstret anger du dessa T-SQL-kommandon för att skapa en inloggning och en användare som kallas för LoaderRC20 och ersätter 123STRONGpassword! med ditt eget lösenord. 
 
     ```sql
     CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
@@ -189,11 +189,11 @@ Eftersom du är ansluten som serveradministratören, kan du skapa inloggningar o
 
 3. Klicka på **Kör**.
 
-4. Högerklicka på **mySampleDataWarehouse**, och välj **ny fråga**. En ny fråga öppnas.  
+4. Högerklicka på **mySampleDataWarehouse** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
-    ![Ny fråga på exempel datalagret](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
+    ![Ny fråga på exempelinformationslagret](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. Ange följande T-SQL-kommandon för att skapa en databasanvändare som heter LoaderRC20 för LoaderRC20 inloggningen. Den andra raden ger den nya användaren behörighet på nytt datalager.  Dessa behörigheter liknar gör användaren ägare till databasen. Den tredje raden lägger till den nya användaren som en medlem i staticrc20 [resursklassen](resource-classes-for-workload-management.md).
+5. Ange följande T-SQL-kommandon för att skapa en databasanvändare som kallas för LoaderRC20 till inloggningen LoaderRC20. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den nya användaren som medlem i [resursklassen](resource-classes-for-workload-management.md) staticrc20.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -203,41 +203,41 @@ Eftersom du är ansluten som serveradministratören, kan du skapa inloggningar o
 
 6. Klicka på **Kör**.
 
-## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som läser in användare
+## <a name="connect-to-the-server-as-the-loading-user"></a>Ansluta till servern som inläsningsanvändare
 
-Första steget mot att data läses in är att logga in som LoaderRC20.  
+Första steget mot att läsa in data är att logga in som LoaderRC20.  
 
-1. I Object Explorer, klickar du på den **Anslut** nedrullningsbara menyn, Välj **databasmotorn**. Den **Anslut till Server** dialogrutan visas.
+1. I Object Explorer klickar du på den nedrullningsbara menyn **Anslut** och väljer **Databasmotor**. Dialogrutan **Anslut till server** visas.
 
     ![Ansluta med ny inloggning](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Ange det fullständigt kvalificerade servernamnet och ange **LoaderRC20** som inloggningen.  Ange lösenordet för LoaderRC20.
+2. Ange det fullständigt kvalificerade servernamnet och ange **LoaderRC20** som inloggning.  Ange lösenordet för LoaderRC20.
 
 3. Klicka på **Anslut**.
 
-4. När anslutningen är klar, visas två anslutningar i Object Explorer. En anslutning som ServerAdmin och en anslutning som MedRCLogin.
+4. När anslutningen är klar visas två serveranslutningar i Object Explorer. En anslutning som Serveradmin och en anslutning som MedRCLogin.
 
-    ![Anslutningen är klar](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
+    ![Anslutningen lyckades](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Skapa externa tabeller för exempeldata
 
-Du är redo att börja läsa in data i ditt nya data warehouse. Den här kursen visar hur du använder [Polybase](/sql/relational-databases/polybase/polybase-guide.md) att läsa in New York City taxi cab data från en Azure storage blob. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
+Du är redo att börja läsa in data till ditt nya informationslager. De här självstudierna visar hur du använder [Polybase](/sql/relational-databases/polybase/polybase-guide.md) för att läsa in New York-taxidata från en Azure lagringsblobb. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
 
-Kör följande SQL anger skript du information om data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i data och tabelldefinitionen för data. 
+Kör följande SQL-skript och ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. 
 
-1. I det föregående avsnittet inloggad du på ditt data warehouse som LoaderRC20. Högerklicka på anslutningen LoaderRC20 i SSMS, och välj **ny fråga**.  Ett nytt frågefönster visas. 
+1. I det föregående avsnittet loggade du in på ditt informationslager som LoaderRC20. Högerklicka på anslutningen LoaderRC20 i SSMS, och välj **Ny fråga**.  Ett nytt frågefönster visas. 
 
-    ![Nya inläsning frågefönstret](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
+    ![Nytt fönster för inläsning av fråga](media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
-2. Jämför din frågefönstret till föregående bild.  Kontrollera din nytt frågefönster körs som LoaderRC20 och utför frågor på MySampleDataWarehouse databasen. Använd den här frågefönstret för att utföra alla steg som lästes in.
+2. Jämför ditt frågefönster med föregående bild.  Kontrollera att ditt nya frågefönster körs som LoaderRC20 och kör frågor på MySampleDataWarehouse-databasen. Använd det här frågefönstret för att utföra alla inläsningssteg.
 
-3. Skapa en huvudnyckel för databasen MySampleDataWarehouse. Du behöver bara skapa en huvudnyckel en gång per databas. 
+3. Skapa en huvudnyckel för MySampleDataWarehouse-databasen. Du behöver bara skapa en huvudnyckel en gång per databas. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. Kör följande [Skapa extern DATAKÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql.md) instruktionen för att definiera platsen för Azure-blobben. Det här är platsen för externa taxi cab-data.  Markera de kommandon som du vill köra och klicka på om du vill köra ett kommando som du har bifogats till frågefönstret **kör**.
+4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) för att definiera platsen för Azure-blobben. Det är här som dina externa taxi-data finns.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Kör följande SQL anger skript du information om data du vill läsa in. Informa
     );
     ```
 
-5. Kör följande [skapa externt FILFORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL-instruktionen för att ange formatering egenskaper och alternativ för filen externa data. Den här instruktionen anger externa data lagras som text och avgränsas med pipe ('| ') tecken. Den externa filen komprimeras med Gzip. 
+5. Kör T-SQL-instruktionen [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) för att ange formateringsegenskaper och alternativ för filen med externa data. Den här instruktionen anger externa data och lagras som text, där värdena avgränsas med pipe-tecknet (”|”). Den externa filen komprimeras med Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,13 +273,13 @@ Kör följande SQL anger skript du information om data du vill läsa in. Informa
     );
     ```
 
-6.  Kör följande [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) instruktionen för att skapa ett schema för din externa filformat. Schemat innehåller ett sätt att ordna externa tabeller som du ska skapa.
+6.  Kör instruktionen [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) för att skapa ett schema för ditt externa filformat. Schemat innehåller ett sätt att ordna de externa tabeller som du ska skapa.
 
     ```sql
     CREATE SCHEMA ext;
     ```
 
-7. Skapa de externa tabellerna. Tabellen lagras definitionerna i SQL Data Warehouse, men tabellerna referera till data som lagras i Azure blob storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob vi definierade tidigare i vår externa datakälla.
+7. Skapa de externa tabellerna. Tabelldefinitionerna lagras i SQL Data Warehouse, men tabellerna refererar till data som lagras i Azure blobblagring. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob vi definierade tidigare i vår externa datakälla.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -444,21 +444,21 @@ Kör följande SQL anger skript du information om data du vill läsa in. Informa
     ;
     ```
 
-8. Expandera mySampleDataWarehouse om du vill se en lista över externa tabeller som du just har skapat i Object Explorer.
+8. I Object Explorer ska du expandera mySampleDataWarehouse om du vill se en lista över externa tabeller som du just har skapat.
 
     ![Visa externa tabeller](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
 
-## <a name="load-the-data-into-your-data-warehouse"></a>Läs in data till datalagret
+## <a name="load-the-data-into-your-data-warehouse"></a>Läsa in data till informationslagret
 
-Det här avsnittet använder externa tabeller som du precis har definierats för att läsa in exempeldata från Azure Storage Blob till SQL Data Warehouse.  
+Det här avsnittet använder de externa tabeller som du precis har definierat för att läsa in exempeldata från Azure Storage Blob till SQL Data Warehouse.  
 
 > [!NOTE]
-> Den här kursen läser in data direkt i den slutliga tabellen. I en produktionsmiljö kan använder du vanligtvis CREATE TABLE AS SELECT att läsa in i en mellanlagringstabellen. Du kan utföra alla nödvändiga omformningar när data är i mellanlagringstabellen. Du kan använda Infoga om du vill lägga till data i mellanlagringstabellen till en produktionsmiljö tabell... SELECT-instruktion. Mer information finns i [infogar data i en tabell för produktion](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Skriptet använder den [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL-instruktion för att läsa in data från Azure Storage Blob till nya tabeller i datalagret. CTAS skapar en ny tabell baserat på resultatet av en select-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När select-instruktionen väljer från en extern tabell, importerar SQL Data Warehouse data i en relationsdatabas tabell i datalagret. 
+Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell importerar SQL Data Warehouse data till en relationsdatabastabell i informationslagret. 
 
-1. Kör följande skript för att läsa in data till nya tabeller i datalagret.
+1. Kör följande skript för att läsa in data till nya tabeller i informationslagret.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -563,15 +563,15 @@ Skriptet använder den [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/crea
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Få se informationen snyggt läses in i ditt data warehouse.
+4. Se hur dina data läses in i ditt informationslager.
 
-    ![Visa tabellerna](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
+    ![Visa inlästa tabeller](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="create-statistics-on-newly-loaded-data"></a>Skapa statistik på nyinlästa data
+## <a name="create-statistics-on-newly-loaded-data"></a>Skapa statistik på nyligen inlästa data
 
 SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att få en hög frågeprestanda är det därför viktigt att skapa statistik för varje kolumn av varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 
-Köra dessa kommandon för att skapa statistik på kolumner som sannolikt kommer att användas i kopplingar.
+Kör dessa kommandon för att skapa statistik på kolumner som sannolikt kommer att användas i kopplingar.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -580,40 +580,40 @@ Köra dessa kommandon för att skapa statistik på kolumner som sannolikt kommer
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Att debiteras du för beräkningsresurser och data som du har lästs in i ditt data warehouse. Dessa faktureras separat. 
+Du debiteras för beräkningsresurser och data som du har läst in i ditt informationslager. Dessa faktureras separat. 
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning kommer du bara att kostnad för lagring av data och du kan återuppta beräkningen när du är redo att arbeta med data.
+- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen kommer du bara att debiteras för datalagringen och du kan återuppta beräkningen när du är redo att arbeta med dina data.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret. 
 
 Följ dessa steg för att rensa resurser enligt dina önskemål.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), klicka på ditt informationslager.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på ditt informationslager.
 
     ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När datalagret har pausats, visas en **starta** knappen.  Klicka på **Starta** om du vill återuppta beräkningarna.
+2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas knappen **Starta**.  Klicka på **Starta** om du vill återuppta beräkningarna.
 
-3. Ta bort datalagret så att du inte kommer att debiteras för beräkning och lagring genom att klicka på **ta bort**.
+3. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-4. Om du vill ta bort den SQL-server som du har skapat klickar du på **mynewserver 20171113.database.windows.net** i föregående bild och sedan på **Ta bort**.  Var försiktig med detta som tar bort servern tas bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-server som du har skapat klickar du på **mynewserver 20171113.database.windows.net** i föregående bild och sedan på **Ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg 
-I kursen får du har lärt dig hur du skapar ett data warehouse och skapa en användare för att läsa in data. Du har skapat externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och sedan används PolyBase CREATE TABLE AS SELECT-instruktion för att läsa in data till datalagret. 
+I de här självstudierna lärde du dig att skapa ett informationslager och skapa en användare för att läsa in data. Du skapade externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och använde sedan PolyBase-instruktionen CREATE TABLE AS SELECT för att läsa in data till informationslagret. 
 
 Du gjorde detta:
 > [!div class="checklist"]
-> * Skapa ett data warehouse i Azure-portalen
-> * Konfigurera en brandväggsregel på servernivå i Azure-portalen
-> * Ansluten till data warehouse med SSMS
-> * Skapa en användare som utsetts för inläsning av data
-> * Skapa externa tabeller för data i Azure Storage Blob
-> * Används CTAS T-SQL-instruktion för att läsa in data till datalagret
-> * Visa förloppet för data som har hämtats
-> * Skapade statistik på nyinlästa data
+> * Skapade ett informationslager på Azure-portalen
+> * Skapade en brandväggsregel på servernivå på Azure-portalen
+> * Anslöt till informationslagret med SSMS
+> * Skapade en användare för inläsning av data
+> * Skapade externa tabeller för data i Azure Storage Blob
+> * Använde CTAS T-SQL-instruktionen för att läsa in data till informationslagret
+> * Visade förloppet för data under inläsning
+> * Skapade statistik på nyligen inlästa data
 
-Gå till översikt över migrering att lära dig hur du migrerar en befintlig databas till SQL Data Warehouse.
+Gå till migreringsöversikten för att lära dig att migrera en befintlig databas till SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Lär dig hur du migrerar en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Lär dig att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

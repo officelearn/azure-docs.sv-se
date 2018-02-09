@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Event Hubs?](event-hubs-what-is-event-hubs.md)
 ## [Event Hubs-funktioner](event-hubs-features.md)
 ## [Vanliga frågor och svar](event-hubs-faq.md)
@@ -7,12 +8,10 @@
 ## [Skapa en Event Hub](event-hubs-create.md)
 ## Skicka händelser
 ### [.NET-standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Ta emot händelser
 ### [.NET-standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Samla in händelser
@@ -30,6 +29,8 @@
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
 ### [Skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md)
 ## Utveckla
+### [Skicka händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Ta emot händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Tillgängliga API:er](event-hubs-api-overview.md)
 #### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

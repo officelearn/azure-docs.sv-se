@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1418914b2886ce3f896e62b5b4a3da573655e274
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 804294e91375e0fb5b11190ae969710bbd4c15b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Skapa en .NET Core- och SQL Database-webbapp i Azure App Service i Linux
+
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
+>
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en .NET Core-webbapp och ansluter den till SQL Database. När du är färdig har du en .NET Core MVC-app som körs i App Service i Linux.
 
@@ -37,14 +41,14 @@ Du lär dig att:
 > * strömma diagnostikloggar från Azure
 > * hantera appen i Azure-portalen.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-local-net-core-app"></a>Skapa en lokal .NET Core-app
 
@@ -93,7 +97,7 @@ För SQL Database används [Azure SQL Database](/azure/sql-database/) i den här
 
 ### <a name="create-a-sql-database-logical-server"></a>Skapa en logisk SQL Database-server
 
-Skapa en logisk SQL Database-server i Cloud Shell med kommandot [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
+Skapa en logisk SQL Database-server i Cloud Shell med kommandot [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
 Ersätt platshållaren *\<server_name>* med ett unikt namn för SQL Database. Det här namnet används som en del av SQL Database-slutpunkten `<server_name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt. Dessutom måste du ersätta *\<db_username>* och *\<db_password>* med ett giltigt användarnamn och lösenord. 
 
@@ -124,7 +128,7 @@ När den logiska SQL Database-servern har skapats visar Azure CLI information so
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [Azure SQL Database-brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md) med kommandot [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
+Skapa en [brandväggsregel på servernivå för Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) via kommandot[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Skapa en databas
 
-Skapa en databas med en [S0-prestandanivå](../../sql-database/sql-database-service-tiers.md) på servern med kommandot [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Skapa en databas med en [S0-prestandanivå](../../sql-database/sql-database-service-tiers.md) på servern med kommandot [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +170,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Ange anslutningssträngar för din Azure-app genom att använda kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
+Ange anslutningssträngar för din Azure-app genom att använda kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

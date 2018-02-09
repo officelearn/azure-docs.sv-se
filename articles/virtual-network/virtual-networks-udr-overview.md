@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -38,9 +38,9 @@ Varje väg innehåller ett adressprefix och en nästa hopp-typ. När trafik läm
 |-------|---------                                               |---------      |
 |Standard|Unikt för det virtuella nätverket                           |Virtuellt nätverk|
 |Standard|0.0.0.0/0                                               |Internet       |
-|Standard|10.0.0.0/8                                              |Ingen           |
+|Standard|10.0.0.0/8                                              |Inget           |
 |Standard|172.16.0.0/12                                           |Ingen           |
-|Standard|192.168.0.0/16                                          |Ingen           |
+|Standard|192.168.0.0/16                                          |Inget           |
 |Standard|100.64.0.0/10                                           |Ingen           |
 
 Nästa hopptyper som anges i föregående tabell representerar hur Azure dirigerar trafik till det angivna adressprefixet. Här följer förklaringar för nästa hopptyper:
@@ -61,7 +61,7 @@ Azure lägger till ytterligare systemstandardvägar för olika Azure-funktioner,
 
 |Källa                 |Adressprefix                       |Nexthop-typ|Undernät för virtuellt nätverk som vägen har lagts till i|
 |-----                  |----                                   |---------                    |--------|
-|Standard                |Unikt för det virtuella nätverket, till exempel 10.1.0.0/16|VNet-peering                 |Alla|
+|Standard                |Unikt för det virtuella nätverket, till exempel 10.1.0.0/16|VNET-peering                 |Alla|
 |Virtuell nätverksgateway|Prefix annonseras lokalt via BGP eller konfigureras i den lokala nätverksgatewayen     |Virtuell nätverksgateway      |Alla|
 |Standard                |Flera                               |VirtualNetworkServiceEndpoint|Endast undernätet en tjänstslutpunkt har aktiverats för.|
 
@@ -111,7 +111,7 @@ Namnet som visas och refereras för nästa hopptyper är olika för Azure-portal
 |Internet                        |Internet                                        |Internet (inte tillgängligt i CLI 1.0 i asm-läge)|
 |Virtuell installation               |VirtualAppliance                                |VirtualAppliance|
 |Ingen                            |Ingen                                            |Null (inte tillgängligt i CLI 1.0 i asm-läge)|
-|Virtuell nätverkspeering         |VNet-peering                                    |Inte tillämpligt|
+|Virtuell nätverkspeering         |VNET-peering                                    |Inte tillämpligt|
 |Slutpunkt för virtuellt nätverk|VirtualNetworkServiceEndpoint                   |Inte tillämpligt|
 
 ### <a name="border-gateway-protocol"></a>Border gateway protocol
@@ -151,7 +151,7 @@ En väg med adressprefixet 0.0.0.0/0 instruerar Azure hur trafik ska dirigeras s
 
 När du åsidosätter adressprefixet 0.0.0.0/0 sker följande ändringar med Azures standardroutning (utöver utgående trafik från undernätet som flödar genom den virtuella nätverksgatewayen eller den virtuella installationen): 
 
-- Azure skickar all trafik till nästa hopptyp som anges i vägen för att inkludera trafik till offentliga IP-adresser för Azure-tjänster. När nästa hopptyp för vägen med adressprefixet 0.0.0.0/0 är **Internet** lämnar aldrig trafik som är avsedd för Azure-tjänsternas offentliga IP-adresser Azures stamnätverk, oavsett vilken Azure-region det virtuella nätverket eller Azure-tjänsten finns i. Men när du skapar en användardefinierad väg eller BGP-väg med en **virtuell nätverksgateway** eller **virtuell installation** som nästa hopptyp skickas all trafik, inklusive trafik som skickats till offentliga IP-adresser till Azure-tjänster du inte har aktiverat [tjänstslutpunkter](virtual-network-service-endpoints-overview.md) för, till nästa hopptyp som är angiven i vägen. Om du har aktiverat en tjänstslutpunkt för en tjänst kan inte trafik till den tjänsten dirigeras till nästa hopptyp i en väg med adressprefixet 0.0.0.0/0. Det beror på att tjänstens adressprefix anges i vägen som skapas av Azure när du aktiverar tjänstslutpunkten, och adressprefixen för tjänsten är längre än 0.0.0.0/0.
+- Azure skickar all trafik till nästa hopptyp som anges i vägen, inklusive trafik till offentliga IP-adresser för Azure-tjänster. När nästa hopptyp för vägen med adressprefixet 0.0.0.0/0 är **Internet** lämnar aldrig trafik som är avsedd för Azure-tjänsternas offentliga IP-adresser Azures stamnätverk, oavsett vilken Azure-region det virtuella nätverket eller Azure-tjänsten finns i. När du skapar en användardefinierad väg eller BGP-väg med en **virtuell nätverksgateway** eller en **virtuell installation** som nästa hopptyp skickas dock all trafik, inklusive trafik som skickats till offentliga IP-adresser till Azure-tjänster du inte har aktiverat [tjänstslutpunkter](virtual-network-service-endpoints-overview.md) för, till nästa hopptyp som är angiven i vägen. Om du har aktiverat en tjänstslutpunkt för en tjänst kan inte trafik till den tjänsten dirigeras till nästa hopptyp i en väg med adressprefixet 0.0.0.0/0. Det beror på att tjänstens adressprefix anges i vägen som skapas av Azure när du aktiverar tjänstslutpunkten, och adressprefixen för tjänsten är längre än 0.0.0.0/0.
 - Du inte längre komma åt resurser på undernätet direkt från Internet. Du kan indirekt få tillgång till resurser i undernätet från Internet, om inkommande trafik passerar genom enheten som anges av nästa hopptyp för en väg med adressprefixet 0.0.0.0/0 innan trafiken når resursen i det virtuella nätverket. Om vägen innehåller följande värden för nästa hopptyp:
     - **Virtuell installation**: Enheten måste:
         - Vara tillgänglig från Internet
@@ -161,7 +161,7 @@ När du åsidosätter adressprefixet 0.0.0.0/0 sker följande ändringar med Azu
         - Kunna nätadressöversätta och vidarebefordra eller skicka trafik via proxy till målresursen i undernätet och leda trafiken tillbaka till Internet. 
     - **Virtuell nätverksgateway**: Om gatewayen är en virtuell ExpressRoute-nätverksgateway kan en Internet-ansluten enhet lokalt nätadressöversätta och vidarebefordra eller skicka trafik via proxy till målresursen i undernätet via ExpressRoutes [privata peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering). 
 
-  Läs [DMZ between Azure and your on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMS mellan Azure och ditt lokala datacenter) och [DMZ mellan Azure och Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) om implementeringsdetaljer när du använder virtuella nätverksgatewayer och virtuella installationer mellan Internet och Azure.
+  Läs [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMS mellan Azure och ditt lokala datacenter) och [DMZ mellan Azure och Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) om implementeringsdetaljer när du använder virtuella nätverksgatewayer och virtuella installationer mellan Internet och Azure.
 
 ## <a name="routing-example"></a>Exempel på dirigering
 
@@ -205,9 +205,9 @@ Routningstabellen för *Subnet1* på bilden innehåller följande vägar:
 |1   |Standard|Ogiltig|10.0.0.0/16         |Virtuellt nätverk        |                   |              |
 |2   |Användare   |Active |10.0.0.0/16         |Virtuell installation      |10.0.100.4         |Inom-VNet1  |
 |3   |Användare   |Active |10.0.0.0/24         |Virtuellt nätverk        |                   |Inom-Subnet1|
-|4   |Standard|Ogiltig|10.1.0.0/16         |VNet-peering           |                   |              |
-|5   |Standard|Ogiltig|10.2.0.0/16         |VNet-peering           |                   |              |
-|6   |Användare   |Active |10.1.0.0/16         |Ingen                   |                   |ToVNet2-1-Drop|
+|4   |Standard|Ogiltig|10.1.0.0/16         |VNET-peering           |                   |              |
+|5   |Standard|Ogiltig|10.2.0.0/16         |VNET-peering           |                   |              |
+|6   |Användare   |Active |10.1.0.0/16         |Inget                   |                   |ToVNet2-1-Drop|
 |7   |Användare   |Active |10.2.0.0/16         |Ingen                   |                   |ToVNet2-2-Drop|
 |8   |Standard|Ogiltig|10.10.0.0/16        |Virtuell nätverksgateway|[X.X.X.X]          |              |
 |9   |Användare   |Active |10.10.0.0/16        |Virtuell installation      |10.0.100.4         |Till lokalt    |
@@ -237,11 +237,11 @@ Routningstabellen för *Subnet2* på bilden innehåller följande vägar:
 |Källa  |Status  |Adressprefix    |Nexthop-typ             |Nästa hopp-IP-adress|
 |------- |-------|------              |-------                   |--------           
 |Standard |Active |10.0.0.0/16         |Virtuellt nätverk           |                   |
-|Standard |Active |10.1.0.0/16         |VNet-peering              |                   |
-|Standard |Active |10.2.0.0/16         |VNet-peering              |                   |
+|Standard |Active |10.1.0.0/16         |VNET-peering              |                   |
+|Standard |Active |10.2.0.0/16         |VNET-peering              |                   |
 |Standard |Active |10.10.0.0/16        |Virtuell nätverksgateway   |[X.X.X.X]          |
 |Standard |Active |0.0.0.0/0           |Internet                  |                   |
-|Standard |Active |10.0.0.0/8          |Ingen                      |                   |
+|Standard |Active |10.0.0.0/8          |Inget                      |                   |
 |Standard |Active |100.64.0.0/10       |Ingen                      |                   |
 |Standard |Active |172.16.0.0/12       |Ingen                      |                   |
 |Standard |Active |192.168.0.0/16      |Ingen                      |                   |

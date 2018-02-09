@@ -4,7 +4,7 @@
 ## [Snabbstart för Bash](quickstart.md)
 ## [Snabbstart för PowerShell](quickstart-powershell.md)
 
-# Koncept
+# Begrepp
 ## [Funktioner och verktyg i Bash](features.md)
 ## [Funktioner och verktyg i PowerShell](features-powershell.md)
 ## [Begränsningar](limitations.md)
@@ -16,6 +16,8 @@
 
 # Exempel
 ## [Distribuera Azure-resurser med Terraform i Bash](example-terraform-bash.md)
+
+## [Köra Ansible i Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Bädda in Cloud Shell](embed-cloud-shell.md)
 

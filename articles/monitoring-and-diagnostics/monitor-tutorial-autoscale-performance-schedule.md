@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -26,7 +26,7 @@ I den här självstudien kommer du att:
 > * konfigurera autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * utlösa en utskalningsåtgärd och se antalet förekomster öka
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska
-> * rensa dina resurser.
+> * Rensa dina resurser
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -35,11 +35,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Skapa en webbapp i och en App Service-plan
-Klicka på alternativet **Nytt** i det vänstra navigeringsfönstret.
+1. Klicka på alternativet **Nytt** i det vänstra navigeringsfönstret.
 
-Sök efter och välj objektet *Webbapp* och klicka på **Skapa**.
+2. Sök efter och välj objektet *Webbapp* och klicka på **Skapa**.
 
-Välj ett appnamn, som *MyTestScaleWebApp*. Skapa en ny resursgrupp, *myResourceGroup' och placera den i valfri resursgrupp.
+3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa den nya resursgruppen *myResourceGroup* och placera den i valfri resursgrupp.
 
 Dina resurser bör etableras på några minuter. Använd webbappen och motsvarande App Service-plan i resten av den här självstudien.
 

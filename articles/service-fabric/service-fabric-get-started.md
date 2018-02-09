@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -63,11 +63,10 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK 2.8.232
-* Service Fabric runtime 6.0.232
-* Service Fabric-verktyg för Visual Studio 2015 1.8.51024.1
-* Visual Studio 2017 Update 3 innehåller Service Fabric-verktyg för Visual Studio 1.7.20170817
-* Visual Studio 2017 Update 4 förhandsversion 1 (15.4.0 förhandsversion 1.0) innehåller Service Fabric-verktyg för Visual Studio 1.7.20170721
+* Service Fabric SDK and Tools 3.0.456
+* Service Fabric runtime 6.1.456
+* Service Fabric Tools för Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6 innehåller Service Fabric-verktyg för Visual Studio 2.0.20180124.2 
 
 En lista över versioner som stöds finns i [Service Fabric-stöd](service-fabric-support.md)
 

@@ -244,6 +244,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Vägledning för anslutningar
           href: sql-database-connectivity-issues.md
+        - name: Översikt över DNS-alias
+          href: dns-alias-overview.md
+        - name: DNS-alias – PowerShell
+          href: dns-alias-powershell.md
         - name: Portar – ADO.NET
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Instruktionsguider

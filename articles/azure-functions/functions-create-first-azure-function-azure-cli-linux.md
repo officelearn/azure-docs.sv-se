@@ -11,21 +11,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Skapa din första funktion som körs på Linux med hjälp av Azure CLI (förhandsversion)
 
-Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardbehållare. Den här funktionen finns för närvarande i en förhandsversion. Du kan även [använda en egen anpassad behållare](functions-create-function-linux-custom-image.md). 
+Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardbehållare. Du kan även [använda en egen anpassad behållare](functions-create-function-linux-custom-image.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
 
 Det här snabbstartsavsnittet visar dig hur du kan använda Azure Functions med Azure CLI för att skapa den första appen i Linux som ligger i App Service-standardbehållaren. Själva funktionskoden distribueras till avbildningen från en GitHub-exempellagringsplats.    
 
 Följande steg kan användas på en Mac-, Windows- eller Linux-dator. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Nödvändiga komponenter 
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -49,9 +49,9 @@ Linux-värd för funktioner stöds för närvarande endast i en App Service-plan
 
 ## <a name="create-a-function-app-on-linux"></a>Skapa en funktionsapp i Linux
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#create) med en Linux App Service-plan. 
+Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create) med en Linux App Service-plan. 
 
-I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Parametern _deployment-source-url_ är en exempellagringsplats i GitHub som innehåller en HTTP-utlöst "Hello World"-funktion.
+I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Parametern _deployment-source-url_ är en exempellagringsplats i GitHub som innehåller en HTTP-utlöst ”Hello World”-funktion.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \

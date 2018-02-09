@@ -2,7 +2,8 @@
   href: /azure/hdinsight
 - name: Hadoop på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: |
+        Översikt
       href: apache-hadoop-introduction.md
     - name: Hadoop-arkitektur i HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -286,6 +287,9 @@
             - name: Använda Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Skala ett HDInsight-kluster
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
         - name: Hantera loggar för ett HDInsight-kluster
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -379,7 +383,8 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: "Översikt\r\n"
+        - name: |
+            Översikt
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

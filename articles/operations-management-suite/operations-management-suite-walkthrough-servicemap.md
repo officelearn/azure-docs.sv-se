@@ -1,6 +1,6 @@
 ---
 title: "Tjänstkarta – en demo du går igenom i egen takt | Microsoft Docs"
-description: "Tjänstkarta är en lösning i Operations Management Suite (OMS) och som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster.  Det här är en demo du går igenom i egen takt där Tjänstkarta används till att identifiera och diagnostisera ett simulerat problem i en webbapp."
+description: "Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster.  Det här är en demo du går igenom i egen takt där Tjänstkarta används till att identifiera och diagnostisera ett simulerat problem i en webbapp."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>En demo för Operations Management Suite (OMS) – Tjänstkarta
-Det här är en demo du går igenom i egen takt där [lösningen Tjänstkarta](operations-management-suite-service-map.md) i Operations Management Suite (OMS) används till att identifiera och diagnostisera ett simulerat problem i en webbapp.  Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster.  Dessutom sammanställs data som samlas in från andra OMS-tjänster som beslutsstöd när du ska analysera prestanda och identifiera problem.  Du använder också [loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) till att öka detaljnivån på insamlade data så att du kan identifiera rotorsaken till problemet.
+# <a name="self-paced-demo---service-map"></a>Demo i egen takt – Tjänstkarta
+Det här är en demo du går igenom i egen takt där [lösningen Tjänstkarta](operations-management-suite-service-map.md) i Azure används till att identifiera och diagnostisera ett simulerat problem i en webbapp.  Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster.  Dessutom sammanställs data som samlas in från andra tjänster och lösningar som beslutsstöd när du ska analysera prestanda och identifiera problem.  Du använder också [loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) till att öka detaljnivån på insamlade data så att du kan identifiera rotorsaken till problemet.
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -35,7 +35,7 @@ Du har precis fått ett meddelande om att programmet ACME Customer Portal har pr
 ## <a name="walk-through"></a>Genomgång
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Anslut till OMS Experience Center
-I den här genomgången används [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/) som innehåller en fullständig OMS-miljö med exempeldata. Börja med att följa länken, ange din information och välj sedan scenariot **Insikter och analys**.
+I den här genomgången används [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/) som innehåller en fullständig Log Analytics-miljö med exempeldata. Börja med att följa länken, ange din information och välj sedan scenariot **Insikter och analys**.
 
 
 ### <a name="2-start-service-map"></a>2. Starta Tjänstkarta
@@ -80,7 +80,7 @@ Låt oss titta närmare på **acmetomcat**.  Klicka uppe till höger i **acmetom
 
 
 ### <a name="7-view-change-tracking"></a>7. Visa spårning av ändringar
-Nu ska vi se om vi kan ta reda på vad som har orsakat den här höga användningsnivån.  Klicka på fliken **Sammanfattning**.  Här ser vi information som OMS har samlat in från datorn, som misslyckade anslutningar, kritiska aviseringar och ändringar i programvaran.  Du bör alltid expandera avsnitt med intressant och aktuell information, och du kan expandera andra avsnitt om du vill kontrollera informationen i dem.
+Nu ska vi se om vi kan ta reda på vad som har orsakat den här höga användningsnivån.  Klicka på fliken **Sammanfattning**.  Här ser vi information som Log Analytics har samlat in från datorn, som misslyckade anslutningar, kritiska aviseringar och ändringar i programvaran.  Du bör alltid expandera avsnitt med relevant och aktuell information, och du kan expandera andra avsnitt om du vill kontrollera informationen i dem.
 
 
 Om **Spårning av ändringar** inte redan är öppet expanderar du det här avsnittet.  Här visas information som samlats in av [lösningen Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md).  Det verkar som om att en ändring i programvaran har utförts under den här tidsperioden.  Visa mer information genom att klicka på **Programvara**.  En säkerhetskopiering lades till i datorn precis efter 04.00, så det här verkar vara orsaken till att så mycket resurser har används.
@@ -90,28 +90,28 @@ Om **Spårning av ändringar** inte redan är öppet expanderar du det här avsn
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Visa information i loggsökningar
-Vi kan kontrollera det här noggrannare genom att granska den detaljerade prestandainformationen i Log Analytics-databasen.  Klicka på fliken **Aviseringar** igen och klicka sedan på någon av aviseringarna om **hög CPU-användning**.  Klicka på **Visa i loggsökning**.  Då öppnas fönstret Loggsökning där du kan göra [loggsökningar](../log-analytics/log-analytics-log-searches.md) mot data som lagras i databasen.  Tjänstmappning har redan fyllt i en fråga så att vi kan hämta de aviseringar vi är intresserade av.  
+Vi kan kontrollera det här noggrannare genom att granska den detaljerade prestandainformationen på Log Analytics-arbetsytan.  Klicka på fliken **Aviseringar** igen och klicka sedan på någon av aviseringarna om **hög CPU-användning**.  Klicka på **Visa i loggsökning**.  Då öppnas fönstret Loggsökning där du kan göra [loggsökningar](../log-analytics/log-analytics-log-searches.md) mot data som lagras på arbetsytan.  Tjänstkarta har redan fyllt i en fråga så att vi kan hämta de aviseringar vi är intresserade av.  
 
 ![Loggsökning](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Öppna sparad sökning
-Låt oss se om vi kan hämta mer information om prestandasamlingen som genererade aviseringen och kontrollera vår misstanke om att problemen beror på säkerhetskopieringen.  Ändra tidsintervallet till **6 timmar**.  Klicka sedan på **Favoriter** och rulla ned till de sparade sökningarna för **Tjänstkarta**.  Det här är frågor som vi har skapat särskilt för den här analysen.  Klicka på **Top 5 Processes by CPU for acmetomcat** (De 5 processer som har högst processoranvändning för acmetomcat).
+Låt oss se om vi kan hämta mer information om prestandasamlingen som genererade aviseringen och kontrollera vår misstanke om att problemen beror på säkerhetskopieringen.  Ändra tidsintervallet till **6 timmar**.  Klicka sedan på **Favoriter** och rulla ned till de sparade sökningarna för **Tjänstkarta**.  Vi skapade de här frågorna särskilt för den här analysen.  Klicka på **Top 5 Processes by CPU for acmetomcat** (De 5 processer som har högst processoranvändning för acmetomcat).
 
 ![Sparad sökning](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 Den här frågan returnerar en lista med de 5 processer som förbrukar mest processorkraft på **acmetomcat**.  Du kan granska frågan om du vill se ett exempel på det frågespråk som används för loggsökningar.  Om du är intresserad av processerna på andra datorer kan du ändra frågan och hämta den informationen.
 
-I det här fallet kan vi se att säkerhetskopieringen konstant förbrukar ungefär 60 % av programserverns processorkraft.  Det är ganska uppenbart att den här nya processen orsakar våra prestandaproblem.  Lösningen är naturligtvis att flytta den här nya säkerhetskopieringen från programservern.  Vi kan faktiskt använda DSC (Desired State Configuration) som hanteras av Azure Automation till att definiera principer som ser till att den här processen aldrig körs på de här kritiska systemen.
+I det här fallet kan vi se att säkerhetskopieringen konstant förbrukar ungefär 60 % av programserverns processorkraft.  Det är uppenbart att den här nya processen orsakar våra prestandaproblem.  Lösningen är naturligtvis att flytta den här nya säkerhetskopieringen från programservern.  Vi kan faktiskt använda DSC (Desired State Configuration) som hanteras av Azure Automation till att definiera principer som ser till att den här processen aldrig körs på de här kritiska systemen.
 
 
 ## <a name="summary-points"></a>Sammanfattning
 - Med [Tjänstkarta](operations-management-suite-service-map.md) får du en överblick över hela programmet även om du inte känner till alla servrar och beroenden.
-- I Tjänstkarta ser du data som samlats in av andra OMS-lösningar så att du kan identifiera problem med program och den underliggande infrastrukturen.
-- Med [loggsökningar](../log-analytics/log-analytics-log-searches.md) kan du öka detaljnivån för specifika data som samlats in i Log Analytics-databasen.    
+- I Tjänstkarta ser du data som samlats in av andra hanteringslösningar så att du kan identifiera problem med program och den underliggande infrastrukturen.
+- Med [loggsökningar](../log-analytics/log-analytics-log-searches.md) kan du öka detaljnivån för specifika data som samlats in på Log Analytics-arbetsytan.    
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Tjänstkarta](operations-management-suite-service-map.md).
 - [Distribuera och konfigurera](operations-management-suite-service-map-configure.md) Tjänstkarta.
-- Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md) som krävs för Tjänstkarta och som lagrar driftdata från agenter.
+- Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md), som krävs för Tjänstkarta och som lagrar driftdata från agenter.

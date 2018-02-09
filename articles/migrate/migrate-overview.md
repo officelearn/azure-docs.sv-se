@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 393f2dfa29b930622a37b8ad90ee17b794c70aeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -42,7 +42,7 @@ Med Azure Migrate får du hjälp med att:
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
 
-Azure Migrate är tillgänglig utan extra kostnad. Under den allmänt tillgängliga förhandsversionen tillkommer avgifter för användning av funktioner för beroendevisualisering. För att stödja [beroendevisualisering](concepts-dependency-visualization.md) skapar Azure Migrate en Log Analytics-arbetsyta som standard. Om du använder beroendevisualisering, eller arbetsytan utanför Azure Migrate, debiteras du för användningen av arbetsytan. [Läs mer](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) om avgifterna. När tjänsten blir allmänt tillgänglig tillämpas inga avgifter för användning av beroendevisualisering.
+Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
 
 
 ## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?

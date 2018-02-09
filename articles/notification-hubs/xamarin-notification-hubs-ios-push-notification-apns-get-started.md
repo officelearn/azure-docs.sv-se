@@ -256,4 +256,4 @@ I det här enkla exemplet skickade du push-meddelanden till alla dina iOS-enhete
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

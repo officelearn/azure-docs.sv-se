@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -131,21 +131,21 @@ Med Blob Service kan du tillhandahålla offentlig åtkomst till en behållare oc
 
 ## <a name="encryption"></a>Kryptering
 
-Det finns några grundläggande typer av kryptering för Storage-tjänsterna.
+Det finns några grundläggande typer av kryptering för Storage-tjänsterna. Mer information om säkerhet och kryptering finns i [Säkerhetsguiden för Azure Storage](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
-Du kan aktivera SSE (Storage Service Encryption) för Files-tjänsten (förhandsversion) eller Blob Service för ett Azure-lagringskonto. Om det aktiveras krypteras alla data som skrivs till den specifika tjänsten innan de skrivs. När du läser dessa data dekrypteras de innan de returneras.
+Vilande Azure Storage Service-kryptering (SSE) stöder kryptering av vilande data och skyddar dina data så att din verksamhet uppfyller både interna och externa krav och åtaganden. Med den här funktionen krypterar Azure Storage automatiskt dina data för beständig lagring och dekrypterar dem före hämtning. Användarna har fullständig insyn i kryptering, dekryptering och nyckelhantering.
+
+Du kan aktivera Storage Service Encryption (SSE) för blobblagring eller Azure Files (förhandsversion). Om det aktiveras krypteras alla data som skrivs till den specifika tjänsten innan de skrivs. När du läser dessa data dekrypteras de innan de returneras.
+
+Läs mer om vilande SSE-kryptering på [Azure Storage Service-kryptering för vilande data](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Kryptering av klientsidan
 
 Lagringsklientbiblioteken har metoder som du kan anropa för att programmässigt kryptera data innan de skickas via kabeln från klienten till Azure. De lagras krypterade, vilket innebär att de också är krypterade i vila. När du läser data dekrypteras informationen när du har fått den.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Kryptering under överföring med Azure-filresurser
-
-Mer information om signaturer för delad åtkomst finns i [Använda signaturer för delad åtkomst (SAS)](../storage-dotnet-shared-access-signature-part-1.md). Mer information om säker åtkomst till ditt lagringskonto finns i [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md) och [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx).
-
-Mer information om hur du skyddar ditt lagringskonto och kryptering finns i [säkerhetsguiden för Azure Storage](storage-security-guide.md).
+Mer information om kryptering på klientsidan finns i [Kryptering på klientsidan med .NET för Microsoft Azure Storage](storage-client-side-encryption.md).
 
 ## <a name="replication"></a>Replikering
 

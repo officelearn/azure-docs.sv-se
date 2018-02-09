@@ -1,6 +1,7 @@
 - name: Azure Storage-dokumentation
   href: /azure/storage/
-- name: "Översikt\r\n"
+- name: |
+    Översikt
   items:
     - name: Introduktion
       href: storage-blobs-introduction.md
@@ -22,6 +23,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Arbeta med blobar – Python
       href: storage-quickstart-blobs-python.md
+    - name: Arbeta med blobar – Go
+      href: storage-quickstart-blobs-go.md
     - name: Arbeta med blobar – Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Arbeta med blobar – Node.js

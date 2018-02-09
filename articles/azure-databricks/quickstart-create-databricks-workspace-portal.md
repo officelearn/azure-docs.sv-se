@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -146,7 +146,7 @@ Utför följande steg för att skapa en anteckningsbok i Databricks, konfigurera
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Klustret avslutas automatiskt om det har varit inaktivt under den angivna tiden om du har markerat kryssrutan **Avsluta efter ___ minuters aktivitet**.
+Om du markerade kryssrutan **Avsluta efter ___ minuters aktivitet** när du skapade Apache Spark-klustret avslutas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 Om du inte har markerat kryssrutan måste du avsluta klustret manuellt. Det gör du genom att klicka på via **Kluster** i den vänstra rutan i Azure Databricks-arbetsytan. För klustret du vill avsluta för du markören över de tre punkterna under kolumnen **Actions** (Åtgärder) och klickar på ikonen **Avsluta**.
 

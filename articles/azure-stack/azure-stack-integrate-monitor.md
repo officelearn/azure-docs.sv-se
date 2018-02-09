@@ -12,22 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a7f6d3691410711fcae692007b08977a93961845
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
 
-*Gäller för: Azure Stack integrerat system*
+Du behöver övervaka Azure Stack-programvara, fysiska datorer och fysiska nätverksväxlar för övervakning av externa Azure Stack-infrastrukturen. Dessa områden ger en metod för att hämta information om hälsa och avisering:
 
-Du behöver övervaka Azure Stack-programvara, fysiska datorer och fysiska nätverksväxlar för övervakning av externa Azure Stack-infrastrukturen. Dessa områden erbjuder en metod för att hämta information om hälsa och avisering.
-
-- Azure Stack programvara erbjuder ett REST-baserad API för att hämta hälsotillstånd och aviseringar. (Med hjälp av programvarudefinierade tekniker som Storage Spaces Direct lagring hälsotillstånd och aviseringar är en del av programvaran övervakning.)
+- Azure Stack programvara erbjuder ett REST-baserad API för att hämta hälsotillstånd och aviseringar. (Med hjälp av programvarudefinierade tekniker som Storage Spaces Direct lagring hälsotillstånd och aviseringar är en del av programvaran övervakning.).
 - Fysiska datorer kan göra hälsa och aviseringsinformation tillgängliga via huvudkortshanteringskontroller (bmc).
 - Fysiska nätverksenheter kan göra hälsa och aviseringsinformation tillgängliga via SNMP-protokollet.
 
@@ -48,16 +46,16 @@ Du kan använda Operations Manager för externa övervakning av Azure-stacken. S
 
 Management pack för Azure-stacken innehåller följande funktioner:
 
-- Du kan hantera flera Azure Stack-distributioner.
-- Det finns stöd för Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS).
-- Du kan hämta och stänga aviseringar.
-- Det finns en hälsa och en instrumentpanel för kapacitet.
-- Innehåller Underhållsläge för automatisk identifiering för när korrigeringar och uppdateringar (P & U) pågår.
-- Innehåller framtvinga en uppdatering uppgifter för distribution och en region.
-- Du kan lägga till anpassad information till en region.
-- Har stöd för meddelanden och rapportering.
+- Du kan hantera flera Azure Stack-distributioner
+- Det finns stöd för Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS)
+- Du kan hämta och stänga aviseringar
+- Det finns en hälsa och en instrumentpanel kapacitet
+- Innehåller Underhållsläge för automatisk identifiering för när korrigeringar och uppdateringar (P & U) pågår
+- Innehåller framtvinga en uppdatering uppgifter för distribution och region
+- Du kan lägga till anpassad information till en region
+- Har stöd för meddelanden och rapportering
 
-Du kan hämta System Center Management Pack för Microsoft Azure-stacken och associerade användarhandboken [här](https://www.microsoft.com/en-us/download/details.aspx?id=55184), eller direkt från Operations Manager.
+Du kan hämta System Center Management Pack för Microsoft Azure-stacken och den associerade [användarhandboken](https://www.microsoft.com/en-us/download/details.aspx?id=55184), eller direkt från Operations Manager.
 
 Du kan integrera med Service Manager i System Center Operations Manager för en loggnings-lösning. Integrerad product connector kan dubbelriktad kommunikation som gör att du kan stänga en avisering i Azure-stacken och Operations Manager när du har löst tjänstbegäran i Service Manager.
 
@@ -140,7 +138,7 @@ Begäran hämtar alla aktiva och stängda aviseringar för providern standardabo
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|HÄMTA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argument**
@@ -243,7 +241,7 @@ Begäran stänger en avisering med ett unikt ID.
 
 |Metod    |Förfrågans URI  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|PLACERA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argument**
 
@@ -387,7 +385,7 @@ Begäran hämtar hälsostatus för alla registrerade providrar.
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|HÄMTA    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argument**
@@ -458,7 +456,7 @@ Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
 
 |Metod  |Förfrågans URI  |
 |---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|HÄMTA     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argument**
 

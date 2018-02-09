@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: afea4b23aca322321b4096cdfdc9d30b087a2f30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-frånkopplade distribution planeringsbeslut för Azure-stacken integrerat system
-När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-deployment-decisions.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.
+När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-connection-models.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.
 
 Med den frånkopplade från Azure-distribution kan du distribuera och använda Azure-stacken utan en anslutning till Internet. Men med en frånkopplad distribution är du begränsade till en AD FS-Identitetslagret och kapacitet-baserade fakturering modellen. 
 
@@ -34,7 +34,7 @@ Välj det här alternativet om du:
 > [!TIP]
 > Ibland kan kallas den här typen av miljö även ett ”ubåt scenario”.
 
-En frånkopplad distribution strikt innebär inte att du senare inte kan ansluta din Azure Stack-instans till Azure för hybridscenarion klient-VM. Det betyder att du inte har anslutning till Azure under distributionen eller du inte vill använda Azure Active Directory som din identitet store. Om du vill ha en anslutning till Azure efter distributionen, oavsett vad du vill använda som din identitet store, bör du välja Anslut till Azure distributionsalternativ. 
+En frånkopplad distribution strikt innebär inte att du senare inte kan ansluta din Azure Stack-instans till Azure för hybridscenarion klient-VM. Det betyder att du inte har anslutning till Azure under distributionen eller du inte vill använda Azure Active Directory som din identitet store.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funktioner som är försämrad eller inte tillgänglig i frånkopplade distributioner 
 Azure-stacken utformades fungerar bäst när du är ansluten till Azure, så det är viktigt att Observera att det finns vissa funktioner och funktionalitet som är försämrad eller delvis är tillgängligt i frånkopplat läge. 

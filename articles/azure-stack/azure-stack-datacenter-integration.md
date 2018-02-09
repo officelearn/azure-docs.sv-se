@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integrering överväganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -45,7 +45,7 @@ Du behöver överväga vilka identitetsleverantör som du vill använda för dis
 
 Önskat identity-providern påverkar inte på virtuella datorer, identitet och konton som de använder, om de kan ansluta till en Active Directory-domän, osv. Detta är separat.
 
-Du kan lära dig mer om hur du väljer en identitetsleverantör i den [distributionsbeslut för Azure-stacken integrerade system artikeln](.\azure-stack-deployment-decisions.md).
+Du kan lära dig mer om hur du väljer en identitetsleverantör i den [Azure Stack integrerade system anslutning modeller artikel](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integrering med AD FS och diagram
 Om du väljer att distribuera Azure-stacken använder AD FS som identitetsleverantören måste du integrera instansen av AD FS på Azure-stacken med en befintlig instans av AD FS via ett federationsförtroende. Detta gör att identiteter i en befintlig Active Directory-skog för att autentisera med resurser i Azure-stacken.
@@ -53,18 +53,25 @@ Om du väljer att distribuera Azure-stacken använder AD FS som identitetslevera
 Du kan också integrera Graph-tjänsten i Azure-stacken med befintliga Active Directory. På så sätt kan du hantera rollbaserad åtkomstkontroll (RBAC) i Azure-stacken. När åtkomst till en resurs har delegerats söker komponenten diagrammet användarkonto i den befintliga Active Directory-skogen med LDAP-protokollet.
 
 Följande diagram visar integrerad trafikflöde för AD FS och diagram.
-![Diagram över AD FS och diagram trafikflöde](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagram över AD FS och diagram trafikflöde](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Licensieringsmodell
+Du måste bestämma vilka licensieringsmodell som du vill använda. De tillgängliga alternativen beror på om du distribuerar Azure Stack ansluten till internet:
+- För en [anslutna distribution](azure-stack-connected-deployment.md), kan du betala-som-du-användning eller kapacitet-baserade licensiering. Betala per-som-du-användningen kräver en anslutning till Azure för att rapportera användningen, som sedan debiteras via Azure handel. 
+- Endast kapacitet-baserade licensiering stöds om du [distribuera frånkopplad](azure-stack-disconnected-deployment.md) från internet. 
 
-Du måste bestämma vilka licensieringsmodell som du vill använda. Du kan välja lön-som-du-användning eller kapacitet-baserade licensiering för en ansluten distribution. Betala per-som-du-användningen kräver en anslutning till Azure för att rapportera användningen, som sedan debiteras via Azure handel. Endast kapacitet-baserade licensiering stöds om du distribuerar frånkopplad från internet. Mer information om licensiering modeller finns [Microsoft Azure-stacken paketera och prissättning](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Mer information om licensiering modeller finns [Microsoft Azure-stacken paketera och prissättning](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Namnge beslut
 
-Du behöver tänka på hur du vill planera Azure Stack namnområdet, särskilt regionnamn och extern domännamn. Distributionen av Azure-Stack för offentliga slutpunkter fullständigt kvalificerade domännamn (FQDN) är en kombination av dessa två namn &lt; *region*&gt;&lt;*external_FQDN*  &gt;, till exempel *east.cloud.fabrikam.com*. I det här exemplet skulle Azure Stack-portaler vara tillgängligt vid följande webbadresser:
+Du behöver tänka på hur du vill planera Azure Stack namnområdet, särskilt regionnamn och extern domän. Externa fullständigt kvalificerade domännamnet (FQDN) för Azure-stacken distributionen för offentliga slutpunkter är en kombination av dessa två namn: &lt; *region*&gt;.&lt; *fqdn*&gt;. Till exempel *east.cloud.fabrikam.com*. I det här exemplet skulle Azure Stack-portaler vara tillgängligt vid följande webbadresser:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Regionnamn du väljer för distributionen av Azure-stacken måste vara unika och visas i portalen adresser. 
 
 I följande tabell sammanfattas besluten domän namngivning.
 
@@ -128,14 +135,14 @@ Du kan ansluta Azure Stack till Azure via [ExpressRoute](https://docs.microsoft.
 
 Följande diagram visar ExpressRoute för en enskild klient-scenario (där ”kundens anslutning” är ExpressRoute-kretsen).
 
-![Diagram som visar en klient ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Diagram som visar en klient ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Följande diagram visar ExpressRoute för ett scenario med flera innehavare.
 
-![Diagram som visar flera innehavare ExpressRoute scenario](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Diagram som visar flera innehavare ExpressRoute scenario](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Externa övervakning
-Hämta en enda vy av alla aviseringar från dina Azure-stacken distribution och enheter och integrera aviseringar i befintliga IT service management-arbetsflöden för biljetter, kan du integrera Azure stacken med externa datacenter övervakningslösningar.
+Hämta en enda vy av alla aviseringar från dina Azure-stacken distribution och enheter och integrera aviseringar i befintliga IT service management-arbetsflöden för biljetter, kan du [integrera Azure stacken med externa datacenter övervakningslösningar](azure-stack-integrate-monitor.md).
 
 Maskinvara livscykel värden kan ingår i Azure Stack-lösningen, en dator utanför Azure-stacken som kör OEM-tillverkarens hanteringsverktyg för maskinvara. Du kan använda dessa verktyg eller andra lösningar som kan integreras direkt med befintliga lösningar övervakning i ditt datacenter.
 
@@ -143,15 +150,15 @@ I följande tabell sammanfattas i listan över tillgängliga alternativ.
 
 | Område | Externa övervakningslösning |
 | -- | -- |
-| Azure Stack-programvara | - [Azure-stacken hanteringspaket för Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plugin-program](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-REST-baserad API-anrop | 
-| Fysiska servrar (bmc via IPMI) | -Hanteringspaket för operations Manager-leverantör<br>-OEM tillverkarens maskinvarulösning<br>-Maskinvaruleverantören Nagios plugin-program | OEM-partner stöds övervakningslösning (ingår) | 
-| Nätverksenheter (SNMP) | -Operations Manager identifiering av nätverksenheter<br>-OEM tillverkarens maskinvarulösning<br>-Nagios växla plugin-program |
-| Hälsoövervakning för klienten prenumeration | - [System Center Management Pack för Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack-programvara | [Azure-stacken hanteringspaket för Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plugin-program](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-baserad API-anrop | 
+| Fysiska servrar (bmc via IPMI) | OEM-maskinvara – hanteringspaket för Operations Manager-leverantör<br>OEM-tillverkarens maskinvarulösning<br>Maskinvaruleverantören Nagios plugin-program | OEM-partner stöds övervakningslösning (ingår) | 
+| Nätverksenheter (SNMP) | Operations Manager identifiering av nätverksenheter<br>OEM-tillverkarens maskinvarulösning<br>Nagios växla plugin-program |
+| Hälsoövervakning för klienten prenumeration | [System Center Management Pack för Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Observera följande krav:
 - Lösningen som du använder måste vara utan Agent. Du kan inte installera agenter från tredje part i Azure Stack-komponenter. 
-- Om du vill använda System Center Operations Manager kräver Operations Manager 2012 R2 eller Operations Manager 2016.
+- Om du vill använda System Center Operations Manager krävs Operations Manager 2012 R2 eller Operations Manager 2016.
 
 ## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
 
@@ -159,7 +166,7 @@ Planera för säkerhetskopiering och katastrofåterställning omfattar planering
 
 ### <a name="protect-infrastructure-components"></a>Skydda infrastrukturkomponenter
 
-Azure-stacken säkerhetskopierar infrastrukturkomponenter till en resurs som du anger.
+Du kan [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md) infrastrukturkomponenter på en SMB-resursen som du anger:
 
 - Du behöver en extern SMB-filresurs på en befintlig Windows-baserad filserver eller en enhet från tredje part.
 - Du bör använda samma resursen för säkerhetskopiering av nätverksväxlar och maskinvara livscykel värden. Maskinvaruleverantören OEM hjälper dig att ge vägledning för säkerhetskopiering och återställning av dessa komponenter som dessa är externa för Azure-stacken. Du är ansvarig för att köra säkerhetskopiering arbetsflöden baserat på en rekommendation för OEM-tillverkare.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 34ad4d7038202bd5efa2b3c210571268a39bf278
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
@@ -74,12 +74,10 @@ Vi rekommenderar att du ansluter till detta program bara från maskinvara livscy
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet ** &lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
     
 3.  När du har anslutit uppmaningen ändras till **[*IP-adress eller ERCS VM*]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön. Härifrån kan köra `Get-Command` att visa listan över tillgängliga cmdlets.
-
-    ![Get-Command-cmdlet utdata med en lista över tillgängliga kommandon](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Många av dessa cmdlets är endast avsett för integrerat system-miljöer (till exempel cmdlets för datacenter-integrering). Följande cmdlets i ASDK, har verifierats:
 
@@ -145,7 +143,7 @@ Om du vill importera program sessionen på den lokala datorn, gör du följande 
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet ** &lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-session till din lokala dator
@@ -163,7 +161,7 @@ Att stänga sessionen slutpunkt:
 
 1. Skapa en extern resurs som kan nås av detta program. Du kan bara skapa en filresurs på development kit värden i en utvecklingsmiljö av kit.
 2. Kör den `Close-PrivilegedEndpoint` cmdlet. 
-3. Du uppmanas att ange en sökväg som ska lagra loggfil betyg. Ange den filresurs som du skapade tidigare, i formatet &#92; &#92; *servername*&#92; *resursnamn*. Om du inte anger en sökväg cmdlet misslyckas och förblir sessionen öppen. 
+3. Du uppmanas att ange en sökväg som ska lagra loggfil betyg. Ange den filresurs som du skapade tidigare, i formatet & #92; & #92; *servername*& #92;* resursnamn*. Om du inte anger en sökväg cmdlet misslyckas och förblir sessionen öppen. 
 
     ![Stäng PrivilegedEndpoint cmdlet utdata som visas anger du målsökväg betyg](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

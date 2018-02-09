@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
 Det rekommenderas att du använder en enhet för att säkra Azure-stacken. Även om brandväggar kan hjälpa dig med t.ex distribuerad denial of service (DDOS) attacker, intrångsidentifiering och innehållsgranskning, blir de också en genomströmning flaskhals för Azure storage-tjänster som blobbar, tabeller och köer.
@@ -41,7 +41,7 @@ Några av downsides för att använda NAT för offentliga VIP är:
 - För hybridscenarion moln med Azure, Överväg att Azure inte stöder att konfigurera en VPN-tunnel till en slutpunkt som använder NAT.
 
 ### <a name="ssl-decryption"></a>SSL-dekryptering
-För närvarande vår rekommendation dekrypterades SSL är att inaktivera den på alla Azure Stack-trafik, i framtiden vi ger riktlinjer för hur du aktiverar SSL-dekryptering för Azure-stacken.
+För närvarande rekommenderas att inaktivera SSL-dekryptering på alla Azure Stack-trafik. Om det stöds i framtida uppdateringar levereras vägledning om hur du aktiverar SSL-dekryptering för Azure-stacken.
 
 ## <a name="edge-firewall-scenario"></a>Edge brandväggen scenario
 I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern eller brandväggen. I följande scenarier stöds för brandväggen för att vara över kantlinjen eller fungerar som kantlinje enheten om den stöder lika kostnaden Multi Path ECMP () med BGP eller statisk routning.

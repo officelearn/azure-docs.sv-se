@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5fdd3e621ac97da86897b8cc8b20466fab0b0a42
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Uppdatera ett program i Azure Container Service (AKS)
 
@@ -27,13 +27,13 @@ I den här självstudien, del sex av åtta, uppdateras Azure Vote-exempelappen. 
 > * Push-överföra behållaravbildningen till Azure Container Registry
 > * Distribuera den uppdaterade behållaravbildningen
 
-I efterföljande självstudier konfigureras Operations Management Suite för att övervaka Kubernetes-klustret.
+I senare självstudier konfigureras Operations Management Suite för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter på Kubernetes-klustret. 
+I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
 
-En programlagringsplats klonades också, vilket inkluderar programmets källkod, och en färdig Docker Compose-fil används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yaml`.
+En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yaml`.
 
 Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app]. 
 
@@ -41,7 +41,7 @@ Om du inte har slutfört dessa steg och vill hänga med återgår du till [Själ
 
 För den här självstudien görs en ändring av programmet, och det uppdaterade programmet distribueras till Kubernetes-klustret. 
 
-Programmets källkod finns i katalogen `azure-vote`. Öppna filen `config_file.cfg` med valfri kod eller valfritt redigeringsprogram. I det här exemplet används `vi`.
+Programmets källkod finns i katalogen `azure-vote`. Öppna filen `config_file.cfg` i valfritt redigeringsprogram. I det här exemplet används `vi`.
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -83,19 +83,19 @@ Hämta inloggningsserverns namn med kommandot [az acr list](/cli/azure/acr#az_ac
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd [dockertagg][docker-tag] för att tagga avbildningen. Ersätt `<acrLoginServer>` med ditt Azure Container Registry-inloggningsservernamn eller offentliga registervärdnamn. Lägg även märke till att avbildningsversionen har uppdaterats till `redis-v2`.
+Använd [dockertagg][docker-tag] för att tagga avbildningen. Ersätt `<acrLoginServer>` med ditt Azure Container Registry-inloggningsservernamn eller offentliga registervärdnamn. Lägg även märke till att avbildningsversionen har uppdaterats till `v2`.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
 Använd [docker push][docker-push] och ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med ditt Azure Container Registry-inloggningsservernamn.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
-## <a name="deploy-update-application"></a>Distribuera uppdateringsprogram
+## <a name="deploy-update-application"></a>Distribuera det uppdaterade programmet
 
 Du får minimala störningar om flera instanser av programpodden körs. Verifiera konfigurationen med kommandot [kubectl get pod][kubectl-get].
 
@@ -113,7 +113,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Om du inte har flera poddar som kör avbildningen azure-vote skalar du `azure-vote-front`-distribueringen.
+Om du inte har flera poddar som kör avbildningen azure-vote-front skalar du ut `azure-vote-front`-distributionen.
 
 
 ```azurecli
@@ -123,7 +123,7 @@ kubectl scale --replicas=3 deployment/azure-vote-front
 När du ska uppdatera programmet använder du kommandot [kubectl set][kubectl-set]. Uppdatera `<acrLoginServer>` med inloggningsservern eller värdnamnet på ditt behållarregister.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
 Du övervakar distributionen av kommandot [kubectl get pod][kubectl-get]. Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya behållaravbildningen.
@@ -142,7 +142,7 @@ azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
 azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 ```
 
-## <a name="test-updated-application"></a>Testa uppdaterade program
+## <a name="test-updated-application"></a>Testa det uppdaterade programmet
 
 Hämta den externa IP-adressen för tjänsten `azure-vote-front`.
 
@@ -156,13 +156,13 @@ Gå till IP-adressen om du vill se det uppdaterade programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du uppdaterat ett program och distribuerat den här uppdateringen till ett Kubernetes-kluster. Följande uppgifter har slutförts:
+I den här självstudien har du uppdaterat ett program och distribuerat uppdateringen till ett Kubernetes-kluster. Följande uppgifter har slutförts:
 
 > [!div class="checklist"]
 > * Uppdaterade klientdelens programkod
 > * Skapade en uppdaterad behållaravbildning
 > * Push-överförde behållaravbildningen till Azure Container Registry
-> * Distribuerat uppdaterade program
+> * Distribuerade det uppdaterade programmet
 
 Gå vidare till nästa kurs att lära dig hur du övervakar Kubernetes med Operations Management Suite.
 

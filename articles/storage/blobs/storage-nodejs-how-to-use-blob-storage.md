@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Använda Blob Storage från Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Den här artikeln visar hur du utför vanliga scenarier med Blob storage. Exempl
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
-Anvisningar om hur du skapar en Node.js-program finns i [skapa en Node.js-webbapp i Azure App Service], [skapa och distribuera ett Node.js-program till en Azure-molntjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --med Windows PowerShell eller [bygga och distribuera en Node.js-webbapp till Azure med hjälp av Web Matrix](https://www.microsoft.com/web/webmatrix/).
+Instruktioner om hur du skapar en Node.js-program finns i [skapa en Node.js-webbapp i Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [skapa och distribuera ett Node.js-program till en Azure-molntjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) --med Windows PowerShell eller [skapa och distribuera en Node.js-webbapp till Azure med hjälp av Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program åtkomst till lagring
 Om du vill använda Azure storage, behöver du Azure Storage SDK: N för Node.js som innehåller en uppsättning bekvämlighet bibliotek som kommunicerar med storage REST-tjänster.
@@ -90,7 +90,7 @@ blobSvc.createContainerIfNotExists('mycontainer', function(error, result, respon
 
 Om behållaren nyligen har skapat `result.created` är true. Om behållaren redan `result.created` är false. `response`innehåller information om åtgärden, inklusive ETag-information för behållaren.
 
-### <a name="container-security"></a>Behållaren säkerhet
+### <a name="container-security"></a>Behållarsäkerhet
 Som standard nya behållare är privata och går inte att ansluta anonymt. Om du vill att behållaren offentliga så att du kan komma åt den anonymt, du kan ange behållarens åtkomst till **blob** eller **behållare**.
 
 * **BLOB** -tillåter anonym läsbehörighet till blob-innehåll och metadata i den här behållaren, men inte i behållaren metadata, till exempel visar en lista över alla blobbar i en behållare
@@ -192,7 +192,7 @@ Om du vill lägga till ett block till en befintlig tilläggsblobb, använder du 
 * **appendBlockFromText** -Lägg till innehållet i en sträng i en befintlig tilläggsblobb
 
 > [!NOTE]
-> appendFromXXX API: er kommer att göra vissa klientsidan verifiering för att snabbt kunna undvika onödiga serveranrop. appendBlockFromXXX inte.
+> appendFromXXX API: er kommer att göra vissa klientsidan verifiering för att snabbt kunna undvika onödiga serveranrop. appendBlockFromXXX won't.
 >
 >
 
@@ -424,5 +424,5 @@ Mer information finns i följande resurser.
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
 [Azure portal]: https://portal.azure.com  
 [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Azure Storage-teamets blogg]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Azure Storage SDK för noden API-referens]: http://dl.windowsazure.com/nodestoragedocs/index.html  

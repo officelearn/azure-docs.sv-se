@@ -1,7 +1,6 @@
 - name: Dokumentation om Functions
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Om Functions
       href: functions-overview.md
@@ -92,8 +91,7 @@
       href: functions-runtime-overview.md
     - name: Bestående funktioner
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: durable-functions-overview.md
         - name: Bindningar
           href: durable-functions-bindings.md
@@ -135,6 +133,8 @@
           href: functions-run-local.md
         - name: Visual Studio-utveckling
           href: functions-develop-vs.md
+        - name: Felhantering
+          href: functions-bindings-error-pages.md
     - name: Distribuera
       items:
         - name: Kontinuerlig distribution

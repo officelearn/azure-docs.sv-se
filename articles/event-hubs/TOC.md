@@ -1,10 +1,9 @@
 # Översikt
-
 ## [Vad är Event Hubs?](event-hubs-what-is-event-hubs.md)
 ## [Event Hubs-funktioner](event-hubs-features.md)
 ## [Vanliga frågor och svar](event-hubs-faq.md)
 
-# Kom igång
+# Snabbstarter
 ## [Skapa en Event Hub](event-hubs-create.md)
 ## Skicka händelser
 ### [.NET-standard](event-hubs-dotnet-standard-getstarted-send.md)

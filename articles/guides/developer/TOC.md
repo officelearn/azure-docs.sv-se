@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Utvecklarguide](azure-developer-guide.md) 
 ## [SDK:er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
@@ -97,9 +96,9 @@
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
-### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
+### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
+### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Kommandoradsgränssnitt
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)

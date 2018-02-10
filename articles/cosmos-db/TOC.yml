@@ -1,6 +1,6 @@
 - name: Dokumentation om Cosmos DB
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
@@ -360,6 +360,7 @@
           href: spark-connector-graph.md
         - name: Direktuppspelning med Kafka och Spark på HDInsight
           href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Distribuera en webbplats med Azure App Service
           href: create-website.md
         - name: Programloggning med Logic Apps

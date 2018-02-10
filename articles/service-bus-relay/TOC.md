@@ -2,11 +2,11 @@
 ## [Vad är vidarebefordran?](relay-what-is-it.md)
 ## [Vanliga frågor och svar](relay-faq.md)
 
-# Kom igång
+# Snabbstarter
 ## [Skapa ett namnområde](relay-create-namespace-portal.md)
 ## [Skapa ett hybridprogram lokalt eller i molnet](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybridanslutningar
-### [NET](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF-relä](relay-wcf-dotnet-get-started.md)
 ## [Självstudier för WCF-relä](service-bus-relay-tutorial.md)
@@ -19,7 +19,7 @@
 ### [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
 ## Utveckla
 ### [Tillgängliga API:er](relay-api-overview.md)
-#### [NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 ## Hantera
 ### [Övervaka Azure Relay med Azure-övervakning](relay-metrics-azure-monitor.md)

@@ -1,7 +1,6 @@
 - name: Dokumentation om SQL DB
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Om SQL DB
       href: sql-database-technical-overview.md
@@ -86,8 +85,7 @@
       href: sql-database-high-availability.md
     - name: Säkerhet
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-security-overview.md
         - name: Brandväggsregler
           href: sql-database-firewall-configure.md
@@ -115,8 +113,7 @@
           href: sql-database-data-discovery-and-classification.md
     - name: Verksamhetskontinuitet
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-business-continuity.md
         - name: Säkerhetskopior av databasen
           href: sql-database-automated-backups.md
@@ -140,8 +137,7 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migrera till SQL Database
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-cloud-migrate.md
         - name: Ändringar i T-SQL
           href: sql-database-transact-sql-information.md
@@ -159,8 +155,7 @@
           href: sql-database-sync-data.md
     - name: Övervaka och finjustera
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-troubleshoot-performance.md
         - name: Prestandaövervakning
           href: sql-database-single-database-monitor.md
@@ -182,8 +177,7 @@
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skala ut
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-elastic-scale-introduction.md
         - name: Elastiskt klientbibliotek
           href: sql-database-elastic-database-client-library.md
@@ -219,8 +213,7 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: sql-database-develop-overview.md
         - name: JSON-data
           href: sql-database-json-features.md
@@ -366,6 +359,8 @@
           items:
             - name: Distribuera exempelapp
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Etablera klienter
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Databas per klient
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

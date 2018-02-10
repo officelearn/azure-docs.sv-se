@@ -1,11 +1,10 @@
 # Översikt
-
 ## [Vad är Service Bus-meddelanden?](service-bus-messaging-overview.md)
 ## [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus-arkitektur](service-bus-architecture.md)
 ## [Vanliga frågor och svar](service-bus-faq.md)
 
-# Kom igång
+# Snabbstarter
 ## [Skapa ett namnområde](service-bus-create-namespace-portal.md)
 ## Använda köer
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)

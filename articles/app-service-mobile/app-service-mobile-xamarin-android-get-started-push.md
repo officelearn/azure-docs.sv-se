@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: c7d2b68d2b523a04c38881d53747adfbb8b295cc
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Lägg till push-meddelanden i Xamarin.Android-appen
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Översikt
-I kursen får du lägga till push-meddelanden till den [Xamarin.Android Snabbstart](app-service-mobile-windows-store-dotnet-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I kursen får du lägga till push-meddelanden till den [Xamarin.Android quickstart](app-service-mobile-windows-store-dotnet-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder hämtade Snabbstart serverprojekt behöver push notification extension-paketet. Se [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för mer information.
+Om du inte använder det nedladdade snabbstartsprojektet server behöver push notification extension-paketet. Mer information finns i [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För den här kursen behöver du följande:
+Den här kursen kräver installationen:
 
 * Ett aktivt Google-konto. Du kan registrera dig för ett Google-konto på [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging-klientkomponent](http://components.xamarin.com/view/GCMClient/).
@@ -55,7 +55,7 @@ För den här kursen behöver du följande:
 ## <a name="test"></a>Testa push-meddelanden i appen
 Du kan testa appen med hjälp av en virtuell enhet i emulatorn. Det finns ytterligare konfigurationssteg som krävs vid körning på en emulator.
 
-1. Se till att du distribuerar till eller felsökning på en virtuell enhet som har Google APIs som mål, enligt nedan i hanteraren för Android Virtual Device (AVD).
+1. Den virtuella enheten måste ha Google APIs som mål i hanteraren för Android Virtual Device (AVD).
    
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 2. Lägg till ett Google-konto för Android-enhet genom att klicka på **appar** > **inställningar** > **Lägg till konto**, följ sedan anvisningarna.

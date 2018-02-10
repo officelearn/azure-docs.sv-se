@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: e126e34bc9fce21243b0ef79f5ab661aec3a2de6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Distribuera ett Azure API Management service-instans till Azure-regioner
 API-hantering stöder distribution av flera regioner där API utgivare att distribuera en enda API-tjänsten till alla önskade Azure-regioner. Detta minskar begäran latens uppfattas av geografiskt distribuerat API-konsumenter och förbättrar även tjänsttillgängligheten om en region tas offline. 
@@ -52,13 +52,12 @@ Klicka på **Lägg till** att placera ditt val i tabellen platser.
 Upprepa den här processen tills du har alla platser som har konfigurerats och klicka på **spara** från verktygsfältet för att starta distributionsprocessen.
 
 ## <a name="remove-region"></a>Ta bort en instans för API Management-tjänsten från en plats
+
 I Azure Portal går du till den **skala och prissättning** för din API Management service-instans. 
 
 ![Skala][api-management-scale-service]
 
 Öppna menyn kontext med för den plats som du vill ta bort den **...**  längst till höger i tabellen. Välj den **ta bort** alternativet.
-
-![Ta bort region][api-management-remove-region]
 
 Bekräfta borttagningen och klicka på **spara** att tillämpa ändringarna.
 

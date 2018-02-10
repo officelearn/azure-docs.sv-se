@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope
-Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner som förbättrar bearbetning av HTTP-begäranden skickas till HTTP-API. Men är i begäran och svar tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till din serverdel API. Din API behandlar begäran och ett svar som flödar tillbaka via för API-konsumenter. API Management-tjänsten håller viktig statistik om API: er för visning i portalens instrumentpanel utgivaren men senare att information försvinner.
+Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner som förbättrar bearbetning av HTTP-begäranden skickas till HTTP-API. Men är i begäran och svar tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till din serverdel API. Din API behandlar begäran och ett svar som flödar tillbaka via för API-konsumenter. API Management-tjänsten håller viktig statistik om API: er för att visas i Azure portal instrumentpanelen, men senare att information försvinner.
 
 Med hjälp av loggen till eventhub-principen i API Management-tjänsten kan du skicka information från begäran och svar på en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Det finns många olika skäl varför du kanske vill generera händelser från HTTP-meddelanden som skickas till din API: er. Några exempel verifieringskedja för uppdateringar, användningsanalys, undantag varningar och fristående integreringar.   
 

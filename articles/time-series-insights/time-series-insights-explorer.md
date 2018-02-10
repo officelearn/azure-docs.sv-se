@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure tid serien insikter explorer
 Den här artikeln innehåller olika funktioner och alternativ som är tillgängliga i tid serien insikter explorer webbapp. Du kan använda tid serien insikter explorer i webbläsaren för att skapa visualiseringar av dina data.
  
 Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Den ger dig en global vy över dina data, som gör att du snabbt Validera IoT-lösningen och undviker dyrbar avbrottstid för verksamhetskritiska enheter. Du kan identifiera dolda trender, upptäcka avvikelser och utföra grundläggande orsaken analyser i nära realtid. Tid serien insikter explorer är för närvarande i förhandsversion.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda tid serien insikter explorer, måste du:
 - Skapa en tid serien insikter-miljö
@@ -37,11 +37,11 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
 
 2. När du väljer en miljö kan du antingen använda de **från** och **till** konfigurationer högst upp, eller klicka och dra över din önskade tidsintervallet.  Klicka på förstoringsglaset längst upp till höger, eller högerklicka på över valda timespan och välj **Sök**.  
 
-3. Du kan också uppdatera tillgänglighet automatiskt varje minut genom att välja den **automatiskt på** knappen.
+3. Du kan också uppdatera tillgänglighet automatiskt varje minut genom att välja den **automatiskt på** knappen.  Observera att knappen 'Automatiskt på' gäller endast för tillgänglighet diagram, inte innehållet i den huvudsakliga visualiseringen.
 
 4. Observera att Azure-molnet ikonen tar dig till din miljö i Azure-portalen.
 
-   ![Serien insikter miljön](media/time-series-insights-explorer/explorer1.png)
+   ![Time Series Insights-miljö](media/time-series-insights-explorer/explorer1.png)
 
 5. Därefter kan du se ett diagram som visar en uppräkning av alla händelser under den valda timespan.  Här har du ett antal kontroller:
 
@@ -60,7 +60,7 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |I     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander måste vara av samma typ eller vara NULL-konstanten.        |
-         |HAR     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
+         |HAS     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
 
       - **Exempel på frågor**
       

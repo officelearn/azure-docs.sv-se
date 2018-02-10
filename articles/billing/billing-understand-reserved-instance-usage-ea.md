@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Förstå reserverade användning för Enterprise-registrering
 Förstå användning av reserverade instans med hjälp av ReservationId från [Reservation sidan](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) och användning av filen från [EA-portalen.](https://ea.azure.com) Du kan också se reservation användning i sammanfattningen för användning i [EA-portalen.](https://ea.azure.com)
@@ -56,6 +56,16 @@ Reserverade instans användning även visas i sammanfattningen för användning 
 
 1. Du debiteras inte för maskinvarukomponent av den virtuella datorn som omfattas av reserverade instans. 
 2. Du debiteras för Windows-program som Azure Hybrid förmånen inte används. 
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera reserverade virtuella Datorinstanser](billing-manage-reserved-vm-instance.md)
+- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
+- [Förstå hur reserverade virtuella datorinstans rabatt används](billing-understand-vm-reservation-charges.md)
+- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Överväganden för nätverk för Apptjänst-miljö #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Överväganden för nätverk för en Apptjänstmiljö #
 
 ## <a name="overview"></a>Översikt ##
 
@@ -55,6 +55,13 @@ Om du har en ILB ASE är IP-adressen för ILB slutpunkten för HTTP/S, FTP-/ S, 
 
 Detta är SANT om du är på en extern ASE eller på en ILB ASE. Om du är på en extern ASE nådde dessa portar på det offentliga VIP. Om du är på en ILB ASE nådde dessa portar på ILB. Om du kan låsa port 443, kan det finnas en effekt på vissa funktioner som exponeras i portalen. Mer information finns i [Portal beroenden](#portaldep).
 
+## <a name="ase-subnet-size"></a>ASE undernätets storlek ##
+
+Storleken på det undernät som används som värd för en ASE kan inte ändras när ASE har distribuerats.  ASE använder en adress för varje infrastrukturrollen samt för varje plan isolerade App Service-instans.  Dessutom är 5 adresser som används av Azure-nätverk för varje undernät som har skapats.  En ASE med inga programtjänstplaner använder alls 12 adresser innan du skapar en app.  Om det är en ILB ASE sedan använder 13 adresser innan du skapar en app i den ASE. När du skalar upp planer för App-tjänsten kräver ytterligare adresser för varje klient som har lagts till.  Som standard läggs frontservrar för varje 15 totala App Service-plan instanser. 
+
+   > [!NOTE]
+   > Inget annat kan finnas i undernätet men ASE. Se till att välja ett adressutrymme som gör det möjligt för framtida tillväxt. Du kan inte ändra denna inställning senare. Vi rekommenderar en storlek på `/25` med 128-adresser.
+
 ## <a name="ase-dependencies"></a>ASE beroenden ##
 
 En ASE inkommande åtkomst beroende är:
@@ -63,7 +70,7 @@ En ASE inkommande åtkomst beroende är:
 |-----|------|----|
 | Hantering | App Service management-adresser | ASE undernät: 454, 455 |
 |  ASE intern kommunikation | ASE undernät: alla portar | ASE undernät: alla portar
-|  Tillåt Azure belastningsutjämnare inkommande | Azure belastningsutjämnare | ASE undernät: alla portar
+|  Tillåt Azure belastningsutjämnare inkommande | Azure-belastningsutjämnare | ASE undernät: alla portar
 |  Appen tilldelade IP-adresser | App som har tilldelats adresser | ASE undernät: alla portar
 
 Inkommande trafik innehåller kommandot och kontroll av ASE förutom systemövervakning av. Käll-IP-adresser för den här trafiken visas i den [ASE Management adresser] [ ASEManagement] dokumentet. Nätverkssäkerhetskonfigurationen måste tillåta åtkomst från alla IP-adresser på port 454 och 455.
@@ -80,8 +87,8 @@ En ASE beror på flera externa system för utgående åtkomst. Dessa beroenden s
 |-----|------|----|
 | Azure Storage | ASE undernät | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 krävs endast för ASEv1.) |
 | Azure SQL Database | ASE undernät | Database.Windows.NET: 1433, 11000 11999, 14000 14999 (Mer information finns i [SQL Database V12 portar används](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure-hantering | ASE undernät | Management.Core.Windows.NET, management.azure.com: 443 
-| SSL-certifikatverifiering |  ASE undernät            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure-hantering | ASE undernät | management.core.windows.net, management.azure.com: 443 
+| SSL-certifikatverifiering |  ASE undernät            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | ASE undernät            |  Internet: 443
 | App Service-hantering        | ASE undernät            |  Internet: 443
 | Azure DNS                     | ASE undernät            |  Internet: 53
@@ -150,7 +157,7 @@ I en ASE inte åtkomst till de virtuella datorerna som används som värd för A
 
 NSG: er kan konfigureras via Azure portal och PowerShell. Den här informationen visar Azure-portalen. Du skapar och hanterar NSG: er i portalen som en översta resurs under **nätverk**.
 
-När kraven på inkommande och utgående beaktas, bör de NSG: er likna NSG: er som visas i det här exemplet. VNet-adressintervallet är _192.168.250.0/16_, och undernät som ASE är _192.168.251.128/25_.
+När kraven på inkommande och utgående beaktas, bör de NSG: er likna NSG: er som visas i det här exemplet. VNet-adressintervallet är _192.168.250.0/23_, och undernät som ASE är _192.168.251.128/25_.
 
 De två första inkommande kraven för ASE ska fungera som visas överst i listan i det här exemplet. De ASE hantering och Tillåt ASE att kommunicera med sig själv. De andra posterna alla konfigurerbara klient och kan styra nätverksåtkomst till program ASE-värd. 
 
@@ -168,13 +175,13 @@ När dina NSG: er har definierats kan du tilldela dem till undernät som din ASE
 
 ## <a name="routes"></a>Vägar ##
 
-Vägar blivit problematiska oftast när du konfigurerar ditt VNet med Azure ExpressRoute. Det finns tre typer av vägar i ett virtuellt nätverk:
+Vägar är en viktig aspekt för vad tvingande dirigering är och hur man hanterar det. I ett virtuellt Azure-nätverk sker routning baserat på den längsta prefix-matchningen (LPM). Om det finns fler än en väg med samma LPM-matchning väljs en väg baserat på dess ursprung i följande ordning:
 
--   Systemvägar
--   BGP-vägar
--   Användardefinierade vägar (udr: er)
+- Användardefinierad väg (UDR)
+- BGP-väg (när ExpressRoute används)
+- Systemväg
 
-BGP-vägar åsidosätta systemvägar. Udr: er åsidosätta BGP-vägar. Mer information om vägar i virtuella Azure-nätverk finns [användardefinierade vägar översikt][UDRs].
+Mer information om routning i ett virtuellt nätverk finns i [Användardefinierade vägar och IP-vidarebefordring][UDRs].
 
 Azure SQL-databas som ASE använder för att hantera systemet har en brandvägg. Kommunikation till kommer från det offentliga VIP ASE krävs. Anslutningar till SQL-databasen från ASE nekas om de skickas ut en annan IP-adress och ExpressRoute-anslutningen.
 
@@ -182,15 +189,15 @@ Om svar på inkommande management-begäranden skickas ned ExpressRoute skiljer s
 
 För din ASE arbeta medan ditt virtuella nätverk har konfigurerats med en ExpressRoute är enklast att:
 
--   Konfigurera ExpressRoute annonserar _0.0.0.0/0_. Som standard den tvinga tunnlar alla utgående trafik lokalt.
+-   Konfigurera ExpressRoute annonserar _0.0.0.0/0_. Som standard dirigeras all utgående trafik lokalt tvingande.
 -   Skapa en UDR. Tillämpa den på det undernät som innehåller ASE med ett adressprefix för _0.0.0.0/0_ och en nästa hopptyp av _Internet_.
 
 Om du ändrar de här två, är inte avsedda internet trafik från undernätet ASE expressroute har skapats och ASE tvingas fungerar. 
 
 > [!IMPORTANT]
-> De vägar som definierats i en UDR måste vara specifikt nog att företräde framför alla vägarna som annonseras av ExpressRoute-konfigurationen. Föregående exempel använder adressintervallet bred 0.0.0.0/0. Den kan potentiellt av misstag åsidosättas av flödet annonser som används mer specifika adressintervall.
+> Vägarna som definieras i en UDR måste vara tillräckligt specifika för att få företräde framför eventuella vägar som annonseras av ExpressRoute-konfigurationen. Föregående exempel använder det breda adressintervallet 0.0.0.0/0. Det kan eventuellt åsidosättas av misstag av vägannonseringar som använder mer specifika adressintervall.
 >
-> ASEs stöds inte med ExpressRoute-konfigurationer som cross-annonserar vägar från offentlig peering-sökvägen till privat peering-sökväg. ExpressRoute-konfigurationer med offentlig peering konfigurerats få vägannonser från Microsoft. Annonserna innehåller ett stort antal Microsoft Azure IP-adressintervall. Om adressintervallen mellan annonseras i privat peering-sökvägen, är alla utgående paket från den ASE undernät kraft tunneldata kundens lokala nätverkets infrastruktur. Det här flödet i nätverk stöds för närvarande inte med ASEs. En lösning på problemet är att stoppa mellan reklam vägar från offentlig peering-sökvägen till privat peering-sökväg.
+> ASEs stöds inte med ExpressRoute-konfigurationer som cross-annonserar vägar från offentlig peering-sökvägen till privat peering-sökväg. ExpressRoute-konfigurationer med offentlig peering har konfigurerats för att få vägannonseringar från Microsoft. Annonseringarna innehåller ett stort antal IP-adressintervall för Microsoft Azure. Om adressintervallen mellan annonseras i privat peering-sökvägen, är alla utgående paket från den ASE undernät kraft tunneldata kundens lokala nätverkets infrastruktur. Det här flödet i nätverk stöds för närvarande inte med ASEs. En lösning på detta problem är att stoppa korsannonsering av vägar från den offentliga peering-vägen till den privata peering-vägen.
 
 Så här skapar du en UDR:
 

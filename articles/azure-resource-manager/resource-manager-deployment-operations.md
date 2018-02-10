@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visa distributionsåtgärder med Azure Resource Manager
 
 
 Du kan visa åtgärderna för en distribution via Azure-portalen. Du kanske är mest intresserad Visa åtgärder när du har tagit emot ett fel under distributionen så att den här artikeln fokuserar på Visa åtgärder som har misslyckats. Portalen tillhandahåller ett gränssnitt som gör att du lätt hitta felen och fastställa eventuella korrigeringar.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+Du kan felsöka distributionen genom att titta på granskningsloggarna eller distributionsåtgärder. Det här avsnittet beskrivs båda metoderna. Hjälp med att lösa viss distributionsfel finns [Lös vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portalen
 Distributionsåtgärder, Använd följande steg:
@@ -42,7 +42,7 @@ Distributionsåtgärder, Använd följande steg:
     ![Visa misslyckad distribution](./media/resource-manager-deployment-operations/view-error.png)
    
     Det här felmeddelandet ska räcker att påbörja felsökningen. Om du vill ha mer information om vilka uppgifter har slutförts, du kan visa åtgärderna som visas i följande steg.
-4. Du kan visa alla distributionsåtgärder i den **distribution** bladet. Välj för att se mer information.
+4. Du kan visa alla distributionsåtgärder. Välj för att se mer information.
    
     ![Visa operationer](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Distributionsåtgärder, Använd följande steg:
 5. Du kan visa händelser för distributionen genom att välja **händelser**.
    
     ![Visa händelser](./media/resource-manager-deployment-operations/view-events.png)
-6. Du se alla händelser för distributionen och välja något mer information. Observera för Korrelations-ID: N. Det här värdet kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
+6. Du se alla händelser för distributionen och välja något mer information. Observera Korrelations-ID: N. Det här värdet kan vara användbart när du arbetar med teknisk support för att felsöka en distribution.
    
     ![Visa händelser](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -121,7 +121,7 @@ Distributionsåtgärder, Använd följande steg:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Alla distributionsåtgärder i Azure inkluderar innehåll för förfrågan och svar. Frågeinnehållet är vad du skickat till Azure under distributionen (till exempel skapa en virtuell dator, OS-disken och andra resurser). Innehållet i svaret är Azure skickas tillbaka från din distributionsbegäran om. Under distributionen kan du använda **DeploymentDebugLogLevel** paramenter för att ange att begäran och/eller svar bevaras i loggen. 
+4. Alla distributionsåtgärder i Azure inkluderar innehåll för förfrågan och svar. Frågeinnehållet är vad du skickat till Azure under distributionen (till exempel skapa en virtuell dator, OS-disken och andra resurser). Innehållet i svaret är Azure skickas tillbaka från din distributionsbegäran om. Under distributionen kan du använda **DeploymentDebugLogLevel** parametern anger att begäran och/eller svar bevaras i loggen. 
 
   Du hämta informationen från loggen och spara den lokalt genom att använda följande PowerShell-kommandon:
 
@@ -178,7 +178,7 @@ Distributionsåtgärder, Använd följande steg:
   }
   ```
 
-2. Hämta information om distributionsåtgärder med den [visa alla distributionsåtgärder för mallen](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) igen. 
+2. Hämta information om distributioner med [visa alla distributionsåtgärder för mallen](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

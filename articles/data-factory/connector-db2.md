@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +70,7 @@ Följande egenskaper stöds för DB2 länkade tjänsten:
 | schema |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värde är: **grundläggande**. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till DB2-databasen. |Ja |
-| lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som SecureString. |Ja |
+| lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -188,7 +188,7 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Dubbel |Dubbel |
-| Flyttal |Dubbel |
+| flyttal |Dubbel |
 | Bild |Sträng |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |

@@ -1,26 +1,20 @@
 ---
-title: "Kör en disaster recovery-gå till din sekundär lokal plats med Azure Site Recovery | Microsoft Docs"
+title: "Kör en disaster recovery-gå till en sekundär lokal plats med Azure Site Recovery | Microsoft Docs"
 description: "Lär dig mer om med disaster recovery visa till din sekundär lokal plats med Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 445878e2-6682-49ba-914d-4c6824ab08a6
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e5f8dce1ca2f728d15161622fb9ff2afb4b6c86
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Kör en katastrof återställningsgranskning för Hyper-V virtuella datorer till din sekundär lokal plats
+# <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Kör en katastrof återställningsgranskning för Hyper-V virtuella datorer till en sekundär lokal plats
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din strategi för katastrofåterställning genom att hantera och samordna replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
 
@@ -31,7 +25,7 @@ Den här kursen visar hur du kör en katastrof återställningsgranskning för H
 > * Köra ett redundanstest för en enskild dator
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du kan köra ett redundanstest med ett par alternativ för nätverk på den sekundära platsen. Du kan köra redundans utan ett nätverk med ett befintligt nätverk eller låt Site Recovery automatiskt skapa ett testnätverk. 
 **Om du vill använda ett befintligt produktionsnätverk för att testa redundans:**:

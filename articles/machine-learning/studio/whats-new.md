@@ -3,7 +3,7 @@ title: "Vad är nytt i Azure Machine Learning | Microsoft Docs"
 description: "Nya funktioner som är tillgängliga i Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
-ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: raymondl
+ms.openlocfilehash: 0e97a8906bf0e5ea790725efbef16b883138c87a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Vad är nytt i Azure Machine Learning?
 

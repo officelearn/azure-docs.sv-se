@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
  
@@ -57,7 +57,10 @@ Följande viktiga ändringar har införts i kompatibilitetsnivå 1.1:
   * **tidigare versioner:** fältnamn ändrades till gemener när de bearbetas av Azure Stream Analytics-motorn. 
 
   * **aktuell version:** skiftlägeskänslighet sparas för fältnamn när de bearbetas av Azure Stream Analytics-motorn. 
- 
+
+  > [!NOTE] 
+  > Spara skiftlägeskänslighet är ännu inte tillgänglig för dataströmmen analytiska jobb finns med hjälp av Edge-miljö. Därför kan konverteras alla fältnamn till gemener om ditt jobb finns på kanten. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **tidigare versioner:** CREATE TABLE-kommando inte att filtrera händelser med NaN (inte ett tal. Till exempel oändligt, -oändligt) i en FLOAT kolumn eftersom de ligger utanför det dokumenterade intervallet för dessa siffror.

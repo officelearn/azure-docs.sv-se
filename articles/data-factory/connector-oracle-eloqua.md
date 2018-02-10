@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a389f4be625dd301b7210000555d71018b4cdec8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: af1da8c77ebe499cb413168b3234c02db941c3d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Kopiera data från Oracle Eloqua med hjälp av Azure Data Factory (Beta)
 
@@ -50,7 +50,7 @@ Följande egenskaper stöds för Oracle-Eloqua länkade tjänsten:
 | typ | Egenskapen type måste anges till: **Eloqua** | Ja |
 | slutpunkt | Slutpunkten för Eloqua-server. (det vill säga eloqua.example.com)  | Ja |
 | användarnamn | Namn och användarnamn för kontot Eloqua i formatet: namn/användarnamnet för platsen. (det vill säga Eloqua/Alice)  | Ja |
-| lösenord | Lösenordet för användarnamnet. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

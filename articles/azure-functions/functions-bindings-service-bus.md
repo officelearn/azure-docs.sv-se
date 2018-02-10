@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -210,7 +210,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**typ** | Saknas | Måste anges till ”serviceBusTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller avsnittet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
-|**Könamn**|**Könamn**|Namnet på den kö som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
+|**queueName**|**Könamn**|Namnet på den kö som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
 |**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om övervakning av ett ämne, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om övervakning av ett ämne, inte för en kö.|
 |**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne. |
@@ -448,7 +448,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**typ** | Saknas | Måste anges till ”serviceBus”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till ”out”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller -avsnittet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
-|**Könamn**|**Könamn**|Namnet på kön.  Ange endast om att skicka meddelanden till kön, inte för ett ämne.
+|**queueName**|**Könamn**|Namnet på kön.  Ange endast om att skicka meddelanden till kön, inte för ett ämne.
 |**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om avsnittet meddelanden, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om avsnittet meddelanden, inte för en kö.|
 |**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne.|
@@ -468,6 +468,13 @@ I C# och C# skript, få åtkomst till den kö eller ett ämne med hjälp av en m
 Du kan använda för att skapa flera meddelanden i en C# eller C#-skriptfunktion `ICollector<T>` eller `IAsyncCollector<T>`. Skapa ett meddelande när du anropar den `Add` metoden.
 
 I JavaScript, få åtkomst till den kö eller ett ämne med hjälp av `context.bindings.<name>`. `<name>`är värdet som angetts i den `name` -egenskapen för *function.json*. Du kan tilldela en sträng, en bytematris eller ett Javascript-objekt (deserialisera till JSON) `context.binding.<name>`.
+
+## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
+
+| Bindning | Referens |
+|---|---|
+| Service Bus | [Felkoder för Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Service Bus | [Service Bus-gränser](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 ## <a name="next-steps"></a>Nästa steg
 

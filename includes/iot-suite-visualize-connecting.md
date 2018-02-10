@@ -16,7 +16,7 @@ Du kan visa telemetri som skickas från enheten på den **enheter** sida i lösn
 
 ## <a name="act-on-your-device"></a>Fungerar på din enhet
 
-Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fjärranslutna övervakningslösning. Till exempel i fjärranslutna övervakningslösning **kylaggregat** enheter implementera en **omstart** metod.
+Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fjärranslutna övervakningslösning. Till exempel i fjärranslutna övervakningslösning **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
 
 1. Välj **enheter** att navigera till den **enheter** sida i lösningen.
 
@@ -26,11 +26,15 @@ Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fj�
 
 1. Om du vill visa en lista över de metoder som du kan anropa på enheten, Välj **schema**. Du kan välja flera enheter i listan om du vill schemalägga en metod för att köras på flera enheter. Den **schema** panelen visas typerna av metoden som är gemensamma för alla enheter som du har valt.
 
-1. Välj **omstart**, ange Jobbnamnet på **RebootPhysicalChiller**, och välj **Verkställ**:
+1. Välj **FirmwareUpdate**, ange Jobbnamnet på **UpdatePhysicalChiller**. Ange **Version på inbyggd programvara** till **2.0.0**, ange **Firmware URI** till **http://contoso.com/updates/firmware.bin**, och välj sedan  **Tillämpa**:
 
-    ![Schemalägga omstarten](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Schemalägga firmware-uppdatering](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Ett meddelande visas i konsolen köra din kod för enheten när enheten hanterar metoden.
+1. En sekvens av meddelanden som visas i konsolen köra koden enhet medan den simulerade enheten hanterar metoden.
+
+1. När uppdateringen är klar visas den nya versionen av inbyggd programvara på den **enheter** sidan:
+
+    ![Uppdateringen slutfördes](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > För att spåra status för jobb i lösningen, Välj **visa**.

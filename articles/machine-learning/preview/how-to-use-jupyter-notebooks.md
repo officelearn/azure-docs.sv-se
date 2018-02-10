@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Hur du använder Jupyter-anteckningsbok i Azure Machine Learning arbetsstationen
 
 Azure Machine Learning arbetsstationen stöder interaktiva datavetenskap experiment via dess integrering av Jupyter-anteckningsbok. Den här artikeln beskriver hur du gör effektiv användning av den här funktionen för att öka hastigheten och kvaliteten på din interaktiva datavetenskap experiment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - [Installera och skapa Azure Machine Learning](quickstart-installation.md).
 - Bekanta dig med [Jupyter-anteckningsbok](http://jupyter.org/)eftersom den här artikeln inte handlar om lära så använder du Jupyter.
 
@@ -42,15 +42,15 @@ Du kan använda många olika kärnor i Azure ML-arbetsstationen genom att konfig
 >Granska de [konfigurera körning](experimentation-service-configuration.md) för mer information om kör konfigurationer och beräkna mål.
 
 ### <a name="kernel-naming-convention"></a>Kernel namngivningskonvention
-De kernlar som är vanligtvis har namnet i formatet ”\<projektnamn > \<kör config namn >”. Om du har en kör konfiguration med namnet till exempel _docker-python_ i ett projekt med namnet _myIris_, du kan hitta en kärna med namnet ”myIris docker-python” i listan kernel när du öppnar en Jupyter-anteckningsbok.
-
+Azure ML-arbetsstationen genererar anpassade Jupyter kärnor.  Dessa med namnet ”\<projektnamn > \<kör config namn >”. Om du har en kör konfiguration med namnet till exempel _docker-python_ i ett projekt med namnet _myIris_, Azure ML tillgängliggör en kärna med namnet ”myIris docker-python”.  Du anger körs kernel i Jupyter-anteckningsbok ”Kernel” i ”ändra kernel” undermeny-menyn. Namnet på körs kernel visas på längst till höger på menyraden.
+ 
 Arbetsstationen stöder för närvarande följande typer av kärnor.
 
 ### <a name="local-python-kernel"></a>Lokala Python-kernel
 Den här Python kernel har stöd för körning på den lokala datorn. Det är integrerat med Azure Machine Learning Körningshistorik stöd. Namnet på kerneln är vanligtvis ”my_project_name lokala”.
 
 >[!NOTE]
->Använd inte ”Python 3” kernel. Det är en fristående kernel som tillhandahålls av Jupyter som standard. Det är inte integrerat med Azure Machine Learning-funktioner.
+>Använd inte ”Python 3” kernel. Det är en fristående kernel som tillhandahålls av Jupyter som standard. Det är inte integrerat med Azure Machine Learning-funktioner. Till exempel den _% azureml_ Jupyter magiskt funktioner returnerar ”hittades inte” fel. 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python Kernel i Docker (lokala eller fjärranslutna)
 Den här Python kernel körs i en dockerbehållare på den lokala datorn eller i en fjärransluten Linux-VM. Namnet på kerneln är vanligtvis ”my_project docker”. Den associerade `docker.runconfig` filen har det `Framework` fältet inställt på `Python`.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d90bafebcd942454b31d0f62b0daf3f01ad6926
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Om du vill använda grundläggande autentisering för egenskapen ”authenticati
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användare som har åtkomst till SFTP-servern. |Ja |
-| lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString. | Ja |
+| lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel:**
 
@@ -104,8 +104,8 @@ Om du vill använda autentisering med SSH offentlig nyckel för egenskapen ”au
 |:--- |:--- |:--- |
 | userName | Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till den fil för privat nyckel som har åtkomst till Integration Runtime. Gäller endast när automatisk värdbaserade Integration Runtime har angetts i ”connectVia”. | Ange antingen det `privateKeyPath` eller `privateKeyContent`.  |
-| privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. Privata SSH-nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString. | Ange antingen det `privateKeyPath` eller `privateKeyContent`. |
-| passPhrase | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. Markera det här fältet som en SecureString. | Ja om filen för privata nyckeln skyddas av ett lösenord. |
+| privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. Privata SSH-nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ange antingen det `privateKeyPath` eller `privateKeyContent`. |
+| passPhrase | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja om filen för privata nyckeln skyddas av ett lösenord. |
 
 > [!NOTE]
 > SFTP-anslutningen har stöd för OpenSSH-nyckel. Kontrollera att din nyckelfilen är i rätt format. Du kan använda Putty för att konvertera från .ppk till OpenSSH-format.

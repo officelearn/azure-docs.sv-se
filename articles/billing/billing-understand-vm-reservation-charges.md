@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Förstå hur reserverade virtuella datorinstans rabatt används
 När du köper reserverade VM-instans tillämpas reservation rabatten automatiskt på virtuella datorer som matchar de attribut och kvantitet för reservation. En reservation omfattar infrastrukturkostnader för de virtuella datorerna. I följande tabell visas kostnaderna för den virtuella datorn när du har köpt en reservation. I samtliga fall måste du debiteras för lagring och nätverk i de normala takt.
@@ -31,7 +31,7 @@ När du köper reserverade VM-instans tillämpas reservation rabatten automatisk
 |Virtuella Windows-datorer med [Hybridrapportering i Azure-förmån](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservation omfattar kostnader med infrastruktur. Windows-programvarukostnader omfattas av Hybrid-förmån för Azure. Ytterligare programvara debiteras separat.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Program för reservation rabatt till icke - Windows-datorer
- Reservation rabatt tillämpas på VM-instanser som körs på timbasis. Reservationer som du har köpt matchas Usage sänds av de virtuella datorerna som körs att tillämpa reservation rabatt. Följande diagram illustrerar tillämpningen av en fakturerbar användning av VM-reservation. Bilden är baserad på en reservation inköp och två matchande VM-instanser.
+ Reservation rabatt tillämpas på VM-instanser som körs på timbasis. Reservationer som du har köpt matchas Usage sänds av de virtuella datorerna som körs att tillämpa reservation rabatt. För virtuella datorer som fungerar som en fullständig timme, fylls reservationen från andra virtuella datorer som inte använder en reservation, inklusive virtuella datorer som körs samtidigt. Programmet reservation för virtuella datorer i en timme är låst i slutet av en timme. En virtuell dator körs inte i en timma eller samtidiga virtuella datorer inom en timme inte fyller timmes reservation underutnyttjade reservationen för den timmen. Följande diagram illustrerar tillämpningen av en fakturerbar användning av VM-reservation. Bilden är baserad på en reservation inköp och två matchande VM-instanser.
 
 ![Reserverade VM-instans-program](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -44,6 +44,16 @@ För att förstå och visa tillämpningen av dina reservationer i fakturering an
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Användning av reservation rabatt på virtuella Windows-datorer
 När du kör Windows VM-instanser används reservationen så att den täcker kostnader med infrastruktur. Användning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-program på grundval av per vCPU. Se [Windows programvarukostnader med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows-licensieringskostnaderna med [Azure Hybrid-förmån för Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera reserverade virtuella Datorinstanser](billing-manage-reserved-vm-instance.md)
+- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
+- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+- [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

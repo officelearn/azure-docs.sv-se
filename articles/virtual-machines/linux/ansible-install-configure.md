@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installera och konfigurera Ansible för att hantera virtuella datorer i Azure
 Den här artikeln beskrivs hur du installerar Ansible och Azure SDK för Python-moduler som krävs för några av de vanligaste Linux-distributioner. Du kan installera Ansible på andra distributioner genom att justera installerade paket så att de passar din viss plattform. Om du vill skapa Azure-resurser på ett säkert sätt du också lära dig hur du skapar och definiera autentiseringsuppgifter för Ansible ska användas. 
@@ -28,7 +28,7 @@ Fler alternativ för installation och anvisningar för ytterligare plattformar f
 
 
 ## <a name="install-ansible"></a>Installera Ansible
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAnsible* i den *eastus* plats:
+Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAnsible* i den *eastus* plats:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -41,7 +41,7 @@ Nu kan skapa en virtuell dator och installera Ansible för en av följande distr
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -72,7 +72,7 @@ Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credent
 
 
 ### <a name="centos-73"></a>CentOS 7.3
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credent
 
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -157,7 +157,7 @@ Ett exempel på utdata från föregående kommandona är följande:
 }
 ```
 
-Om du vill autentisera till Azure måste du också behöva hämta ditt Azure prenumerations-ID med [az konto visa](/cli/azure/account#show):
+Om du vill autentisera till Azure måste du också behöva hämta ditt Azure prenumerations-ID med [az konto visa](/cli/azure/account#az_account_show):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"

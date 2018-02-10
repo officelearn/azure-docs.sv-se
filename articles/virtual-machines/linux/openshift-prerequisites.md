@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Gemensamma krav för distribution av OpenShift i Azure
 
@@ -52,14 +52,14 @@ Den här guiden beskriver hur du skapar artefakter som är associerade med krave
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
-Logga in på Azure-prenumerationen med den [az inloggningen](/cli/azure/#login) kommando och följa den på skärmen anvisningarna eller klicka på **prova** att använda molnet Shell.
+Logga in på Azure-prenumerationen med den [az inloggningen](/cli/azure/#az_login) kommando och följa den på skärmen anvisningarna eller klicka på **prova** att använda molnet Shell.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Du kan använda en dedikerad resursgrupp som värd för nyckelvalvet. Den här gruppen är separat från resursgruppen som klusterresurser OpenShift distribuera. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Du kan använda en dedikerad resursgrupp som värd för nyckelvalvet. Den här gruppen är separat från resursgruppen som klusterresurser OpenShift distribuera. 
 
 I följande exempel skapas en resursgrupp med namnet *keyvaultrg* i den *eastus* plats:
 
@@ -68,7 +68,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
-Skapa ett nyckelvalv för att lagra SSH-nycklar för klustret med det [az keyvault skapa](/cli/azure/keyvault#create) kommando. Nyckelvalv namn måste vara globalt unika.
+Skapa ett nyckelvalv för att lagra SSH-nycklar för klustret med det [az keyvault skapa](/cli/azure/keyvault#az_keyvault_create) kommando. Nyckelvalv namn måste vara globalt unika.
 
 I följande exempel skapas ett nyckelvalv med namnet *keyvault* i den *keyvaultrg* resursgrupp:
 
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
 OpenShift kommunicerar med Azure med ett användarnamn och lösenord eller ett huvudnamn för tjänsten. En Azure-tjänstens huvudnamn är en säkerhetsidentitet som du kan använda med appar, tjänster och verktyg för automatisering som OpenShift. Du styr och definiera behörigheter för vilka åtgärder tjänstens huvudnamn kan utföra i Azure. För att förbättra säkerheten utöver bara att ange ett användarnamn och lösenord, kan det här exemplet skapar en grundläggande service principal.
 
-Skapa en tjänstens huvudnamn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) och de autentiseringsuppgifter som OpenShift måste utdata.
+Skapa en tjänstens huvudnamn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) och de autentiseringsuppgifter som OpenShift måste utdata.
 
 I följande exempel skapar en tjänst huvudnamn och tilldelar det deltagarbehörighet till en resursgrupp med namnet myResourceGroup. Om du använder Windows kör ```az group show --name myResourceGroup --query id``` separat och använda utdata för att mata in alternativet--scope.
 

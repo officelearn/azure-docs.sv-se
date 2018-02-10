@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Load Balancer Standard översikt över Azure (förhandsversion)
 
 Azure Load Balancer Standard SKU och offentliga IP-Standard SKU kan tillsammans du skapa skalbar och tillförlitlig arkitekturer. Program som använder Load Balancer Standard kan dra nytta av nya funktioner. Låg latens och hög genomströmning skala är tillgängliga för miljontals flöden för alla TCP och UDP-program.
 
 >[!NOTE]
-> Load Balancer Standard-SKU är för närvarande under förhandsgranskning. Under förhandsgranskningen gör kanske funktionen inte samma grad av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Använd den allmänt tillgängliga [Load Balancer grundläggande SKU](load-balancer-overview.md) för produktion-tjänster. De funktioner som är associerade med den här förhandsversionen [tillgänglighet zoner](https://aka.ms/availabilityzones), och [HA portar](https://aka.ms/haports), kräver separat registrering just nu. Följ instruktionerna för respektive registrering för dessa funktioner, förutom att registrera dig för belastningsutjämnaren [Standard preview](#preview-sign-up).
+> Load Balancer Standard-SKU är för närvarande under förhandsgranskning. Under förhandsgranskningen gör kanske funktionen inte samma grad av tillgänglighet och tillförlitlighet som viktiga funktioner som är i allmänhet tillgänglighet. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Använd den allmänt tillgängliga [Load Balancer grundläggande SKU](load-balancer-overview.md) för produktion-tjänster. Att använda [tillgänglighet zoner Preview](https://aka.ms/availabilityzones) med den här förhandsversionen kräver en [separat anmälan](https://aka.ms/availabilityzones), förutom att registrera dig för belastningsutjämnaren [Standard preview](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Varför använda Load Balancer Standard?
 
@@ -325,13 +325,11 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Load Balancer Standard finns för närvarande i regionerna:
-- Östra USA 2
-- Centrala USA
-- Norra Europa
-- Västra centrala USA
-- Västra Europa
-- Sydostasien
+Load Balancer Standard finns för närvarande i alla regioner för offentliga moln.
+
+>[!IMPORTANT]
+> En kort tidsperiod, åtkomst till regioner utanför en första start regioner (östra USA 2 centrala USA, Norra Europa, västra centrala USA, västra Europa, Sydostasien) kräver registrering av ytterligare prenumeration funktioner (AllowLBPreviewWave2 och AllowLBPreviewWave3).  [Följ dessa anvisningar](#additionalpreviewregions). Kör alla även om du redan har registrerat dig för AllowLBPreview redan.
+> Det här kravet tas bort under de kommande veckorna.
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU-tjänsten begränsningar och förmåga
 
@@ -369,7 +367,12 @@ I följande tabell jämförs de gränser och förmågan offentliga IP-Basic och 
 Registrera prenumerationen för att delta i förhandsgranskningen för belastningen belastningsutjämnaren Standard SKU och tillhörande offentliga IP-Standard-SKU.  Registrera din prenumeration du får åtkomst från PowerShell eller Azure CLI 2.0. Om du vill registrera, utför du följande steg:
 
 >[!NOTE]
->Registrering av funktionen Load Balancer Standard kan ta upp till en timme att börja gälla globalt. Om du vill använda Load Balancer Standard med [tillgänglighet zoner](https://aka.ms/availabilityzones) och [HA portar](https://aka.ms/haports), en separat registrering krävs för att dessa förhandsgranskningar. Följ instruktionerna för respektive registreringen för dessa funktioner.
+>Registrering av funktionen Load Balancer Standard kan ta upp till en timme att börja gälla globalt. Om du vill använda Load Balancer Standard med [tillgänglighet zoner](https://aka.ms/availabilityzones), [separat anmälan](https://aka.ms/availabilityzones) krävs för AZ förhandsgranskning.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Åtkomst till regioner utanför en första start för en kort tidsperiod regioner (östra USA 2 centrala USA, Norra Europa, västra centrala USA, västra Europa, Sydostasien) kräva ytterligare prenumeration funktioner (AllowLBPreviewWave2 och AllowLBPreviewWave3).  Stegen nedan har ändrats för att aktivera ytterligare prenumeration funktioner. Kör alla även om du redan har registrerat dig för AllowLBPreview redan. Det här kravet tas bort under de kommande veckorna.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Logga med hjälp av Azure CLI 2.0
 
@@ -377,15 +380,19 @@ Registrera prenumerationen för att delta i förhandsgranskningen för belastnin
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. Åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Fortsätt till nästa steg när funktionen registreringstillstånd returnerar 'Registrerade':
+    Gå vidare till nästa steg när funktionen registreringstillstånd returnerar 'Registrerade' för var och en av ovanstående funktioner i prenumerationen. Exempel:
    
     ```json
     {
@@ -398,28 +405,33 @@ Registrera prenumerationen för att delta i förhandsgranskningen för belastnin
     }
     ```
     
-3. Slutför registreringen förhandsgranskningen genom att registrera prenumerationen med resursprovidern:
+4. Slutför registreringen förhandsgranskningen genom att registrera prenumerationen med resursprovidern:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>Logga med hjälp av PowerShell
 
 1. Registrera funktionen med providern:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. Åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Fortsätt till nästa steg när funktionen registreringstillstånd returnerar 'Registrerade':
-   
+  Gå vidare till nästa steg när funktionen registreringstillstånd returnerar 'Registrerade' för var och en av ovanstående funktioner i prenumerationen. Exempel:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Följande begränsningar gäller vid tidpunkten för förhandsgranskning och kan
 - IPv6 stöds inte.
 - I samband med tillgänglighet zoner är en frontend inte föränderliga från zonal till zonredundant eller vice versa. När en frontend skapas som zonredundant, förblir den zonredundant. När en frontend skapas som zonal, förblir den zonal.
 - I samband med tillgänglighet zoner kan zonal offentliga IP-adressen inte flyttas från en zon till en annan.
+- [Azure övervaka aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) stöds inte just nu.
+- Portalen stöder ännu inte utökade preview regioner.  Använd klientverktyg som mallar, Azure CLI 2.0 eller PowerShell som en lösning.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Load Balancer grundläggande](load-balancer-overview.md).
 - Lär dig mer om [tillgänglighet zoner](../availability-zones/az-overview.md).
+- Lär dig mer om [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
 - Lär dig mer om den andra nyckeln [nätverk](../networking/networking-overview.md) i Azure.
-
+- Lär dig mer om [mått som exponeras](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) i [Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview.md).

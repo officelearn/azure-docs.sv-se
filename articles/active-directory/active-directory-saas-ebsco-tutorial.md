@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Självstudier: Azure Active Directory-integrering med EBSCO
 
@@ -119,9 +119,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     o **unika element:**  
 
-     **Kundnr** = ange unika EBSCO kund-ID 
+    o **Kundnr** = ange unika EBSCO kund-ID 
 
-     **profil** = klienter kan anpassa länken för att dirigera användare till en viss profil (beroende på vad de köpa från EBSCO). De kan ange en specifik profil-ID. Main-ID: N är eds (EBSCO Discovery-tjänsten) och ehost (EBSOCOhost-databaser). Instruktioner för samma ges [här](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o **profil** = klienter kan anpassa länken för att dirigera användare till en viss profil (beroende på vad de köpa från EBSCO). De kan ange en specifik profil-ID. Main-ID: N är eds (EBSCO Discovery-tjänsten) och ehost (EBSOCOhost-databaser). Instruktioner för samma ges [här](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. EBSCO program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
     

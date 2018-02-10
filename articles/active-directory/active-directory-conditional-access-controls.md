@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Kontrollerna i Azure Active Directory för villkorlig åtkomst 
 
-Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till ett visst villkor (”när detta sker”). I samband med villkorlig åtkomst 
+Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
-- ”**När detta sker**” kallas **condition-instruktion**
+![Kontroll](./media/active-directory-conditional-access-controls/10.png)
 
-- ”**Gör du så här**” kallas **kontroller**
 
-![Kontroll](./media/active-directory-conditional-access-controls/11.png)
+I samband med villkorlig åtkomst 
+
+- ”**När detta sker**” kallas **villkor**
+
+- ”**Gör du så här**” kallas **åtkomstkontroller**
+
 
 Kombinationen av en condition-instruktion med kontrollerna representerar en princip för villkorlig åtkomst.
 
-![Kontroll](./media/active-directory-conditional-access-controls/12.png)
+![Kontroll](./media/active-directory-conditional-access-controls/61.png)
 
 Varje kontroll är antingen ett krav som måste uppfyllas av personen eller system som loggar in eller en begränsning på vilka användare kan göra när du har loggat in. 
 

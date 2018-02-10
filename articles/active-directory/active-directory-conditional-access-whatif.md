@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Azure Active Directory-verktyget om villkorlig åtkomst - förhandsgranskning
 
@@ -78,14 +78,14 @@ Standardvärdet för den här inställningen är **alla molnappar**. Standardins
 
 ### <a name="ip-address"></a>IP-adress
 
-IP-adressen är en enskild IPv4-adress för att efterlikna den [plats villkoret](active-directory-conditional-access-azure-portal.md#locations). Adressen representerar Internetuppkopplad adressen till enheten som används av dina användare för att logga in. Du kan verifiera IP-adressen för en enhet med, till exempel Gå till [vad är IP-adressen](https://whatismyipaddress.com).    
+IP-adressen är en enskild IPv4-adress för att efterlikna den [plats villkoret](active-directory-conditional-access-locations.md). Adressen representerar Internetuppkopplad adressen till enheten som används av dina användare för att logga in. Du kan verifiera IP-adressen för en enhet med, till exempel Gå till [vad är IP-adressen](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Enhetsplattformar
 
-Den här inställningen efterliknar den [enheten plattformar villkoret](active-directory-conditional-access-azure-portal.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)**. 
+Den här inställningen efterliknar den [enheten plattformar villkoret](active-directory-conditional-access-conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)**. 
 ### <a name="client-apps"></a>Klientappar
 
-Den här inställningen efterliknar den [klienten appar villkoret](active-directory-conditional-access-azure-portal.md#client-apps).
+Den här inställningen efterliknar den [klienten appar villkoret](active-directory-conditional-access-conditions.md#client-apps).
 Som standard, vilket medför en utvärdering av alla principer med **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda markerad. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)**. Du kan begränsa den här inställningen genom att välja:
 
 - **Webbläsaren** att utvärdera alla principer med minst **webbläsare** valda. 
@@ -95,7 +95,7 @@ Som standard, vilket medför en utvärdering av alla principer med **webbläsare
 
 ### <a name="sign-in-risk"></a>Inloggningsrisk
 
-Den här inställningen efterliknar den [inloggning risk villkoret](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Den här inställningen efterliknar den [inloggning risk villkoret](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Utvärdering 

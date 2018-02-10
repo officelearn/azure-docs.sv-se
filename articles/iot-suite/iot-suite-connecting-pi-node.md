@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: d2cc72f26568a362049f24323ffa598b6012d77f
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7f489a6b26edb9a58b21d318785d3804197b33cb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning förkonfigurerade lösningen (Node.js)
 
@@ -47,7 +47,7 @@ Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta t
 
 ### <a name="required-raspberry-pi-software"></a>Programvara som krävs hallon Pi
 
-Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på din hallon Pi. Följande steg visar hur du installerar Node.js v6.11.4 på din hallon Pi:
+Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på din hallon Pi. Följande steg visar hur du installerar Node.js v6 på din hallon Pi:
 
 1. Anslut till din hallon Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
 
@@ -57,16 +57,19 @@ Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på di
     sudo apt-get update
     ```
 
-1. Använd följande kommando för att ladda ned Node.js-binärfiler till din hallon Pi:
+1. Använd följande kommandon för att ta bort en befintlig installation av Node.js från din hallon Pi:
 
     ```sh
-    wget https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-armv7l.tar.gz
+    sudo apt-get remove nodered -y
+    sudo apt-get remove nodejs nodejs-legacy -y
+    sudo apt-get remove npm  -y
     ```
 
-1. Använd följande kommando för att installera binärfilerna:
+1. Använd följande kommando för att hämta och installera Node.js v6 på din hallon Pi:
 
     ```sh
-    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.11.4-linux-armv7l.tar.gz
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+    sudo apt-get install nodejs -y
     ```
 
 1. Använd följande kommando för att verifiera att du har installerat Node.js v6.11.4 har:
@@ -79,38 +82,37 @@ Om du inte redan gjort det, installera Node.js version 4.0.0 eller senare på di
 
 Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
-1. Skapa en mapp med namnet `RemoteMonitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i kommandoraden:
+1. Skapa en mapp med namnet `remotemonitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i kommandoraden:
 
     ```sh
     cd ~
-    mkdir RemoteMonitoring
-    cd RemoteMonitoring
+    mkdir remotemonitoring
+    cd remotemonitoring
     ```
 
 1. Om du vill hämta och installera de paket som du behöver utföra sample-appen genom att köra följande kommandon:
 
     ```sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. I den `RemoteMonitoring` mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare. På hallon Pi, kan du använda den `nano` eller `vi` textredigerare.
+1. I den `remotemonitoring` mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare. På hallon Pi, kan du använda den `nano` eller `vi` textredigerare.
 
 1. I den **remote_monitoring.js** fil, lägger du till följande `require` instruktioner:
 
     ```nodejs
-    'use strict';
-
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
+    var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätta platshållarvärdena `{Device Id}` och `{Device Key}` med värden som du antecknade för enheten etablerad på fjärranslutna övervakningslösning. Använd IoT Hub-värdnamnet från lösningen för att ersätta `{IoTHub Name}`. Om din IoT Hub-värdnamnet är till exempel `contoso.azure-devices.net`, Ersätt `{IoTHub Name}` med `contoso`:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållaren värdet `{device connection string}` med värdet som du antecknade för enheten etablerad på fjärranslutna övervakningslösning:
 
     ```nodejs
-    var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
+    var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
@@ -138,6 +140,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     var deviceLocation = "Building 44";
     var deviceLatitude = 47.638928;
     var deviceLongitude = -122.13476;
+    var deviceOnline = true;
     ```
 
 1. Lägg till följande variabel om du vill definiera egenskaperna rapporterade att skicka till lösningen. Dessa egenskaper innehåller metadata som beskriver metoderna och telemetri enheten använder:
@@ -189,7 +192,8 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
       "FirmwareUpdateStatus": deviceFirmwareUpdateStatus,
       "Location": deviceLocation,
       "Latitude": deviceLatitude,
-      "Longitude": deviceLongitude
+      "Longitude": deviceLongitude,
+      "Online": deviceOnline
     }
     ```
 
@@ -211,7 +215,7 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     }
     ```
 
-1. Lägg till följande funktion för att hantera direkt metodanrop från lösningen. Lösningen använder direkta metoder för att fungera på enheter:
+1. Lägg till följande allmänna funktion för att hantera direkt metodanrop från lösningen. Funktionen visar information om den direkta metoden som anropades, men i det här exemplet ändrar inte enheten på något sätt. Lösningen använder direkta metoder för att fungera på enheter:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -220,14 +224,116 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
       // Complete the response
       response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (!!err) {
-          console.error('An error ocurred when sending a method response:\n' +
-            err.toString());
+        if (err) console.error('Error sending method response :\n' + err.toString());
+        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+      });
+    }
+    ```
+
+1. Lägg till följande funktion att hantera den **FirmwareUpdate** direkt metodanrop från lösningen. Funktionen verifierar parametrar i nyttolasten direkta metoden och kör sedan en firmware-uppdatering simulering asynkront:
+
+    ```node.js
+    function onFirmwareUpdate(request, response) {
+      // Get the requested firmware version from the JSON request body
+      var firmwareVersion = request.payload.Firmware;
+      var firmwareUri = request.payload.FirmwareUri;
+      
+      // Ensure we got a firmware values
+      if (!firmwareVersion || !firmwareUri) {
+        response.send(400, 'Missing firmware value', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+        });
+      } else {
+        // Respond the cloud app for the device method
+        response.send(200, 'Firmware update started.', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else {
+            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+
+            // Run the simulated firmware update flow
+            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+          }
+        });
+      }
+    }
+    ```
+
+1. Lägg till följande funktion för att simulera en tidskrävande firmware update flöde som rapporterar förlopp tillbaka till lösningen:
+
+    ```node.js
+    // Simulated firmwareUpdate flow
+    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+      console.log('Simulating firmware update flow...');
+      console.log('> Firmware version passed: ' + firmwareVersion);
+      console.log('> Firmware URI passed: ' + firmwareUri);
+      async.waterfall([
+        function (callback) {
+          console.log("Image downloading from " + firmwareUri);
+          var patch = {
+            FirmwareUpdateStatus: 'Downloading image..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Downloaded, applying firmware " + firmwareVersion);
+          deviceOnline = false;
+          var patch = {
+            FirmwareUpdateStatus: 'Applying firmware..',
+            Online: false
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(8000, callback);
+        },
+        function (callback) {
+          console.log("Rebooting");
+          var patch = {
+            FirmwareUpdateStatus: 'Rebooting..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Firmware updated to " + firmwareVersion);
+          deviceOnline = true;
+          var patch = {
+            FirmwareUpdateStatus: 'Firmware updated',
+            Online: true,
+            Firmware: firmwareVersion
+          };
+          reportUpdateThroughTwin(patch, callback);
+          callback(null);
+        }
+      ], function(err) {
+        if (err) {
+          console.error('Error in simulated firmware update flow: ' + err.message);
         } else {
-          console.log('Response to method \'' + request.methodName +
-            '\' sent successfully.');
+          console.log("Completed simulated firmware update flow");
         }
       });
+
+      // Helper function to update the twin reported properties.
+      function reportUpdateThroughTwin(patch, callback) {
+        console.log("Sending...");
+        console.log(JSON.stringify(patch, null, 2));
+        client.getTwin(function(err, twin) {
+          if (!err) {
+            twin.properties.reported.update(patch, function(err) {
+              if (err) callback(err);
+            });      
+          } else {
+            if (err) callback(err);
+          }
+        });
+      }
+
+      function sleep(milliseconds, callback) {
+        console.log("Simulate a delay (milleseconds): " + milliseconds);
+        setTimeout(function () {
+          callback(null);
+        }, milliseconds);
+      }
     }
     ```
 
@@ -235,15 +341,19 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
     ```node.js
     function sendTelemetry(data, schema) {
-      var d = new Date();
-      var payload = JSON.stringify(data);
-      var message = new Message(payload);
-      message.properties.add('$$CreationTimeUtc', d.toISOString());
-      message.properties.add('$$MessageSchema', schema);
-      message.properties.add('$$ContentType', 'JSON');
+      if (deviceOnline) {
+        var d = new Date();
+        var payload = JSON.stringify(data);
+        var message = new Message(payload);
+        message.properties.add('$$CreationTimeUtc', d.toISOString());
+        message.properties.add('$$MessageSchema', schema);
+        message.properties.add('$$ContentType', 'JSON');
 
-      console.log('Sending device message data:\n' + payload);
-      client.sendEvent(message, printErrorFor('send event'));
+        console.log('Sending device message data:\n' + payload);
+        client.sendEvent(message, printErrorFor('send event'));
+      } else {
+        console.log('Offline, not sending telemetry');
+      }
     }
     ```
 
@@ -255,11 +365,11 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
 1. Lägg till följande kod:
 
-    - Öppna en anslutning.
-    - Ställ in en hanterare för egenskaper.
-    - Skicka rapporterat egenskaper.
-    - Registrera hanterare för direkta metoder.
-    - Börja skicka telemetri.
+    * Öppna en anslutning.
+    * Ställ in en hanterare för egenskaper.
+    * Skicka rapporterat egenskaper.
+    * Registrera hanterare för direkta metoder. En separat hanterare används för firmware-uppdateringsmetoden direkt.
+    * Börja skicka telemetri.
 
     ```nodejs
     client.open(function (err) {
@@ -282,13 +392,13 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
             // Send reported properties
             twin.properties.reported.update(reportedProperties, function (err) {
               if (err) throw err;
-              console.log('twin state reported');
+              console.log('Twin state reported');
             });
 
             // Register handlers for all the method names we are interested in.
             // Consider separate handlers for each method.
             client.onDeviceMethod('Reboot', onDirectMethod);
-            client.onDeviceMethod('FirmwareUpdate', onDirectMethod);
+            client.onDeviceMethod('FirmwareUpdate', onFirmwareUpdate);
             client.onDeviceMethod('EmergencyValveRelease', onDirectMethod);
             client.onDeviceMethod('IncreasePressure', onDirectMethod);
           }

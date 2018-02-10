@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache.
@@ -119,36 +119,36 @@ Följande är att tänka på för att välja ett erbjudande för cachen.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Azure Redis-Cache-prestanda
-I följande tabell visas de maximala bandbredd värden som observerats vid testning av olika storlekar på Standard och Premium cachelagrar med `redis-benchmark.exe` från ett Iaas-VM mot Azure Redis-Cache-slutpunkten. 
+I följande tabell visas de maximala bandbredd värden som observerats vid testning av olika storlekar på Standard och Premium cachelagrar med `redis-benchmark.exe` från ett Iaas-VM mot Azure Redis-Cache-slutpunkten. För SSL-genomströmning används redis-prestandamått med stunnel för att ansluta till Azure Redis-Cache-slutpunkten.
 
 >[!NOTE] 
 >Dessa värden är inte garanterat och det finns inga SLA för dessa siffror, men bör vara vanliga. Du bör läsa testa programmet att fastställa rätt cachestorleken för ditt program.
->
+>Dessa värden kan ändras när vi publicerar nya resultaten regelbundet.
 >
 
 Vi kan upprätta följande slutsatser från den här tabellen:
 
-* Dataflöde för cacheminnen som har samma storlek är högre upp i Premium-nivån jämfört med standardnivån. Med en 6 GB Cache är genomflödet i P1 exempelvis 180 000 RPS jämfört med 49,000 för C3.
+* Dataflöde för cacheminnen som har samma storlek är högre upp i Premium-nivån jämfört med standardnivån. Med en 6 GB Cache är genomflödet i P1 exempelvis 180 000 RPS jämfört med 100 000 för C3.
 * Med Redis-kluster, ökar genomflödet linjärt när du ökar antalet delar (noder) i klustret. Till exempel om du skapar ett P4 kluster på 10 delar det tillgängliga genomflödet är 400 000 * 10 = 4 miljoner RPS.
 * Dataflöde för större viktiga storlekar är högre upp i Premium-nivån jämfört med standardnivån.
 
-| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek |
-| --- | --- | --- | --- | --- |
-| **Standard cache-storlekar** | | |**Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Begäranden per sekund (RPS)** |
-| C0 |250 MB |Delad |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62.5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150,000 |
-| **Premium cache-storlekar** | |**CPU-kärnor per Fragmentera** | **Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Begäranden per sekund (RPS) per Fragmentera** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |
+| Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
+| --- | --- | --- | --- | --- | --- |
+| **Standard cache-storlekar** | | |**Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Förfrågningar per andra (RPS) icke-SSL** |**Förfrågningar per andra (RPS) SSL** |
+| C0 |250 MB |Delad |100 / 12.5 |15,000 |7,500 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| **Premium cache-storlekar** | |**CPU-kärnor per Fragmentera** | **Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Förfrågningar per andra (RPS) icke-SSL, per Fragmentera** |**Förfrågningar per andra (RPS) SSL per Fragmentera** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
+| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
+| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
 
-Anvisningar om hur du hämtar Redis-verktyg som `redis-benchmark.exe`, finns det [hur kan jag köra Redis kommandon?](#cache-commands) avsnitt.
+Instruktioner om hur du konfigurerar stunnel eller hämta Redis-verktyg som `redis-benchmark.exe`, finns det [hur kan jag köra Redis kommandon?](#cache-commands) avsnitt.
 
 <a name="cache-region"></a>
 

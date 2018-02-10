@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Pingboard för automatisk användaretablering
 
@@ -93,7 +93,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD Pingboard användarkont
 
 12. Välj **spara** att starta den första synkroniseringen av användare som tilldelats Pingboard.
 
-Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter. Rapporterna beskrivs alla åtgärder som utförs av tjänsten etablering Pingboard appen.
+Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar. Loggarna beskrivs alla åtgärder som utförs av tjänsten etablering Pingboard appen.
 
 Mer information om hur du tolkar Azure AD-etablering loggar finns [rapport om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Vad är Azure-diagnostik
 Azure-diagnostik är funktion i Azure som möjliggör insamling av diagnostikdata på ett distribuerat program. Du kan använda tillägget diagnostik från ett antal olika källor. Stöds för närvarande är Azure Cloud Service webb- och arbetsroller, Azure virtuella datorer som kör Microsoft Windows och Service Fabric. Andra Azure-tjänster har sina egna separata diagnostik.
@@ -75,6 +75,6 @@ Kom igång med [övervaka ett Service Fabric-program](../service-fabric/service-
 ## <a name="general-azure-diagnostics-articles"></a>Allmänna Azure Diagnostics artiklar
 * [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/library/azure/mt634524.aspx) – Lär dig hur du ändrar schemafilen för att samla in och vidarebefordra diagnostikdata. Observera att du kan också använda Visual Studio för att ändra schemafilen.
 * [Hur Azure-diagnostik data lagras i Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -känna till namnen på de tabeller och blobbar där diagnostiska data skrivs.
-* Lär dig hur du [prestandaräknare i Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Lär dig hur du [prestandaräknare i Azure-diagnostik](../cloud-services/diagnostics-performance-counters.md).
 * Lär dig hur du [väg Azure diagnostikinformation till Application Insights](azure-diagnostics-configure-application-insights.md)
 * Om du har problem med att starta diagnostik eller söka efter data i Azure Storage-tabeller finns [felsöka Azure-diagnostik](azure-diagnostics-troubleshooting.md)

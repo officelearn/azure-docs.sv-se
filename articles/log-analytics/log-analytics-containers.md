@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a4b2407f392ed35968c9a6c8eeeb49c0c3cfe10e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -53,8 +53,8 @@ I följande tabell beskrivs de Docker orchestration och stöd för behållaren i
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Tjänst<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat öppna<br>Skift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
-| Windows Server<br>(fristående) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Linux-server<br>(fristående) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(standalone) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux-server<br>(standalone) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### <a name="docker-versions-supported-on-linux"></a>Docker-versioner som stöds på Linux
@@ -546,18 +546,18 @@ I följande tabell visas exempel på poster som samlas in av lösningen behålla
 | --- | --- | --- |
 | Prestanda för värdar och -behållare | `Type=Perf` | % Processortid för datorn, objektnamn, CounterName &#40; disken läser MB, Disk skriver MB minne användning MB nätverket tar emot byte, nätverket skicka byte, Processor användning sek nätverket &#41; CounterValue, TimeGenerated, räknarsökväg, SourceSystem |
 | Behållaren inventering | `Type=ContainerInventory` | TimeGenerated, dator, behållarnamn ContainerHostname, bild, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommandot, CreatedTime, StartedTime, FinishedTime, SourceSystem, behållar-ID, ImageID |
-| Behållaren image inventering | `Type=ContainerImageInventory` | TimeGenerated, dator, bild, ImageTag, ImageSize, VirtualSize, körs, pausas, stoppas, misslyckades, SourceSystem, ImageID, TotalContainer |
+| Behållaren image inventering | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Behållaren logg | `Type=ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållarnamn LogEntrySource, LogEntry, SourceSystem, behållar-ID |
-| Behållaren loggfiler | `Type=ContainerServiceLog`  | TimeGenerated, dator, TimeOfCommand, bild, kommandot, SourceSystem, behållar-ID |
-| Behållaren nod inventering | `Type=ContainerNodeInventory_CL`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes inventering | `Type=KubePodInventory_CL` | TimeGenerated, dator, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Behållaren process | `Type=ContainerProcess_CL` | TimeGenerated, dator, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes händelser | `Type=KubeEvents_CL` | TimeGenerated, dator, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, meddelande |
+| Behållaren loggfiler | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Behållaren nod inventering | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes inventering | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Behållaren process | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes händelser | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
 
 Etiketter som läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodLabel etiketterna visas i tabellen är exempel. Därför `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` kommer skiljer sig åt i din miljö datauppsättning och allmänt likna `PodLabel_yourlabel_s`.
 
 
-## <a name="monitor-containers"></a>Övervakaren behållare
+## <a name="monitor-containers"></a>Övervaka behållare
 När du har aktiverat i OMS-portalen lösningen i **behållare** panelen visar sammanfattningsinformation om behållaren-värdar och behållare som körs på värdar.
 
 ![Behållare sida vid sida](./media/log-analytics-containers/containers-title.png)
@@ -653,7 +653,7 @@ Som visar en lista över prestandamått som samlas in för en enskild behållare
 ## <a name="example-log-search-queries"></a>Exempel loggen sökfrågor
 Det vara bra att skapa frågor som börjar med ett exempel eller två och ändra dem så att de passar din miljö. Som en startpunkt som du kan experimentera med den **exempelfrågor** område för att hjälpa dig att skapa mer avancerade frågor.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Behållare frågor](./media/log-analytics-containers/containers-queries.png)
 

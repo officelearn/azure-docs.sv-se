@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket gör att inga lösenord krävs för att logga in. I den här artikeln visas hur du kan skapa ett RSA-nyckelfilpar med SSH-protokollversion 2 med en offentlig och en privat nyckel för virtuella Linux-datorer. Du kan utföra dessa steg med Azure Cloud Shell, en macOS- eller Linux-värd eller Windows-undersystem för Linux. Mer detaljerade steg och ytterligare exempel finns i [detaljerade steg för att skapa SSH-nyckelpar och certifikat](create-ssh-keys-detailed.md).
@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>Använda SSH-nyckelpar
-Den offentliga nyckel du placerar i din virtuella Linux-dator i Azure lagras som standard i `~/.ssh/id_rsa.pub`, om du inte har ändrat plats när du skapade den. Om du använder [Azure CLI 2.0](/cli/azure) när du skapar din virtuella dator anger du plats för den offentliga nyckeln när du använder [az vm create](/cli/azure/vm#create) med alternativet `--ssh-key-path`. Om du kopierar och klistrar in innehållet i den offentliga nyckelfilen för att använda det i Azure Portal eller i en Resource Manager-mall ska du se till att inte kopiera några extra blanksteg. Om du exempelvis använder OS X kan du skicka den offentliga nyckelfilen (som standard **~/.ssh/id_rsa.pub**) till **pbcopy** för att kopiera innehållet (det finns andra Linux-program som gör samma sak, som `xclip`).
+Den offentliga nyckel du placerar i din virtuella Linux-dator i Azure lagras som standard i `~/.ssh/id_rsa.pub`, om du inte har ändrat plats när du skapade den. Om du använder [Azure CLI 2.0](/cli/azure) när du skapar din virtuella dator anger du plats för den offentliga nyckeln när du använder [az vm create](/cli/azure/vm#az_vm_create) med alternativet `--ssh-key-path`. Om du kopierar och klistrar in innehållet i den offentliga nyckelfilen för att använda det i Azure Portal eller i en Resource Manager-mall ska du se till att inte kopiera några extra blanksteg. Om du exempelvis använder OS X kan du skicka den offentliga nyckelfilen (som standard **~/.ssh/id_rsa.pub**) till **pbcopy** för att kopiera innehållet (det finns andra Linux-program som gör samma sak, som `xclip`).
 
 Om du inte är bekant med offentliga nycklar för SSH kan du se din offentliga nyckel genom att köra `cat` enligt följande, och ersätta `~/.ssh/id_rsa.pub` med din egen plats för offentlig nyckelfil:
 

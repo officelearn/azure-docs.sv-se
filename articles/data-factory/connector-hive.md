@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8842adcc00a1230f252411d64c22d497faeec5b2
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -54,7 +54,7 @@ Följande egenskaper stöds för Hive länkade tjänsten:
 | zooKeeperNameSpace | Namnområdet på ZooKeeper under vilka Hive Server 2 noder har lagts till.  | Nej |
 | useNativeQuery | Anger om drivrutinen använder interna HiveQL frågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | Nej |
 | användarnamn | Det användarnamn som du använder för att komma åt Hive-servern.  | Nej |
-| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn kan du markera det här fältet som en SecureString och lagra den på ett säkert sätt i ADF, eller lagra lösenord i Azure Key Vault kan kopiera aktivitet pull därifrån vid kopiering av data - utfyllnadslinjer RN mer från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | httpPath | Partiell URL som motsvarar Hive-server.  | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -39,7 +39,7 @@ Om detta inte är den information du söker efter, lämna en kommentar i slutet 
 
 ## <a name="cloud-apps-assignments"></a>Molnet appar tilldelningar
 
-Med principer för villkorlig åtkomst kan du styra hur användarna kommer åt din [molnappar](active-directory-conditional-access-azure-portal.md#who). Du måste välja minst en molnapp för när du konfigurerar en princip för villkorlig åtkomst. 
+Med principer för villkorlig åtkomst kan du styra hur användarna kommer åt din [molnappar](active-directory-conditional-access-conditions.md#cloud-apps). Du måste välja minst en molnapp för när du konfigurerar en princip för villkorlig åtkomst. 
 
 ![Välj molnappar för principen](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Du kan konfigurera villkoret enhet plattform för att koppla principen till oper
 
 ## <a name="client-apps-condition"></a>Klienten appar villkor 
 
-I principen för villkorlig åtkomst konfigurerar du den [klientappar](active-directory-conditional-access-azure-portal.md#client-apps) villkoret för att koppla principen till klientappen som har initierat en anslutningsförsöket. Ange appar villkoret som beviljar eller blockerar åtkomst när en åtkomst görs från följande typer av klientprogram för klienten:
+I principen för villkorlig åtkomst konfigurerar du den [klientappar](active-directory-conditional-access-conditions.md#client-apps) villkoret för att koppla principen till klientappen som har initierat en anslutningsförsöket. Ange appar villkoret som beviljar eller blockerar åtkomst när en åtkomst görs från följande typer av klientprogram för klienten:
 
 - Webbläsare
 - Mobilappar och skrivbordsappar
@@ -123,17 +123,17 @@ Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en
 
 | Operativsystem                     | Webbläsare                            | Support     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, gräns, Chrome     | ![Markera][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Markera][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Markera][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Markera][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Markera][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Markera][1] |
-| Windows Phone          | Internet Explorer, kant             | ![Markera][1] |
-| Windows Server 2016    | Internet Explorer, kant             | ![Markera][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Markera][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Markera][1] |
 | Windows Server 2016    | Chrome                              | Kommer snart |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Markera][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Markera][1] |
-| macOS                  | Chrome Safari                      | ![Markera][1] |
+| macOS                  | Chrome, Safari                      | ![Markera][1] |
 
 
 > [!NOTE]
@@ -165,14 +165,13 @@ Den här inställningen påverkar åtkomstförsök från följande mobila appar 
 |Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden|Office 365 SharePoint Online|Windows 10|
 |Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden|Office 365 SharePoint Online|Mac OS X|
 |Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer-appen|Office 365 Yammer|Windows 10-, iOS, Android|
+|Office Yammer-appen|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office för macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016 Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Mobila Outlook-appen|Office 365 Exchange Online|Android, iOS|
-|PowerBI-appen. Power BI-appen för Android stöder för närvarande inte enhetsbaserad villkorlig åtkomst.|PowerBI service|Windows 10, Windows 8.1, Windows 7 och iOS|
-|Skype för företag|Office 365 Exchange Online|Android IOS |
+|PowerBI-appen|PowerBI service|Windows 10, Windows 8.1, Windows 7 och iOS|
+|Skype för företag|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS och Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Godkända klienten app-krav 
@@ -186,6 +185,7 @@ Den här inställningen gäller för följande klientappar:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Den här inställningen gäller för följande klientappar:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype för företag
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

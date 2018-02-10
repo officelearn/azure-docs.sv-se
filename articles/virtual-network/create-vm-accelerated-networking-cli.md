@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -68,9 +68,9 @@ Följande begränsningar gäller när du använder den här funktionen:
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNic*, och *myVm*.
+Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNic*, och *myVm*.
 
-Skapa en resursgrupp med [az group create](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
+Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Du måste välja en stöds Linux-region som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
+Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -125,7 +125,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Skapa ett nätverksgränssnitt med [az nätverket nic skapa](/cli/azure/network/nic#create) med snabbare nätverksfunktioner som är aktiverad. I följande exempel skapas ett nätverksgränssnitt med namnet *myNic* i den *mySubnet* undernätet för den *myVnet* virtuella nätverk och associerar den  *myNetworkSecurityGroup* nätverkssäkerhetsgruppen för nätverksgränssnittet:
+Skapa ett nätverksgränssnitt med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create) med snabbare nätverksfunktioner som är aktiverad. I följande exempel skapas ett nätverksgränssnitt med namnet *myNic* i den *mySubnet* undernätet för den *myVnet* virtuella nätverk och associerar den  *myNetworkSecurityGroup* nätverkssäkerhetsgruppen för nätverksgränssnittet:
 
 ```azurecli
 az network nic create \
@@ -141,7 +141,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nic"></a>Skapa en virtuell dator och koppla nätverkskortet
 När du skapar den virtuella datorn, ange NIC du skapat med `--nics`. Du måste välja en storlek och distribution som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS avbildningen och storlek som har stöd för snabbare nätverk (*Standard_DS4_v2*):
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM* med UbuntuLTS avbildningen och storlek som har stöd för snabbare nätverk (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Dropbox för företag för automatisk användaretablering
 
@@ -88,13 +88,9 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Dropbox för före
 
 14. Klicka på **spara.**
 
-Startar den första synkroniseringen av användare och/eller grupper som tilldelas till Dropbox för företag i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av etablering tjänsten i din Dropbox för företag.
+Startar den första synkroniseringen av användare och/eller grupper som tilldelas till Dropbox för företag i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etablering tjänsten i din Dropbox för företag.
 
-Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter för att verifiera att kontot har synkroniserats till Dropbox för företag.
-
-En användare som har slutförts etablering cykel visas med status relaterade.
-
-![Tilldela användare](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "tilldela användare")
+Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

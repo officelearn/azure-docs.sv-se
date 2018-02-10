@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2018
+ms.date: 02/05/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: e924a60096d400cfaa5dba0df288273e3151ab45
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a7d2776ef3c3daa28bf23535e97f57506c9591d8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrering av SaaS-program med Azure Active Directory
 
@@ -50,7 +50,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-creative-cloud-tutorial.png)| [Adobe kreativa moln](active-directory-saas-adobe-creative-cloud-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe upplevelse Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-echosign-tutorial.png)| [Adobe inloggning](active-directory-saas-adobe-echosign-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adpetime-tutorial.png)| [ADP eTime](active-directory-saas-adpetime-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adpfederatedsso-tutorial.png)| [ADP federerad enkel inloggning](active-directory-saas-adpfederatedsso-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-adglobalview-tutorial.png)| [ADP Globalview](active-directory-saas-adglobalview-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-agiloft-tutorial.png)| [Agiloft](active-directory-saas-agiloft-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-aha-tutorial.png)| [AHA!](active-directory-saas-aha-tutorial.md)|
@@ -450,8 +450,8 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workday-tutorial.png)| [Arbetsdagar](active-directory-saas-workday-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workfront-tutorial.png)| [Workfront](active-directory-saas-workfront-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workpath-tutorial.png)| [Workpath](active-directory-saas-workpath-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Arbetsplats av Facebook](active-directory-saas-workplacebyfacebook-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-facebook-at-work-tutorial.png)| [Arbetsplats av Facebook](active-directory-saas-facebook-at-work-tutorial.md)|[Arbetsplats av Facebook - Användaretablering](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Arbetsplats av Facebook](active-directory-saas-workplacebyfacebook-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|

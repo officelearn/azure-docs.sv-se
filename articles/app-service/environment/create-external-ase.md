@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern Apptjänst-miljö #
 
-Azure Apptjänst-miljön är en distribution av Azure App Service till ett undernät i Azure-nätverk (VNet). Det finns två sätt att distribuera en Apptjänst-miljö (ASE):
+Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet). Det går att distribuera en App Service-miljö på två sätt (ASE):
 
-- Med en VIP på en extern IP-adress, som kallas ofta för en extern ASE.
+- Med en VIP på en extern IP-adress som ofta kallas för en extern ASE.
 - Med VIP-Adressen på en intern IP-adress, kallas ofta för en ILB ASE eftersom den interna slutpunkten är en intern belastningsutjämnare (ILB).
 
 Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns [en introduktion till Apptjänst-miljön][Intro]. Information om hur du skapar en ILB ASE finns [skapa och använda en ILB ASE][MakeILBASE].
@@ -69,7 +69,7 @@ Skapa en ASE när du skapar en apptjänstplan:
 
 4. Välj App Service-plan och välj sedan **Skapa nytt**.
 
-    ![Ny programtjänstplan][2]
+    ![Ny App Service-plan][2]
 
 5. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. Programtjänstplanen har skapats i ASE som du har valt. 
 
@@ -87,7 +87,7 @@ Skapa en ASE när du skapar en apptjänstplan:
 
     b. Ange ett nytt undernätsnamn.
 
-    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att underlätta framtida tillväxt i din ASE.* Vi rekommenderar `/25`, som har 128-adresser och kan hantera en ASE maximala storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresser är tillgängliga. Infrastruktur använder minst fem adresser. I en `/28` undernät, som du har lämnat med en maximal skala 11 instanser.
+    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att underlätta framtida tillväxt i din ASE.* Vi rekommenderar `/25`, som har 128-adresser och kan hantera en ASE maximala storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresser är tillgängliga. Infrastruktur använder minst sju adresser och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med maximalt skalning av 4 App Service-plan instanser för en extern ASE och bara 3 programtjänstplanen instanser för en ILB ASE.
 
     d. Välj IP-adressintervall för undernätet.
 

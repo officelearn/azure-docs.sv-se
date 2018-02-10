@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 2/5/2018
 ms.author: chackdan
-ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 720bb83c9d8540549852ce78ee1709f8c8717348
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Skala anger Azure Service Fabric-nodtyper och den virtuella datorn
 Skaluppsättningar för den virtuella datorn är en Azure compute-resurs. Du kan använda skaluppsättningar för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Ställ in en separat skaluppsättningen för varje nod som du definierar i ett Azure Service Fabric-kluster. Du kan oberoende skala varje nodtyp upp eller ned, har olika uppsättningar av portar är öppna och använda olika kapacitetsdata.

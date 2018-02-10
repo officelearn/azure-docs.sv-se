@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Utlösare och åtgärder för logik app arbetsflöden
 
-Alla logikappar börja med en utlösare följt av åtgärder. Det här avsnittet beskrivs typerna av utlösare och åtgärder som du kan använda för att skapa integreringar system och automatisera verksamheten arbetsflöden eller processer genom att skapa logikappar. 
+Alla logikappar börja med en utlösare följt av åtgärder. Den här artikeln beskrivs vilka typer av utlösare och åtgärder som du kan använda för att skapa integreringar system och automatisera verksamheten arbetsflöden eller processer genom att skapa logikappar. 
   
 ## <a name="triggers-overview"></a>Utlösare: översikt 
 
@@ -180,7 +180,7 @@ Den här utlösaren har en valfri egenskap som kallas *schemat*:
   
 | Elementnamn | Krävs | Typ | Beskrivning |
 | ------------ | -------- | ---- | ----------- |
-| Schemat | Nej | Objekt | En JSON-schema som kontrollerar den inkommande begäranden. Användbart för att hjälpa efterföljande arbetsflödessteg veta vilka egenskaper som ska referera till. | 
+| schema | Nej | Objekt | En JSON-schema som kontrollerar den inkommande begäranden. Användbart för att hjälpa efterföljande arbetsflödessteg veta vilka egenskaper som ska referera till. | 
 ||||| 
 
 Om du vill anropa den här slutpunkten måste du anropa den *listCallbackUrl* API. Se [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows).
@@ -191,13 +191,13 @@ HTTP-utlösare avsöker den angivna slutpunkten och kontrollera svaret för att 
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| URI: N | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
+| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
+| URI | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 | retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
+| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
 ||||| 
  
 Om du vill arbeta med din logikapp kräver HTTP-utlösaren HTTP-API för att överensstämma med ett specifikt mönster. Utlösaren identifierar dessa egenskaper:  
@@ -254,13 +254,13 @@ Utlösare för API-anslutningen är samma som HTTP-utlösaren i dess grundlägga
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| värden | Ja | Objekt | Värdbaserade gateway och -ID för API-appen | 
-| Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
+| värd | Ja | Objekt | Värdbaserade gateway och -ID för API-appen | 
+| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 | retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). | 
+| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 För den `host` objekt följer egenskaper:  
@@ -278,7 +278,9 @@ Här följer utdata för en utlösare för API-anslutningen:
 | rubriker | Objekt | Sidhuvuden för HTTP-svar | 
 | brödtext | Objekt | Innehållet i HTTP-svar | 
 |||| 
-  
+
+Lär dig mer om [hur priser fungerar för API-anslutningen utlöser](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook utlösare  
 
 Utlösaren HTTPWebhook ger en slutpunkt som liknar utlösaren begäran men HTTPWebhook utlösaren anropar också en angiven URL för registrering och avregistrering av. Här är ett exempel på hur en HTTPWebhook-utlösare kan se ut:  
@@ -374,7 +376,7 @@ I det här fallet rapporten endast utlösare när arbetsflödets `sendReports` p
 ```  
   
 > [!NOTE]  
-> När ett uttryck som refererar till en utlösare statuskod på något sätt, ersätts standardbeteendet, som är utlösaren endast på 200 ”OK”. Till exempel om du vill aktivera både statuskod 200 och statuskod 201 du behöver ta: `@or(equals(triggers().code, 200),equals(triggers().code,201))` som dina villkor.
+> När ett uttryck som refererar till en utlösare statuskod på något sätt, ersätts standardbeteendet, som utlöses endast på 200 ”OK”. Till exempel om du vill aktivera både statuskod 200 och statuskod 201 du behöver ta: `@or(equals(triggers().code, 200),equals(triggers().code,201))` som dina villkor.
   
 ## <a name="start-multiple-runs-for-a-request"></a>Starta flera körs för en begäran
 
@@ -469,7 +471,7 @@ Det finns många typer av åtgärder med unika beteende. Varje åtgärd har olik
 | **Funktionen** | Representerar en Azure-funktion. | 
 | **Vänta** | Väntar på ett fast belopp tid eller tills en viss tid. | 
 | **Arbetsflöde** | Representerar ett inkapslat arbetsflöde. | 
-| **Skriva** | Skapar ett arbitary objekt från åtgärdens indata. | 
+| **Skriva** | Skapar ett godtyckligt objekt från åtgärdens indata. | 
 | **Fråga** | Filtrerar en matris baserat på ett villkor. | 
 | **Välj** | Projekt varje element i en matris till ett nytt värde. Exempelvis kan du konvertera en matris av talen i en matris med objekt. | 
 | **Tabell** | Konverterar en matris med-objekt till en CSV- eller HTML-tabell. | 
@@ -504,14 +506,14 @@ Här är den `inputs` objektet följer dessa parametrar som krävs för att kons
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| URI: N | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
+| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
+| URI | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 | retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
+| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
 ||||| 
 
 Det här exemplet HTTP-åtgärden försöker hämta de senaste nyheterna två gånger om återkommande fel för totalt tre körningar och en fördröjning på 30 sekunder mellan varje försök:
@@ -596,15 +598,15 @@ Här är ett exempel APIConnection åtgärd:
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| värden | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
-| Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| Sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
+| värd | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
+| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
+| sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 | retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection webhook åtgärd
@@ -640,14 +642,14 @@ Här är ett exempel APIConnection åtgärd:
 
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| värden | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
-| Sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
+| värd | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
+| sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 | retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
+| autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Svaret åtgärd  
@@ -709,7 +711,7 @@ Den här åtgärden kan du representerar och anropa ett [Azure funktionen](../az
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- |  
 | funktionen id | Ja | Sträng | Resurs-ID för Azure-funktionen som du vill anropa. | 
-| Metoden | Nej | Sträng | HTTP-metoden som används för att anropa funktionen. Om inget anges är ”POST” standardmetoden. | 
+| metod | Nej | Sträng | HTTP-metoden som används för att anropa funktionen. Om inget anges är ”POST” standardmetoden. | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
 | rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
@@ -758,7 +760,7 @@ Om du vill vänta tills en särskild tidpunkt, kan du också använda det här e
   
 | Elementnamn | Krävs | Typ | Beskrivning | 
 | ------------ | -------- | ---- | ----------- | 
-| fram till | Nej | Objekt | Vänta varaktighet baserat på en punkt i tiden | 
+| tills | Nej | Objekt | Vänta varaktighet baserat på en punkt i tiden | 
 | tills tidsstämpel | Ja | Sträng | Tidpunkten i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) när väntetiden upphör att gälla | 
 | interval | Nej | Objekt | Vänta varaktighet baserat på intervall och antalet | 
 | intervall | Ja | Sträng | Tidsenhet. Använd bara ett av följande värden: ”andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
@@ -842,7 +844,7 @@ Till exempel om du vill konvertera en matris av talen i en array med objekt som 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | från | Ja | Matris | Källmatrisen |
-| Välj | Ja | Alla | Projektionen som tillämpas på varje element i källmatrisen |
+| välj | Ja | Alla | Projektionen som tillämpas på varje element i källmatrisen |
 ||||| 
 
 Utdata från den `select` åtgärden är en matris som har samma kardinalitet som matrisen som indata. Varje element omvandlas som definieras av den `select` egenskapen. Om indata är en tom matris, är utdata också en tom matris.
@@ -934,7 +936,7 @@ Resultatet från det här exemplet ser ut som den här HTML-tabellen:
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | från | Ja | Matris | Källmatrisen. Om den `from` egenskapsvärdet är en tom matris, utdata är en tom tabell. | 
-| Format | Ja | Sträng | Tabellformatet som du vill antingen **CSV** eller **HTML** | 
+| format | Ja | Sträng | Tabellformatet som du vill antingen **CSV** eller **HTML** | 
 | Kolumner | Nej | Matris | De tabellkolumner som du vill använda. Används för att åsidosätta standard tabellform. | 
 | kolumnrubrik | Nej | Sträng | Kolumnrubriken | 
 | värde i kolumnen | Ja | Sträng | Värdet i kolumnen | 
@@ -1008,7 +1010,7 @@ Du kan utvärdera ett villkor och köra en gren baserat på om uttrycket utvärd
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | åtgärder | Ja | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till`true` | 
-| uttryck | Ja | Sträng | Uttrycket som ska utvärderas |
+| expression | Ja | Sträng | Uttrycket som ska utvärderas |
 | annan | Nej | Objekt | De inre åtgärderna för att köras när `expression` utvärderas till`false` |
 ||||| 
 
@@ -1119,7 +1121,7 @@ Den här åtgärden kan du logiskt gruppera åtgärder i ett arbetsflöde.
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
 | åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
-| uttryck | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
+| expression | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
 | Gränsen | Ja | Objekt | Gränser för loopen. Måste ange minst en gräns. | 
 | antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
 | timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |

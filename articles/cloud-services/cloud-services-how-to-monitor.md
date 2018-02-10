@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till Molntjänsten övervakning
 
@@ -39,9 +39,9 @@ Grundläggande övervakning kräver inte ett lagringskonto.
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Avancerad övervakning är med hjälp av den **Azure Diagnostics** tillägget (och eventuellt Application Insights SDK) på vilken roll som du vill övervaka. Tillägget diagnostik använder en konfigurationsfil (per roll) med namnet **diagnostics.wadcfgx** att konfigurera diagnostik-mätvärden som övervakas. Data som Azure diagnostisk tillägget samlar in lagras i Azure Storage-konto som har konfigurerats i den **.wadcfgx** och i den [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) och [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) filer. Detta innebär att det finns en extra kostnader som är associerade med avancerad övervakning.
+Avancerad övervakning är med hjälp av den **Azure Diagnostics** tillägget (och eventuellt Application Insights SDK) på vilken roll som du vill övervaka. Tillägget diagnostik använder en konfigurationsfil (per roll) med namnet **diagnostics.wadcfgx** att konfigurera diagnostik-mätvärden som övervakas. Azure-diagnostik tillägget samlar in och lagrar data i Azure Storage-konto. Dessa inställningar konfigureras på den **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef), och [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) filer. Detta innebär att det finns en extra kostnader som är associerade med avancerad övervakning.
 
-När varje roll skapas lägger Visual Studio till Azure-diagnostik tillägget till den. Det här tillägget kan samla in följande typer av information:
+När varje roll skapas lägger Visual Studio till Azure-diagnostik tillägget till den. Det här tillägget diagnostics kan samla in följande typer av information:
 
 * Anpassade prestandaräknare
 * Programloggar
@@ -55,19 +55,13 @@ När varje roll skapas lägger Visual Studio till Azure-diagnostik tillägget ti
 > [!IMPORTANT]
 > När dessa data slås samman till lagringskontot på portalen har **inte** ett enhetligt sätt att diagrammets data. Vi rekommenderar starkt att du integrerar en annan tjänst som Application Insights i ditt program.
 
-### <a name="use-application-insights"></a>Använda Application Insights
-
-När du publicerar Molntjänsten från Visual Studio, ges möjlighet att skicka diagnostisk data till Application Insights. Du kan skapa Application Insights Azure-resurshanteraren då eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är viktiga mest för dig. Rollen instans kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns [Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
-
-Observera att du kan använda Application Insights för att visa prestandaräknare (och andra inställningar) du har angett via tillägg för Windows Azure-diagnostik du endast får en bättre upplevelse genom att integrera Application Insights SDK i worker och webbtjänst roller.
-
 ## <a name="setup-diagnostics-extension"></a>Konfigurera diagnostik-tillägg
 
 Första, om du inte har en **klassiska** lagringskonto [skapar du en](../storage/common/storage-create-storage-account.md#create-a-storage-account). Kontrollera att lagringskontot har skapats med den **klassiska distributionsmodellen** angivna.
 
 Gå sedan till den **Storage-konto (klassisk)** resurs. Välj **inställningar** > **åtkomstnycklar** och kopiera den **primära anslutningssträngen** värde. Du behöver det här värdet för Molntjänsten. 
 
-Det finns två config-filer måste du ändra för avancerad diagnostik för att aktivera **ServiceDefinition.csdef** och **ServiceConfiguration.cscfg**.
+Det finns två konfigurationsfiler för avancerad diagnostik som ska aktiveras måste du ändra **ServiceDefinition.csdef** och **ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -96,7 +90,15 @@ Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.c
       -->
 ```
 
+## <a name="use-application-insights"></a>Använda Application Insights
+
+När du publicerar Molntjänsten från Visual Studio, ges möjlighet att skicka diagnostisk data till Application Insights. Du kan skapa Application Insights Azure-resurshanteraren då eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är mest viktiga. Rollen instans kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns [Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
+
+Observera att du kan använda Application Insights för att visa prestandaräknare (och andra inställningar) du har angett via tillägg för Windows Azure-diagnostik du endast får en bättre upplevelse genom att integrera Application Insights SDK i din Worker och webbtjänst roller.
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [Mer information om Application Insights med molntjänster.](../application-insights/app-insights-cloudservices.md)
+- [Lär dig mer om Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md)
+- [Ställ in prestandaräknare](diagnostics-performance-counters.md)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ea20eceb28fead003c7279632b1e75ae1fd3553
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka dataströmmar API
 
@@ -100,6 +100,12 @@ Använd följande steg för att skapa och distribuera projektet till din Kafka p
     * Starta en producent som skriver till den `test` avsnittet.
     * Starta en konsument så att du kan se utdata skrivs till den `wordcounts` avsnittet
 
+    > [!NOTE]
+    > Du måste kontrollera att den `auto.create.topics.enable` egenskap är inställd på `true` i konfigurationsfilen Kafka Broker. Den här egenskapen kan visa och ändra i filen avancerade Kafka Broker-konfigurationen genom att använda Ambari-Webbgränssnittet. I annat fall måste du skapa avsnittet mellanliggande `RekeyedIntermediateTopic` manuellt innan du kör det här exemplet använder du följande kommando:
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
+    ```
+    
     Du kan utföra dessa åtgärder genom att öppna tre SSH-sessioner. Men du måste sedan ange `$KAFKABROKERS` och `$KAFKAZKHOSTS` för varje genom att köra steg 4 från det här avsnittet i varje SSH-session. En enklare lösning är att använda den `tmux` verktyg som kan dela den aktuella SSH visningen i flera delar. Att starta stream, tillverkare och konsumenter med hjälp av `tmux`, använder du följande kommando:
 
     ```bash
@@ -143,9 +149,9 @@ I det här dokumentet du har lärt dig hur du använder API: et Kafka dataström
 
 * [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
 * [Replikera data mellan Kafka-kluster](apache-kafka-mirroring.md)
-* [Kafka producenten och konsumenten API med HDInsight](apache-kafka-producer-consumer-api.md)
+* [Kafka-producent och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md)
 * [Använda Apache Spark-strömning (DStream) med Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Använda Apache Spark Structured Streaming med Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Använda Apache Spark strukturerade strömning för att flytta data från Kafka på HDInsight Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
+* [Använda Apache Spark Structured Streaming för att flytta data från Kafka på HDInsight till Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
 * [Använda Apache Storm med Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ansluta till Kafka via ett trådlöst Azure-nätverk](apache-kafka-connect-vpn-gateway.md)

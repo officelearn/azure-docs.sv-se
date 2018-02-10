@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten.
 | additionalProjects | En kommaavgränsad lista över projekt-ID: N av offentliga BigQuery projekt till åtkomst.  | Nej |
 | requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Google Drive åtkomst aktiverar stöd för externa tabeller som kombinerar BigQuery data med data från Google Drive. Standardvärdet är **FALSKT**.  | Nej |
 | AuthenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas enbart på Self-hosted integrering Runtime. <br/>Tillåtna värden är **ServiceAuthentication** och **UserAuthentication**. | Ja |
-| refreshToken | Den uppdateringstoken som hämtats från Google som används för att auktorisera åtkomst till BigQuery för UserAuthentication. Det här fältet kan du markera som SecureString lagra den på ett säkert sätt i Data Factory. Du kan också lagra lösenord i Azure Key Vault och kan kopiera aktivitet pull därifrån när du utför kopiering av data. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| refreshToken | Den uppdateringstoken som hämtats från Google som används för att auktorisera åtkomst till BigQuery för UserAuthentication. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | e-post | Service-kontot e-ID som används för ServiceAuthentication. Den kan användas enbart på Self-hosted integrering Runtime.  | Nej |
 | keyFilePath | Den fullständiga sökvägen till .p12-nyckelfil som används för att autentisera tjänsten kontos e-postadress. Den kan användas enbart på Self-hosted integrering Runtime.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på Self-hosted integrering Runtime. Standardvärdet är filen cacerts.pem installerades med integration körningsmiljön.  | Nej |

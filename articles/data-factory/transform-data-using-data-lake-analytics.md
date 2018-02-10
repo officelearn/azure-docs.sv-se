@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 4ae54bfda21d06d3d6ec963aaa17eba2b6e04de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ Följande tabell innehåller beskrivningar för allmänna egenskaper som använd
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 Länkad Azure Data Lake Analytics-tjänsten kräver ett huvudnamn autentiseringen av tjänsten att ansluta till Azure Data Lake Analytics-tjänsten. Om du vill använda huvudnamn autentiseringen av tjänsten registrera en Programenhet i Azure Active Directory (Azure AD) och bevilja åtkomst till både Data Lake Analytics och Data Lake Store används. Detaljerade anvisningar finns i [tjänst-till-tjänst autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+
 * Program-ID:t
 * Nyckeln för programmet 
 * Klient-ID:t
+
+Ge service principal behörighet till din Azure Data Lake Anatlyics med hjälp av den [guiden Lägg till användare](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Använd service principal autentisering genom att ange följande egenskaper:
 

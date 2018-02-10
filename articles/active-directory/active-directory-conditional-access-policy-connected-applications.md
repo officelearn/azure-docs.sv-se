@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Konfigurera principer för Azure Active Directory enhetsbaserad villkorlig åtkomst
 
@@ -41,11 +41,11 @@ Enhetsbaserad villkorlig åtkomst ties **villkorlig åtkomst i Azure AD** och **
 
 I en mobile första, molnet först värld kan Azure Active Directory enkel inloggning till enheter, appar och tjänster från var som helst. För vissa kanske resurser i din miljö och bevilja åtkomst till rätt användare inte tillräckligt bra. Förutom rätt användare kan du även kräva en betrodd enhet som används för att komma åt en resurs. I din miljö kan du definiera en betrodd enhet är baserad på följande komponenter:
 
-- Den [enhetsplattformar](active-directory-conditional-access-azure-portal.md#device-platforms) på en enhet
+- Den [enhetsplattformar](active-directory-conditional-access-conditions.md#device-platforms) på en enhet
 - Om en enhet är kompatibel
 - Om en enhet är ansluten till domänen 
 
-Den [enhetsplattformar](active-directory-conditional-access-azure-portal.md#device-platforms) kännetecknas av operativsystemet som körs på enheten. Du kan begränsa åtkomst till vissa resurser till specifika enhetsplattformar i principen för enhetsbaserad villkorlig åtkomst.
+Den [enhetsplattformar](active-directory-conditional-access-conditions.md#device-platforms) kännetecknas av operativsystemet som körs på enheten. Du kan begränsa åtkomst till vissa resurser till specifika enhetsplattformar i principen för enhetsbaserad villkorlig åtkomst.
 
 
 

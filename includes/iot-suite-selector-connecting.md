@@ -19,7 +19,7 @@ Exempel enheten också:
 * Svarar på åtgärder som utlöses från den **enheter** sida i lösningen.
 * Svarar på konfigurationsändringar skicka från den **enheter** sida i lösningen.
 
-Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
+Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -36,13 +36,13 @@ När etableringen av fjärrövervakningslösningen är klar klickar du på **Sta
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Etablera enheten i fjärrövervakningslösningen
 
 > [!NOTE]
-> Om du redan har etablerat en enhet i din lösning kan du hoppa över det här steget. När du skapar klientprogrammet behöver du autentiseringsuppgifter för enheten.
+> Om du redan har etablerat en enhet i din lösning kan du hoppa över det här steget. Du måste anslutningssträngen enhet som du kan hämta från Azure-portalen när du skapar klientprogrammet.
 
-För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du kan hämta autentiseringsuppgifter för enheten från lösningen **enheter** sidan. Du kan inkludera enhetsautentiseringsuppgifterna i klientprogrammet senare i den här självstudien.
+För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller autentiseringsuppgifterna när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
 
 Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför följande steg på den **enheter** sida i lösningen:
 
-1. Välj **etablera**, och välj sedan **fysiska** som den **enhetstyp**:
+1. Välj **+ ny enhet**, och välj sedan **fysiska** som den **enhetstyp**:
 
     ![Etablera en fysisk enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför föl
 
     ![Välj alternativ för enheten](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Välj **tillämpa**. Sedan anteckna den **enhets-ID**, **primärnyckel**, och **anslutning sträng primärnyckel** värden:
+
+    ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
+
 Gå till Azure-portalen i webbläsaren för att hitta de autentiseringsuppgifter som din enhet måste använda för att ansluta till den förkonfigurerade lösningen. Logga in till din prenumeration.
-
-1. Leta upp resursgruppen som innehåller Azure-tjänster använder din fjärranslutna övervakningslösning. Resursgruppen har samma namn som den fjärranslutna övervakningslösning som du har etablerats.
-
-1. Navigera till IoT-hubben i den här resursgruppen. Välj **IoT-enheter**:
-
-    ![Enheten explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Välj den **enhets-ID** du skapade på den **enheter** sida i fjärranslutna övervakningslösning.
-
-1. Anteckna den **enhets-ID** och **primärnyckel** värden. Du kan använda de här värdena när du lägger till kod för att ansluta enheten till lösningen.
 
 Du har nu etablerats en fysisk enhet för fjärranslutna övervakningen förkonfigurerade lösningen. I följande avsnitt kan du implementera klientprogram som använder enheten autentiseringsuppgifterna för att ansluta till din lösning.
 
@@ -68,4 +62,4 @@ Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En förkonf
 
 * Egenskaperna enheten rapporterar till lösningen. Till exempel en **kylaggregat** enheten rapporterar information om den inbyggda programvaran och plats.
 * Vilka typer av telemetri enheten skickar till lösningen. Till exempel en **kylaggregat** enheten skickar temperatur, fuktighet och tryckvärden.
-* Metoderna som du kan schemalägga från lösningen ska köras på enheten. Till exempel en **kylaggregat** enheten måste implementera **omstart**, **FirmwareUpdate**, **EmergencyValveRelease**, och  **IncreasePressuree** metoder.
+* Metoderna som du kan schemalägga från lösningen ska köras på enheten. Till exempel en **kylaggregat** enheten måste implementera **omstart**, **FirmwareUpdate**, **EmergencyValveRelease**, och  **IncreasePressure** metoder.

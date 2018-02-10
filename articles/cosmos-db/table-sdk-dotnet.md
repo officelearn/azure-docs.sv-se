@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/31/2018
 ms.author: mimig
-ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9083ae631f654789b621a1fc62e0b9d31c24f119
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET-API: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -40,6 +40,10 @@ ms.lasthandoff: 12/18/2017
 >
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Lägga till TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism och TableQueryContinuationTokenLimitInKb TableRequestOptions
+* Buggfixar
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versionen för allmän tillgänglighet
@@ -84,5 +88,5 @@ När du försöker använda Microsoft.Azure.CosmosDB.Table NuGet-paketet har tv�
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Läs mer om Azure Cosmos DB tabell API i [introduktion till Azure Cosmos DB tabell API](table-introduction.md). 

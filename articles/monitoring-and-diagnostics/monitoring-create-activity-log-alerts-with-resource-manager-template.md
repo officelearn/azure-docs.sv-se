@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Skapa en aktivitet loggen avisering med en Resource Manager-mall
-Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) att konfigurera aviseringar för aktiviteten loggen. Med hjälp av mallar kan du enkelt konfigurera många aviseringar som aktiverar baserat på specifika aktivitet loggen händelse villkor som en del av processen för automatisk distribution.
+Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) att konfigurera aviseringar för aktiviteten loggen. Med hjälp av mallar kan du enkelt konfigurera många aviseringar som aktiverar baserat på specifika aktivitet loggen händelse villkor som en del av processen för automatisk distribution.
 
 Stegen är:
 
@@ -82,10 +82,10 @@ Om du vill skapa en aktivitet loggen avisering med hjälp av en Resource Manager
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ Om du vill skapa en aktivitet loggen avisering med hjälp av en Resource Manager
 ```
 
 Besök vår [Azure snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) några exempel på aviseringen aktivitetsmallar för loggen.
+
+> [!NOTE]
+
+> Du kan också skapa aktivitet loggen Varningsregler med förbättrad användarupplevelse i övervakaren > [aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md). Mer information om hur du skapar dessa finns [i den här artikeln](monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [aviseringar](monitoring-overview-alerts.md).

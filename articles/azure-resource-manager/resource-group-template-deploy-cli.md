@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
-Det här avsnittet beskriver hur du använder Azure CLI 2.0 med Resource Manager-mallar för att distribuera resurserna till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure lösningar finns [översikt över Azure Resource Manager](resource-group-overview.md).  
+Den här artikeln förklarar hur du använder Azure CLI 2.0 med Resource Manager-mallar för att distribuera resurserna till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure lösningar finns [översikt över Azure Resource Manager](resource-group-overview.md).  
 
 Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Den mall som du distribuerar i den här artikeln är tillgänglig i den [exempelmall](#sample-template) avsnitt, eller som en [lagring mall i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -86,6 +86,10 @@ Använd följande kommandon i molnet-gränssnittet:
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Distribuera till mer än en resursgrupp eller prenumeration
+
+Normalt distribuerar du alla resurser i mallen som en enskild resursgrupp. Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Du kan distribuera till bara fem resursgrupper i en enda distribution. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="parameter-files"></a>Parametern-filer
 
@@ -183,7 +187,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>Exempelmall
 
-Följande mall används i exemplen i det här avsnittet. Kopiera och spara den som en fil med namnet storage.json. Information om hur du skapar den här mallen finns [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).  
+Följande mall används i exemplen i den här artikeln. Kopiera och spara den som en fil med namnet storage.json. Information om hur du skapar den här mallen finns [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).  
 
 ```json
 {

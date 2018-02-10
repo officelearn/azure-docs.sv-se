@@ -3,7 +3,7 @@ title: "Innehavaradministration höjer åtkomst - Azure AD | Microsoft Docs"
 description: "Det här avsnittet beskriver den inbyggda i roller för rollbaserad åtkomstkontroll (RBAC)."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Utöka behörighet som en klientadministratör med rollbaserad åtkomstkontroll
 
@@ -28,7 +28,7 @@ Den här funktionen är viktigt eftersom det tillåter innehavaradministration a
 
 ## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Använda elevateAccess för klient-åtkomst med Azure AD Administrationscenter
 
-1. Gå till den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) och logga in med du autentiseringsuppgifter.
+1. Gå till den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) och logga in med dina autentiseringsuppgifter.
 
 2. Välj **egenskaper** kvar menyn från Azure AD.
 
@@ -40,7 +40,7 @@ Den här funktionen är viktigt eftersom det tillåter innehavaradministration a
     > När du väljer **nr**, tar bort den **administratör för användaråtkomst** roll i roten ”/” (Rotscopet) för användaren som du är inloggad i portalen.
 
 > [!TIP] 
-> Intryck är att det här är en Global egenskap för Azure Active Directory, men den fungerar på grundval av per användare för den inloggade användaren. När du har behörighet som Global administratör i Azure Active Directory, kan du anropa funktionen elevateAccess för användaren som du för närvarande är inloggad i Azure Active Directory Administrationscenter.
+> Intryck är att det här är en Global egenskap för Azure Active Directory, men den fungerar på grundval av per användare för den inloggade användaren. När du har behörighet som Global administratör i Azure Active Directory, kan du anropa funktionen elevateAccess för användaren att du är inloggad i Azure Active Directory Administrationscenter.
 
 ![Azure AD Admin Center - egenskaper – Globaladmin kan hantera Azure-prenumeration – skärmbild](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
@@ -58,7 +58,7 @@ Omfång: /
 Visningsnamn: användarnamn    
 SignInName:username@somedomain.com    
 RoleDefinitionName: Administratör för användaråtkomst    
-RoleDefinitionId: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 Objekt-ID: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType: användare    
 
@@ -101,8 +101,8 @@ Den grundläggande processen fungerar med följande steg:
 
 När du anropar *elevateAccess* du skapa en rolltilldelning för dig själv, så för att återkalla behörigheter måste du ta bort tilldelningen.
 
-1.  Anropa GET rolldefinitioner där roleName = administratör för användaråtkomst för att fastställa namnet GUID för rollen Administratör för användaråtkomst.
-    1.  Hämta *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$ filter = roleName + eq +'+ + administratör för användaråtkomst*
+1.  Anropa GET roleDefinitions där roleName = administratör för användaråtkomst för att fastställa namnet GUID för rollen Administratör för användaråtkomst.
+    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
         {"value":[{"properties":{
@@ -124,12 +124,12 @@ När du anropar *elevateAccess* du skapa en rolltilldelning för dig själv, så
         Spara GUID från den *namn* parameter i det här fallet **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
 2. Du måste också att lista rolltilldelning för innehavaradministration på klientorganisationsområde. Lista över alla tilldelningar i klient omfånget för PrincipalId av TenantAdmin som gjorde utöka åtkomst anropa. Detta visar en lista över alla tilldelningar i klienten för objekt-ID. 
-    1. Hämta *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$ filter = principalId + eq + {objectid}*
+    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
     
         >[!NOTE] 
-        >En klientadministratör ska inte ha många tilldelningar om frågan ovan returnerar för många tilldelningar, du kan också fråga för alla tilldelningar bara på omfångsnivå för klient och filtrera resultatet: hämta *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version 2015-07-01 = & $filter=atScope()*
+        >En klientadministratör ska inte ha många tilldelningar, om den föregående frågan returnerar för många tilldelningar, du kan också fråga för alla tilldelningar bara på omfångsnivå för klient och filtrera resultatet: hämta *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version 2015-07-01 = & $filter=atScope()*
         
-    2. Ovanstående anrop returnera en lista över rolltilldelningar. Hitta rolltilldelningen där omfånget är ”/” och RoleDefinitionId slutar med rollnamnet GUID som du hittade i steg 1 och PrincipalId matchar ObjectId för Tenant Admin. Rolltilldelningen ser ut så här:
+    2. Tidigare anrop returnera en lista över rolltilldelningar. Hitta rolltilldelningen där omfånget är ”/” och RoleDefinitionId slutar med rollnamnet GUID som du hittade i steg 1 och PrincipalId matchar ObjectId för Tenant Admin. Rolltilldelningen ser ut så här:
 
         ```
         {"value":[{"properties":{
@@ -150,7 +150,7 @@ När du anropar *elevateAccess* du skapa en rolltilldelning för dig själv, så
 
     3. Använd slutligen den markerade **RoleAssignment ID** att ta bort tilldelningen som lagts till av höjer åtkomst:
 
-        Ta bort https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 
 ## <a name="next-steps"></a>Nästa steg
 

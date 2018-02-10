@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Meddelande sessioner: först in, först ut (FIFO) 
 
@@ -45,7 +45,7 @@ Sessioner ange samtidiga Frigör multiplexering av överlagrad meddelandeströmm
 
 ![][1]
 
-En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) mottagaren har skapats av klienten accepterar en session. Klienten anropar [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I modellen reaktiv återanrop registreras en session-hanterare som beskrivs senare.
+En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) mottagaren har skapats av klienten accepterar en session. Klienten anropar [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I modellen reaktiv återanrop registreras en session-hanterare.
 
 När den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt accepteras och när den hålls av en klient att klientdatorer har ett exklusivt lås på alla meddelanden med den aktuella sessionen [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kön eller prenumeration, och även om alla meddelanden med som **SessionId** som fortfarande tas emot medan sessionen hålls.
 

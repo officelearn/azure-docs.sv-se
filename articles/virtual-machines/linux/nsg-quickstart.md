@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 91908b03522788d470fdb93121f620bfcdef9085
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Öppna portar och slutpunkter till en Linux-VM med Azure CLI
 Du öppnar en port eller skapa en slutpunkt för en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller Virtuella datorns nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en Nätverkssäkerhetsgrupp kopplad till den resurs som tar emot trafiken. Nu ska vi använda ett vanligt exempel på Internet-trafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](nsg-quickstart-nodejs.md).
 
-Så här skapar du en säkerhetsgrupp för nätverk och regler som du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
+Så här skapar du en säkerhetsgrupp för nätverk och regler som du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myNetworkSecurityGroup*, och *myVnet*.
 
@@ -39,7 +39,7 @@ Mer kontroll över regler som definierar källa IP-adressintervall i fortsätta 
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Skapa en säkerhetsgrupp för nätverk och regler
-Skapa nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* i den *eastus* plats:
+Skapa nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* i den *eastus* plats:
 
 ```azurecli
 az network nsg create \
@@ -48,7 +48,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Lägga till en regel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create) att tillåta HTTP-trafik till en webbserver (eller justera för egna scenario, till exempel SSH åtkomst eller database connectivity). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* som tillåter TCP-trafik på port 80:
+Lägga till en regel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) att tillåta HTTP-trafik till en webbserver (eller justera för egna scenario, till exempel SSH åtkomst eller database connectivity). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* som tillåter TCP-trafik på port 80:
 
 ```azurecli
 az network nsg rule create \
@@ -62,7 +62,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Tillämpa Nätverkssäkerhetsgruppen för VM
-Koppla Nätverkssäkerhetsgruppen till den Virtuella datorns nätverksgränssnitt (NIC) med [az nätverket nic uppdatering](/cli/azure/network/nic#update). I följande exempel associerar en befintlig NIC som heter *myNic* med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
+Koppla Nätverkssäkerhetsgruppen till den Virtuella datorns nätverksgränssnitt (NIC) med [az nätverket nic uppdatering](/cli/azure/network/nic#az_network_nic_update). I följande exempel associerar en befintlig NIC som heter *myNic* med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -71,7 +71,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Alternativt kan du associera säkerhetsgrupp för nätverk med ett undernät för virtuellt nätverk med [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#update) i stället för bara till nätverksgränssnittet på en enda virtuell dator. I följande exempel associerar ett befintligt undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk med säkerhetsgruppen nätverk med namnet *myNetworkSecurityGroup*:
+Alternativt kan du associera säkerhetsgrupp för nätverk med ett undernät för virtuellt nätverk med [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) i stället för bara till nätverksgränssnittet på en enda virtuell dator. I följande exempel associerar ett befintligt undernät med namnet *mySubnet* i den *myVnet* virtuellt nätverk med säkerhetsgruppen nätverk med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

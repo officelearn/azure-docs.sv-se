@@ -26,5 +26,5 @@ Om du inte redan har lagts ditt webbprogram som en Traffic Manager-slutpunkt må
    
    När konfigurationen är klar, visas det anpassade domännamnet i den **domännamn** avsnitt av ditt webbprogram.
 
-Nu ska du kunna ange namnet för Traffic Manager domännamnet i webbläsaren och se att det har tar dig till ditt webbprogram.
+Nu ska du kunna ange domännamnet för Traffic Manager i webbläsaren och se att det har tar dig till ditt webbprogram.
 

@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: a7e6e319fb2fa8fee762055b625427403d14d679
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
-I den här självstudiekursen, distribuera och utforska ett SaaS flera innehavare databasen exempelprogram som heter Wingtip biljetter. Appen Wingtip är utformat för att presentera Azure SQL Database-funktioner som förenklar implementeringen av SaaS-scenarier.
+I den här självstudiekursen, distribuera och utforska ett flera innehavare SaaS exempelprogram som heter Wingtip biljetter. Appen Wingtip biljetter är utformat för att presentera Azure SQL Database-funktioner som förenklar implementeringen av SaaS-scenarier.
 
-Den här implementeringen av Wingtips använder ett delat flera innehavare databasen mönster. Den horisontell partitionering är klient-ID. Klientdata distribueras till en viss databas enligt värden för klient-identifierare. Oavsett hur många klienter som en viss databas innehåller är alla databaser flera innehavare i den mening att tabellscheman inkluderar ett klient-ID. 
+Den här implementeringen av Wingtip biljetter appen använder ett delat flera innehavare databasen mönster. Den horisontell partitionering är klient-ID. Klientdata distribueras till en viss databas enligt värden för klient-identifierare. 
 
 Det här mönstret för databasen kan du lagra en eller flera innehavare i varje Fragmentera eller databasen. Du kan optimera för lägst kostnad genom att konfigurera varje databas som delas av flera klienter. Eller du kan optimera för isolering genom att konfigurera varje databas som lagrar bara en klient. Önskat optimering kan göras separat för varje specifik klient. Ditt val kan göras när klienten först lagras eller du ändrar dig senare. Programmet fungerar bra alls.
 
 #### <a name="app-deploys-quickly"></a>Appen distribuerar snabbt
 
-Distribution av avsnittet som följer ger blå **till Azure** knappen. Om knappen är nedtryckt distribueras helt appen Wingtip fem minuter senare. Wingtip appen körs i Azure-molnet och använder Azure SQL Database. Wingtip distribueras till din Azure-prenumeration. Du har fullständig åtkomst till fungerar med enskilda programkomponenter.
+Appen körs i Azure-molnet och använder Azure SQL Database. Distribution av avsnittet som följer ger blå **till Azure** knappen. Om knappen är nedtryckt distribueras helt appen till din Azure-prenumeration inom fem minuter. Du har fullständig åtkomst till fungerar med enskilda programkomponenter.
 
 Programmet har distribuerats med data för tre exempel klienter. Innehavarna lagras tillsammans i en databas för flera innehavare.
 
@@ -40,7 +40,7 @@ Vem som helst kan ladda ned källkoden C# och PowerShell för Wingtip biljetter 
 #### <a name="learn-in-this-tutorial"></a>Lär dig i den här självstudiekursen
 
 > [!div class="checklist"]
-> - Så här distribuerar du Wingtip SaaS-program.
+> - Så här distribuerar du Wingtip biljetter SaaS-program.
 > - Var du kan hämta programmets källkod och av hanteringsskript.
 > - Om servrar och databaser som ingår i appen.
 > - Hur klienter mappas till sina data med den *katalogen*.
@@ -139,7 +139,7 @@ Central **händelser hubb** webbsidan innehåller en lista med länkar till inne
 
 För att styra distributionen av inkommande begäranden Wingtip appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller innehavarens namn i Webbadressen. Varje URL innehåller också värdet för din specifika användare. Varje URL följs formatet visas med hjälp av följande steg:
 
-- http://events.Wingtip. &lt;Användare&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Appen händelser Parsar klientnamn från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
 2. Appen sedan hashar innehavarens namn för att skapa en nyckel för att komma åt en katalog med hjälp av [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md).

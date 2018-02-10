@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Programuppgraderingsparametrar
 Den här artikeln beskriver de olika parametrar som gäller under uppgraderingen av ett program i Azure Service Fabric. Parametrarna inkluderar namnet och versionen av programmet. De är rattar som styr timeout och hälsokontroller som tillämpas under uppgraderingen och de anger de principer som måste tillämpas när uppgraderingen misslyckas.
@@ -52,7 +52,7 @@ Utvärderingskriterierna hälsa är valfria. Om utvärderingskriterierna hälsa 
 | MaxPercentUnhealthyServices |Rekommenderade standardvärdet är 0. Ange det maximala antalet tjänster i programinstansen som kan vara felaktiga innan programmet anses vara felaktig och misslyckas uppgraderingen. |
 | MaxPercentUnhealthyPartitionsPerService |Rekommenderade standardvärdet är 0. Ange det maximala antalet partitioner i en tjänst som kan vara felaktiga innan tjänsten anses vara felaktig. |
 | MaxPercentUnhealthyReplicasPerPartition |Rekommenderade standardvärdet är 0. Ange det maximala antalet repliker i partitionen kan vara felaktiga innan partitionen anses vara felaktig. |
-| UpgradeReplicaSetCheckTimeout |**Tillståndslösa tjänsten**--inom en enskild uppgraderingsdomänen Service Fabric försöker att se till att det finns ytterligare instanser av tjänsten. Om mål-instanser är mer än ett väntar Service Fabric på mer än en instans ska vara tillgängligt, upp till ett högsta timeout-värde. Timeout har angetts med egenskapen UpgradeReplicaSetCheckTimeout. Om tidsgränsen överskrids, fortsätter Service Fabric med uppgraderingen, oavsett antalet instanser av tjänsten. Om mål-instanser är en, Service Fabric väntar inte och omedelbart fortsätter med uppgraderingen. **Tillståndskänslig service**--inom en enskild uppgraderingsdomänen Service Fabric försöker att kontrollera att repliken har ett kvorum. Service Fabric väntar på att ett kvorum ska vara tillgängligt, upp till ett högsta timeout-värde (som anges av egenskapen UpgradeReplicaSetCheckTimeout). Om tidsgränsen överskrids, fortsätter Service Fabric med uppgraderingen, oavsett kvorum. Den här inställningen är uppsättningen som aldrig (oändligt) när du återställer och 900 sekunder när du återställer. |
+| UpgradeReplicaSetCheckTimeout |<p>**Tillståndslösa tjänsten**--inom en enskild uppgraderingsdomänen Service Fabric försöker att se till att det finns ytterligare instanser av tjänsten. Om mål-instanser är mer än ett väntar Service Fabric på mer än en instans ska vara tillgängligt, upp till ett högsta timeout-värde. Timeout har angetts med egenskapen UpgradeReplicaSetCheckTimeout. Om tidsgränsen överskrids, fortsätter Service Fabric med uppgraderingen, oavsett antalet instanser av tjänsten. Om mål-instanser är en, Service Fabric väntar inte och omedelbart fortsätter med uppgraderingen.</p><p>**Tillståndskänslig service**--inom en enskild uppgraderingsdomänen Service Fabric försöker att kontrollera att repliken har ett kvorum. Service Fabric väntar på att ett kvorum ska vara tillgängligt, upp till ett högsta timeout-värde (som anges av egenskapen UpgradeReplicaSetCheckTimeout). Om tidsgränsen överskrids, fortsätter Service Fabric med uppgraderingen, oavsett kvorum. Den här inställningen är uppsättningen som aldrig (oändligt) när du återställer och 1200 sekunder när du återställer.</p> |
 | ForceRestart |Om du uppdaterar en konfiguration eller datapaketet utan att uppdatera kod som tjänsten startas om egenskapen ForceRestart har angetts till true. När uppdateringen är klar, meddelar Service Fabric tjänsten och att en ny konfigurationspaket eller datapaketet är tillgänglig. Tjänsten ansvarar för att tillämpa ändringarna. Om det behövs tjänsten kan starta om sig själv. |
 
 <br>

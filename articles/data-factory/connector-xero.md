@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1c2cd0cc648269c4e07d0f0fcd04a10cf7092432
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Kopiera data från Xero med hjälp av Azure Data Factory (Beta)
 
@@ -32,6 +32,8 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Du kan kopiera data från Xero till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+
+Alla Xero tabeller (API-slutpunkter) stöds utom ”rapporter”. Tabeller med komplexa objekt delar upp till flera tabeller. Transaktioner har till exempel en komplex datastruktur ”LineItems”, så att data för banktransaktion är mappad till tabellen Bank_Transaction och Bank_Transaction_Line_Items med Bank_Transaction_ID som sekundärnyckel länka dem tillsammans.
 
 Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
 
@@ -48,8 +50,8 @@ Följande egenskaper stöds för Xero länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Xero** | Ja |
-| värd | Slutpunkten för Xero-server. (det vill säga api.xero.com)  | Ja |
-| consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i Data Factory eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| värd | Slutpunkten för Xero-server (`api.xero.com`).  | Ja |
+| consumerKey | Konsumenten nyckeln som associeras med Xero-programmet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | privateKey | Den privata nyckeln från PEM-filen som har genererats för ditt privata Xero-program. Inkludera alla text från PEM-filen, inklusive endings(\n) för Unix-rad. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i Data Factory eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet krävs i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

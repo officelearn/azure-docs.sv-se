@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation-scenario – automatiserad borttagning av resursgrupper
 Många kunder skapar fler än en resursgrupp. En del används för att hantera driftsprogram, andra används som utvecklings-, testnings-, eller mellanlagringsmiljöer. Att automatisera distributionen av dessa resurser är en sak, men att kunna ta en resursgrupp ur drift genom att klicka på en knapp är en helt annan sak. Du kan förenkla den här vanliga hanteringsåtgärden med hjälp av Azure Automation. Det är också användbart om du arbetar med en Azure-prenumeration som har en utgiftsgräns via ett medlemserbjudande som till exempel MSDN eller Microsoft Partner Network Cloud Essentials-programmet.
@@ -37,7 +37,7 @@ Följande indataparametrar har definierats för denna runbook:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| NameFilter (obligatorisk) |Anger ett namnfilter för att begränsa resursgrupperna som du vill ta bort. Du kan skicka flera värden med hjälp av en kommaavgränsad lista.<br>Filtret är inte skiftlägeskänsligt och kommer att matcha alla resursgrupper som innehåller strängen. |
+| NameFilter (obligatorisk) |Anger ett namnfilter för att begränsa resursgrupperna som du vill ta bort. Du kan skicka flera värden med hjälp av en kommaavgränsad lista.<br>Filtret är inte skiftlägeskänsligt och matchar valfri resursgrupp som innehåller strängen. |
 | PreviewMode (valfritt) |Kör runbooken för att se vilka resursgrupper som skulle tas bort, men vidtar inga åtgärder.<br>Standardvärdet är **Sant** för att undvika oönskad borttagning av en eller flera resursgrupper som godkänts för en runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Installera och konfigurera det här scenariot
@@ -48,19 +48,19 @@ Denna runbook autentiserar med hjälp av ett [Kör som-konto i Azure](automation
 När du har hämtat runbooken, importerar du den med hjälp av anvisningarna i [Importera runbook-procedurer](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publicera en runbook när den har importerats till ditt Automation-konto.
 
 ## <a name="using-the-runbook"></a>Med hjälp av en runbook
-Följande steg hjälper dig genom körning av denna runbook och visar dig hur allt fungerar. Du kommer enbart att testa runbooken i det här exemplet, inte ta bort resursgruppen på riktigt.  
+Följande steg vägleder dig genom körning av den här runbook och hjälp du bekanta dig med hur det fungerar. Du testar en runbook i det här exemplet inte att ta bort resursgruppen.  
 
 1. Öppna ditt Automation-konto i Azure Portal och klicka på **Runbooks**.
 2. Välj den runbook som heter **Remove-ResourceGroup** och klicka på **Starta**.
-3. När du startar runbooken, öppnas bladet **Starta runbook** och du kan konfigurera parametrarna. Ange namnet på resursgrupperna i din prenumeration som kan använda för testning och som inte skulle ställa till alltför stor skada om du råkar ta bort dem.<br> ![Parametrar för Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. När du startar en runbook i **starta Runbook** sidan öppnas och du kan konfigurera parametrarna. Ange namnen på resursgrupper i din prenumeration som du kan använda för att testa och gör ingen skada om bort av misstag.
 
    > [!NOTE]
-   > Kontrollera att alternativet **Förhandsvisningsläge** är ställt till **Sant** för att förhindra att du tar bort de markerade resursgrupperna.  **Observera** att den här runbooken inte tar bort resursgruppen som innehåller Automation-kontot som kör runbooken.  
+   > Kontrollera att alternativet **Förhandsvisningsläge** är ställt till **Sant** för att förhindra att du tar bort de markerade resursgrupperna. Denna runbook tas inte bort resursgruppen som innehåller Automation-kontot med denna runbook.  
    >
    >
-4. När du har konfigurerat alla parametervärden, klickar du på **Ok** så köas runbooken för körning.  
+1. När du har konfigurerat alla parametervärden, klickar du på **Ok** så köas runbooken för körning.  
 
-För att visa informatikon om runbook-jobbet **Remove-ResourceGroup** i Azure Portal, väljer du **Jobb** i runbooken. Jobbsammanfattningen visar indataparametrarna och utdataströmmen samt allmän information om jobbet och eventuella undantag som uppstod.<br> ![Remove-ResourceGroup runbook jobbstatus](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Att visa information om den **ta bort ResourceGroup** runbook-jobb på Azure-portalen under **resurs**väljer **jobb** i runbook. Välj, det jobb som du vill visa. Jobbsammanfattningen visar indataparametrarna och utdataströmmen samt allmän information om jobbet och eventuella undantag som uppstod.<br> ![Remove-ResourceGroup runbook jobbstatus](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
 **Jobbsammanfattning** innehåller meddelanden från strömmarna utdata, varning och fel. Välj **Utdata** för att visa detaljerade resultat från runbook-körningen.<br> ![Remove-ResourceGroup runbook utdataresultat](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 

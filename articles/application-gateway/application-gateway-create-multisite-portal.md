@@ -1,142 +1,189 @@
 ---
-title: "Värd för flera platser med Azure Programgateway | Microsoft Docs"
-description: "Den här sidan innehåller instruktioner för att konfigurera en befintlig Azure-program-gateway som värd för flera webbprogram på samma gateway med Azure-portalen."
-documentationcenter: na
+title: "Skapa en Programgateway med flera plats-värd - Azure-portalen | Microsoft Docs"
+description: "Lär dig hur du skapar en Programgateway som är värd för flera platser med hjälp av Azure portal."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Konfigurera en befintlig Programgateway som värd för flera webbprogram
+# <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Skapa en Programgateway med flera för webbplatsen med hjälp av Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-multisite-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
+Du kan använda Azure-portalen för att konfigurera [att vara värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med skalningsuppsättningar i virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på domäner som du äger för att kontrollera Internet-trafik anländer till rätt servrar i poolerna. Den här kursen förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.fabrikam.com*.
 
-Värd för flera plats kan du distribuera flera webbprogram på samma programgatewayen. Det är beroende av förekomsten av värdhuvudet i den inkommande HTTP-begäranden att avgöra vilka lyssnare skulle ta emot trafik. Lyssnaren dirigerar sedan trafik till lämplig serverdelspool som konfigurerats i regler definitionen av gatewayen. I SSL aktiverat webbprogram Programgateway förlitar sig på servern Servernamnsindikation (SNI)-tillägg för att välja rätt lyssnaren för Internet-trafik. Ett vanligt användningsområde för värd för flera plats är att belastningsutjämna förfrågningar för olika webbdomäner till olika backend-serverpooler. På samma sätt kan flera underdomäner på samma rotdomänen också finnas på samma programgatewayen.
+I den här artikeln får du lära dig hur du:
 
-## <a name="scenario"></a>Scenario
+> [!div class="checklist"]
+> * Skapa en programgateway
+> * Skapa virtuella datorer för backend-servrar
+> * Skapa serverdelspooler med backend-servrar
+> * Skapa lyssnare och regler för Routning
+> * Skapa en CNAME-post i din domän
 
-I följande exempel Programgateway betjäna trafik för contoso.com och fabrikam.com med två backend-server-adresspooler: contoso-serverpoolen och fabrikam-serverpoolen. Liknande installationsprogrammet kan användas för att värden underdomäner som app.contoso.com och blog.contoso.com.
+![Exempel på flera platser routning](./media/application-gateway-create-multisite-portal/scenario.png)
 
-![Multisite scenario][multisite]
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Det här scenariot lägger till stöd för flera platser i en befintlig Programgateway. En befintlig Programgateway måste kunna konfigureras för att slutföra det här scenariot. Besök [skapa en Programgateway med hjälp av portalen](application-gateway-create-gateway-portal.md) att lära dig hur du skapar en basic-Programgateway i portalen.
+Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
 
-Här följer de steg som krävs för att uppdatera programgatewayen:
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-1. Skapa backend-pooler för varje plats.
-2. Skapa en lyssnare för varje plats Programgateway stöder.
-3. Skapa regler för att mappa varje lyssnare med lämpliga serverdel.
+Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar. Två undernät skapas i det här exemplet: en för programgatewayen och en för backend-servrarna. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-## <a name="requirements"></a>Krav
+1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+2. Välj **nätverk** och välj sedan **Programgateway** i listan över aktuella.
+3. Ange värdena för Programgateway:
 
-* **Backend-serverpool:** Listan med IP-adresser för backend-servrarna. IP-adresserna som anges bör antingen tillhöra det virtuella undernätet eller vara en offentlig IP-/VIP-adress. FQDN kan också användas.
-* **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
-* **Frontend-port:** Den här porten är den offentliga porten som är öppen på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-* **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning). För flera platser aktiverade programmet gateway läggs värdnamn och SNI indikatorer till.
-* **Regel:** regeln Binder lyssnaren poolen backend-server och definierar vilka backend-serverpoolen trafiken ska dirigeras till när den når en viss lyssnare. Regler bearbetas i angiven ordning och trafik dirigeras via den första regeln som matchar oavsett särskilda egenskaper. Till exempel om du har en regel med hjälp av en grundläggande lyssnare och en regel med en flera platser lyssnare båda på samma port måste regeln med flera platser lyssnaren anges innan en regel med grundläggande lyssnare för flera platser regeln för att fungera som förväntat. 
-* **Certifikat:** varje lyssnare kräver ett unikt certifikat, i det här exemplet skapas 2-lyssnare för flera platser. Två PFX-certifikat och lösenord för att de måste skapas.
+    - *myAppGateway* – namnet på programgatewayen.
+    - *myResourceGroupAG* - för den nya resursgruppen.
 
-## <a name="create-back-end-pools-for-each-site"></a>Skapa backend-pooler för varje plats
+    ![Skapa nya Programgateway](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
-En backend-poolen för varje plats att programmet gateway stöder krävs, i det här fallet 2 är att skapa en för contoso11.com och en för fabrikam11.com.
+4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange sedan värdena för det virtuella nätverket:
 
-### <a name="step-1"></a>Steg 1
+    - *myVNet* – namnet på det virtuella nätverket.
+    - *10.0.0.0/16* - för virtuella nätverkets adressutrymme.
+    - *myAGSubnet* - för undernätsnamnet.
+    - *10.0.0.0/24* - för undernätsadressutrymmet.
 
-Gå till en befintlig Programgateway i Azure-portalen (https://portal.azure.com). Välj **serverdelspooler** och på **Lägg till**
+    ![Skapa det virtuella nätverket](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
-![Lägg till serverdelspooler][7]
+6. Klicka på **OK** att skapa virtuella nätverk och undernät.
+7. Klicka på **Välj en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+8. Godkänn standardvärdena för Lyssnarkonfigurationen lämna inaktiverad Brandvägg för webbaserade program och klicka sedan på **OK**.
+9. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** skapa nätverksresurser och programgatewayen. Det kan ta flera minuter för Programgateway skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
-### <a name="step-2"></a>Steg 2
+### <a name="add-a-subnet"></a>Lägg till ett undernät
 
-Fyll i information om backend-poolen **pool1**, lägger till ip-adresser eller FQDN för backend-servrar och på **OK**
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
+2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-![backend pool1 poolinställningarna][8]
+    ![Skapa ett undernät](./media/application-gateway-create-multisite-portal/application-gateway-subnet.png)
 
-### <a name="step-3"></a>Steg 3
+3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-Klicka på bladet serverdelspooler **Lägg till** att lägga till en ytterligare backend-adresspool **pool2**, lägga till ip-adresser eller FQDN för backend-servrar och klicka på **OK**
+## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-![backend pool2 poolinställningarna][9]
+I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att kontrollera att trafik routning på rätt sätt.
 
-## <a name="create-listeners-for-each-back-end"></a>Skapa lyssnare för varje serverdel
+1. Klicka på **Ny**.
+2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+3. Ange dessa värden för den virtuella datorn:
 
-Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än en webbplats på samma offentliga IP-adress och port. Den grundläggande lyssnare har skapats i portalen innehåller inte den här egenskapen.
+    - *contosoVM* – namnet på den virtuella datorn.
+    - *azureuser* - för administratörsanvändarnamn.
+    - *Azure123456!* för lösenordet.
+    - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
-### <a name="step-1"></a>Steg 1
+4. Klicka på **OK**.
+5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
+7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
+8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
 
-Klicka på **lyssnare** i befintliga Programgateway och på **flera platser** att lägga till den första lyssnaren.
+### <a name="install-iis"></a>Installera IIS
 
-![lyssnare översikt bladet][1]
+1. Öppna det interaktiva gränssnittet och se till att den är inställd på **PowerShell**.
 
-### <a name="step-2"></a>Steg 2
+    ![Installera anpassade tillägg](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
 
-Fyll i informationen för lyssnaren. I det här exemplet SSL-avslutning har konfigurerats, skapa en ny frontend-port. Ladda upp PFX-certifikat som ska användas för SSL-avslutning. Den enda skillnaden på det här bladet jämfört med standard grundläggande lyssnare bladet är värdnamnet.
+2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
-![lyssnare egenskapsbladet][2]
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName contosoVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
 
-### <a name="step-3"></a>Steg 3
+3. Skapa den andra virtuella datorn och installera IIS med hjälp av stegen som du just har avslutats. Ange namnen på *fabrikamVM* för namnet och värdet för VMName i Set-AzureRmVMExtension.
 
-Klicka på **flera platser** och skapa en annan lyssnare enligt beskrivningen i föregående steg för den andra platsen. Se till att använda ett annat certifikat för andra lyssnaren. Den enda skillnaden på det här bladet jämfört med standard grundläggande lyssnare bladet är värdnamnet. Fyll i informationen för lyssnaren och klickar på **OK**.
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
 
-![lyssnare egenskapsbladet][3]
+1. Klicka på **alla resurser** och klicka sedan på **myAppGateway**.
+2. Klicka på **serverdelspooler**, och klicka sedan på **Lägg till**.
+3. Ange ett namn med *contosoPool* och Lägg till *contosoVM* med **Lägg till mål**.
 
-> [!NOTE]
-> Skapa lyssnare i Azure-portalen för Programgateway är en tidskrävande uppgift kan det ta lite tid att skapa två lyssnare i det här scenariot. När du är klar visas lyssnare i portalen som visas i följande bild:
+    ![Lägg till backend-servrar](./media/application-gateway-create-multisite-portal/application-gateway-multisite-backendpool.png)
 
-![Översikt över lyssnare][4]
+4. Klicka på **OK**.
+5. Klicka på **serverdelspooler** och klicka sedan på **Lägg till**.
+6. Skapa den *fabrikamPool* med den *fabrikamVM* med hjälp av stegen som du just har avslutats.
 
-## <a name="create-rules-to-map-listeners-to-backend-pools"></a>Skapa regler för att mappa lyssnare till serverdelspooler
+## <a name="create-listeners-and-routing-rules"></a>Skapa lyssnare och regler för Routning
 
-### <a name="step-1"></a>Steg 1
+1. Klicka på **lyssnare** och klicka sedan på **flera platser**.
+2. Ange värdena för lyssnare:
+    
+    - *contosoListener* – namnet på lyssnaren.
+    - *www.contoso.com* -Ersätt detta exempel på värden med ditt domännamn.
 
-Gå till en befintlig Programgateway i Azure-portalen (https://portal.azure.com). Välj **regler** och välj befintlig Standardregeln **regel 1** och på **redigera**.
+3. Klicka på **OK**.
+4. Skapa en andra lyssnare med namnet på *fabrikamListener* och använda din andra domännamn. I det här exemplet *www.fabrikam.com* används.
 
-### <a name="step-2"></a>Steg 2
+Regler bearbetas i ordningen de anges och trafik dirigeras med hjälp av den första regeln som matchar oavsett särskilda egenskaper. Till exempel om du har en regel med hjälp av en grundläggande lyssnare och en regel med en flera platser lyssnare båda på samma port måste regeln med flera platser lyssnaren anges innan en regel med grundläggande lyssnare för flera platser regeln för att fungera som förväntat. 
 
-Fyll i bladet regler som visas i följande bild. Välja första lyssnare och första poolen och klicka på **spara** när du är klar.
+I det här exemplet skapar två nya regler och ta bort standardregel som skapades när du skapade programgatewayen. 
 
-![Redigera en befintlig regel][6]
+1. Klicka på **regler** och klicka sedan på **grundläggande**.
+2. Ange *contosoRule* för namnet.
+3. Välj *contosoListener* för lyssnaren.
+4. Välj *contosoPool* för serverdelspoolen.
 
-### <a name="step-3"></a>Steg 3
+    ![Skapa en regel som sökväg-baserade](./media/application-gateway-create-multisite-portal/application-gateway-multisite-rule.png)
 
-Klicka på **regel** att skapa den andra regeln. Fyll i formuläret med andra lyssnare och andra serverdelspoolen och klicka på **OK** att spara.
+5. Klicka på **OK**.
+6. Skapa en andra regel med hjälp av namnen på *fabrikamRule*, *fabrikamListener*, och *fabrikamPool*.
+7. Ta bort standardregel med namnet *regel 1* genom att klicka på den och sedan på **ta bort**.
 
-![Lägg till regel bladet][10]
+## <a name="create-a-cname-record-in-your-domain"></a>Skapa en CNAME-post i din domän
 
-Det här scenariot har slutförts konfigurerar en Programgateway med befintliga med stöd för flera platser via Azure-portalen.
+När programgatewayen har skapats med dess offentliga IP-adress kan du hämta DNS-adress och använda den för att skapa en CNAME-post i din domän. Användning av A-poster rekommenderas inte eftersom VIP kan ändras när programgatewayen har startats om.
+
+1. Klicka på **alla resurser**, och klicka sedan på **myAGPublicIPAddress**.
+
+    ![Posten Programgateway DNS-adress](./media/application-gateway-create-multisite-portal/application-gateway-multisite-dns.png)
+
+2. Kopiera DNS-serveradress och använda det som värdet för en ny CNAME-post i din domän.
+
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
+
+1. Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contoso.com.
+
+    ![Testa plats för contoso i Programgateway](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
+
+2. Ändra adressen till den andra domänen och du bör se något som liknar följande exempel:
+
+    ![Testa fabrikam plats i Programgateway](./media/application-gateway-create-multisite-portal/application-gateway-iistest2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att skydda dina webbplatser med [Programgateway - Brandvägg för webbaserade program](application-gateway-webapplicationfirewall-overview.md)
+I den här artikeln får du lära dig hur du:
 
-<!--Image references-->
-[1]: ./media/application-gateway-create-multisite-portal/figure1.png
-[2]: ./media/application-gateway-create-multisite-portal/figure2.png
-[3]: ./media/application-gateway-create-multisite-portal/figure3.png
-[4]: ./media/application-gateway-create-multisite-portal/figure4.png
-[5]: ./media/application-gateway-create-multisite-portal/figure5.png
-[6]: ./media/application-gateway-create-multisite-portal/figure6.png
-[7]: ./media/application-gateway-create-multisite-portal/figure7.png
-[8]: ./media/application-gateway-create-multisite-portal/figure8.png
-[9]: ./media/application-gateway-create-multisite-portal/figure9.png
-[10]: ./media/application-gateway-create-multisite-portal/figure10.png
-[multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
+> [!div class="checklist"]
+> * Skapa en programgateway
+> * Skapa virtuella datorer för backend-servrar
+> * Skapa serverdelspooler med backend-servrar
+> * Skapa lyssnare och regler för Routning
+> * Skapa en CNAME-post i din domän
+
+> [!div class="nextstepaction"]
+> [Mer information om vad du kan göra med Programgateway](application-gateway-introduction.md)

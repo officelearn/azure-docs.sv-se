@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
 Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  Den här artikeln innehåller en översikt och ytterligare information för stegen i videon. Den här 24 minuter långa videon visar hur till:
@@ -33,7 +33,7 @@ Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den me
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Skapa en Azure AD-katalog
-Säkerhetskopieras med Azure Active Directory måste du skydda webb-API en AAD-klient. I det här videoklippet en klient med namnet **APIMDemo** används. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
+Att säkra din Web API-serverdel med Azure Active Directory måste du först ha en AAD-klient. I det här videoklippet en klient med namnet **APIMDemo** används. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -192,7 +192,7 @@ API: er konfigureras från publisher-portalen API som öppnas via Azure Portal. 
 
 Åtgärder kan vara [lagts till API: er manuellt](api-management-howto-add-operations.md), eller kan importeras. I det här videoklippet importeras åtgärder i Swagger-format som börjar på 6:40.
 
-Skapa en fil med namnet `calcapi.json` med följande innehåll och spara den på datorn. Se till att den `host` attributet pekar till din Web API-serverdel. I det här exemplet `"host": "apimaaddemo.azurewebsites.net"` används.
+Skapa en fil med namnet `calcapi.json` med följande innehåll och spara den på datorn. Se till att den `host` attributet pekar till din Web API-serverdel. I det här exemplet används `"host": "apimaaddemo.azurewebsites.net"`.
 
 ```json
 {
@@ -387,7 +387,7 @@ Välj **Web application och/eller webb-API**, ange ett namn och klicka på pilen
 
 ![Nytt program][api-management-aad-new-application-devportal-1]
 
-För **inloggnings-URL** anger du URL för API Management-tjänsten och Lägg till `/signin`. I det här exemplet `https://contoso5.portal.azure-api.net/signin` används.
+För **inloggnings-URL** anger du URL för API Management-tjänsten och Lägg till `/signin`. I det här exemplet används `https://contoso5.portal.azure-api.net/signin`.
 
 För **App-Id-URL** anger du URL för API Management-tjänsten och lägga till vissa unika tecken. Det kan vara önskade tecken och i det här exemplet `https://contoso5.portal.azure-api.net/dp` används. När den önskade **appegenskaper** är konfigurerad, klicka på kryssmarkeringen för att skapa programmet.
 

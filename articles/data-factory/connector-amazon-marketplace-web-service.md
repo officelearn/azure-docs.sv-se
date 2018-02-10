@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 736d286bb7b97e842e73afd362ba70a42d1a9d9d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 62036e8a4e0611958ffacf7f7d7896e6ebde5e16
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Kopiera data från Amazon Marketplace-webbtjänsten med hjälp av Azure Data Factory (Beta)
 
@@ -51,9 +51,9 @@ Följande egenskaper stöds för webbtjänsten för Amazon Marketplace länkade 
 | slutpunkt | Slutpunkten för Amazon MWS-servern (det vill säga mws.amazonservices.com)  | Ja |
 | marketplaceID | Marketplace Amazon ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsade med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | Amazon säljare-ID.  | Ja |
-| mwsAuthToken | Amazon MWS autentiseringstoken. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt genom att Data Factory-tjänsten eller lagra lösenord i Azure Key Vault och kan kopiera acitivity hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Key Vault ](store-credentials-in-key-vault.md). | Ja |
+| mwsAuthToken | Amazon MWS autentiseringstoken. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessKeyId | Åtkomst key-ID som används för åtkomst till data.  | Ja |
-| secretKey | Den hemliga nyckeln som används för att komma åt data. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och kan kopiera acitivity hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| secretKey | Den hemliga nyckeln som används för att komma åt data. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

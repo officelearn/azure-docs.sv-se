@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 65eab09a1fcf7e1c2411ee4b96d21ba22e3519b2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Kopiera data från ruta med hjälp av Azure Data Factory (Beta)
 
@@ -50,7 +50,7 @@ Följande egenskaper stöds för kvadratisk länkade tjänsten:
 | typ | Egenskapen type måste anges till: **ruta** | Ja |
 | värd | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | clientId | Klient-ID som är associerade med kvadratisk programmet.  | Ja |
-| clientSecret | Klienthemligheten tillämpningsprogrammet kvadratisk. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| clientSecret | Klienthemligheten tillämpningsprogrammet kvadratisk. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | redirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (i.e. http://localhost:2500)  | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

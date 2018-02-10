@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar granska åtgärder på resurser
 Du kan bestämma via aktivitetsloggar:
@@ -29,7 +29,11 @@ Du kan bestämma via aktivitetsloggar:
 * Status för åtgärden
 * Värdena för andra egenskaper som kan hjälpa dig undersöka igen
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, ta bort) utförs på dina resurser. Det inkluderar inte läsåtgärder (GET). En lista över åtgärder för resursen finns [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md). Du kan använda granskningsloggarna för att hitta ett fel när du felsöker eller för att övervaka hur en användare i din organisation ändrades en resurs.
+
+Aktivitetsloggar finns kvar i 90 dagar. Du kan fråga efter alla datumintervall, så länge startdatumet inte är mer än 90 dagar bakåt i tiden.
+
+
 
 Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure CLI, insikter REST API eller [insikter .NET-bibliotek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -139,7 +143,7 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
   ```
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [insikter REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Om du vill hämta aktivitet logghändelser finns [management-händelser i en prenumeration](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Nästa steg

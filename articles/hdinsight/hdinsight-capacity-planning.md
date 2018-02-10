@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -89,8 +89,7 @@ Skala ett kluster bestäms av antalet Virtuella noder. För alla typer av klustr
 
 Beroende på din typ av kluster, ökar antalet arbetarnoder lägger till ytterligare beräkningar kapacitet (till exempel flera kärnor), men kan också lägga till den totala mängden minne som krävs att stödja InMemory-lagring av data som bearbetas hela klustret. Precis som med valet av VM-storlek och typ, uppnås välja rätt klustret skala vanligtvis empiriskt, med hjälp av simulerad arbetsbelastningar eller Kanarieöarna frågor.
 
-Du kan skala ut klustret för att uppfylla kraven för inläsning av belastning och skala ned när de extra noderna inte längre behövs.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Du kan skala ut klustret för att uppfylla kraven för inläsning av belastning och skala ned när de extra noderna inte längre behövs. Mer information finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Klustret livscykel
 

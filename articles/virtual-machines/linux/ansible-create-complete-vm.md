@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en miljö med fullständiga Linux virtuella datorer i Azure med Ansible
 Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en komplett Linux-miljö och ge support för resurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
@@ -187,7 +187,7 @@ Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_crea
         version: latest
 ```
 
-Ansible måste distribuera alla resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/vm#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+Ansible måste distribuera alla resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/vm#az_vm_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Google Apps för automatisk användaretablering
 
@@ -157,9 +157,9 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till det användarkonto
 
 20. Välj **Spara**.
 
-Den här processen startar den första synkroniseringen av alla användare eller grupper som tilldelas till Google Apps i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut medan tjänsten körs. 
+Den här processen startar den första synkroniseringen av alla användare eller grupper som tilldelas till Google Apps i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter medan tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar. Dessa loggar beskrivs alla åtgärder som utförs av tjänsten etablering på Google Apps-app.
 
-Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter. De här rapporterna beskrivs alla åtgärder som är utförs av tjänsten etablering på Google Apps-app.
+Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

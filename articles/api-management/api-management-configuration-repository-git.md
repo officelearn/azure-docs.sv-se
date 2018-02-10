@@ -6,25 +6,22 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: mattfarm
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management service configuration med Git
-> 
-> 
 
-Varje instans för API Management-tjänsten har en databas som innehåller information om konfiguration och metadata för tjänstinstansen. Ändringar kan göras i tjänstinstansen genom att ändra en inställning i portalen utgivare, med hjälp av en PowerShell-cmdlet eller göra ett REST API-anrop. Du kan också hantera konfigurationen för service-instans med Git, aktivera tjänsten hanteringsscenarier som förutom dessa metoder:
+Varje instans för API Management-tjänsten har en databas som innehåller information om konfiguration och metadata för tjänstinstansen. Ändringar kan göras i tjänstinstansen genom att ändra en inställning i Azure-portalen, med hjälp av en PowerShell-cmdlet eller göra ett REST API-anrop. Du kan också hantera konfigurationen för service-instans med Git, aktivera tjänsten hanteringsscenarier som förutom dessa metoder:
 
 * Konfigurationen versionshantering - ladda ned och lagra olika versioner av tjänstkonfigurationen av
 * Massredigera konfigurationsändringar – göra ändringar i flera delar av din tjänstkonfiguration i lokala databasen och integrera ändringarna tillbaka till servern med en enda åtgärd
@@ -34,7 +31,7 @@ Följande diagram visar en översikt över olika sätt att konfigurera din insta
 
 ![Konfigurera Git][api-management-git-configure]
 
-När du gör ändringar i din tjänst med hjälp av publisher-portalen, PowerShell-cmdlets eller REST API du hanterar din service configuration databas med hjälp av den `https://{name}.management.azure-api.net` slutpunkt, som visas till höger i diagrammet. Till vänster i diagrammet visar hur du kan hantera tjänstkonfigurationen av med Git och Git-lagringsplats för tjänsten finns på `https://{name}.scm.azure-api.net`.
+När du gör ändringar i din tjänst med hjälp av Azure portal, PowerShell-cmdlets eller REST API du hanterar din service configuration databas med hjälp av den `https://{name}.management.azure-api.net` slutpunkt, som visas till höger i diagrammet. Till vänster i diagrammet visar hur du kan hantera tjänstkonfigurationen av med Git och Git-lagringsplats för tjänsten finns på `https://{name}.scm.azure-api.net`.
 
 Följande steg ger en översikt över hantering av din API Management service-instans med Git.
 
@@ -47,11 +44,8 @@ Följande steg ger en översikt över hantering av din API Management service-in
 Den här artikeln beskriver hur du aktiverar och använder Git för att hantera tjänstkonfigurationen av och innehåller en referens för filer och mappar i Git-lagringsplats.
 
 ## <a name="access-git-configuration-in-your-service"></a>Konfiguration av Git i din tjänst
-Du kan snabbt visa status för Git-konfigurationen genom att visa Git-ikonen i det övre högra hörnet av portalen utgivare. I det här exemplet anger statusmeddelanden som det finns osparade ändringar i databasen. Det beror på att konfigurationsdatabasen för API Management-tjänsten inte har sparats i databasen.
 
-![Git-status][api-management-git-icon-enable]
-
-Om du vill visa och konfigurera inställningarna i Git, du kan antingen klicka på ikonen Git, eller klicka på den **säkerhet** menyn och navigera till den **Configuration databasen** fliken.
+Om du vill visa och konfigurera inställningarna i Git, kan du klicka på den **säkerhet** menyn och navigera till den **Configuration databasen** fliken.
 
 ![Aktivera GIT][api-management-enable-git]
 
@@ -63,43 +57,30 @@ Om du vill visa och konfigurera inställningarna i Git, du kan antingen klicka p
 Mer information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns [aktivera eller inaktivera Git-åtkomst med hjälp av REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Spara konfigurationen för tjänsten i Git-lagringsplats
-Det första steget innan kloning databasen är att spara det aktuella tillståndet för tjänstens konfiguration i databasen. Klicka på **spara konfigurationen till databasen**.
 
-![Spara konfigurationen][api-management-save-configuration]
+Det första steget innan kloning databasen är att spara det aktuella tillståndet för tjänstens konfiguration i databasen. Klicka på **spara databasen**.
 
 Gör eventuella ändringar på bekräftelsesidan och klicka på **Ok** att spara.
 
-![Spara konfigurationen][api-management-save-configuration-confirm]
-
 Efter en liten stund konfigurationen sparas och visas status för konfiguration av databasen, inklusive datum och tid för senaste konfigurationsändringen och den senaste synkroniseringen mellan konfigurationen för tjänsten och -databasen.
-
-![Konfigurationsstatus][api-management-configuration-status]
 
 När konfigurationen har sparats i databasen, kan den klonas.
 
 Information om hur du utför den här åtgärden med hjälp av REST-API finns [Commit configuration ögonblicksbild med hjälp av REST-API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Att klona databasen på den lokala datorn
-Om du vill klona en databas måste URL: en till databasen, ett användarnamn och ett lösenord. Användarnamn och URL visas längst upp i den **Configuration databasen** fliken.
 
-![Git-klonen][api-management-configuration-git-clone]
-
-Lösenordet genereras längst ned i den **Configuration databasen** fliken.
-
-![Generera lösenord][api-management-generate-password]
-
-För att generera ett lösenord måste du först kontrollera att den **upphör att gälla** är inställd på önskad utgångsdatum och utgångstid och klicka sedan på **generera Token**.
-
-![Lösenord][api-management-password]
+Om du vill klona en databas måste URL: en till databasen, ett användarnamn och ett lösenord. För att få användarnamn och andra autentiseringsuppgifter, klickar du på **åt autentiseringsuppgifterna** överst på sidan.  
+ 
+För att generera ett lösenord måste du först kontrollera att den **upphör att gälla** är inställd på önskad utgångsdatum och utgångstid och klicka sedan på **generera**.
 
 > [!IMPORTANT]
 > Anteckna det här lösenordet. När du lämnar den här sidan visas inte lösenordet igen.
 > 
-> 
 
 I följande exempel används verktyget Git Bash från [Git för Windows](http://www.git-scm.com/downloads) men du kan använda alla Git-verktyg som du är bekant med.
 
-Öppna Git-verktyget i mappen önskade och kör följande kommando för att klona git-lagringsplatsen till den lokala datorn med hjälp av kommandot som tillhandahålls av publisher-portalen.
+Öppna Git-verktyget i mappen önskade och kör följande kommando för att klona git-lagringsplatsen till den lokala datorn med hjälp av kommandot som tillhandahålls av Azure-portalen.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
@@ -116,7 +97,7 @@ git clone https://username:password@bugbashdev4.scm.azure-api.net/
 Om detta ger ett fel kan du försöka URL kodning lösenord delen av kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och kör följande kommando i den **kommandofönstret**. Öppna den **kommandofönstret**, öppna någon lösning eller ett projekt i Visual Studio (eller skapa en ny tom konsolapp), och välj **Windows**, **Immediate** från den **Felsöka** menyn.
 
 ```
-?System.NetWebUtility.UrlEncode("password from publisher portal")
+?System.NetWebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Använda kodade lösenordet tillsammans med din Användarplats för namn och databasen för att skapa git-kommandot.
@@ -128,7 +109,8 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 När databasen är klonad kan du visa och arbeta med det i det lokala filsystemet. Mer information finns i [fil- och struktur referens för lokal Git-lagringsplats](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uppdatera din lokal databas med aktuell instans konfigurationen för tjänsten
-Om du gör ändringar i API Management service-instans i publisher-portalen eller med hjälp av REST-API, måste du spara dessa ändringar till databasen innan du kan uppdatera din lokala databasen med de senaste ändringarna. Gör detta genom att klicka på **spara konfigurationen till databasen** på den **Configuration databasen** i portalen publisher och sedan kör du följande kommando i en lokal databas.
+
+Om du gör ändringar i API Management service-instans i Azure-portalen eller med hjälp av REST-API måste du spara dessa ändringar till databasen innan du kan uppdatera din lokala databasen med de senaste ändringarna. Gör detta genom att klicka på **spara konfigurationen till databasen** på den **Configuration databasen** i Azure-portalen och sedan kör du följande kommando i en lokal databas.
 
 ```
 git pull
@@ -155,13 +137,13 @@ git push
 ```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Att distribuera konfigurationsändringar service till instansen för API Management-tjänsten
+
 När din lokala ändringar allokerat och pushas till server-databasen, kan du distribuera dem till din API Management service-instans.
 
-![Distribuera][api-management-configuration-deploy]
-
-Information om hur du utför den här åtgärden med hjälp av REST-API finns [distribuera Git ändras till konfigurationsdatabasen med hjälp av REST API](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Information om hur du utför den här åtgärden med hjälp av REST-API finns [distribuera Git ändras till konfigurationsdatabasen med hjälp av REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Fil- och structure-referens för lokal Git-lagringsplats
+
 Filer och mappar i den lokala git-lagringsplatsen innehåller konfigurationsinformation om tjänstinstansen.
 
 | Objekt | Beskrivning |
@@ -178,8 +160,8 @@ Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera m
 
 | Filtyp | Syfte |
 | --- | --- |
-| JSON |Konfigurationsinformation om respektive enhet |
-| HTML |Beskrivningar av entiteten ofta visas i developer-portalen |
+| json |Konfigurationsinformation om respektive enhet |
+| html |Beskrivningar av entiteten ofta visas i developer-portalen |
 | xml |Principrapporter |
 | CSS |Formatmallar för developer portal anpassning |
 
@@ -192,7 +174,6 @@ Dessa filer kan skapas, tas bort, redigera och hanteras inte i det lokala filsys
 > * Prenumerationer
 > * Egenskaper
 > * Developer portal enheter än format
-> 
 > 
 
 ### <a name="root-api-management-folder"></a>Rotmapp för api management
@@ -223,8 +204,6 @@ De fyra första inställningarna (`RegistrationEnabled`, `UserRegistrationTerms`
 | UserRegistrationTermsEnabled |**Visa användningsvillkoren på inloggningssidan** kryssruta |
 | UserRegistrationTermsConsentRequired |**Kräv godkännande** kryssruta |
 
-![Identitetsinställningar][api-management-identity-settings]
-
 Inställningarna för följande fyra (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, och `DelegationValidationKey`) mappas till följande inställningar på den **delegering** fliken i den **säkerhet** avsnitt.
 
 | Delegeringsinställningen | Mappas till |
@@ -233,8 +212,6 @@ Inställningarna för följande fyra (`DelegationEnabled`, `DelegationUrl`, `Del
 | DelegationUrl |**Delegering slutpunkts-URL** textruta |
 | DelegatedSubscriptionEnabled |**Delegera produkten prenumeration** kryssruta |
 | DelegationValidationKey |**Delegera valideringsnyckel** textruta |
-
-![Inställningarna för standarddelegering][api-management-delegation-settings]
 
 Den sista inställningen `$ref-policy`, mappar till den globala principfilen instruktioner för tjänstinstansen.
 
@@ -283,15 +260,9 @@ Information om andra sätt att hantera din tjänstinstansen finns:
 * Hantera din service-instans med hjälp av följande PowerShell-cmdlets
   * [Tjänstdistributionen PowerShell cmdlet-referens](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell-cmdlet-referens](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Hantera service-instans i publisher-portal
-  * [Hantera ditt första API](import-and-publish.md)
 * Hantera din service-instans med hjälp av REST-API
   * [API Management REST API-referens](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
-## <a name="watch-a-video-overview"></a>Titta på en videoöversikt
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Configuration-over-Git/player]
-> 
-> 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png

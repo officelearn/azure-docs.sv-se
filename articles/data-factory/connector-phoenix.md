@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
 
@@ -50,7 +50,7 @@ Följande egenskaper stöds för Phoenix länkade tjänsten:
 | httpPath | Partiell URL som motsvarar Phoenix-server. (det vill säga /gateway/sandbox/phoenix/version). Standardvärdet är `hbasephoenix` om du använder WindowsAzureHDInsightService.  | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att ansluta till servern Phoenix. <br/>Tillåtna värden är: **anonym**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till servern Phoenix.  | Nej |
-| lösenord | Lösenordet för användarnamnet. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |

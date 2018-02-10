@@ -1,26 +1,20 @@
 ---
-title: "Ställ in katastrofåterställning för Hyper-V virtuella datorer mellan din lokala platser med Azure Site Recovery | Microsoft Docs"
+title: "Ställ in katastrofåterställning för Hyper-V virtuella datorer mellan lokala platser med Azure Site Recovery | Microsoft Docs"
 description: "Lär dig hur du ställer in katastrofåterställning för Hyper-V virtuella datorer mellan din lokala platser med Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 65eda71c-3ca3-41bc-b02d-00fecc1557d7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 90c0d8c4f03fab3c3932723eeed0a37cd5112615
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Ställ in katastrofåterställning för Hyper-V virtuella datorer till en sekundär lokal plats
+# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Ställ in katastrofåterställning för Hyper-V virtuella datorer till en sekundär lokal plats
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din strategi för katastrofåterställning genom att hantera och samordna replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
 
@@ -34,7 +28,7 @@ Den här kursen visar hur du ställer in återställning till en sekundär plats
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -121,7 +115,7 @@ Välj VMM-målservern och molnet:
 1. Klicka på **Förbered infrastruktur** > **mål**, och välj VMM-målservern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
-   ![mål](./media/tutorial-vmm-to-vmm/target-vmm.png)
+   ![Mål](./media/tutorial-vmm-to-vmm/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurera en princip för lösenordsreplikering

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Spara pengar på virtuella datorer med den reserverade virtuella instanser 
 Den reserverade virtuella instanser kan du före betala för ett år eller tre års beräkningskapacitet att få rabatt på de virtuella datorerna som du använder. Minskar avsevärt kostnaderna för virtuella datorer, upp till 72 procent på betalning per användning priser – med Summa åtagande för ett år eller tre år. Den reserverade virtuella instanser är fakturering rabatt och påverkar inte runtime-tillståndet för virtuella datorer.
@@ -60,5 +60,14 @@ Reservationer är tillgängliga för de flesta VM-storlekar med vissa undantag:
 
 ## <a name="next-steps"></a>Nästa steg
 Starta sparar på dina virtuella datorer genom att köpa en [reserverade virtuella datorinstans](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera reserverade virtuella Datorinstanser](billing-manage-reserved-vm-instance.md)
+- [Förstå hur reserverade virtuella datorinstans rabatt används](billing-understand-vm-reservation-charges.md)
+- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+- [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
 
 Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.

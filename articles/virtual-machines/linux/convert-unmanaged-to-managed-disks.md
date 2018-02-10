@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 75031b6189710286625406246e6dcde6f1c2b938
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 
@@ -36,19 +36,19 @@ Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure
 ## <a name="convert-single-instance-vms"></a>Konvertera single instance virtuella datorer
 Det här avsnittet beskriver hur du konverterar single instance virtuella Azure-datorer från ohanterade diskar till hanterade diskar. (Om dina virtuella datorer i en tillgänglighetsuppsättning, finns i nästa avsnitt.) Du kan använda den här processen för att konvertera de virtuella datorerna från premium (SSD) ohanterad diskar till hanterade premiumdiskar eller från standard (HDD) ohanterad diskar till hanterade standarddiskar.
 
-1. Frigör den virtuella datorn med hjälp av [az vm frigöra](/cli/azure/vm#deallocate). I följande exempel tar bort den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
+1. Frigör den virtuella datorn med hjälp av [az vm frigöra](/cli/azure/vm#az_vm_deallocate). I följande exempel tar bort den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Konvertera den virtuella datorn till hanterade diskar med hjälp av [az vm konvertera](/cli/azure/vm#convert). Följande process konverterar den virtuella datorn med namnet `myVM`, inklusive OS-disken och eventuella hårddiskar:
+2. Konvertera den virtuella datorn till hanterade diskar med hjälp av [az vm konvertera](/cli/azure/vm#az_vm_convert). Följande process konverterar den virtuella datorn med namnet `myVM`, inklusive OS-disken och eventuella hårddiskar:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Starta den virtuella datorn efter konvertering till hanterade diskar med hjälp av [az vm start](/cli/azure/vm#start). Följande exempel startar den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`.
+3. Starta den virtuella datorn efter konvertering till hanterade diskar med hjälp av [az vm start](/cli/azure/vm#az_vm_start). Följande exempel startar den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -60,7 +60,7 @@ Om de virtuella datorer som du vill konvertera till hanterade diskar är i en ti
 
 Alla virtuella datorer i tillgänglighetsuppsättningen måste frigöras innan du konverterar tillgänglighetsuppsättningen. Om du tänker konvertera alla virtuella datorer till hanterade diskar när tillgänglighetsuppsättning själva har konverterats till en hanterad tillgänglighetsuppsättning. Sedan starta de virtuella datorerna och fortsätta fungera som vanligt.
 
-1. Lista alla virtuella datorer i en tillgänglighetsuppsättning med hjälp av [az vm-tillgänglighetsuppsättning lista](/cli/azure/vm/availability-set#list). I följande exempel visar en lista över alla virtuella datorer i tillgänglighetsuppsättning namngivna `myAvailabilitySet` i resursgrupp med namnet `myResourceGroup`:
+1. Lista alla virtuella datorer i en tillgänglighetsuppsättning med hjälp av [az vm-tillgänglighetsuppsättning lista](/cli/azure/vm/availability-set#az_vm_availability_set_list). I följande exempel visar en lista över alla virtuella datorer i tillgänglighetsuppsättning namngivna `myAvailabilitySet` i resursgrupp med namnet `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -70,13 +70,13 @@ Alla virtuella datorer i tillgänglighetsuppsättningen måste frigöras innan d
         --output table
     ```
 
-2. Ta bort alla virtuella datorer med hjälp av [az vm frigöra](/cli/azure/vm#deallocate). I följande exempel tar bort den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
+2. Ta bort alla virtuella datorer med hjälp av [az vm frigöra](/cli/azure/vm#az_vm_deallocate). I följande exempel tar bort den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Konvertera tillgänglighetsuppsättning med hjälp av [az vm-tillgänglighetsuppsättning konvertera](/cli/azure/vm/availability-set#convert). I följande exempel konverterar tillgänglighetsuppsättning namngivna `myAvailabilitySet` i resursgrupp med namnet `myResourceGroup`:
+3. Konvertera tillgänglighetsuppsättning med hjälp av [az vm-tillgänglighetsuppsättning konvertera](/cli/azure/vm/availability-set#az_vm_availability_set_convert). I följande exempel konverterar tillgänglighetsuppsättning namngivna `myAvailabilitySet` i resursgrupp med namnet `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -84,13 +84,13 @@ Alla virtuella datorer i tillgänglighetsuppsättningen måste frigöras innan d
         --name myAvailabilitySet
     ```
 
-4. Konvertera alla virtuella datorer till hanterade diskar med hjälp av [az vm konvertera](/cli/azure/vm#convert). Följande process konverterar den virtuella datorn med namnet `myVM`, inklusive OS-disken och eventuella hårddiskar:
+4. Konvertera alla virtuella datorer till hanterade diskar med hjälp av [az vm konvertera](/cli/azure/vm#az_vm_convert). Följande process konverterar den virtuella datorn med namnet `myVM`, inklusive OS-disken och eventuella hårddiskar:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Starta alla virtuella datorer efter konvertering till hanterade diskar med hjälp av [az vm start](/cli/azure/vm#start). Följande exempel startar den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
+5. Starta alla virtuella datorer efter konvertering till hanterade diskar med hjälp av [az vm start](/cli/azure/vm#az_vm_start). Följande exempel startar den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

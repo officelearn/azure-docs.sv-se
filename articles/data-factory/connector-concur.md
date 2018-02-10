@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 45264d8ffb1953e80412e4ef30f289f7af5cf813
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2a300b45cba8b611d75a152060eaa2a4f95ac518
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-beta"></a>Kopiera data från Concur med hjälp av Azure Data Factory (Beta)
 
@@ -53,7 +53,7 @@ Följande egenskaper stöds för Concur länkade tjänsten:
 | typ | Egenskapen type måste anges till: **Concur** | Ja |
 | clientId | Programmet client_id tillhandahålls av verklig Apphantering.  | Ja |
 | användarnamn | Det användarnamn som du använder för att komma åt verklig-tjänsten.  | Ja |
-| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

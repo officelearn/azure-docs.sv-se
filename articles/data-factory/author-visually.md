@@ -1,6 +1,6 @@
 ---
-title: Redigera visuellt Azure datafabriker | Microsoft Docs
-description: "Lär dig hur du skapar visuellt Azure datafabriker"
+title: Visual redigering i Azure Data Factory | Microsoft Docs
+description: "Lär dig hur du använder visual redigering i Azure Data Factory"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,98 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 3e67665facba78c4ca8e2317f0323b4c5c02a49c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 81b97bb6b6abb5431bedd4efec5f807fa577c4e4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="visually-author-data-factories"></a>Visuellt författare datafabriker
-Azure Data Factory UX-upplevelse användare visuellt skapa och distribuera resurser i sina data factory utan att skriva en enda rad kod. Det här gränssnittet utan kod kan du dra och släppa aktiviteter på en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Du kan välja att använda verktyget ADF UX på två sätt:
+# <a name="visual-authoring-in-azure-data-factory"></a>Visual redigering i Azure Data Factory
+Azure Data Factory användargränssnittet experience (UX) kan du visuellt skapa och distribuera resurser för din data factory utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka upprepade gånger, och distribuera och övervaka din pipeline-körs. Det finns två tillvägagångssätt för att utföra visual redigering med UX:
 
-1. Arbeta direkt med Data Factory-tjänsten
-2. Konfigurera VSTS Git-integrering för samarbete, källkontrollen eller versionshantering
+- Författare direkt med Data Factory-tjänsten.
+- Redigera med Visual Studio Team Services VSTS () Git-integrering för samarbete, källkontrollen eller versionshantering.
 
-## <a name="authoring-with-data-factory"></a>Redigering med Data Factory
-Det första alternativet redigering direkt med Data Factory-läge. Den här metoden skiljer sig från redigering VSTS kod databasen att lagra JSON-entiteter av ändringarna databas eller optimerat för samarbete eller versionskontroll.
+## <a name="author-directly-with-the-data-factory-service"></a>Författare direkt med Data Factory-tjänsten
+Visual redigering med Data Factory-tjänsten skiljer sig från visual redigering med VSTS på två sätt:
 
-![Konfigurera Data Factory](media/author-visually/configure-data-factory.png)
+- Data Factory-tjänsten innehåller en databas för att lagra JSON-entiteter för dina ändringar.
+- Data Factory-tjänsten inte är optimerad för samarbete eller versionskontroll.
 
-Det finns Data Factory-läge ”publicera” läge. Alla ändringar du gör publiceras direkt till Data Factory-tjänsten.
+![Konfigurera tjänsten Data Factory ](media/author-visually/configure-data-factory.png)
 
-![Publicera data Factory](media/author-visually/data-factory-publish.png)
+När du använder UX **redigering arbetsytan** att skapa direkt med Data Factory-tjänsten, endast den **publicera** läget är tillgängligt. Alla ändringar du gör publiceras direkt till Data Factory-tjänsten.
 
-## <a name="authoring-with-vsts-git-integration"></a>Redigering med VSTS Git-integrering
-Redigering med VSTS Git-integrering kan användas för källkontroll och samarbete vid skapande av din data factory pipelines. Användare har möjlighet att koppla en datafabrik till en VSTS Git konto lagringsplats för källkontroll, samarbete och versionshantering osv. Ett enda VSTS GIT-konto kan ha flera databaser. Men kan en VSTS Git-lagringsplats bara associeras med en enda data factory. Om du inte har ett konto för VSTS och databasen redan kan skapa en [här](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+![Publicera läge](media/author-visually/data-factory-publish.png)
 
-### <a name="configure-vsts-git-repo-with-azure-data-factory"></a>Konfigurera VSTS Git Repo med Azure Data Factory
-Användare kan konfigurera en VSTS GIT-lagringsplatsen med en datafabrik via två metoder.
+## <a name="author-with-vsts-git-integration"></a>Författare med VSTS Git-integrering
+Visual redigering med VSTS Git-integration stöder källkontrollen och samarbete for work på din data factory pipelines. Du kan associera en datafabrik med en VSTS Git-lagringsplats för kontot för källkontroll, samarbete, versionshantering och så vidare. Ett enda VSTS Git-konto kan ha flera databaser, men en VSTS Git-lagringsplats kan associeras med en enda data factory. Om du inte har ett konto för VSTS eller databasen, Följ [instruktionerna](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) att skapa dina resurser.
 
-#### <a name="method-1-lets-get-started-page"></a>Metod 1: ”Vi börjar med' sida
+### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurera en VSTS Git-lagringsplats med Azure Data Factory
+Du kan konfigurera en VSTS GIT-lagringsplats med en datafabrik via två metoder.
 
-Gå till sidan 'Vi börjar med ”och klicka på” Konfigurera databasen'
+<a name="method1"></a>
+#### <a name="configuration-method-1-lets-get-started-page"></a>Konfigurationen för 1: ska få igång sida
+I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera databasen**:
 
-![Konfigurera databasen](media/author-visually/configure-repo.png)
+![Konfigurera en lagringsplats för VSTS kod](media/author-visually/configure-repo.png)
 
-Därifrån visas en sida för att konfigurera inställningar för databasen.
+Den **databasen inställningar** konfigurationen visas:
 
 ![Konfigurera inställningar för databasen](media/author-visually/repo-settings.png)
-* **Databasen typen**: Visual Studio Team Services Git (för närvarande Github stöds inte.)
-* **Visual Studio Team Services-konto**: kontonamnet finns från https://{account namn}. visualstudio.com. Logga in på ditt konto i VSTS [här](https://www.visualstudio.com/team-services/git/) och åtkomst till din Visual Studio-profil om du vill visa dina databaser och projekt
-* **Projektnamn:** projektnamnet hittar från https://{account name}.visualstudio.com/{project namn}
-* **RepositoryName:** databasnamnet. VSTS projekt innehålla Git databaser för att hantera din källkod när projektet växer. Skapa en ny databas eller använda en befintlig databas redan finns i projektet.
-* **Importera befintliga Data Factory-resurser till databasen**: genom att markera den här rutan kan du importera dina aktuella data factory resurser som skapats på UX-arbetsytan till den associerade VSTS GIT-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (som är länkade tjänster och datauppsättningar exporteras till separata JSONs).    Om du avmarkerar den här kryssrutan, importeras inte befintliga resurser till på Git-lagringsplatsen.
 
-#### <a name="method-2-from-authoring-canvas"></a>Metod 2: Från arbetsytan redigering
+I rutan visas följande kod i VSTS databasen inställningar:
 
-Klicka på listrutan Data Factory under din data factory-namnet i 'redigering arbetsytan'. Klicka på ”Konfigurera databasen”. Liknar **metod 1**, en sida som visas för att konfigurera inställningar för databasen. Information om inställningarna för föregående avsnitt finns.
+| Inställning | Beskrivning | Värde |
+|:--- |:--- |:--- |
+| **Typ av databasen** | Typ av VSTS kod databasen.<br/>**Obs**: GitHub stöds inte för närvarande. | Visual Studio Team Services Git |
+| **Visual Studio Team Services Account** | VSTS namnet på ditt konto. Du kan hitta kontonamnet VSTS på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt konto i VSTS](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | \<namnet på ditt konto > |
+| **ProjectName** | Ditt VSTS projektnamn. Du kan hitta din VSTS projektnamn på `https://{account name}.visualstudio.com/{project name}`. | \<ditt VSTS projektnamn > |
+| **RepositoryName** | Din VSTS kod databasens namn. VSTS projekt innehålla Git databaser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan ingår i projektet. | \<databasen för VSTS kodnamnet > |
+| **Importera befintliga Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **redigering arbetsytan** i en VSTS Git-lagringsplats. Markera kryssrutan för att importera dina data factory-resurser till den associera Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga de länkade tjänsterna och datauppsättningar exporteras till separata JSONs). När rutan inte är markerad importeras inte befintliga resurser. | Valda (standard) |
 
-![Konfigurera databasen 2](media/author-visually/configure-repo-2.png)
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurationsmetoden 2: UX arbetsytan redigering
+I Azure Data Factory UX **redigering arbetsytan**, leta upp din data factory. Välj den **Datafabriken** listrutan och välj sedan **konfigurera databasen**.
 
-### <a name="version-control"></a>Versionskontroll
-Versionskontroll, kallas även att som källkontroll, system gör att utvecklare kan samarbeta på koden och spåra ändringar i koden grundläggande. Källkontrollen är ett viktigt verktyg för flera utvecklare projekt.
+En konfiguration visas. Mer information om inställningarna finns beskrivningar i <a href="#method1">konfigurationsmetoden 1</a>.
 
-Varje VSTS Git-lagringsplats som kopplats till en datafabrik har en mastergrenen. Därifrån kan varje användare som har åtkomst till VSTS Git-lagringsplatsen har två alternativ när du ändrar: synkronisera och publicera.
+![Konfigurera inställningar för databasen koden för UX redigering](media/author-visually/configure-repo-2.png)
 
-![Publicera synkronisering](media/author-visually/sync-publish.png)
+### <a name="use-version-control"></a>Använda versionskontroll
+System version (även kallat _kontroll_) kan utvecklare samarbeta på koden och spåra ändringar som görs i koden bas. Källkontrollen är ett viktigt verktyg för flera utvecklare projekt.
 
-#### <a name="sync"></a>Sync
+Varje VSTS Git-lagringsplats som är kopplad till en datafabrik har en mastergrenen. När du har åtkomst till en VSTS Git-lagringsplatsen, kan du ändra koden genom att välja **Sync** eller **publicera**:
 
-När du klickar på 'sync' du hämtar ändringar från mastergrenen i din lokala gren eller skicka ändringar från din lokala gren till mastergrenen.
+![Ändra koden genom att synkronisera eller publicera](media/author-visually/sync-publish.png)
 
-![Synkroniserar ändringar](media/author-visually/sync-change.png)
+#### <a name="sync-code-changes"></a>Synkronisera kodändringar
+När du har valt **Sync**, du kan dra ändras från mastergrenen till din lokala gren eller push ändras från din lokala gren till mastergrenen.
 
-#### <a name="publish"></a>Publicera
- Publicera ändringar i mastergrenen till Data Factory-tjänsten.
+![Synkronisera kodändringar](media/author-visually/sync-change.png)
 
-> [!NOTE]
-> Den **mastergrenen är inte representerar vad distribueras i Data Factory-tjänsten.** Mastergrenen *måste* publiceras manuellt till Data Factory-tjänsten.
+#### <a name="publish-code-changes"></a>Publicera ändringar i koden
+Välj **publicera** manuellt publiceras kodändringarna i mastergrenen till tjänsten Data Factory.
 
+> [!IMPORTANT]
+> Mastergrenen är inte representerar vad distribueras i Data Factory-tjänsten. Mastergrenen *måste* publiceras manuellt till Data Factory-tjänsten.
 
+## <a name="use-the-expression-language"></a>Använd språket du uttryck
+Du kan ange uttryck för egenskapsvärden med hjälp av Uttrycksspråk som stöds av Azure Data Factory. Information om uttryck som stöds finns [uttryck och funktioner i Azure Data Factory](control-flow-expression-language-functions.md).
 
+Ange uttryck för egenskapsvärden med hjälp av UX **redigering arbetsytan**:
 
-## <a name="expression-language"></a>Uttrycksspråk
+![Använd språket du uttryck](media/author-visually/expression-language.png)
 
-Användarna kan ange uttryck för att definiera egenskapsvärden med hjälp av Uttrycksspråk som stöds av Azure Data Factory. Se [uttryck och funktioner i Azure Data Factory](control-flow-expression-language-functions.md) för mer om vilka uttryck som stöds.
+## <a name="specify-parameters"></a>Ange parametrar
+Du kan ange parametrar för pipelines och datauppsättningar i Azure Data Factory **parametrar** fliken. Du kan enkelt använda parametrarna i egenskaper genom att välja **lägga till dynamiskt innehåll**:
 
-Ange uttryck i egenskapsvärden i UX t.ex.
+![Lägga till dynamiskt innehåll](media/author-visually/dynamic-content.png)
 
-![Uttrycksspråk](media/author-visually/expression-language.png)
+Du kan använda befintliga parametrar eller ange nya parametrar för värden för egenskaper:
 
-## <a name="parameters"></a>Parametrar
-Användare kan ange parametrar för Pipelines och datauppsättningar, på fliken-Parametrar'. Dessutom Använd parametrar i egenskaperna för enkelt genom att trycka på ”Lägg till dynamiskt innehåll”.
+![Ange parametrar för egenskapsvärden](media/author-visually/parameters.png)
 
-![Dynamiskt innehåll](media/author-visually/dynamic-content.png)
-
-Därifrån kan du använda en befintlig parameter eller ange en ny parameter i egenskapens värde.
-
-![Parametrar](media/author-visually/parameters.png)
-
-## <a name="feedback"></a>Feedback
-Klicka på ikonen ”Feedback” om du vill ge oss feedback (Microsoft) på olika funktioner eller eventuella problem som du kan hantera.
+## <a name="provide-feedback"></a>Ge feedback
+Välj **Feedback** att kommentera om funktioner eller för att meddela Microsoft om problem med verktyget:
 
 ![Feedback](media/monitor-visually/feedback.png)
 
 ## <a name="next-steps"></a>Nästa steg
-
-Mer information om att övervaka och hantera pipelines, se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) artikel
+Läs mer om övervakning och hantering av pipelines i [övervaka och hantera pipelines programmässigt](monitor-programmatically.md).

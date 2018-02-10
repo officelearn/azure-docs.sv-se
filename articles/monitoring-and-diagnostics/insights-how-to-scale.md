@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Skala instansantalet manuellt eller automatiskt
 I den [Azure Portal](https://portal.azure.com/), du kan ange instansantal av tjänsten manuellt eller, du kan ange parametrar för att det automatiskt skala baserat på begäran. Detta är vanligtvis kallas *skala ut* eller *skala i*.
@@ -30,7 +30,7 @@ Du kan skala i portalen och du kan också använda den [REST API](https://msdn.m
 ## <a name="scaling-manually"></a>Skalning manuellt
 1. I den [Azure Portal](https://portal.azure.com/), klickar du på **Bläddra**, gå sedan till den resurs som du vill skala, till exempel en **programtjänstplanen**.
 2. Klicka på **Inställningar > skala ut (apptjänstplan).**
-3. Längst upp i den **skala** bladet som du kan se en historik över Autoskala åtgärder i tjänsten.
+3. Längst upp i den **skala** bladet i den **kör historik** visas en historik över Autoskala åtgärder i tjänsten.
    
     ![Skala bladet](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Du kan skala i portalen och du kan också använda den [REST API](https://msdn.m
    > Åtgärder som utförs av Autoskala kommer att visas i det här diagrammet. Om du justerar instansantalet manuellt, visas inte ändringen i det här diagrammet.
    > 
    > 
-4. Du kan justera antalet **instanser** med skjutreglaget.
+4. Du kan justera antalet **instanser** i den **konfigurera** fliken.
 5. Klicka på den **spara** kommandot och du kommer skalas till det antalet instanser för nästan omedelbart.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Skalning utifrån en förinställd mått
@@ -99,7 +99,7 @@ Du kanske vill ha mer aggressivt skalning under dagen och veckan än på det är
     ![Standard upprepning](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 4. Klicka på **OK**.
 5. Därefter behöver du lägga till profilen som du vill använda andra tider. Klicka på den **lägga till profilen** rad.
-    ![Inaktivera arbete](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+    ![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. Namnge din nya sekund, profil, du kan till exempel kalla den **av arbete**.
 7. Välj sedan **återkommande** igen och välj instans antal sidintervallet under denna tid.
 8. Som med standardprofilen, Välj den **dagar** du vill att profilen ska tillämpas på, och **starttid** under dagen.

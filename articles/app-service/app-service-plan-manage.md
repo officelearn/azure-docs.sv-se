@@ -1,6 +1,6 @@
 ---
 title: "Hantera en apptjänstplan i Azure | Microsoft Docs"
-description: "Lär dig hur till App Service planer utföra olika uppgifter för att hantera en App Service-plan."
+description: "Lär dig hur du utför olika uppgifter för att hantera en App Service-plan."
 keywords: "App service, azure app service, skala, apptjänstplan, ändra, skapa, hantera, management"
 services: app-service
 documentationcenter: 
@@ -15,34 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en apptjänstplan i Azure
 
-En [programtjänstplanen](azure-web-sites-web-hosting-plans-in-depth-overview.md) innehåller resurser som en Apptjänst-app måste köras. Den här instruktioner visar hur du hanterar en programtjänstplan.
+En [Azure App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) innehåller resurser som en Apptjänst-app måste köras. Den här guiden visar hur du hanterar en programtjänstplan.
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
 > [!TIP]
 > Om du har en Apptjänst-miljö, se [skapa en apptjänstplan i en Apptjänst-miljö](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-Du kan skapa en tom App Service-plan eller som en del av skapa en app.
+Du kan skapa en tom App Service-plan eller du kan skapa en plan som en del av skapa en app.
 
-I den [Azure-portalen](https://portal.azure.com), klickar du på **ny** > **webb + mobilt**, och välj sedan **Web App** eller en annan typ för Apptjänst-app.
+1. I den [Azure-portalen](https://portal.azure.com)väljer **ny** > **webb + mobilt**, och välj sedan **Web App** eller en annan typ av App Service-appen.
 
-![Skapa en app i Azure-portalen.][createWebApp]
+2. Välj en befintlig programtjänstplan eller skapar en plan för den nya appen.
 
-Du kan sedan välja en befintlig programtjänstplan eller skapar en plan för den nya appen.
+   ![Skapa en app i Azure-portalen.][createWebApp]
 
- ![Skapa en apptjänstplan.][createASP]
+   Skapa en plan:
 
-Klicka för att skapa en apptjänstplan **[+] Skapa nya**, typen av **programtjänstplanen** namn och välj sedan ett lämpligt **plats**. Klicka på **prisnivå**, och välj sedan ett lämpligt prisnivån för tjänsten. Välj **visa alla** att visa priser fler alternativ, exempelvis **lediga** och **delade**. 
+   a. Välj **[+] Skapa en ny**.
 
-När du har valt prisnivå, klickar du på den **Välj** knappen.
+      ![Skapa en apptjänstplan.][createASP] 
+
+   b. För **programtjänstplanen**, ange namnet på planen.
+
+   c. För **plats**, Välj en lämplig plats.
+
+   d. För **prisnivå**, Välj en lämplig prisnivån för tjänsten. Välj **visa alla** att visa priser fler alternativ, exempelvis **lediga** och **delade**. När du har valt prisnivå, klickar du på den **Välj** knappen.
 
 <a name="move"></a>
 
@@ -50,13 +56,15 @@ När du har valt prisnivå, klickar du på den **Välj** knappen.
 
 Du kan flytta en app till en annan App Service-plan som planen källa och mål-planen finns i den _samma resursgrupp och geografiska region_.
 
-Om du vill flytta en app till en annan plan, navigera till appen som du vill flytta i den [Azure-portalen](https://portal.azure.com).
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den app som du vill flytta.
 
-I den **menyn**, leta efter den **Apptjänstplan** avsnitt.
+2. På menyn Leta efter den **Apptjänstplan** avsnitt.
 
-Välj **ändra programtjänstplanen** att starta processen.
+3. Välj **ändra programtjänstplanen** att öppna den **programtjänstplanen** selector.
 
-**Ändra programtjänstplanen** öppnar den **programtjänstplanen** väljare. Välj en befintlig plan för att flytta den här appen till. 
+   ![App Service-plan väljare.][change] 
+
+4. I den **programtjänstplanen** selector, Välj en befintlig tänkt att flytta den här appen till.   
 
 > [!IMPORTANT]
 > Den **Välj apptjänstplan** sidan filtreras efter följande kriterier: 
@@ -64,14 +72,20 @@ Välj **ändra programtjänstplanen** att starta processen.
 > - Det finns i samma geografiska region 
 > - Det finns i samma webbutrymmet  
 > 
-> En _webbutrymmet_ är en logisk konstruktion i App Service som definierar en gruppering av serverresurser. En geografisk region (till exempel USA, västra) innehåller många webspaces för att allokera kunder som använder App Service. Apptjänst resurser är för närvarande inte kan flyttas mellan webspaces. 
+> En _webbutrymmet_ är en logisk konstruktion i App Service som definierar en gruppering av serverresurser. En geografisk region (till exempel USA, västra) innehåller många webspaces för att allokera kunder som använder App Service. För närvarande kan du flytta Apptjänst resurser mellan webspaces. 
 > 
-
-![App Service-plan väljare.][change]
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Varje plan har sin egen prisnivån. Till exempel flytta en plats från en **lediga** tjänstnivån till en **Standard** tjänstnivån, gör att alla appar som har tilldelats till den använda de funktioner och resurser i den **Standard** nivå. Flytta en app från en högre nivåindelade plan till en lägre nivåindelade plan innebär dock att du inte längre har åtkomst till vissa funktioner. Om din app använder en funktion som inte är tillgänglig i planen mål, får du ett felmeddelande som visar vilken funktion används som inte är tillgänglig. Till exempel om en av dina appar använder SSL-certifikat kan visas felmeddelandet: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`i detta fall kan du behöva skalas upp prisnivån för planen för målet att **grundläggande** eller högre, eller så måste du ta bort alla SSL-anslutningar till din app, innan du kan flytta appen till mål-plan.
+Varje plan har sin egen prisnivån. Till exempel flytta en plats från en **lediga** tjänstnivån till en **Standard** nivå gör att alla appar som har tilldelats till den använda de funktioner och resurser i den **Standard** nivå. Flytta en app från en högre nivåer plan till en lägre nivåer plan innebär dock att du inte längre har åtkomst till vissa funktioner. Om din app använder en funktion som inte är tillgänglig i planen mål, får du ett felmeddelande som visar vilken funktion används som inte är tillgänglig. 
+
+Om en av dina appar använder SSL-certifikat, kan du se det här felmeddelandet:
+
+`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+I det här fallet innan du kan flytta appen till mål-plan, måste du antingen:
+- Skala upp prisnivån för planen för målet att **grundläggande** eller högre.
+- Ta bort alla SSL-anslutningar till din app.
 
 ## <a name="move-an-app-to-a-different-region"></a>Flytta en app till en annan region
 
@@ -80,7 +94,7 @@ Den region där din app körs är App Service-plan som den är i regionen. Du ka
 Du kan hitta **klona App** i den **utvecklingsverktyg** på menyn.
 
 > [!IMPORTANT]
-> Kloningen har vissa begränsningar som du kan läsa om vid [Azure Apptjänst-App kloning](app-service-web-app-cloning.md).
+> Kloningen har vissa begränsningar. Du kan läsa om dem i [Azure Apptjänst-App kloning](app-service-web-app-cloning.md).
 
 ## <a name="scale-an-app-service-plan"></a>Skala en programtjänstplan
 
@@ -92,10 +106,10 @@ Om du vill skala ut en app-instanser finns [skala instansantalet manuellt eller 
 
 ## <a name="delete-an-app-service-plan"></a>Ta bort en apptjänstplan
 
-Om du vill undvika oväntade kostnader, när du tar bort den sista app i App Service-plan, bort Apptjänst även planen som standard. Om du välja att behålla planen i stället, bör du ändra planen för att **lediga** nivån så att du inte hämta debiteras.
+Om du vill undvika oväntade kostnader, när du tar bort den sista app i App Service-plan, bort Apptjänst även planen som standard. Om du väljer att behålla planen i stället bör du ändra planen för att **lediga** nivån så att du inte är debiteras.
 
 > [!IMPORTANT]
-> **Apptjänstplaner** som har inga appar som är kopplade till dem fortfarande avgifter eftersom de fortsätter att reservera konfigurerade VM-instanser.
+> Programtjänstplaner som har inga appar som är kopplade till dem fortfarande avgifter eftersom de fortsätter att reservera konfigurerade VM-instanser.
 
 ## <a name="next-steps"></a>Nästa steg
 

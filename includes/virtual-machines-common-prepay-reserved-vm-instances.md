@@ -30,8 +30,15 @@ Du kan köpa reserverade virtuella Datorinstanserna den [Azure-portalen](https:/
 
     ![Skärmbild innan du skickar reservation köp](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Nästa steg efter att köpa en reservation
+## <a name="next-steps"></a>Nästa steg 
 Reservation rabatten används automatiskt antalet virtuella datorer som matchar reservation scope och attribut som körs. Du kan uppdatera omfånget för reservation via [Azure-portalen](https://portal.azure.com), PowerShell, CLI eller via API: et. 
 
 Information om hur du hanterar en reservation finns [hantera Azure reserverade virtuella Datorinstanser](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Förstå hur reserverade virtuella datorinstans rabatt används](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Förstå reserverade användning för Enterprise-registrering](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](../articles/billing/billing-reserved-instance-windows-software-costs.md)

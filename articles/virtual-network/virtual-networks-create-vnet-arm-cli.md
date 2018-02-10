@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
 
@@ -45,9 +45,9 @@ Du kan också skapa ett virtuellt nätverk via Resource Manager med andra verkty
 
 Om du vill skapa ett virtuellt nätverk med Azure CLI, gör du följande:
 
-1. Installera och konfigurera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login).
+1. Installera och konfigurera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
 
-2. Skapa en resursgrupp för ditt virtuella nätverk med hjälp av den [az gruppen skapa](/cli/azure/group#create) kommandot med de `--name` och `--location` argument:
+2. Skapa en resursgrupp för ditt virtuella nätverk med hjälp av den [az gruppen skapa](/cli/azure/group#az_group_create) kommandot med de `--name` och `--location` argument:
 
     ```azurecli
     az group create --name TestRG --location centralus

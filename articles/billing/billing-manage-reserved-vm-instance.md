@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Hantera reserverade virtuella Datorinstanser
 
@@ -75,6 +75,16 @@ Att delegera hantering för en reservation:
 5.  Välj **Lägg till** > **rollen** > **ägare** (eller en annan roll om du vill ge begränsad åtkomst). 
 6. Skriv e-postadressen för den användare som du vill lägga till som ägare. 
 7. Välj användaren och välj sedan **spara**.
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
+- [Förstå hur reserverade virtuella datorinstans rabatt används](billing-understand-vm-reservation-charges.md)
+- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+- [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

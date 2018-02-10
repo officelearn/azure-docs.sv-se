@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management-åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -57,17 +57,17 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
-|Kontrollera-huvud|Rotelementet.|Ja|  
+|check-header|Rotelementet.|Ja|  
 |värde|Tillåtet värde för HTTP-huvud. När flera element med värdet har angetts, betraktas lyckas kontrollen om något av värdena finns en matchning.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|misslyckades-check--felmeddelande|Felmeddelande om att returnera i texten för HTTP-svar om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha specialtecken (escaped) korrekt.|Ja|Saknas|  
-|misslyckades-check-httpcode|HTTP-statuskoden ska returneras om huvudet finns inte eller har ett ogiltigt värde.|Ja|Saknas|  
-|huvudets namn|Namnet på det HTTP-huvud för att kontrollera.|Ja|Saknas|  
-|Ignorera skiftläge|Kan anges till True eller False. Om värdet är SANT om ignoreras när huvudets värde jämförs uppsättningen av godkända värden.|Ja|Saknas|  
+|failed-check-error-message|Felmeddelande om att returnera i texten för HTTP-svar om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha specialtecken (escaped) korrekt.|Ja|Gäller inte|  
+|failed-check-httpcode|HTTP-statuskoden ska returneras om huvudet finns inte eller har ett ogiltigt värde.|Ja|Gäller inte|  
+|header-name|Namnet på det HTTP-huvud för att kontrollera.|Ja|Gäller inte|  
+|Ignorera skiftläge|Kan anges till True eller False. Om värdet är SANT om ignoreras när huvudets värde jämförs uppsättningen av godkända värden.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -120,9 +120,9 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|namn|Namnet på API som gräns för överföringshastigheten.|Ja|Saknas|  
-|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Ja|Saknas|  
-|förnyelseperioden|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Saknas|  
+|namn|Namnet på API som gräns för överföringshastigheten.|Ja|Gäller inte|  
+|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Ja|Gäller inte|  
+|renewal-period|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -177,10 +177,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Ja|Saknas|  
-|motparterna nyckel|Nyckeln som ska användas för hastighet gränsen principen.|Ja|Saknas|  
-|öka villkor|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`).|Nej|Saknas|  
-|förnyelseperioden|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Saknas|  
+|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Ja|Gäller inte|  
+|motparterna nyckel|Nyckeln som ska användas för hastighet gränsen principen.|Ja|Gäller inte|  
+|increment-condition|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`).|Nej|Gäller inte|  
+|renewal-period|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -214,16 +214,16 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
-|IP-filter|Rotelementet.|Ja|  
-|Adress|Anger en IP-adress som ska filtreras.|Minst en `address` eller `address-range` -element krävs.|  
-|adressintervallet från = ”adress” till = ”adress”|Anger ett intervall av IP-adresser som ska filtreras.|Minst en `address` eller `address-range` -element krävs.|  
+|ip-filter|Rotelementet.|Ja|  
+|address|Anger en IP-adress som ska filtreras.|Minst en `address` eller `address-range` -element krävs.|  
+|address-range from="address" to="address"|Anger ett intervall av IP-adresser som ska filtreras.|Minst en `address` eller `address-range` -element krävs.|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|adressintervallet från = ”adress” till = ”adress”|Ett IP-adressintervall om du vill tillåta eller neka åtkomst för.|Krävs när den `address-range` elementet används.|Saknas|  
-|IP-filteråtgärd = ”Tillåt &#124; förbjuda ”|Anger om anrop ska tillåtas eller inte för den angivna IP-adresser och intervall.|Ja|Saknas|  
+|address-range from="address" to="address"|Ett IP-adressintervall om du vill tillåta eller neka åtkomst för.|Krävs när den `address-range` elementet används.|Gäller inte|  
+|IP-filteråtgärd = ”Tillåt &#124; förbjuda ”|Anger om anrop ska tillåtas eller inte för den angivna IP-adresser och intervall.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -275,10 +275,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|namn|Namnet på API: et eller åtgärden som kvoten gäller.|Ja|Saknas|  
-|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Saknas|  
-|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Saknas|  
-|förnyelseperioden|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Saknas|  
+|namn|Namnet på API: et eller åtgärden som kvoten gäller.|Ja|Gäller inte|  
+|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|renewal-period|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -334,11 +334,11 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Saknas|  
-|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Saknas|  
-|motparterna nyckel|Nyckeln som ska användas för kvot principen.|Ja|Saknas|  
-|öka villkor|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`)|Nej|Saknas|  
-|förnyelseperioden|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Saknas|  
+|Bandbredd|Det maximala totala antalet kilobyte tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som angetts i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
+|motparterna nyckel|Nyckeln som ska användas för kvot principen.|Ja|Gäller inte|  
+|increment-condition|Den booleska uttryck som anger om begäran ska räknas mot kvoten (`true`)|Nej|Gäller inte|  
+|renewal-period|Hur lång tid i sekunder, efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -485,30 +485,30 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
-|Validera jwt|Rotelementet.|Ja|  
+|validate-jwt|Rotelementet.|Ja|  
 |målgrupper|Innehåller en lista över godkända målgruppen anspråk som kan ingå i token. Om flera målgruppen värden finns och sedan varje värde testas förrän antingen alla uttöms (i så fall verifieringen misslyckas) eller tills ett lyckas. Du måste ange minst en målgrupp.|Nej|  
-|utfärdaren signering nycklar|En lista över Base64-kodad säkerhetsnycklar som används för att verifiera signerade token. Om det finns flera säkerhetsnycklar och sedan varje nyckel testas förrän antingen alla uttöms (i så fall verifieringen misslyckas) eller tills ett lyckas (användbart för token förnyelse). Viktiga delar har en valfri `id` attribut som används för matchning mot `kid` anspråk.|Nej|  
+|issuer-signing-keys|En lista över Base64-kodad säkerhetsnycklar som används för att verifiera signerade token. Om det finns flera säkerhetsnycklar och sedan varje nyckel testas förrän antingen alla uttöms (i så fall verifieringen misslyckas) eller tills ett lyckas (användbart för token förnyelse). Viktiga delar har en valfri `id` attribut som används för matchning mot `kid` anspråk.|Nej|  
 |certifikatutfärdare|En lista över godkända säkerhetsobjekt som utfärdade token. Om flera utfärdaren värden finns och sedan varje värde testas förrän antingen alla uttöms (i så fall verifieringen misslyckas) eller tills ett lyckas.|Nej|  
 |openid-config|Det element som används för att ange en kompatibel öppna ID configuration-slutpunkt som signering nycklar och utfärdaren kan hämtas.|Nej|  
 |krävs anspråk|Innehåller en lista över anspråkstyper som förväntas finnas på token att anses vara giltiga. När den `match` -attributet är inställt på `all` varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. När den `match` -attributet är inställt på `any` måste finnas minst ett anspråk i token för verifiering ska lyckas.|Nej|  
-|zumo huvudnyckeln|Huvudnyckeln för token som utfärdats av Azure Mobile Services|Nej|  
+|zumo-master-key|Huvudnyckeln för token som utfärdats av Azure Mobile Services|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|förskjutning av klockan|TimeSpan. Innehåller vissa små handtag om token upphör att gälla anspråk finns i token och har passerat aktuellt datum / tid.|Nej|0 sekunder|  
-|misslyckades---valideringsfelmeddelande|Felmeddelande om att returnera i texten för HTTP-svar om JWT inte klarar valideringen. Det här meddelandet måste ha specialtecken (escaped) korrekt.|Nej|Standardfelmeddelandet beror på verifieringsfel, till exempel ”JWT finns inte”.|  
-|misslyckades-validering-httpcode|HTTP-statuskoden ska returneras om JWT inte valideras.|Nej|401|  
-|huvudets namn|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Saknas|  
-|id|Den `id` attributet för den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckel ska användas för signaturverifiering.|Nej|Saknas|  
+|clock-skew|Timespan. Använd för att ange maximal förväntade tidsskillnad mellan systemklockorna hos token utfärdaren och API Management-instans.|Nej|0 sekunder|  
+|failed-validation-error-message|Felmeddelande om att returnera i texten för HTTP-svar om JWT inte klarar valideringen. Det här meddelandet måste ha specialtecken (escaped) korrekt.|Nej|Standardfelmeddelandet beror på verifieringsfel, till exempel ”JWT finns inte”.|  
+|failed-validation-httpcode|HTTP-statuskoden ska returneras om JWT inte valideras.|Nej|401|  
+|header-name|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
+|id|Den `id` attributet för den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckel ska användas för signaturverifiering.|Nej|Gäller inte|  
 |Matcha|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all`-värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any`-minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
-|paremeter frågenamnet|Namnet på den Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Saknas|  
-|kräver förfallotid|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|true|
-|kräver schema|Namnet på token schemat, t.ex. ”Ägar”. När det här attributet anges säkerställer principen för det angivna schemat finns i huvudvärde auktorisering.|Nej|Saknas|
-|Kräv-signerad-token|Booleskt värde. Anger om det krävs en token som ska signeras.|Nej|true|  
-|avgränsare|Sträng. Anger avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett anspråk med flera värden.|Nej|Saknas| 
-|url|Öppna ID configuration slutpunkts-URL från där du kan hämta öppna ID configuration metadata. Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` ersätter din klient katalognamn, t.ex. `contoso.onmicrosoft.com`.|Ja|Saknas|  
+|query-paremeter-name|Namnet på den Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
+|require-expiration-time|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|sant|
+|kräver schema|Namnet på token schemat, t.ex. "Bearer". När det här attributet anges säkerställer principen för det angivna schemat finns i huvudvärde auktorisering.|Nej|Gäller inte|
+|Kräv-signerad-token|Booleskt värde. Anger om det krävs en token som ska signeras.|Nej|sant|  
+|avgränsare|Sträng. Anger avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett anspråk med flera värden.|Nej|Gäller inte| 
+|url|Öppna ID configuration slutpunkts-URL från där du kan hämta öppna ID configuration metadata. Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` ersätter din klient katalognamn, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

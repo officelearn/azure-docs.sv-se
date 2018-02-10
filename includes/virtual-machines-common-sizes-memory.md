@@ -81,7 +81,7 @@ ACU: 180–240
 
 <sup>1</sup> maximal disk-genomströmning (IOPS eller Mbit/s) möjligt med GS-serien VM kan begränsas av hur många storlek och striping av de anslutna diskarna. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> instans är isolerad till maskinvara som är dedikerad till en kund.
+<sup>2</sup> instans är isolerad till maskinvara som är dedikerad till en kund. 
 
 <sup>3</sup> begränsad core storlekar som finns tillgängliga 
 
@@ -117,7 +117,7 @@ ACU: 210–250
 
 <sup>1</sup> maximal disk-genomströmning (IOPS eller Mbit/s) möjligt med DSv2-serien VM kan begränsas av hur många storlek och striping av de anslutna diskarna.  Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> instans är en isolerad nod som garanterar att den virtuella datorn är endast VM på vår Intel Haswell-nod.
+<sup>2</sup> instans är isolerad till maskinvara som är dedikerad till en kund. 
 
 <sup>3</sup> 25000 Mbit/s med snabbare nätverk.
 
@@ -135,7 +135,7 @@ ACU: 210–250
 | Standard_D14_v2   | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1,000          | 60 000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> instans är en isolerad nod som garanterar att den virtuella datorn är endast VM på vår Intel Haswell-nod.
+<sup>1</sup> instans är isolerad till maskinvara som är dedikerad till en kund. 
 
 <sup>2</sup> 25000 Mbit/s med snabbare nätverk.
 

@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp
 
 Normalt distribuerar du alla resurser i mallen för en enskild [resursgruppen](resource-group-overview.md). Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Exempelvis kanske du vill distribuera den säkerhetskopiera virtuella för Azure Site Recovery till en separat resursgrupp och plats. Resource Manager kan du använda kapslade mallar mål olika prenumerationer och resursgrupper än prenumeration och resursgrupp som används för den överordnade mallen.
+
+> [!NOTE]
+> Du kan distribuera till bara fem resursgrupper i en enda distribution.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Ange en prenumeration och resurs
 

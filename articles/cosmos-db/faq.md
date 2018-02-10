@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
 ### <a name="what-is-azure-cosmos-db"></a>Vad är Azure Cosmos DB?
-Azure Cosmos-databas är en tjänst för flera modell globalt replikerad databas som som erbjuder många frågealternativ över schemafria data, hjälper till att leverera konfigurerbar och tillförlitlig prestanda och möjliggör snabb utveckling. Det är alla uppnås genom en hanterad plattform som backas upp av kraften och räckvidden hos Microsoft Azure. 
+Azure Cosmos-DB är en tjänst för flera modell globalt replikerad databas som erbjuder många frågealternativ över schemafria data, hjälper till att leverera konfigurerbar och tillförlitlig prestanda och möjliggör snabb utveckling. Det är alla uppnås genom en hanterad plattform som backas upp av kraften och räckvidden hos Microsoft Azure. 
 
 Azure Cosmos-DB är den rätta lösningen för webb-, mobil-, spel- och IoT-appar när förutsägbart dataflöde, hög tillgänglighet, låg latens och en schemafri datamodell är viktiga krav. Det ger schemaflexibilitet och omfattande indexering och innehåller transaktionellt stöd för flera dokument med integrerat JavaScript. 
 
@@ -217,7 +217,7 @@ Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmo
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA OCH PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, analytics lagringskonfiguration och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
 | ALTERNATIV | /<table-resource-name> | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
-| GET | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
+| HÄMTA | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
 | HÄMTA OCH PLACERA | /mytable? comp = acl | [Hämta tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera delade åtkomst signaturer (SAS). Även om SAS stöds de ställs och hanteras annorlunda. |
 
 Dessutom stöder Azure Cosmos DB tabell API endast JSON-format, inte ATOM.

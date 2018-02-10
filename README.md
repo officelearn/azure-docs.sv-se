@@ -38,7 +38,7 @@ Du kan skapa återanvändbara innehållssektioner som ska ingå i en eller flera
 Alla artiklar på den här lagringsplatsen använder informativ (flavored) markdown för GitHub.  Här följer en lista över resurser.
 
 * [Grunderna i markdown](https://help.github.com/articles/markdown-basics/)
-* [Utskrivbara fusklappar för markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [Utskrivbara fusklappar för markdown](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>Etiketter

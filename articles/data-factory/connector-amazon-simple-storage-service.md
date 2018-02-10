@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ Mer specifikt stöder den här Amazon S3-anslutningen kopierar filer som-är ell
 Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
 - `s3:GetObject`och `s3:GetObjectVersion` för Amazon S3 objekt åtgärder.
-- `s3:ListBucket`för Amazon S3 Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
+- `s3:ListBucket`eller `s3:GetBucketLocation` för Amazon S3 Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
 
-Mer information om en fullständig lista över Amazon S3 behörigheter finns [att ange behörigheter i en princip](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
+Mer information om en fullständig lista över Amazon S3 behörigheter finns [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -55,7 +55,7 @@ Följande egenskaper stöds för Amazon S3 länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. |Ja |
-| secretAccessKey | Hemlig själva åtkomstnyckeln. Markera det här fältet som en SecureString. |Ja |
+| secretAccessKey | Hemlig själva åtkomstnyckeln. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 >[!NOTE]

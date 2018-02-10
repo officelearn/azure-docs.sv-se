@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 563cb4e231aaa3abf6e70320df8cfa6b56cd354c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Självstudier: Konfigurera LinkedIn försäljning Navigator för automatisk användaretablering
 
@@ -117,7 +117,9 @@ Det första steget är att hämta LinkedIn-åtkomsttoken. Om du är företagsadm
 
 16) Klicka på **Spara**. 
 
-Detta startar den första synkroniseringen av användare och/eller grupper som tilldelas till LinkedIn försäljning Navigator i avsnittet användare och grupper. Observera att den första synkroniseringen ta längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering i appen LinkedIn försäljning Navigator.
+Detta startar den första synkroniseringen av användare och/eller grupper som tilldelas till LinkedIn försäljning Navigator i avsnittet användare och grupper. Observera att den första synkroniseringen ta längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av tjänsten etablering i appen LinkedIn försäljning Navigator.
+
+Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

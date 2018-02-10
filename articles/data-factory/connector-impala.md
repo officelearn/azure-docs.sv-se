@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 06b60968931d18e7c7219d83801a5433631ed470
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e1f745fc70395f06d2eb3d98644d54c314a0ef26
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Kopiera data från Impala med hjälp av Azure Data Factory (beta)
 
@@ -52,7 +52,7 @@ Följande egenskaper stöds för Impala länkade tjänsten.
 | port | TCP-porten som används av Impala-server för att lyssna efter anslutningar. Standardvärdet är 21050.  | Nej |
 | AuthenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är **anonym**, **SASLUsername**, och **UsernameAndPassword**. | Ja |
 | användarnamn | Användarnamnet som används för åtkomst till Impala-servern. Standardvärdet är anonym när du använder SASLUsername.  | Nej |
-| lösenord | Det lösenord som motsvarar namnet när du använder UsernameAndPassword. Det här fältet kan du markera som SecureString lagra den på ett säkert sätt i Data Factory. Du kan också lagra lösenord i Azure Key Vault och kan kopiera aktivitet pull därifrån när du utför kopiering av data. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| lösenord | Det lösenord som motsvarar namnet när du använder UsernameAndPassword. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är **FALSKT**.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på Self-hosted integrering Runtime. Standardvärdet är filen cacerts.pem installerades med integration körningsmiljön.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är **FALSKT**.  | Nej |

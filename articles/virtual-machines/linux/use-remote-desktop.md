@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux VM i Azure
 Linux virtuella datorer (VM) i Azure som oftast hanteras från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya Linux eller för snabb felsökning scenarier kan användningen av fjärrskrivbord vara enklare. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för dina Linux VM med hjälp av Resource Manager-distributionsmodellen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln kräver ett befintligt Linux VM i Azure. Om du behöver skapa en virtuell dator med någon av följande metoder:
 
 - Den [Azure CLI 2.0](quick-create-cli.md)
@@ -85,7 +85,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en säkerhetsgrupp för nätverk-regel för Remote Desktop-trafik
 För att tillåta trafik för fjärrskrivbord till din Linux VM en nätverkssäkerhet grupp regeln måste skapas som tillåter TCP på port 3389 till den virtuella datorn. Mer information om regler för nätverkssäkerhetsgrupper finns [vad är en Nätverkssäkerhetsgrupp?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure portal för att skapa en grupp för nätverkssäkerhetsregeln](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-I följande exempel skapas en grupp nätverkssäkerhetsregeln med [az vm öppna port](/cli/azure/vm#open-port) på port *3389*.
+I följande exempel skapas en grupp nätverkssäkerhetsregeln med [az vm öppna port](/cli/azure/vm#az_vm_open_port) på port *3389*.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6b18f79b0ef50c30335218ef45ba6ed932cb586
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# skript (.csx) för utvecklare
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Med hjälp av en delad *.csx* filen är ett vanligt mönster när du vill skriva starkt thet data som skickas mellan funktioner med hjälp av en POCO-objektet. I följande förenklad exempel en HTTP-utlösaren och kö utlösaren delar en POCO-objekt med namnet `Order` till starkt typ orderinformationen:
+Med hjälp av en delad *.csx* filen är ett vanligt mönster när du vill skriva starkt data som skickas mellan funktioner genom att använda en POCO-objektet. I följande förenklad exempel en HTTP-utlösaren och kö utlösaren delar en POCO-objekt med namnet `Order` till starkt typ orderinformationen:
 
 Exempel *run.csx* för HTTP-utlösare:
 

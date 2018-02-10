@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Riktlinjer för att distribuera Windows Server Active Directory på Azure virtual machines
 Den här artikeln beskriver viktiga skillnader mellan distribuera Windows Server Active Directory Domain Services (AD DS) och Active Directory Federation Services (AD FS) lokalt och distribuera dem på Microsoft Azure-datorer.
@@ -433,7 +433,7 @@ Använd inte SYSPREP för att distribuera eller klona domänkontrollanter. Möjl
 Välj var du vill söka efter Windows Server AD DS-databasen, loggfilerna och SYSVOL. De måste distribueras på Azure datadiskar.
 
 > [!NOTE]
-> Azure datadiskar är begränsade till 1 TB.
+> Azure datadiskar är begränsade till 4 TB.
 > 
 > 
 

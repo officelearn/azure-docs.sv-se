@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: 46856a25fb57bb2c5a3c1aeae13c11655e1a58a5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuera resurser med Resource Manager-mallar och Resource Manager REST API
 > [!div class="op_single_selector"]
@@ -88,7 +88,37 @@ Mallen kan vara en lokal fil eller en extern fil som är tillgängliga via en UR
 
 ## <a name="parameter-file"></a>Parameterfilen
 
-[!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
+Om du använder en parameterfil för att ange parametervärden under distributionen, måste du skapa en JSON-fil med ett format som liknar följande exempel:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "webSiteName": {
+            "value": "ExampleSite"
+        },
+        "webSiteHostingPlanName": {
+            "value": "DefaultPlan"
+        },
+        "webSiteLocation": {
+            "value": "West US"
+        },
+        "adminPassword": {
+            "reference": {
+               "keyVault": {
+                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+               }, 
+               "secretName": "sqlAdminPassword" 
+            }   
+        }
+   }
+}
+```
+
+Parametern-filens storlek kan inte vara mer än 64 KB.
+
+Lägga till värdet i ett nyckelvalv om du behöver ange något känsligt värde för en parameter (till exempel ett lösenord). Hämta nyckelvalvet under distributionen som visas i föregående exempel. Mer information finns i [skicka säkra värden under distributionen av](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs om hur du hanterar asynkrona REST-åtgärder i [spåra asynkrona åtgärder i Azure](resource-manager-async-operations.md).

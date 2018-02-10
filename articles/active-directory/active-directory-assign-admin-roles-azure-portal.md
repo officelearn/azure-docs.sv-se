@@ -16,11 +16,11 @@ ms.date: 01/23/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -64,7 +64,7 @@ Följande administratörsroller är tillgängliga:
 
 * **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om i Azure AD B2B-samarbete preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
 
-* **Administratören för information Protection**: användare med den här rollen kan komma åt Azure Information Protection i Azure-portalen. De kan konfigurera etiketter för Azure Information Protection-principen, hantera skydd mallar och aktivera skydd.
+<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
 
 * **Intune-tjänstadministratören**: användarna med den här rollen har globala behörigheter i Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen kan hantera användare och enheter för att associera principen, samt skapa och hantera grupper.
 
@@ -128,11 +128,11 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
 
-### <a name="information-protection-administrator"></a>Administratören för information Protection 
-i | Kan göra
+<!--### Information Protection Administrator 
+In | Can do
 -------- | ---------
-Azure Information Protection | * Konfigurera principer för global, begränsade och etiketter<br>* Hantera, konfigurera, uppdatera mallar för skydd<br>* Skydd aktivera för användning 
-Privileged Identity Management | * Läsbehörighet<br>* Kan inte hantera medlemskap i Azure AD-roller eller inställningar.
+Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
+Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
  
 ### <a name="reports-reader"></a>Rapporter läsare 
 Kan göra | Det går inte att göra

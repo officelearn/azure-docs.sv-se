@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 74b5a792fcc94c4a9ae45b07604e1b392b8df7d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 83d8c275e533c59f9380d9c44735912b9219a068
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-beta"></a>Kopiera data från Jira med hjälp av Azure Data Factory (Beta)
 
@@ -51,7 +51,7 @@ Följande egenskaper stöds för Jira länkade tjänsten:
 | värd | IP-adressen eller värdnamnet namnet på tjänsten Jira. (till exempel jira.example.com)  | Ja |
 | port | TCP-porten som används av Jira-server för att lyssna efter anslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
 | användarnamn | Det användarnamn som du använder för att komma åt Jira Service.  | Ja |
-| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

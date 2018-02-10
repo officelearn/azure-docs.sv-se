@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ac0c78c09b30c1a9cc698f5e78166a2b64240d7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Konfigurera rutan för automatisk användaretablering
 
@@ -108,9 +108,9 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar etablering av Ac
 
 14. Klicka på **spara.**
 
-Som startar den första synkroniseringen av användare och/eller grupper som tilldelas till rutan i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering på Box-app.
+Som startar den första synkroniseringen av användare och/eller grupper som tilldelas till rutan i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av tjänsten etablering på Box-app.
 
-Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter för att verifiera att kontot har synkroniserats till box.
+Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 
 I rutan-klient synkroniserade användare visas under **hanterade användare** i den **administratörskonsolen**.
 

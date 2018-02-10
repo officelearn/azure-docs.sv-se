@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopiera data från Presto med hjälp av Azure Data Factory (Beta)
 
@@ -54,7 +54,7 @@ Följande egenskaper stöds för Presto länkade tjänsten:
 | port | TCP-porten som Presto servern använder för att lyssna efter anslutningar. Standardvärdet är 8080.  | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att ansluta till servern Presto. <br/>Tillåtna värden är: **anonym**, **LDAP** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till Presto-servern.  | Nej |
-| lösenord | Lösenordet för användarnamnet. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |
 | useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |

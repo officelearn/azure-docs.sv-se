@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiera data från SAP-molnet för kund (C4C) med hjälp av Azure Data Factory
 
@@ -47,7 +47,7 @@ Följande egenskaper stöds för SAP-molnet för länkad kundservice:
 | typ | Egenskapen type måste anges till: **SapCloudForCustomer**. | Ja |
 | url | URL till SAP C4C OData-tjänsten. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till SAP-C4C. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString. | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
 
 >[!IMPORTANT]
@@ -207,12 +207,12 @@ När du kopierar data från SAP-molnet för kunden, används följande mappninga
 
 | SAP C4C OData-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Edm.Binary | byte] |
-| Edm.Boolean | bool |
-| Edm.Byte | byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Booleskt |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | dubbla |
+| Edm.Double | Dubbel |
 | Edm.Single | Ogift |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

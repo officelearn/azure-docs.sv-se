@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: da3ff0de2a5d6ac8994b7c16b758f976228a53b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06d264ce9a058cc791d5f6258bcc0b07eab915d8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Hur du tagga en Linux-dator i Azure
 Den här artikeln beskrivs olika sätt att märka en Linux-dator i Azure via Resource Manager-distributionsmodellen. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller lägga till en befintlig resurs. Observera taggar stöds för resurser som skapats via den Resource Manager distributionsmodellen.
@@ -27,7 +27,7 @@ Den här artikeln beskrivs olika sätt att märka en Linux-dator i Azure via Res
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Tagga med Azure CLI
-Om du vill börja, behöver du senast [Azure CLI 2.0 (förhandsgranskning)](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
+Om du vill börja, behöver du senast [Azure CLI 2.0 (förhandsgranskning)](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 Du kan också utföra dessa steg med [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

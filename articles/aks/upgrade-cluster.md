@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6eaa0128c37d74fd2fd4c4bdb377ca76d7c37669
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uppgradera ett Azure Container Service-kluster (AKS)
 
@@ -24,7 +24,7 @@ Azure Container Service (AKS) gör det enkelt att utföra vanliga hanteringsuppg
 Innan du uppgraderar ett kluster ska du använda kommandot `az aks get-versions` och kontrollera vilka Kubernetes-versioner som är tillgängliga för uppgradering.
 
 ```azurecli-interactive
-az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Resultat:
@@ -38,16 +38,16 @@ default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7           
 Vi har tre versioner som är tillgängliga för uppgradering: 1.7.9, 1.8.1 och 1.8.2. Vi kan använda kommandot `az aks upgrade` för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingen, noder är noggrant [cordoned och tar slut] [ kubernetes-drain] att minimera störningar för program som körs.  Innan du påbörjar en uppgradering av klustret bör du se till att du har tillräckligt med beräkningskapacitet för att hantera arbetsbelastningen när klusternoder läggs till och tas bort.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Resultat:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -62,7 +62,7 @@ Resultat:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -100,7 +100,7 @@ Resultat:
 Du kan nu bekräfta att uppgraderingen lyckades med kommandot `az aks show`.
 
 ```azurecli-interactive
-az aks show --name myK8sCluster --resource-group myResourceGroup --output table
+az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Resultat:
@@ -108,15 +108,15 @@ Resultat:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om att distribuera och hantera AKS med självstudier om AKS.
+Läs mer om att distribuera och hantera AKS med självstudierna om AKS.
 
 > [!div class="nextstepaction"]
-> [AKS självstudiekursen][aks-tutorial-prepare-app]
+> [Självstudier om AKS][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

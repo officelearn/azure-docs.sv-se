@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN POP-platser
 Den här artikeln visar aktuell plats förekomst (POP)-platser för **Azure CDN från Verizon** och **Azure CDN från Akamai**.
 
 > [!IMPORTANT]
-> **Azure CDN från Akamai** POP stad platser inte ut individuellt.  
+> POP stad platser för **Azure CDN från Akamai** individuellt inte ut.  
 > 
 > Båda providers har olika sätt för att skapa sina CDN-infrastrukturer.  Vi rekommenderar inte använder POP platser för att bestämma vilka Azure CDN produkt och i stället Överväg funktioner och prestanda för slutanvändaren.  Testa prestanda med både leverantörer att välja rätt Azure CDN-produkt för dina användare. 
 > 
@@ -32,9 +32,9 @@ Den här artikeln visar aktuell plats förekomst (POP)-platser för **Azure CDN 
 
 | Region | Verizon | Akamai |
 | --- | --- | --- |
-| Nordamerika | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />SAN Jose, CA<br />Seattle, WA<br />Washington, DC | Kanada<br />Mexiko<br />USA |
+| Nordamerika | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />SAN Jose, CA<br />Seattle, WA<br />Washington, DC<br />Puebla, Mexico<br />Querétaro, Mexico | Kanada<br />Mexiko<br />USA |
 | Sydamerika | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, underordnad<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasilien<br />Peru |
-| Norra och östra Europa | Köpenhamn, Danmark<br />Helsingfors, Finland<br />Warszawa, Polen<br />Stockholm, Sverige | Danmark<br />Polen<br />Sverige<br /> |
+| Norra och östra Europa | Köpenhamn, Danmark<br />Helsingfors, Finland<br />Riga, Lettland<br />Warszawa, Polen<br />Stockholm, Sverige | Danmark<br />Polen<br />Sverige<br /> |
 | Västeuropa | Wien, Österrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Amsterdam, Nederländerna<br />London, Storbritannien | Österrike<br />Frankrike<br />Tyskland<br />Irland<br />Nederländerna<br />Schweiz<br />Storbritannien |
 | Södra Europa | Milano, Italien<br />Madrid, Spanien | Italien<br />Spanien |
 | Afrika | Johannesburg, Sydafrika | |

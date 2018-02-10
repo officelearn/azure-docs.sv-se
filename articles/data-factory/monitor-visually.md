@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Visuellt övervaka Azure datafabriker
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda.
@@ -29,15 +29,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Övervaka data factory v2 pipelines
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/).
-2. Navigera till bladet skapade data factory i Azure-portalen och klicka på panelen 'Övervaka och hantera'. Detta startar ADF v2 visual övervakningen.
+1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+2. Logga in på den [Azure-portalen](https://portal.azure.com/).
+3. Navigera till bladet skapade data factory i Azure-portalen och klicka på panelen 'Övervaka och hantera'. Detta startar ADF v2 visual övervakningen.
 
 ## <a name="list-view-monitoring"></a>Listvyn övervakning
 
-Övervaka pipeline och aktiviteter körs med en enkel lista Visa gränssnitt. Alla körs visas i webbläsaren lokala tidszon. Du kan ändra tidszon och alla tid datumfält fästs mot den valda tidszonen.  
+Övervaka pipeline och aktiviteter körs med en enkel lista Visa gränssnitt. Alla körningar visas i webbläsarens lokala tidszon. Om du ändrar tidszon anpassas alla fält med datum och tider automatiskt.  
 
 #### <a name="monitoring-pipeline-runs"></a>Övervaka pipelinen körs
-Listvyn med varje pipeline kör för din data factory v2 pipelines. Inkluderade kolumner:
+Listvy för varje pipelinekörning i dina Data Factory v2-pipelines. Inkluderade kolumner:
 
 | **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
@@ -54,7 +55,7 @@ Listvyn med varje pipeline kör för din data factory v2 pipelines. Inkluderade 
 ![Övervaka pipelinekörningar](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Övervaka aktiviteten körs
-Listvyn med aktivitetskörningar som motsvarar varje pipeline kör. Klicka på **aktiviteten körs** ikon under den **'Åtgärder'** kolumnen visa aktiviteten körs för varje pipelinen körs. Inkluderade kolumner:
+Listvy med aktivitetskörningar som motsvarar respektive pipelinekörning. Klicka på **aktiviteten körs** ikon under den **'Åtgärder'** kolumnen visa aktiviteten körs för varje pipelinen körs. Inkluderade kolumner:
 
 | **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
@@ -70,14 +71,14 @@ Listvyn med aktivitetskörningar som motsvarar varje pipeline kör. Klicka på *
 ![Övervaka aktivitetskörningar](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> Du måste klicka på **”uppdatera”** ikonen längst upp för att uppdatera listan över pipeline och aktiviteter körs. Automatisk uppdatering stöds inte för närvarande.
+> Du måste klicka på **”uppdatera”** ikonen längst upp för att uppdatera listan över pipeline och aktiviteter körs. Automatisk uppdatering stöds inte för tillfället.
 >
 
 ![Uppdatera](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Funktioner
 
-#### <a name="rich-ordering-and-filtering"></a>Omfattande ordning och filtrering
+#### <a name="rich-ordering-and-filtering"></a>Funktionsrik sortering och filtrering
 
 Ordning pipeline körs i desc/asc genom att köra Start och filter pipeline körs med följande kolumner:
 
@@ -89,7 +90,7 @@ Ordning pipeline körs i desc/asc genom att köra Start och filter pipeline kör
 
 ![Filter](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Lägg till/ta bort kolumner till listvy
+#### <a name="addremove-columns-to-list-view"></a>Lägg till/ta bort kolumner i listvyn
 Högerklicka på listan Visa sidhuvud och Välj kolumner som ska visas i listan
 
 ![Kolumner](media/monitor-visually/columns.png)

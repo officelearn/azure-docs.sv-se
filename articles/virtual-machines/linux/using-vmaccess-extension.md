@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
 Disken på Linux-VM visas fel. Du på något sätt återställa rotlösenordet för Linux-VM eller tagits bort av misstag din privata SSH-nyckel. Om detta har inträffat i dagar för datacenter, behöver du köra det och öppna sedan KVM få vid servern. Se Azure VMAccess-tillägget som den KVM-växel som gör att du kan använda konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
@@ -33,7 +33,7 @@ Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella L
 * Använda Azure CLI 2.0 och de obligatoriska parametrarna.
 * [Använd raw JSON-filer som bearbetar VMAccess-tillägget](#use-json-files-and-the-vmaccess-extension) och sedan vidta åtgärder för.
 
-I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
+I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 ## <a name="reset-ssh-key"></a>Återställ SSH-nyckel
 I följande exempel återställer SSH-nyckeln för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
@@ -79,7 +79,7 @@ az vm user update \
 
 
 
-## <a name="delete-a-user"></a>Tar bort en användare
+## <a name="delete-a-user"></a>Ta bort en användare
 I följande exempel tar bort en användare med namnet `myNewUser` på den virtuella datorn med namnet `myVM`:
 
 ```azurecli
@@ -91,7 +91,7 @@ az vm user delete \
 
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Använd JSON-filer och VMAccess-tillägget
-I följande exempel används raw JSON-filer. Använd [az vm-tillägget set](/cli/azure/vm/extension#set) att anropa JSON-filer. Filerna JSON kallas även från Azure-mallar. 
+I följande exempel används raw JSON-filer. Använd [az vm-tillägget set](/cli/azure/vm/extension#az_vm_extension_set) att anropa JSON-filer. Filerna JSON kallas även från Azure-mallar. 
 
 ### <a name="reset-user-access"></a>Återställ användaråtkomst
 Om du har förlorat åtkomsten till roten på Linux-VM, kan du starta ett VMAccess-skript för att återställa SSH-nyckeln eller lösenordet för en användare.

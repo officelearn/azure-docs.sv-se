@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 728ffed27747cb298d5da312014a3c9e98b44f1e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce4421fc8276f215564cb7a171a215cc166c8517
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Använda molnet init för att lägga till en användare till en Linux-VM i Azure
 Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) lägga till en användare på en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Det här molnet init skriptet körs på startas för första gången när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init översikt](using-cloud-init.md).
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedo
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Lägga till en användare till en virtuell dator med molnet initiering
 En av de första aktiviteterna på alla nya Linux-VM är att lägga till ytterligare en användare själv Undvik att använda *rot*. SSH-nycklar är bästa praxis för säkerhet och användbarhet. Nycklar som läggs till i *~/.ssh/authorized_keys* fil med det här molnet init-skriptet.
 
-Om du vill lägga till en användare till en Linux-VM, skapar du en fil i din aktuella shell med namnet *cloud_init_add_user.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloud_init_add_user.txt` att skapa filen och se en lista över tillgängliga redigerare. Välj #1 att använda den **nano** editor. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden.  Du måste ange en egen offentlig nyckel (till exempel innehållet i *~/.ssh/id_rsa.pub*) för värdet för `ssh-authorized-keys:` -den har minskats här för att förenkla exemplet.
+Om du vill lägga till en användare till en Linux-VM, skapar du en fil i din aktuella shell med namnet *cloud_init_add_user.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloud_init_add_user.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Välj #1 att använda den **nano** editor. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden.  Du måste ange en egen offentlig nyckel (till exempel innehållet i *~/.ssh/id_rsa.pub*) för värdet för `ssh-authorized-keys:` -den har minskats här för att förenkla exemplet.
 
 ```yaml
 #cloud-config
@@ -42,13 +42,13 @@ users:
 > [!NOTE] 
 > #Cloud-config-filen innehåller den `- default` parametern ingår. Användaren läggs till befintliga administratörsanvändare som skapades under etableringen. Om du skapar en användare utan den `- default` parameter - automatiskt genererade administratörsanvändare skapas av Azure-plattformen skulle skrivas över. 
 
-Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du distribuerar den här avbildningen måste du skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create) och ange molnet init-fil med `--custom-data cloud_init_add_user.txt` på följande sätt:
+Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och ange molnet init-fil med `--custom-data cloud_init_add_user.txt` på följande sätt:
 
 ```azurecli-interactive 
 az vm create \

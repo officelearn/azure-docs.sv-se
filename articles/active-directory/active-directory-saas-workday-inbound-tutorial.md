@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: ed35a703774fdb2f2896414b6022b6f13fb7a307
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -297,7 +297,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
          * **Uttrycket** – du kan skriva ett anpassat värde till AD-attributet baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-      * **Källattributet** -användarattribut från Workday.
+      * **Källattributet** -användarattribut från Workday. Om attributet som du letar efter inte finns, se [Anpassa lista över användarattribut för Workday](#customizing-the-list-of-workday-user-attributes).
 
       * **Standardvärde** – det är valfritt. Om källattributet har ett tomt värde, skrivs mappningen det här värdet i stället.
             De vanligaste konfigurationen är att du lämnar fältet tomt.
@@ -549,7 +549,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * **Uttrycket** – du kan skriva ett anpassat värde till AD-attributet baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-   * **Källattributet** -användarattribut från Workday.
+   * **Källattributet** -användarattribut från Workday. Om attributet som du letar efter inte finns, se [Anpassa lista över användarattribut för Workday](#customizing-the-list-of-workday-user-attributes).
 
    * **Standardvärde** – det är valfritt. Om källattributet har ett tomt värde, skrivs mappningen det här värdet i stället.
             De vanligaste konfigurationen är att du lämnar fältet tomt.
@@ -646,7 +646,7 @@ När delar 1 – 2 har slutförts, kan du starta tjänsten etablering.
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Anpassa lista över användarattribut för Workday
 Arbetsdagen tillhandahållning av appar för Active Directory och Azure AD innehåller en standardlistan över Workday användarattribut som du kan välja från. De här listorna är dock inte omfattande. Workday stöder många hundratals möjliga användarattribut som kan vara antingen standard eller unik för din Workday-klient. 
 
-Azure AD Etablerar tjänsten stöder möjligheten att anpassa listan eller Workday-attribut innehåller alla attribut som visas i den [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Get_Workers.html) driften av personal-API.
+Azure AD Etablerar tjänsten stöder möjligheten att anpassa listan eller Workday-attribut innehåller alla attribut som visas i den [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) driften av personal-API.
 
 Om du vill göra detta måste du använda [Workday Studio](https://community.workday.com/studio-download) att extrahera XPath-uttryck som representerar de attribut som du vill använda och Lägg sedan till dem i etablering konfigurationen med hjälp av avancerade attributet editor i Azure-portalen.
 
@@ -654,7 +654,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 1. Hämta och installera [Workday Studio](https://community.workday.com/studio-download). Du behöver en arbetsdag community-konto för åtkomst till installationsprogrammet.
 
-2. Hämta filen Workday Human_Resources Gränssnittsbeskrivningar från denna URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v29.2/Human_Resources.wsdl
+2. Hämta filen Workday Human_Resources Gränssnittsbeskrivningar från denna URL: https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Starta arbetsdagar Studio.
 
@@ -680,12 +680,23 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
     <?xml version="1.0" encoding="UTF-8"?>
     <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <env:Body>
-        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v28.0">
+        <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
             <wd:Worker_Reference>
               <wd:ID wd:type="Employee_ID">21008</wd:ID>
             </wd:Worker_Reference>
           </wd:Request_References>
+          <wd:Response_Group>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Personal_Information>true</wd:Include_Personal_Information>
+            <wd:Include_Employment_Information>true</wd:Include_Employment_Information>
+            <wd:Include_Management_Chain_Data>true</wd:Include_Management_Chain_Data>
+            <wd:Include_Organizations>true</wd:Include_Organizations>
+            <wd:Include_Reference>true</wd:Include_Reference>
+            <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
+            <wd:Include_Photo>true</wd:Include_Photo>
+            <wd:Include_User_Account>true</wd:Include_User_Account>
+          </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>
     </env:Envelope>

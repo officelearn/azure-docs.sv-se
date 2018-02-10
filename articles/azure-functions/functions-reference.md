@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela funktioner några grundläggande tekniska begrepp och komponenter, oavsett språk eller bindning som du använder. Innan du går till learning information som är specifika för ett visst språk eller bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -117,6 +117,8 @@ Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:
 Här är en tabell med alla bindningar som stöds.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Problem med fel som kommer från bindningarna? Granska de [bindning felkoder i Azure Functions](functions-bindings-error-pages.md) dokumentation.
 
 ## <a name="reporting-issues"></a>Rapportera problem
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

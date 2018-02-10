@@ -1,22 +1,22 @@
 ---
-title: "Kör Ansible i Azure-molnet-gränssnittet"
-description: "Lär dig hur du utför olika uppgifter som Ansible i Azure Cloud-gränssnittet"
+title: "Kör Ansible med Bash i Azure-molnet Shell"
+description: "Lär dig hur du utför olika uppgifter för Ansible med Bash i Azure Cloud Shell"
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: d5a818616d382954d0880bcae58bb13b632ad757
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-ansible-in-the-azure-cloud-shell"></a>Kör Ansible i Azure-molnet-gränssnittet
+# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Kör Ansible med Bash i Azure-molnet Shell
 
-I kursen får lära du att utföra olika uppgifter som Ansible i gränssnittet för Azure-molnet. Dessa omfattar att ansluta till en virtuell dator och skapa Ansible playbooks för att skapa och ta bort en Azure-resursgrupp.
+I kursen får lära du att utföra olika uppgifter för Ansible från Bash i molnet Shell. Dessa omfattar att ansluta till en virtuell dator och skapa Ansible playbooks för att skapa och ta bort en Azure-resursgrupp.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -24,12 +24,14 @@ I kursen får lära du att utföra olika uppgifter som Ansible i gränssnittet f
 
 - **Autentiseringsuppgifter för Azure** - [skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Konfigurera Azure Cloud Shell** - om du är nybörjare på Azure-molnet Shell, artikeln [Snabbstart för Bash i Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) visar hur du kan starta och konfigurera molnet Shell.
+- **Konfigurera Azure Cloud Shell** - om du är nybörjare på Azure-molnet Shell, artikeln [Snabbstart för Bash i Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) visar hur du kan starta och konfigurera molnet Shell. Starta en dedikerad webbplats för molnet Shell här:
+
+[![Starta molnet Shell](https://shell.azure.com/images/launchcloudshell.png "starta molnet Shell")](https://shell.azure.com)
 
 ## <a name="use-ansible-to-connect-to-a-vm"></a>Använd Ansible för att ansluta till en virtuell dator
 Ansible har skapat en Python-skript som heter [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) som genererar en dynamisk inventering av Azure-resurser genom att göra API-begäranden till Azure Resource Manager. I följande steg beskriver hur du använder den `azure_rm.py` skript för att ansluta till en virtuell Azure-dator:
 
-1. Öppna Azure-molnet-gränssnittet.
+1. Öppna Bash i molnet Shell. Shell-typen markeras på vänster sida av fönstret molnet Shell.
 
 1. Om du inte har en virtuell dator att använda anger du följande kommandon i molnet-Shell för att skapa en virtuell dator som du vill testa:
 
@@ -78,7 +80,7 @@ Ansible har skapat en Python-skript som heter [azure_rm.py](https://github.com/a
   az group delete -n <resourceGroup>
   ```
 
-## <a name="run-a-playbook-in-cloud-shell"></a>Kör en playbook i molnet Shell
+## <a name="run-a-playbook-in-cloud-shell"></a>Kör en spelbok i Cloud Shell
 Den [ansible playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) körs kommandot Ansible playbooks, körs aktiviteterna på den aktuella värddatorer. Det här avsnittet vägleder dig genom att använda molnet Shell att skapa och köra två playbooks - en för att skapa en resursgrupp och en andra att ta bort resursgruppen. 
 
 1. Skapa en fil med namnet `rg.yml` på följande sätt:

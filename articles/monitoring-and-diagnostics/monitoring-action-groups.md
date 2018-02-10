@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
@@ -58,10 +58,10 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
     b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app, ITSM eller Automation-Runbook.
 
-    c. **Information om**: baserat på typen av Ange telefonnummer, e-postadress, webhook URI, Azure-app, ITSM anslutning eller Automation-runbook. Ange dessutom för ITSM åtgärd **arbetsobjekt** och andra fält ITSM-verktyget kräver. 
+    c. **Information om**: baserat på typen av Ange telefonnummer, e-postadress, webhook URI, Azure-app, ITSM anslutning eller Automation-runbook. Ange dessutom för ITSM åtgärd **arbetsobjekt** och andra fält ITSM-verktyget kräver.
 
    > [!NOTE]
-   > ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM anslutning](../log-analytics/log-analytics-itsmc-overview.md). ITSM åtgärden fungerar för närvarande endast för aktiviteten loggen aviseringar. Den här åtgärden är för närvarande en no-op för andra aviseringstyper.
+   > ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM anslutning](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Välj **OK** att skapa åtgärdsgruppen.
 
@@ -75,6 +75,6 @@ När du skapar en grupp, är det visas i den **åtgärdsgrupper** avsnitt i den 
 * Lär dig mer om [SMS Varna beteende](monitoring-sms-alert-behavior.md).  
 * Få en [förståelse av aviseringen webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md).  
 * Lär dig mer om [ITSM koppling](../log-analytics/log-analytics-itsmc-overview.md)
-* Lär dig mer om [hastighetsbegränsning](monitoring-alerts-rate-limiting.md) aviseringar för. 
+* Lär dig mer om [hastighetsbegränsning](monitoring-alerts-rate-limiting.md) aviseringar för.
 * Hämta en [översikt över aktivitet loggen aviseringar](monitoring-overview-alerts.md), och lära dig hur du tar emot aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när ett meddelande om tjänstens hälsa är bokförd](monitoring-activity-log-alerts-on-service-notifications.md).

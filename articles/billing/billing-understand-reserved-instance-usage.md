@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Förstå reserverade användning för din prenumeration med användningsbaserad betalning
 
@@ -35,7 +35,7 @@ I följande avsnitt i förutsätter att du kör en Standard_DS1_v2 Windows VM i 
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Antal |1|
 |SKU | Standard_DS1_v2|
-|Region | eastus |
+|Region | usaöstra |
 
 ## <a name="reservation-application"></a>Reservation program
 
@@ -56,6 +56,16 @@ Filtrera efter ytterligare information och Skriv i Reservation-ID. Följande sk�
 3. Reservation Base VM mätaren underkategorin rad representerar raden $0 kostnaden i instruktionen avsnittet. Kostnaden för att köra den här virtuella datorn har betalats av reservationen.
 4. Detta är mätaren-Id för Reservation. Kostnaden för den här mätaren är 0. Varje virtuell dator som uppfyller kraven för reserverade har den här MeterId i CSV-fil för kontot för kostnaden. 
 5. Standard_DS1_v2 är en vCPU Virtuella och den virtuella datorn distribueras utan stöd för Azure-Hybrid. Den här mätaren omfattar därför extra kostnad för Windows-program. Se [Azure reservera VM-instanser Windows programvarukostnader.](billing-reserved-instance-windows-software-costs.md) att hitta mätaren motsvarar D-serien 1 kärna VM. Om Azure Hybrid förmånen används, tillämpas inte den här extra kostnad. 
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om reserverade instanser för virtuella datorer, finns i följande artiklar.
+
+- [Förskottsbetala virtuella datorer med reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Hantera reserverade virtuella Datorinstanser](billing-manage-reserved-vm-instance.md)
+- [Spara pengar på virtuella datorer med den reserverade virtuella instanser](billing-save-compute-costs-reservations.md)
+- [Förstå hur reserverade virtuella datorinstans rabatt används](billing-understand-vm-reservation-charges.md)
+- [Förstå reserverade användning för Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
+- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

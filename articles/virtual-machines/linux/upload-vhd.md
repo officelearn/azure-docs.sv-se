@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Skapa en Linux VM från anpassade disken med Azure CLI 2.0
 
@@ -35,7 +35,7 @@ Du kan välja mellan två alternativ:
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
-När du skapar en ny virtuell dator med hjälp av [az vm skapa](/cli/azure/vm#create) från en anpassad eller särskilda disk du **bifoga** disken (--bifoga-os-disk) istället för att ange en anpassad eller marketplace-avbildning (--bilden). I följande exempel skapas en virtuell dator med namnet *myVM* med den hantera disken med namnet *myManagedDisk* skapas från den anpassade virtuella Hårddisken:
+När du skapar en ny virtuell dator med hjälp av [az vm skapa](/cli/azure/vm#az_vm_create) från en anpassad eller särskilda disk du **bifoga** disken (--bifoga-os-disk) istället för att ange en anpassad eller marketplace-avbildning (--bilden). I följande exempel skapas en virtuell dator med namnet *myVM* med den hantera disken med namnet *myManagedDisk* skapas från den anpassade virtuella Hårddisken:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,7 +56,7 @@ Du behöver följande för att slutföra följande steg:
 > 
 
 
-* Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
+* Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *mittlagringskonto*, och *mydisks*.
 
@@ -87,7 +87,7 @@ Du kan överföra en anpassad virtuell Hårddisk som du har körs på en lokal d
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du laddar upp din anpassade disk och skapar virtuella datorer, måste du först skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create).
+Innan du laddar upp din anpassade disk och skapar virtuella datorer, måste du först skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create).
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats: [översikt över Azure hanterade diskar](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett lagringskonto för anpassade disk- och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account#create). 
+Skapa ett lagringskonto för anpassade disk- och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create). 
 
 I följande exempel skapas ett lagringskonto med namnet *mittlagringskonto* i resursgruppen som du skapade tidigare:
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Lista nycklar för lagringskonto
-Två 512-bitars åtkomstnycklar för varje lagringskonto genererar Azure. Dessa snabbtangenter används vid autentisering till storage-konto som utför skrivåtgärder. Läs mer om [hantera åtkomst till lagring här](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Du kan visa snabbtangenterna med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list).
+Två 512-bitars åtkomstnycklar för varje lagringskonto genererar Azure. Dessa snabbtangenter används vid autentisering till storage-konto som utför skrivåtgärder. Läs mer om [hantera åtkomst till lagring här](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Du kan visa snabbtangenterna med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Visa åtkomstnycklar för lagringskontot som du skapade:
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Anteckna **key1** eftersom du ska använda för att interagera med ditt lagringskonto i nästa steg.
 
 ### <a name="create-a-storage-container"></a>Skapa en lagringsbehållare
-På samma sätt som du skapar olika kataloger för att organisera logiskt det lokala filsystemet, kan du skapa behållare i ett lagringskonto för att organisera dina diskar. Ett lagringskonto kan innehålla valfritt antal behållare. Skapa en behållare med [az lagringsbehållaren skapa](/cli/azure/storage/container#create).
+På samma sätt som du skapar olika kataloger för att organisera logiskt det lokala filsystemet, kan du skapa behållare i ett lagringskonto för att organisera dina diskar. Ett lagringskonto kan innehålla valfritt antal behållare. Skapa en behållare med [az lagringsbehållaren skapa](/cli/azure/storage/container#az_storage_container_create).
 
 I följande exempel skapas en behållare med namnet *mydisks*:
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Överför den virtuella Hårddisken
-Ladda upp din anpassade disk med [az storage blob överför](/cli/azure/storage/blob#upload). Du överför och lagra anpassade disken som en sidblobb.
+Ladda upp din anpassade disk med [az storage blob överför](/cli/azure/storage/blob#az_storage_blob_upload). Du överför och lagra anpassade disken som en sidblobb.
 
 Ange din snabbtangent, den behållare som du skapade i föregående steg och sökvägen till den anpassa disken på den lokala datorn:
 
@@ -164,7 +164,7 @@ az storage blob upload --account-name mystorageaccount \
 ### <a name="create-a-managed-disk"></a>Skapa en hanterad disk
 
 
-Skapa en hanterade diskar från den virtuella Hårddisken med hjälp av [az disk skapa](/cli/azure/disk#create). I följande exempel skapas en hanterad disk med namnet *myManagedDisk* från den virtuella Hårddisken som du har överfört till namngivna storage-konto och behållare:
+Skapa en hanterade diskar från den virtuella Hårddisken med hjälp av [az disk skapa](/cli/azure/disk#az_disk_create). I följande exempel skapas en hanterad disk med namnet *myManagedDisk* från den virtuella Hårddisken som du har överfört till namngivna storage-konto och behållare:
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Nu ska du skapa den virtuella datorn med [az vm skapa](/cli/azure/vm#create) och bifoga (--bifoga-os-disk) hanterade disken som OS-disk. I följande exempel skapas en virtuell dator med namnet *myNewVM* med den hantera disken som skapas från den överförda virtuella Hårddisken:
+Nu ska du skapa den virtuella datorn med [az vm skapa](/cli/azure/vm#az_vm_create) och bifoga (--bifoga-os-disk) hanterade disken som OS-disk. I följande exempel skapas en virtuell dator med namnet *myNewVM* med den hantera disken som skapas från den överförda virtuella Hårddisken:
 
 ```azurecli
 az vm create \

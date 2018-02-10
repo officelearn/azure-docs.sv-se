@@ -8,6 +8,9 @@ När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera 
 > I Azure finns två olika distributionsmodeller för att skapa och arbeta med resurser: Resource Manager och klassisk. I den här artikeln beskrivs hur du använder Resource Manager-modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 > 
 > 
+> [!WARNING]
+> Ändra storlek på OS-disken på en virtuell dator i Azure kommer den att starta om.
+>
 
 ## <a name="resize-the-os-drive"></a>Ändra storlek på operativsystemenheten
 I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp av Resource Manager-moduler i [Azure Powershell](/powershell/azureps-cmdlets-docs). Ändra storlek på OS-enhet för både Unamanged och hanterade diskar eftersom metoden att ändra storlek på diskar som skiljer sig mellan både disktyper visas.
@@ -138,7 +141,7 @@ Unamanged Disk:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Hanterade diskar:
+Managed Disk:
 ```Powershell
 $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
 $disk.DiskSizeGB = 1023

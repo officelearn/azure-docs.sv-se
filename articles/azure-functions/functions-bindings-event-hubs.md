@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs bindningar för Azure Functions
 
@@ -405,6 +405,12 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 I C# och C#-skript kan skicka meddelanden med hjälp av en metodparameter som `out string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Om du vill skriva flera meddelanden, kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
 
 Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.bindings.<name>`. `<name>`är värdet som angetts i den `name` -egenskapen för *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
+
+| Bindning | Referens |
+|---|---|
+| Händelsehubb | [Handboken](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,19 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: 063926a5a98aeab62e191d372831a00c29b9f6d7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Lägg till Push-meddelanden i din iOS-App
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Översikt
-I kursen får du lägga till push-meddelanden till den [iOS snabb start] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I kursen får du lägga till push-meddelanden till den [iOS quickstart] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder hämtade Snabbstart serverprojekt behöver push notification extension-paketet. Se [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för mer information.
+Om du inte använder det nedladdade snabbstartsprojektet server behöver push notification extension-paketet. Mer information finns i [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 Den [stöder inte push-meddelanden i iOS-simulatorn](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Behöver du en fysisk iOS-enhet och en [Apple Developer Program medlemskap](https://developer.apple.com/programs/ios/).
 
@@ -56,4 +56,4 @@ Den [stöder inte push-meddelanden i iOS-simulatorn](https://developer.apple.com
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS snabb start]: app-service-mobile-ios-get-started.md
+[iOS quickstart]: app-service-mobile-ios-get-started.md

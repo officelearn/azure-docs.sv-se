@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Asana för automatisk användaretablering
 
@@ -93,7 +93,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Asana användarkon
 
 12. Välj **Spara**. 
 
-Nu den första synkroniseringen startar för alla användare som tilldelats Asana i den **användare** avsnitt. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter. Rapporterna beskrivs alla åtgärder som utförs av tjänsten etablering Asana appen.
+Nu den första synkroniseringen startar för alla användare som tilldelats Asana i den **användare** avsnitt. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar. Granskningsloggarna beskrivs alla åtgärder som utförs av tjänsten etablering Asana appen.
 
 Mer information om hur du tolkar Azure AD-etablering loggar finns [rapport om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 

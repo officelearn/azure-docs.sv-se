@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel för ogiltig mall
 
 Den här artikeln beskriver hur du löser fel med ogiltig mall.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 När du distribuerar en mall, visas ett felmeddelande som anger:
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Dubbla kontrollera de tillåtna värdena i mallen och ange en under distributionen.
 
-### <a name="solution-4---circular-dependency-detected"></a>Lösning 4 - cirkelberoende upptäcktes
+### <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4 - för många target-resursgrupper
+
+Om du anger fler än fem target-resursgrupper i en enkel distribution, får du detta felmeddelande. Överväg att konsolidera antalet resursgrupper i din distribution eller distribuera några av mallarna som separata distributioner. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Lösning 5 - cirkelberoende upptäcktes
 
 Du får detta felmeddelande när resurser beroende av varandra på ett sätt som förhindrar distribution från att starta. En kombination av beroenden gör två eller flera resurs vänta tills andra resurser som väntar på också. Till exempel resource1 beror på resource3 resource2 beror på resource1 och resource3 beror på resource2. Vanligtvis kan du lösa problemet genom att ta bort onödiga beroenden.

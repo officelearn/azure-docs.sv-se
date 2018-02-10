@@ -1,27 +1,20 @@
 ---
-title: "Planera nätverksmappningen för Hyper-V VM-replikering med Site Recovery | Microsoft Docs"
+title: "Om nätverksmappningen för Hyper-V VM-replikering med Site Recovery | Microsoft Docs"
 description: "Konfigurera nätverksmappning för Hyper-V replikering av virtuella datorer från ett lokalt datacenter till Azure eller till en sekundär plats."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: tysonn
-ms.assetid: fcaa2f52-489d-4c1c-865f-9e78e000b351
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 91d6d0466789daa662162c60bc3c97ba6115e7eb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d56f8f5bfb40c1c43090f43e119bf9b98918d6e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Planera nätverksmappningen för Hyper-V VM-replikering med Site Recovery
-
+# <a name="about-network-mapping-for-hyper-v-vm-replication"></a>Om nätverksmappningen för Hyper-V VM-replikering
 
 
 Den här artikeln hjälper dig att förstå och planera för nätverk mappning vid replikering av Hyper-V virtuella datorer till Azure eller till en sekundär plats, med hjälp av [Azure Site Recovery-tjänsten](site-recovery-overview.md).
@@ -68,10 +61,10 @@ Här är ett exempel som illustrerar den här mekanismen. Låt oss ta en organis
 
 **Plats** | **VMM-server** | **Virtuella datornätverk** | **Mappas till**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1 NewYork | Mappas till VMNetwork1 Chicago
- |  | VMNetwork2 NewYork | Inte mappad
-Chicago | VMM-Chicago| VMNetwork1 Chicago | Mappas till VMNetwork1 NewYork
- | | VMNetwork1 Chicago | Inte mappad
+New York | VMM-NewYork| VMNetwork1-NewYork | Mappas till VMNetwork1 Chicago
+ |  | VMNetwork2-NewYork | Inte mappad
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappas till VMNetwork1 NewYork
+ | | VMNetwork1-Chicago | Inte mappad
 
 I det här exemplet:
 
@@ -86,16 +79,16 @@ Här är hur VMM-moln ställs in i vårt exempelorganisation och logiska nätver
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
-SilverCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1 NewYork</p><p>LogicalNetwork1 Chicago</p>
+GoldCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>Ej tillämpligt</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 #### <a name="logical-and-vm-network-settings"></a>Inställningar för logiska och Virtuella nätverk
 
 **Plats** | **Logiskt nätverk** | **Associerat VM-nätverk**
 ---|---|---
-New York | LogicalNetwork1 NewYork | VMNetwork1 NewYork
-Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
- | LogicalNetwork2Chicago | VMNetwork2 Chicago
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
+ | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
 #### <a name="target-network-settings"></a>Nätverksinställningar för mål
 
@@ -103,9 +96,9 @@ I följande tabell visas baserat på dessa inställningar när du väljer VM må
 
 **Välj** | **Skyddade moln** | **Skydda molnet** | **Målnätverket som är tillgängliga**
 ---|---|---|---
-VMNetwork1 Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
  | GoldCloud1 | GoldCloud2 | Tillgänglig
-VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Inte tillgänglig
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Inte tillgänglig
  | GoldCloud1 | GoldCloud2 | Tillgänglig
 
 
@@ -119,8 +112,8 @@ Om du vill se vad som händer vid återställning (omvänd replikering), anta at
 
 **Virtuell dator** | **Ansluten till nätverket**
 ---|---
-VM1 | VMNetwork1 nätverk
-VM2 (replik av VM1) | VMNetwork1 Chicago
+VM1 | VMNetwork1-Network
+VM2 (replik av VM1) | VMNetwork1-Chicago
 
 Med dessa inställningar nu ska vi se vad som händer på några möjliga scenarier.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 812bc3c2e13c4513161eebb30b93fee21cc091b7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
 
@@ -105,9 +105,9 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 18. Klicka på **spara.**
 
-Detta startar den första synkroniseringen av användare och/eller grupper som tilldelas till Salesforce i avsnittet användare och grupper. Observera att den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering på ditt Salesforce-app.
+Detta startar den första synkroniseringen av användare och/eller grupper som tilldelas till Salesforce i avsnittet användare och grupper. Observera att den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av tjänsten etablering på ditt Salesforce-app.
 
-Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter för att verifiera att kontot har synkroniserats till Salesforce.
+Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

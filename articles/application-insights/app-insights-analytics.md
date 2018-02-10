@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analytics-in-application-insights"></a>Analyser i Application Insights
 Analytics är kraftfulla Sök- och verktyg för [Programinsikter](app-insights-overview.md). Analytics är ett Webbverktyg så att inga inställningar krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera data i din app genom att öppna Analytics från din app [översikt bladet](app-insights-dashboards.md).
@@ -47,9 +47,9 @@ Vi sedan räkna antalet poster per land (att data som hittas i kolumnen *client_
 
 Språket har många bra funktioner:
 
-* [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) dina rådata app telemetri av alla fält, inklusive din anpassade egenskaper och mått.
-* [Anslut](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) flera tabeller – korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
-* Kraftfulla statistiska [aggregeringar](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
+* [Filter](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) dina rådata app telemetri av alla fält, inklusive din anpassade egenskaper och mått.
+* [Anslut](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) flera tabeller – korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
+* Kraftfulla statistiska [aggregeringar](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 * Omedelbar och kraftfulla visualiseringar.
 * [REST API](https://dev.applicationinsights.io/) som du kan använda för att köra frågor via programmering, till exempel från PowerShell.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager Health Check (förhandsgranskning)-lösning
 
@@ -62,7 +62,7 @@ Använd följande information för att installera och konfigurera lösningen.
 
 System Center Operations Manager-bedömning samlar in data från följande källor: 
 
-* Registret
+* Register
 * Windows Management Instrumentation (WMI)
 * Händelseloggen
 * Fildata
@@ -216,8 +216,8 @@ Innan du kan använda en lösning för kontroll av hälsotillstånd i logganalys
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
-2. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
 4. På den **översikt** klickar du på den **System Center Operations Manager Health Check** panelen.
 5. På den **System Center Operations Manager Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
@@ -228,7 +228,7 @@ Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till 
 
 Om du har rekommendationer som du vill ignorera, kan du skapa en textfil som logganalys används för att förhindra rekommendationer visas i sökresultatet assessment.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Att identifiera rekommendationer som du vill ignorera
 1. I Azure-portalen på sidan för logganalys-arbetsytan för den valda arbetsytan klickar du på den **loggen Sök** panelen.

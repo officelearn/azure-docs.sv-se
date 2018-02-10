@@ -3,7 +3,7 @@ title: "Skapa anpassade roller för Azure RBAC | Microsoft Docs"
 description: "Lär dig hur du definierar anpassade roller med rollbaserad åtkomstkontroll för mer exakta Identitetshantering i din Azure-prenumeration."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: andredm
+ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Skapa anpassade roller för rollbaserad åtkomstkontroll
 Skapa en anpassad roll i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika behov. Anpassade roller kan skapas med [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md) (CLI) och [REST API](role-based-access-control-manage-access-rest.md). Du kan tilldela anpassade roller till användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar precis som inbyggda roller. Anpassade roller lagras i Azure AD-klient och kan delas mellan prenumerationer.
@@ -116,7 +116,7 @@ Den **AssignableScopes** -egenskapen för den anpassade rollen som också styr s
 * Vem som kan visa anpassade roller?
     Alla inbyggda roller i Azure RBAC Tillåt visning av roller som är tillgängliga för tilldelning. Användare som kan utföra den `Microsoft.Authorization/roleDefinition/read` åtgärden på ett scope kan visa RBAC-roller som är tillgängliga för tilldelning i detta scope.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Rollbaserad åtkomstkontroll](role-based-access-control-configure.md): komma igång med RBAC på Azure-portalen.
 * En lista över tillgängliga åtgärder, se [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 * Lär dig mer om att hantera åtkomst med:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: b454720dd5bd2df036a400c8bfc1c383de5af542
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
@@ -41,7 +41,7 @@ Det här dokumentet beskriver hur du använder PowerShell i molnet Shell i den [
 
 Kör vanliga PowerShell-kommandon i molnet-gränssnittet som:
 
-```Powershell
+```PowerShell
 PS Azure:\> Get-Date
 Monday, September 25, 2017 08:55:09 AM
 
@@ -58,13 +58,13 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
  1. Visa en lista över dina prenumerationer
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> dir
     ```
 
  2. `cd`prenumerationen prioriterade
 
-    ``` Powershell
+    ``` PowerShell
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
@@ -184,20 +184,20 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Se [felsökning fjärrhantering av virtuella datorer i Azure](troubleshooting.md#powershell-resolutions).
 
-  Anta att du har en virtuell dator, MyVM1, använder vi `Invoke-AzureRmVMCommand` att anropa en PowerShell-scriptblock på fjärrdatorn.
+  Anta att du har en virtuell dator, MyVM1, använder vi `Invoke-AzureRmVMCommand` att anropa ett PowerShell-skriptblock på fjärrdatorn.
 
   ``` Powershell
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  Du kan också gå till katalogen för virtualMachines först och köra `Invoke-AzureRmVMCommand` på följande sätt.
+  Du kan också gå till katalogen för VirtualMachines först och köra `Invoke-AzureRmVMCommand` på följande sätt.
 
-  ``` Powershell
+  ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
   ```
   Du kan se utdata som liknar följande:
 
-  ``` Powershell
+  ``` PowerShell
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -215,13 +215,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 Du kan använda `Enter-AzureRmVM` att interaktivt logga in på en virtuell dator som körs i Azure.
 
-  ``` Powershell
+  ``` PowerShell
   Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-Du kan också navigera till den `virtualMachines` directory första och kör `Enter-AzureRmVM` enligt följande
+Du kan också navigera till den `VirtualMachines` directory första och kör `Enter-AzureRmVM` enligt följande
 
-  ``` Powershell
+  ``` PowerShell
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
@@ -266,20 +266,20 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) är tillgänglig i PowerShell CloudShell.
-Om du vill autentisera till servrar eller virtuella datorer med SSH, generera privat-offentligt nyckelpar i CloudShell och publicera den offentliga nyckeln till `authorized_keys` på fjärrdatorn, t.ex `/home/user/.ssh/authorized_keys`.
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) är tillgänglig i PowerShell-gränssnittet för molnet.
+Generera nyckelpar för privat-offentligt moln Shell för att autentisera till servrar eller virtuella datorer med hjälp av SSH och publicera den offentliga nyckeln till `authorized_keys` på fjärrdatorn, t.ex `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> Du kan skapa SSH privat-offentliga nycklar med hjälp av `ssh-keygen` och publicera dem till `$env:USERPROFILE\.ssh` i CloudShell.
+> Du kan skapa SSH privat-offentliga nycklar med hjälp av `ssh-keygen` och publicera dem till `$env:USERPROFILE\.ssh` i molnet Shell.
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Med hjälp av en anpassad profil för att bevara GIT och SSH-inställningar
 
-Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` mappen `CloudDrive` eller skapa en symlink CloudShell hämtar startades.
-Lägg till följande kod liten i din profile.ps1 för att skapa en symlink till CloudDrive.
+Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` mappen `CloudDrive` eller skapa en symlink molnet Shell hämtar startades.
+Lägg till följande kodfragment i din profile.ps1 för att skapa en symlink till CloudDrive.
 
-``` Powershell
-# Check if the ssh folder exists
-if( -not (Test-Path $home\CloudDrive\.ssh){
+``` PowerShell
+# Check if the .ssh folder exists
+if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
 
@@ -297,25 +297,25 @@ if(Test-Path $script:sshFolderPath){
 
 ### <a name="using-ssh"></a>Med hjälp av SSH
 
-Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med hjälp av AzureRM Cmdlets.
-Innan anrop till `New-AzureRMVM` för att kick-off distributionen, lägga till offentlig SSH-nyckel i VM-konfiguration.
-Den nyligen skapade virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, så att autentiseringsuppgifter utan ssh-session till den virtuella datorn.
+Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med AzureRM cmdlets.
+Innan anrop till `New-AzureRmVM` för att kick-off distributionen, lägga till offentliga SSH-nyckeln i VM-konfiguration.
+Den nyligen skapade virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, så att autentiseringsuppgifter utan SSH-session till den virtuella datorn.
 
-``` Powershell
+``` PowerShell
 
 # Create VM config object - $vmConfig using instructions on linked page above
 
-# Generate SSH Keys in CloudShell
+# Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
-# Ensure VM config is updated with SSH Keys
+# Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
-# ssh to the VM
+# SSH to the VM
 ssh azureuser@MyVM.Domain.Com
 
 ```
@@ -335,13 +335,13 @@ Du kan köra `Install-Module` installera moduler från den [PowerShell-galleriet
 
 Typen `Get-Help` att hämta information om PowerShell i Azure Cloud-gränssnittet.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help
 ```
 
-Du kan fortfarande göra följt av en cmdlet Get-Help för ett specifikt kommando.
+För ett specifikt kommando som du fortfarande kan göra `Get-Help` följt av en cmdlet.
 
-``` Powershell
+``` PowerShell
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
@@ -349,7 +349,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `CloudDrive` att använda över shell-sessioner.
 
-``` Powershell
+``` PowerShell
 cd C:\users\ContainerAdministrator\CloudDrive
 PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
@@ -367,7 +367,7 @@ Hur du skapar en profil avser [om profiler][profile].
 
 ## <a name="use-git"></a>Använda Git
 
-Om du vill klona en git-lagringsplatsen i molnet-gränssnittet, måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har skapat din token, klona databasen på följande sätt:
+Om du vill klona en Git-lagringsplatsen i molnet-gränssnittet, måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har skapat din token, klona databasen på följande sätt:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
@@ -383,7 +383,7 @@ $script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
 # Create a symlink to .gitconfig in user's $home
 if(Test-Path $script:gitconfigPath){
 
-    if(-not (Test-Path (Join-Path $Home .gitconfig ))){
+    if(-not (Test-Path (Join-Path $home .gitconfig ))){
          New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
     }
 }

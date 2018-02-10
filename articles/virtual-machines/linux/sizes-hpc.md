@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Högpresterande compute storlekar för virtuella datorer
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
-En delmängd av beräkningsintensiva instanser (H16r, H16mr, A8 och A9) har ett nätverksgränssnitt för remote direct memory access (RDMA)-anslutning. Det här gränssnittet är utöver standard Azure nätverksgränssnittet tillgänglig för andra storlekar på VM. 
+En delmängd av beräkningsintensiva instanser (H16r, H16mr, NC24r, A8 och A9) har ett nätverksgränssnitt för remote direct memory access (RDMA)-anslutning. Det här gränssnittet är utöver standard Azure nätverksgränssnittet tillgänglig för andra storlekar på VM. 
   
-Du kan använda RDMA-kompatibla instanser att kommunicera över ett InfiniBand-nätverk med FDR priser för H16r och H16mr virtuella datorer och QDR priser för A8 och A9 virtuella datorer i gränssnittet. Dessa funktioner för RDMA kan öka skalbarhet och prestanda för Message Passing Interface (MPI)-program som körs under Intel MPI 5.x eller en senare version.
+Du kan använda RDMA-kompatibla instanser att kommunicera över ett InfiniBand-nätverk med FDR priser för H16r och H16mr NC24r virtuella datorer och QDR priser för A8 och A9 virtuella datorer i gränssnittet. Dessa funktioner för RDMA kan öka skalbarhet och prestanda för Message Passing Interface (MPI)-program som körs under Intel MPI endast 5.x. Senare versioner (2017, 2018) av Intel MPI-körningsbiblioteket är inte kompatibla med Azure RDMA-drivrutiner.
 
 Distribuera RDMA-kompatibla virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen) eller samma tjänst i molnet (när du använder den klassiska distributionsmodellen). Ytterligare krav för RDMA-kompatibla virtuella Linux-datorer att ansluta till Azure RDMA-nätverket följer.
 

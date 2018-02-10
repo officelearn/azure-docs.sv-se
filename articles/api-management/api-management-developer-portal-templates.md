@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Hur du anpassar Azure API Management developer-portalen med hjälp av mallar
 
@@ -28,16 +28,10 @@ Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure 
 * [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles]
 * [Ändra mallarna som används för sidor som genereras av portalen] [ portal-templates] (beskrivs i den här guiden)
 
-Mallar för att anpassa innehållet i systemgenererade developer portalens sidor (t.ex. API-dokumentation, produkter, autentisering av användare, etc.). Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och en angiven uppsättning lokaliserad strängresurser, ikoner och kontroller, du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill.
+Mallar för att anpassa innehållet i systemgenererade developer portalens sidor (till exempel API-dokumentation, produkter, autentisering av användare, osv.). Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och en angiven uppsättning lokaliserad strängresurser, ikoner och kontroller, du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill.
 
 ## <a name="developer-portal-templates-overview"></a>Översikt över Developer-portalen mallar
-Redigera mallar görs från den **utvecklarportalen** när du är inloggad som administratör. Att hämta det först öppna Azure Portal och klicka på **Publisher portal** från verktygsfältet service för din API Management-instans.
-
-![Utgivarportalen][api-management-management-console]
-
-Klicka sedan på **Utgivarportal** överst till höger. 
-
-![Developer portal meny][api-management-developer-portal-menu]
+Redigera mallar görs från den **utvecklarportalen** när du är inloggad som administratör. Att hämta det först öppna Azure Portal och klicka på **utvecklarportalen** från verktygsfältet service för din API Management-instans.
 
 Klicka på ikonen Anpassa till vänster för att visa menyn anpassning och klicka på för att komma åt developer portal mallar **mallar**.
 
@@ -65,7 +59,7 @@ Den **malldata** innehåller en guide till datamodellen för de enheter som är 
 
 ![Mall-datamodell][api-management-template-data]
 
-I föregående exempel finns två produkter som visas i developer-portalen och som har hämtats från data som visas i den **malldata** fönstret som visas i följande exempel.
+I föregående exempel finns två produkter som visas i developer-portalen och som har hämtats från data som visas i den **malldata** fönstret som visas i följande exempel:
 
 ```json
 {

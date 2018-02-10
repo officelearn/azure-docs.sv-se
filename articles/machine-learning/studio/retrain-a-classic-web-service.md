@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standard bedömningsslutpunkten. Slutpunkter hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten måste du lägga till en ny slutpunkt till webbtjänsten. 
@@ -68,7 +68,7 @@ Att hämta sökvägen-URL:
 2. Klicka på länken Update resurs.
 3. Kopiera URL-Adressen för POST till PATCH-begäran. Exempel:
    
-     KORRIGERING AV URL: HTTPS://MANAGEMENT.AZUREML.NET/WORKSPACES/00BF70534500B34REBFA1843D6/WEBSERVICES/AF3ER32AD393852F9B30AC9A35B/ENDPOINTS/NEWENDPOINT2
+     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Du kan nu använda den tränade modellen för att uppdatera bedömningsprofil slutpunkten som du skapade tidigare.
 

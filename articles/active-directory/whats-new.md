@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
-
-
 
 
 > Håll dig uppdaterad med vad är nytt i Azure Active Directory (AD Azure) genom att prenumerera på den [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -125,7 +123,7 @@ Från och med 8 januari 2018, Azure AD-administration upplevelse i den klassiska
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD-administration upplevelse i klassiska Azure-portalen har tagits bort
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>Webbportalen PhoneFactor har tagits bort
 
 **Typ:** föråldrad  
 **Tjänstekategori:** Azure AD  
@@ -249,7 +247,7 @@ Mer information finns i [vad är Azure AD Privileged Identity Management?](https
 
 **Typ:** ny funktion  
 **Tjänstekategori:** företagsappar  
-**Produkten kapaciteten:** integration från tredje part
+**Produkten kapaciteten:** 3 part-integrering
  
 Följande nya appar med stöd för identitetsfederation lades till i appgalleriet i December 2017:
 

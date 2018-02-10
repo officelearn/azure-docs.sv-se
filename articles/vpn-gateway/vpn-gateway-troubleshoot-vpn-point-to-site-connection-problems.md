@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Anslutningsproblem med Azure punkt-till-plats
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller vanliga anslutningsproblem som kan uppstå i punkt
 
 ## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN-klientfel: Det gick inte att hitta ett certifikat
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -45,8 +45,8 @@ Följ dessa steg för att lösa problemet:
     | Certifikat | Plats |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuella User\Personal\Certificates |
-    | Azuregateway -*GUID*. cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
-    | AzureGateway -*GUID*. cloudapp.net AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
+    | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
 
 2. Gå till användare\<användarnamn > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID > manuellt installera certifikatet (*.cer-fil) på användaren och datorns Arkiv.
 
@@ -57,7 +57,7 @@ Mer information om hur du installerar klientcertifikatet finns [generera och exp
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN-klientfel: det mottagna meddelandet var oväntat eller felaktigt formaterat
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -65,15 +65,22 @@ När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas 
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet uppstår om den offentliga nyckeln för rot-certifikatet inte har överförts till Azure VPN-gatewayen. Det kan också inträffa om nyckeln är skadad eller upphört att gälla.
+Det här problemet uppstår om någon av följande villkor är uppfyllda:
+
+- Använd användardefinierade vägar (UDR) med standardvägen på Gateway-undernätet har angetts felaktigt.
+- Den offentliga nyckeln för rot-certifikatet har inte överförts till Azure VPN-gatewayen. 
+- Nyckeln är skadad eller upphört att gälla.
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att kontrollera status för rotcertifikat i Azure portal och se om det har återkallats. Om den inte har återkallats, försök att ta bort rotcertifikat och reupload. Mer information finns i [skapa certifikat](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+Följ dessa steg för att lösa problemet:
+
+1. Ta bort UDR på Gateway-undernätet. Kontrollera att UDR vidarebefordrar all trafik korrekt.
+2. Kontrollera status för rotcertifikat i Azure portal och se om det har återkallats. Om den inte har återkallats, försök att ta bort rotcertifikat och reupload. Mer information finns i [skapa certifikat](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN-klientfel: en certifikatkedja bearbetas men avslutades 
 
-### <a name="symptom"></a>Symtom 
+### <a name="symptom"></a>Symptom 
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -86,14 +93,14 @@ När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas 
     | Certifikat | Plats |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuella User\Personal\Certificates |
-    | Azuregateway -*GUID*. cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
-    | AzureGateway -*GUID*. cloudapp.net AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
+    | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
+    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
 
-2. Försök att ta bort certifikaten och installera om dem om certifikat som redan är på plats. Den  **azuregateway -*GUID*. cloudapp.net** certifikatet finns i VPN-klienten konfigurationspaketet som du hämtade från Azure-portalen. Du kan använda filen archivers för att extrahera filerna från paketet.
+2. Försök att ta bort certifikaten och installera om dem om certifikat som redan är på plats. Den **azuregateway -*GUID*. cloudapp.net** certifikatet finns i VPN-klienten konfigurationspaketet som du hämtade från Azure-portalen. Du kan använda filen archivers för att extrahera filerna från paketet.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Fel vid hämtning av filen: mål-URI har inte angetts
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 Följande felmeddelande visas:
 
@@ -109,7 +116,7 @@ VPN gateway-typen måste vara **VPN**, och VPN-typ måste vara **RouteBased**.
 
 ## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN-klientfel: Azure VPN-anpassade skript misslyckades 
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker ansluta till Azure-nätverk med hjälp av VPN-klienten visas följande felmeddelande:
 
@@ -142,11 +149,11 @@ Extrahera VPN-klientpaketet för konfiguration och hitta .cer-fil. Följ dessa s
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure portal fel: Det gick inte att spara VPN-gateway och data är ogiltiga
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker spara ändringarna för VPN-gateway i Azure-portalen, visas följande felmeddelande:
 
-**Det gick inte att spara virtuell nätverksgateway &lt;* gatewaynamnet*&gt;. Data för certifikatet &lt; *certifikat ID* &gt; är invalid.* *
+**Det gick inte att spara virtuell nätverksgateway &lt; *gatewaynamnet*&gt;. Data för certifikatet &lt; *certifikat ID* &gt; är ogiltig.**
 
 ### <a name="cause"></a>Orsak 
 
@@ -177,11 +184,11 @@ Se till att data i certifikatet inte innehåller ogiltiga tecken, till exempel r
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Azure portal fel: Det gick inte att spara VPN-gateway och resursnamnet är ogiltigt
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker spara ändringarna för VPN-gateway i Azure-portalen, visas följande felmeddelande: 
 
-**Det gick inte att spara virtuell nätverksgateway &lt;* gatewaynamnet*&gt;. Resursnamnet &lt; *certifikatnamn som du försöker överföra* &gt; är ogiltig **.
+**Det gick inte att spara virtuell nätverksgateway &lt; *gatewaynamnet*&gt;. Resursnamnet &lt; *certifikatnamn som du försöker överföra* &gt; är ogiltig**.
 
 ### <a name="cause"></a>Orsak
 
@@ -189,7 +196,7 @@ Det här problemet beror på att namnet på certifikatet innehåller ett ogiltig
 
 ## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Azure portal fel: VPN-paketet filen fel vid hämtning av 503
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du försöker hämta konfigurationspaketet för VPN-klienten visas följande felmeddelande:
 
@@ -199,7 +206,7 @@ När du försöker hämta konfigurationspaketet för VPN-klienten visas följand
 
 Det här felet kan bero på tillfälliga nätverksproblem. Försök att hämta VPN-paketet igen efter några minuter.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Uppgraderingen av Azure VPN-Gateway: alla P2S-klienter kan inte ansluta
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Uppgraderingen av Azure VPN-Gateway: alla punkt till plats-klienter kan inte ansluta
 
 ### <a name="cause"></a>Orsak
 
@@ -207,7 +214,7 @@ Om certifikatet är mer än 50 procent via dess livslängd certifikatet förnyas
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att skapa och distribuera nya certifikat till VPN-klienter. 
+Lös problemet genom att omdistribuera pekar på platsen paketet på alla klienter.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>För många VPN-klienter anslutna samtidigt
 
@@ -215,7 +222,7 @@ För varje VPN-gateway är det maximala antalet tillåtna anslutningar 128. Du k
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Punkt-till-plats VPN felaktigt lägger till en väg för 10.0.0.0/8 routningstabellen
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När du ringer VPN-anslutningen på klienten punkt-till-plats VPN-klienten bör lägga till en väg till virtuella Azure-nätverket. IP-helper-tjänsten bör du lägga till en väg för undernätet för VPN-klienter. 
 
@@ -235,9 +242,13 @@ Om adressen hör till klass B--> gäller /16
 
 Om adressen hör till klass C--> gäller /24
 
+### <a name="solution"></a>Lösning
+
+Ha vägar för andra nätverk som matas in i routningstabellen med längsta prefixmatchning eller lägre Mått (därför högre prioritet) än punkten till plats. 
+
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN-klienten kan inte komma åt filresurser över nätverket
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 VPN-klienten har anslutit till Azure-nätverket. Dock klienten kan inte komma åt nätverksresurser.
 
@@ -256,17 +267,17 @@ Undvik problemet genom att inaktivera cachelagring av autentiseringsuppgifter f�
 
 ## <a name="cannot-find-the-point-to-site-vpn-connection-in-windows-after-reinstalling-the-vpn-client"></a>Det går inte att hitta punkt-till-plats VPN-anslutningen i Windows efter ominstallationen VPN-klienten
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 Du tar bort punkt-till-plats VPN-anslutningen och sedan installera om VPN-klienten. I den här situationen har VPN-anslutningen inte konfigurerats korrekt. Du inte ser VPN-anslutningen i den **nätverksanslutningar** inställningar i Windows.
 
 ### <a name="solution"></a>Lösning
 
-Lös problemet genom att ta bort de gamla klienten för VPN-konfigurationsfilerna från **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, och kör sedan installationsprogrammet för VPN-klienten igen.
+Lös problemet genom att ta bort de gamla klienten för VPN-konfigurationsfilerna från **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >**, och kör sedan installationsprogrammet för VPN-klienten igen.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats VPN-klienten inte kan matcha FQDN för resurser i den lokala domänen
 
-### <a name="symptom"></a>Symtom
+### <a name="symptom"></a>Symptom
 
 När klienten ansluter till Azure med hjälp av punkt-till-plats VPN-anslutning, kan den inte kan lösa FQND resurser i den lokala domänen.
 
@@ -301,7 +312,7 @@ Kontrollera inställningarna för proxyservern, kontrollerar du att klienten kan
 
 ### <a name="cause"></a>Orsak
 
-Det här felet uppstår om RADIUS-server som du använde för att autentisera VPN-klienten har felaktiga inställningar. 
+Det här felet uppstår om RADIUS-server som du använde för att autentisera VPN-klienten har felaktiga inställningar eller Azure Gateway inte kan nå Radius-servern.
 
 ### <a name="solution"></a>Lösning
 
@@ -312,3 +323,45 @@ Kontrollera att RADIUS-server är korrekt konfigurerad. Mer information finns i 
 ### <a name="cause"></a>Orsak
 
 Rotcertifikatet har inte installerats. Rotcertifikatet är installerat i klientens **certifikat från betrodda** lagras.
+
+## <a name="vpn-client-error-the-remote-connection-was-not-made-because-the-attempted-vpn-tunnels-failed-error-800"></a>VPN-klientfel: Fjärranslutningen skapades inte eftersom försök VPN-tunnlar misslyckades. (Fel 800) 
+
+### <a name="cause"></a>Orsak
+
+NIC-drivrutinen är inaktuellt.
+
+### <a name="solution"></a>Lösning
+
+Uppdatera NIC-drivrutinen:
+
+1. Klicka på **starta**, typen **Enhetshanteraren**, och markera den i listan över resultat. Om du uppmanas ange ett administratörslösenord eller en bekräftelse skriver du lösenordet eller lämna bekräftelse.
+2. I den ** nätverkskort ** kategorier, hitta nätverkskort som du vill uppdatera.  
+3. Dubbelklicka på namnet på enheten, Välj **Uppdatera drivrutin**väljer **Sök automatiskt efter uppdaterade drivrutiner**.
+4. Om Windows inte finns en ny drivrutin, du följa instruktionerna du söka efter en på enhetstillverkarens webbplats.
+5. Starta om datorn och försök igen.
+
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Fel: fel vid hämtning av mål-URI inte har angetts-filen'
+
+### <a name="cause"></a>Orsak
+
+Detta beror på typen är konfigurerad som en felaktig gateway.
+
+### <a name="solution"></a>Lösning
+
+Azure VPN gateway-typen måste vara VPN och VPN-typ måste vara **RouteBased**.
+
+## <a name="vpn-package-installer-doesnt-complete"></a>VPN-installationspaketet slutföra inte
+
+### <a name="cause"></a>Orsak
+
+Det här problemet kan orsakas av föregående VPN-klientinstallationer. 
+
+### <a name="solution"></a>Lösning
+
+Ta bort de gamla klienten för VPN-konfigurationsfilerna från **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId >** och kör installationsprogrammet för VPN-klienten igen. 
+
+## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN-klienten i viloläge eller strömsparläge efter en stund
+
+### <a name="solution"></a>Lösning
+
+Kontrollera strömsparläge och viloläge inställningar på datorn som VPN-klienten körs på.

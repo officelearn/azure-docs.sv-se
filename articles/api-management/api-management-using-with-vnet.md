@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 4e3c17a86281176726be64008fa9e59e08e026f0
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
@@ -61,7 +61,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
     Nu visas en lista över alla regioner där API Management-tjänsten har etablerats. Välj en VNET och undernät för varje region. I listan fylls med både klassiska och Resource Manager virtuella nätverk som är tillgängliga i din Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
     
     > [!NOTE]
-    > **Tjänstslutpunkten** i ovanstående diagram innehåller Gateway-proxyn, Publisher Portal, Developer-portalen, GIT och direkt hantering av slutpunkten.
+    > **Tjänstslutpunkten** i ovanstående diagram innehåller Gateway-proxyn, Azure-portalen, Developer-portalen, GIT och direkt hantering av slutpunkten.
     > **Hanteringsslutpunkten** i ovanstående diagram är den slutpunkt som värd för tjänsten för att hantera konfiguration via Azure portal och Powershell.
     > Tänk också på, att, även om diagrammet visar IP-adresser för olika, API Management-tjänsten **endast** svarar på dess konfigurerade värdnamn.
     

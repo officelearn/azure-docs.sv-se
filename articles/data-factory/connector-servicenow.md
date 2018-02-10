@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d1e4d3a2d8edf061c5f16da62287359bd6039c69
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 68a19bd20cd068a1388c806d30c1bdb2d7575682
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiera data från ServiceNow med hjälp av Azure Data Factory (Beta)
 
@@ -48,12 +48,12 @@ Följande egenskaper stöds för ServiceNow länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **ServiceNow** | Ja |
-| slutpunkt | Slutpunkten för ServiceNow-server. (det vill säga http://ServiceNowData.com)  | Ja |
+| slutpunkt | Slutpunkten för ServiceNow-server (`http://ServiceNowData.com`).  | Ja |
 | AuthenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **grundläggande**, **OAuth2** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till ServiceNow-server för grundläggande och OAuth2-autentisering.  | Nej |
 | lösenord | Det lösenord som motsvarar användarnamn för Basic och OAuth2-autentisering. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
 | clientId | Klient-ID för OAuth2-autentisering.  | Nej |
-| clientSecret | Klienthemlighet för OAuth2-autentisering. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| clientSecret | Klienthemlighet för OAuth2-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att den matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |
 | usePeerVerification | Anger om att verifiera identiteten för servern när du ansluter via SSL. Standardvärdet är true.  | Nej |

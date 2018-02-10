@@ -52,7 +52,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Regler per resurs, Basic | 150 | 250 |
 | Regler per resurs, Standard | 1250 | 1500 |
 | Regler per IP-konfiguration | 299 |299 |
-| Frontend-IP-konfigurationer, Basic | 10 | kontakta supporten |
+| Frontend-IP-konfigurationer, Basic | 10 | 200 |
 | Frontend-IP-konfigurationer, Standard | 10 | 600 |
 | Serverdelspool Basic | 100, enkel Tillgänglighetsuppsättning | - |
 | Serverdelspool, Standard | 1000, enkel VNet | - |

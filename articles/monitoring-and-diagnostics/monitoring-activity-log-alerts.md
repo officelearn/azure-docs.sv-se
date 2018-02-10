@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Skapa aktivitet Logga varningar
 
 ## <a name="overview"></a>Översikt
 Aktiviteten loggen aviseringar är aviseringar som aktiverar när en ny aktivitet logga en händelse inträffar som matchar de villkor som anges i aviseringen. De är Azure-resurser, så att de kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapa, uppdatera, eller tas bort i Azure-portalen. Den här artikeln beskriver begrepp bakom aktivitet loggen aviseringar. Den sedan visar hur du använder Azure-portalen för att ställa in en avisering på aktiviteten logghändelser.
+
+> [!NOTE]
+
+>  [Aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse av att skapa och hantera aktivitetsloggar för tillfället.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
 Normalt skapar du aktiviteten loggen aviseringar för att ta emot meddelanden när:
 
@@ -43,15 +47,13 @@ Du kan konfigurera en aktivitet loggen avisering baserat på någon översta ege
 - **Status för**: status för händelsen, startas normalt, misslyckades eller lyckades.
 - **Händelse som initieras av**: kallas även ”anroparen”. E-postadressen eller Azure Active Directory-identifieraren för användaren som utförde åtgärden.
 
->[!NOTE]
->Du måste ange minst två av de föregående villkoren i aviseringen, med en är kategorin. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
->
->
+> [!NOTE]
+> När kategorin som är ”administrativa” måste du ange minst en av de föregående villkoren i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
 
 När en aktivitet loggen avisering aktiveras använder en grupp för att generera meddelanden eller åtgärder. En grupp är en återanvändbar uppsättning notification mottagare, till exempel e-postadresser, webhook URL: er eller SMS telefonnummer. Mottagarna kan refereras från flera aviseringar centralisera och gruppera dina aviseringskanaler. När du definierar aviseringen aktivitet loggen har du två alternativ. Du kan:
 
-* Använd en befintlig grupp i din logg varning. 
-* Skapa en ny grupp. 
+* Använd en befintlig grupp i din logg varning.
+* Skapa en ny grupp.
 
 Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure portal](monitoring-action-groups.md).
 

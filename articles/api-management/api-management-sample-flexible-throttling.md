@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerade begäran begränsning med Azure API Management
 Att kunna begränsa inkommande begäranden är en viktig roll i Azure API Management. Antingen genom att kontrollera antalet förfrågningar eller totalt antal begäranden/överförda data kan API Management-API-leverantörer att skydda sina API: er från missbruk och skapa värde för olika nivåer för API-produkten.
 
 ## <a name="product-based-throttling"></a>Produkten baserat begränsning
-Hittills, hastighet begränsningen har funktioner begränsats till är begränsade till en viss produkt prenumeration (i praktiken en nyckel), definieras i API Management publisher portal. Detta är användbart för API-providern kan tillämpa begränsningar på utvecklare som har registrerat dig att använda sitt API, men det hjälper inte, till exempel i begränsning enskilda slutanvändare API. Det är möjligt att för enkel användaren av utvecklarens program att använda hela kvoten och sedan förhindra andra kunder som utvecklare kan använda programmet. Flera kunder som kan generera en stor mängd begäranden kan också begränsa åtkomsten till tillfällig användare.
+Hittills, hastighet begränsningen har funktioner begränsats till är begränsad till en viss produkt prenumeration (i praktiken en nyckel), definieras i Azure-portalen. Detta är användbart för API-providern kan tillämpa begränsningar på utvecklare som har registrerat dig att använda sitt API, men det hjälper inte, till exempel i begränsning enskilda slutanvändare API. Det är möjligt att för enkel användaren av utvecklarens program att använda hela kvoten och sedan förhindra andra kunder som utvecklare kan använda programmet. Flera kunder som kan generera en stor mängd begäranden kan också begränsa åtkomsten till tillfällig användare.
 
 ## <a name="custom-key-based-throttling"></a>Anpassade nyckelbaserad begränsning
 Den nya [hastighet gränsen av nyckeln](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) och [kvoten av nyckeln](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) principerna förser dig med en betydligt mer flexibel lösning för att kontrollera trafik. Dessa nya principer kan du definiera uttryck för att identifiera de nycklar som används för att spåra användningen av trafik. Hur detta fungerar illustreras easiest med ett exempel. 

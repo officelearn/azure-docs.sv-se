@@ -9,7 +9,7 @@ I följande tabell visas de gränser som gäller för IoT-hubb enheten Etablerin
 | Maximalt antal CA: er | 10 |
 
 > [!NOTE]
-> Dessa gränser är för en förhandsversion. När tjänsten är allmänt tillgänglig, kan du kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/) att öka antalet instanser i din prenumeration.
+> Du kan kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/) att öka antalet instanser i din prenumeration.
 
 Enheten Etableringstjänsten begränsar begäranden när följande kvoter överskrids:
 

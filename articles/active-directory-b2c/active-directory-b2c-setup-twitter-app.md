@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-ms.openlocfilehash: dde17c89c49223c75842f328f455c6637aa1915b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Ange registrering och inloggning för konsumenter med Twitter-konton
-
-> [!NOTE]
-> Den här funktionen är i förhandsgranskningen.
-> 
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 Om du vill använda Twitter som en identitetsleverantör i Azure Active Directory (AD Azure) B2C måste du skapa ett Twitter-program och ange rätt parametrar. Du behöver ett Twitter-konto för utvecklare att göra detta. Om du inte har något du kan hämta den på [https://dev.twitter.com/](https://dev.twitter.com/).
@@ -46,3 +42,6 @@ Om du vill använda Twitter som en identitetsleverantör i Azure Active Director
 6. Klicka på **ställa in den här identitetsleverantör** och ange Twitter **konsumentnyckel** för den **klient-id** och på Twitter **konsumenthemlighet** för den **klienthemlighet**.
 7. Klicka på **OK**, och klicka sedan på **skapa** spara Twitter-konfigurationen.
 
+## <a name="next-steps"></a>Nästa steg
+
+Skapa eller redigera en [inbyggd princip](active-directory-b2c-reference-policies.md) och Lägg till Twitter som en identitetsleverantör.

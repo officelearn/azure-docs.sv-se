@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f08f9c1fa141f85077c1e868fb309516ce52342b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Kopiera data från Azure-databas för MySQL med Azure Data Factory
 
@@ -45,7 +45,7 @@ Följande egenskaper stöds för Azure-databas för MySQL länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureMySql** | Ja |
-| connectionString | Ange information som behövs för att ansluta till Azure-databas för MySQL-instansen. Markera det här fältet som en SecureString. | Ja |
+| connectionString | Ange information som behövs för att ansluta till Azure-databas för MySQL-instansen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 48b4e5f2429ce2bd8a875b084694f83e467b5575
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera virtuell Linux-dator till den nya noden i Azure
 Om du står inför svårigheter felsökning SSH eller kan bidra till att programmet åtkomst till en Linux-dator (VM) i Azure, omdistribuera den virtuella datorn. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka. Alla konfigurationsalternativ och associerade resurser bevaras. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure CLI eller Azure-portalen.
@@ -33,9 +33,9 @@ Du kan distribuera en virtuell dator med någon av följande alternativ. Du beh�
 - [Azure-portalen](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till din Azure med hjälp av [az inloggningen](/cli/azure/#login).
+Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till din Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
 
-Distribuera den virtuella datorn med [az vm Omdistributionen](/cli/azure/vm#redeploy). I följande exempel återdistribuerar den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
+Distribuera den virtuella datorn med [az vm Omdistributionen](/cli/azure/vm#az_vm_redeploy). I följande exempel återdistribuerar den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

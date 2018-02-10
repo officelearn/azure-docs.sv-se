@@ -9,14 +9,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
 
@@ -32,7 +32,7 @@ Syftet med en öppen distribuerade fildelning system är att tillhandahålla en 
 
 Följande topologin illustrerar File Server-miljö med DFSR implementeras.
                 
-![DFSR-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
+![dfsr-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 I ovanstående reference flera filservrar som anges som medlemmar, aktivt delta vid replikering av filer mellan en replikeringsgrupp. Innehållet i den replikerade mappen kommer att vara tillgänglig för alla klienter som skickar begäranden till antingen medlemmar, även vid en av medlemmarna försätts i offlineläge.
 
@@ -145,7 +145,7 @@ Den föreslagna metoden med att integrera Azure filsynkronisering med Azure Site
 
 Den under steg poster med hjälp av Azure filen Sync-tjänsten:
 
-1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du väljer geo-redundant lagring med läsbehörighet (RA-GRS) (rekommenderas) för storage-konton måste ha du läsbehörighet till dina data från den sekundära regionen vid en katastrof. Referera till den [strategi för Azure File share katastrofåterställning](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för ytterligare information.
+1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du väljer geo-redundant lagring med läsbehörighet (RA-GRS) (rekommenderas) för storage-konton måste ha du läsbehörighet till dina data från den sekundära regionen vid en katastrof. Referera till den [strategi för Azure File share katastrofåterställning](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för ytterligare information.
 2. [Skapa en filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuera Azure filsynkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) i din lokala filserver.
 4. Skapa en grupp för synkronisering: slutpunkter i en grupp för synkronisering kommer att synkroniseras med varandra. En grupp för synkronisering måste innehålla minst en Molnslutpunkt som representerar en Azure-filresurs, och en Server-slutpunkt som representerar en sökväg på den lokala Windows-Server.

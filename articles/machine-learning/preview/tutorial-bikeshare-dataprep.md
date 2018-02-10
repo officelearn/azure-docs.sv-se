@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e4bcf7ec2a18f6068554c2eb85b72ffc36dcc4fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Självstudie för cykeldelning: Förberedelse av avancerade data med Azure Machine Learning-arbetsstationen
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -27,15 +27,17 @@ I den här självstudien använder du Azure Machine Learning (förhandsversion) 
 > * Skapa ett paket för förberedelse av data
 > * Kör paketet för förberedelse av data med Python
 > * Generera en datauppsättning för träning genom att återanvända paketet för förberedelse av data för ytterligare inkommande filer
+> * Köra skript i ett lokalt Azure CLI-fönster.
+> * Köra skript i en Azure HDInsight-molnmiljö.
 
-> [!IMPORTANT]
-> Den här självstudiekursen förbereder bara data, den skapa inte förutsägelsemodellen.
->
-> Du kan använda förberedda data för att träna din förutsägelsemodell. Du kan till exempel skapa en modell för att förutsäga cykelefterfrågan under en 2-timmarsperiod.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Azure Machine Learning-arbetsstationen måste vara installerad lokalt. Mer information finns i [snabbstart av installation](quickstart-installation.md).
+* Om du inte har installerat Azure CLI, följ instruktionerna för att [installera den senaste versionen av Azure CLI]. (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* En [HDInsights Spark-kluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) måste skapas i Azure.
+* Ett Azure Storage-konto.
 * Liknar processen med att skapa ett nytt projekt i arbetsstationen.
+* Även om det inte krävs, är det bra att ha [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) installerat så att du kan ladda upp, hämta och visa blobbarna på ditt lagringskonto. 
 
 ## <a name="data-acquisition"></a>Datainsamling
 Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3.amazonaws.com/hubway-data/index.html) och Boston weather från [NOAA](http://www.noaa.gov/).
@@ -53,6 +55,22 @@ Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
 2. Packa upp varje ZIP-fil efter nedladdning.
+
+## <a name="upload-data-files-to-azure-blob-storage"></a>Överföra filer till Azure Blob storage
+Du kan använda blob storage som värd för dina filer.
+
+1. Använd samma Azure Storage-konto som används för HDInsight-klustret som du använder.
+
+    ![hdinsightstorageaccount.png](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
+
+2. Skapa en ny behållare med namnet '**-datafiler**' att lagra BikeShare datafiler.
+
+3. Ladda upp datafiler. Överför den `BostonWeather.csv` till en mapp med namnet `weather`, och datafiler för resa till en mapp med namnet `tripdata`.
+
+    ![azurestoragedatafile.png](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
+
+> [!TIP]
+> Du kan också använda **Azure Lagringsutforskaren** att överföra blobbar. Det här verktyget kan användas när du vill visa innehållet i någon av de filer som genereras under kursen samt.
 
 ## <a name="learn-about-the-datasets"></a>Lär dig mer om datauppsättningar
 1. Filen __Boston weather__ innehåller följande väderrelaterade fält som rapporteras varje timme:
@@ -78,7 +96,7 @@ Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3
 1. Starta **Azure Machine Learning-arbetsstationen** från startmenyn eller startprogrammet.
 
 2. Skapa ett nytt Azure Machine Learning-projekt.  Klicka på knappen **+** på sidan **Projekt** eller **Fil** > **Ny**.
-   - Använd mallen **Tomt projekt**.
+   - Använd den **cykeln filresurs** mall.
    - Namnge projektet **BikeShare**. 
 
 ## <a id="newdatasource"></a>Skapa en ny datakälla
@@ -97,9 +115,9 @@ Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3
 
    ![Bild av posten för fil(er)/katalog](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Filval**: Lägg till väderdata. Bläddra och välj den `BostonWeather.csv`-fil som du hämtade tidigare. Klicka på **Nästa**.
+2. **Filval**: Lägg till väderdata. Bläddra och välj den `BostonWeather.csv` -fil som du överfört till __Azure Blob Storage__ tidigare. Klicka på **Nästa**.
 
-   ![Bild av filval med BostonWeater.csv](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![Bild av filval med BostonWeater.csv](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
 3. **Filinformation**: Verifiera filschemat som upptäcks. Azure Machine Learning-arbetsstationen analyserar data i filen och härleder det schema som ska användas.
 
@@ -136,9 +154,9 @@ Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3
 
    Välj __Nästa__ för att fortsätta. 
 
-5. **Sampling**: Om du vill skapa ett schema för sampling, välj knappen **+ Ny**. Välj den nya raden __Top 10000__ som har lagts till och markera sedan __Redigera__. Ange __Samplingsstrategi__ till **Fullständig fil**, och välj sedan **Tillämpa**.
+5. **Provtagning**: Om du vill skapa ett schema för provtagning, Välj den **redigera** knappen. Välj den nya raden __Top 10000__ som har lagts till och markera sedan __Redigera__. Ange __Samplingsstrategi__ till **Fullständig fil**, och välj sedan **Tillämpa**.
 
-   ![Bild för att lägga till en ny samplingsstrategi](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Bild för att lägga till en ny samplingsstrategi](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
    För att använda strategin __Fullständig fil__, välj posten __Fullständig Fil__ och välj sedan __Ställ in som aktiv__. En stjärna visas bredvid __Fullständig fil__ som indikerar att detta är den aktiva strategin.
 
@@ -223,6 +241,8 @@ Du behöver inte längre kolumnen __REPORTTYPE__. Högerklicka på kolumnrubrike
 
    Om du vill ta bort de rader som innehåller fel, högerklicka på kolumnrubriken **HOURLYDRYBULBTEMPF**. Välj **Filterkolumn**. Använd standard **Jag vill att** som **Behåll rader**. Ändra listrutan **Villkor** och välj **är inte ett fel**. Välj **OK** för att tillämpa filtret.
 
+    ![filtererrorvalues.png](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
+
 4. För att minimera de återstående raderna med fel i de övriga kolumnerna måste du upprepa filterproceduren för kolumnerna **HOURLYRelativeHumidity** och **HOURLYWindSpeed**.
 
 ## <a name="use-by-example-transformations"></a>Använd omvandlingar som exempel
@@ -261,7 +281,10 @@ Om du vill använda data i en förutsägelse för tvåtimmarsblock, måste du be
 
    > [!NOTE]
    > Azure ML-arbetsstationen syntetiserar program baserat på de exempel som tillhandahålls av dig och använder samma program på övriga rader. Alla andra rader fylls i automatiskt baserat på de exempel som du angav. Arbetsstationen analyserar också dina data och försöker identifiera gränsfall. 
-  
+
+   > [!IMPORTANT]
+   > Identifiering av edge fall kanske inte fungerar på Mac i den aktuella versionen av arbetsstationen. Hoppa över den __steg 3__ och __steg 4__ nedan på Mac. Utan på __OK__ när alla rader hämta fylls med de härledda värdena.
+   
 3. Texten **Analysera data** ovanför rutnätet anger att arbetsstationen försöker identifiera gränsfall. När du är klar ändras statusen till **Granska nästa föreslagna rad** eller **Inga förslag**. I det här exemplet returneras **Granska nästa föreslagna rad**.
 
 4. Om du vill granska de föreslagna ändringarna, välj **Granska nästa föreslagna rad**. Cellen som du bör granska och korrigera (vid behov) är markerad på skärmen.
@@ -287,10 +310,15 @@ Om du vill använda data i en förutsägelse för tvåtimmarsblock, måste du be
 
    Ange `Jan 01, 2015 12AM-2AM` som exempel mot den första raden och tryck på **Retur**.
 
-   Arbetsstationen anger omvandlingen som baseras på exemplet som du anger. I det här exemplet är resultatet att datumformatet ändras och sammanfogas med tvåtimmarsfönstret.
+   Arbetsstationen anger omvandlingen som baseras på exemplet som du anger. I det här exemplet är resultatet att datumet format ändras och användas i sammanslagningen av fönstret två timmar.
 
    ![Bild av exemplet 01 januari 2015 12.00–02.00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
+   > [!IMPORTANT]
+   > Följ anvisningarna nedan om du i stället för på Mac __steg 8__ nedan.
+   >
+   > * Gå till den första cellen som innehåller `Feb 01, 2015 12AM-2AM`. Det bör vara den __rad 15__. Korrigera värdet för `Jan 02, 2015 12AM-2AM`, och tryck på __RETUR__. 
+   
 
 8. Vänta på status för att ändra från **Analysera data** till **Granska nästa föreslagna rad**. Det kan ta flera sekunder. Välj statuslänken för att navigera till den föreslagna raden. 
 
@@ -306,6 +334,7 @@ Om du vill använda data i en förutsägelse för tvåtimmarsblock, måste du be
 
    > [!TIP]
    > Du kan använda avancerat läge av **Härled kolumn efter exempel** för det här steget genom att klicka på pilen i fönstret **Steg**. I datarutnätet finns det kryssrutor bredvid kolumnnamnen **DATE\_1** och **Timintervall**. Avmarkera kryssrutan bredvid kolumnen **Timintervall** för att se hur detta ändrar utdata. Om kolumnen **Timintervall** som indata saknas, behandlas **12.00–02.00** som en konstant och läggs till i de härledda värdena. Välj **Avbryt** för att återgå till det huvudsakliga rutnätet utan att tillämpa ändringarna.
+   ![derivedcolumnadvancededitdeselectcolumn.png](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
 10. Om du vill byta namn på kolumnen, dubbelklickar du på rubriken. Ändra namnet till **Datum Timintervall** och tryck sedan på **Retur**.
 
@@ -331,7 +360,7 @@ Nästa steg är att sammanfatta vädret genom att ta medelvärdet av värdena, g
 
 Genom att ändra data i de numeriska kolumnerna till ett intervall på 0–1 kan vissa modeller konvergera snabbt. Det finns för närvarande ingen inbyggd transformation för att göra den här transformationen, men Python-skriptet kan användas för att utföra den här åtgärden.
 
-1. Från menyn **Transformera** väljer du **Transformera dataflöde**.
+1. Från den **transformera** väljer du **transformera dataflöde (skript)**.
 
 2. Ange följande kod i textrutan som visas. Om du har använt kolumnnamnen bör koden fungera utan modifiering. Du skriver en enkel normaliseringslogik för min–max i Python.
 
@@ -372,6 +401,7 @@ Förberedelsen av väderdata är klar. Förbered nu resedata.
 
 1. Så här importerar du filen `201701-hubway-tripdata.csv`, använd stegen i avsnittet [Skapa en ny datakälla](#newdatasource). Använd följande alternativ under importen:
 
+    * __Filen markeringen__: Välj **Azure Blob** när du bläddrar för att välja filen.
     * __Samplingsschemat__: **Fullständig fil** samplingsschema, aktivera exemplet och 
     * __Datatyp__: Acceptera standardvärdena.
 
@@ -505,7 +535,12 @@ Använd härledda kolumner för att sammanfatta cykelefterfrågan för en 2-timm
     > Du kan ge ett exempel mot någon av raderna. I det här exemplet är värdet för `Jan 01, 2017 12AM-2AM` giltigt för den första raden med data.
 
     ![Bild av exempeldata](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-   
+
+   > [!IMPORTANT]
+   > Följ anvisningarna nedan om du i stället för på Mac __steg 3__ nedan.
+   >
+   > * Gå till den första cellen som innehåller `Jan 01, 2017 1AM-2AM`. Det bör vara den __rad 14__. Korrigera värdet för `Jan 01, 2017 12AM-2AM`, och tryck på __RETUR__. 
+
 3. Vänta tills programmet beräknar värden mot alla rader. Det kan ta flera sekunder. När analysen är klar kan du använda länken __Granska nästa föreslagna rad__ för att granska data.
 
    ![Bild av slutförd analys med granskningslänk](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -586,19 +621,95 @@ För den här självstudien är namnet på filen `BikeShare Data Prep.py`. Den h
 
 ## <a name="save-test-data-as-a-csv-file"></a>Spara testdata som en CSV-fil
 
-För att spara dataflöde för **Koppla resultat** till en. CSV-fil måste du ändra skriptet `BikeShare Data Prep.py`. Uppdatera Python-skriptet med följande kod:
+För att spara dataflöde för **Koppla resultat** till en. CSV-fil måste du ändra skriptet `BikeShare Data Prep.py`. 
 
-```python
-from azureml.dataprep.package import run
+1. Öppna projektet för redigering i VSCode.
 
-# dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
-df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    ![openprojectinvscode.png](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTest.csv
-df.to_csv('Your Test Data File Path here')
-```
+2. Uppdatera Python-skriptet i den `BikeShare Data Prep.py` filen med följande kod:
 
-Välj **Kör** högst upp på skärmen. Skriptet har skickats in som ett **Jobb** på den lokala datorn. När jobbstatusen ändras till __Slutförd__, har filen skrivits till den angivna platsen.
+    ```python
+    import pyspark
+
+    from azureml.dataprep.package import run
+    from pyspark.sql.functions import *
+
+    # start Spark session
+    spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
+    # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
+    df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+    df.show(n=10)
+    row_count_first = df.count()
+
+    # Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/testata'
+    # 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+    blobfolder = 'Your Azure Storage blob path'
+
+    df.write.csv(blobfolder, mode='overwrite') 
+
+    # retrieve csv file parts into one data frame
+    csvfiles = "<Your Azure Storage blob path>/*.csv"
+    df = spark.read.option("header", "false").csv(csvfiles)
+    row_count_result = df.count()
+    print(row_count_result)
+    if (row_count_first == row_count_result):
+        print('counts match')
+    else:
+        print('counts do not match')
+    print('done')
+    ```
+
+3. Ersätt `Your Azure Storage blob path` med sökväg till utdatafilen som ska skapas. Ersätt för både den `blobfolder` och `csvfiles` variabler.
+
+## <a name="create-hdinsight-run-configuration"></a>Skapa HDInsight kör konfiguration
+
+1. Öppna kommandoradsfönstret i Azure Machine Learning Workbench, välj menyn **Arkiv** och välj **Öppna kommandotolken**. Kommandotolken startar i projektmappen med prompten `C:\Projects\BikeShare>`.
+
+ ![opencommandprompt.png](media/tutorial-bikeshare-dataprep/opencommandprompt.png)
+
+   >[!IMPORTANT]
+   >Du måste använda kommandotolken (som öppnas från Workbench) för att utföra följande steg.
+
+2. Använd kommandotolken för att logga in på Azure. 
+
+   Workbench-appen och CLI använder oberoende cacheminnen för inloggningsuppgifter vid autentisering mot Azure-resurser. Du behöver bara göra det här en gång, tills token i cacheminnet upphör att gälla. Den `az account list` kommando returnerar listan över tillgängliga prenumerationer för din inloggning. Om det finns fler än en använder du ID-värdet från prenumerationen som du vill använda. Ange den prenumeration som standardkonto för användning med den `az account set -s` kommando och ange prenumerations-ID-värde. Bekräfta inställningen med kontot `show` kommando.
+
+   ```azurecli
+   REM login by using the aka.ms/devicelogin site
+   az login
+   
+   REM lists all Azure subscriptions you have access to 
+   az account list -o table
+   
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
+   
+   REM verifies that your current subscription is set correctly
+   az account show
+   ```
+
+3. Skapa HDInsight kör config. Du måste namnet på klustret och sshuser lösenord.
+    ```azurecli
+    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml experiment prepare -c hdinsight
+    ```
+> [!NOTE]
+> När du har skapat ett tomt projekt standardkonfigurationerna kör är **lokala** och **docker**. Det här steget skapar en ny konfiguration för Kör som är tillgängliga i den **Azure Machine Learning arbetsstationen** när du kör skripten. 
+
+## <a name="run-in-hdinsight-cluster"></a>Kör i HDInsight-kluster
+
+Gå tillbaka till den **Azure Machine Learning arbetsstationen** program att köra skriptet i HDInsight-klustret.
+
+1. Gå tillbaka till startsidan i ditt projekt genom att klicka på den **hem** ikonen till vänster.
+
+2. Välj **hdinsight** i listrutan för att köra skriptet i HDInsight-klustret.
+
+3. Välj **Kör** högst upp på skärmen. Skriptet har skickats in som en **jobbet**. När jobbet har statusen ändras till __slutförd__, filen har skrivits till den angivna platsen i din **Azure Storage-behållare**.
+
+    ![hdinsightrunscript.png](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
+
 
 ## <a name="substitute-data-sources"></a>Ersätt datakällor
 
@@ -608,7 +719,7 @@ I föregående steg, använde du datakällorna `201701-hubway-tripdata.csv` och 
 
     * __Filval__: När du väljer en fil, välj de sex återstående tripdata. CSV-filerna för resan samtidigt.
 
-        ![Läs in de sex återstående filerna](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Läs in de sex återstående filerna](media/tutorial-bikeshare-dataprep/browseazurestoragefortripdatafiles.png)
 
         > [!NOTE]
         > Posten __+ 5__ indikerar att det finns fem ytterligare filer utöver den som visas.
@@ -619,11 +730,13 @@ I föregående steg, använde du datakällorna `201701-hubway-tripdata.csv` och 
 
    Spara namnet på den här datakällan eftersom den används i senare steg.
 
-2. Välj mappikonen för att visa filerna i projektet. Expandera katalogen __aml\_config__ och välj sedan filen `local.runconfig`.
+2. Välj mappikonen för att visa filerna i projektet. Expandera katalogen __aml\_config__ och välj sedan filen `hdinsight.runconfig`.
 
-    ![Bild av platsen för local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
+    ![Bild av platsen för hdinsight.runconfig](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Lägg till följande rader i slutet av filen `local.runconfig` och klicka på diskikonen för att spara filen.
+3. Klicka på knappen Redigera om du vill öppna filen i VSCode.
+
+4. Lägg till följande rader i slutet av filen `hdinsight.runconfig` och klicka på diskikonen för att spara filen.
 
     ```yaml
     DataSourceSubstitutions:
@@ -637,15 +750,41 @@ I föregående steg, använde du datakällorna `201701-hubway-tripdata.csv` och 
 Navigera till filen Python `BikeShare Data Prep.py` som du redigerade tidigare och ange en annan sökväg till filen för att spara träningsdata.
 
 ```python
+import pyspark
+
 from azureml.dataprep.package import run
+from pyspark.sql.functions import *
+
+# start Spark session
+spark = pyspark.sql.SparkSession.builder.appName('BikeShare').getOrCreate()
+
 # dataflow_idx=2 sets the dataflow to the 3rd dataflow (the index starts at 0), the Join Result.
 df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
+df.show(n=10)
+row_count_first = df.count()
 
-# Example file path: C:\\Users\\Jayaram\\BikeDataOut\\BikeShareTrain.csv
-df.to_csv('Your Training Data File Path here')
+# Example file name: 'wasb://data-files@bikesharestorage.blob.core.windows.net/traindata'
+# 'wasb://<your container name>@<your azure storage name>.blob.core.windows.net/<csv folder name>
+blobfolder = 'Your Azure Storage blob path'
+
+df.write.csv(blobfolder, mode='overwrite') 
+
+# retrieve csv file parts into one data frame
+csvfiles = "<Your Azure Storage blob path>/*.csv"
+df = spark.read.option("header", "false").csv(csvfiles)
+row_count_result = df.count()
+print(row_count_result)
+if (row_count_first == row_count_result):
+    print('counts match')
+else:
+    print('counts do not match')
+print('done')
 ```
 
-Om du vill skicka ett nytt jobb, använd ikonen **Kör** längst upp på sidan. Ett **Jobb** skickas in med den nya konfigurationen. Utdata för jobbet är träningsdata. Dessa data skapas med hjälp av samma steg för förberedelse av data som du skapade tidigare. Det kan ta några minuter att slutföra jobbet.
+1. Använd mappnamnet `traindata` för utbildning data utdata.
+
+2. Om du vill skicka ett nytt jobb, använd ikonen **Kör** längst upp på sidan. Kontrollera att **hdinsight** är markerad. Ett **Jobb** skickas in med den nya konfigurationen. Utdata för jobbet är träningsdata. Dessa data skapas med hjälp av samma steg för förberedelse av data som du skapade tidigare. Det kan ta några minuter att slutföra jobbet.
+
 
 ## <a name="next-steps"></a>Nästa steg
 Du har slutfört självstudierna för förberedelse av data för cykeldelning. I den här självstudien använde du Azure Machine Learning (förhandsversion) till att lära dig att:

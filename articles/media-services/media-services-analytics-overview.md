@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics på plattformen Media Services
 ## <a name="overview"></a>Översikt
@@ -50,6 +50,8 @@ Sammanfattning av video kan hjälpa dig skapa sammanfattningar av långa videor 
 Du kan konvertera textinnehåll i videofiler till redigerbar, sökbara digitala text med Azure Media OCR (OCR). Sedan kan du automatisera extrahering av beskrivande metadata från media video signalen.
 ### <a name="scalable-face-redaction"></a>Skalbar ansikte bortredigering
 Azure Media Redactor är en Media Analytics medieprocessor som erbjuder skalbara ansikte bortredigering i molnet. Du kan ändra videon om du vill minska ytor valda personer med hjälp av framsidan bortredigering. Du kanske vill använda tjänsten ansikte bortredigering i Nyheter media eller allmän säkerhet ingår. Några minuter med material som innehåller flera ytor kan ta timmar att redigera bort manuellt, men med den här tjänsten ansikte bortredigering tar bara några få enkla steg. Mer information finns i [redigera bort personerna bakom Azure Media Analytics](media-services-face-redaction.md) artikel.
+### <a name="content-moderation"></a>Innehållsmoderering
+Azure innehåll kontrollanten kan du använda datorn stödd avbrottsmoderering för dina videor. Du kanske vill identifiera möjliga vuxna och dyr innehåll i videor och granska flaggade innehållet från ditt mänsklig måtta. Manuellt kontrollera videor för oönskade innehåll är en tidskrävande och dyrt åtgärd. Med den här tjänsten och associerade granska verktyg kombinera datorn stödd avbrottsmoderering med hr-i-the-loop funktioner för bästa resultat effektivt och kostnadseffektivt sätt. Mer information finns i [bearbeta videor med Azure innehåll kontrollant](media-services-content-moderation.md) artikel.
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 Media Analytics hjälper organisationer och företag glean nya insikter från video och mer hantera effektivt stora volymer av videoinnehåll. Här följer några scenarier:
@@ -69,6 +71,7 @@ Det här avsnittet listar Media Analytics-medieprocessorer och visar hur du anv�
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 Följande funktion använder ett av de angivna MP-namn och returnerar ett HP-objekt.
@@ -120,13 +123,8 @@ Svar:
        ]
     }
 
-## <a name="demos"></a>Demonstrationer
+## <a name="demos"></a>Demos
 Se [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
-
-## <a name="next-steps"></a>Nästa steg
-Granska sökvägarna för Media Services-utbildning.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
@@ -137,3 +135,8 @@ Se [Media Services Analytics meddelande](https://azure.microsoft.com/blog/introd
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Nästa steg
+Granska sökvägarna för Media Services-utbildning.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

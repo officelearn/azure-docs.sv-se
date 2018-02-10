@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Så här skalar du Azure Redis-Cache
-Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner. När en cache har skapats kan skala du storlek och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skala ditt cacheminne i Azure-portalen och använda verktyg som Azure PowerShell och Azure CLI.
+Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner. När en cache har skapats kan skala du storlek och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skala din cache med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
 
 ## <a name="when-to-scale"></a>När ska du skala
 Du kan använda den [övervakning](cache-how-to-monitor.md) funktioner i Azure Redis-Cache att övervaka hälsotillstånd och prestanda för ditt cacheminne och hjälper dem att avgöra när skala cachen. 
@@ -51,7 +51,7 @@ Du kan skala till en annan prisnivå med följande begränsningar:
   * Du kan skala från en **Premium** cachelagra ned till en **Standard** eller en **grundläggande** cache.
   * Du kan skala från en **Standard** cachelagra ned till en **grundläggande** cache.
 * Du kan skala från en **grundläggande** cachelagra till en **Standard** cache men du kan inte ändra storlek på samma gång. Om du behöver olika storlek, kan du göra en efterföljande skalning åtgärd till önskad storlek.
-* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Du måste skala från **grundläggande** till **Standard** i en skalning åtgärd och sedan från **Standard** till **Premium** i ett efterföljande skalning åtgärden.
+* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Skala först från **grundläggande** till **Standard** i en skalning åtgärd och sedan från **Standard** till **Premium** i ett efterföljande skalning åtgärden.
 * Du kan skala från en större storlek för den **C0 (250 MB)** storlek.
  
 När cachen skalas till den nya prisnivån en **skalning** status visas i den **Redis-Cache** bladet.
@@ -118,7 +118,7 @@ I följande lista innehåller svar på vanliga frågor om Azure Redis-Cache skal
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Kan jag skala till, från eller inom en Premium-cache?
 * Du kan skala från en **Premium** cachelagra ned till en **grundläggande** eller **Standard** prisnivån.
 * Du kan skala från en **Premium** cache prisnivån till en annan.
-* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Du måste först skala från **grundläggande** till **Standard** i en skalning åtgärd och sedan från **Standard** till **Premium** vid en senare skalning åtgärden.
+* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Skala först från **grundläggande** till **Standard** i en skalning åtgärd och sedan från **Standard** till **Premium** i ett efterföljande skalning åtgärden.
 * Om du har aktiverat kluster när du skapade din **Premium** cache, kan du [ändra klusterstorleken](cache-how-to-premium-clustering.md#cluster-size). Om ditt cacheminne har skapats utan kluster aktiverad, kan du inte konfigurera klustring vid ett senare tillfälle.
   
   Mer information finns i [Konfigurera klustring för premium Azure Redis-cache](cache-how-to-premium-clustering.md).
@@ -129,7 +129,7 @@ Nej, cache namn och nycklar är oförändrade under en åtgärd med skalning.
 ### <a name="how-does-scaling-work"></a>Hur fungerar skalning?
 * När en **grundläggande** cache skalas till en annan storlek, den är avstängd och ett nytt cacheminne etableras med den nya storleken. Cacheminnet är inte tillgänglig under denna tid, och alla data i cacheminnet går förlorade.
 * När en **grundläggande** cache skalas till en **Standard** cache, en replik-cache är etablerad och data kopieras från den primära cachen till replik-cachen. Cachen finns kvar under skalning.
-* När en **Standard** cache skalas till en annan storlek eller till en **Premium** cache, en av replikerna stängs ner och etableras igen till den nya storleken och de data som överförs och den andra repliken Utför en växling vid fel innan det är nytt etablerade, ungefär på samma sätt som sker vid fel på en cachenoder.
+* När en **Standard** cache skalas till en annan storlek eller till en **Premium** cache, en av replikerna stängs ner och etableras till den nya storleken och de data som överförs och den andra repliken Utför en växling vid fel innan den är etableras, ungefär på samma sätt som sker vid fel på en cachenoder.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Jag förlorar data från min cache under skalning?
 * När en **grundläggande** cache skalas till en ny storlek, alla data går förlorade och cachen är inte tillgänglig under åtgärden skalning.
@@ -137,29 +137,29 @@ Nej, cache namn och nycklar är oförändrade under en åtgärd med skalning.
 * När en **Standard** cache skalas till en större storlek eller nivån eller en **Premium** cache skalas till en större storlek, alla data bevaras normalt. Vid skalning en **Standard** eller **Premium** cache ned till en mindre storlek, data kan gå förlorade beroende på hur mycket data finns i cacheminnet för relaterade till den nya storleken när skalas. Om data förloras vid skalning nycklar avlägsnas med hjälp av den [allkeys lru](http://redis.io/topics/lru-cache) av principen. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Är mina egna databaser inställningen påverkas under skalning?
-Vissa prisnivåer har olika [databaser gränser](cache-configure.md#databases), så det finns vissa saker när skala ned om du konfigurerat ett anpassat värde för den `databases` anger under Skapa cache.
+Om du har konfigurerat ett anpassat värde för den `databases` anger under Skapa cache, Tänk på att vissa pris nivåer har olika [databaser gränser](cache-configure.md#databases). Här är några saker att tänka på vid skalning i det här scenariot:
 
 * Vid skalning till en prisnivå med en lägre `databases` gränsen än den aktuella nivån:
-  * Om du använder standardantalet `databases` som är 16 för alla prisnivåer inga data går förlorade.
+  * Om du använder standardantalet `databases`, vilket är 16 för alla prisnivåer, inga data går förlorade.
   * Om du använder ett anpassat antal `databases` som ligger inom gränserna för den nivå som du skalning, detta `databases` inställningen bevaras och inga data går förlorade.
   * Om du använder ett anpassat antal `databases` som överskrider gränserna för ny nivå av `databases` inställningen sänks till gränser för ny nivå och alla data i de borttagna databaserna går förlorade.
 * Vid skalning till en prisnivå med samma eller högre `databases` gränsen än den aktuella nivån din `databases` inställningen bevaras och inga data går förlorade.
 
-Observera att Standard och Premium har ett SLA för 99,9% för tillgänglighet, men det finns inga SLA för förlust av data.
+Standard och Premium har ett SLA för 99,9% för tillgänglighet, finns men det inga SLA för förlust av data.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>Kommer min cache vara tillgängliga under skalning?
-* **Standard** och **Premium** cacheminnen finns kvar under åtgärden skalning.
-* **Grundläggande** cacheminnen är offline under skalning åtgärder till en annan storlek men fortfarande är tillgängliga vid skalning från **grundläggande** till **Standard**.
+* **Standard** och **Premium** cacheminnen finns kvar under åtgärden skalning. Anslutningen signaler kan dock uppstå vid skalning Standard och Premium och även vid skalning från enkel till Standard cacheminnen. Dessa anslutning signaler förväntas vara små och redis-klienter ska kunna återupprätta anslutningen omedelbart.
+* **Grundläggande** cacheminnen är offline under skalning åtgärder till en annan storlek. Grundläggande cacheminnen är tillgängliga vid skalning från **grundläggande** till **Standard** men kan ha en liten anslutning blip. Om en anslutning blip inträffar ska redis-klienter kunna återupprätta anslutningen omedelbart.
 
 ### <a name="operations-that-are-not-supported"></a>Åtgärder som inte stöds
 * Du kan skala från en högre prisnivå till en lägre prisnivå.
   * Du kan skala från en **Premium** cachelagra ned till en **Standard** eller en **grundläggande** cache.
   * Du kan skala från en **Standard** cachelagra ned till en **grundläggande** cache.
 * Du kan skala från en **grundläggande** cachelagra till en **Standard** cache men du kan inte ändra storlek på samma gång. Om du behöver olika storlek, kan du göra en efterföljande skalning åtgärd till önskad storlek.
-* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Du måste först skala från **grundläggande** till **Standard** i en skalning åtgärd och sedan från **Standard** till **Premium** vid en senare skalning åtgärden.
+* Du kan skala från en **grundläggande** cachelagra direkt till en **Premium** cache. Skala först från **grundläggande** till **Standard** i en åtgärd för skalning och skala från **Standard** till **Premium** vid en senare åtgärden.
 * Du kan skala från en större storlek för den **C0 (250 MB)** storlek.
 
-Om en skalning misslyckas tjänsten kommer att försöka återställa igen och cachen återgår till den ursprungliga storleken.
+Om en skalning misslyckas tjänsten försöker återställa igen och cachen återgår till den ursprungliga storleken.
 
 ### <a name="how-long-does-scaling-take"></a>Hur lång tid skalning tar?
 Skalning tar cirka 20 minuter beroende på hur mycket data finns i cacheminnet.

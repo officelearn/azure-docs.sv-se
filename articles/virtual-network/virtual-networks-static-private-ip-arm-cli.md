@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privat IP-adresser för en virtuell dator med hjälp av Azure CLI
 
@@ -41,9 +41,9 @@ Den här artikeln beskriver Resource Manager-distributionsmodellen. Du kan ocks�
 
 Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett VNet med namnet *TestVNet* med en statisk privat IP-adress för *192.168.1.101*, fullständig följande steg:
 
-1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login). 
+1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). 
 
-2. Skapa en offentlig IP-adress för den virtuella datorn med den [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#create) kommando. Listan som visas efter alla utdata förklarar parametrarna som använts.
+2. Skapa en offentlig IP-adress för den virtuella datorn med den [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#az_network_public_ip_create) kommando. Listan som visas efter utdatan beskriver de parametrar som används.
 
     > [!NOTE]
     > Om du vill eller måste du använda olika värden för att argumenten i den här och efterföljande steg beroende på din miljö.
@@ -74,7 +74,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
    * `--name`: Namnet på den offentliga IP-Adressen.
    * `--location`: Azure-region där du vill skapa den offentliga IP-Adressen.
 
-3. Kör den [az nätverket nic skapa](/cli/azure/network/nic#create) kommando för att skapa ett nätverkskort med en statisk privat IP. Listan som visas efter alla utdata förklarar parametrarna som använts. 
+3. Kör den [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create) kommando för att skapa ett nätverkskort med en statisk privat IP. Listan som visas efter utdatan beskriver de parametrar som används. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
     * `--vnet-name`: Namnet på VNet där du vill skapa nätverkskortet.
     * `--subnet`: Namnet på undernätet att skapa det nätverkskortet.
 
-4. Kör den [azure vm skapa](/cli/azure/vm/nic#create) kommando för att skapa den virtuella datorn med hjälp av offentliga IP-adresser och NIC som skapats tidigare. Listan som visas efter alla utdata förklarar parametrarna som använts.
+4. Kör den [azure vm skapa](/cli/azure/vm/nic#az_vm_nic_create) kommando för att skapa den virtuella datorn med hjälp av offentliga IP-adresser och NIC som skapats tidigare. Listan som visas efter utdatan beskriver de parametrar som används.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett V
     }
     ```
    
-   Andra parametrar än grundläggande [az vm skapa](/cli/azure/vm#create) parametrar.
+   Andra parametrar än grundläggande [az vm skapa](/cli/azure/vm#az_vm_create) parametrar.
 
    * `--nics`: Namnet på nätverkskortet som den virtuella datorn är ansluten.
    

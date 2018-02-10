@@ -2,23 +2,17 @@
 title: "Testresultat för Hyper-V-replikering mellan platser med Azure Site Recovery | Microsoft Docs"
 description: "Den här artikeln innehåller information om prestandatestning för lokal till lokal replikering av Hyper-V virtuella datorer med hjälp av Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: tysonn
-ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: c221fe94c5301b0a36882d5ae1c57e523002ecc4
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f25bbca86fdbb480a4db7623d4ee8d296415a4be
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Testresultat för lokal till lokal Hyper-V-replikering med Site Recovery
 
@@ -93,7 +87,7 @@ Följande diagram visar genomströmning av virtuella datorer som kör olika arbe
 
 ![Resultaten replik effekter](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Resultaten visar tydligt att Azure Site Recovery, tillsammans med Hyper-V-replikering ska skalas med minsta omkostnader för ett kluster för stora.  Azure Site Recovery tillhandahåller enkel distribution, replikering, hantering och övervakning. Hyper-V-replikering tillhandahåller infrastrukturen som behövs för replikering som lyckades skalning. För att planera en optimal distribution vi rekommenderar att du hämtar den [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
 
@@ -109,10 +103,10 @@ Resultaten visar tydligt att Azure Site Recovery, tillsammans med Hyper-V-replik
 
 ![Primär maskinvarukrav](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
-| Server | RAM | Modellen | Processor | Antal processorer | NÄTVERKSKORT | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |128ESTLAB HOST25 har 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
+| Hyper-V-servrar i klustret: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB HOST25 har 256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| VMM Server |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>Platsen för sekundära (återställning)
 
@@ -121,12 +115,12 @@ Resultaten visar tydligt att Azure Site Recovery, tillsammans med Hyper-V-replik
 
 ![Primär maskinvarukraven](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
-| Server | RAM | Modellen | Processor | Antal processorer | NÄTVERKSKORT | Programvara |
+| Server | RAM | Modell | Processor | Antal processorer | NIC | Programvara |
 | --- | --- | --- | --- | --- | --- | --- |
-| Hyper-V-servrar i klustret: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| ESTLAB HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
-| VMM-servern |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
+| Hyper-V-servrar i klustret: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2,30 GHz |2 |Jag Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V-rollen |
+| VMM Server |2 | | |2 |1 Gbit/s |Windows Server-databasen 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Server-arbetsbelastningar
 
@@ -139,7 +133,7 @@ Resultaten visar tydligt att Azure Site Recovery, tillsammans med Hyper-V-replik
 | Filserver |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Alla 100% slumpmässiga |
 | SQL Server (volym 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% random100% sekventiella |
 | Exchange |32 |100% |67% |8 |100% slumpmässiga |
-| Arbetsstation/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
+| Workstation/VDI |464 |66%34% |70%95% |11 |Både slumpmässiga 100% |
 | Webbserver-fil |4864 |33%34%33% |95%95%95% |888 |Alla 75% slumpmässiga |
 
 ### <a name="vm-configuration"></a>VM-konfiguration
@@ -177,7 +171,7 @@ Tabellen sammanfattar prestandamått och räknare som har mätt i distributionen
 | --- | --- |
 | Processor |\Processor(_Total)\% processortid |
 | Tillgängligt minne |\Memory\Available megabyte |
-| IOPS |\PhysicalDisk (_Total) \Disk disköverföringar/sek |
+| IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
 | VM läsåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Read åtgärder/sek |
 | VM skrivåtgärder (IOPS) per sekund |\Hyper-V virtuell lagringsenhet (<VHD>) \Write åtgärder/S |
 | VM läsa genomflöde |\Hyper-V virtuell lagringsenhet (<VHD>) \Read byte/sek |

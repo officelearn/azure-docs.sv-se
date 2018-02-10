@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [egenvärdbaserat integrering körning i version 2](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Data Management Gateway har nu tagits byta namn som Self-hosted integrering Runtime.  
 
 Data management gateway är en klientagent som du måste installera i din lokala miljö för att kopiera data mellan molnet och lokala datalager. Lokala data lagras som stöds av Data Factory visas i den [datakällor som stöds i](data-factory-data-movement-activities.md#supported-data-stores-and-formats) avsnitt.
 
@@ -188,7 +191,7 @@ Data management gateway-värdtjänsten startas om automatiskt när du sparar de 
 När gatewayen har registrerats, om du vill visa eller uppdatera proxyinställningarna, använda Data Management Gateway Configuration Manager.
 
 1. Starta **Data Management Gateway Configuration Manager**.
-2. Växla till den **inställningar** fliken.
+2. Växla till fliken **Settings** (Inställningar).
 3. Klicka på **ändra** länken i **HTTP-Proxy** avsnittet för att starta den **ange HTTP-Proxy** dialogrutan.  
 4. När du klickar på den **nästa** knappen, visas ett varningsmeddelande som ber om din tillåtelse för att spara Proxyinställningen och starta om Gateway-värdtjänsten.
 

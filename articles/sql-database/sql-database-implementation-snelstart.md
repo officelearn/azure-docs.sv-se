@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Med Azure, har SnelStart snabbt utökats dess företagstjänster med 1 000 nya Azure SQL-databaser per månad
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -104,7 +104,6 @@ Omedelbar målet för SnelStart är att behålla växande nöjd kunden bas. Vari
 
 ## <a name="more-information"></a>Mer information
 * Läs mer om Azure elastiska pooler i [elastiska pooler](sql-database-elastic-pool.md).
-* Läs mer om Web och arbetsroller i [arbetsroller](../fundamentals-introduction-to-azure.md#compute).    
 * Läs mer om Azure SQL Data Warehouse i [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Läs mer om SnelStart i [SnelStart](http://www.snelstart.nl).
 

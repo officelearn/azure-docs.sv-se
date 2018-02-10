@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9481d8d9bbdb5081eae9b9a3d4b9a280cba86be5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -66,7 +66,7 @@ Följande egenskaper har stöd för den länkade tjänsten Dynamics.
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Nej, ska anges om det finns fler än en Dynamics instanser som är associerade med användaren |
 | AuthenticationType | Autentiseringstypen som ansluter till en Dynamics-server. Ange **”Office365”** för Dynamics online. | Ja |
 | användarnamn | Ange användarnamnet för att ansluta till Dynamics. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angett för användarnamn. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källan länkade tjänsten inte en integration körning |
 
 >[!IMPORTANT]

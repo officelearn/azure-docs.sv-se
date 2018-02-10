@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/10/2017
+ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 9a205d1b8e088b7007bb8c3a64139732d8858267
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Framkalla kontrollerade Chaos i Service Fabric-kluster
 Stora distribuerade system som molninfrastrukturer är natur instabilt. Azure Service Fabric kan utvecklare skriva tillförlitliga distribuerade tjänster på ett instabilt infrastruktur. Om du vill skriva robust distribuerade tjänster på en infrastruktur med instabilt behöver utvecklare för att kunna testa stabiliteten i sina tjänster medan den underliggande instabilt infrastrukturen gå igenom komplicerade tillståndsövergångar på grund av fel.
 
-Den [fel Injection och analys klustertjänsten](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (även kallat fel Analysis Service) gör att utvecklare kan orsaka fel för att testa sina tjänster. Dessa mål simulerade fel, som [startar om en partition](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa dig att utöva de vanligaste tillståndsövergångar. Men buggar riktade simulerade fel prioriterar per definition och därmed missa som visar upp endast i tillståndsövergångar svårt att förutse, långa och komplicerade ordning. Du kan använda Chaos för en oprioriterad testning.
+Den [fel Injection och analys klustertjänsten](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (även kallat fel Analysis Service) gör att utvecklare kan orsaka fel för att testa sina tjänster. Dessa mål simulerade fel, som [startar om en partition](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), kan hjälpa dig att utöva de vanligaste tillståndsövergångar. Men buggar riktade simulerade fel prioriterar per definition och därmed missa som visar upp endast i tillståndsövergångar svårt att förutse, långa och komplicerade ordning. Du kan använda Chaos för en oprioriterad testning.
 
 Chaos simulerar periodiska, överlagrad fel (korrekt och städat) i hela klustret under en längre tid. Ett fel om korrekt består av en uppsättning Service Fabric-API-anrop, till exempel omstart replik fel är en korrekt fel eftersom det är en Stäng följt av en öppen på en replik. Ta bort replik, flytta primära repliken och flytta sekundär replik är andra korrekt fel för Chaos. Städat fel är processen avslutas, som att starta om noden och restrat koden pacakge. 
 
@@ -65,11 +65,14 @@ Du kan använda GetChaosReport API (powershell, C# eller REST) för att få vilk
 > Oavsett hur högt värde *MaxConcurrentFaults* har Chaos garanterar - om externa fel - det finns ingen förlorar kvorum eller förlust av data.
 >
 
-* **EnableMoveReplicaFaults**: aktiverar eller inaktiverar de fel som orsakar att flytta primära eller sekundära replikerna. Dessa fel är inaktiverade som standard.
+* **EnableMoveReplicaFaults**: aktiverar eller inaktiverar de fel som orsakar att flytta primära eller sekundära replikerna. Dessa fel är aktiverat som standard.
 * **WaitTimeBetweenIterations**: tidsperiod som ska förflyta mellan iterationer. Det vill säga pausar hur lång tid Chaos efter att ha utförs en runda av fel och har slutförts med motsvarande verifieringen av hälsotillståndet för klustret. Ju högre värdet Ju lägre är den genomsnittliga fel injection hastigheten.
 * **WaitTimeBetweenFaults**: tidsperiod som ska förflyta mellan två på varandra följande fel i en enda iteration. Ju högre värdet är, desto lägre samtidighet på (eller överlapp mellan) hos.
 * **ClusterHealthPolicy**: klustret hälsoprincip används för att kontrollera hälsotillståndet för klustret between Chaos iterationer. Om klustret hälsa är felaktigt eller om ett oväntat undantag inträffar under körning av fel Chaos ska vänta i 30 minuter innan nästa-hälsotillståndskontroll - att ge lite tid att recuperate klustret.
 * **Kontexten**: en samling (sträng, sträng) anger nyckel-värdepar. Kartan kan användas för att registrera information om Chaos kör. Det får inte finnas fler än 100 par och varje sträng (nyckel eller ett värde) får innehålla högst 4095 tecken. Den här kartan anges av starter kaotisk kör för att lagra kontexten om specifika kör.
+* **ChaosTargetFilter**: det här filtret kan användas för att målet Chaos fel endast vissa nodtyper eller bara vissa programinstanser. Om inte ChaosTargetFilter används hos Chaos alla entiteter i klustret. Om ChaosTargetFilter används hos Chaos de enheter som uppfyller ChaosTargetFilter-specifikationen. NodeTypeInclusionList och ApplicationInclusionList kan union semantik. Med andra ord, går det inte att ange en skärningspunkt för NodeTypeInclusionList och ApplicationInclusionList. T.ex, går det inte att ange ”fault det här programmet endast när det är för att nodtypen”. När en entitet ingår i NodeTypeInclusionList eller ApplicationInclusionList kan entiteten inte uteslutas med ChaosTargetFilter. Även om applicationX inte visas i ApplicationInclusionList, i vissa Chaos iteration kan applicationX vara fel eftersom det sker på en nod i nodeTypeY som ingår i NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är null eller tomt, genereras ett ArgumentException.
+    * **NodeTypeInclusionList**: en lista över nodtyper som ska ingå i Chaos fel. Alla typer av fel (starta om nod, starta om codepackage, ta bort replik, starta om repliken, flytta primära och sekundära) har aktiverats för noder av nodtyperna. Om en nodetype (säga NodeTypeX) visas inte i NodeTypeInclusionList, och sedan noden nivån fel (till exempel NodeRestart) aldrig ska aktiveras för noderna i NodeTypeX, men koden paketet och repliken fel kan fortfarande aktiveras för NodeTypeX om ett program i den ApplicationInclusionList råkar finnas på en nod i NodeTypeX. Högst 100 typen nodnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfNodeTypesInChaosTargetFilter konfiguration.
+    * **ApplicationInclusionList**: en lista över program URI: er ska ingå i Chaos fel. Alla repliker som hör till av dessa program lämpar sig för att repliken fel (starta om repliken, ta bort replik, flytta primära och flytta sekundära) genom Chaos. Chaos kan starta om en kodpaketet endast om kodpaketet värd replikerna för dessa program bara. Om ett program inte visas i listan, kan det fortfarande vara fel i vissa Chaos iteration om programmet som hamnar på en nod av typen som är incuded i NodeTypeInclusionList. Men om applicationX är knutna till nodeTypeY via placeringen och applicationX saknas från ApplicationInclusionList och nodeTypeY saknas från NodeTypeInclusionList, sedan applicationX aldrig blir felaktig. Högst 1000 programnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfApplicationsInChaosTargetFilter konfiguration.
 
 ## <a name="how-to-run-chaos"></a>Hur du kör Chaos
 
@@ -136,7 +139,23 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-            
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of type 'FrontEndType'
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            // List of cluster entities to target for Chaos faults.
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
+
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -145,7 +164,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy);
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
 
             try
             {
@@ -250,12 +269,26 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
+#List of cluster entities to target for Chaos faults.
+$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
+$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+# for nodes of type 'FrontEndType'
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
+$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
+
+# In addition to the faults included by nodetypeInclusionList, 
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
+
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
 
 while($true)
 {
@@ -286,5 +319,4 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
-
 ```

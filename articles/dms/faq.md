@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 87bd27147d20fec8c5839b744d70f215e2c1ec47
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering
 Den här artikeln innehåller vanliga frågor om hur du använder tjänsten Azure Database migrering tillsammans med tillhörande svar.
@@ -81,6 +81,9 @@ Du kan göra några saker att snabba upp din Databasmigrering med hjälp av tjä
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>FRÅGOR. Hur ställer jag in ett Azure Virtual Network?
 När flera Microsoft-självstudier som kan vägleder dig genom processen för att skapa ett Azure VNET, den officiella dokumentationen visas i artikeln [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+
+### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>FRÅGOR. Varför är min Azure Database migrering-tjänsten inte tillgänglig eller är stoppad?
+Om användaren uttryckligen slutar Azure databas migrering Service (DMS) eller om tjänsten är inaktiv under en period på 24 timmar, vara i ett stoppat tjänsten eller automatiskt pausläge. I varje fall blir tjänsten otillgänglig och Stoppad status.  Starta om tjänsten om du vill återuppta aktiva migreringar.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>FRÅGOR. Var kan jag lämna feedback om tjänsten Azure Database migrering?
 Vi vill gärna höra av dig. Skicka feedback och / idéer har om tjänsten Azure Database migrering via-feedback [här](https://feedback.azure.com/forums/906100-azure-database-migration-service).

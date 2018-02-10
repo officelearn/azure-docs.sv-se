@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage i virtuella Linux-datorer med hjälp av SMB
 
@@ -67,7 +67,7 @@ Flytta filer från en virtuell dator till en SMB-monteringspunkter som är värd
 
 För den här detaljerade genomgången ska vi skapa de förutsättningar som krävs för att först skapa fillagringsresursen och montera den via SMB på en Linux-VM.
 
-1. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create) för filresursen.
+1. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create) för filresursen.
 
     Så här skapar du en resursgrupp med namnet `myResourceGroup` på plats ”USA, västra”, Använd följande exempel:
 
@@ -75,7 +75,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
     az group create --name myResourceGroup --location westus
     ```
 
-2. Skapa ett Azure storage-konto med [az storage-konto skapar](/cli/azure/storage/account#create) de faktiska filerna.
+2. Skapa ett Azure storage-konto med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create) de faktiska filerna.
 
     Använd följande exempel för att skapa ett lagringskonto med namnet mittlagringskonto med hjälp av Standard_LRS lagring SKU:
 
@@ -90,7 +90,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
 
     När du skapar ett lagringskonto skapas nycklar för kontot i par så att de kan roteras utan några avbrott i tjänsten. När du växlar till den andra nyckeln i paret, skapar du en ny nyckel. Ny lagringskontonycklar skapas alltid parvis, se till att du alltid har minst en oanvända lagringskontonyckel redo att växla till.
 
-    Visa lagringskontonycklar med den [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list). Lagringskontot nycklar för den namngivna `mystorageaccount` visas i följande exempel:
+    Visa lagringskontonycklar med den [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#az_storage_account_keys_list). Lagringskontot nycklar för den namngivna `mystorageaccount` visas i följande exempel:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
 
 4. Skapa File storage-resurs.
 
-    Fillagringsresursen innehåller SMB-resursen med [az lagringsresurs skapa](/cli/azure/storage/share#create). Kvoten uttrycks alltid i gigabyte (GB). Pass i en av nycklarna från den föregående `az storage account keys list` kommando. Skapa en resurs med namnet mystorageshare med en 10 GB kvot genom att använda följande exempel:
+    Fillagringsresursen innehåller SMB-resursen med [az lagringsresurs skapa](/cli/azure/storage/share#az_storage_share_create). Kvoten uttrycks alltid i gigabyte (GB). Pass i en av nycklarna från den föregående `az storage account keys list` kommando. Skapa en resurs med namnet mystorageshare med en 10 GB kvot genom att använda följande exempel:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ För den här detaljerade genomgången ska vi skapa de förutsättningar som kr�
     När du startar om Linux VM är den monterade SMB-resursen omonterade vid avstängningen. Lägga till en rad Linux /etc/fstab om du vill återansluta till SMB-resursen på Start. Linux använder filen fstab för att lista filsystem som krävs för att montera under startprocessen. Lägger till SMB-resursen garanterar att File storage-resurs är en permanent anslutet filsystem för Linux-VM. Det är möjligt att lägga till File storage SMB-resurs i en ny virtuell dator när du använder molntjänster initiering.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 225dd64c46bf9af3e058bbe3cfacf8f8a693b565
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägg till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
 
@@ -43,12 +43,12 @@ När du skapar en virtuell dator via portalen portalen skapar ett nätverksgrän
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[Skapa AZ vm](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[Skapa AZ vm](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_create)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Lägg till ett nätverksgränssnitt i en befintlig virtuell dator
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. I sökrutan överst på portalen, söka efter namnet på den virtuella datorn som du vill lägga till nätverksgränssnitt för eller bläddra till den virtuella datorn genom att klicka på **alla tjänster**, sedan **virtuella datorer**. När du har hittat den virtuella datorn, klickar du på den. Den virtuella datorn som du vill lägga till ett nätverksgränssnitt och måste ha stöd för antalet nätverksgränssnitt som du vill lägga till. Att lära dig hur många nätverksgränssnitt varje VM storlek har stöd för, läsa den [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-storlekar artiklar.  
 3. Klicka på **översikt**under **inställningar**. Klicka på **stoppa**, och vänta tills den **Status** ändras till den virtuella datorns *Stoppad (frigjord)*. 
 4. Klicka på **nätverk**under **inställningar**.
@@ -59,7 +59,7 @@ När du skapar en virtuell dator via portalen portalen skapar ett nätverksgrän
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[Lägg till AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[Lägg till AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Lägg till AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a>Visa nätverksgränssnitt för en virtuell dator
@@ -75,12 +75,12 @@ Du kan visa nätverksgränssnitt som är anslutna till en virtuell dator mer inf
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ vm visa](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|CLI|[AZ vm visa](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
 |PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a>Ta bort ett nätverksgränssnitt från en virtuell dator
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. I sökrutan överst på portalen, söka efter namnet på den virtuella datorn som du vill ta bort (frånkoppla) nätverksgränssnittet från eller bläddra efter den virtuella datorn genom att klicka på **alla tjänster**, sedan **virtuella datorer**. När du har hittat den virtuella datorn, klickar du på den.
 3. Klicka på **översikt**under **inställningar**. Klicka på **stoppa**, och vänta tills den **Status** ändras till den virtuella datorns *Stoppad (frigjord)*. 
 4. Klicka på **nätverk**under **inställningar**.
@@ -91,7 +91,7 @@ Du kan visa nätverksgränssnitt som är anslutna till en virtuell dator mer inf
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[ta bort AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[ta bort AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (referens) eller [detaljerade steg](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Ta bort AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referens) eller [detaljerade steg](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Nästa steg

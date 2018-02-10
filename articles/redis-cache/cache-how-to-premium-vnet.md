@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Så här konfigurerar du stöd för virtuella nätverk för Premium Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en instans av Azure Redis-Cache har konfigurerats med ett VNet, är inte offentligt adresserbara och kan endast nås från virtuella datorer och program inom VNet. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för en premium Azure Redis-Cache-instans.
@@ -117,6 +117,7 @@ Det finns sju krav för utgående port.
 | 20226 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 13000-13999 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 15000-15999 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
+| 6379-6380 |Utgående |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 
 
 ### <a name="inbound-port-requirements"></a>Krav för inkommande portar
@@ -125,7 +126,7 @@ Det finns åtta inkommande port intervallet krav. Inkommande begäranden i dessa
 
 | Portar | Riktning | Transportprotokoll | Syfte | Lokala IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis Azure belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis Azure belastningsutjämning | (Redis undernät) | (Redis undernät), virtuella nätverk, Azure belastningsutjämnare |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 8500 |Inkommande |TCP/UDP |Azure belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät), Azure belastningsutjämnare |
@@ -146,7 +147,7 @@ Det finns anslutningskrav för Azure Redis-Cache som inte kanske ursprungligen u
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Hur kan jag bekräfta att min cache fungerar i ett virtuellt nätverk?
 
 >[!IMPORTANT]
->När du ansluter till en Azure Redis-Cache-instans som är värd för ett virtuellt nätverk kan måste cacheklienter vara i samma virtuella nätverk, inklusive testprogrammen eller pinga diagnosverktyg.
+>När du ansluter till en Azure Redis-Cache-instans som är värd för ett virtuellt nätverk kan måste cacheklienter vara i samma virtuella nätverk eller i ett VNET med VNET-peering aktiverad. Detta inkluderar att testa program eller pinga diagnosverktyg. Oavsett om klientprogrammet finns, måste nätverkssäkerhetsgrupper konfigureras så att klientens nätverkstrafik tillåts att nå Redis-instans.
 >
 >
 

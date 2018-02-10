@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Följande egenskaper har stöd för Salesforce länkade tjänsten.
 | typ |Egenskapen type måste anges till **Salesforce**. |Ja |
 | environmentUrl | Ange Webbadressen till Salesforce-instans. <br> -Standard är `"https://login.salesforce.com"`. <br> -Om du vill kopiera data från sandbox, ange `"https://test.salesforce.com"`. <br> -Om du vill kopiera data från domänen, till exempel ange, `"https://[domain].my.salesforce.com"`. |Nej |
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
-| lösenord |Ange ett lösenord för användarkontot.<br/><br/>Det här fältet kan du markera som SecureString lagra den på ett säkert sätt i Data Factory. Du kan också lagra lösenord i Azure Key Vault och kan kopiera aktivitet pull därifrån när du utför kopiering av data. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). |Ja |
-| securityToken |Ange en säkerhetstoken för användarkontot. Anvisningar om hur du återställer och hämta en säkerhetstoken finns [hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Läs om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Det här fältet kan du markera som SecureString lagra den på ett säkert sätt i Data Factory. Du kan också lagra säkerhetstoken i Nyckelvalvet och kan kopiera aktivitet pull därifrån när du utför kopiering av data. Läs mer i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). |Ja |
+| lösenord |Ange ett lösenord för användarkontot.<br/><br/>Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| securityToken |Ange en säkerhetstoken för användarkontot. Anvisningar om hur du återställer och hämta en säkerhetstoken finns [hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Läs om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källan länkade tjänsten inte integration runtime |
 
 >[!IMPORTANT]
@@ -319,7 +319,7 @@ När du kopierar data från Salesforce används följande mappningar från Sales
 | Textområde (Long) |Sträng |
 | Textområde (omfattande) |Sträng |
 | Text (krypterade) |Sträng |
-| Webbadress |Sträng |
+| URL |Sträng |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).

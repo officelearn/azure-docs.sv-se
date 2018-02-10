@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
@@ -239,6 +239,20 @@ Förutom hantera Azure Cosmos DB konton via Azure-prenumeration, ett alternativt
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Anslut till Azure Data Lake Store av URI: N
+Om du vill få åtkomst till resurser som inte finns i din prenumeration. Men andra bevilja dig för URI: N för resurser. I det här fallet kan du ansluta till Data Lake Store med URI: N efter att du har loggat in. Referera till följande steg.
+1. Öppna Lagringsutforskaren (förhandsversion).
+2. I den vänstra rutan, expanderar **lokala och bifogad**.
+3. Högerklicka på **Datasjölager**, och på snabbmenyn - väljer **Anslut till Data Lake Store...** .
+
+    ![ansluta till Data Lake Store snabbmenyn](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Ange Uri, och sedan verktyget navigerar till platsen för den URL som du angav.
+
+    ![ansluta till Data Lake Store kontexten dialogrutan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![ansluta till Data Lake Store-resultat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Söka efter lagringskonton
 Om du vill söka efter en lagringsresurs och inte vet om det är, kan du använda sökrutan överst i den vänstra rutan för att söka efter resursen.
 
@@ -254,6 +268,7 @@ När du skriver i sökrutan visar alla resurser som matchar sökvärdet som du h
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)](vs-azure-tools-storage-explorer-blobs.md)
 * [Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)](./cosmos-db/storage-explorer.md)
+* [Hantera Azure Data Lake Store-resurser med Lagringsutforskaren (förhandsversion)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

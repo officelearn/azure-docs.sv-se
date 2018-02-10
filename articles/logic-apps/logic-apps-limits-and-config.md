@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
-Det här avsnittet beskrivs de aktuella gränser och konfigurationsinformation för Logikappar i Azure.
+Den här artikeln beskriver aktuella begränsningar och konfigurationsinformation för Logikappar i Azure.
 
 ## <a name="limits"></a>Begränsningar
 
@@ -66,7 +66,7 @@ Dessa begränsningar gäller för en enkel logikapp som körs.
 | Max upprepningsintervallet | 500 dagar | 
 ||| 
 
-Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontaktar du oss](mailto://logicappsemail@microsoft.com) så att vi kan hjälpa dig med dina krav.
+Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontakta produktteamet](mailto://logicappsemail@microsoft.com) att få hjälp med dina krav.
 
 ### <a name="looping-and-debatching-limits"></a>Slingor och debatching gränser
 
@@ -82,18 +82,18 @@ Dessa begränsningar gäller för en enkel logikapp som körs.
 
 ### <a name="throughput-limits"></a>Genomströmning gränser
 
-Dessa begränsningar gäller för en enskild logik app-instansen.
+Dessa begränsningar gäller för en enskild logik app resurs.
 
 | Namn | Gräns | Anteckningar | 
 | ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 |<p>Gränsen kan du öka upp till 300,000 genom att köra en logikapp i `High Througput` läge och detta kan göras genom att ange den `operationOptions` egenskap under`runtimeConfiguration` av arbetsflödet resursen ska `OptimizedForHighThroughput`. <p>Observera att hög genomströmning läge i förhandsgranskningen. En arbetsbelastning kan också distribueras över flera appar efter behov. | 
+| Åtgärder körningar per 5 minuter | 100,000 |<p>Gränsen kan ökas till 300,000 genom att köra en logikapp i `High Througput` läge. Hög genomströmning läge kan konfigureras genom att ange den `operationOptions` egenskap under`runtimeConfiguration` av arbetsflödet resursen ska `OptimizedForHighThroughput`. <p>Observera att hög genomströmning läge i förhandsgranskning. En arbetsbelastning kan också distribueras över flera appar efter behov. | 
 | Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: samtidiga inkommande samtal |~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appar efter behov. | 
 | Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 |Kan fördela belastningen över flera appar efter behov. | 
 |||| 
 
-Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontaktar du oss](mailto://logicappsemail@microsoft.com) så att vi kan hjälpa dig med dina krav.
+Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontakta produktteamet](mailto://logicappsemail@microsoft.com) att få hjälp med dina krav.
 
 ### <a name="logic-app-definition-limits"></a>Logik app definition gränser
 

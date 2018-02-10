@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
@@ -26,8 +26,14 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 ## <a name="january-guest-os"></a>Januari gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
 | --- | --- | --- | --- | --- |
-| Gäller inte | [4056898] |Windows-säkerhet |4.50 |3 januari 2018 |
-| Gäller inte | [4056890] |Windows-säkerhet |5.15 |3 januari 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Windows-säkerhet |2.70, 3.57, 4,50 |3 januari 2018 |
+| Rel 18-01 | [4056890], [4056892] |Windows-säkerhet |5.15 |3 januari 2018 |
+| Gäller inte | [4054518] |Insamling av december icke-säkerhet |2.70 |12 december 2017 |
+| Gäller inte | [4054520] |Insamling av december icke-säkerhet |3.57 |12 december 2017 |
+| Gäller inte | [4054519] |Insamling av december icke-säkerhet |4.50 |12 december 2017 |
+| Gäller inte | [4051956] |Januari timezone-uppdatering |2.70, 3.57, 4,50 |12 december 2017 |
+
+
 
 ## <a name="december-guest-os"></a>December gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
@@ -36,7 +42,7 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Rel 17-12 | [4054521], [4054522], [4054523] |Windows-säkerhet |2.69, 3.56, 4.49 |12 december 2017 |
 | Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 december 2017 |
 | Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 december 2017 |
-| Gäller inte | [4048957] |Insamling av november icke-säkerhet |2.67 |14 november 2017 |
+| Gäller inte | [4048957] |Insamling av november icke-säkerhet |2.69 |14 november 2017 |
 | Gäller inte | [4048959] |Insamling av november icke-säkerhet |3.56 |14 november 2017 |
 | Gäller inte | [4048958] |Insamling av november icke-säkerhet |4.49 |14 november 2017 |
 | Gäller inte | [4049068] |Uppdatering för december tidszonen |2.69, 3.56, 4.49 |12 december 2017 |
@@ -48,7 +54,7 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Rel 17-11 | [4048960], [4048962], [4048961] |Windows-säkerhet |2.68, 3.55, 4.48 |14 november 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 november 2017 |
 | Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
-| Gäller inte | [4041681] |Insamling av oktober icke-säkerhet |2.67 |Den 10 oktober 2017 |
+| Gäller inte | [4041681] |Insamling av oktober icke-säkerhet |2.68 |Den 10 oktober 2017 |
 | Gäller inte | [4041690] |Insamling av oktober icke-säkerhet |3.55 |Den 10 oktober 2017 |
 | Gäller inte | [4041693] |Insamling av oktober icke-säkerhet |4.48 |Den 10 oktober 2017 |
 | Gäller inte | [3191566] |Uppdatering för Windows Management Framework 5.1  |2.68 |14 november 2017 |
@@ -527,7 +533,7 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | MS15-020 |[3041836] |Säkerhetsproblem i Windows kan medföra fjärrkörning av kod |4.18, 3.25, 2.37 |Gäller inte |
 | MS15-021 |[3032323] |Säkerhetsproblem Adobe teckensnitt drivrutinen möjliggör körning av kod |4.18, 3.25, 2.37 |Gäller inte |
 | MS15-023 |[3034344] |Säkerhetsproblem i Kernel-lägesdrivrutinen möjliggör rättighetsökning |4.18, 3.25, 2.37 |Gäller inte |
-| MS15 024 |[3035132] |Säkerhetsproblem i PNG-bearbetning möjliggör avslöjande av Information |4.18, 3.25, 2.37 |Gäller inte |
+| MS15-024 |[3035132] |Säkerhetsproblem i PNG-bearbetning möjliggör avslöjande av Information |4.18, 3.25, 2.37 |Gäller inte |
 | MS15-025 |[3038680] |Säkerhetsproblem i Windows Kernel möjliggör utökade rättigheter |4.18, 3.25, 2.37 |Gäller inte |
 | MS15-027 |[3002657] |Säkerhetsproblem i NETLOGON möjliggör förfalskning |4.18, 3.25, 2.37 |Gäller inte |
 | MS15-028 |[3030377] |Säkerhetsproblem i Schemaläggaren i Windows kan medföra säkerhet funktionen kringgå |4.18, 3.25, 2.37 |Gäller inte |
@@ -542,8 +548,8 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 ## <a name="february-guest-os"></a>Februari gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Säkerhetsuppdatering för Internet Explorer |4.17, 3.24, 2.36 |Gäller inte |
-| MS15 010 |[3036220] |Säkerhetsproblem i Windows drivrutiner i kernelläge möjliggör fjärrkörning av kod |4.17, 3.24, 2.36 |Gäller inte |
+| MS15-009 |[3034682] |Säkerhetsuppdatering för Internet Explorer |4.17, 3.24, 2.36 |Gäller inte |
+| MS15-010 |[3036220] |Säkerhetsproblem i Windows drivrutiner i kernelläge möjliggör fjärrkörning av kod |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-011 |[3000483] |I en Grupprincip kan fjärrkörning kod |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-014 |[3004361] |Säkerhetsproblem i SMB möjliggör säkerhet funktionen kringgå |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-015 |[3031432] |Säkerhetsproblem i Microsoft Windows möjliggör rättighetsökning |4.17, 3.24, 2.36 |Gäller inte |
@@ -553,14 +559,14 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 ## <a name="january-guest-os"></a>Januari gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 001 |[3023266] |Säkerhetsproblem i Windows AppCompatCache möjliggör utökade rättigheter |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-001 |[3023266] |Säkerhetsproblem i Windows AppCompatCache möjliggör utökade rättigheter |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Säkerhetsproblem i Windows Telnet-tjänsten kan orsaka fjärrkörning av kod |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 003 |[3021674] |Säkerhetsproblem i Windows-tjänsten för användarprofil möjliggör utökade rättigheter |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-003 |[3021674] |Säkerhetsproblem i Windows-tjänsten för användarprofil möjliggör utökade rättigheter |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-004 |[3019978] |Säkerhetsproblem i Windows-komponenter möjliggör rättighetsökning |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-005 |[3022777] |Säkerhetsproblem i NLA möjliggör säkerhet funktionen kringgå |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-006 |[3004365] |Problem i Windows Felrapportering kan tillåta säkerhet funktionen kringgå |4.16, 3.23, 2.35 |Jan 19 2015 |
-| 007 MS15 |[3014029] |Säkerhetsproblem i Nätverksprincipserver RADIUS kan orsaka en Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
-| MS15 008 |[3019215] |Säkerhetsproblem i Windows Kernel-lägesdrivrutinen möjliggör rättighetsökning |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-007 |[3014029] |Säkerhetsproblem i Nätverksprincipserver RADIUS kan orsaka en Denial of Service |4.16, 3.23, 2.35 |Jan 19 2015 |
+| MS15-008 |[3019215] |Säkerhetsproblem i Windows Kernel-lägesdrivrutinen möjliggör rättighetsökning |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS14-080 |[3008923] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Säkerhetsproblem i Windows Telnet-tjänsten kan orsaka fjärrkörning av kod |4.16, 3.23, 2.35 |Jan 19 2015 |
 | MS15-002 |[3020393] |Säkerhetsproblem i Windows Telnet-tjänsten kan orsaka fjärrkörning av kod |4.16, 3.23, 2.35 |Jan 19 2015 |
@@ -582,7 +588,14 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Aktivitetsloggen tidigare kallades ”granskningsloggar” eller ”operativa loggar” eftersom de administrativa kategorin rapporter kontroll-plan händelserna för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen omfattar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE” modellen.
@@ -29,18 +29,21 @@ Bild 1: Skicka aktivitetsloggar vs andra typer av loggar
 
 Aktivitetsloggen skiljer sig från [diagnostikloggar](monitoring-overview-of-diagnostic-logs.md). Aktivitetsloggar ger information om åtgärder på en resurs från utsidan (”kontrollplan”). Diagnostik loggar orsakat av en resurs och ger information om handhavandet av resursen (”dataplan”).
 
-Du kan hämta händelser från din aktivitetsloggen med Azure-portalen, CLI, PowerShell-cmdletar och REST-API för Azure-Monitor.
-
-
 > [!WARNING]
 > Azure-aktivitetsloggen är främst för aktiviteter som sker i Azure Resource Manager. Den spårar inte resurser med hjälp av den klassiska/RDFE-modellen. Vissa typer av klassiska resurser har en proxy-resursprovidern i Azure Resource Manager (till exempel Microsoft.ClassicCompute). Om du interagerar med en klassisk resurstyp via Azure Resource Manager med hjälp av dessa providers för proxy-resurs visas åtgärderna i aktivitetsloggen. Om du interagerar med en klassisk resurstyp utanför Azure Resource Manager-proxyservrar registrerade dina åtgärder endast i loggen igen. Att det går Bläddra i Åtgärdsloggen i ett separat avsnitt i portalen.
 >
 >
 
+Du kan hämta händelser från din aktivitetsloggen med Azure-portalen, CLI, PowerShell-cmdletar och REST-API för Azure-Monitor.
+
+> [!NOTE]
+
+>  [Aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse i Skapa och hantera aktivitet loggen Varningsregler för tillfället.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+
+
 Visa följande videoklipp introduktion till aktivitetsloggen.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitetsloggen
 Aktivitetsloggen innehåller flera kategorier av data. Mer information om scheman av dessa kategorier [finns i den här artikeln](monitoring-activity-log-schema.md). Exempel på dessa är:
@@ -142,7 +145,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där aktivitetsloggen ska sparas. |
 | serviceBusRuleId |Nej |Service Bus regel-ID för Service Bus-namnområde som har skapats i händelsehubbar. Är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser för aktivitetsloggen. |
-| retentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
+| RetentionInDays |Ja |Antal dagar för vilka händelser som ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
 | Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva och ta bort åtgärd. |
 
 #### <a name="remove-a-log-profile"></a>Ta bort en logg-profil

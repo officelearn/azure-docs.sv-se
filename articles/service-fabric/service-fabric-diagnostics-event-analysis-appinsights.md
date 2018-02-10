@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -96,11 +96,11 @@ Om du använder EventFlow att aggregera händelser, se till att importera den `M
 
 Se till att göra nödvändiga ändringar i dina filter som innehåller alla andra indata (tillsammans med deras respektive NuGet-paket).
 
-## <a name="aisdk"></a>AI. SDK
+## <a name="aisdk"></a>AI.SDK
 
 Vanligtvis rekommenderas att använda EventFlow och BOMULLSTUSS som aggregering lösningar, eftersom de tillåter en mer modulär metod för diagnostik- och övervakning, dvs. Om du vill ändra dina utdata från EventFlow krävs ingen ändring till din faktiska instrumentation en enkel ändring i konfigurationsfilen. Om däremot vill investera i med hjälp av Application Insights och troligen inte att ändra till en annan plattform, bör du fundera på med AIS nya SDK för aggregering händelser och skicka dem till AI. Det innebär att du behöver inte längre konfigurera EventFlow för att skicka data till AI, men i stället installeras den ApplicationInsight Service Fabric-NuGet-paketet. Information om paketet kan hittas [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (för närvarande i beta), vilket kan du ha bättre out box övervakningsalternativ med AI. Dessa inkluderar beroende spårning (används för att bygga en AppMap av alla tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spår som kommer från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för en app eller tjänst).
+[Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (för närvarande i beta), vilket kan du ha bättre out box övervakningsalternativ med AI. Dessa inkluderar beroende spårning (används för att bygga en AppMap av alla tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spår som kommer från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för en app eller tjänst).
 
 Om du utvecklar i .NET och kommer sannolikt att använda vissa av Service Fabric programming modeller och är att använda AI som din plattform för att visualisera och analysera data om händelser och logga sedan rekommenderar vi att du går via AI SDK vägen som arbetsflödet övervakning och diagnostik. Läs [detta](../application-insights/app-insights-asp-net-more.md) och [detta](../application-insights/app-insights-asp-net-trace-logs.md) att komma igång med att AI att samla in och visa loggar.
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI används Azure för att öka takten dess utvecklingscykeln och förbättra dess kundtjänst och prestanda
-![Daxko/CSI-logotyp](./media/sql-database-implementation-daxko/csidaxkologo25.png)
+![Daxko/CSI Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI programvara inför en utmaning: dess kundbas för lämplighet och fritid växer snabbt, tack vare genomförandet av dess omfattande företagsprogram lösning, men behåller med IT-infrastruktur behov för växande kunden Base testning företagets IT-personal. Företaget har allt mer begränsad av ökande operations kostnader, särskilt för att hantera växande databaserna. Arbetet som operations värre, klippa ut till Utvecklingsresurser för nya initiativ som nya mobilitet för företagets program.
 
@@ -74,7 +74,7 @@ SpectrumNG använder webbroller. Eftersom programmet är flera innehavare, anvä
 
 För webbnivå av sin tjänst utnyttjar CSI program Azure automatisk skalning, baserat på dag och tid. Tillgängliga resurser ökas automatiskt för senare användning under kontorstid, enligt tidszonen för varje regionala datacenter. Resurser även är inställda att skala helger, när kundens behov är lägre.
 
-![Daxko/CSI-arkitektur](./media/sql-database-implementation-daxko/figure1.png)
+![Daxko/CSI Architecture](./media/sql-database-implementation-daxko/figure1.png)
 
 Bild 1. En arbetsroll för cloud services ritar strukturerade data från Azure SQL Database och halvstrukturerade data från tabellagring. SpectrumNG användarna samverkar med att webbroll services-data via ett moln.
 
@@ -91,7 +91,6 @@ Azure SQL-databas är inte bara en stor fördel för SpectrumNG kunder som få s
 * Mer information om Databasverktyg och elastiska skalning finns [elastisk Databasverktyg och elastiska skalning](sql-database-elastic-scale-get-started.md).
 * Mer information om hur du migrerar en SQL Server-databas finns i avsnittet [migrera en SQL Server-databas till Azure](sql-database-cloud-migrate.md).
 * Mer information om aktiv geo-replikering finns [aktiv geo-replikering](sql-database-geo-replication-overview.md).
-* Läs mer om Web och arbetsroller i [arbetsroller](../fundamentals-introduction-to-azure.md#compute).    
 * Läs mer om Azure Service Bus i [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Läs mer om Autoskala i [skalning molntjänster](../cloud-services/cloud-services-how-to-scale-portal.md).
 

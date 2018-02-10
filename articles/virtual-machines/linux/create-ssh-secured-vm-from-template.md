@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager-mallar
 Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-I följande exempel skapas en virtuell dator från [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) med [az distribution skapa](/cli/azure/group/deployment#create). SSH-autentisering tillåts. När du uppmanas, ange värdet för egna SSH offentlig nyckel, till exempel innehållet i *~/.ssh/id_rsa.pub*. Om du behöver skapa en SSH-nyckel finns [hur du skapar och använder en SSH-nyckel för Linux virtuella datorer i Azure](mac-create-ssh-keys.md).
+I följande exempel skapas en virtuell dator från [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) med [az distribution skapa](/cli/azure/group/deployment#az_group_deployment_create). SSH-autentisering tillåts. När du uppmanas, ange värdet för egna SSH offentlig nyckel, till exempel innehållet i *~/.ssh/id_rsa.pub*. Om du behöver skapa en SSH-nyckel finns [hur du skapar och använder en SSH-nyckel för Linux virtuella datorer i Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -49,7 +49,7 @@ I föregående exempel angav du en mall som lagras i GitHub. Du kan också hämt
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
-Hämta den offentliga IP-adressen till SSH till den virtuella datorn, [az vm visa](/cli/azure/vm#show):
+Hämta den offentliga IP-adressen till SSH till den virtuella datorn, [az vm visa](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

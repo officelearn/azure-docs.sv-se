@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2cc40388c77dec68966a8914197d072db38f6eb0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-Analytics Preview-lösning
 
@@ -76,12 +76,12 @@ Klicka på instrumentpanelen i lösningen **Configuration** att öppna sidan DNS
 
 Om du använder Microsoft Monitoring Agent för att ansluta till Operations Management Suite-arbetsyta installeras följande hanteringspaket:
 
-- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 
 Om din Operations Manager-hanteringsgrupp är ansluten till Operations Management Suite-arbetsyta, installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration eller underhåll av dessa hanteringspaket:
 
-- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
-- Microsoft System Center Advisor DNS-konfiguration (Microsoft.IntelligencePack.Dns.Configuration)
+- Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
+- Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](log-analytics-om-agents.md).
 
@@ -121,7 +121,7 @@ Informationen hjälper dig att identifiera den:
 
 **Domäner som efterfrågas**. Innehåller de vanligaste domännamn som efterfrågas av DNS-klienter i din miljö. Du kan visa listan över alla domännamn som efterfrågas. Du kan också öka detaljnivån sökning begäran detaljer om ett visst domännamn i loggen sökningen.
 
-![Domäner sökt bladet](./media/log-analytics-dns/domains-queried-blade.png)
+![Domains Queried blade](./media/log-analytics-dns/domains-queried-blade.png)
 
 **DNS-klienter**. Rapporterar klienter *brott mot tröskelvärdet* för antal frågor i den valda tidsperioden. Du kan visa listan över DNS-klienter och detaljerna för de frågor som gjorts av dem i loggen sökningen.
 
@@ -145,7 +145,7 @@ Informationen hjälper dig att identifiera den:
 
 **Exempel på DDI Analytics frågor**. Innehåller en lista över de vanligaste sökfrågor som hämta rådata analysdata direkt.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Exempelfrågor](./media/log-analytics-dns/queries.png)
 

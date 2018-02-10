@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# för utvecklare
 
@@ -40,6 +40,9 @@ I Visual Studio den **Azure Functions** projektmall skapar en C# klassbiblioteks
 
 * [Host.JSON](functions-host-json.md) -lagrar konfigurationsinställningar som påverkar alla funktioner i projektet när du kör lokalt eller i Azure.
 * [Local.Settings.JSON](functions-run-local.md#local-settings-file) -lagrar app-inställningar och anslutningssträngar som används när körs lokalt.
+
+> [!IMPORTANT]
+> Skapar skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd som ska redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Inaktivera en funktion med det [inaktivera](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribut. Till exempel lägga till en boolesk app inställningen MY_TIMER_DISABLED och använda `[Disable("MY_TIMER_DISABLED")]` till funktionen. Du kan aktivera och inaktivera det genom att ändra inställningen för appen.
 
 ### <a name="functionname-and-trigger-attributes"></a>FunctionName och utlösare attribut
 
@@ -83,7 +86,7 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Konvertering till function.json
 
-Skapar skapar en *function.json* fil i en function-mappen i mappen build. Den här filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. 
+Skapar skapar en *function.json* fil i en function-mappen i mappen build. Som tidigare nämnts är den här filen inte avsedd som ska redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. 
 
 Syftet med den här filen är att ge information till skala controller ska använda för [skalning beslut förbrukning planen](functions-scale.md#how-the-consumption-plan-works). Därför har filen bara utlösaren info, inte indata eller utdata bindningar.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiera data från http-slutpunkten med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Egenskapen ”authenticationType” **grundläggande**, **sammanfattad**, eller 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användarnamnet för åtkomst av HTTP-slutpunkten. | Ja |
-| lösenord | Lösenord för användare (användarnamn). Markera det här fältet som SecureString. | Ja |
+| lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -100,7 +100,7 @@ Om du vill använda ClientCertificate-autentisering för egenskapen ”authentic
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-kodat certifikatdata. | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
 | certThumbprint | Tumavtrycket för certifikatet som är installerad på datorn Self-hosted integrering Runtime certifikatarkivet. Gäller endast när automatisk värdbaserade Integration Runtime har angetts i connectVia. | Ange antingen det `embeddedCertData` eller `certThumbprint`. |
-| lösenord | Lösenordet för certifikatet. Markera det här fältet som SecureString. | Nej |
+| lösenord | Lösenordet för certifikatet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
 Om du använder ”certThumbprint” för autentisering och certifikatet är installerat i det personliga arkivet i den lokala datorn, måste du bevilja läsbehörigheten till Self-hosted integrering körning:
 

@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här kursen visar hur du se till att du har konfigurerat den för att optimera prestandan på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa Linux virtuella datorer med hjälp av [egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Krav
-Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([gratis utvärderingsversion registrering](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator i din Azure-prenumeration. Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad på Azure-prenumerationen med [az inloggningen](/cli/azure/#login) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="prerequisites"></a>Förutsättningar
+Det här avsnittet förutsätter att du redan har ett aktivt Azure-prenumeration ([gratis utvärderingsversion registrering](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerat en virtuell dator i din Azure-prenumeration. Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad på Azure-prenumerationen med [az inloggningen](/cli/azure/#az_login) innan du [skapa en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-Disk
 När du skapar en Linux VM i Azure har två diskar som är kopplade till den. **/ dev/sda** är OS-disken **/dev/sdb** är tillfällig disken.  Använd inte den huvudsakliga OS-disken (**/dev/sda**) för något annat än operativsystemet som det är optimerad för snabb VM starttiden och ger inte bra prestanda för din arbetsbelastning. Du vill koppla en eller flera diskar till den virtuella datorn få beständiga och optimerad lagring för dina data. 

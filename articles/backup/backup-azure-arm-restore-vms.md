@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -104,7 +104,7 @@ När du har valt återställningspunkten du Välj en konfiguration för återst�
 
    * **Återställa diskar**
 
-Portalen innehåller en **Snabbregistrering** alternativ för en återställd VM. Använd PowerShell eller portalen för att återställa säkerhetskopierade diskar för att anpassa VM-konfiguration eller namnen på de resurser som skapades som en del av att skapa ett nytt VM-alternativ. Använd PowerShell-kommandon för att ansluta dem till ditt val av VM-konfiguration. Eller så kan du använda mallen som medföljer återställda diskar för att anpassa den återställda virtuella datorn. Information om hur du återställer en virtuell dator som har flera nätverkskort eller under en belastningsutjämnare finns [återställa en virtuell dator med särskilda nätverkskonfigurationer](#restore-a vm-with-special-network-configurations). Om din Windows virtuell dator använder [hubb licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md)återställer diskar och använda PowerShell mallen som anges i den här artikeln för att skapa den virtuella datorn. Se till att du anger den **licenstypen** som ”Windows_Server” när du skapar den virtuella datorn att använda hubb fördelar på den återställda virtuella datorn. 
+Portalen innehåller en **Snabbregistrering** alternativ för en återställd VM. Använd PowerShell eller portalen för att återställa säkerhetskopierade diskar för att anpassa VM-konfiguration eller namnen på de resurser som skapades som en del av att skapa ett nytt VM-alternativ. Använd PowerShell-kommandon för att ansluta dem till ditt val av VM-konfiguration. Eller så kan du använda mallen som medföljer återställda diskar för att anpassa den återställda virtuella datorn. Information om hur du återställer en virtuell dator som har flera nätverkskort eller under en belastningsutjämnare finns [återställa en virtuell dator med särskilda nätverkskonfigurationer](#restore-vms-with-special-network-configurations). Om din Windows virtuell dator använder [hubb licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md)återställer diskar och använda PowerShell mallen som anges i den här artikeln för att skapa den virtuella datorn. Se till att du anger den **licenstypen** som ”Windows_Server” när du skapar den virtuella datorn att använda hubb fördelar på den återställda virtuella datorn. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Skapa en ny virtuell dator från en återställningspunkt
 1. Om du inte redan, [Välj en återställningspunkt](#restore-a vm-with-special-network-configurations) innan du börjar skapa en ny virtuell dator från en återställningspunkt. När du har valt en återställningspunkt på den **Återställ konfiguration** bladet ange eller Välj värden för var och en av följande fält:

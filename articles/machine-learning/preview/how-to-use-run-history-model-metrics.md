@@ -2,19 +2,19 @@
 title: "Hur använder Kör som historik och modellen mått i Azure Maskininlärning arbetsstationen | Microsoft Docs"
 description: "Guide för att använda funktioner i Körningshistorik och modellen mått Azure Machine Learning-arbetsstationen"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Använd Körningshistorik och modellen mätvärden i Azure Machine Learning-arbetsstationen
 
@@ -23,7 +23,7 @@ Azure Machine Learning arbetsstationen stöder datavetenskap experiment via dess
 **Modellen mått** kan loggas från helst skripten, spåra värdena som är viktigast i dina datavetenskap experiment.
 Den här artikeln beskriver hur du gör effektiv användning av dessa funktioner för att öka hastigheten och kvaliteten på dina datavetenskap experiment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill gå igenom den här instruktioner, måste du:
 * [Skapa och installera Azure Machine Learning](quickstart-installation.md)
 - [Skapa ett projekt](quickstart-installation.md)

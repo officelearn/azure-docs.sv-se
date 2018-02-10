@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Hur du använder Freebsds paketfilter för att skapa en säker brandvägg i Azure
 Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med Freebsds förpackaren Filter via Azure Resource Manager-mall för web server ovanligt.
@@ -34,13 +34,13 @@ Azure Resource Manager-mallen ställa in en FreeBSD virtuell dator som utför NA
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuera via Azure CLI
-Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login). Skapa en resursgrupp med [az group create](/cli/azure/group#create). I följande exempel skapas ett Resursgruppsnamn `myResourceGroup` i den `West US` plats.
+Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login). Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas ett Resursgruppsnamn `myResourceGroup` i den `West US` plats.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Distribuera mallen [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [az distribution skapa](/cli/azure/group/deployment#create). Hämta [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera en egen resurs-värden som `adminPassword`, `networkPrefix`, och `domainNamePrefix`. 
+Distribuera mallen [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) med [az distribution skapa](/cli/azure/group/deployment#az_group_deployment_create). Hämta [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under samma sökväg och definiera en egen resurs-värden som `adminPassword`, `networkPrefix`, och `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

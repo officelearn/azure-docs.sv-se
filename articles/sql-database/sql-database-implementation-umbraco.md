@@ -15,20 +15,20 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco använder Azure SQL Database till snabbt etablera och skala för tusentals hyresgäster i molnet
-![Umbraco-logotyp](./media/sql-database-implementation-umbraco/umbracologo.png)
+![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco är ett populärt öppen källkod innehållshantering system (CMS) som kan utföra allt från små kampanj eller broschyr platser för komplexa program för Fortune 500 företag och globala media webbplatser. 
 
 > ”Har vi helt en stor community med utvecklare som använder systemet, med mer än 100 000 utvecklare på våra forum och mer än 350 000 platser som är aktiv, kör Umbraco”.
 > 
-> – Morten Christensen, tekniska Lead Umbraco
+> — Morten Christensen, Technical Lead, Umbraco
 > 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
@@ -93,7 +93,7 @@ När utvecklare Umbraco ursprungligen bestämt dig för att flytta till en SaaS-
 
 > ”elastiska pooler är ett perfekt val för våra SaaS-erbjudande eftersom vi kan reglerar kapacitet upp eller ner efter behov. Det är enkelt att etablera, och med vår installationen vi hålla användning maximala ”.
 > 
-> – Morten Christensen, tekniska Lead Umbraco
+> — Morten Christensen, Technical Lead, Umbraco
 > 
 > 
 
@@ -124,7 +124,6 @@ Sedan väljer Azure som sin partner i molnet, har Umbraco kunnat erbjuda UaaS ku
 ## <a name="more-information"></a>Mer information
 * Läs mer om Azure elastiska pooler i [elastiska pooler](sql-database-elastic-pool.md).
 * Läs mer om Azure Service Bus i [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Läs mer om Web och arbetsroller i [arbetsroller](../fundamentals-introduction-to-azure.md#compute).    
 * Mer information om virtuella nätverk finns [virtuella nätverk](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Mer information om säkerhetskopiering och återställning finns [företagskontinuitet](sql-database-business-continuity.md).    
 * Mer information om hur du övervakar ppols finns [övervakning pooler](sql-database-elastic-pool-manage-portal.md).    

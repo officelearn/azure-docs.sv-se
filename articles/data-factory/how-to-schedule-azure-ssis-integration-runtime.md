@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 60a4afdb8a78cffdc7eb1ee82c7daf3b06e5fe15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
 Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Här följer de övergripande stegen som beskrivs i den här artikeln:
@@ -44,8 +44,9 @@ I det här avsnittet kan du utföra följande steg:
 ### <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 Om du inte har ett Azure Automation-konto kan du skapa en genom att följa anvisningarna i det här steget. Detaljerade anvisningar finns i [skapa ett Azure Automation-konto](../automation/automation-quickstart-create-account.md). Som en del av det här steget kan du skapa en **Azure kör som** konto (en tjänstens huvudnamn i Azure Active Directory) och lägger till den i den **deltagare** rollen för din Azure-prenumeration. Kontrollera att det är samma som den prenumeration som innehåller data factory med Azure SSIS IR. Azure Automation använder kontot för att autentisera till Azure Resource Manager och fungerar på dina resurser. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).    
-2. Välj **ny** på den vänstra menyn väljer **övervakning + Management**, och välj **Automation**. 
+1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+2. Logga in på [Azure-portalen](https://portal.azure.com/).    
+3. Välj **ny** på den vänstra menyn väljer **övervakning + Management**, och välj **Automation**. 
 
     ![-> Ny övervakning + Management Automation ->](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
 2. I den **lägga till Automation-konto** fönster, gör du följande: 

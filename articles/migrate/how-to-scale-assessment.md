@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Identifiera och utvärdera en stor VMware-miljön
 
@@ -38,7 +38,7 @@ Planera identifieringar och utvärderingar baserat på följande begränsningar:
 - Om du har 1,001 till 1 500 datorer, måste ett projekt med två identifieringar i den.
 - Om du har mer än 1 500 datorer måste du skapa flera projekt och utföra flera identifieringar, baserat på dina krav. Exempel:
     - Om du har 3 000 datorer, kan du konfigurera två projekt med två identifieringar eller tre projekt med en enda identifiering.
-    - Om du har 5 000 datorer, kan du konfigurera fyra projekt: två med en identifiering av 1 500 datorer och en med en identifiering av 500 datorer. Du kan också ställa in fem projekt med en enda identifiering i var och en. 
+    - Om du har 5 000 datorer, kan du konfigurera fyra projekt: tre med en identifiering av 1 500 datorer och en med en identifiering av 500 datorer. Du kan också ställa in fem projekt med en enda identifiering i var och en. 
 
 ## <a name="plan-multiple-discoveries"></a>Planera flera identifieringar
 
@@ -88,9 +88,9 @@ Kontrollera att filen ägg är säker innan du distribuerar det:
 
     **Algoritmen** | **Hash-värde**
     --- | ---
-    MD5 | 8779eea842a1ac465942295c988ac0c7
-    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
-    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
+    MD5 | cefd96394198b92870d650c975dbf3b8
+    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
+    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
     För version ägg 1.0.8.40:
 
@@ -133,14 +133,14 @@ I följande tabell visas också utvärderingsresultat som kommer att påverkas o
 
 |Räknaren                                  |Nivå    |Nivå per enhet  |Bedömning påverkan                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
-|Mem.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
+|cpu.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
+|mem.usage.average                        | 1       |Ej tillämpligt                |Rekommenderade VM-storlek och kostnad                    |
 |virtualDisk.read.average                 | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.write.average                | 2       |2                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Diskstorleken och lagringskostnaden är VM-storlek         |
-|NET.Received.Average                     | 2       |3                 |VM-storlek och nätverket kostnad                        |
-|NET.Transmitted.Average                  | 2       |3                 |VM-storlek och nätverket kostnad                        |
+|net.received.average                     | 2       |3                 |VM-storlek och nätverket kostnad                        |
+|net.transmitted.average                  | 2       |3                 |VM-storlek och nätverket kostnad                        |
 
 > [!WARNING]
 > Om du precis har högre statistik, tar det till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.

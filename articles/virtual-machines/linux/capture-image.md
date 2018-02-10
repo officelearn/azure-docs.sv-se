@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -37,7 +37,7 @@ Se till att du uppfyller följande krav:
 
 * Du behöver en Azure VM som skapats i Resource Manager-distributionsmodellen med hjälp av hanterade diskar. Om du inte har skapat en Linux VM, kan du använda den [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), eller [Resource Manager-mallar](create-ssh-secured-vm-from-template.md). Konfigurera den virtuella datorn. Till exempel [lägga till datadiskar](add-disk.md), tillämpa uppdateringar och installera program. 
 
-* Du måste också har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och logga in till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
+* Du måste också har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och logga in till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
@@ -79,7 +79,7 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
       --name myVM
     ```
 
-3. Nu skapa en avbildning av den Virtuella datorresursen med [az bild skapa](/cli//azure/image#create). I följande exempel skapas en bild med namnet *myImage* i resursgrupp med namnet *myResourceGroup* med hjälp av den Virtuella datorresursen med namnet *myVM*:
+3. Nu skapa en avbildning av den Virtuella datorresursen med [az bild skapa](/cli/azure/image#az_image_create). I följande exempel skapas en bild med namnet *myImage* i resursgrupp med namnet *myResourceGroup* med hjälp av den Virtuella datorresursen med namnet *myVM*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ Använda Azure CLI 2.0 för att markera den virtuella datorn som generaliserad o
    > Bilden har skapats i samma resursgrupp som ditt Virtuella källdatorn. Du kan skapa virtuella datorer i valfri resursgrupp i din prenumeration från den här avbildningen. Ur management kan du skapa en viss resursgrupp för VM-resurser och bilder.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
-Skapa en virtuell dator med hjälp av den avbildning som du skapat med [az vm skapa](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*:
+Skapa en virtuell dator med hjälp av den avbildning som du skapat med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Skapa den virtuella datorn i en annan resursgrupp 
 
-Du kan skapa virtuella datorer från en avbildning i valfri resursgrupp i din prenumeration. Ange fullständiga resurs-ID i avbildningen för att skapa en virtuell dator i en annan resursgrupp än avbildningen. Använd [az bildlista](/cli/azure/image#list) att visa en lista över avbildningar. Utdata ser ut ungefär så här:
+Du kan skapa virtuella datorer från en avbildning i valfri resursgrupp i din prenumeration. Ange fullständiga resurs-ID i avbildningen för att skapa en virtuell dator i en annan resursgrupp än avbildningen. Använd [az bildlista](/cli/azure/image#az_image_list) att visa en lista över avbildningar. Utdata ser ut ungefär så här:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ Du kan skapa virtuella datorer från en avbildning i valfri resursgrupp i din pr
    "name": "myImage",
 ```
 
-I följande exempel används [az vm skapa](/cli/azure/vm#create) att skapa en virtuell dator i en annan resursgrupp än källbilden genom att ange Bildresursen:
+I följande exempel används [az vm skapa](/cli/azure/vm#az_vm_create) att skapa en virtuell dator i en annan resursgrupp än källbilden genom att ange Bildresursen:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>Steg 4: Verifiera distributionen
 
-Nu SSH till den virtuella datorn som du skapade för att kontrollera distributionen och börja använda den nya virtuella datorn. För att ansluta via SSH, hitta IP-adress eller FQDN för den virtuella datorn med [az vm visa](/cli/azure/vm#show):
+Nu SSH till den virtuella datorn som du skapade för att kontrollera distributionen och börja använda den nya virtuella datorn. För att ansluta via SSH, hitta IP-adress eller FQDN för den virtuella datorn med [az vm visa](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

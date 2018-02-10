@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Skapa nätverk med hjälp av Azure CLI-säkerhetsgrupper
 
@@ -36,9 +36,9 @@ Följande exempelkommandon Azure CLI förväntar sig en befintlig enkel miljö b
 
 Så här skapar du en NSG som heter *NSG-klientdel* baserat på scenariot ovan, Följ stegen nedan.
 
-1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login). 
+1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). 
 
-2. Skapa en NSG med hjälp av den [az nätverket nsg skapa](/cli/azure/network/nsg#create) kommando. 
+2. Skapa en NSG med hjälp av den [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create) kommando. 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Så här skapar du en NSG som heter *NSG-klientdel* baserat på scenariot ovan, 
 
 
 
-3. Skapa en regel som tillåter åtkomst till port 3389 (RDP) från Internet med de [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create) kommando.
+3. Skapa en regel som tillåter åtkomst till port 3389 (RDP) från Internet med de [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) kommando.
 
     > [!NOTE]
     > Beroende på gränssnittet som du använder kan du behöva ändra den `*` tecken i argumenten efter för att expandera argument före körning.
@@ -171,7 +171,7 @@ Så här skapar du en NSG som heter *NSG-klientdel* baserat på scenariot ovan, 
     }
     ```
 
-5. Binda NSG till den **klientdel** undernät med den [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#update) kommando.
+5. Binda NSG till den **klientdel** undernät med den [az network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) kommando.
         
     ```azurecli
     az network vnet subnet update \

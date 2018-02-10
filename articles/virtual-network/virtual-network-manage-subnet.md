@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7d69cc7e6ffafc66a29504a5b3b3823f4bb7c0b7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
@@ -66,7 +66,7 @@ Lägg till ett undernät:
 
 |Verktyget|Kommando|
 |---|---|
-|Azure CLI|[Skapa AZ undernät för virtuellt nätverk](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Azure CLI|[Skapa AZ undernät för virtuellt nätverk](/cli/azure/network/vnet/subnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_subnet_create)|
 |PowerShell|[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json), [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet"></a>Ändra inställningar för undernätet
@@ -84,7 +84,7 @@ Du kan ändra nätverkssäkerhetsgrupper och vägtabeller användaråtkomst till
 
 |Verktyget|Kommando|
 |---|---|
-|Azure CLI|[AZ network vnet undernät uppdatering](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|[AZ network vnet undernät uppdatering](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_update)|
 |PowerShell|[Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -102,7 +102,7 @@ Du kan ta bort ett undernät om det finns inga resurser i undernätet. Om det fi
 
 |Verktyget|Kommando|
 |---|---|
-|Azure CLI|[ta bort AZ nätverks-virtuella nätverk](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure CLI|[ta bort AZ nätverks-virtuella nätverk](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Nästa steg

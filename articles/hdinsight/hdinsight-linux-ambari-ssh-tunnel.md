@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, jobbhistorik, NameNode, Oozie och andra webb-användargränssnitt
 
@@ -46,7 +46,7 @@ Om du kan använda Script Actions för att anpassa ditt kluster, kräver alla tj
 
 [Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) dirigerar trafik som skickas till en port på den lokala arbetsstationen. Trafiken dirigeras via en SSH-anslutning till ditt HDInsight-klustrets huvudnod. Begäran har lösts som om den har sitt ursprung i huvudnod. Svaret dirigeras sedan tillbaka via tunnel till din arbetsstation.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. De flesta operativsystem ge en SSH-klienten via den `ssh` kommando. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 

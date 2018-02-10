@@ -13,13 +13,13 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
 
@@ -47,7 +47,7 @@ HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Anv
 * Ansluta enskilda datorer till det virtuella nätverket med hjälp av en VPN-gateway och VPN-klienten. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
 
     1. Skapa ett virtuellt nätverk.
-    2. Skapa en VPN-gateway som använder en punkt-till-plats-konfiguration. Den här konfigurationen tillhandahåller en VPN-klient som kan installeras på Windows-klienter.
+    2. Skapa en VPN-gateway som använder en punkt-till-plats-konfiguration. Den här konfigurationen kan användas med både Windows och MacOS klienter.
     3. Installera Kafka på HDInsight i det virtuella nätverket.
     4. Konfigurera Kafka för IP-annonser. Den här konfigurationen gör att klienten kan ansluta med IP-adresser i stället för domännamn.
     5. Hämta och använda VPN-klienten på utvecklingssystemet.
@@ -57,7 +57,7 @@ HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Anv
     > [!WARNING]
     > Den här konfigurationen rekommenderas endast för utveckling på grund av följande begränsningar:
     >
-    > * Varje klient måste ansluta med en VPN-programvaruklient. Azure tillhandahåller endast en Windows-baserad klient.
+    > * Varje klient måste ansluta med en VPN-programvaruklient.
     > * VPN-klienten klarar inte namnmatchning till det virtuella nätverket, så du måste använda IP-adresser för att kommunicera med Kafka. IP-kommunikation kräver ytterligare konfiguration på Kafka-klustret.
 
 Mer information om hur du använder HDInsight i ett virtuellt nätverk finns [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
@@ -232,22 +232,13 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
         -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
+        -DisksPerWorkerNode 2 `
         -VirtualNetworkId $network.Id `
         -SubnetName $defaultSubnet.Id
     ```
 
   > [!WARNING]
   > Den här processen tar ungefär 15 minuter för att slutföra.
-
-8. Använd följande cmdlet för att hämta URL: en för Windows VPN-klienten för det virtuella nätverket:
-
-    ```powershell
-    Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `
-        -VirtualNetworkGatewayName $vpnName `
-        -ProcessorArchitecture Amd64
-    ```
-
-    Du kan hämta Windows VPN-klienten använder du returnerade URI i webbläsaren.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Konfigurera Kafka för IP-annonsering
 
@@ -299,7 +290,7 @@ Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter
 
 ### <a name="connect-to-the-vpn-gateway"></a>Ansluta till VPN-gateway
 
-Att ansluta till VPN-gateway från en __Windows-klient__, använda den __Anslut till Azure__ avsnitt i den [konfigurerar en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#clientcertificate) dokumentet.
+Om du vill ansluta till VPN-gateway den __Anslut till Azure__ avsnitt i den [konfigurerar en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentet.
 
 ## <a id="python-client"></a>Exempel: Python-klient
 

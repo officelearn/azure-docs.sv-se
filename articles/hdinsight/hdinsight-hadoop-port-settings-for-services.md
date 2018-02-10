@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/13/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portar som används av Hadoop-tjänster på HDInsight
 
@@ -75,18 +75,18 @@ Alla tjänster som är offentligt visas på internet måste autentiseras:
 > Vissa tjänster är bara tillgängliga på specifika klustertyper. HBase är till exempel bara tillgänglig på HBase-klustertyper.
 
 > [!IMPORTANT]
-> Vissa tjänster bara köras på en headnode i taget. Om du försöker ansluta till tjänsten på den primära headnode så får du ett 404-fel kan du försöka använda sekundära headnode.
+> Vissa tjänster bara köras på en headnode i taget. Om du försöker ansluta till tjänsten på den primära headnode och får ett felmeddelande, kan du försöka använda sekundära headnode.
 
 ### <a name="ambari"></a>Ambari
 
 | Tjänst | Noder | Port | URL-sökväg | Protokoll | 
 | --- | --- | --- | --- | --- |
 | Ambari-webbgränssnittet | HEAD-noder | 8080 | / | HTTP |
-| Ambari REST API | HEAD-noder | 8080 | / api/v1 | HTTP |
+| Ambari REST API | HEAD-noder | 8080 | /api/v1 | HTTP |
 
 Exempel:
 
-* Ambari REST API:`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS-portar
 
@@ -124,7 +124,7 @@ Exempel:
 
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
-| WebHCat-server |HEAD-noder |30111 |HTTP |Webb-API ovanpå HCatalog och andra Hadoop-tjänster |
+| WebHCat server |HEAD-noder |30111 |HTTP |Webb-API ovanpå HCatalog och andra Hadoop-tjänster |
 
 ### <a name="mapreduce-ports"></a>MapReduce-portar
 
@@ -161,7 +161,7 @@ Exempel:
 
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Service Broker |Arbetsnoder |9092 |[Kafka-protokollet](http://kafka.apache.org/protocol.html) |Används för klientkommunikation |
+| Broker |Arbetsnoder |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Används för klientkommunikation |
 | &nbsp; |Zookeeper-noder |2181 |&nbsp; |Den port som klienter använder för att ansluta till Zookeeper |
 
 ### <a name="spark-ports"></a>Spark-portar
@@ -170,6 +170,7 @@ Exempel:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift-servrar |HEAD-noder |10002 |Thrift | &nbsp; | Tjänsten för att ansluta till Spark SQL (Thrift/JDBC) |
 | Livius server | HEAD-noder | 8998 | HTTP | &nbsp; | Tjänsten för att köra instruktioner, jobb och program |
+| Jupyter-anteckningsbok | HEAD-noder | 8001 | HTTP | &nbsp; | Webbplats för Jupyter-anteckningsbok |
 
 Exempel:
 

@@ -12,98 +12,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure aktivitetsloggen Händelseschema
 Den **Azure-aktivitetsloggen** är en logg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data.
 
-## <a name="administrative"></a>Administrativa
+## <a name="administrative"></a>Administrativ
 Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och åtgärden åtgärder utföras via Resource Manager. Exempel på vilka typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgrupp” varje åtgärd som en användare eller program med hjälp av hanteraren för filserverresurser modelleras som en åtgärd på en viss resurstyp. Om åtgärdstypen är Write-, Delete- eller åtgärd, är start-och lyckas eller misslyckas för denna åtgärd registrerade i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar rollbaserad åtkomstkontroll i en prenumeration.
 
 ### <a name="sample-event"></a>Exempelhändelse
 ```json
 {
-  "authorization": {
-    "action": "microsoft.support/supporttickets/write",
-    "role": "Subscription Admin",
-    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-  },
-  "caller": "admin@contoso.com",
-  "channels": "Operation",
-  "claims": {
-    "aud": "https://management.core.windows.net/",
-    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-    "iat": "1421876371",
-    "nbf": "1421876371",
-    "exp": "1421880271",
-    "ver": "1.0",
-    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-    "puid": "20030000801A118C",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-    "name": "John Smith",
-    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-    "appidacr": "2",
-    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-  },
-  "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "description": "",
-  "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-  "eventName": {
-    "value": "EndRequest",
-    "localizedValue": "End request"
-  },
-  "httpRequest": {
-    "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-    "clientIpAddress": "192.168.35.115",
-    "method": "PUT"
-  },
-  "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-  "level": "Informational",
-  "resourceGroupName": "MSSupportGroup",
-  "resourceProviderName": {
-    "value": "microsoft.support",
-    "localizedValue": "microsoft.support"
-  },
-  "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-  "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-  "operationName": {
-    "value": "microsoft.support/supporttickets/write",
-    "localizedValue": "microsoft.support/supporttickets/write"
-  },
-  "properties": {
-    "statusCode": "Created"
-  },
-  "status": {
-    "value": "Succeeded",
-    "localizedValue": "Succeeded"
-  },
-  "subStatus": {
-    "value": "Created",
-    "localizedValue": "Created (HTTP Status Code: 201)"
-  },
-  "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-  "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-  "subscriptionId": "s1"
+    "authorization": {
+        "action": "Microsoft.Network/networkSecurityGroups/write",
+        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+    },
+    "caller": "rob@contoso.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "_claim_names": "{\"groups\":\"src1\"}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+        "appid": "355249ed-15d9-460d-8481-84026b065942",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "10845a4d-ffa4-4b61-a3b4-e57b9b31cdb5",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Robertson",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Rob",
+        "ipaddr": "111.111.1.111",
+        "name": "Rob Robertson",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "onprem_sid": "S-1-5-21-4837261184-168309720-1886587427-18514304",
+        "puid": "18247BBD84827C6D",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "rob@contoso.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "rob@contoso.com",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
+    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "level": "Informational",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Network/networkSecurityGroups/write",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups/write"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Network",
+        "localizedValue": "Microsoft.Network"
+    },
+    "resourceType": {
+        "value": "Microsoft.Network/networkSecurityGroups",
+        "localizedValue": "Microsoft.Network/networkSecurityGroups"
+    },
+    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
+    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "properties": {
+        "statusCode": "Created",
+        "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
+        "responseBody": "",
+        "requestbody": ""
+    },
+    "relatedEvents": []
 }
+
 ```
 
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
 | Auktorisering |BLOB RBAC egenskaper för händelsen. Inkluderar vanligtvis egenskaperna ””, ”roll” och ”omfattning”. |
-| Anroparen |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
+| uppringare |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. |
 | kanaler |Ett av följande värden: ”Admin”, ”åtgärden” |
 | Anspråk |Detta JWT-token som används av Active Directory för att autentisera användaren eller programmet att utföra åtgärden i hanteraren för filserverresurser. |
 | correlationId |Vanligtvis ett GUID i strängformatet. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
@@ -114,7 +127,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
 | resourceGroupName |Namnet på resursgruppen för resursen påverkas. |
 | resourceProviderName |Namnet på resursprovidern för resursen påverkas |
 | resourceId |Resurs-id för resursen påverkas. |
-| Åtgärds-ID |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
@@ -123,7 +136,7 @@ Den här kategorin innehåller posten för alla skapa, uppdatera, ta bort och å
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |
 | subscriptionId |Azure prenumerations-Id. |
 
-## <a name="service-health"></a>Tjänstens hälsa
+## <a name="service-health"></a>Tjänstehälsa
 Den här kategorin innehåller post för varje service hälsa incidenter som har inträffat i Azure. Ett exempel på typen av händelse visas i den här kategorin är ”SQL Azure i östra USA upplever driftstopp”. Hälsa av tjänsten-händelser finns i fem sorter: åtgärd krävs stödd återställning, Incident, underhåll, Information eller säkerhet, och visas endast om du har en resurs i den prenumeration som skulle påverkas av händelsen.
 
 ### <a name="sample-event"></a>Exempelhändelse
@@ -189,7 +202,7 @@ kanaler | Är ett av följande värden: ”Admin”, ”åtgärden”
 correlationId | Är vanligtvis ett GUID i strängformatet. Händelser med som tillhör samma uber åtgärd vanligtvis delar samma correlationId.
 description | Beskrivning av händelsen.
 eventDataId | Den unika identifieraren för en händelse.
-EventName | Rubrik på händelsen.
+eventName | Rubrik på händelsen.
 nivå | Nivå av händelsen. Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig”
 resourceProviderName | Namnet på resursprovidern för resursen påverkas. Detta kan vara null om det är inte känt.
 resourceType| Typ av resurs för resursen påverkas. Detta kan vara null om det är inte känt.
@@ -199,10 +212,10 @@ submissionTimestamp |   Tidsstämpel när händelsen blev tillgängliga i aktivi
 subscriptionId | Azure-prenumerationen som den här händelsen loggades.
 status | Sträng som beskriver status för åtgärden. Vissa vanliga värden: aktiva, löst.
 operationName | Namnet på åtgärden. Vanligtvis Microsoft.ServiceHealth/incident/action.
-category | ”ServiceHealth”
+category | "ServiceHealth"
 resourceId | Resurs-id för påverkas resursen, om den är känd. Prenumerations-ID har angetts på annat sätt.
 Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standardspråk.
-Properties.Communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
+Properties.communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
 Properties.incidentType | Möjliga värden: AssistedRecovery, ActionRequired, Information, incidenter, underhåll, säkerhet
 Properties.trackingId | Identifierar den här händelsen är associerad med incidenten. Används för att korrelera händelser relaterade till en incident.
 Properties.impactedServices | En ESC JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. En lista över tjänster, som har en ServiceName och en lista över ImpactedRegions, som har en RegionName.
@@ -278,7 +291,7 @@ Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringa
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Anroparen | Alltid Microsoft.Insights/alertRules |
+| uppringare | Always Microsoft.Insights/alertRules |
 | kanaler | Alltid ”Admin, åtgärden” |
 | Anspråk | JSON-blob med typen SPN (service principal name) eller resurs varning-motorn. |
 | correlationId | Ett GUID i strängformatet. |
@@ -288,7 +301,7 @@ Den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringa
 | resourceGroupName |Namnet på resursgruppen för resursen påverkas om det är en avisering om mått. För andra aviseringstyper är namnet på resursgruppen som innehåller aviseringen sig själv. |
 | resourceProviderName |Namnet på resursprovidern för resursen påverkas om det är en avisering om mått. För andra aviseringstyper kan är det här namnet på resursprovidern för aviseringen sig själv. |
 | resourceId | Namnet på resurs-ID för resursen påverkas om det är en avisering om mått. För andra aviseringstyper är resurs-ID för avisering resursen sig själv. |
-| Åtgärds-ID |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
@@ -314,15 +327,15 @@ Egenskapsfältet innehåller olika värden beroende på aviseringen händelsens 
 #### <a name="properties-for-metric-alerts"></a>Egenskaper för mått aviseringar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Egenskaper. RuleUri | Resurs-ID för mått varningsregeln sig själv. |
-| Egenskaper. Regelnamn | Namnet på regeln mått. |
-| Egenskaper. RuleDescription | Beskrivning av mått varningsregeln (enligt definitionen i varningsregeln). |
+| properties.RuleUri | Resurs-ID för mått varningsregeln sig själv. |
+| properties.RuleName | Namnet på regeln mått. |
+| properties.RuleDescription | Beskrivning av mått varningsregeln (enligt definitionen i varningsregeln). |
 | Egenskaper. Tröskelvärde | Tröskelvärdet används i utvärderingen av mått varningsregeln. |
-| Egenskaper. WindowSizeInMinutes | Fönsterstorleken användas vid utvärderingen av mått varningsregeln. |
-| Egenskaper. Aggregeringen | Sammansättningstyp som definierats i regeln mått. |
+| properties.WindowSizeInMinutes | Fönsterstorleken användas vid utvärderingen av mått varningsregeln. |
+| properties.Aggregation | Sammansättningstyp som definierats i regeln mått. |
 | Egenskaper. Operatorn | Villkorsstyrd operatör som används i utvärderingen av mått varningsregeln. |
-| Egenskaper. MetricName | Måttnamnet av måttet används i utvärderingen av mått varningsregeln. |
-| Egenskaper. MetricUnit | Mått enhet för måttet används i utvärderingen av mått varningsregeln. |
+| properties.MetricName | Måttnamnet av måttet används i utvärderingen av mått varningsregeln. |
+| properties.MetricUnit | Mått enhet för måttet används i utvärderingen av mått varningsregeln. |
 
 ## <a name="autoscale"></a>Automatisk skalning
 Den här kategorin innehåller en förteckning över alla händelser relaterade till åtgärden Autoskala motorns baserat på automatiska inställningar du har definierat i din prenumeration. Ett exempel på typen av händelse visas i den här kategorin är ”Autoskala skalas upp misslyckades”. Använda autoskalning kan du automatiskt skala ut eller skala antalet instanser i en stöds resurstyp baserat på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren är uppfyllda skala upp eller ned början och lyckades eller registreras misslyckade händelser i den här kategorin.
@@ -387,7 +400,7 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
 ### <a name="property-descriptions"></a>Egenskapsbeskrivningar
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Anroparen | Alltid Microsoft.Insights/autoscaleSettings |
+| uppringare | Always Microsoft.Insights/autoscaleSettings |
 | kanaler | Alltid ”Admin, åtgärden” |
 | Anspråk | JSON-blob med typen SPN (service principal name) eller resurs Autoskala-motorn. |
 | correlationId | Ett GUID i strängformatet. |
@@ -397,14 +410,14 @@ Den här kategorin innehåller en förteckning över alla händelser relaterade 
 | resourceGroupName |Namnet på resursgruppen för autoskalningsinställningen. |
 | resourceProviderName |Namnet på resursprovidern för autoskalningsinställningen. |
 | resourceId |Resurs-id autoskalningsinställningens. |
-| Åtgärds-ID |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. |
 | Egenskaper. Beskrivning | Detaljerad beskrivning av vad Autoskala motorn gör. |
-| Egenskaper. ResourceName | Resurs-ID för resursen påverkas (den resurs där skalningsåtgärden utfördes) |
+| properties.ResourceName | Resurs-ID för resursen påverkas (den resurs där skalningsåtgärden utfördes) |
 | Egenskaper. OldInstancesCount | Antalet instanser innan åtgärden Autoskala tog effekt. |
-| Egenskaper. NewInstancesCount | Antalet instanser efter åtgärden Autoskala tog effekt. |
-| Egenskaper. LastScaleActionTime | Tidsstämpel när Autoskala åtgärden utfördes. |
+| properties.NewInstancesCount | Antalet instanser efter åtgärden Autoskala tog effekt. |
+| properties.LastScaleActionTime | Tidsstämpel när Autoskala åtgärden utfördes. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
 | subStatus | Vanligtvis är null för Autoskala. |
 | eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |
@@ -481,17 +494,17 @@ Den här kategorin innehåller posten några aviseringar som genererats av Azure
 | correlationId | Ett GUID i strängformatet. |
 | description |Statisk textbeskrivning av händelsen säkerhet. |
 | eventDataId |Unik identifierare för händelsen säkerhet. |
-| EventName |Eget namn på händelsen säkerhet. |
+| eventName |Eget namn på händelsen säkerhet. |
 | id |Unik resursidentifierare för händelsen säkerhet. |
 | nivå |Nivå av händelsen. Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” eller ”utförlig” |
 | resourceGroupName |Namnet på resursgruppen för resursen. |
-| resourceProviderName |Namnet på resursprovidern för Azure Security Center. Alltid ”Microsoft.Security”. |
+| resourceProviderName |Namnet på resursprovidern för Azure Security Center. Always "Microsoft.Security". |
 | resourceType |Typ av resurs som genererade händelsen säkerhet, till exempel ”Microsoft.Security/locations/alerts” |
 | resourceId |Resurs-id för säkerhetsvarningen. |
-| Åtgärds-ID |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
+| operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver information om händelsen. De här egenskaperna varierar beroende på vilken typ av säkerhetsavisering. Se [den här sidan](../security-center/security-center-alerts-type.md) en beskrivning av typerna av aviseringar som kommer från Security Center. |
-| Egenskaper. Allvarlighetsgrad |Allvarlighetsgrad. Möjliga värden är ”hög”, ”medel” eller ”låg”. |
+| properties.Severity |Allvarlighetsgrad. Möjliga värden är ”hög”, ”medel” eller ”låg”. |
 | status |Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst. |
 | subStatus | Vanligtvis är null för säkerhetshändelser. |
 | eventTimestamp |Tidsstämpel när händelsen skapades av tjänsten Azure motsvarande händelsen begäran bearbetades. |

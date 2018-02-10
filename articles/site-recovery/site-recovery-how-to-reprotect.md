@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Skydda igen från Azure till en lokal plats
 
@@ -42,7 +42,7 @@ Titta på följande videoklipp om hur du växla över från Azure till en lokal 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
 > Vid redundans till Azure lokal plats kanske inte är tillgängligt och därför konfigurationsservern kan vara antingen icke tillgängliga eller avstängning. Under skyddar och återställning efter fel ska lokalt konfigurationsservern körs och OK anslutet.
@@ -221,13 +221,7 @@ Du kan även skydda igen på nivån i en återställningsplan. En replikeringsgr
 
 När det återaktivera skyddet lyckas, kommer den virtuella datorn anger ett skyddat läge.
 
-## <a name="next-steps"></a>Nästa steg
-
-Efter att den virtuella datorn har angett ett skyddat läge, kan du [starta en återställning efter fel](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-Återställningen kommer att stänga av den virtuella datorn i Azure och starta den virtuella datorn lokalt. Förvänta dig vissa avbrott för programmet. Välj en tid för återställning efter fel när programmet kan tolerera driftstopp.
-
-## <a name="common-problems"></a>Vanliga problem
+## <a name="common-issues"></a>Vanliga problem
 
 * Om du använder en mall för att skapa virtuella datorer, se till att har varje virtuell dator sin egen UUID för diskarna. Om den lokala virtuella UUID hamnar i konflikt med som huvudmålservern eftersom båda har skapats från samma mall, misslyckas återaktivera skydd. Distribuera en annan huvudmålserver som inte har skapats från samma mall.
 
@@ -245,38 +239,9 @@ Efter att den virtuella datorn har angett ett skyddat läge, kan du [starta en �
 
 * En Windows Server 2008 R2 SP1-server som skyddas som en fysisk lokal server inte kan vara misslyckad tillbaka från Azure till en lokal plats.
 
-### <a name="common-error-codes"></a>Vanliga felkoder
 
-#### <a name="error-code-95226"></a>Felkoden 95226
+## <a name="next-steps"></a>Nästa steg
 
-*Det gick inte att skydda igen eftersom den virtuella Azure-datorn inte kunde nå konfigurationsservern lokalt.*
+Efter att den virtuella datorn har angett ett skyddat läge, kan du [starta en återställning efter fel](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Detta händer när 
-1. Den virtuella Azure-datorn kunde kunde inte nå konfigurationsservern lokalt och därför inte identifieras och registrerade på konfigurationsservern. 
-2. InMage Scout Application service på Azure-dator som ska köras för att kommunicera på lokala konfigurationsservern kanske inte körs efter växling vid fel.
-
-Lös problemet
-1. Du måste kontrollera att nätverket för den virtuella Azure-datorn är konfigurerad så att den virtuella datorn kan kommunicera med konfigurationsservern lokalt. Om du vill göra det, konfigurera en plats till plats-VPN tillbaka till ditt lokala datacenter eller konfigurera en ExpressRoute-anslutning med privat peering på det virtuella nätverket på Azure-datorn. 
-2. Om du redan har ett datornätverk så att den virtuella Azure-datorn kan kommunicera med konfigurationsservern lokalt sedan logga in på den virtuella datorn och kontrollera 'InMage Scout Application Service ”. Om du märker att InMage Scout Application Service inte körs starta tjänsten manuellt och kontrollera att starttypen för tjänsten är inställd på automatisk.
-
-### <a name="error-code-78052"></a>Felkoden 78052
-Skapa nytt misslyckas med felmeddelandet: *gick inte att slutföra skyddet för den virtuella datorn.*
-
-Detta kan inträffa på grund av två skäl
-1. Den virtuella datorn du skydda är en Windows Server 2016. Konfigurationfilen det här operativsystemet stöds inte för återställning efter fel, men kommer snart att stödjas.
-2. Det finns redan en virtuell dator med samma namn i bakgrunden du växla tillbaka till målservern.
-
-Du kan välja en annan huvudmålserver på en annan värd, så att skydda igen skapar datorn på en annan värd, där namnen inte hamnar i konflikt för att lösa problemet. Du kan också vMotion huvudmålservern till en annan värd där namnet kollisionen inte sker. Om den befintliga virtuella datorn är en dator med avvikande, du kan bara byta namn på den så att den nya virtuella datorn kan skapas på samma ESXi-värd.
-
-### <a name="error-code-78093"></a>Felkoden 78093
-
-*Den virtuella datorn körs inte i låst tillstånd eller är inte tillgänglig.*
-
-För att du skyddar en misslyckad över virtuella datorn tillbaka till lokala måste den virtuella Azure-datorn kör. Detta är så att mobilitetstjänsten registrerar med konfigurationsservern lokalt och börja replikering genom att kommunicera med processervern. Om datorn är i ett felaktigt nätverk eller inte körs (låst tillstånd eller avstängning), kan inte konfigurationsservern nå mobilitetstjänsten på den virtuella datorn ska börja skydda igen. Du kan starta om den virtuella datorn så att den kan starta kommunikation tillbaka lokalt. Starta om jobbet skydda igen när du har startat den virtuella Azure-datorn
-
-### <a name="error-code-8061"></a>Felkoden 8061
-
-*Databasen är inte tillgänglig från ESXi-värd.*
-
-Referera till den [master mål förutsättningar](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) och [stöder datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) för återställning efter fel
-
+Återställningen kommer att stänga av den virtuella datorn i Azure och starta den virtuella datorn lokalt. Förvänta dig vissa avbrott för programmet. Välj en tid för återställning efter fel när programmet kan tolerera driftstopp.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc3da77d18a4488dcb4b74d78198f806cf3d64e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4f1d24da2a775007bf9172bc9267952d0a9bf48
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort ett virtuellt nätverk-peering
 
@@ -110,7 +110,7 @@ Peering för virtuellt nätverk skapas mellan virtuella nätverk som skapats via
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ vnet peering nätverkslistan](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#list) till listan peerkopplingar för ett virtuellt nätverk [az network vnet-peering visa](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#show) att visa inställningar för en specifik peering och [az network vnet-peering uppdatering](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#update) ändra peering inställningar.|
+|CLI|[AZ vnet peering nätverkslistan](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_list) till listan peerkopplingar för ett virtuellt nätverk [az network vnet-peering visa](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_show) att visa inställningar för en specifik peering och [az network vnet-peering uppdatering](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_update) ändra peering inställningar.|
 |PowerShell|[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) att hämta vyn peering inställningar och [Set AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json) att ändra inställningarna.|
 
 ## <a name="delete-a-peering"></a>Ta bort en peering
@@ -129,7 +129,7 @@ Om du vill att virtuella nätverk ska kunna kommunicera ibland, men inte alltid,
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network vnet peering ta bort](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[AZ network vnet peering ta bort](/cli/azure/network/vnet/peering?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_peering_delete)|
 |PowerShell|[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar 

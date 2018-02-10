@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en virtuell Linux-dator i en zon för tillgänglighet med Azure CLI
 
@@ -28,19 +28,19 @@ Den här artikeln steg genom att använda Azure CLI för att skapa en Linux-VM i
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggade på en Azure-konto med [az inloggningen](/cli/azure/#login).
+Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggade på en Azure-konto med [az inloggningen](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för VM-SKU
-Tillgängligheten för VM-storlek eller SKU: er, kan varierar beroende på region och zon. När du planerar för användningen av tillgänglighet zoner, kan du visa de tillgängliga VM SKU: er av Azure-region och zon. Den här möjligheten ser till att du väljer en lämplig VM-storlek och hämta önskade återhämtning i zoner. Läs mer på VM av olika typer och storlekar, [VM-storlekar översikt](sizes.md).
+## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för SKU för virtuell dator
+Tillgängligheten för VM-storlek eller SKU: er kan variera beroende på region och zon. När du planerar för användningen av tillgänglighetszoner kan du visa tillgängliga VM SKU:er via Azure-region och zon. Den möjligheten säkerställer att du väljer en lämplig VM-storlek och hämtar önskad elasticitet i flera zoner. Mer information om olika VM-typer och -storlekar finns i [Översikt över VM-storlekar](sizes.md).
 
-Du kan visa de tillgängliga VM SKU: er med den [az vm lista-SKU](/cli/azure/vm#az_vm_list_skus) kommando. I följande exempel visar en lista över tillgängliga VM-SKU: er i den *eastus2* region:
+Du kan visa de tillgängliga VM SKU: er med den [az vm lista-SKU](/cli/azure/vm#az_vm_list_skus) kommando. Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-Utdata liknar följande komprimerad exempel som visar tillgänglighet zonerna där varje VM-storleken är tillgänglig:
+Utdata liknar följande komprimerade exempel som visar tillgänglighetszoner som varje VM-storlek är tillgänglig i:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

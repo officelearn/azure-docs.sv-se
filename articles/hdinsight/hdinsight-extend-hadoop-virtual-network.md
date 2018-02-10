@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -296,6 +296,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
     | Storbritannien | Storbritannien, västra | 51.141.13.110</br>51.141.7.20 | 443 | Inkommande |
     | &nbsp; | Storbritannien, södra | 51.140.47.39</br>51.140.52.16 | 443 | Inkommande |
     | USA | Centrala USA | 13.67.223.215</br>40.86.83.253 | 443 | Inkommande |
+    | &nbsp; | Östra USA | 13.82.225.233</br>40.71.175.99 | 443 | Inkommande |
     | &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | 443 | Inkommande |
     | &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | 443 | Inkommande |
     | &nbsp; | Västra USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkommande |

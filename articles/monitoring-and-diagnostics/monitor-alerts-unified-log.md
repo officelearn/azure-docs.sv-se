@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 99d222102ab0245c7c4dc8603eaedcfc88ae7a66
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Loggen aviseringar i Azure-Monitor - aviseringar (förhandsgranskning)
 Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure varningar (förhandsversion) och beskrivs skillnaderna mellan olika typer av loggen Varningsregler.
-För närvarande Azure aviseringar (förhandsgranskning), endast stöd för Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) skriven i [nya Log Analytics-frågespråket](../log-analytics/log-analytics-log-search-upgrade.md)
+
+För närvarande Azure aviseringar (förhandsversion) stöder Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) och [Programinsikter](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
-> Azure-aviseringar (förhandsvisning) – Logga varningar stöder för tillfället inte mellan arbetsytan eller mellan appar frågor. 
+
+> Loggen aviseringar i Azure aviseringar (förhandsversion) stöder för närvarande inte mellan arbetsytan eller mellan appar frågor.
 
 ## <a name="log-alert-rules"></a>Logga Varningsregler
 
@@ -70,7 +72,16 @@ I vissa fall kanske du vill skapa en avisering om en händelse.  En process kan 
 
 **Mängdfunktion**: Anger beräkningen som utförs och kan vara ett numeriskt fält ska aggregeras.  Till exempel **count()** returnerar antalet poster i frågan, **avg(CounterValue)** Returnerar medelvärdet för fältet CounterValue under period.
 
+> [!NOTE]
+
+> Mängdfunktion i fråga måste vara namnet/kallas: AggregatedValue och ange ett numeriskt värde.
+
+
 **Gruppera fältet**: en post med ett insamlat värde skapas för varje instans av det här fältet och en avisering genereras för varje.  Till exempel om du vill generera en avisering för varje dator du vill använda **per dator**   
+
+> [!NOTE]
+
+> Du kan ange fältet för att gruppera data för mått mätning Varningsregler som baseras på Application Insights. Det gör du genom att använda den **sammanställd på** alternativet i Regeldefinitionen.   
 
 **Intervallet**: definierar det tidsintervall under vilken data sammanställs.  Till exempel om du har angett **fem minuter**, skapas en post för varje instans av fältet samman med 5 minuters intervall under tidsfönster som angetts för aviseringen.
 
@@ -93,6 +104,6 @@ I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 efte
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Få en översikt över Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md) 
+* [Få en översikt över Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
 * Lär dig mer om [med aviseringar i Azure (förhandsversion)](monitor-alerts-unified-usage.md)
 * Lär dig mer om [logganalys](../log-analytics/log-analytics-overview.md).    

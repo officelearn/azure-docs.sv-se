@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Kryptera virtuella diskar på en Linux-VM
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med kryptografiska nycklar som skyddas i ett Azure Key Vault. Du styr dessa kryptografiska nycklar och granska deras användning. Den här artikeln beskrivs hur du krypterar virtuella diskar på en Linux-VM som använder Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,16 +27,16 @@ För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella d
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver utföra aktiviteten följande avsnittet beskriver grundläggande kommandon för att kryptera virtuella diskar på den virtuella datorn. Mer detaljerad information och kontext för varje steg finns resten av dokumentet [startar här](#overview-of-disk-encryption).
 
-Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
+Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
 
-Först aktiverar Azure Key Vault-providern i din Azure-prenumeration med [az providern registrera](/cli/azure/provider#register) och skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *eastus* plats:
+Först aktiverar Azure Key Vault-providern i din Azure-prenumeration med [az providern registrera](/cli/azure/provider#az_provider_register) och skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *eastus* plats:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa ett Azure Key Vault med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera Nyckelvalvet för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyvault_name* på följande sätt:
+Skapa ett Azure Key Vault med [az keyvault skapa](/cli/azure/keyvault#az_keyvault_create) och aktivera Nyckelvalvet för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyvault_name* på följande sätt:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Skapa en kryptografisk nyckel i ditt Nyckelvalv med [az keyvault nyckel skapa](/cli/azure/keyvault/key#create). I följande exempel skapas en nyckel som heter *MinNyckel*:
+Skapa en kryptografisk nyckel i ditt Nyckelvalv med [az keyvault nyckel skapa](/cli/azure/keyvault/key#az_keyvault_key_create). I följande exempel skapas en nyckel som heter *MinNyckel*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Skapa ett huvudnamn för tjänsten med hjälp av Azure Active Directory med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac). Tjänstens huvudnamn hanterar autentisering och utbyte av kryptografiska nycklar från Nyckelvalvet. I följande exempel läser i värden för tjänsten ägar-ID och lösenord som ska användas i senare kommandon:
+Skapa ett huvudnamn för tjänsten med hjälp av Azure Active Directory med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Tjänstens huvudnamn hanterar autentisering och utbyte av kryptografiska nycklar från Nyckelvalvet. I följande exempel läser i värden för tjänsten ägar-ID och lösenord som ska användas i senare kommandon:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Lösenordet är bara utdata när du skapar tjänstens huvudnamn. Om du vill visa och registrera lösenordet (`echo $sp_password`). Du kan visa din service principal med [az sp annonslista](/cli/azure/ad/sp#list) och visa ytterligare information om en specifik tjänstens huvudnamn med [az ad sp visa](/cli/azure/ad/sp#show).
+Lösenordet är bara utdata när du skapar tjänstens huvudnamn. Om du vill visa och registrera lösenordet (`echo $sp_password`). Du kan visa din service principal med [az sp annonslista](/cli/azure/ad/sp#az_ad_sp_list) och visa ytterligare information om en specifik tjänstens huvudnamn med [az ad sp visa](/cli/azure/ad/sp#az_ad_sp_show).
 
-Ange behörigheter för ditt Nyckelvalv med [az keyvault set-policy](/cli/azure/keyvault#set-policy). I följande exempel anges tjänsten ägar-ID från föregående kommando:
+Ange behörigheter för ditt Nyckelvalv med [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). I följande exempel anges tjänsten ägar-ID från föregående kommando:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create) och bifoga en disk på 5 Gb data. Endast vissa marketplace-bilder stöd för kryptering. I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *CentOS 7.2n* avbildningen:
+Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create) och bifoga en disk på 5 Gb data. Endast vissa marketplace-bilder stöd för kryptering. I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *CentOS 7.2n* avbildningen:
 
 ```azurecli
 az vm create \
@@ -83,7 +83,7 @@ az vm create \
 
 SSH till virtuell dator med hjälp av den *publicIpAddress* visas i utdata från kommandot ovan. Skapa en partition och filsystemet och sedan montera datadisken. Mer information finns i [Anslut till en Linux-VM för att montera den nya disken](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Stäng SSH-sessionen.
 
-Kryptera din virtuella dator med [az vm-kryptering aktiverar](/cli/azure/vm/encryption#enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från den föregående `ad sp create-for-rbac` kommando:
+Kryptera din virtuella dator med [az vm-kryptering aktiverar](/cli/azure/vm/encryption#az_vm_encryption_enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från den föregående `ad sp create-for-rbac` kommando:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Det tar en stund innan krypteringsprocessen disken att slutföra. Övervaka status för processen med [az vm kryptering visa](/cli/azure/vm/encryption#show):
+Det tar en stund innan krypteringsprocessen disken att slutföra. Övervaka status för processen med [az vm kryptering visa](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-Status visas **EncryptionInProgress**. Vänta tills status för OS-disken rapporter **VMRestartPending**, starta om den virtuella datorn med [az vm omstart](/cli/azure/vm#restart):
+Status visas **EncryptionInProgress**. Vänta tills status för OS-disken rapporter **VMRestartPending**, starta om den virtuella datorn med [az vm omstart](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Krypteringsprocessen disk är slutförd under startprocessen, så Vänta några minuter innan du kontrollerar statusen för kryptering igen med [az vm kryptering visa](/cli/azure/vm/encryption#show):
+Krypteringsprocessen disk är slutförd under startprocessen, så Vänta några minuter innan du kontrollerar statusen för kryptering igen med [az vm kryptering visa](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -158,18 +158,18 @@ Mer information om scenarier som stöds och begränsningar finns [Azure Disk Enc
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Skapa Azure Key Vault och nycklar
-Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
+Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
 
 Det första steget är att skapa en Azure Key Vault för att lagra kryptografiska nycklar. Azure Key Vault kan lagra nycklar, hemligheter eller lösenord som gör det möjligt att implementera dem på ett säkert sätt i dina program och tjänster. För virtuell diskkryptering använder du Key Vault för att lagra en krypteringsnyckel som används för att kryptera eller dekryptera din virtuella diskar.
 
-Aktivera Azure Key Vault-providern i din Azure-prenumeration med [az providern registrera](/cli/azure/provider#register) och skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den `eastus` plats:
+Aktivera Azure Key Vault-providern i din Azure-prenumeration med [az providern registrera](/cli/azure/provider#az_provider_register) och skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den `eastus` plats:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure Key Vault som innehåller kryptografiska nycklar och associerade beräkningsresurser som lagring och Virtuellt datorn måste finnas i samma region. Skapa ett Azure Key Vault med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera Nyckelvalvet för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyvault_name* på följande sätt:
+Azure Key Vault som innehåller kryptografiska nycklar och associerade beräkningsresurser som lagring och Virtuellt datorn måste finnas i samma region. Skapa ett Azure Key Vault med [az keyvault skapa](/cli/azure/keyvault#az_keyvault_create) och aktivera Nyckelvalvet för användning med diskkryptering. Ange ett unikt namn för Key Vault för *keyvault_name* på följande sätt:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -182,7 +182,7 @@ az keyvault create \
 
 Du kan lagra kryptografiska nycklar med hjälp av programvara eller maskinvara säkerhet modellen (HSM)-skydd. Använda en HSM kräver en premium Key Vault. Det finns en extra kostnad för att skapa en premium Key Vault snarare än standard Key Vault som lagrar programvara-skyddade nycklar. När du skapar en premium Key Vault i föregående steg till `--sku Premium` i kommandot. I följande exempel används programvaruskyddad nycklar eftersom du har skapat ett Nyckelvalv som standard.
 
-För båda modellerna skydd måste Azure-plattformen beviljas åtkomst för att begära kryptografiska nycklar när den virtuella datorn startas för att dekryptera virtuella diskar. Skapa en kryptografisk nyckel i ditt Nyckelvalv med [az keyvault nyckel skapa](/cli/azure/keyvault/key#create). I följande exempel skapas en nyckel som heter *MinNyckel*:
+För båda modellerna skydd måste Azure-plattformen beviljas åtkomst för att begära kryptografiska nycklar när den virtuella datorn startas för att dekryptera virtuella diskar. Skapa en kryptografisk nyckel i ditt Nyckelvalv med [az keyvault nyckel skapa](/cli/azure/keyvault/key#az_keyvault_key_create). I följande exempel skapas en nyckel som heter *MinNyckel*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -192,15 +192,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>Skapa Azure Active Directory huvudnamn för tjänsten
 När virtuella diskar krypteras och dekrypteras, anger du ett konto för att hantera autentisering och byta ut kryptografiska nycklar från Nyckelvalvet. Det här kontot, tjänstens huvudnamn för ett Azure Active Directory kan Azure-plattformen begära lämpliga kryptografiska nycklar för den virtuella datorn. En standardinstans för Azure Active Directory finns i din prenumeration, även om många organisationer har särskilda Azure Active Directory-kataloger.
 
-Skapa ett huvudnamn för tjänsten med hjälp av Azure Active Directory med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac). I följande exempel läser i värden för tjänstens huvudnamn-Id och lösenord för användning i senare kommandon:
+Skapa ett huvudnamn för tjänsten med hjälp av Azure Active Directory med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). I följande exempel läser i värden för tjänstens huvudnamn-Id och lösenord för användning i senare kommandon:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Lösenordet visas bara när du skapar tjänsten huvudnamn. Om du vill visa och registrera lösenordet (`echo $sp_password`). Du kan visa din service principal med [az sp annonslista](/cli/azure/ad/sp#list) och visa ytterligare information om en specifik tjänstens huvudnamn med [az ad sp visa](/cli/azure/ad/sp#show).
+Lösenordet visas bara när du skapar tjänsten huvudnamn. Om du vill visa och registrera lösenordet (`echo $sp_password`). Du kan visa din service principal med [az sp annonslista](/cli/azure/ad/sp#az_ad_sp_list) och visa ytterligare information om en specifik tjänstens huvudnamn med [az ad sp visa](/cli/azure/ad/sp#az_ad_sp_show).
 
-För att kunna kryptera eller dekryptera virtuella diskar, måste behörigheter på den kryptografiska nyckel som lagras i Nyckelvalvet anges för att tillåta Azure Active Directory-tjänstens huvudnamn att läsa nycklarna. Ange behörigheter för ditt Nyckelvalv med [az keyvault set-policy](/cli/azure/keyvault#set-policy). I följande exempel anges tjänsten ägar-ID från föregående kommando:
+För att kunna kryptera eller dekryptera virtuella diskar, måste behörigheter på den kryptografiska nyckel som lagras i Nyckelvalvet anges för att tillåta Azure Active Directory-tjänstens huvudnamn att läsa nycklarna. Ange behörigheter för ditt Nyckelvalv med [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). I följande exempel anges tjänsten ägar-ID från föregående kommando:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -210,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-Skapa en virtuell dator för att kryptera med [az vm skapa](/cli/azure/vm#create) och bifoga en disk på 5 Gb data. Endast vissa marketplace-bilder stöd för kryptering. I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *CentOS 7.2n* avbildningen:
+Skapa en virtuell dator för att kryptera med [az vm skapa](/cli/azure/vm#az_vm_create) och bifoga en disk på 5 Gb data. Endast vissa marketplace-bilder stöd för kryptering. I följande exempel skapas en virtuell dator med namnet *myVM* med hjälp av en *CentOS 7.2n* avbildningen:
 
 ```azurecli
 az vm create \
@@ -233,7 +233,7 @@ Om du vill kryptera virtuella diskar samordnar du tidigare komponenter:
 3. Ange de kryptografiska nycklarna som ska användas för den faktiska kryptering och dekryptering.
 4. Ange om du vill kryptera OS-disk, datadiskar eller alla.
 
-Kryptera din virtuella dator med [az vm-kryptering aktiverar](/cli/azure/vm/encryption#enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från den föregående [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) kommando:
+Kryptera din virtuella dator med [az vm-kryptering aktiverar](/cli/azure/vm/encryption#az_vm_encryption_enable). I följande exempel används den *$sp_id* och *$sp_password* variabler från den föregående [az ad sp skapa-för-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) kommando:
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Det tar en stund innan krypteringsprocessen disken att slutföra. Övervaka status för processen med [az vm kryptering visa](/cli/azure/vm/encryption#show):
+Det tar en stund innan krypteringsprocessen disken att slutföra. Övervaka status för processen med [az vm kryptering visa](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ Utdata liknar följande trunkerat exempel:
 ]
 ```
 
-Vänta tills status för OS-disken rapporter **VMRestartPending**, starta om den virtuella datorn med [az vm omstart](/cli/azure/vm#restart):
+Vänta tills status för OS-disken rapporter **VMRestartPending**, starta om den virtuella datorn med [az vm omstart](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

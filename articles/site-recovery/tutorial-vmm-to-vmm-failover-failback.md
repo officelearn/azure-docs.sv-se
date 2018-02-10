@@ -2,29 +2,23 @@
 title: "Växla över och misslyckas tillbaka Hyper-V-datorer som replikeras till ett sekundärt datacenter med Site Recovery | Microsoft Docs"
 description: "Lär dig hur du växla över Hyper-V virtuella datorer till en sekundär lokal plats och växla tillbaka till primär plats med Azure Site Recovery"
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 44a662fa-2e7a-4996-86df-fdd6d6f5dedf
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/16/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb282a18efe2e3c7435377e02fa8c4d97a85ac63
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Växla över och misslyckas tillbaka Hyper-V virtuella datorer som replikeras till en sekundär lokal plats
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten hanterar och samordnar replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
 
-Den här självstudiekursen beskrivs hur du redundansväxlar en Hyper-V virtuell dator som hanteras i ett moln med System Center Virtual Machine Manager (VMM), till en sekundär plats för VMM. När du har redundansväxlats växlar du tillbaka till den lokala platsen när den är tillgänglig. I den här guiden får du lära dig hur man:
+Den här artikeln beskriver hur du redundansväxlar en Hyper-V virtuell dator som hanteras i ett moln med System Center Virtual Machine Manager (VMM), till en sekundär plats för VMM. När du har redundansväxlats växlar du tillbaka till den lokala platsen när den är tillgänglig. I den här artikeln får du lära dig hur du:
 
 > [!div class="checklist"]
 > * Växla över en Hyper-V virtuell dator från en primär VMM-moln till en sekundär VMM-moln

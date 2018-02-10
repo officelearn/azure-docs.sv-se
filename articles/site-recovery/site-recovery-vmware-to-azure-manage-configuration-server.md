@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/04/2018
 ms.author: anoopkv
-ms.openlocfilehash: e9e4bfc86df2cae1facac62472c915d91fb8c84c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9cdabfb4e24423d76e4f247f184ac4156c3b257b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
 
@@ -72,6 +72,22 @@ Du kan registrera om konfigurationsservern i samma valvet om du behöver. du har
       net stop obengine
       net start obengine
       ```
+## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
+
+Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan användas för upp till N-4 versioner. Exempel:
+
+- Om du kör 9.7 9.8, 9.9 eller 9.10 - kan du uppgradera direkt till 9.11.
+- Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. innan du 9.11.
+
+Länkar till samlade uppdateringar för uppgradering av alla versioner av konfigurationsservern är tillgängliga i den [uppdateringar wiki-sida](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Uppgradera servern på följande sätt:
+
+1. Hämta installationsfilen för uppdateringen till konfigurationsservern.
+2. Dubbelklicka för att köra installationsprogrammet.
+3. Installationsprogrammet identifierar den aktuella versionen som körs på datorn.
+4. Klicka på **OK** att bekräfta och köra uppgraderingen. 
+
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller avregistrera en konfigurationsserver
 

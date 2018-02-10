@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a07d58938ae77701d8df8099ec0aedf1524d6b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter ger systemhälsa rapporter om alla entiteter i klustret direkt ur lådan. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -404,7 +404,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus ReplicaCloseStatus, ReplicaChangeRoleStatus
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
 Den här egenskapen används för att ange varningar eller fel vid försök att öppna en replik, stänga en replik eller överföra en replik från en roll till en annan. Mer information finns i [replik livscykel](service-fabric-concepts-replica-lifecycle.md). Felen kan vara undantag från API-anrop eller kraschar för tjänstprocessen värden under denna tid. För fel som beror på API-anrop från C#-kod, Service Fabric lägger till undantag och stackspårning hälsorapporten.
 
 Dessa hälsovarningar aktiveras efter att ha försökt åtgärden lokalt vissa antalet gånger (beroende på principen). Service Fabric görs ett nytt försök upp till ett högsta tröskelvärde. När det största tillåtna tröskelvärdet har uppnåtts, kan den försöker du vidta åtgärder för att rätta till situationen. Det här försöket kan orsaka dessa varningar tas bort när den ger på åtgärden på den här noden. Om en replik misslyckas öppna på en nod, genererar Service Fabric en varning om hälsa. Om repliken fortfarande inte går att öppna, fungerar Service Fabric om du vill reparera själv. Den här åtgärden kan handla om försök samma åtgärd på en annan nod. Detta gör varningen aktiveras för denna replik rensas. 
@@ -638,6 +638,21 @@ Andra API-anrop som kan fastna finns på den **IReplicator** gränssnitt. Exempe
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**: den här varningen anger ett problem i build-processen. Mer information finns i [replik livscykel](service-fabric-concepts-replica-lifecycle.md). Det kan bero på en felaktig konfiguration av replikatorn-adress. Mer information finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md) och [ange resurser i en tjänstmanifestet](service-fabric-service-manifest-resources.md). Det kan också vara ett problem i fjärrnoden.
 
+### <a name="replicator-system-health-reports"></a>Replikatorn system hälsorapporter
+**Replikeringskön är full:**
+**System.Replicator** rapporterar en varning när Replikeringskön är full. På primärt blir Replikeringskön vanligtvis full eftersom en eller flera sekundära repliker tar lång tid att godkänna åtgärder. På sekundärt inträffar detta när tjänsten går långsamt att tillämpa åtgärderna. Varningen rensas när kön är inte längre fullständig.
+
+* **SourceId**: System.Replicator
+* **Egenskapen**: **PrimaryReplicationQueueStatus** eller **SecondaryReplicationQueueStatus**, beroende på replik-rollen.
+* **Nästa steg**: om rapporten finns på den primära servern, kontrollera anslutningen mellan noder i klustret. Om alla anslutningar är felfri, kan det finnas minst en långsam sekundär med en hög disk fördröjning tillämpa åtgärder. Kontrollera om rapporten är på sekundärt diskanvändning och prestanda på noden först och sedan utgående anslutning från långsamma noden till primärt.
+
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** på den primära repliken rapporterar en varning när anslutningen till en sekundär (fjärråtkomst) replikatorn inte är felfri. Fjärråtkomst replikatorn adress visas i rapportens meddelandet, vilket gör det enklare att identifiera om en felaktig konfiguration har skickats i eller också är det problem mellan replikatörer.
+
+* **SourceId**: System.Replicator
+* **Egenskapen**: **RemoteReplicatorConnectionStatus**
+* **Nästa steg**: Kontrollera felmeddelandet och kontrollera att adressen remote replikatorn är korrekt konfigurerad (till exempel om remote replikatorn öppnas med ”localhost” lyssna adress, den kan inte nås från utsidan). Om adressen verkar vara korrekta, kontrollera anslutningen mellan den primära noden och Fjärradress att hitta eventuella eventuella nätverksproblem.
+
 ### <a name="replication-queue-full"></a>Replikeringskön är full
 **System.Replicator** rapporterar en varning när Replikeringskön är full. På primärt blir Replikeringskön vanligtvis full eftersom en eller flera sekundära repliker tar lång tid att godkänna åtgärder. På sekundärt inträffar detta när tjänsten går långsamt att tillämpa åtgärderna. Varningen rensas när kön är inte längre fullständig.
 
@@ -747,7 +762,7 @@ HealthEvents                       :
 System.Hosting rapporterar ett fel om inte paketet ned programmet.
 
 * **SourceId**: System.Hosting
-* **Egenskapen**: **hämta:***RolloutVersion*.
+* **Egenskapen**: **hämta: *** RolloutVersion*.
 * **Nästa steg**: undersöka varför hämtningen misslyckades på noden.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage system hälsorapporter
@@ -764,7 +779,7 @@ System.Hosting rapporter som OK om tjänsten paketet aktiveringen på noden har 
 System.Hosting rapporter som OK för varje kodpaketet om aktiveringen genomförs. Om aktiveringen misslyckas rapporterar en varning som konfigurerats. Om **CodePackage** inte kan aktivera eller avslutas med ett fel som är större än den konfigurerade **CodePackageHealthErrorThreshold**, värd rapporterar ett fel. Om en tjänstepaketet innehåller flera kod paket, genereras en aktivering-rapporten för varje kriterium.
 
 * **SourceId**: System.Hosting
-* **Egenskapen**: namnområdesprefixet **CodePackageActivation** och innehåller namnet på kodpaketet och startpunkt som **CodePackageActivation:***CodePackageName* :*SetupEntryPoint/EntryPoint*. Till exempel **CodePackageActivation:Code:SetupEntryPoint**.
+* **Egenskapen**: namnområdesprefixet **CodePackageActivation** och innehåller namnet på kodpaketet och startpunkt som **CodePackageActivation: *** CodePackageName*: *SetupEntryPoint/EntryPoint*. Till exempel **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Typ av registrering
 System.Hosting rapporter som OK om tjänsttypen har registrerats. Ett fel rapporteras om den inte registrerats i tid, som konfigureras med hjälp av **ServiceTypeRegistrationTimeout**. Om körningen är stängt, service-typen är avregistrera från noden och värd rapporterar en varning.
@@ -825,7 +840,7 @@ HealthEvents               :
 System.Hosting rapporterar ett fel om inte paketet ned service.
 
 * **SourceId**: System.Hosting
-* **Egenskapen**: **hämta:***RolloutVersion*.
+* **Egenskapen**: **hämta: *** RolloutVersion*.
 * **Nästa steg**: undersöka varför hämtningen misslyckades på noden.
 
 ### <a name="upgrade-validation"></a>Validering av uppgradering

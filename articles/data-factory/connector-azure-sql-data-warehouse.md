@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Följande egenskaper stöds för Azure SQL Data Warehouse länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureSqlDW** | Ja |
-| connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för egenskapen connectionString. Endast grundläggande autentisering stöds. Markera det här fältet som en SecureString. |Ja |
+| connectionString |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instans för egenskapen connectionString. Endast grundläggande autentisering stöds. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 
@@ -398,7 +398,7 @@ Följande tabell innehåller exempel på hur du anger den **tableName** egenskap
 | dbo |Mytable prefix |Mytable prefix eller dbo. Mytable prefix eller [dbo]. [MyTable] |
 | dbo1 |Mytable prefix |dbo1. Mytable prefix eller [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Om du ser följande fel kan bero det på ett problem med värdet som angetts för egenskapen tableName. Se tabellen på rätt sätt att ange värden för egenskapen tableName JSON.
 
@@ -423,17 +423,17 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | Azure SQL Data Warehouse-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte[] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| flyttal |Dubbel |
+| Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -441,19 +441,19 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Ogift |
-| ROWVERSION |byte] |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte[] |
 | tinyint |Mottagna byte |
-| Unik identifierare |GUID |
-| varbinary |byte] |
+| uniqueidentifier |GUID |
+| varbinary |Byte[] |
 | varchar |Sträng, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).

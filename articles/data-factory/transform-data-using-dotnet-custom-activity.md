@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ad829fc771bf67953315f3f42abd66eaa2628c13
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,13 +32,13 @@ Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory
 För att flytta data till/från en lagra Data Factory inte har stöd för, eller för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory, kan du skapa en **anpassad aktivitet** med dina egna data flyttas eller omvandling logik och användning aktiviteten i en pipeline. Den anpassade aktiviteten körs din anpassade kod logik på ett **Azure Batch** pool för virtuella datorer.
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [(anpassat) DotNet aktivitet i V1](v1/data-factory-use-custom-activities.md).
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [(anpassat) DotNet aktivitet i Data Factory version 1](v1/data-factory-use-custom-activities.md).
  
 
-Se följande avsnitt om du har använt Azure Batch-tjänsten:
+Se följande artiklar om du har använt Azure Batch-tjänsten:
 
 * [Grunderna i Azure Batch](../batch/batch-technical-overview.md) en översikt över Azure Batch-tjänsten.
-* [Nya AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) för att skapa ett Azure Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) skapa Azure Batch-kontot med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-kontot](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) avsnittet detaljerade anvisningar om hur du använder cmdlet.
+* [Nya AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) för att skapa ett Azure Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) skapa Azure Batch-kontot med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-kontot](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artikel detaljerade anvisningar om hur du använder cmdlet.
 * [Nya AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) för att skapa en Azure Batch-pool.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch länkad tjänst 
@@ -119,7 +119,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är specifi
 
 ## <a name="executing-commands"></a>Kör kommandon
 
-Direkt kan du köra ett kommando använder anpassad aktivitet. I följande exempel vi köra kommandot ”echo hello world” på Azure Batch-Pool målnoder och skrivs utdata till stdout. 
+Direkt kan du köra ett kommando använder anpassad aktivitet. I följande exempel körs kommandot ”echo hello world” på Azure Batch-Pool målnoder och skriver ut utdata till stdout. 
 
   ```json
   {
@@ -295,12 +295,12 @@ namespace SampleApp
 Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du få sökvägen till filen stdout.txt i uttrycket ”@activity(MyCustomActivity).output.outputs [0]”. 
 
   > [!IMPORTANT]
-  > - Activity.json, linkedServices.json och datasets.json lagras i mappen körning av aktiviteten bad. I det här exemplet activity.json, linkedServices.json och datasets.json lagras i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs, måste du rensa dem separat. 
+  > - Activity.json, linkedServices.json och datasets.json lagras i mappen körning av aktiviteten Batch. I det här exemplet activity.json, linkedServices.json och datasets.json lagras i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs, måste du rensa dem separat. 
   > - För länkade tjänster använder Self-Hosted integrering Runtime, känslig information som nycklar eller lösenord krypteras av Self-Hosted integrering körningen så autentiseringsuppgifter definierats förblir i kunden privata nätverksmiljö. Vissa känsliga fält kan vara saknas när refereras av din anpassade programkod på detta sätt. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1"></a>Skillnaden mellan anpassade i Azure Data Factory V2 och (anpassat) DotNet aktiviteten i Azure Data Factory V1 
+## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Skillnaden mellan anpassad i Azure Data Factory version 2 och (anpassat) DotNet aktiviteten i Azure Data Factory version 1
 
-  I Azure Data Factory V1, implementera (anpassat) DotNet aktivitet kod genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar Execute-metoden i gränssnittet IDotNetActivity. Länkade tjänster, datauppsättningar och utökade egenskaper i (anpassat) DotNet aktivitet JSON-nyttolast skickas till metoden körning som starkt typangivna objekt. Mer information finns i [(anpassat) DotNet i V1](v1/data-factory-use-custom-activities.md). På grund av att din anpassade kod måste skrivas i .net Framework 4.5.2 och köras på Windows-baserade Azure Batch-Pool noder. 
+  I Azure Data Factory version 1 (Custom) DotNet aktivitet kod implementera genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar Execute-metoden i gränssnittet IDotNetActivity. Länkade tjänster, datauppsättningar och utökade egenskaper i (anpassat) DotNet aktivitet JSON-nyttolast skickas till metoden körning som starkt typangivna objekt. Mer information finns i [(anpassat) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av att din anpassade kod måste skrivas i .net Framework 4.5.2 och köras på Windows-baserade Azure Batch-Pool noder. 
 
   Du behöver inte implementera ett gränssnitt för .net i Azure Data Factory V2 anpassad aktivitet. Du kan nu direkt köra kommandon, skript och köra dina egna anpassade kod överskrids som körbara. Du kan åstadkomma detta genom att ange egenskapen Command tillsammans med egenskapen folderPath. Anpassad aktivitet överför körbar fil och beroenden i folderpath och utför kommandot för dig. 
 
@@ -308,30 +308,30 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
 
   Du kan välja att skriva egen kod-logik på ditt språk och köra dem på Windows och Linux-operativsystem som stöds av Azure Batch med ändringar i Azure Data Factory V2 anpassad aktivitet. 
 
-  I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivitet och Data Factory V1 (anpassat) DotNet aktiviteten: 
+  I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivitet och Data Factory version 1 (Custom) DotNet aktiviteten: 
 
 
-|Skillnader      |ADFv2 anpassad aktivitet      |ADFv1 (anpassat) DotNet-aktivitet      |
+|Skillnader      |version 2 anpassad aktivitet      | version 1 (Custom) DotNet-aktivitet      |
 | ---- | ---- | ---- |
 |Hur egen kod som har definierats      |Genom att köra körbara filer (befintliga eller implementera ditt eget körbara filen)      |Genom att implementera en .net-DLL      |
-|Miljön för körning av anpassade logiken      |Windows- eller Linux      |Windows (.Net Framework 4.5.2)      |
+|Körningsmiljön för egen kod      |Windows- eller Linux      |Windows (.Net Framework 4.5.2)      |
 |Kör skript      |Stöd för verkställande skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .net DLL      |
 |DataSet som krävs      |Valfri      |Krävs för att kedja aktiviteter och skickar information      |
 |Skicka information från aktiviteten till egen kod      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (egna egenskaper) och      |ExtendedProperties (egna egenskaper), indata och utdata-datauppsättningar      |
 |Hämta information i egen kod      |Parsa activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .net SDK (.Net ram 4.5.2)      |
-|Loggning      |Skriver direkt till STDOUT      |Implemeting loggaren i .net DLL      |
+|Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .net DLL      |
 
 
-  Om du har befintliga .net-kod som skrivs för V1 (anpassat) DotNet-aktivitet, måste du ändra koden att arbeta med V2 anpassad aktivitet med följande övergripande riktlinjer:  
+  Om du har befintliga .net-kod som skrivs för version 1 (Custom) DotNet-aktivitet, måste du ändra koden att arbeta med version 2 anpassad aktivitet med följande övergripande riktlinjer:  
 
    - Ändra projektet från en .net-klassbiblioteket till en Konsolapp. 
    - Starta programmet med Main-metoden, Execute-metoden i gränssnittet IDotNetActivity krävs inte längre. 
    - Läsa och tolka länkade tjänster, datauppsättningar och aktivitet med JSON-serialisering i stället för som starkt typangivna objekt och skicka värden för obligatoriska egenskaper till dina viktigaste anpassad kod logik. Hittar du i föregående SampleApp.exe koden som ett exempel. 
-   - Loggaren objekt stöds inte längre, program utdata kan skrivas ut till konsolen och sparas på stdout.txt. 
+   - Loggaren objekt stöds inte längre, körbara utdata kan skrivas ut till konsolen och sparas på stdout.txt. 
    - Det krävs inte längre Microsoft.Azure.Management.DataFactories NuGet-paketet. 
    - Kompilera koden, överför körbara filer och beroenden till Azure Storage och definiera sökvägen i folderPath egenskap. 
 
-Ett komplett exempel på hur slutpunkt till slutpunkt-DLL och pipeline exempel som beskrivs i Data Factory V1 dokumentet [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan vara omarbetning till anpassad aktivitet för Data Factory-V2-format. Referera till en [Data Factory V2 anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Ett komplett exempel på hur slutpunkt till slutpunkt-DLL och pipeline exempel beskrivs i Data Factory version 1 dokumentet [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan vara omarbetning i Data Factory version 2 anpassad aktivitet format. Referera till en [Data Factory version 2 anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning av Azure Batch
 Du kan också skapa en Azure Batch-pool med **Autoskala** funktion. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en Autoskala formel baserat på antalet väntande åtgärder. 

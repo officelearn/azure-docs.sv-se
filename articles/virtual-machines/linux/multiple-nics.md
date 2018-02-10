@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0c41388623b82421bd09f31fbc4b3769de758e4c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e377459d205426b34c52336d9104400cf9d8030b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverkskort
 Du kan skapa en virtuell dator (VM) i Azure som har flera virtuella nätverksgränssnitt (NIC) ansluten till den. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort som är kopplade till den och lägga till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
@@ -27,17 +27,17 @@ Den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverksko
 
 
 ## <a name="create-supporting-resources"></a>Skapa stödresurser
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login).
+Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *mittlagringskonto*, och *myVM*.
 
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och undernät med namnet *mySubnetFrontEnd*:
+Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och undernät med namnet *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Skapa ett undernät för backend-trafik med [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#create). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd*:
+Skapa ett undernät för backend-trafik med [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Skapa en nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Skapa och konfigurera flera nätverkskort
-Skapa två nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#create). I följande exempel skapas två nätverkskort som heter *myNic1* och *myNic2*, anslutna nätverkssäkerhetsgruppen med ett nätverkskort som ansluter till varje undernät:
+Skapa två nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas två nätverkskort som heter *myNic1* och *myNic2*, anslutna nätverkssäkerhetsgruppen med ett nätverkskort som ansluter till varje undernät:
 
 ```azurecli
 az network nic create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Skapa en virtuell dator och koppla nätverkskorten
 När du skapar den virtuella datorn, ange nätverkskort du skapade med `--nics`. Du måste också vara försiktig när du väljer VM-storlek. Det finns begränsningar för det totala antalet nätverkskort som du kan lägga till en virtuell dator. Läs mer om [Linux VM-storlekar](sizes.md). 
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVM*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM*:
 
 ```azurecli
 az vm create \
@@ -103,7 +103,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>Lägga till ett nätverkskort till en virtuell dator
 De här stegen kan du skapa en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI 2.0. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
 
-Skapa ett annat nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#create). I följande exempel skapas ett nätverkskort med namnet *myNic3* anslutna till backend-undernät och nätverket säkerhetsgruppen skapade i föregående steg:
+Skapa ett annat nätverkskort med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas ett nätverkskort med namnet *myNic3* anslutna till backend-undernät och nätverket säkerhetsgruppen skapade i föregående steg:
 
 ```azurecli
 az network nic create \
@@ -114,14 +114,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Om du vill lägga till ett nätverkskort i en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm frigöra](/cli/azure/vm#deallocate). I följande exempel tar bort den virtuella datorn med namnet *myVM*:
+Om du vill lägga till ett nätverkskort i en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm frigöra](/cli/azure/vm#az_vm_deallocate). I följande exempel tar bort den virtuella datorn med namnet *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Lägga till nätverkskort med [az vm nic lägga till](/cli/azure/vm/nic#add). I följande exempel läggs *myNic3* till *myVM*:
+Lägga till nätverkskort med [az vm nic lägga till](/cli/azure/vm/nic#az_vm_nic_add). I följande exempel läggs *myNic3* till *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -130,20 +130,20 @@ az vm nic add \
     --nics myNic3
 ```
 
-Starta den virtuella datorn med [az vm start](/cli/azure/vm#start):
+Starta den virtuella datorn med [az vm start](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="remove-a-nic-from-a-vm"></a>Ta bort ett nätverkskort från en virtuell dator
-Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm frigöra](/cli/azure/vm#deallocate). I följande exempel tar bort den virtuella datorn med namnet *myVM*:
+Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först frigöra den virtuella datorn med [az vm frigöra](/cli/azure/vm#az_vm_deallocate). I följande exempel tar bort den virtuella datorn med namnet *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Ta bort nätverkskortet med [az vm nic ta bort](/cli/azure/vm/nic#remove). I följande exempel tar bort *myNic3* från *myVM*:
+Ta bort nätverkskortet med [az vm nic ta bort](/cli/azure/vm/nic#az_vm_nic_remove). I följande exempel tar bort *myNic3* från *myVM*:
 
 ```azurecli
 az vm nic remove \
@@ -152,7 +152,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Starta den virtuella datorn med [az vm start](/cli/azure/vm#start):
+Starta den virtuella datorn med [az vm start](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -214,28 +214,28 @@ eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 
 Du sedan skapa följande filer och lägga till lämpliga regler och vägar till varje:
 
-- */etc/sysconfig/Network-Scripts/rule-eth0*
+- */etc/sysconfig/network-scripts/rule-eth0*
 
     ```bash
     from 10.0.1.4/32 table eth0-rt
     to 10.0.1.4/32 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/route-eth0*
+- */etc/sysconfig/network-scripts/route-eth0*
 
     ```bash
     10.0.1.0/24 dev eth0 table eth0-rt
     default via 10.0.1.1 dev eth0 table eth0-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/rule-eth1*
+- */etc/sysconfig/network-scripts/rule-eth1*
 
     ```bash
     from 10.0.1.5/32 table eth1-rt
     to 10.0.1.5/32 table eth1-rt
     ```
 
-- */etc/sysconfig/Network-Scripts/route-eth1*
+- */etc/sysconfig/network-scripts/route-eth1*
 
     ```bash
     10.0.1.0/24 dev eth1 table eth1-rt

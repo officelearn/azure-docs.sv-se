@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga stödfiler resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och regler för nätverkssäkerhetsgrupper skapas automatiskt. Mer kontroll över din miljö i produktionen använder, du kan skapa dessa resurser i förväg och sedan lägga till dina virtuella datorer till dem. Den här artikeln hjälper dig att skapa en virtuell dator och varje stödjande resurs i taget.
 
-Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och loggas på en Azure-konto med [az inloggningen](/cli/azure/#login).
+Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och loggas på en Azure-konto med [az inloggningen](/cli/azure/#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och stödresurser för virtuellt nätverk. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och stödresurser för virtuellt nätverk. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet för utdata till en lista eller tabell, till exempel använda [az konfigurera--utdata](/cli/azure/#configure). Du kan också lägga till `--output` ändra i utdataformatet till ett kommando för en gång. I följande exempel visas JSON-utdata från den `az group create` kommando:
+Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet för utdata till en lista eller tabell, till exempel använda [az konfigurera--utdata](/cli/azure/#az_configure). Du kan också lägga till `--output` ändra i utdataformatet till ett kommando för en gång. I följande exempel visas JSON-utdata från den `az group create` kommando:
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object No
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och undernät
-Nästa du skapar ett virtuellt nätverk i Azure och ett undernät i som du kan skapa dina virtuella datorer. Använd [az network vnet skapa](/cli/azure/network/vnet#create) att skapa ett virtuellt nätverk med namnet *myVnet* med den *192.168.0.0/16* adressprefix. Du också lägga till ett undernät med namnet *mySubnet* med adressprefixet för *192.168.1.0/24*:
+Nästa du skapar ett virtuellt nätverk i Azure och ett undernät i som du kan skapa dina virtuella datorer. Använd [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create) att skapa ett virtuellt nätverk med namnet *myVnet* med den *192.168.0.0/16* adressprefix. Du också lägga till ett undernät med namnet *mySubnet* med adressprefixet för *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ Utdata visar undernätet logiskt skapas i det virtuella nätverket:
 
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-Nu skapar vi en offentlig IP-adress med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#create). Den här offentliga IP-adressen kan du ansluta till dina virtuella datorer från Internet. Eftersom standardadressen är dynamiska, skapa en namngiven DNS-post med den `--domain-name-label` parameter. I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet på *mypublicdns*. Eftersom DNS-namnet måste vara unikt, ange ditt eget unikt DNS-namn:
+Nu skapar vi en offentlig IP-adress med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#az_network_public_ip_create). Den här offentliga IP-adressen kan du ansluta till dina virtuella datorer från Internet. Eftersom standardadressen är dynamiska, skapa en namngiven DNS-post med den `--domain-name-label` parameter. I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet på *mypublicdns*. Eftersom DNS-namnet måste vara unikt, ange ditt eget unikt DNS-namn:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Resultat:
 
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-För att styra flödet av trafik till och från dina virtuella datorer måste använda du en nätverkssäkerhetsgrupp till ett virtuellt nätverkskort eller undernät. I följande exempel används [az nätverket nsg skapa](/cli/azure/network/nsg#create) om du vill skapa en säkerhetsgrupp för nätverk med namnet *myNetworkSecurityGroup*:
+För att styra flödet av trafik till och från dina virtuella datorer måste använda du en nätverkssäkerhetsgrupp till ett virtuellt nätverkskort eller undernät. I följande exempel används [az nätverket nsg skapa](/cli/azure/network/nsg#az_network_nsg_create) om du vill skapa en säkerhetsgrupp för nätverk med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Du kan definiera regler som tillåter eller nekar viss trafik. För att tillåta inkommande anslutningar på port 22 (för att aktivera åtkomst för SSH) skapar du en inkommande regel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleSSH*:
+Du kan definiera regler som tillåter eller nekar viss trafik. För att tillåta inkommande anslutningar på port 22 (för att aktivera åtkomst för SSH) skapar du en inkommande regel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Granska nätverkssäkerhetsgruppen och regler med [az nätverket nsg visa](/cli/azure/network/nsg#show):
+Granska nätverkssäkerhetsgruppen och regler med [az nätverket nsg visa](/cli/azure/network/nsg#az_network_nsg_show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ Resultat:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Skapa ett virtuellt nätverkskort
-Virtuella nätverkskort (NIC) är tillgängliga via programmering eftersom du kan använda regler för deras användning. Beroende på den [VM-storlek](sizes.md), kan du koppla flera virtuella nätverkskort till en virtuell dator. I följande [az nätverket nic skapa](/cli/azure/network/nic#create) kommando du skapar ett nätverkskort med namnet *myNic* och koppla den till din säkerhetsgrupp för nätverk. Den offentliga IP-adressen *myPublicIP* är även associerat med det virtuella nätverkskortet.
+Virtuella nätverkskort (NIC) är tillgängliga via programmering eftersom du kan använda regler för deras användning. Beroende på den [VM-storlek](sizes.md), kan du koppla flera virtuella nätverkskort till en virtuell dator. I följande [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create) kommando du skapar ett nätverkskort med namnet *myNic* och koppla den till din säkerhetsgrupp för nätverk. Den offentliga IP-adressen *myPublicIP* är även associerat med det virtuella nätverkskortet.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ Uppdatera domäner ange grupper av virtuella datorer och underliggande fysiska m
 
 Azure distribuerar automatiskt virtuella datorer i domäner fel- och update när de placeras i en tillgänglighetsuppsättning. Mer information finns i [hantera tillgängligheten för virtuella datorer](manage-availability.md).
 
-Skapa en tillgänglighetsuppsättning för den virtuella datorn med [az vm tillgänglighetsuppsättning skapa](/cli/azure/vm/availability-set#create). I följande exempel skapas en tillgänglighetsuppsättning namngivna *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning för den virtuella datorn med [az vm tillgänglighetsuppsättning skapa](/cli/azure/vm/availability-set#az_vm_availability_set_create). I följande exempel skapas en tillgänglighetsuppsättning namngivna *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ Feldomäner för utdata anteckningar och uppdatera domäner:
 
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
-Du har skapat nätverksresurser för att stödja Internet-tillgängliga virtuella datorer. Nu skapa en virtuell dator och skydda den med en SSH-nyckel. I det här exemplet ska vi skapa en Ubuntu VM baserat på senaste LTS. Du kan hitta ytterligare bilder med [az vm bildlista](/cli/azure/vm/image#list), enligt beskrivningen i [söker Azure VM-bilder](cli-ps-findimage.md).
+Du har skapat nätverksresurser för att stödja Internet-tillgängliga virtuella datorer. Nu skapa en virtuell dator och skydda den med en SSH-nyckel. I det här exemplet ska vi skapa en Ubuntu VM baserat på senaste LTS. Du kan hitta ytterligare bilder med [az vm bildlista](/cli/azure/vm/image#az_vm_image_list), enligt beskrivningen i [söker Azure VM-bilder](cli-ps-findimage.md).
 
 Ange en SSH-nyckel ska användas för autentisering. Om du inte har en offentlig nyckel SSH kan du [skapa dem](mac-create-ssh-keys.md) eller använda den `--generate-ssh-keys` parameter till skapa dem åt dig. Om du redan har ett nyckelpar, den här parametern används befintliga nycklar i `~/.ssh`.
 
-Skapa den virtuella datorn genom att alla resurser och information om tillsammans med den [az vm skapa](/cli/azure/vm#create) kommando. I följande exempel skapas en virtuell dator med namnet *myVM*:
+Skapa den virtuella datorn genom att alla resurser och information om tillsammans med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. I följande exempel skapas en virtuell dator med namnet *myVM*:
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ Om du vill se NGINX standardwebbplatsen i åtgärden, öppna webbläsaren och an
 ![Standard NGINX-platsen på den virtuella datorn](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportera som en mall
-Vad händer om du vill nu skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar det? Hanteraren för filserverresurser använder JSON-mallar som definierar alla parametrar för din miljö. Du bygga ut hela miljöer genom att referera till den här JSON-mallen. Du kan [skapa JSON-mallarna manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa JSON-mallen för dig. Använd [az exportera](/cli/azure/group#export) att exportera resursgruppens namn på följande sätt:
+Vad händer om du vill nu skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar det? Hanteraren för filserverresurser använder JSON-mallar som definierar alla parametrar för din miljö. Du bygga ut hela miljöer genom att referera till den här JSON-mallen. Du kan [skapa JSON-mallarna manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa JSON-mallen för dig. Använd [az exportera](/cli/azure/group#az_group_export) att exportera resursgruppens namn på följande sätt:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Det här kommandot skapar den `myResourceGroup.json` filen i din aktuella arbetskatalogen. När du skapar en miljö med den här mallen kan uppmanas du alla resursnamn. Du kan fylla i dessa namn i mallfilen genom att lägga till den `--include-parameter-default-value` parametern till den `az group export` kommando. Redigera JSON-mall om du vill ange resursnamn, eller [skapa en fil med parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som anger resursnamnen.
 
-Så här skapar du en miljö med din mall [az distribution skapa](/cli/azure/group/deployment#create) på följande sätt:
+Så här skapar du en miljö med din mall [az distribution skapa](/cli/azure/group/deployment#az_group_deployment_create) på följande sätt:
 
 ```azurecli
 az group deployment create \

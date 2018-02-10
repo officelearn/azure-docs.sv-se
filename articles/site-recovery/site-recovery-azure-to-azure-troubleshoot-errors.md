@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/05/2017
 ms.author: sujayt
-ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8f9ff8332f33972489721e0d16717d1d6fe15fcd
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsökning av problem med Virtuella Azure-Azure-replikering
 
@@ -61,34 +61,93 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
 
 1.  Logga in som rotanvändare.
 
-2.  Kör följande kommando:
+2.  Kör detta kommando för att ändra katalogen.
 
       ``# cd /etc/ssl/certs``
 
-3.  För att se om Symantec certifikatet för rotcertifikatutfärdaren är tillgänglig eller inte, kör du kommandot:
+3. Kontrollera om det finns Symantec rot-CA-certifikat.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4.  Om filen inte hittas kan du köra följande kommandon:
+4. Om det gick inte att hitta Symantec rot-CA-certifikat, kör du följande kommando för att hämta filen. Kontrollera om några fel och följ rekommenderade åtgärden för nätverksfel.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-      ``# c_rehash``
+5. Kontrollera om det finns Baltimore rot-CA-certifikat.
 
-5.  Skapa en symlink med b204d74a.0 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem -> kan du köra det här kommandot:
+      ``# ls Baltimore_CyberTrust_Root.pem``
 
-      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+6. Om det gick inte att hitta Baltimore rot-CA-certifikat, hämta certifikatet.  
 
-6.  Kontrollera om det här kommandot har följande utdata. Om inte, måste du skapa en symlink:
+    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-      ``# ls -l | grep Baltimore
-      -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
+7. Kontrollera om DigiCert_Global_Root_CA cert finns.
 
-7. Om symlink 653b494a.0 inte finns, Använd följande kommando för att skapa en symlink:
+    ``# ls DigiCert_Global_Root_CA.pem``
 
-      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
+8. Om det gick inte att hitta DigiCert_Global_Root_CA, kör du följande kommandon för att hämta certifikatet.
+
+    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
+
+    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+
+9. Kör rehash skript för att uppdatera certifikatet ämne hashvärden för nyligen hämtade certifikat.
+
+    ``# c_rehash``
+
+10. Kontrollera om ämnet hashar som symlinks skapas för certifikaten.
+
+    - Kommando
+
+      ``# ls -l | grep Baltimore``
+
+    - Resultat
+
+      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+
+    - Kommando
+
+      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+
+    - Resultat
+
+      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+    - Kommando
+
+      ``# ls -l | grep DigiCert_Global_Root``
+
+    - Resultat
+
+      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+
+11. Skapa en kopia av filen VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem med filename b204d74a.0
+
+    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+12. Skapa en kopia av filen Baltimore_CyberTrust_Root.pem med filename 653b494a.0
+
+    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+
+13. Skapa en kopia av filen DigiCert_Global_Root_CA.pem med filename 3513523f.0
+
+    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+
+
+14. Kontrollera om filerna finns.  
+
+    - Kommando
+
+      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+
+    - Resultat
+
+      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående anslutning för Site Recovery-URL: er eller IP-adressintervall (felkod 151037 eller 151072)
@@ -131,6 +190,20 @@ Du kanske inte se dina Azure-VM för val i [Aktivera replikering: steg 2](./site
 
 Du kan använda [ta bort inaktuella ASR konfigurationsskript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) och ta bort inaktuella Site Recovery-konfigurationen på Azure VM. Du bör se den virtuella datorn i [Aktivera replikering: steg 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) när du tar bort inaktuella konfigurationen.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Virtuella datorns etablering tillstånd är inte giltigt (felkod 150019)
+
+Om du vill aktivera replikering på den virtuella datorn ska etableringsstatusen **lyckades**. Du kan kontrollera tillstånd för virtuell dator genom att följa stegen nedan.
+
+1.  Välj den **Resursläsaren** från **alla tjänster** i Azure-portalen.
+2.  Expandera den **prenumerationer** och väljer din prenumeration.
+3.  Expandera den **resursgrupper** och väljer resursgruppen för den virtuella datorn.
+4.  Expandera den **resurser** och väljer den virtuella datorn
+5.  Kontrollera den **provisioningState** i instansvyn på höger sida.
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+- Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
+- Om **provisioningState** är **uppdatering**, en annan utökning kan komma distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de är klara och gör den misslyckade platsen har återställts **Aktivera replikering** jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 [Replikera virtuella Azure-datorer](site-recovery-replicate-azure-to-azure.md)

@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina medier med Azure Portal
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
 ## <a name="overview"></a>Översikt
 Azure Media Services Analytics är en samling tal- och visionskomponenter komponenter (på företagsnivå, kompatibilitet, säkerhet och globalt omfattande) som gör det lättare för organisationer och företag att härleda insikter som går att åtgärda från sina videofiler. Mer detaljerad översikt över Azure Media Services Analytics finns [detta](media-services-analytics-overview.md) avsnittet. 
 
-Det här avsnittet beskrivs hur du bearbetar media med Media Analytics-medieprocessorer (MP) med Azure-portalen. Media Analytics MP producerar MP4-filer eller JSON-filer. Om en medieprocessor har producerat en MP4-fil kan du hämta filen progressivt. Om en medieprocessor har producerat en JSON-fil kan du hämta filen från Azure Blob Storage. 
+Det här avsnittet beskrivs hur du bearbetar media med Media Analytics-medieprocessorer (MP) med Azure-portalen. Media Analytics MP producerar MP4-filer eller JSON-filer. Om en medieprocessor har producerat en MP4-fil kan hämta du filen progressivt. Om en medieprocessor har producerat en JSON-fil kan hämta du filen från Azure blob storage. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Välj en tillgång som du vill analysera
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
@@ -45,17 +45,17 @@ Det här avsnittet beskrivs hur du bearbetar media med Media Analytics-medieproc
 5. Tryck på **skapa** att starta ett jobb.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-Den **Azure Media Indexer** medieprocessor kan du göra mediefiler och innehåll sökbara samt generera stängd textning spår. Detta avsnitt ger information om alternativ som du kan ange för denna MP.
+Den **Azure Media Indexer** medieprocessor kan du göra mediefiler och innehåll sökbara samt generera stängd textning spår. Det här avsnittet innehåller information om alternativ som du anger för den här MP.
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
 ### <a name="language"></a>Språk
 Naturligt språk ska kunna identifieras i fil. Till exempel engelska och spanska. 
 
-### <a name="captions"></a>Etiketter
+### <a name="captions"></a>Textning
 Du kan välja en etikett-format som kommer att genereras från ditt innehåll. En indexering jobb kan generera textning filer i följande format:  
 
-* **SAMISKA**
+* **SAMI**
 * **TTML**
 * **WebVTT**
 
@@ -74,7 +74,7 @@ Ett eget namn som gör att du kan identifiera jobbet. [Detta](media-services-por
 Ett eget namn som gör att du kan identifiera vilket innehåll som utdata. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse är en HP som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Mer information finns i [detta](media-services-hyperlapse-content.md) avsnitt. Detta avsnitt ger information om alternativ som du kan ange för denna MP.
+Azure Media Hyperlapse är en HP som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Mer information finns i [detta](media-services-hyperlapse-content.md) avsnitt. Det här avsnittet innehåller information om alternativ som du anger för den här MP.
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -135,6 +135,17 @@ Ett eget namn som gör att du kan identifiera jobbet. [Detta](media-services-por
 ### <a name="output-file"></a>Utdatafil
 Ett eget namn som gör att du kan identifiera vilket innehåll som utdata. 
 
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Den här processorn hjälper dig att identifiera potentiella innehåll för vuxna och dyr i videor. Processorn identifierar automatiskt bilderna och nyckelbildrutor i videon. Den poäng nyckelrutorna för möjliga innehåll för vuxna eller dyr och föreslår granskningar baserat på standardtröskelvärden. Mer detaljerad information och exempel finns [Använd Azure Media innehåll kontrollant ska måttlig videor](media-services-content-moderation.md)
+
+![Måttlig videor](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Version 
+Använd ”2.0”.
+
+### <a name="mode"></a>Läge
+Version 2.0 ignorera den `Mode` inställningen.
+
 ## <a name="next-steps"></a>Nästa steg
 Visa Media Services utbildningsvägar.
 
@@ -142,4 +153,3 @@ Visa Media Services utbildningsvägar.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuera OpenShift behållare plattform i Azure
 
@@ -138,7 +138,7 @@ Ersätta objekt inom hakparenteser med din specifika information.
 ### <a name="deploy-by-using-azure-cli"></a>Distribuera med hjälp av Azure CLI
 
 > [!NOTE] 
-> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan verifiera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-versionen finns [installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan verifiera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-versionen finns [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 I följande exempel distribuerar OpenShift kluster och alla relaterade resurser i en resursgrupp med namnet myResourceGroup, med ett distributionsnamn av myOpenShiftCluster. Mallen som refereras direkt från GitHub-lagringsplatsen och en lokal fil med namnet azuredeploy.parameters.json filen används-parametrar.
 
@@ -179,7 +179,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Använd den [ta bort grupp az](/cli/azure/group#delete) kommando för att ta bort resursgruppen, OpenShift kluster och alla relaterade resurser när de inte längre behövs.
+Använd den [ta bort grupp az](/cli/azure/group#az_group_delete) kommando för att ta bort resursgruppen, OpenShift kluster och alla relaterade resurser när de inte längre behövs.
 
 ```azurecli 
 az group delete --name myResourceGroup

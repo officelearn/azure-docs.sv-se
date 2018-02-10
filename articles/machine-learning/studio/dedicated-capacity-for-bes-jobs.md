@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.author: raymondl
+ms.openlocfilehash: 4a4c5e6bf44fb4774d9ba501479383d6c7d3b128
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-tjänsten för Machine Learning-jobb
 
@@ -46,7 +46,7 @@ Mer information om hur du skapar webbtjänster finns [distribuera en Azure Machi
 
 När du har skapat en pool kan skicka du BES jobbet med Batch begäranden URL för webbtjänsten. Du kan välja att skicka den till en pool eller klassiska batch-bearbetning. Om du vill skicka ett jobb för att bearbeta Batch-Pool du lägga till följande parameter till jobbet skicka frågans brödtext:
 
-”AzureBatchPoolId” ”:&lt;poolen ID&gt;”
+"AzureBatchPoolId":"&lt;pool ID&gt;"
 
 Om du inte lägga till parametern körs jobbet i klassiskt batch processmiljö. Om poolen har tillgängliga resurser, startar jobbet körs omedelbart. Om poolen saknar lediga resurser i ditt jobb kö tills en resurs som är tillgänglig.
 
@@ -54,7 +54,7 @@ Om du upptäcker att du regelbundet når kapaciteten för din pooler, och du beh
 
 Exempelbegäran:
 
-https://ussouthcentral.Services.azureml.NET/subscriptions/80c77c7674ba4c8c82294c3b2957990c/Services/9fe659022c9747e3b9b7b923c3830623/jobs?API-version=2.0
+https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c3b2957990c/services/9fe659022c9747e3b9b7b923c3830623/jobs?api-version=2.0
 
 ```json
 {
@@ -110,4 +110,4 @@ Vi rekommenderar att du avsöka jobbstatus för att avgöra när jobben har slut
 
 | **Använd bearbetning när Batch-Pool**    | **Klassiska batchbearbetning när**  |
 |---|---|
-|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Du måste garanterad genomflöde. Du behöver exempelvis kör ett antal jobb i en angiven tidsperiod och vill skala upp dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>And<br/> Du behöver inte jobb ska köras omedelbart |
+|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Du måste garanterad genomflöde. Du behöver exempelvis kör ett antal jobb i en angiven tidsperiod och vill skala upp dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>Och<br/> Du behöver inte jobb ska köras omedelbart |

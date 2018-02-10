@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -130,10 +130,14 @@ Gästen/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gästen/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB 
 Gästen/server disk med 4K logisk och 4 k fysisk sektorstorlek | Ja
 Gästen/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja 
-Gästen/server-volym med stripe disk > 1 TB<br/><br/> Hantering av LVM logiska volymer gäst/server - lagringsutrymmen | Ingen disk har varm Lägg till/ta bort gäst-server | Ingen gäst/server - utesluta disk | Ja Multipath för gäst-server (MPIO) | EJ TILLÄMPLIGT
+Gästen/server-volym med stripe disk > 4 TB <br><br/>Hantering av LVM logiska volymer | Ja
+Gästen/server - lagringsutrymmen | Nej 
+Gästen/server varm Lägg till/ta bort disken | Nej 
+Gästen/server - utelämna disk | Ja 
+Gäst-server med flera sökvägar (MPIO) | Gäller inte
 
 > [!NOTE]
-> ** UEFI Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
+> ** UEFI ** Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
 > - Endast migrering till Azure stöds. Återställning till det lokala VMware-platsen stöds inte.
 > - Servern bör inte ha fler än 4 partitioner på OS-disk.
 > - Kräver Azure Site Recovery mobilitetstjänstversionen 9.13 eller senare.

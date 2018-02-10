@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Store med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Om du vill använda huvudnamn autentiseringen av tjänsten registrera en entitet
 
 >[!IMPORTANT]
 > Kontrollera att du ger service principal rätt behörighet i Azure Data Lake Store:
->- **Som källa**, bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll (IAM).
->- **Som mottagare**, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att kopiera (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel:
+>- **Som källa**, i Data explorer -> åtkomst, bevilja minst **Läs + Execute** behörighet att visa och kopiera filerna i mappen/undermappar eller **Läs** tillstånd att kopiera en fil, och Välj att lägga till som **behörigheten och en standard behörighetspost**. Inga krav på administratörsnivå kontroll (IAM).
+>- **Som mottagare**, i Data explorer -> åtkomst, bevilja minst **skriva + köra** behörighet att skapa underordnade objekt i mappen och välja att lägga till som **behörigheten och en standard behörighetspost**. Om du använder Azure IR för att kopiera (både källa och mottagare är i molnet), i åtkomstkontroll (IAM) ger minst **Reader** för att låta Data Factory identifiera Data Lake Store-region. Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel.
 
 Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckeln. Markera det här fältet som en SecureString. | Ja |
+| servicePrincipalKey | Ange programmets nyckeln. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel:**
 
@@ -114,12 +114,12 @@ En datafabrik kan associeras med en [hanterade tjänstidentiteten](data-factory-
 Använda hanteringstjänster identitetsverifiering (MSI):
 
 1. [Hämta data factory-tjänsten](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”IDENTITY-ID för programmet” skapas tillsammans med din factory.
-2. Ge service identitet åtkomst till Data Lake Store på samma sätt som du gör för tjänstens huvudnamn. Detaljerade anvisningar finns i [tjänst-till-tjänst autentisering - tilldela Azure AD-program till Azure Data Lake Store-konto filen eller mappen](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Ge service identitet åtkomst till Data Lake Store på samma sätt som du gör för tjänstens huvudnamn följande kommentarerna nedan.
 
 >[!IMPORTANT]
 > Kontrollera att du ger data factory-tjänsten identitet rätt behörighet i Azure Data Lake Store:
->- **Som källa**, bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll (IAM).
->- **Som mottagare**, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att kopiera (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel:
+>- **Som källa**, i Data explorer -> åtkomst, bevilja minst **Läs + Execute** behörighet att visa och kopiera filerna i mappen/undermappar eller **Läs** tillstånd att kopiera en fil, och Välj att lägga till som **behörigheten och en standard behörighetspost**. Inga krav på administratörsnivå kontroll (IAM).
+>- **Som mottagare**, i Data explorer -> åtkomst, bevilja minst **skriva + köra** behörighet att skapa underordnade objekt i mappen och välja att lägga till som **behörigheten och en standard behörighetspost**. Om du använder Azure IR för att kopiera (både källa och mottagare är i molnet), i åtkomstkontroll (IAM) ger minst **Reader** för att låta Data Factory identifiera Data Lake Store-region. Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel.
 
 I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna Data Lake Store-informationen i den länkade tjänsten.
 

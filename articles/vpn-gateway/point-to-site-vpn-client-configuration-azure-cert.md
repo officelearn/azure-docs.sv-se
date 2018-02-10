@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2018
+ms.date: 02/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: efe5d3db16db83568bb844894198b59a6b39f626
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för interna Azure certifikat autentisering P2S-konfigurationer
 
@@ -72,8 +72,9 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
 1. Välj VPN-klienten konfigurationsfilerna som motsvarar arkitekturen på Windows-dator. Välj installationspaketet 'VpnClientSetupAmd64' för en 64-bitars processorarkitektur. Välj installationspaketet 'VpnClientSetupX86' för en 32-bitars processorarkitektur. 
 2. Dubbelklicka på paketet du vill installera den. Om du ser ett SmartScreen-popup-fönster klickar du på **Mer information** och sedan på **Kör ändå**.
 3. På klientdatorn går du till **Nätverksinställningar** och klickar på **VPN**. VPN-anslutningen visar namnet på det virtuella nätverk som den ansluter till. 
+4. Innan du försöker ansluta och kontrollera att har du installerat ett klientcertifikat på klientdatorn. Ett klientcertifikat krävs för autentisering när du använder inbyggd Azure authentication certifikattyp. Mer information om hur du genererar certifikat finns [generera certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klientcertifikat finns [installera ett klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>Konfiguration för VPN-klienten på Mac-datorer (OSX)
+## <a name="installmac"></a>VPN-klientkonfiguration på Mac-datorer (OS X)
 
 Azure tillhandahåller inte mobileconfig-filen för interna Azure certifikatautentisering. Du måste manuellt konfigurera den inbyggda IKEv2 VPN-klienten på alla Mac som ska ansluta till Azure. Den **allmänna** mappen innehåller all information du behöver konfigurera den. Om du inte ser den generiska mappen i hämtningen, är det troligt att IKEv2 inte var markerat som ett Tunneltyp. Skapa zip-filen om du vill hämta den generiska mappen när IKEv2 är markerad. Den generiska mappen innehåller följande filer:
 
@@ -90,27 +91,28 @@ Klicka på **Lägg till** att importera.
     >[!NOTE]
     >Dubbelklicka på certifikatet kan inte visa den **Lägg till** dialogrutan, men certifikatet har installerats i rätt lager. Du kan söka efter certifikatet i nyckelringen inloggningen under kategorin certifikat.
   
-2. Öppna den **nätverk** dialogrutan under **nätverksinställningar** och på **”+”** att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure VNet.
+2. Kontrollera att du har installerat ett klientcertifikat som har utfärdats av rotcertifikatet som du har överfört till Azure när du konfigurerade P2S inställningar. Detta skiljer sig från VPNServerRoot som du installerade i föregående steg. Klientcertifikatet används för autentisering och krävs. Mer information om hur du genererar certifikat finns [generera certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klientcertifikat finns [installera ett klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Öppna den **nätverk** dialogrutan under **nätverksinställningar** och på **”+”** att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure VNet.
 
   Den **gränssnittet** värdet är 'VPN- och **VPN-typ** värdet är 'IKEv2'. Ange ett namn för profilen i den **tjänstnamnet** fältet och klicka sedan på **skapa** att skapa VPN-anslutningsprofilen för klienten.
 
   ![Nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. I den **allmänna** mappen från den **VpnSettings.xml** fil, kopiera den **VpnServer** taggvärde. Klistra in det här värdet i den **serveradress** och **fjärr-ID för** för profilen.
+4. I den **allmänna** mappen från den **VpnSettings.xml** fil, kopiera den **VpnServer** taggvärde. Klistra in det här värdet i den **serveradress** och **fjärr-ID för** för profilen.
 
   ![server info](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. Klicka på **autentiseringsinställningar** och välj **certifikat**. 
+5. Klicka på **autentiseringsinställningar** och välj **certifikat**. 
 
   ![autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Klicka på **Välj...** att välja det klientcertifikat som du vill använda för autentisering. Ett certifikat ska vara installerad på datorn (se steg #2 i den **P2S arbetsflöde** ovan).
+6. Klicka på **Välj...** att välja det klientcertifikat som du vill använda för autentisering. Detta är det certifikat som du installerade i steg 2.
 
   ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. **Välj en identitet** visar en lista över certifikat som du kan välja från. Välj rätt certifikat och klicka sedan på **Fortsätt**.
+7. **Välj en identitet** visar en lista över certifikat som du kan välja från. Välj rätt certifikat och klicka sedan på **Fortsätt**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. I den **lokalt ID** anger namnet på certifikatet (från steg 6). I det här exemplet är det ”ikev2Client.com”. Klicka på **tillämpa** för att spara ändringarna.
+8. I den **lokalt ID** anger namnet på certifikatet (från steg 6). I det här exemplet är det ”ikev2Client.com”. Klicka på **tillämpa** för att spara ändringarna.
 
   ![använd](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. På den **nätverk** dialogrutan klickar du på **tillämpa** spara alla ändringar. Klicka på **Anslut** att starta P2S-anslutning till Azure VNet.
+9. På den **nätverk** dialogrutan klickar du på **tillämpa** spara alla ändringar. Klicka på **Anslut** att starta P2S-anslutning till Azure VNet.
 
 ## <a name="next-steps"></a>Nästa steg
 

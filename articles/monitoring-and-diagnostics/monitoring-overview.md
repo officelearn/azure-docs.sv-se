@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -57,8 +57,11 @@ Följande Azure-tjänster innehåller omfattande funktioner för att samla in oc
 [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) ger inblick i IaaS-miljö genom att analysera virtuella datorer med olika processer och beroenden på andra datorer och externa processer.  Det integreras händelser, prestandadata och lösningar för hantering i logganalys så att du kan visa dessa data i kontexten för varje dator och dess relation till resten av miljön.  Tjänstkarta liknar den [programavbildningen i Application Insights](../application-insights/app-insights-app-map.md) men fokuserar på infrastrukturkomponenter stöd för dina program.
 
 ### <a name="network-watcher"></a>Network Watcher
-[Nätverk Watcher](../network-watcher/network-watcher-monitoring-overview.md) ger scenariobaserade övervakning och diagnostik för scenarier för olika nätverk i Azure.  Den lagrar data i Azure mätvärden och diagnostikfunktionerna för ytterligare analys och fungerar med [hanteringslösningar i logganalys](../log-analytics/log-analytics-azure-networking-analytics.md) för fullständig övervakning av nätverksresurserna.
-
+[Nätverk Watcher](../network-watcher/network-watcher-monitoring-overview.md) ger scenariobaserade övervakning och diagnostik för scenarier för olika nätverk i Azure.  Data lagras i Azure mätvärden och diagnostikfunktionerna för ytterligare analys och fungerar med följande lösningar för att övervaka olika aspekter av nätverket för nätverksövervakning:
+* [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) – en molnbaserad nätverket övervakningslösning som övervakar anslutningar i offentliga moln, Datacenter och lokala miljöer
+* [Övervakare för ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -en NPM-funktion som övervakar slutpunkt till slutpunkt-anslutning och prestanda över ExpressRoute-kretsar.
+* Trafik Analytics - en molnbaserad lösning som ger inblick i användar- och programaktivitet på nätverket molnet.
+* [DNS-Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) -ger säkerhet, prestanda och åtgärder relaterade insights, baserat på DNS-servrarna.
 
 ### <a name="management-solutions"></a>Hanteringslösningar
 [Hanteringslösningar](../log-analytics/log-analytics-add-solutions.md) är paketerade uppsättningar av logik som ger inblick i för ett visst program eller tjänst.  De förlitar sig på Log Analytics för att lagra och analysera övervakning information som samlas in.  Hanteringslösningar är tillgängliga från Microsoft och partners som ger övervakning för olika tjänster för Azure och från tredje part. Exempel på övervakningslösningar inkluderar [behållare övervakning](../log-analytics/log-analytics-containers.md) som hjälper dig att visa och hantera dina värdar för behållaren och [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md) som samlar in och visualizes prestandamått för SQL Azure-databaser.

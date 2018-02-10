@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Aggregering av händelse och med EventFlow
 
@@ -43,6 +43,9 @@ När alla paket som är installerade, är nästa steg att konfigurera och aktive
 
 ## <a name="configure-and-enable-log-collection"></a>Konfigurera och aktivera Logginsamling
 Ansvarar för att skicka loggar EventFlow pipelinen har skapats från en specifikation som lagras i en konfigurationsfil. Den `Microsoft.Diagnostics.EventFlow.ServiceFabric` paketet installerar en första EventFlow konfigurationsfil under `PackageRoot\Config` lösningsmapp som heter `eventFlowConfig.json`. Den här konfigurationsfilen måste ändras för att samla in data från standardtjänsten `EventSource` klass och andra indata som du vill konfigurera och skicka data till rätt plats.
+
+>[!NOTE]
+>Om projektfilen har VisualStudio 2017 format på `eventFlowConfig.json` kommer inte att automatiskt lägga till filen. Åtgärda detta skapa filen i den `Config` mapp och ange build-åtgärd till `Copy if newer`. 
 
 Här är ett exempel *eventFlowConfig.json* baserat på NuGet-paketen som nämns ovan:
 ```json
@@ -146,7 +149,7 @@ servicefabric:/<section-name>/<setting-name>
 
 `<section-name>`är namnet på konfigurationsavsnittet Service Fabric och `<setting-name>` är Konfigurationsinställningen med ett värde som ska användas för att konfigurera en EventFlow inställning. Att läsa mer om hur du gör detta, gå till [stöd för Service Fabric-inställningar och programparametrar](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
-## <a name="verification"></a>Verifieringen
+## <a name="verification"></a>Verifiering
 
 Starta tjänsten och notera att felsöka utdatafönstret i Visual Studio. När tjänsten har startats borde du se bevis som din tjänst skickar poster till utdata som du har konfigurerat. Navigera till din händelse analys och visualisering plattform och bekräftar du att loggarna har startats att visa upp (kan ta några minuter).
 

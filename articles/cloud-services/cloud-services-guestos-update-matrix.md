@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="january-29-2018"></a>**Den 29 januari 2018**
+Gästoperativsystem januari har släppts för OS-familjer 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GÄST-OS-3.57_201801-01)
+
 ###### <a name="january-4-2018"></a>**4 januari 2018**
 Gästoperativsystem januari har släppts för OS-familjer 4 (WA-GÄST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) och innehåller viktiga säkerhetskorrigeringar.  
 
@@ -80,7 +83,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 ## <a name="family-5-releases"></a>Familj 5 versioner
 **Windows Server 2016**
 
-.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras.
@@ -92,7 +95,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 | --- | --- | --- | --- |
 | WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Bokför 5,17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |TBD |
-| WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Bokför 5.15 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
@@ -106,7 +109,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 ## <a name="family-4-releases"></a>Familj 4 versioner
 **Windows Server 2012 R2**
 
-.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -117,7 +120,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 | --- | --- | --- | --- |
 | WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Bokför 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Bokför 4.51 |TBD |
-| WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Bokför 4,50 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
@@ -131,7 +134,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 ## <a name="family-3-releases"></a>Familj 3-versioner
 **Windows Server 2012**
 
-.NET framework har installerats: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -140,8 +143,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.57_2017801-01 |Den 29 januari 2018 |Bokför 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |TBD |
-| WA-GUEST-OS-3.55_201711-01 |14 december 2017 |Bokför 3.57 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
@@ -155,7 +159,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
 
-.NET framework har installerats: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Datum med ett * kan komma att ändras
@@ -164,8 +168,9 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.70_201801-01 |Den 29 januari 2018 |Bokför 2.72 |TBD |
 | WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |TBD |
-| WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Bokför 2.70 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
@@ -187,10 +192,10 @@ Lista över korrigeringsprogram som ingår i varje månad gäst-OS-version är t
 | OS-Gästfamiljen | Kompatibel SDK-versioner |
 | --- | --- |
 | 5 |Version 2.9.5.1+ |
-| 4 |Version 2.1 + |
-| 3 |Version 1.8 + |
-| 2 |Version 1.3 + |
-| 1 |Version 1.0 + |
+| 4 |Version 2.1+ |
+| 3 |Version 1.8+ |
+| 2 |Version 1.3+ |
+| 1 |Version 1.0+ |
 
 ## <a name="guest-os-release-information"></a>Information för gäst-OS-versionen
 Det finns tre datum som är viktiga för gäst-OS-versioner: **släpper** datum, **inaktiverad** datum och **giltighetstid** datum. Ett gäst-OS anses vara tillgänglig när den är i portalen och kan väljas som mål Gästoperativsystem. När ett gäst-OS når den **inaktiverad** datum, den tas bort från Azure. Alla Molntjänsten som mål som Gästoperativsystem fortfarande fungerar dock som vanligt.

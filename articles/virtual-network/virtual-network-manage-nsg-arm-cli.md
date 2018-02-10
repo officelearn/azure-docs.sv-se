@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Hantera säkerhetsgrupper i nätverket med hjälp av Azure CLI
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Krav
-Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login). 
+Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Visa befintliga NSG: er
-Om du vill visa listan över NSG: er i en viss resursgrupp, kör den [az nsg nätverkslistan](/cli/azure/network/nsg#list) med en `-o table` utdataformat:
+Om du vill visa listan över NSG: er i en viss resursgrupp, kör den [az nsg nätverkslistan](/cli/azure/network/nsg#az_network_nsg_list) med en `-o table` utdataformat:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Förväntad utdata:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Visa en lista med alla regler för en NSG
-Visa regler för en NSG som heter **NSG-klientdel**kör den [az nätverket nsg visa](/cli/azure/network/nsg#show) med en [JMESPATH frågefilter](/cli/azure/query-az-cli2) och `-o table` utdataformat:
+Visa regler för en NSG som heter **NSG-klientdel**kör den [az nätverket nsg visa](/cli/azure/network/nsg#az_network_nsg_show) med en [JMESPATH frågefilter](/cli/azure/query-az-cli2) och `-o table` utdataformat:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Förväntad utdata:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> Du kan också använda [az nätverket nsg regellistan](/cli/azure/network/nsg/rule#list) att visa de anpassade reglerna från en NSG.
+> Du kan också använda [az nätverket nsg regellistan](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) att visa de anpassade reglerna från en NSG.
 >
 
 ## <a name="view-nsg-associations"></a>Visa NSG associationer
@@ -151,7 +151,7 @@ Förväntad utdata:
 ```
 
 ## <a name="change-a-rule"></a>Ändra en regel
-Ändra den regel som skapade tidigare, för att tillåta inkommande trafik från den **Internet** endast kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#update) kommando:
+Ändra den regel som skapade tidigare, för att tillåta inkommande trafik från den **Internet** endast kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) kommando:
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Koppla en NSG till ett nätverkskort
-Associera den **NSG-klientdel** NSG till den **TestNICWeb1** NIC, Använd den [az nätverket nic uppdatering](/cli/azure/network/nic#update) kommando:
+Associera den **NSG-klientdel** NSG till den **TestNICWeb1** NIC, Använd den [az nätverket nic uppdatering](/cli/azure/network/nic#az_network_nic_update) kommando:
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Förväntad utdata:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Koppla bort en NSG från ett nätverkskort
 
-Koppla bort den **NSG-klientdel** NSG från den **TestNICWeb1** NIC, kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#update) kommandot igen, men ersätt den `--network-security-group` argument med en tom sträng (`""`).
+Koppla bort den **NSG-klientdel** NSG från den **TestNICWeb1** NIC, kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) kommandot igen, men ersätt den `--network-security-group` argument med en tom sträng (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 Utdata och den `networkSecurityGroup` nyckel har angetts till null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Koppla bort en NSG från ett undernät
-Koppla bort den **NSG-klientdel** NSG från den **klientdel** undernät, kör igen den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#update) kommandot igen, men ersätt den `--network-security-group` argument med en tom sträng (`""`).
+Koppla bort den **NSG-klientdel** NSG från den **klientdel** undernät, kör igen den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) kommandot igen, men ersätt den `--network-security-group` argument med en tom sträng (`""`).
 
 ```azurecli
 az network vnet subnet update \

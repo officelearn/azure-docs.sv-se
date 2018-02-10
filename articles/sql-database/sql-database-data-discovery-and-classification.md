@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasinformation identifiering och klassificering
-Identifiering av data och klassificering (för närvarande i förhandsversion) innehåller avancerade funktioner finns inbyggda i Azure SQL Database för identifiering, klassificering, etiketter och skydda känsliga data i databasen.
+Identifiering av data & klassificering (för närvarande i förhandsversion) ger avancerade funktioner finns inbyggda i Azure SQL Database för **identifiera**, **klassificera**, **etiketter**  &  **skyddar** känsliga data i databasen.
 Identifiera och klassificera dina största känsliga data (företag för finansiella, hälsovård, personligt identifierbar information, etc.) kan en nyckelroll i din organisation Information protection status. Den kan fungera som infrastrukturen för:
 * Olika säkerhetsscenarier, till exempel övervakning (granskning) och aviseringar om avvikande tillgång till känsliga data.
 * Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller känsliga data.
@@ -93,7 +93,7 @@ Klassificeringen innehåller två metadataattribut:
 
 ## <a id="subheading-3"></a>Granska åtkomst till känsliga data
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar klassificeringen känslighet (etiketter) på data som returnerades av frågan.
+En viktig del av information protection paradigmet är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar klassificeringen känslighet (etiketter) på data som returnerades av frågan.
 
 ![Navigeringsfönstret][11]
 

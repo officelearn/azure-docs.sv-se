@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
 
@@ -29,6 +29,9 @@ Uppdatera din [Azure Linux-agenten](https://github.com/Azure/WALinuxAgent) på e
 - En anslutning för att Linux-VM via SSH.
 
 Du bör alltid kontrollera för ett paket i Linux distro databasen först. Det är möjligt tillgängliga paketet inte kanske den senaste versionen, men att aktivera automatisk uppdatering säkerställer Linux-Agent kommer alltid att hämta den senaste uppdateringen. Om du har problem med att installera från paketet chefer, bör du söka stöd från distro leverantören.
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Stöd för agenten av minsta virtuella datorer i Azure
+Kontrollera den [minst Versionsstöd för virtuell dator agenter i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) innan du fortsätter.
 
 ## <a name="updating-the-azure-linux-agent"></a>Uppdatera Azure Linux-agenten
 

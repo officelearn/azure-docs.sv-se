@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Du kan skapa en länkad Azure Storage-tjänst genom att använda för kontot. De
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **AzureStorage**. |Ja |
-| connectionString | Ange information som behövs för att ansluta till lagring för egenskapen connectionString. Markera det här fältet som SecureString. |Ja |
+| connectionString | Ange information som behövs för att ansluta till lagring för egenskapen connectionString. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i ett privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -93,7 +93,7 @@ Om du vill använda autentisering med signatur för delad åtkomst service stöd
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till **AzureStorage**. |Ja |
-| sasUri | Ange signaturen för delad åtkomst URI till lagringsresurser, till exempel blob, behållare eller tabellen. Markera det här fältet som SecureString. |Ja |
+| sasUri | Ange signaturen för delad åtkomst URI till lagringsresurser, till exempel blob, behållare eller tabellen. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [integrering runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i ett privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -269,10 +269,10 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 
 | Azure Table-datatyp | Data Factory tillfälliga datatyp | Information |
 |:--- |:--- |:--- |
-| Edm.Binary |byte] |En matris med byte upp till 64 KB. |
+| Edm.Binary |byte |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar midnatt 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar den 31 December 9999. |
-| Edm.Double |dubbel |En 64-bitars flytande punktvärdet. |
+| Edm.Double |dubbla |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |

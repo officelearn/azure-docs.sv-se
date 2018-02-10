@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Ställa in Oracle ASM på en virtuell Azure Linux-dator  
 
@@ -35,13 +35,13 @@ Virtuella datorer i Azure ger en fullständigt konfigurerbara och flexibel dator
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du kan skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#create) kommando. En Azure-resursgrupp är en logisk behållare i vilka Azure resurser distribueras och hanteras. I det här exemplet en resursgrupp med namnet *myResourceGroup* i den *eastus* region.
+Du skapar en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare i vilka Azure resurser distribueras och hanteras. I det här exemplet en resursgrupp med namnet *myResourceGroup* i den *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Om du vill skapa en virtuell dator baserat på bilden Oracle-databas och konfigurera den för användning av Oracle ASM, Använd den [az vm skapa](/cli/azure/vm#create) kommando. 
+Om du vill skapa en virtuell dator baserat på bilden Oracle-databas och konfigurera den för användning av Oracle ASM, Använd den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
 
 I följande exempel skapas en virtuell dator med namnet myVM som har en Standard_DS2_v2 storlek med fyra bifogade datadiskar på 50 GB. Om de inte redan finns på standardplatsen för nyckeln, skapas också SSH-nycklar.  Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 

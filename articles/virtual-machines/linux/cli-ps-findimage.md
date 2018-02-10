@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hur du hittar Linux VM avbildningar i Azure Marketplace med Azure CLI
 Det här avsnittet beskriver hur du använder Azure CLI 2.0 för att hitta VM-avbildningar i Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en Linux VM.
@@ -41,7 +41,7 @@ Om du vill ange en Marketplace-avbildning, använder du vanligtvis bilden *URN*.
 
 ## <a name="list-popular-images"></a>Lista över populära bilder
 
-Kör den [az vm bildlista](/cli/azure/vm/image#list) kommandot, utan de `--all` alternativet om du vill se en lista över populära VM-avbildningar i Azure Marketplace. Till exempel köra följande kommando för att visa en cachelagrad lista över populära bilder i tabellformat:
+Kör den [az vm bildlista](/cli/azure/vm/image#az_vm_image_list) kommandot, utan de `--all` alternativet om du vill se en lista över populära VM-avbildningar i Azure Marketplace. Till exempel köra följande kommando för att visa en cachelagrad lista över populära bilder i tabellformat:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navigera avbildningar 
-Ett annat sätt att hitta en bild på en plats är att köra den [az vm avbildningen lista-utgivare](/cli/azure/vm/image#list-publishers), [az vm avbildningen lista-erbjudanden](/cli/azure/vm/image#list-offers), och [az vm avbildningen lista-SKU: er](/cli/azure/vm/image#list-skus) kommandon i sekvens. Med dessa kommandon bestämma dessa värden:
+Ett annat sätt att hitta en bild på en plats är att köra den [az vm avbildningen lista-utgivare](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm avbildningen lista-erbjudanden](/cli/azure/vm/image#az_vm_image_list_offers), och [az vm avbildningen lista-SKU: er](/cli/azure/vm/image#az_vm_image_list_skus) kommandon i sekvens. Med dessa kommandon bestämma dessa värden:
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu välja exakt den avbildning som du vill använda genom att anteckna värdet för URN. Skicka detta värde med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm#create) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av distributionen. För att snabbt skapa en virtuell dator med hjälp av URN information, se [skapa och hantera virtuella Linux-datorer med Azure CLI](tutorial-manage-vm.md).
+Du kan nu välja exakt den avbildning som du vill använda genom att anteckna värdet för URN. Skicka detta värde med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av distributionen. För att snabbt skapa en virtuell dator med hjälp av URN information, se [skapa och hantera virtuella Linux-datorer med Azure CLI](tutorial-manage-vm.md).

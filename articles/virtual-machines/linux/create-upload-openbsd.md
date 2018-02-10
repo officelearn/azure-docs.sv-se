@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en diskavbildning OpenBSD till Azure
 Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) som innehåller operativsystemet OpenBSD. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure med Azure CLI.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** -om du inte har ett konto kan du skapa en på bara några minuter. Om du har en MSDN-prenumeration, se [månatliga Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars Lär dig hur du [skapa ett kostnadsfritt utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -Kontrollera att du har senast [Azure CLI 2.0](/cli/azure/install-azure-cli) installerad och inloggad på ditt Azure-konto med [az inloggningen](/cli/azure/#login).
+* **Azure CLI 2.0** -Kontrollera att du har senast [Azure CLI 2.0](/cli/azure/install-azure-cli) installerad och inloggad på ditt Azure-konto med [az inloggningen](/cli/azure/#az_login).
 * **OpenBSD operativsystem i en VHD-fil** -en OpenBSD operativsystem som stöds (version 6.1) måste installeras på en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer. Du kan till exempel använda en virtualiseringslösning som Hyper-V för att skapa VHD-filen och installera operativsystemet. Instruktioner om hur du installerar och använder Hyper-V finns i [installera Hyper-V och skapa en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Skapa storage-resurser och ladda upp
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Överför den virtuella Hårddisken genom att skapa ett lagringskonto med [az storage-konto skapar](/cli/azure/storage/account#create). Lagringskontonamn måste vara unikt, så ange dina egna namn. I följande exempel skapas ett lagringskonto med namnet *mittlagringskonto*:
+Överför den virtuella Hårddisken genom att skapa ett lagringskonto med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create). Lagringskontonamn måste vara unikt, så ange dina egna namn. I följande exempel skapas ett lagringskonto med namnet *mittlagringskonto*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-För att styra åtkomst till lagringskontot, Hämta nyckel för säkerhetslagring med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#list) på följande sätt:
+För att styra åtkomst till lagringskontot, Hämta nyckel för säkerhetslagring med [az nycklar lagringskontolistan](/cli/azure/storage/account/keys#az_storage_account_keys_list) på följande sätt:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Logiskt separata de virtuella hårddiskarna som du laddar upp, skapa en behållare i lagringskontot med [az lagringsbehållaren skapa](/cli/azure/storage/container#create):
+Logiskt separata de virtuella hårddiskarna som du laddar upp, skapa en behållare i lagringskontot med [az lagringsbehållaren skapa](/cli/azure/storage/container#az_storage_container_create):
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Slutligen överför den virtuella Hårddisken med [az storage blob överför](/cli/azure/storage/blob#upload) på följande sätt:
+Slutligen överför den virtuella Hårddisken med [az storage blob överför](/cli/azure/storage/blob#az_storage_blob_upload) på följande sätt:
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Skapa virtuell dator från den virtuella Hårddisken
-Du kan skapa en virtuell dator med en [exempel på skript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [az vm skapa](/cli/azure/vm#create). Ange OpenBSD VHD du överförde den `--image` parameter på följande sätt:
+Du kan skapa en virtuell dator med en [exempel på skript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [az vm skapa](/cli/azure/vm#az_vm_create). Ange OpenBSD VHD du överförde den `--image` parameter på följande sätt:
 
 ```azurecli
 az vm create \

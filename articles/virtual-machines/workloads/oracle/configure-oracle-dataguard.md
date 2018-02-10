@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3eff4a396c2fd0b52a50a201ceb1a91bae710dc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle Data Guard på en virtuell Azure Linux-dator 
 
@@ -39,7 +39,7 @@ Marketplace-avbildning som används för att skapa de virtuella datorerna är Or
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på din Azure-prenumeration med hjälp av den [az inloggningen](/cli/azure/#login) kommandot och följ de på skärmen riktningar.
+Logga in på din Azure-prenumeration med hjälp av den [az inloggningen](/cli/azure/#az_login) kommandot och följ de på skärmen riktningar.
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med hjälp av den [az gruppen skapa](/cli/azure/group#create) kommando. En Azure-resursgrupp är en logisk behållare i vilka Azure resurser distribueras och hanteras. 
+Skapa en resursgrupp med hjälp av den [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk behållare i vilka Azure resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westus` plats:
 
@@ -69,7 +69,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#create) kommando. 
+Skapa en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
 
 I följande exempel skapar två virtuella datorer med namnet `myVM1` och `myVM2`. Det skapar också SSH-nycklar, om de inte redan finns på standardplatsen nyckel. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
@@ -572,7 +572,7 @@ cdb1_stby=
   )
 ```
 
-Starta SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -616,7 +616,7 @@ DGMGRL>
 
 Du kan ansluta till vänteläge databasen nu.
 
-Starta SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 
@@ -658,7 +658,7 @@ Switchover succeeded, new primary is "cdb1"
 
 Återigen ska du nu kunna ansluta till den primära databasen.
 
-Starta SQL * Plus:
+Start SQL*Plus:
 
 ```bash
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa viktig information för Azure Media Services sammanfattar ändringar från tidigare versioner och kända problem.
@@ -190,7 +190,7 @@ Media Services erbjuder nu möjlighet att skydda både video på begäran och li
 
 Mer information finns i [bloggen](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Du kan använda den [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (från och med version 3.5.1) eller REST-API för att konfigurera AssetDeliveryConfiguration för att använda Widevine. 
+Du kan använda [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (från och med version 3.5.1) eller REST API för att konfigurera din AssetDeliveryConfiguration för att använda Widevine. 
 * Media Services tillagt stöd för Apple ProRes videor. Du kan överföra QuickTime videor källfilerna som använder Apple ProRes eller andra codec. Mer information finns i [bloggen](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Du kan nu använda Media Encoder Standard för att göra utvinning subclipping och live Arkiv. Mer information finns i [bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Följande filtrera uppdateringar har gjorts: 
@@ -348,8 +348,8 @@ Media Services SDK för .NET är nu version 3.0.0.7
 * Dynamisk strömmande förhandsgranskning. Mer information finns i [fungerar med Media Services live strömmande](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Viktiga leverans av tjänsten. Mer information finns i [Använd AES-128 dynamisk kryptering och tjänsten key](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Dynamisk AES-kryptering. Mer information finns i [Använd AES-128 dynamisk kryptering och tjänsten key](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Playreadys licensleveranstjänst. Mer information finns i [Använd PlayReady dynamisk kryptering och licensleveranstjänst](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* PlayReady dynamisk kryptering. Mer information finns i [Använd PlayReady dynamisk kryptering och licensleveranstjänst](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* Playreadys licensleveranstjänst. 
+* PlayReady dynamisk kryptering. 
 * Media Services PlayReady license-mall. Mer information finns i [Media Services PlayReady licens mall översikt].
 * Dataströmmen lagring krypteras tillgångar. Mer information finns i [strömma lagring-krypterat innehåll](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -457,7 +457,7 @@ Följande ändringar är inkluderade i juni 2013 versioner av Media Services SDK
 * Från och med version 2.3.0.0 Media Services SDK stöder länka flera storage-konton till ett Media Services-konto. Följande API: er stöder den här funktionen:
   
     * IStorageAccount typ
-    * Egenskapen Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * StorageAccount egenskapen
     * StorageAccountName egenskapen
   

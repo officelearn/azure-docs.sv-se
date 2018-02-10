@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera Oracle guld Gate på en Azure Linux-dator 
 
@@ -44,13 +44,13 @@ Följande är en sammanfattning av konfigurationen miljö:
 > | **Operativsystem** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **Schemat för replikering** |TEST|TEST |
-> | **Guld Gate ägare/replikera** |C ##GGADMIN |REPUSER |
+> | **Guld Gate ägare/replikera** |C##GGADMIN |REPUSER |
 > | **Guld Gate-processen** |EXTORA |REPORA|
 
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på Azure-prenumerationen med den [az inloggningen](/cli/azure/#login) kommando. Följ den på skärmen riktningar.
+Logga in på Azure-prenumerationen med den [az inloggningen](/cli/azure/#az_login) kommando. Följ den på skärmen riktningar.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare i vilka Azure-resurser har distribuerats och från vilken de kan hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare i vilka Azure-resurser har distribuerats och från vilken de kan hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
 
 I följande exempel skapar två virtuella datorer med namnet `myVM1` och `myVM2`. Skapa SSH-nycklar om de inte redan finns på standardplatsen nyckel. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
@@ -436,7 +436,7 @@ Om du vill installera Oracle guld Gate, gör du följande:
 
   ![Skärmbild av sidan Välj Installation installer](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Ändra platsen för programvara. Välj sedan den **Starthanteraren** och anger platsen för databasen. Välj **nästa** att fortsätta.
+3. Ändra platsen för programvara. Välj sedan den **Starthanteraren** och anger platsen för databasen. Välj **Nästa** för att fortsätta.
 
   ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_02.png)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använda Azure Data Lake-verktyg för Visual Studio med Hortonworks Sandbox
 
@@ -27,7 +27,7 @@ Azure Data Lake innehåller verktyg för att arbeta med allmänt Hadoop-kluster.
 
 Med Hortonworks Sandbox kan du arbeta med Hadoop lokalt på din utvecklingsmiljö. När du har utvecklat en lösning och vill distribuera i skala, kan du sedan flytta till ett HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Hortonworks Sandbox körs i en virtuell dator på din utvecklingsmiljö. Dokumentet har skrivits och testas med sandbox körs i Oracle VirtualBox. Information om hur du konfigurerar sandbox finns det [Kom igång med Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) dokumentet.
 
@@ -53,13 +53,13 @@ Kontrollera att sandlådan Hortonworks körs. Följ stegen i den [komma igång i
 
     ![Skärmbild av dialogrutan med lösenordet i textrutan markerat](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Välj **nästa** att fortsätta.
+    Välj **Nästa** för att fortsätta.
 
 4. Använd den **lösenord** fältet för att ange lösenordet som du har konfigurerat för den `root` konto. Lämna de andra fälten standardvärdet.
 
     ![Skärmbild av dialogrutan med lösenordet i textrutan markerat](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Välj **nästa** att fortsätta.
+    Välj **Nästa** för att fortsätta.
 
 5. Vänta på verifiering av tjänster ska slutföras. I vissa fall verifieringen misslyckas och uppmanar dig att uppdatera konfigurationen. Om valideringen misslyckas, Välj **uppdatering**, och väntar på att konfigurations- och verifiering för tjänsten för att avsluta.
 

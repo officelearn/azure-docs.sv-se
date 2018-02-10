@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Ansluta till din Azure-SSIS-integrering runtime (IR) till ett Azure virtual network (VNet) i följande scenarier: 
@@ -31,7 +31,13 @@ Ansluta till din Azure-SSIS-integrering runtime (IR) till ett Azure virtual netw
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Åtkomst till lokala datalager
-Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du inte ansluta till Azure-SSIS IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta Azure SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. Om SSIS-katalogen finns i Azure SQL-databas som inte är i VNet, måste du öppna lämpliga portar. Om SSIS-katalogen finns i Azure SQL hanteras-instans som är i ett Azure Resource Manager VNet eller ett klassiskt virtuellt nätverk, kan du delta i Azure-SSIS IR till samma virtuella nätverk (eller) ett annat virtuellt nätverk som har en VNet-till-VNet-anslutning med det som har Azure SQL hanteras-instans. Följande avsnitt innehåller mer information.
+Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du inte ansluta till Azure-SSIS IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta Azure SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. 
+
+Om SSIS-katalogen finns i Azure SQL-databas som inte är i VNet, måste du öppna lämpliga portar. 
+
+Om SSIS-katalogen finns i Azure SQL hanteras instansen (MI) som är i ett VNet, kan du delta i Azure-SSIS IR till samma virtuella nätverk (eller) ett annat virtuellt nätverk som har en VNet-till-VNet-anslutning med det som har Azure SQL hanteras-instans. VNet kan vara ett klassiskt virtuellt nätverk eller ett Azure VNet för hantering av resursen. Om du planerar att ansluta till Azure-SSIS-IR den **samma virtuella nätverk** som innehåller SQL-MI, kontrollera att Azure-SSIS-IR är i ett **annat undernät** än det som har SQL-MI.   
+
+Följande avsnitt innehåller mer information.
 
 Här följer några viktiga saker att Observera: 
 
@@ -58,10 +64,11 @@ Det här avsnittet visar hur du kopplar en befintlig Azure SSIS-körning till et
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Använda portalen för att konfigurera ett klassiskt virtuellt nätverk
 Du måste först konfigurera VNet innan du kan ansluta till en Azure-SSIS-IR till VNet.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **fler tjänster**. Filtrera efter och välj **virtuella nätverk (klassiskt)**.
-3. Filtrera efter och välj din **virtuellt nätverk** i listan. 
-4. På sidan virtuella nätverk (klassiska) Välj **egenskaper**. 
+1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+2. Logga in på [Azure-portalen](https://portal.azure.com).
+3. Klicka på **fler tjänster**. Filtrera efter och välj **virtuella nätverk (klassiskt)**.
+4. Filtrera efter och välj din **virtuellt nätverk** i listan. 
+5. På sidan virtuella nätverk (klassiska) Välj **egenskaper**. 
 
     ![klassiska VNet-resurs-ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Klicka på kopieringsknappen för den **resurs-ID** Kopiera resurs-ID för det klassiska nätverket till Urklipp. Spara ID från Urklipp i OneNote eller en fil.
@@ -93,13 +100,14 @@ Du måste först konfigurera VNet innan du kan ansluta till en Azure-SSIS-IR til
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Använda portalen för att konfigurera en Azure Resource Manager-VNet
 Du måste först konfigurera VNet innan du kan ansluta till en Azure-SSIS-IR till VNet.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **fler tjänster**. Filtrera efter och välj **virtuella nätverken**.
-3. Filtrera efter och välj din **virtuellt nätverk** i listan. 
-4. Virtuella nätverk på sidan Välj **egenskaper**. 
-5. Klicka på kopieringsknappen för den **resurs-ID** Kopiera resurs-ID för det virtuella nätverket till Urklipp. Spara ID från Urklipp i OneNote eller en fil.
-6. Klicka på **undernät** på den vänstra menyn och kontrollera att antalet **tillgängliga adresser** är större än noderna i din Azure-SSIS-integrering runtime.
-5. Kontrollera att Azure Batch-provider är registrerad i Azure-prenumeration som har VNet eller registrera Azure Batch-providern. Om du redan har ett Azure Batch-konto i din prenumeration är prenumerationen registrerad för Azure Batch.
+1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+2. Logga in på [Azure-portalen](https://portal.azure.com).
+3. Klicka på **fler tjänster**. Filtrera efter och välj **virtuella nätverken**.
+4. Filtrera efter och välj din **virtuellt nätverk** i listan. 
+5. Virtuella nätverk på sidan Välj **egenskaper**. 
+6. Klicka på kopieringsknappen för den **resurs-ID** Kopiera resurs-ID för det virtuella nätverket till Urklipp. Spara ID från Urklipp i OneNote eller en fil.
+7. Klicka på **undernät** på den vänstra menyn och kontrollera att antalet **tillgängliga adresser** är större än noderna i din Azure-SSIS-integrering runtime.
+8. Kontrollera att Azure Batch-provider är registrerad i Azure-prenumeration som har VNet eller registrera Azure Batch-providern. Om du redan har ett Azure Batch-konto i din prenumeration är prenumerationen registrerad för Azure Batch.
     1. I Azure-portalen klickar du på **prenumerationer** på den vänstra menyn. 
     2. Välj din **prenumeration**. 
     3. Klicka på **resursproviders** till vänster och kontrollera att `Microsoft.Batch` är en registrerad provider. 
@@ -111,7 +119,8 @@ Du måste först konfigurera VNet innan du kan ansluta till en Azure-SSIS-IR til
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Anslut Azure SSIS-IR till ett virtuellt nätverk
 
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **datafabriker** på den vänstra menyn. Om du inte ser **datafabriker** på menyn, Välj **fler tjänster**väljer **datafabriker** i den **INTELLIGENCE + analys** avsnittet. 
+1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+2. I den [Azure-portalen](https://portal.azure.com)väljer **datafabriker** på den vänstra menyn. Om du inte ser **datafabriker** på menyn, Välj **fler tjänster**väljer **datafabriker** i den **INTELLIGENCE + analys** avsnittet. 
     
     ![Data fabriker lista](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Välj din data factory med Azure SSIS-integrering körning i listan. Du kan se startsidan för din data factory. Välj **författare & distribuera** panelen. Du kan se Data Factory-användargränssnittet (UI) i en separat flik. 

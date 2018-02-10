@@ -1,5 +1,5 @@
 ---
-title: "Uppdateringshanteringslösning i OMS | Microsoft Docs"
+title: "Uppdatera hanteringslösning i Azure | Microsoft Docs"
 description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att hantera uppdateringar för dina Windows- och Linux-datorer."
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5156beb82e1ca8aeb9817badc4fcb38971143d4f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
+# <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
 ![Symbolen Hantering av uppdateringar](./media/oms-solution-update-management/update-management-symbol.png)
 
-Lösningen för hantering av uppdateringar i OMS låter dig hantera säkerhetsuppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras via Azure, via lokala miljöer eller via andra molnleverantörer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+Lösning för hantering av uppdateringar i Azure kan du hantera uppdateringar av operativsystemet säkerheten för din Windows- och Linux-datorer som distribueras i Azure, lokala miljöer eller andra molntjänstleverantörer av.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 ## <a name="update-management-in-azure-automation"></a>Uppdateringshantering i Azure Automation
 
@@ -48,13 +48,13 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 #### <a name="linux"></a>Linux
 ![Processflöde för hantering av Linux-uppdateringar](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
-När datorn har sökt efter uppdateringskompatibilitet vidarebefordrar OMS-agenten informationen gruppvis till OMS. På en Window-dator utförs en kompatibilitetssökning var 12:e timme som standard.  Förutom sökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om Microsoft Monitoring Agent (MMA) startas om före installationen av uppdateringen och efteråt.  Kompatibilitetsgenomsökningen utförs var 3:e timme som standard med en Linux-dator och en kompatibilitetsgenomsökning initieras inom 15 minuter efter att MMA-agenten startas om.  
+När datorn utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar OMS-agenten informationen gruppvis till logganalys. På en Window-dator utförs en kompatibilitetssökning var 12:e timme som standard.  Förutom sökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om Microsoft Monitoring Agent (MMA) startas om före installationen av uppdateringen och efteråt.  Kompatibilitetsgenomsökningen utförs var 3:e timme som standard med en Linux-dator och en kompatibilitetsgenomsökning initieras inom 15 minuter efter att MMA-agenten startas om.  
 
 Kompatibilitetsinformationen bearbetas och sammanfattas sedan i de instrumentpaneler som ingår i lösningen eller som är sökbara med användardefinierade eller fördefinierade frågor.  Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är konfigurerad att synkronisera med.  Om Windows-datorn är konfigurerad för att rapportera till WSUS kan resultatet variera beroende på vad Microsoft Updates visar, beroende på när WSUS senast synkroniserades med Microsoft Update.  Samma sak gäller för Linux-datorer som är konfigurerade för att rapportera till en lokal repo versus en offentlig repo.   
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution.  Uppdateringar som klassificeras som *valfria* ingår inte i distributionsomfattningen för Windows-datorer, utan endast nödvändiga uppdateringar.  En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggsökningar för en viss uppsättning datorer.  Du kan även ange ett schema för att godkänna och ange en tidsperiod när uppdateringar ska kunna installeras.  Uppdateringar installeras av runbooks i Azure Automation.  Du kan inte kan se dessa runbook-flöden och de kräver inte någon konfigurering.  När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår.  Denna master-runbook startar en underordnad runbook på varje agent som utför installationen av de nödvändiga uppdateringarna.       
 
-Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt.  En sökning utförs först för att kontrollera om uppdateringarna fortfarande krävs och installerar dem.  Detta är viktigt att observera för WSUS-klientdatorer – om uppdateringarna inte är godkända i WSUS misslyckas uppdateringsdistributionen.  Resultaten av de tillämpade uppdateringarna vidarebefordras till OMS som ska bearbetas och sammanfattas i instrumentpaneler eller genom att söka efter händelser.     
+Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt.  En sökning utförs först för att kontrollera om uppdateringarna fortfarande krävs och installerar dem.  Detta är viktigt att observera för WSUS-klientdatorer – om uppdateringarna inte är godkända i WSUS misslyckas uppdateringsdistributionen.  Resultaten av tillämpade uppdateringar vidarebefordras till logganalys som ska bearbetas och sammanfattas i instrumentpanelerna eller genom att söka efter händelser.     
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Lösningen stöder utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och högre.  Nano Server stöds inte.
@@ -78,7 +78,7 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
 * Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.  
 
     > [!NOTE]
-    > En OMS-agent för Linux som konfigurerats för att rapportera till flera OMS-arbetsytor stöds inte av den här lösningen.  
+    > En OMS-Agent för Linux konfigurerad för att rapportera till flera logganalys arbetsytor stöds inte med den här lösningen.  
     >
 
 Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).  
@@ -90,7 +90,7 @@ För att skapa uppdateringsdistributioner måste du beviljas deltagarrollen båd
 Lösningen består av följande resurser som läggs till i ditt Automation-konto och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
 
 ### <a name="management-packs"></a>Hanteringspaket
-Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket.
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till logganalys-arbetsytan, installeras följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -99,34 +99,31 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till d
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ### <a name="hybrid-worker-groups"></a>Hybrid Worker-grupper
-När du har aktiverat den här lösningen konfigureras en Windows-dator direkt som du ansluter till din OMS-arbetsyta automatiskt som en Hybrid Runbook Worker för att ge stöd för runbook-flöden som ingår i den här lösningen.  Varje Windows-dator som hanteras av lösningen listas på bladet Hybrid Runbook Worker Groups (Hybrid Runbook Worker-grupper) på Automation-kontot följt av namnkonventionen *Värdnamn FQDN_GUID*.  Du kan inte ha de här grupperna som mål med runbook-flöden i ditt konto. Då misslyckas de. Grupperna är endast avsedda att stödja hanteringslösningen.   
+När du aktiverar den här lösningen, konfigureras automatiskt en Windows-dator som är direkt ansluten till logganalys-arbetsytan som en Hybrid Runbook Worker som stöd för runbooks som ingår i den här lösningen.  Varje Windows-dator som hanteras av lösningen listas på bladet Hybrid Runbook Worker Groups (Hybrid Runbook Worker-grupper) på Automation-kontot följt av namnkonventionen *Värdnamn FQDN_GUID*.  Du kan inte ha de här grupperna som mål med runbook-flöden i ditt konto. Då misslyckas de. Grupperna är endast avsedda att stödja hanteringslösningen.   
 
 Du kan emellertid lägga till Windows-datorer till en Hybrid Runbook Worker-grupp i ditt Automation-konto så att den stöder runbook-flöden för Automation så länge du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Konfiguration
-Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och bekräfta att agenterna rapporterar. Windows-agenter som redan är anslutna till ditt arbetsområde läggs till automatiskt utan någon ytterligare konfiguration.
+Utför följande steg om du vill lägga till lösning för hantering av uppdateringar i logganalys-arbetsytan och bekräfta agenterna rapporterar. Windows-agenter som redan är anslutna till ditt arbetsområde läggs till automatiskt utan någon ytterligare konfiguration.
 
-Du kan distribuera lösningen på följande sätt:
+Du kan distribuera lösningar från Azure Marketplace i Azure-portalen genom att välja den kontrollen & Automation erbjudande eller en lösning för hantering av uppdateringar
 
-* Från Azure Marketplace i Azure Portal genom att välja antingen erbjudandet Automatisering och kontroll eller lösningen för uppdateringshantering
-* Från OMS-lösningsgalleriet i OMS-arbetsytan
+Om du redan har ett Automation-konto och logganalys-arbetsytan kopplas samman i samma resursgrupp och region, kommer välja Automation & kontroll Kontrollera konfigurationen och endast installera lösningen och konfigurera det på båda tjänsterna.  Om du väljer lösningen för uppdateringshantering från Azure Marketplace blir beteendet detsamma.  Om ingen av tjänsterna är distribuerade i din prenumeration följer du anvisningarna på bladet **Skapa ny lösning** och bekräfta att du vill installera de andra förvalda rekommenderade lösningarna.  Du kan också kan du lägga till uppdateringshantering lösningen logganalys-arbetsytan med hjälp av stegen som beskrivs i [lägga till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md).  
 
-Om du redan har ett Automation-konto och en OMS-arbetsyta länkade i samma resursgrupp och region verifieras din konfiguration när du väljer Automation & Control, och endast lösningen installeras och konfigureras i båda tjänsterna.  Om du väljer lösningen för uppdateringshantering från Azure Marketplace blir beteendet detsamma.  Om ingen av tjänsterna är distribuerade i din prenumeration följer du anvisningarna på bladet **Skapa ny lösning** och bekräfta att du vill installera de andra förvalda rekommenderade lösningarna.  Du kan även lägga till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av de steg som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
+### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-log-analytics"></a>Bekräfta OMS-agenter och Operations Manager-hanteringsgrupp som är ansluten till logganalys
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Bekräfta OMS-agenter och Operations Manager-hanteringsgrupper som är anslutna till OMS
-
-Om du vill kontrollera att direktanslutna OMS-agenter för Linux och Windows kommunicerar med OMS kan du efter några minuter köra följande loggsökning:
+För att bekräfta direkt ansluten OMS-Agent för Linux och Windows kommunicerar med Log Analytics efter några minuter du kan köra följande loggen sökningen:
 
 * Linux – `Type=Heartbeat OSType=Linux | top 500000 | dedup SourceComputerId | Sort Computer | display Table`.  
 
 * Windows – `Type=Heartbeat OSType=Windows | top 500000 | dedup SourceComputerId | Sort Computer | display Table`
 
-På en Windows-dator kan du läsa följande för att verifiera agentanslutning med OMS:
+Du kan granska följande för att verifiera agent logganalys på en Windows-dator:
 
 1.  Öppna Microsoft Monitoring Agent i kontrollpanelen. På fliken **Azure Log Analytics (OMS)** visar agenten ett meddelande där det står: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite).   
-2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning.  Dessa händelser anger att datorn har registrerats med OMS-arbetsytan och tar emot konfigurationen.  
+2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning.  Dessa händelser anger datorn har registrerats med logganalys-arbetsytan och tar emot konfigurationen.  
 
-Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agent.md) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten är inte kan kommunicera med logganalys och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, bekräftar du att servern brandvägg eller proxyserver har konfigurerats korrekt genom att granska [nätverkskonfigurationen för Windows-agenten](../log-analytics/log-analytics-windows-agent.md) eller [nätverkskonfigurationen för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om Linux-system har konfigurerats för att kommunicera med en proxy- eller OMS-Gateway och du är i färd med att aktivera den här lösningen ska du uppdatera behörigheten *proxy.conf* för att ge gruppen omiuser läsbehörighet för filen genom att utföra följande kommandon:  
@@ -136,7 +133,7 @@ Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för 
 
 Nya Linux-agenter visar statusen **Uppdaterad** när en utvärdering har utförts.  Den här processen kan ta upp till 6 timmar.
 
-För att bekräfta att en Operations Manager-hanteringsgrupp kommunicerar med OMS läser du [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms) (Verifiera Operations Manager-integrering med OMS).
+För att bekräfta en hanteringsgrupp för Operations Manager kommunicerar med Log Analytics, se [Validera Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Datainsamling
 ### <a name="supported-agents"></a>Agenter som stöds
@@ -146,7 +143,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | Windows-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Linux-agenter och initierar installationen av nödvändiga uppdateringar för distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till OMS-databasen. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data skickas från hanteringsgruppen till logganalys-arbetsytan. |
 | Azure Storage-konto |Nej |Azure Storage inkluderar inte information om systemuppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
@@ -155,7 +152,7 @@ För varje hanterad Windows-dator utförs en genomsökning två gånger per dag.
 Det kan ta alltifrån 30 minuter upp till 6 timmar för instrumentpanelen att visa uppdaterade data från hanterade datorer.   
 
 ## <a name="using-the-solution"></a>Använda lösningen
-När du lägger till uppdateringshanteringslösningen i OMS-arbetsytan läggs panelen **Uppdateringshantering** till på OMS-instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
+När du lägger till uppdateringshantering lösningen logganalys-arbetsytan i **uppdateringshantering** panelen kommer att läggas till logganalys-instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
 ![Sammanfattningspanel för uppdateringshantering](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
@@ -220,7 +217,7 @@ Som standard är omfånget för de data som analyseras i uppdateringshanteringsl
 Om du vill ändra tidsintervallet för data väljer du **Databaserat för** längst upp på instrumentpanelen. Du kan välja poster som skapats eller uppdaterats under de senaste 7 dagarna, senaste dagen eller 6 timmarna. Du kan även välja **Anpassat** och ange ett eget datumintervall.
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
-Uppdateringshanteringslösningen skapar två typer av poster i OMS-databasen.
+Uppdatera hanteringslösningen skapar två typer av poster i logganalys-arbetsytan.
 
 ### <a name="update-records"></a>Uppdateringsposter
 En post med typen av **uppdatering** skapas för varje uppdatering som antingen installerats eller behövs på varje dator. Uppdateringsposter har egenskaper enligt följande tabell.
@@ -247,7 +244,7 @@ En post med typen av **uppdatering** skapas för varje uppdatering som antingen 
 | RevisionNumber |Uppdateringens revisionsnummer. |
 | SourceComputerId |GUID för unik identifiering av datorn. |
 | TimeGenerated |Datum och tid då posten senast uppdaterades. |
-| Rubrik |Uppdateringens titel. |
+| Namn |Uppdateringens titel. |
 | UpdateID |GUID för unik identifiering av uppdateringen. |
 | UpdateState |Anger om uppdateringen är installerad på den här datorn.<br>Möjliga värden:<br>- Installerad - Uppdateringen är installerad på den här datorn.<br>- Krävs - Uppdateringen är inte installerad och krävs på den här datorn. |
 
@@ -317,7 +314,7 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).
 
-Information om hur du integrerar med uppdateringshanteringslösningen i OMS med System Center Configuration Manager, finns i [Integrera System Center Configuration Manager med uppdateringshanteringslösningen i OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
+Information om hur du integrerar uppdateringshantering OMS-lösning med System Center Configuration Manager finns [integrera System Center Configuration Manager med OMS uppdateringshantering](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -335,7 +332,7 @@ Om det uppstår problem när du försöker integrera lösningen eller en virtuel
 | Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Det gick inte att skapa ett självsignerat certifikat. ---><br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har<br>läsbehörighet till mappen:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Hur felsöker jag distributioner av uppdateringar?
-Du kan visa resultatet för den runbook som ansvarar för att distribuera uppdateringarna som ingår i den schemalagda distributionen från bladet Jobb i ditt Automation-konto som är länkat till OMS-arbetsytan som stöder lösningen.  Runbooken **Patch-MicrosoftOMSComputer** är en underordnad runbook som har en specifik hanterad dator som mål. Om du granskar den utförliga strömmen visas detaljerad information för den distributionen.  Utdata visar vilka nödvändiga uppdateringar som är tillämpliga, hämtningsstatus, status för installationen och ytterligare information.<br><br> ![Jobbstatus för uppdateringsdistribution](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
+Du kan visa resultatet av en runbook som är ansvariga för att distribuera uppdateringarna i distributionen av schemalagda uppdateringen från jobb-bladet för ditt Automation-konto som är kopplad till logganalys-arbetsytan som stöder den här lösningen.  Runbooken **Patch-MicrosoftOMSComputer** är en underordnad runbook som har en specifik hanterad dator som mål. Om du granskar den utförliga strömmen visas detaljerad information för den distributionen.  Utdata visar vilka nödvändiga uppdateringar som är tillämpliga, hämtningsstatus, status för installationen och ytterligare information.<br><br> ![Jobbstatus för uppdateringsdistribution](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Mer information finns i [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md) (Utdata och meddelanden för Automation-runbook).   
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: fcc7e1cbacc7889c9525207b238162e6caa6b00b
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mätvärden i Azure-Monitor (förhandsgranskning)
 
@@ -28,7 +28,7 @@ Azure-Monitor ger enhetlig användargränssnitt för övervakning över olika Az
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure-Monitor finns flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller Använd Azure övervakaren API: er (REST och .NET) och lösningar för analys, till exempel åtgärden Management Suite och Händelsehubbar. Mer information finns i [Azure-Monitor mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure-Monitor finns flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller Använd Azure övervakaren API: er (REST och .NET) och lösningar för analys, till exempel åtgärden Management Suite (OMS) och Händelsehubbar. Mer information finns i [Azure-Monitor mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna av data. Du kan arkivera mått data till ett Azure Storage-konto om du vill behålla data under en längre tidsperiod. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) i Azure-Monitor.
 
@@ -46,7 +46,7 @@ För statistik som stöd för dimensioner, måste du filtrera med värdet för �
 
 ## <a name="billing"></a>Fakturering
 
-Med hjälp av mätvärden i Azure-Monitor är för närvarande gratis när i förhandsgranskningen. Om du använder ytterligare lösningar som infognings-mätvärdesdata kan debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Du debiteras också av åtgärden Management Suite (OMS) om du strömma mätvärdesdata till OMS för avancerad analys.
+Med hjälp av mätvärden i Azure-Monitor är gratis när i förhandsgranskningen. Om du använder ytterligare lösningar som infognings-mätvärdesdata kan debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Du debiteras också av åtgärden Management Suite (OMS) om du strömma mätvärdesdata till OMS för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 
@@ -59,7 +59,7 @@ Alla mätvärden-värden skickas till Azure-Monitor varje minut. Tidskornighet d
 
 Räknar antalet begäranden om data och hantering av åtgärder.
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | Inkommande begäranden (förhandsgranskning) | Antalet begäranden som görs till Service Bus-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Lyckade begäranden (förhandsgranskning)|Antal slutförda förfrågningar som görs till Service Bus-tjänsten under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
@@ -69,14 +69,14 @@ Räknar antalet begäranden om data och hantering av åtgärder.
 
 ## <a name="message-metrics"></a>Meddelande-mått
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Inkommande meddelanden (förhandsgranskning)|Antal händelser eller meddelanden som skickas till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Utgående meddelanden (förhandsgranskning)|Antal händelser eller meddelanden som tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 
 ## <a name="connection-metrics"></a>Anslutningen mått
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |ActiveConnections (förhandsgranskning)|Antal aktiva anslutningar på ett namnområde eller en entitet.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |Anslutningar Opened (förhandsgranskning)|Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
@@ -84,7 +84,7 @@ Räknar antalet begäranden om data och hantering av åtgärder.
 
 ## <a name="resource-usage-metrics"></a>Användningsstatistik för resurs
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |CPU-användning per namnområde (förhandsgranskning)|Procentandelen CPU-användning av namnområdet.<br/><br/> Enhet: procent <br/> Sammansättningstyp: högsta <br/> Dimensionen: EntityName|
 |Minnesanvändning storleken per namnområde (förhandsgranskning)|Procentandel minnesanvändning för namnområdet.<br/><br/> Enhet: procent <br/> Sammansättningstyp: högsta <br/> Dimensionen: EntityName|

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatiska OS-uppgraderingar skaluppsättning för virtuell Azure-dator
 
@@ -40,9 +40,7 @@ Automatisk uppgradering av Operativsystemet har följande egenskaper:
 Följande begränsningar och restriktioner gäller i förhandsgranskningen:
 
 - Automatisk OS uppgraderar endast stöder [fyra OS SKU: er](#supported-os-images). Det finns ingen SLA eller garantier. Vi rekommenderar att du inte använder automatiska uppgraderingar på kritiska produktionsarbetsbelastningar under förhandsgranskningen.
-- Stöd för skalningsuppsättningar i Service Fabric-kluster kommer snart.
 - Azure disk encryption (för närvarande under förhandsgranskning) är **inte** stöds för närvarande med virtual machine scale set automatisk OS uppgradering.
-- Avbrottsfritt portalen kommer snart.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registrera dig för att använda automatisk uppgradering av Operativsystemet
@@ -58,17 +56,23 @@ Det tar cirka 10 minuter för registreringstillstånd att rapporten eftersom *re
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Vi rekommenderar att dina program använder hälsoavsökningar. Registrera providern funktionen för hälsoavsökningar genom att använda [registrera AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) på följande sätt:
+> [!NOTE]
+> Service Fabric-kluster har sina egna begreppet programmets hälsotillstånd, men skaluppsättningar utan Service Fabric använder belastningsutjämningsavsökning för hälsotillstånd för att övervaka hälsotillståndet för programmet. Registrera providern funktionen för hälsoavsökningar genom att använda [registrera AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) på följande sätt:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Igen, det tar cirka 10 minuter för registreringstillstånd att rapporten eftersom *registrerade*. Du kan kontrollera den aktuella registreringsstatusen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). En gång registrerats se till att den *Microsoft.Network* provider är registrerad [registrera AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) på följande sätt:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Portalmiljö
+När du följer ovanstående registrering går du till [Azure-portalen](https://aka.ms/managed-compute) att aktivera automatisk OS uppgraderingar på din skaluppsättningar och se förloppet för uppgraderingar:
 
-Igen, det tar cirka 10 minuter för registreringstillstånd att rapporten eftersom *registrerade*. Du kan kontrollera den aktuella registreringsstatusen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). En gång registrerats se till att den *Microsoft.Network* provider är registrerad [registrera AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) på följande sätt:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Stöds operativsystemsavbildningar
@@ -78,14 +82,17 @@ Följande SKU: er stöds för närvarande (mer läggs):
     
 | Utgivare               | Erbjudande         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
-| Canonical               | UbuntuServer  | 16.04 LTS          | senaste   |
+| Canonical               | UbuntuServer  | 16.04-LTS          | senaste   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | senaste   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | senaste   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | senaste   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | senaste   |
 
 
 
-## <a name="application-health"></a>Programmets hälsotillstånd
+## <a name="application-health-without-service-fabric"></a>Programhälsan utan Service Fabric
+> [!NOTE]
+> Det här avsnittet gäller enbart för skalningsuppsättningar i utan Service Fabric. Service Fabric har sin egen begreppet programmets hälsotillstånd. När du använder automatisk OS-uppgraderingar med Service Fabric distribuerat ny operativsystemsavbildning Uppdateringsdomän av Uppdateringsdomän att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns [denna dokumentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Under en OS-uppgradering VM-instanser i en skaluppsättning uppgraderas en batch i taget. Uppgraderingen bör bara fortsätta om kunden-programmet är felfritt på de uppgraderade VM-instanserna. Vi rekommenderar att programmet tillhandahåller hälsa signalerar till scale set OS uppgradera-motorn. Som standard under OS uppgraderingar anser plattformen VM energisparläge och tillägget Etableringsstatus för att avgöra om en VM-instans är felfri efter en uppgradering. OS-disk på en VM-instans ersätts under OS-uppgradering av en VM-instans med en ny disk baserat på senaste Avbildningsversion. När OS-uppgraderingen har slutförts, kör konfigurerade tillägg på dessa virtuella datorer. Endast när alla tillägg på en virtuell dator har etablerats anses programmet felfritt. 
 
 En skalningsuppsättning kan alternativt konfigureras med programmet Hälsoavsökning att tillhandahålla plattform med korrekt information om den pågående statusen för programmet. Programmet Hälsoavsökning är anpassad belastningen belastningsutjämnaren-avsökningar som används som en signal hälsa. Det program som körs på en skala set VM-instans kan svara på externa HTTP eller TCP-begäranden om den är felfri. Mer information om hur anpassade läsa in belastningsutjämning-avsökningar fungerar finns i [förstå load balancer avsökningar](../load-balancer/load-balancer-custom-probe-overview.md). Ett program hälsa avsökning krävs inte för automatiska OS-uppgraderingar, men det rekommenderas starkt.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter syntax
 
@@ -65,7 +65,7 @@ En *SqlFilter* objekt är en instans av den [SqlFilter klassen](/dotnet/api/micr
 
 Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett försök att komma åt en obefintlig egenskap inte är ett fel. I stället utvärderas en obefintlig användaregenskap internt som ett okänt värde. Ett okänt värde behandlas särskilt under utvärdering av operatorn.  
   
-## <a name="propertyname"></a>kubattributbindningen  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -192,7 +192,7 @@ Booleska konstanter som representeras av nyckelorden **SANT** eller **FALSKT**. 
 
 Strängkonstanter omges av enkla citattecken och inkludera alla giltiga Unicode-tecken. Ett enkelt citattecken inbäddat i en strängkonstant representeras som två enkla citattecken.  
   
-## <a name="function"></a>Funktionen  
+## <a name="function"></a>funktion  
   
 ```  
 <function> :=  

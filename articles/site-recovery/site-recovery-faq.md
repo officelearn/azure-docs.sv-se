@@ -2,23 +2,17 @@
 title: "Azure Site Recovery: Vanliga frågor och svar | Microsoft Docs"
 description: "Den här artikeln beskrivs vanliga frågor om Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Vanliga frågor och svar (FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,7 +82,7 @@ Site Recovery är 27001: ISO 2013, 27018, HIPAA, DPA certifierad och håller på
 Ja. När du skapar ett Site Recovery-valv i en region, kontrollera att alla metadata som vi behöver att aktivera och samordna replikering och redundans finns kvar i regionen är geografisk gräns.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Krypterar Site Recovery replikering?
-För virtuella datorer och fysiska servrar stöds replikering mellan lokala platser kryptering under överföring. För virtuella datorer och fysiska servrar som replikerar till Azure, både kryptering under överföring och [kryptering i vila (i Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) stöds.
+För virtuella datorer och fysiska servrar stöds replikering mellan lokala platser kryptering under överföring. För virtuella datorer och fysiska servrar som replikerar till Azure, både kryptering under överföring och [kryptering i vila (i Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) stöds.
 
 ## <a name="replication"></a>Replikering
 
@@ -166,10 +160,10 @@ För att automatisera du kan använda lokala Orchestrator eller Operations Manag
 * [Läs mer](site-recovery-failback-azure-to-vmware.md) om misslyckas säkerhetskopiera virtuella VMware-datorer och fysiska servrar
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Om min lokala värden inte svarar eller krasch, kan jag redundansväxling tillbaka till en annan värd?
-Ja, du kan använda den alternativa platsåterställningen för återställning till en annan värd från Azure. Läs mer om alternativen i den nedan länkar för VMware och Hyper-v virtuella datorer.
+Ja, du kan använda den alternativa platsåterställningen för återställning till en annan värd från Azure. Läs mer om alternativen i den nedan länkar för VMware och Hyper-V virtuella datorer.
 
-* [För virtuella VMware-datorer](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [För Hyper-v-datorer](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [För virtuella VMware-datorer](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [För Hyper-V virtuella datorer](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Leverantörer
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Jag är en tjänstprovider. Fungerar Site Recovery för dedikerade och delade infrastrukturmodeller?

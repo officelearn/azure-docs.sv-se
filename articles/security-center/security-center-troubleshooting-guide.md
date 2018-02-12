@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
@@ -60,7 +60,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 * **Agenten installeras manuellt på en virtuell dator i Azure**: i det här scenariot, om du använder agenter som har hämtats och installerats manuellt före februari 2017, kommer du endast att kunna visa aviseringarna i Security Center portal om du filtrerar i prenumerationen som arbetsytan tillhör. Om du filtrerar i prenumerationen som resursen tillhör kommer du inte att kunna se några aviseringar. Du får e-postaviseringar till e-postadressen som konfigurerats i säkerhetsprincipen för prenumerationen som arbetsytan hör till.
 
 >[!NOTE]
-> Kontrollera att du laddar ned den senaste versionen av agenten för att undvika detta problem.
+> Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.
 >
 
 ## <a name="monitoring-agent-health-issues"></a>Övervaka problem med hälsotillstånd

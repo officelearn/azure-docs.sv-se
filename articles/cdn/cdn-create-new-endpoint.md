@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Komma igång med Azure CDN
-I den här artikeln beskrivs hur du aktiverar Azure Content Delivery Network (CDN) genom att skapa en ny profil och slutpunkt för CDN.
-
-> [!IMPORTANT]
-> En introduktion till CDN och en lista över funktioner finns i [CDN-översikt](cdn-overview.md).
-> 
-> 
+I den här artikeln beskrivs hur du aktiverar Azure [Content Delivery Network (CDN)](cdn-overview.md) genom att skapa en ny profil och slutpunkt för CDN.
 
 ## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
 En CDN-profil är en samling CDN-slutpunkter. Varje profil kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler.

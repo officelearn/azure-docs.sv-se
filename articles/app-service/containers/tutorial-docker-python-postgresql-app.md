@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python- och PostgreSQL-webbapp i Azure
 
@@ -28,12 +28,12 @@ I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
-> * Anslut en Python-appen till MySQL
+> * Anslut en Python-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * hantera appen i Azure-portalen.
 
-Du kan följa stegen nedan på macOS. Instruktioner för Linux och Windows är samma i de flesta fall, men skillnaderna är inte detaljerad i den här självstudien.
+Du kan följa stegen i den här artikeln i macOS. Instruktionerna för Linux och Windows är desamma i de flesta fall, men skillnaderna anges inte i den här självstudien.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,7 +54,7 @@ För att slutföra den här kursen behöver du:
 sudo -u postgres psql
 ```
 
-Om anslutningen lyckas körs PostgreSQL-databas. Om inte, kontrollerar du att den lokala PostgreSQL-databasen har startats genom att följa stegen i [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+Om anslutningen lyckas körs PostgreSQL-databasen. Om inte, kontrollerar du att den lokala PostgreSQL-databasen har startats genom att följa stegen i [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
 Skapa en databas med namnet *eventregistration* och konfigurera en separat databasanvändare med namnet *manager* och lösenordet *supersecretpass*.
 
@@ -67,7 +67,7 @@ Skriv `\q` om du vill avsluta PostgreSQL-klienten.
 
 <a name="step2"></a>
 
-## <a name="create-local-python-flask-application"></a>Skapa lokala Python Flask-program
+## <a name="create-local-python-flask-application"></a>Skapa en lokal Python Flask-app
 
 I det här steget konfigurerar du det lokala Python Flask-projektet.
 
@@ -83,7 +83,7 @@ cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
 
-Den här exempellagringsplatsen innehåller ett [Flask](http://flask.pocoo.org/)-program. 
+Den här exempellagringsplatsen innehåller en [Flask](http://flask.pocoo.org/)-app. 
 
 ### <a name="run-the-application"></a>Köra programmet
 
@@ -114,9 +114,9 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 Gå till `http://localhost:5000` i en webbläsare. Klicka på **Registrera!** och skapa en testanvändare.
 
-![Python Flask-programmet körs lokalt](./media/tutorial-docker-python-postgresql-app/local-app.png)
+![Python Flask-appen körs lokalt](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
-Flask-exempelprogrammet lagrar användardata i databasen. Om du lyckas registrera en användare skriver appen data till den lokala PostgreSQL-databasen.
+Flask-exempelappen lagrar användardata i databasen. Om du lyckas registrera en användare skriver appen data till den lokala PostgreSQL-databasen.
 
 Du kan när som helst stoppa Flask-servern genom att skriva Ctrl+C i terminalen. 
 
@@ -343,7 +343,7 @@ Du ser två lösenord. Anteckna användarnamnet och det första lösenordet.
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Ladda upp din Docker-behållare till Azure Container Registry
 
-Logga in på ditt register. När du blir uppmanad anger du det lösenord du just hämtade.
+Logga in på ditt register. När du blir uppmanad anger du det lösenord du hämtade.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

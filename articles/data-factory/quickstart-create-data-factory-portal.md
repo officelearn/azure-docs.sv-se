@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Skapa en datafabrik med hjälp av gränssnittet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -41,12 +41,12 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 1. Gå till [Azure-portalen](https://portal.azure.com). 
 2. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
    
-   ![Valet Data Factory i fönstret ”Nytt”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
       
-   ![Sidan ”Ny datafabrik”](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
+   ![Sidan Ny datafabrik](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
-   Namnet på Azure-datafabriken måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på datafabriken (till exempel **&lt;dittnamn&gt;ADFTutorialDataFactory**) och provar att skapa fabriken igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på datafabriken (till exempel **&lt;dittnamn&gt;ADFTutorialDataFactory**) och provar att skapa fabriken igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -56,15 +56,15 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
    - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. För **Version** väljer du **V2 (förhandsgranskning)**.
+4. För **Version** väljer du **V2 (förhandsversion)**.
 5. För **Plats** väljer du en plats för datafabriken.
 
    I listan visas endast platser som kan användas i Data Factory. Datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas på andra platser.
-6. Välj **Fäst på instrumentpanelen**.     
+6. Välj **fäst till instrumentpanelen**.     
 7. Välj **Skapa**.
 8. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 
 
-   ![Panelen ”Distribuerar datafabrik”](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+   ![Panelen Distribuerar datafabrik](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik**. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
    ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -133,7 +133,7 @@ I den länkade tjänstinställningen angav du Azure-lagringskontot som innehåll
 
    c. Ange**OutputDataset** som namn.
 
-   d. Ange **adftutorial/output** för mappen. Kopieringsaktiviteten skapar utdatamappen om den inte finns.
+   d. Ange **adftutorial/output** för mappen. Om **utdatamappen** inte finns skapas kopieringsaktiviteten vid körningen.
 
    e. Ange `@CONCAT(pipeline().RunId, '.txt')` för filnamnet. 
    
@@ -180,7 +180,7 @@ I det här steget testkör du pipelinen innan du distribuerar den till Data Fact
 ## <a name="trigger-the-pipeline-manually"></a>Utlös pipelinen manuellt
 I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsättningar, pipeliner) till Azure Data Factory. Sedan utlöser du en pipelinekörning manuellt. Du kan också publicera entiteter i din egen Git-lagringsplats för Visual Studio Team Services. Det förklaras i [en annan självstudie](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Innan du utlöser en pipeline måste du publicera entiteter i Data Factory. Välj **Publicera** i rutan till vänster för att publicera. 
+1. Innan du utlöser en pipeline måste du publicera entiteter i Data Factory. Välj **Publicera alla** i rutan till vänster för att publicera. 
 
    ![Knappen Publicera](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Om du vill utlösa pipelinen manuellt väljer du **Utlösa** i verktygsfältet och sedan **Trigger Now** (Utlös nu). 
@@ -191,11 +191,11 @@ I den här proceduren distribuerar du entiteter (länkade tjänster, datauppsät
 
 1. Växla till fliken **Övervaka** till vänster. Du kan uppdatera listan med knappen **Uppdatera**.
 
-   ![Flik för att övervaka pipelinekörningar med knappen ”Uppdatera”](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+   ![Flik för att övervaka pipelinekörningar med knapp för att uppdatera](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
 2. Välj länken **View Activity Runs** (Visa aktivitetskörningar) under **Åtgärder**. Du kan se status för kopieringsaktiviteten på den här sidan. 
 
    ![Pipeline-aktivitetskörningar](./media/quickstart-create-data-factory-portal/pipeline-activity-runs.png)
-3. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Åtgärder**. Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
+3. Om du vill se mer information om kopieringsåtgärden väljer du länken **Detaljer** (glasögonbilden) i kolumnen **Actions** (Åtgärder). Mer information om egenskaperna finns i [Copy Activity overview](copy-activity-overview.md) (Översikt över kopieringsaktivitet). 
 
    ![Detaljerad information om kopieringsåtgärden](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 4. Bekräfta att du ser en ny fil i **utdatamappen**. 
@@ -224,9 +224,9 @@ Den här proceduren är valfri i den här självstudien. Du kan skapa en *schema
 5. Läs varningsmeddelandet och välj **Slutför**.
 
    ![Varningsmeddelande och knappen ”Slutför”](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Välj **Publicera** för att publicera ändringarna till Data Factory. 
+6. Välj **Publicera alla** för att publicera ändringarna till Data Factory. 
 
-   ![Knappen Publicera](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Knappen Publicera](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan väljer du **Uppdatera**. Du ser att pipelinen körs varje minut från publiceringstiden till sluttiden. 
 
    Observera värdena i kolumnen **Aktiverad av**. Den manuella körningen av utlösaren var från steget (**Trigger Now**) (Utlös nu) du gjorde tidigare. 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med Azure CLI
 
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt *<publicIpAddress>* med den korrekta offentliga IP-adressen för den virtuella datorn.  I vårt exempel ovan var vår IP-adress *40.68.254.142*.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt **publicIpAddress** med den korrekta offentliga IP-adressen för den virtuella datorn.  I vårt exempel ovan var vår IP-adress *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## <a name="install-nginx"></a>Installera NGINX

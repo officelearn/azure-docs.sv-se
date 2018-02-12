@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure för att skapa och hantera principer för att tvinga kompatibilitet för organisationens | Microsoft Docs"
-description: "Använda Azure för att genomdriva standarder, uppfyller krav efterlevnad och granskning, kontrollera kostnader, säkerhet och prestanda enhetliga och införa enterprise wide principer."
+title: "Använda Azure Policy för att skapa och hantera principer för att använda organisatorisk efterlevnad | Microsoft Docs"
+description: "Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -9,78 +9,78 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att tvinga kompatibilitet
+# <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
-Förstå hur du skapar och hanterar principer i Azure är viktigt för att vara kompatibel med företagets standarder och servicenivåavtal. I kursen får du lära dig att använda Azure för att utföra några av de vanliga uppgifter relaterade till att skapa, tilldela och hantera principer för hela organisationen, som:
+Det är viktigt att du förstår hur du skapar och hanterar principer i Azure för att du ska fortsätta att efterleva företagets standarder och servicenivåavtal. I den här självstudien får du lära dig att använda Azure Policy för att utföra några av de vanligaste uppgifterna som handlar om att skapa, tilldela och hantera principer i organisationen, som:
 
 > [!div class="checklist"]
-> * Tilldela en princip för att tillämpa ett villkor för resurser som du skapar i framtiden
-> * Skapa och tilldela ett initiativ definitionen för att spåra efterlevnad för flera resurser
-> * Lösa en icke-kompatibla eller nekade resurs
+> * Tilldela en princip för att genomdriva ett villkor för resurser som du skapar i framtiden
+> * Skapa och tilldela en initiativdefinition för att spåra efterlevnad för flera resurser
+> * Lösa en icke-kompatibel eller nekad resurs
 > * Implementera en ny princip i en organisation
 
-Om du vill tilldela en princip för att identifiera aktuella kompatibilitetsstatusen för dina befintliga resurser går quickstart artiklar över hur du gör. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du vill tilldela en princip för att identifiera dina befintliga resursers efterlevnadstillstånd går artiklarna i snabbstarten igenom det. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="assign-a-policy"></a>Tilldela en princip
 
-Det första steget i att tillämpa kompatibilitet med Azure princip är att tilldela en principdefinition. En principdefinition definierar under vilka villkor för en princip tillämpas och åtgärd att vidta. I det här exemplet, tilldela en inbyggd principdefinition som kallas *kräver SQL Server Version 12.0*, för att genomdriva att alla SQL Server-databaser måste vara v12.0 så att det uppfyller villkoret.
+Det första steget för att tillämpa efterlevnad av Azure Policy är att tilldela en principdefinition. En principdefinition anger under vilket villkor en princip tillämpas och vilken åtgärd som ska vidtas. I det här exemplet ska du tilldela en inbyggd principdefinition som heter *Kräv SQL Server Version 12.0* för att genomdriva villkoret om att alla SQL Server-databaser måste vara v12.0 för att vara kompatibla.
 
-1. Starta tjänsten Azure principen i Azure-portalen genom att söka efter och välja **princip** i den vänstra rutan.
+1. Starta Azure Policy-tjänsten i Azure-portalen genom att söka efter och välja **Princip** i fönstret till vänster.
 
    ![Sök efter princip](media/assign-policy-definition/search-policy.png)
 
-2. Välj **Tilldelningar** i det vänstra fönstret på sidan för Azure Policy. En tilldelning är en princip som har tilldelats äga rum inom ett specifikt omfång.
+2. Välj **Tilldelningar** i det vänstra fönstret på sidan för Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 3. Välj **Tilldela princip** längst upp på sidan **Tilldelningar**.
 
    ![Tilldela en principdefinition](media/create-manage-policy/select-assign-policy.png)
 
-4. På sidan **Tilldela princip** klickar du på knappen ![Principdefinition](media/assign-policy-definition/definitions-button.png) bredvid fältet **Princip** för att öppna listan med tillgängliga definitioner. Du kan filtrera principdefinitionen **typen** till *BuiltIn* att visa alla och läsa deras beskrivningar.
+4. På sidan **Tilldela princip** klickar du på knappen ![Principdefinition](media/assign-policy-definition/definitions-button.png) bredvid fältet **Princip** för att öppna listan med tillgängliga definitioner. Du kan filtrera principdefinitionen **Typ** på *BuiltIn* om du vill visa alla och läsa deras beskrivningar.
 
    ![Öppna tillgängliga principdefinitioner](media/create-manage-policy/open-policy-definitions.png)
 
-5. Välj **kräver SQL Server-Version 12.0**. Om du inte hittar direkt, skriver **kräver SQL Server Version 12.0** i sökrutan och tryck på RETUR.
+5. Välj **Kräv SQL Server Version 12.0**. Om du inte hittar det genast skriver du **Kräv SQL Server Version 12.0** i sökrutan och trycker sedan på RETUR.
 
-   ![Leta upp en princip](media/create-manage-policy/select-available-definition.png)
+   ![Hitta en princip](media/create-manage-policy/select-available-definition.png)
 
-6. De visade **namn** fylls i automatiskt, men du kan ändra den. Det här exemplet använder *kräver SQL Server version 12.0*. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen ger information om hur den här principtilldelning ser alla SQL-servrar som skapas i den här miljön är version 12.0.
+6. Det visade **namnet** fylls i automatiskt, men du kan ändra det. I det här exemplet ska du använda *Kräv SQL Server version 12.0*. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om hur principtilldelningen garanterar att alla SQL-servrar som skapas i den här miljön är i version 12.0.
 
 7. Ändra prisnivån till **Standard** för att se till att principen används på befintliga resurser.
 
-   Det finns två prisnivåer i Azure Policy – *Kostnadsfri* och *Standard*. Med den kostnadsfria nivån kan du bara tillämpa principer på framtida resurser, medan Standard gör det möjligt att även tillämpa dem på befintliga resurser för att förstå kompatibilitetsstatusen bättre. Eftersom Azure principen är i förhandsvisning, finns inte ännu en släppt en prisnivå modell, så du får en faktura för att välja *Standard*. Mer information om prissättning finns i [priser för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+   Det finns två prisnivåer i Azure Policy – *Kostnadsfri* och *Standard*. Med den kostnadsfria nivån kan du bara tillämpa principer på framtida resurser, medan Standard gör det möjligt att även tillämpa dem på befintliga resurser för att förstå kompatibilitetsstatusen bättre. Eftersom Azure Policy är i förhandsversion har vi ännu inte lanserat någon prissättningsmodell, så du debiteras inte om du väljer *Standard*. Mer information om prissättning finns i [priser för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
-8. Välj den **omfång** -prenumerationen (eller resursgrupp) du tidigare har registrerat. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
+8. Välj **omfånget** – prenumerationen (eller resursgruppen) du registrerade tidigare. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
 
-   Det här exemplet används den **Azure Analytics kapacitet Dev** prenumeration. Din prenumeration varierar.
+   I det här exemplet används prenumerationen **Azure Analytics Capacity Dev**. Din prenumeration skiljer sig.
 
 10. Välj **Tilldela**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementera en ny anpassad princip
 
-Nu när du har tilldelat en inbyggd principdefinition, kan du göra mer med Azure-principen. Skapa sedan en ny anpassad princip för att spara kostnader genom att säkerställa som virtuella datorer som skapades i din miljö inte kan vara i G-serien. På så sätt kan varje gång en användare i din organisation försöker skapa virtuell dator i G-serien begäran nekas.
+Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure Policy. Sedan ska du skapa en ny anpassad princip för att spara kostnader genom att se till att de virtuella datorer du har skapat i din miljö inte kan vara i G-serien. På så sätt nekas varje gång en begäran från en användare i organisationen som försöker skapa en virtuell dator i G-serien.
 
-1. Välj **Definition** under **redigering** i den vänstra rutan.
+1. Välj **Definition** under **Redigering** i fönstret till vänster.
 
    ![Definition under redigering](media/create-manage-policy/definition-under-authoring.png)
 
-2. Välj **+ principdefinitionen**.
+2. Välj **+ Principdefinition**.
 3. Ange följande:
 
-   - Namnet på principdefinitionen - *kräver VM SKU: er mindre än G-serien*
-   - Beskrivning av vad principdefinitionen är avsedd att göra – definitionen för den här principen tillämpar att alla virtuella datorer som skapats i denna omfattning har SKU: er mindre än G-serien för att minska kostnaden.
-   - Den prenumeration som principdefinitionen finns. I det här fallet principdefinitionen finns i **Advisor Analytics kapacitet Dev**. Din prenumerationslista varierar.
-   - Valt från befintliga alternativ, eller skapa en ny kategori för definitionen av den här principen.
-   - Kopiera följande json-kod och uppdatera sedan för dina behov med:
-      - Principparametrar.
-      - Principen regler/villkor, i det här fallet – VM SKU-storleken är lika med G serien
-      - Principen effekt, i det här fallet – **neka**.
+   - Namnet på principdefinitionen – *Kräv VM SKU:er som är mindre än G-serien*
+   - Beskrivningen av vad principdefinitionen är avsedd att göra – Den här principdefinitionen tvingar alla virtuella datorer som är skapade i det här omfånget att ha SKU:er som är mindre än G-serien för att minska kostnader.
+   - Prenumerationen som principdefinitionen finns i. I det här fallet finns principdefinitionen i **Advisor Analytics Capacity Dev**. Din prenumerationslista är annorlunda.
+   - Välj bland befintliga alternativ eller skapa en ny kategori för definitionen av den här principen.
+   - Kopiera följande json-kod och uppdatera den sedan efter dina behov med:
+      - Principparametrarna.
+      - Principens regler/villkor, i det här fallet – VM SKU-storlek som motsvarar G-serien
+      - Principens effekt, i det här fallet – **Neka**.
 
-    Här är hur json ska se ut. Klistra in koden reviderade i Azure-portalen.
+    Så här ska din json se ut. Klistra in den reviderade koden i Azure-portalen.
 
     ```json
 {
@@ -104,16 +104,16 @@ Nu när du har tilldelat en inbyggd principdefinition, kan du göra mer med Azur
 }
     ```
 
-    Värdet för den *fältet egenskapen* i principen måste vara något av följande: namn, typ, plats, taggar eller ett alias. Till exempel `"Microsoft.Compute/VirtualMachines/Size"`.
+    Värdet i *fältegenskapen* i principregeln måste vara något av följande: Namn, Typ, Plats, Taggar eller ett alias. Till exempel `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Om du vill visa fler exempel på json-kod, läsa den [mallar för Azure princip](json-samples.md) artikel.
+    Om du vill se fler exempel på json-kod läser du artikeln om [mallar för Azure Policy](json-samples.md).
 
 4. Välj **Spara**.
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Skapa en principdefinition med REST API
 
-Du kan skapa en princip med REST API för Principdefinitioner. REST-API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner.
-Använd följande exempel för att skapa en principdefinition:
+Du kan skapa en princip med REST API för principdefinitioner. Med REST API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner.
+Om du vill skapa en principdefinition använder du följande exempel:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -153,11 +153,11 @@ Inkludera en begärantext som liknar följande exempel:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Skapa en principdefinition med PowerShell
 
-Innan du fortsätter med PowerShell-exempel kontrollera att har du installerat den senaste versionen av Azure PowerShell. Principparametrar har lagts till i version 3.6.0. Om du har en tidigare version kan returnera ett felmeddelande om att det inte går att hitta parametern exemplen.
+Innan du fortsätter med PowerShell-exemplet ska du se till att du har den senaste versionen av Azure PowerShell installerad. Principparametrar lades till i version 3.6.0. Om du har en tidigare version returnerar exemplen ett fel som anger att parametern inte går att hitta.
 
-Du kan skapa en princip definition med hjälp av den `New-AzureRmPolicyDefinition` cmdlet.
+Du kan skapa en principdefinition med cmdleten `New-AzureRmPolicyDefinition`.
 
-Om du vill skapa en principdefinition från en fil, skickar du sökvägen till filen. Använd följande exempel för en extern fil:
+Om du vill skapa en principdefinition från en fil skickar du sökvägen till filen. Använd följande exempel för en extern fil:
 
 ```
 $definition = New-AzureRmPolicyDefinition `
@@ -166,7 +166,7 @@ $definition = New-AzureRmPolicyDefinition `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
 ```
 
-Använd följande exempel för en lokal fil-användning:
+Använd följande exempel för en lokal fil:
 
 ```
 $definition = New-AzureRmPolicyDefinition `
@@ -175,7 +175,7 @@ $definition = New-AzureRmPolicyDefinition `
     -Policy "c:\policies\coolAccessTier.json"
 ```
 
-Använd följande exempel för att skapa en principdefinition med en infogad regel:
+Om du vill skapa en principdefinition med en infogad regel använder du följande exempel:
 
 ```
 $definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
@@ -203,8 +203,8 @@ $definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "De
 }'
 ```
 
-Utdata lagras i en `$definition` -objekt som ska användas vid tilldelning av principer.
-I följande exempel skapas en principdefinition som innehåller parametrar:
+Utdata lagras i ett `$definition`-objekt som används under principtilldelningen.
+I följande exempel skapas en principdefinition som innehåller parametrarna:
 
 ```
 $policy = '{
@@ -243,7 +243,7 @@ $definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "P
 
 ## <a name="view-policy-definitions"></a>Visa principdefinitioner
 
-Om du vill se alla principdefinitioner i din prenumeration, använder du följande kommando:
+Om du vill visa alla principdefinitioner i din prenumeration använder du följande kommando:
 
 ```
 Get-AzureRmPolicyDefinition
@@ -264,8 +264,8 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 
 ## <a name="create-a-policy-definition-with-azure-cli"></a>Skapa en principdefinition med Azure CLI
 
-Du kan skapa en principdefinition som använder Azure CLI med kommandot princip definition.
-Använd följande exempel för att skapa en principdefinition med en infogad regel:
+Du kan skapa en principdefinition med Azure CLI med kommandot för principdefinition.
+Om du vill skapa en principdefinition med en infogad regel använder du följande exempel:
 
 ```
 az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
@@ -295,7 +295,7 @@ az policy definition create --name denyCoolTiering --description "Deny cool acce
 
 ## <a name="view-policy-definitions"></a>Visa principdefinitioner
 
-Om du vill se alla principdefinitioner i din prenumeration, använder du följande kommando:
+Om du vill visa alla principdefinitioner i din prenumeration använder du följande kommando:
 
 ```
 az policy definition list
@@ -324,87 +324,87 @@ Den returnerar alla tillgängliga principdefinitioner, inklusive inbyggda princi
 }
 ```
 
-## <a name="create-and-assign-an-initiative-definition"></a>Skapa och tilldela ett initiativ definition
+## <a name="create-and-assign-an-initiative-definition"></a>Skapa och tilldela en initiativdefinition
 
-Med en definition av initiativ, kan du gruppera flera principdefinitioner för att uppnå en övergripande målet. Du skapar ett initiativ definition för att säkerställa att resurser inom omfånget för definitionen vara kompatibla med principdefinitioner som utgör initiativ definition.  Finns det [översikt över Azure princip](./azure-policy-introduction.md) mer information om initiativ definitioner.
+Med en initiativdefinition kan du gruppera flera principdefinitioner för att uppnå ett övergripande mål. Du skapar en initiativdefinition för att se till att resurser inom definitionens omfång efterlever principdefinitionerna som utgör initiativdefinitionen.  Se [översikten över Azure Policy](./azure-policy-introduction.md) för mer information om initiativdefinitioner.
 
-### <a name="create-an-initiative-definition"></a>Skapa ett initiativ definition
+### <a name="create-an-initiative-definition"></a>Skapa en initiativdefinition
 
-1. Välj **definitioner** under **redigering** i det vänstra fönstret.
+1. Välj **Definitioner** under **Redigering** i fönstret till vänster.
 
-   ![Välj definitioner](media/create-manage-policy/select-definitions.png)
+   ![Välja definitioner](media/create-manage-policy/select-definitions.png)
 
-2. Välj **initiativ Definition** överst på sidan det här alternativet tar dig till den **initiativ Definition** formuläret.
-3. Ange namn och beskrivning av initiativet.
+2. Välj **Initiativdefinition** överst på sidan. Då kommer du till formuläret **Initiative Definition**.
+3. Ange initiativets namn och beskrivning.
 
-   Se till att resurser som är kompatibla med principdefinitioner om att få säker i det här exemplet. Så, namnet på initiativ vara **få säker**, och beskrivningen är: **denna initiativ har skapats för att hantera alla principdefinitioner som är associerade med att skydda resurser**.
+   I det här exemplet ska du se till att resurser efterlever principdefinitioner om säkerhet. Så namnet på initiativet ska vara **Get Secure**, och beskrivningen ska vara: **This initiative has been created to handle all policy definitions associated with securing resources** (Det här initiativet har skapats för att hantera alla principdefinitioner som är associerade med att skydda resurser).
 
    ![Initiativdefinition](media/create-manage-policy/initiative-definition.png)
 
-4. Bläddra igenom listan över **tillgängliga definitionerna** och välj den princip definition(s) som du vill lägga till i det initiativet. För vår **få säker** initiativ **Lägg till** följande inbyggda principdefinitioner:
+4. Bläddra igeno listan med **tillgängliga definitioner** och välj principdefinitionerna du vill lägga till för initiativet. **Lägg till** följande inbyggda principdefinitioner för initiativet **Get secure**:
    - Kräv SQL Server version 12.0
-   - Övervaka oskyddade webbprogram i Security Center.
-   - Övervaka Tillåtande nätverk över i Security Center.
-   - Övervaka möjliga app Vitlistning i Security Center.
-   - Övervaka okrypterad Virtuella diskar i Security Center.
+   - Övervaka oskyddade webbappar i Security Center.
+   - Övervaka tillåtande nätverk i Security Center.
+   - Övervaka lista över möjliga tillåtna appar i Security Center.
+   - Övervaka okrypterade VM-diskar i Security Center.
 
-   ![Initiativet definitioner](media/create-manage-policy/initiative-definition-2.png)
+   ![Initiativdefinitioner](media/create-manage-policy/initiative-definition-2.png)
 
-   När du har valt principdefinitioner i listan finns det under **principer och parametrar**som visas i föregående bild.
+   När du har valt principdefinitioner i listan ser du dem under **Principer och parametrar** som visas på föregående bild.
 
-5. Använd **Definition plats** att välja en prenumeration för att lagra definitionen. Välj **Spara**.
+5. Använd **Definitionens plats** för att välja en prenumeration för att lagra definitionen. Välj **Spara**.
 
-### <a name="assign-an-initiative-definition"></a>Tilldela ett initiativ definition
+### <a name="assign-an-initiative-definition"></a>Tilldela en initiativdefinition
 
-1. Gå till den **definitioner** fliken **redigering**.
-2. Sök efter den **få säker** initiativ definition som du skapade.
-3. Välj initiativ definitionen och välj sedan **tilldela**.
+1. Gå till fliken **Definitioner** under **Redigering**.
+2. Sök efter initiativdefinitionen **Get secure** som du skapade.
+3. Välj initiativdefinitionen och välj sedan **Tilldela**.
 
    ![Tilldela en definition](media/create-manage-policy/assign-definition.png)
 
-4. Fyll i den **tilldelning** formuläret genom att ange följande information i exemplet. Du kan använda din egen information.
-   - namn: få säker tilldelning
-   - Beskrivning: Initiativ tilldelningen är skräddarsydda för att tillämpa den här gruppen av principdefinitioner i den **Azure Advisor kapacitet Dev** prenumeration.
-   - Prisnivån: Standard
-   - Omfång där du vill att den här tilldelningen som tillämpas på: **Azure Advisor kapacitet Dev**. Du kan välja en egen prenumeration och resurs-grupp.
+4. Fyll i formuläret **Tilldelning** genom att ange följande exempelinformation. Du kan använda din egen information.
+   - Namn: Get secure-tilldelning
+   - Beskrivning: Den här initiativtilldelningen är skräddarsydd för att framtvinga den här gruppen med principdefinitioner i prenumerationen **Azure Advisor Capacity Dev**.
+   - Prisnivå: Standard
+   - Undersök var du vill att tilldelningen ska användas: **Azure Advisor Capacity Dev**. Du kan välja din egen prenumeration och resursgrupp.
 
 5. Välj **Tilldela**.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Lösa en icke-kompatibla eller nekade resurs
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Undanta en icke-kompatibel eller nekad resurs med Exkludering
 
-Följande exempel ovan, efter att principdefinitionen kräver SQL server-version 12.0, skulle en SQL-server som har skapats med en annan version hämta nekas. I det här avsnittet går igenom hur du löser ett nekade försök att skapa en SQLServer på en annan version genom att begära ett undantag. Undantag i princip förhindrar tvingande principer. Ett undantag kan tillämpas på en resursgrupp eller du kan begränsa undantag till enskilda resurser.
+När du har angett att principdefinitionen kräver version 12.0 av SQL Server skulle en SQL-server som har skapats med en annan version nekas, precis som i exemplet ovan. I det här avsnittet går du igenom hur man löser ett nekat försök till att skapa en SQL-server med en annan version genom att begära ett undantag. Undantaget förhindrar principtillämpning. Ett undantag kan tillämpas på en resursgrupp eller så kan du begränsa undantaget till enskilda resurser.
 
 1. Välj **Tilldelningar** i det vänstra fönstret.
-2. Bläddra igenom alla principtilldelningar och öppna den *kräver SQL Server version 12.0* tilldelning.
-3. **Välj** ett undantag för resursgrupper där du försöker att skapa SQLServer. I det här exemplet undanta Microsoft.Sql/servers/databases: *azuremetrictest/testdb* och *azuremetrictest/testdb2*.
+2. Bläddra igenom alla principtilldelningar och öppna tilldelningen *Kräv SQL Server version 12.0*.
+3. **Välj** ett undantag för resurser i resursgrupperna där du försöker skapa SQL-servern. I det här exemplet ska du exkludera Microsoft.Sql/servers/databases: *azuremetrictest/testdb* och *azuremetrictest/testdb2*.
 
-   ![Undantag för begäran](media/create-manage-policy/request-exclusion.png)
+   ![Begär exkludering](media/create-manage-policy/request-exclusion.png)
 
-   Andra sätt som du kan lösa en nekade resurs är: nå ut till den kontakt som är associerade med principen om du har en stark motivering för behöver SQL-server som skapas och redigeras principen direkt om du har åtkomst till.
+   Andra sätt du kan lösa en nekad resurs på är: Hör av dig till kontakten som är associerad med principen om du har en stark motivering för att du behöver skapa SQL-servern, och redigera principen direkt om du har åtkomst till den.
 
-4. Klicka på **tilldela**.
+4. Klicka på **Tilldela**.
 
-I det här avsnittet löst på grund av att skapa en SQLServer med version 12.0, genom att begära ett undantag till resurserna.
+I det här avsnittet har du löst nekandet av ditt försök att skapa en SQL-server med version 12.0 genom att begära en exkludering till resurserna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta att arbeta med efterföljande självstudiekurser inte rensa upp de resurser som skapades i den här guiden. Om du inte planerar att fortsätta, Använd följande steg för att ta bort tilldelningar eller definitioner skapade ovan:
+Om du planerar att fortsätta arbeta med efterföljande självstudier ska du inte rensa upp resurserna som du skapade i den här guiden. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla tilldelningar eller definitioner som du skapade ovan:
 
-1. Välj **definitioner** (eller **tilldelningar** om du försöker ta bort en tilldelning) i det vänstra fönstret.
-2. Sök efter den nya initiativ eller princip definition (eller tilldelningen) du just skapade.
-3. Välj ellipserna i slutet av definition eller tilldelning och **ta bort Definition** (eller **tar bort tilldelningen**).
+1. Välj **Definitioner** (eller **Tilldelningar** om du försöker ta bort en uppgift) i fönstret till vänster.
+2. Sök efter den nya initiativ- eller principdefinitionen (eller uppgiften) du nyss skapade.
+3. Välj ellipserna i slutet av definitionen eller uppgiften och välj **Ta bort definition** (eller **Ta bort tilldelning**).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får gör du har du följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
-> * Tilldelade en princip för att tillämpa ett villkor för resurser som du skapar i framtiden
-> * Skapa och tilldela ett initiativ definitionen för att spåra efterlevnad för flera resurser
-> * Matcha en icke-kompatibla eller nekade resurs
-> * En ny princip implementeras i en organisation
+> * Tilldelat en princip för att genomdriva ett villkor för resurser som du skapar i framtiden
+> * Skapat och tilldelat en initiativdefinition för att spåra efterlevnad för flera resurser
+> * Löst en icke-kompatibel eller nekad resurs
+> * Implementerat en ny princip i en organisation
 
-Mer information om strukturerna för principdefinitioner titta på den här artikeln:
+Mer information om principdefinitionernas strukturer finns i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Azure principstruktur definition](policy-definition.md)
+> [Azure Policy-definitionsstruktur](policy-definition.md)

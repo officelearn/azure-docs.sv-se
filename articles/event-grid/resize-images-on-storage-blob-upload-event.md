@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b0fccd058620537f6dcfaf37ee14c1ff0cb8857a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -45,7 +45,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI:t lokalt måste du köra Azure CLI version 2.0.14 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0.14 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Om du inte använder Cloud Shell måste du först logga in med `az login`.
 
@@ -67,18 +67,20 @@ az storage account create --name <general_storage_account> \
 
 Du måste ha en funktionsapp som värd för körning av funktionen. Funktionsappen är en miljö för serverfri körning av funktionskoden. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
-I följande kommando infogar du ditt unika funktionsappnamn istället för platshållaren `<function_app>`. `<function_app>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. I det här fallet är `<general_storage_account>` namnet på det allmänna lagringskonto du skapade.  
+I följande kommando infogar du ditt unika funktionsappnamn istället för platshållaren `<function_app>`. Funktionsappens namn används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. För `<general_storage_account>` ersätter du namnet på det allmänna lagringskonto du skapade.
 
 ```azurecli-interactive
 az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
 --resource-group myResourceGroup --consumption-plan-location westcentralus
 ```
 
-Nu måste du konfigurera funktionsappen för anslutning till bloblagringen. 
+Nu måste du konfigurera funktionsappen så att den ansluts till Blob Storage-kontot du skapade i [föregående självstudie][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
-Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. I det här fallet är `<blob_storage_account>` namnet på det bloblagringskonto du skapade i föregående självstudie. Hämta anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). Miniatyrbildens behållarnamn måste också sättas till `thumbs`. Lägg till dessa programinställningar i funktionsappen med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+Funktionen behöver anslutningssträngen för att ansluta till bloblagringskontot. Funktionskoden som du distribuerar till Azure i följande steg letar efter anslutningssträngen i appinställningen myblobstorage_STORAGE, och den letar efter miniatyrbildens behållarnamn i appinställningen myContainerName. Hämta anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Ange programinställningar med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+
+I följande CLI-kommandon är `<blob_storage_account>` namnet på det bloblagringskonto du skapade i föregående självstudie.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,9 +97,9 @@ Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
 
 ## <a name="deploy-the-function-code"></a>Distribuera funktionskoden 
 
-C#-funktionen som utför storleksändringen av bilderna är tillgänglig på den här [GitHub-lagringsplatsen för exemplet](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
+C#-funktionen som utför storleksändringen av bilderna är tillgänglig på den här [GitHub-lagringsplatsen](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera funktionskodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
 
-I följande kommando är `<function_app>` samma funktionsapp som du skapade i föregående skript.
+I följande kommando är `<function_app>` namnet på funktionsappen som du skapade tidigare.
 
 ```azurecli-interactive
 az functionapp deployment source config --name <function_app> \
@@ -105,17 +107,21 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-Storleksändringsfunktionen utlöses av en händelseprenumeration på en blob-skaparhändelse. De data som skickas till utlösaren är bland annat URL-adressen till bloben, som i sin tur skickas till indatabindningen för att hämta den uppladdade bilden från Blob Storage. Funktionen genererar en miniatyrbild och skriver den resulterande dataströmmen till en separat behållare i Blob Storage. Mer information om den här funktionen finns i [Readme-filen på lagringsplatsen för exemplet](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
+Funktionen för att ändra bildstorlek utlöses av HTTP-förfrågningar som skickats till den från tjänsten Event Grid. Du kan ange för Event Grid att du vill hämta meddelandena via funktionens URL genom att skapa en händelseprenumeration. För den här självstudien prenumererar du på blob-skapade händelser.
+
+Data som skickas till funktionen från Event Grid-meddelandet inkluderar blobens URL. URL:en skickas sedan till indatabindningen för att hämta den uppladdade avbildningen från Blob Storage. Funktionen genererar en miniatyrbild och skriver den resulterande dataströmmen till en separat behållare i Blob Storage. 
 
 I det här projektet används `EventGridTrigger` som typ av utlösare. Det är bättre att använda Event Grid-utlösaren än någon allmän HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
 
+Mer information om den här funktionen finns i [filerna function.json och run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc).
+ 
 Funktionsprojektkoden distribueras direkt från den offentliga exempeldatabasen. Mer information om distributionsalternativen för Azure Functions finns i [Kontinuerlig distribution för Azure Functions](../azure-functions/functions-continuous-deployment.md).
 
-## <a name="create-your-event-subscription"></a>Skapa din händelseprenumeration
+## <a name="create-an-event-subscription"></a>Skapa en händelseprenumeration
 
-En händelseprenumeration anger vilka provider-genererade händelser du vill skicka till en viss slutpunkt. I det här fallet exponeras slutpunkten av din funktion. Använd följande steg till att skapa en händelseprenumeration från din funktion i Azure-portalen: 
+En händelseprenumeration anger vilka provider-genererade händelser du vill skicka till en viss slutpunkt. I det här fallet exponeras slutpunkten av din funktion. Använd följande steg till att skapa en händelseprenumeration som skickar meddelanden till din funktion i Azure-portalen: 
 
-1. Öppna [Azure-portalen](https://portal.azure.com) och klicka på pilen längst ned till vänster för att expandera alla tjänster, skriv `functions` i fältet **Filter** och välj sedan **Funktionsappar**. 
+1. Öppna [Azure-portalen](https://portal.azure.com) och klicka på pilen längst ned till vänster för att expandera alla tjänster, skriv *functions* (funktioner) i fältet **Filter** och välj sedan **Funktionsappar**. 
 
     ![Bläddra till Funktionsappar i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
@@ -124,21 +130,22 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     ![Bläddra till Funktionsappar i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
 3. Använd de inställningar för händelseprenumerationen som anges i tabellen.
-
+    
     ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. | 
     | **Typ av ämne** |  Lagringskonton | Välj händelseprovidern för Storage-kontot. | 
-    | **Prenumeration** | Din Azure-prenumeration | Som standard ska du välja den aktuella Azure-prenumerationen.   |
+    | **Prenumeration** | Din Azure-prenumeration | Som standard välj den aktuella Azure-prenumerationen.   |
     | **Resursgrupp** | myResourceGroup | Välj **Använd befintlig** och välj den resursgrupp du har använt i den här självstudien.  |
-    | **Instans** |  `<blob_storage_account>` |  Välj det Blob Storage-konto du skapade. |
+    | **Instans** |  Ditt Blob Storage-konto |  Välj det Blob Storage-konto du skapade. |
     | **Händelsetyper** | Blob skapas | Avmarkera alla typer utom **Blob skapas**. Det är bara händelsetyper för `Microsoft.Storage.BlobCreated` som skickas till funktionen.| 
+    | **Typ av prenumerant** |  Web Hook |  Alternativen är Web Hook eller Event Hubs. |
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
     | **Prefixfilter** | /blobServices/default/containers/images/blobs/ | Filtrerar Storage-händelser till behållaren **images**.| 
 
-4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser **imageresizerfunc** när en blob läggs till i behållaren **images**. De omskalade bilderna läggs till i behållaren **thumbs**.
+4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i behållaren *images*. Funktionen återställer avbildningarnas storlek och lägger till dem till behållaren *thumbs*.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen. 
 
@@ -148,7 +155,7 @@ När du ska testa storleksändring i webbappen bläddrar du till URL-adressen f�
 
 Klicka på regionen **Upload photos** (Ladda upp foton) för att välja och ladda upp en fil. Du kan också dra ett foto till den här regionen. 
 
-Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumbnails** (Genererade miniatyrer) när den uppladdade bilden försvinner. Den här bildens storlek ändrades av funktionen. Sedan lades den till i behållaren thumbs och laddades ned av webbklienten. 
+Observera att en kopia av uppladdade bilden visas i karusellen **Generated thumbnails** (Genererade miniatyrer) när den uppladdade bilden försvinner. Den här bildens storlek ändrades av funktionen. Sedan lades den till i behållaren *thumbs* och laddades ned av webbklienten.
 
 ![Publicerad webbapp i webbläsaren Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
@@ -165,7 +172,6 @@ Gå vidare till del tre i Storage-självstudien om du vill lära dig om säker �
 
 > [!div class="nextstepaction"]
 > [Säker åtkomst till programdata i molnet](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
 
 + Mer information om Event Grid finns i [En introduktion till Azure Event Grid](overview.md). 
 + Om du vill prova en annan självstudie om Azure Functions kan du läsa [Skapa en funktion som kan integreras med Azure Logic Apps](..\azure-functions\functions-twitter-email.md). 

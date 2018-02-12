@@ -1,6 +1,22 @@
-Skapa i Cloud Shell en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
+---
+title: ta med fil
+description: ta med fil
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: d5dfe6ab6d53d450f7c75d376d630558ee03f698
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/03/2018
+---
+Skapa en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen
 
-Ersätt *\<app_name>* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. 
+I Cloud Shell kan du använda kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Ersätt *\<app_name>* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,6 +48,8 @@ Du har skapat en tom webbapp med git-distribution aktiverad.
 
 Bläddra till webbappen som precis skapades.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
+
+Så här bör din nya webbapp se ut:

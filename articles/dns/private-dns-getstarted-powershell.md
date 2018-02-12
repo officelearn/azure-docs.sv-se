@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Komma igång med privata Azure DNS-zoner med PowerShell
 
 Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Vi kallar dessa ”lösningsnätverk”.  Du kan även ange en uppsättning virtuella nätverk där Azure DNS ska bibehålla värddatorposter varje gång en virtuell dator skapas, ändrar IP-adress eller förstörs.  Vi kallar dessa ”registreringsnätverk”.
 
-Eftersom den här funktionen för närvarande är en hanterad förhandsversion tillhandahålls en förhandsversion av PowerShell-modulen.
+Eftersom den här funktionen för närvarande är en hanterad förhandsversion tillhandahålls en förhandsversion av PowerShell-modulen när du skickar e-post till [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>Hämta förhandsversionen av PowerShell-modulen
+
+För att skapa en privat DNS-zon med PowerShell skickar du e-post till [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) för att hämta förhandsversionen av PowerShell-modulen.
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 

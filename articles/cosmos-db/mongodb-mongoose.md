@@ -1,6 +1,6 @@
 ---
-title: Med Azure Cosmos DB Mongoose framework | Microsoft Docs
-description: "Lär dig hur du ansluter en Node.js Mongoose-app till Azure Cosmos DB"
+title: "Använda Mongoose-ramverket med Azure Cosmos DB | Microsoft Docs"
+description: "Läs hur du ansluter en Node.js Mongoose-app till Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: romitgirdhar
@@ -14,19 +14,19 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9878936b5dd76730633dec16b1c3a3eaac78e95a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: fb6db6555171b65767a715c6b4c8ff37f42c94ef
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Med Azure Cosmos DB Mongoose framework
+# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: Använda Mongoose-ramverket med Azure Cosmos DB
 
-Den här kursen visar hur du använder den [Mongoose Framework](http://mongoosejs.com/) när du lagrar data i Azure Cosmos-databasen. Vi använder MongoDB-API: et för Azure Cosmos-databasen för den här genomgången. För de som du vet, Mongoose är ett ramverk för modellering av objekt för MongoDB i Node.js och ger en enkel och schema-baserad lösning för att modellera dina programdata.
+I den här självstudien visas hur du använder [Mongoose-ramverket](http://mongoosejs.com/) när du lagrar data i Azure Cosmos DB. I den här genomgången använder vi MongoDB-API:et för Azure Cosmos DB. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,43 +36,43 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [konfigurera Node.js-programmet](#SetupNode). Om du använder Azure Cosmos DB-emulatorn, Följ stegen i [Azure Cosmos DB emulatorn](local-emulator.md) att ställa in emulatorn och gå vidare till [konfigurera Node.js-programmet](#SetupNode).
+Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera Node.js-programmet](#SetupNode). Om du använder Azure Cosmos DB-emulatorn följer du stegen i artikeln om [Azure Cosmos DB-emulatorn](local-emulator.md) för att konfigurera emulatorn och gå vidare till [konfigurationen av Node.js-programmet](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="set-up-your-nodejs-application"></a>Konfigurera Node.js-programmet
 
 >[!Note]
-> Om du vill bara genomgången exempelkoden i stället för installationsprogrammet för programmet, klona den [exempel](https://github.com/Azure-Samples/Mongoose_CosmosDB) i den här självstudien och skapa din Node.js Mongoose App på Azure Cosmos DB.
+> Om du bara vill gå igenom exempelkoden istället för konfigurationen av själva programmet kan du klona [exemplet](https://github.com/Azure-Samples/Mongoose_CosmosDB) som används för den här självstudien och skapa ett Node.js Mongoose-program på Azure Cosmos DB.
 
-1. Kör följande kommando i Kommandotolken nod om du vill skapa ett Node.js-program i valfri mapp.
+1. Om du vill skapa ett Node.js-program i en valfri mapp kör du följande kommando i en nods kommandotolk.
 
     ```npm init```
 
-    Svara på frågorna och projektet kommer att gå vidare.
+    När du svarar på frågorna är projektet klart.
 
-1. Lägga till en ny fil i mappen och ge den namnet ```index.js```.
-1. Installera de nödvändiga paketen med någon av de ```npm install``` alternativ:
-    * Mongoose:```npm install mongoose --save```
-    * Dotenv (om du vill läsa in din hemliga från en .env-fil):```npm install dotenv --save```
-    
+1. Lägg till en ny fil och ge den namnet ```index.js```.
+1. Installera de paket som behövs med något av ```npm install```-alternativen:
+    * Mongoose: ```npm install mongoose --save```
+    * Dotenv (om du vill läsa in dina hemligheter från en .env-fil): ```npm install dotenv --save```
+
     >[!Note]
-    > Den ```--save``` flaggan lägger till beroendet i package.json-filen.
+    > Flaggan ```--save``` lägger till beroendet till package.json-filen.
 
-1. Importera beroenden i filen index.js.
+1. Importera beroendena i din index.js-fil.
     ```JavaScript
     var mongoose = require('mongoose');
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Lägg till anslutningssträng Cosmos DB och Cosmos-databasnamn för den ```.env``` filen.
+1. Lägg till Cosmos DB-anslutningssträngen och Cosmos DB-namnet till filen ```.env```.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
     COSMOSDB_DBNAME={Your DB Name Here}
     ```
 
-1. Ansluta till Azure Cosmos-databasen med Mongoose framework genom att lägga till följande kod i slutet av index.js.
+1. Anslut till Azure Cosmos DB med Mongoose-ramverket genom att lägga till följande kod till slutet av index.js.
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
 
@@ -83,27 +83,27 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
     });
     ```
     >[!Note]
-    > Här kan laddas miljövariablerna med hjälp av process.env. {variableName} 'dotenv' npm paketera.
+    > Här läses miljövariablerna in med process.env.{variableName} med hjälp av ”dotenv”-npm-paketet.
 
-    När du är ansluten till Azure Cosmos DB kan börjar du nu konfigurera nätverksobjektmodellerna i Mongoose.
-    
-## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Varningar att använda Mongoose med Azure Cosmos DB
+    När du är ansluten till Azure Cosmos DB kan du börja konfigurera objektmodeller i Mongoose.
 
-Mongoose skapar för varje modell som du skapar en ny samling MongoDB djupare. Dock kanske anges per samling fakturering modell för Azure Cosmos DB det inte mest kostnadseffektivt sätt att gå, om du har flera objektmodeller som fylls sparsely.
+## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>Varningar för att använda Mongoose med Azure Cosmos DB
 
-Den här genomgången täcker båda modellerna. Vi först rapporterar genomgång av lagring av en typ av data per samling. Detta görs defacto för Mongoose.
+För varje modell du skapar, skapar Mongoose en ny MongoDB-samling på ett och samma ställe. Men med tanke på faktureringsmodellen per samling för Azure Cosmos DB kanske det inte är det mest kostnadseffektiva sättet om du har flera objektmodeller som är sparsamt ifyllda.
 
-Mongoose har också ett begrepp som kallas [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators är en mekanism för arv av schemat. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
+Den här genomgången täcker båda modellerna. Först går vi igenom lagring av en typ av data per samling. Det är Mongooses faktiska beteende.
 
-Du kan lagra olika datamodeller i samma samling och sedan använda en filtersats när databasfrågan för att hämtar de data som krävs.
+Mongoose har också ett begrepp som kallas [Diskriminatorer](http://mongoosejs.com/docs/discriminators.html). Diskriminatorer är en mekanism för schemaarv. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
 
-### <a name="one-collection-per-object-model"></a>En samling per objektmodellen
+Du kan lagra olika datamodeller i samma samling och sedan använda en filtersats vid frågetiden för att endast hämta de data som krävs.
 
-Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapar en objektmodell. Det här avsnittet behandlar så att göra detta med MongoDB för Azure Cosmos DB. Den här metoden bör med Azure Cosmos DB när du har nätverksobjektmodellerna med stora mängder data. Detta är standard kör modellen för Mongoose, så kanske du känner till, om du är bekant med Mongoose.
+### <a name="one-collection-per-object-model"></a>En samling per objektmodell
 
-1. Öppna din ```index.js``` igen.
+Standardbeteendet i Mongoose är att skapa en MongoDB-samling varje gång du skapar en objektmodell. I det här avsnittet förklaras hur du gör det med MongoDB för Azure Cosmos DB. Den här metoden rekommenderas med Azure Cosmos DB när du har objektmodeller med större datamängder. Det är standarddriftsmodellen för Mongoose, så du kanske är bekant med det om du är bekant med Mongoose.
 
-1. Skapa schemadefinitionen för' '.
+1. Öppna ```index.js``` igen.
+
+1. Skapa schemadefinitionen för ”Familj”.
 
     ```JavaScript
     const Family = mongoose.model('Family', new mongoose.Schema({
@@ -130,7 +130,7 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     }));
     ```
 
-1. Skapa ett objekt för' '.
+1. Skapa ett objekt för ”Familj”.
 
     ```JavaScript
     const family = new Family({
@@ -150,7 +150,7 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     });
     ```
 
-1. Slutligen ska vi spara objektet i Azure Cosmos DB. Detta skapar en samling djupare.
+1. Först sparar vi objektet i Azure Cosmos DB. Det skapar en samling på ett och samma ställe.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -158,8 +158,8 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     });
     ```
 
-1. Nu ska vi skapa en annan schemat och objektformatet. Den här gången, skapar vi en för 'semester mål, som kan ha intresse av.
-    1. Precis som senast, nu ska vi skapa schemat
+1. Nu ska vi skapa ytterligare ett schema och ett objekt. Den här gången skapar vi ett för de ”semesterdestinationer” familjerna kan ha intresse av.
+    1. Precis som förra gången skapar vi schemat
     ```JavaScript
     const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
         name: String,
@@ -167,7 +167,7 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     }));
     ```
 
-    1. Skapa en exempel-objekt (du kan lägga till flera objekt till det här schemat) och spara den.
+    1. Skapa ett exempelobjekt (Du kan lägga till flera objekt till det här schemat) och spara det.
     ```JavaScript
     const vacaySpot = new VacationDestinations({
         name: "Honolulu",
@@ -179,11 +179,11 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     });
     ```
 
-1. Nu kan du gå in på Azure-portalen, se två samlingar som skapats i Azure Cosmos DB.
+1. Gå nu till Azure-portalen. Du ser två samlingar som har skapats i Azure Cosmos DB.
 
-    ![Självstudie om node.js – skärmdump av Azure-portalen visar ett Azure DB som Cosmos-konto med namnet på samlingen markerat – Node-databas][alldata]
+    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto, med flera samlingsnamn markerade – Node-databas][mutiple-coll]
 
-1. Slutligen ska vi läsa data från Azure Cosmos-databasen. Eftersom vi använder operativsystemet standardmodell Mongoose är samma som andra läsningar med Mongoose läsningar.
+1. Läs till sist data från Azure Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -191,13 +191,13 @@ Mongoose standardbeteendet är att skapa en samling MongoDB varje gång du skapa
     });
     ```
 
-### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Använda Mongoose discriminators för att lagra data i en enda samling
+### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Använda Mongoose-diskriminatorer för att lagra data i en enda samling
 
-I den här metoden kan vi använda [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) för att optimera kostnader för varje Azure DB som Cosmos-samling. Discriminators kan du definiera en olika 'nyckel', där du kan lagra, skilja och filtrera på olika objektmodeller.
+I den här metoden använder vi [Mongoose-diskriminatorer](http://mongoosejs.com/docs/discriminators.html) för att optimera för kostnaden för varje Azure Cosmos DB-samling. Diskriminatorer gör att du kan definiera en särskiljande ”nyckel”, som gör att du kan lagra, särskilja och filtrera på olika objektmodeller.
 
-Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 'Familj' och 'VacationDestinations' som ett tillägg till grundläggande modellen.
+Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till ”Familj” och ”VacationDestinations” som tillägg till basmodellen.
 
-1. Vi ställa in den grundläggande konfigurationen och definiera diskriminator nyckeln.
+1. Vi konfigurerar baskonfigurationen och definierar diskriminatornyckeln.
 
     ```JavaScript
     const baseConfig = {
@@ -212,7 +212,7 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. Vi nu definiera-familjen-modellen. Observera att vi använder ```commonModel.discriminator``` i stället för ```mongoose.model```. Dessutom kan vi också lägger till den grundläggande konfigurationen mongoose schemat. Så här, discriminatorKey är ```FamilyType```.
+1. Nu definierar vi modellen ”Familj”. Lägg märke till att vi här använder ```commonModel.discriminator``` istället för ```mongoose.model```. Vi lägger dessutom till grundkonfigurationen till mongoose-schemat. Så här är discriminatorKey ```FamilyType```.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -239,7 +239,7 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     }, baseConfig));
     ```
 
-1. På liknande sätt, Lägg till ett annat schema nu för VacationDestinations. Här är DiscriminatorKey ```VacationDestinationsType```.
+1. På samma sätt lägger vi till ytterligare ett schema, denna gång för ”VacationDestinations”. Här är DiscriminatorKey ```VacationDestinationsType```.
 
     ```JavaScript
     const Vacation_common = commonModel.discriminator('VacationDestinationsType', new mongoose.Schema({
@@ -248,8 +248,8 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     }, baseConfig));
     ```
 
-1. Slutligen ska vi skapa objekt för modellen och spara den.
-    1. Lägg till objekt-familjen-modellen.
+1. Slutligen skapar vi objekt för modellen och sparar den.
+    1. Nu ska vi lägga till objekt till modellen ”Familj”.
     ```JavaScript
     const family_common = new Family_common({
         lastName: "Volum",
@@ -272,7 +272,7 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     });
     ```
 
-    1. Nu ska vi lägga till objekt i 'VacationDestinations'-modell och spara den.
+    1. Därefter lägger vi till objekt till modellen ”VacationDestinations” och sparar den.
     ```JavaScript
     const vacay_common = new Vacation_common({
         name: "Honolulu",
@@ -284,13 +284,13 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     });
     ```
 
-1. Nu om du går tillbaka till Azure-portalen kan du se att du har endast en samling som heter ```alldata``` med både '' och 'VacationDestinations' data.
+1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 
-    ![Självstudie om node.js – skärmdump av Azure-portalen visar ett Azure DB som Cosmos-konto med namnet på samlingen markerat – Node-databas][mutiple-coll]
+    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto, med samlingsnamnet markerat – Node-databas][alldata]
 
-1. Observera också att varje objekt har ett annat attribut som kallas ```__type```, som bidrar du skilja mellan två olika objekt.
+1. Lägg också märke till att varje objekt har ytterligare ett attribut som heter ```__type```, som hjälper till att skilja mellan de två olika objektmodellerna.
 
-1. Slutligen ska vi läsa data som lagras i Azure Cosmos DB. Mongoose hand tar om filtrering av data baserat på modellen. Så behöver du göra något annat vid läsning av data. Ange bara din modell (i det här fallet ```Family_common```) och Mongoose handtag filtrering på DiscriminatorKey.
+1. Läs till sist data som är lagrade i Azure Cosmos DB. Mongoose tar hand om filtrering av data baserat på modell. Så du gör inget annorlunda när du läser data. Ange bara din modell (i det här fallet ```Family_common```) så hanterar Mongoose filtreringen av ”DiscriminatorKey”.
 
     ```JavaScript
     Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -298,7 +298,7 @@ Här kan vi skapa en basobjektet modell, definiera olika nyckel och lägga till 
     });
     ```
 
-Du kan se är det enkelt att arbeta med Mongoose discriminators. Så om du har en app som använder Mongoose framework är ett sätt för dig att komma ditt program och körs på MongoDB-API på Azure Cosmos DB utan att för många ändringar i den här kursen.
+Som du ser är det enkelt att arbeta med diskriminatorer i Mongoose. Så om du har en app som använder Mongoose-ramverket är den här självstudien ett sätt för dig att komma igång och köra programmet på MongoDB-API:n på Azure Cosmos DB utan att det krävs så många förändringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -306,7 +306,7 @@ Du kan se är det enkelt att arbeta med Mongoose discriminators. Så om du har e
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om MongoDB åtgärder, operatorer, steg, kommandon och alternativ som stöds av Azure Cosmos DB MongoDB API i [MongoDB-API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md).
+Läs mer om MongoDB-åtgärder, -operatorer, -nivåer och -kommandon, samt alternativ som stöds av API:et för Azure Cosmos DB MongoDB i informationen om [stöd för MongoDB-API:et för MongoDB-funktioner och syntax](mongodb-feature-support.md).
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

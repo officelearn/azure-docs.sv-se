@@ -1,5 +1,5 @@
 ---
-title: "Ta emot händelser från Azure Event Hubs med .NET standardbiblioteket | Microsoft Docs"
+title: "Ta emot händelser från Azure Event Hubs med .NET Standard-bibliotek | Microsoft Docs"
 description: "Börja ta emot meddelanden med EventProcessorHost i .NET Standard"
 services: event-hubs
 documentationcenter: na
@@ -9,46 +9,46 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: MT
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med den värd för händelsebearbetning i .NET Standard
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Standard
 
 > [!NOTE]
-> Det här exemplet är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-Den här kursen visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med hjälp av den **värd för händelsebearbetning** bibliotek. Du kan köra den [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) lösning som-är ersätta strängarna med händelsen NAV- och kontovärden. Eller du kan följa stegen i den här kursen hjälper dig att skapa en egen.
+I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med biblioteket **Värd för händelsebearbetning**. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)-lösningen i befintligt skick och ersätta strängarna med värdena för din händelsehubb och lagringskonto. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). Exemplen i den här självstudiekursen används Visual Studio 2017 men Visual Studio 2015 stöds också.
-* [.NET core Visual Studio 2015 eller 2017 verktyg](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). I exemplen i självstudien används Visual Studio 2017, men Visual Studio 2015 stöds också.
+* [.NET Core Visual Studio 2015- eller 2017-verktyg](http://www.microsoft.com/net/core).
 * En Azure-prenumeration.
-* Ett namnområde för Händelsehubbar i Azure.
+* Ett Event Hubs-namnområde.
 * Ett Azure Storage-konto.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb  
 
-Det första steget är att använda den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde för typen Event Hubs och skaffa autentiseringsuppgifter för hantering som behövs i programmet för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och händelsen NAV, följer du proceduren i [i den här artikeln](event-hubs-create.md), och fortsätt sedan med den här kursen.  
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan med självstudien.  
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto  
 
 1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. I det vänstra navigeringsfönstret i portalen klickar du på **ny**, klickar du på **lagring**, och klicka sedan på **Lagringskonto**.  
-3. Fyll i fälten i fönstret storage-konto och klicka sedan på **skapa**.
+2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Storage** och sedan på **Lagringskonto**.  
+3. Fyll i fälten i lagringskontofönstret och klicka på **Skapa**.
 
     ![Skapa lagringskonto][1]
 
-4. Efter att du ser den **distributioner lyckades** klickar du på namnet på det nya lagringskontot. I den **Essentials** -fönstret klickar du på **Blobbar**. När den **Blob-tjänst** öppnas klickar du på **+ behållare** längst upp. Namnge behållaren och stäng sedan **Blob-tjänst**.  
-5. Klicka på **åtkomstnycklar** i det vänstra fönstret och kopiera namnet på lagringsbehållaren, storage-konto och värdet för **key1**. Spara dessa värden i anteckningar eller en tillfällig plats.  
+4. När du ser meddelandet **Distributionen är klar** klickar du på det nya lagringskontots namn. I fönstret **Essentials** klickar du på **Blobbar**. När dialogrutan **Blob service** öppnas klickar du på **Behållare** högst upp. Ge behållaren ett namn och stäng **Blob service**.  
+5. Klicka på **Åtkomstnycklar** i fönstret till vänster och kopiera lagringsbehållarens namn, lagringskontot och värdet för **key1**. Spara det här värdet i Anteckningar eller på någon annan tillfällig plats.  
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -56,19 +56,19 @@ Starta Visual Studio. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på
 
 ![Nytt projekt][2]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Lägg till Event Hubs NuGet-paketet
+## <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 
-Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) och [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET standardbibliotek NuGet-paket till projektet genom att följa dessa steg: 
+Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) och [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard-bibliotekets NuGet-paket till projektet genom att följa dessa steg: 
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-2. Klicka på den **Bläddra** fliken, söka efter **Microsoft.Azure.EventHubs**, och välj sedan den **Microsoft.Azure.EventHubs** paketet. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
-3. Upprepa steg 1 och 2 och installera den **Microsoft.Azure.EventHubs.Processor** paketet.
+2. Klicka på fliken **Bläddra**, sök efter **Microsoft.Azure.EventHubs** och markera paketet **Microsoft.Azure.EventHubs**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
+3. Upprepa steg 1 och 2 och installera paketet **Microsoft.Azure.EventHubs.Processor**.
 
 ## <a name="implement-the-ieventprocessor-interface"></a>Implementera gränssnittet IEventProcessor
 
-1. Högerklicka på projektet i Solution Explorer, klicka på **Lägg till**, och klicka sedan på **klassen**. Kalla den nya klassen **SimpleEventProcessor**.
+1. Högerklicka på projektet i Solution Explorer, klicka på **Lägg till** och sedan på **Klass**. Ge den nya klassen namnet **SimpleEventProcessor**.
 
-2. Öppna filen SimpleEventProcessor.cs och Lägg till följande `using` instruktioner överst i filen.
+2. Öppna filen SimpleEventProcessor.cs och lägg till följande `using`-uttryck överst i filen.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -76,7 +76,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
     using System.Threading.Tasks;
     ```
 
-3. Implementera den `IEventProcessor` gränssnitt. Ersätt hela innehållet i den `SimpleEventProcessor` klassen med följande kod:
+3. Implementera gränssnittet `IEventProcessor`. Ersätt hela innehållet i klassen `SimpleEventProcessor` med följande kod:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -112,7 +112,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>Skriva en huvudkonsolen-metod som använder SimpleEventProcessor-klassen för att ta emot meddelanden
+## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>Skriv en huvudkonsolmetod som använder SimpleEventProcessor-klassen för att ta emot meddelanden
 
 1. Lägg till följande `using`-instruktioner överst i Program.cs-filen.
 
@@ -122,7 +122,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
     using System.Threading.Tasks;
     ```
 
-2. Lägg till konstanter till den `Program` klass för anslutningssträngen för event hub, händelsehubbens namn, behållare för lagringskontonamnet, lagringskontonamnet och lagringskontonyckel. Lägg till följande kod, Ersätt platshållarna med motsvarande värden.
+2. Lägg till konstanter till `Program`-klassen för händelsehubbens anslutningssträng, händelsehubbens namn, namn på lagringskontobehållaren, lagringskontots namn och lagringskontonyckeln. Lägg till följande kod, som ersätter platshållarna med motsvarande värden.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -134,7 +134,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Lägg till en ny metod med namnet `MainAsync` till den `Program` class, enligt följande:
+3. Lägg till en ny metod som heter `MainAsync` till `Program`-klassen enligt följande:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -159,7 +159,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
     }
     ```
 
-3. Lägg till följande kod för att den `Main` metoden:
+3. Lägg till följande kodrad till `Main`-metoden:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -212,7 +212,7 @@ Lägg till den [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/
 
 4. Kör programmet och kontrollera att det inte finns några fel.
 
-Grattis! Du har nu fått meddelanden från en händelsehubb med hjälp av den värd för händelsebearbetning.
+Grattis! Du har nu fått meddelanden från en händelsehubb med värden för händelsebearbetning.
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:

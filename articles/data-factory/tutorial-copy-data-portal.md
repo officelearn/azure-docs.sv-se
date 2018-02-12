@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ I den här självstudien börjar du med att skapa pipelinen och skapar länkade 
 9. På fliken **General** (Allmänt) i fönstret **Egenskaper** längst ned anger du **SourceBlobDataset** som **namn**.
 
     ![Namn på datauppsättning](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Välj fliken **Anslutning** i egenskapsfönstret.   
-
-    ![Fliken Anslutning](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Klicka på **+ Ny** bredvid textrutan **Länkad tjänst**. En länkad tjänst länkar ett datalager eller en beräkning till datafabriken. I det här fallet skapar du en länkad Azure Storage-tjänst för att länka ditt Azure Storage-konto till datalagret. Den länkade tjänsten har anslutningsinformationen som Data Factory-tjänsten använder för att ansluta till bloblagringen vid körning. Datauppsättningen anger behållaren, mappen och filen (valfritt) som innehåller källdata. 
+10. Välj fliken **Anslutning** i egenskapsfönstret. Klicka på **+ Ny** bredvid textrutan **Länkad tjänst**. En länkad tjänst länkar ett datalager eller en beräkning till datafabriken. I det här fallet skapar du en länkad Azure Storage-tjänst för att länka ditt Azure Storage-konto till datalagret. Den länkade tjänsten har anslutningsinformationen som Data Factory-tjänsten använder för att ansluta till bloblagringen vid körning. Datauppsättningen anger behållaren, mappen och filen (valfritt) som innehåller källdata. 
 
     ![Knapp för ny länkad tjänst](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
@@ -164,7 +161,7 @@ I den här självstudien börjar du med att skapa pipelinen och skapar länkade 
 14. Navigera till mappen **adftutorial/input**, välj filen **emp.txt** och klicka på **Slutför**. Du kan också dubbelklicka på emp.txt. 
 
     ![Välja indatafil](./media/tutorial-copy-data-portal/select-input-file.png)
-15. Bekräfta att **Filformat** är inställt på **Textformat** och att **kolumnavgränsare** är inställt på **Komma (`,`)**. Om källfilen använder olika avgränsare för rad och kolumn kan du klicka på **Detect Text Format** (Identifiera textformat) i fältet **Filformat**. Verktyget Kopiera data identifierar filformatet och avgränsarna automatiskt. Du kan fortfarande åsidosätta dessa värden. Du kan förhandsvisa data på den här sedan om du klickar på  **	Förhandsgranska data**.
+15. Bekräfta att **Filformat** är inställt på **Textformat** och att **kolumnavgränsare** är inställt på **Komma (`,`)**. Om källfilen använder olika avgränsare för rad och kolumn kan du klicka på **Detect Text Format** (Identifiera textformat) i fältet **Filformat**. Verktyget Kopiera data identifierar filformatet och avgränsarna automatiskt. Du kan fortfarande åsidosätta dessa värden. Du kan förhandsvisa data på den här sedan om du klickar på **Förhandsgranska data**.
 
     ![Identifiera textformat](./media/tutorial-copy-data-portal/detect-text-format.png)
 17. Välj fliken **Schema** i fönstret Egenskaper och klicka på **Importera schema**. Lägg märke till att programmet identifierade två kolumner i källfilen. Du importerar schemat hit så att du kan mappa kolumner från källdatalagret till datalagret för mottagare. Om du inte behöver mappa kolumner kan du hoppa över det här steget. Importera schemat för den här självstudien.
@@ -173,7 +170,7 @@ I den här självstudien börjar du med att skapa pipelinen och skapar länkade 
 19. Gå till fliken  **med pipeline**  eller klicka på pipelinen i **trädvyn** till vänster.  
 
     ![Fliken Pipeline](./media/tutorial-copy-data-portal/pipeline-tab.png)
-20. Bekräfta att **SourceBlobDataset** är valt för Source Dataset (Källdatauppsättning) i egenskapsfönstret. Du kan förhandsvisa data på den här sedan om du klickar på  **	Förhandsgranska data**. 
+20. Bekräfta att **SourceBlobDataset** är valt för Source Dataset (Källdatauppsättning) i egenskapsfönstret. Du kan förhandsvisa data på den här sedan om du klickar på **Förhandsgranska data**. 
     
     ![Källdatauppsättning](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 21. Växla till fliken **Sink** (Mottagare) och klicka på **New** (Nytt) för att skapa en datauppsättning för mottagare. 
@@ -283,7 +280,7 @@ Du kan testköra en pipeline innan du publicerar artefakter (länkade tjänster,
 2. Kontrollera att data från källfilen infogas i SQL-måldatabasen. 
 
     ![Kontrollera SQL-utdata](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Klicka på **Publicera** i rutan till vänster. Med den här åtgärden publicerar du enheter (länkade tjänster, datauppsättningar och pipeliner) som du skapade tidigare i Azure Data Factory.
+3. Klicka på **Publicera alla** i rutan till vänster. Med den här åtgärden publicerar du enheter (länkade tjänster, datauppsättningar och pipeliner) som du skapade tidigare i Azure Data Factory.
 
     ![Knappen Publicera](./media/tutorial-copy-data-portal/publish-button.png)
 4. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Om du vill visa meddelanden klickar du på **Show Notifications** (Visa meddelanden) i den vänstra sidorutan. Stäng meddelandefönstret genom att klicka på **X**.
@@ -343,7 +340,7 @@ Om du inte vill arbeta med VSTS-kodlagringsplatsen kan du hoppa över det här s
 ## <a name="trigger-the-pipeline-manually"></a>Utlös pipelinen manuellt
 I det här steget utlöser du manuellt pipelinen du publicerade i föregående steg. 
 
-1. Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). 
+1. Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). På sidan **Pipelinekörning** klickar du på **Slutför**.  
 
     ![Menyn Trigger now (Utlös nu)](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Växla till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen Åtgärder för att visa aktivitetsinformation och köra pipelinen på nytt.
@@ -386,10 +383,10 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 6. På sidan **Trigger Run Parameters** (Parametrar för utlösarkörning) läser du varningen och klickar på **Slutför**. Pipelinen i det här exemplet tar inga parametrar. 
 
     ![Pipeline-parametrar](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Klicka på **Publicera** för att publicera ändringarna i lagringsplatsen. Utlösaren aktiveras inte förrän publiceringen genomförs. 
+7. Klicka på **Synkronisera** för att synkronisera ändringar i din gren med huvudgrenen. Som standard är **Publish changes after sync** (Publicera ändringar efter synkronisering) markerat. När du väljer **Synkronisera** publiceras därför även uppdaterade entiteter till Azure Data Factory-tjänsten från huvudgrenen. Utlösaren aktiveras inte förrän publiceringen genomförs.
 
-    ![Publicera utlösare](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Växla till fliken **Övervakare** till vänster för att se de utlösta pipelinekörningarna. 
+    ![Publicera utlösare](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Växla till fliken **Övervakare** till vänster för att se de utlösta pipelinekörningarna. 
 
     ![Utlösta pipelinekörningar](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Om du vill växla från pipelinekörningsvyn till vyn med utlösarkörningar klickar du på Pipeline Runs (Pipelinekörningar) och väljer Trigger Runs (Utlösarkörningar).

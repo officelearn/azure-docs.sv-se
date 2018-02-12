@@ -1,6 +1,6 @@
 ---
-title: "Skicka händelser till Händelsehubbar i Azure med hjälp av .NET Standard | Microsoft Docs"
-description: "Komma igång med att skicka händelser till Händelsehubbar i .NET Standard"
+title: "Skicka händelser till Azure Event Hubs med .NET Standard| Microsoft Docs"
+description: "Komma igång med att skicka händelser till Event Hubs med .NET Standard"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,36 +9,36 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: MT
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Komma igång med att skicka meddelanden till Azure Event Hubs i .NET Standard
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard
 
 > [!NOTE]
-> Det här exemplet är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
 
-Den här kursen visar hur du skriver ett .NET Core-konsolprogram som skickar meddelanden till en händelsehubb. Du kan köra den [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) lösning som-, ersätter den `EhConnectionString` och `EhEntityPath` strängar med event hub värdena. Eller du kan följa stegen i den här kursen hjälper dig att skapa en egen.
+I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som skickar en uppsättning meddelanden till en händelsehubb. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)-lösningen i befintligt skick och ersätta strängarna `EhConnectionString` och `EhEntityPath` med värdena för din händelsehubb. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). Exemplen i den här självstudiekursen används Visual Studio 2017 men Visual Studio 2015 stöds också.
-* [.NET core Visual Studio 2015 eller 2017 verktyg](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). I exemplen i självstudien används Visual Studio 2017, men Visual Studio 2015 stöds också.
+* [.NET Core Visual Studio 2015- eller 2017-verktyg](http://www.microsoft.com/net/core).
 * En Azure-prenumeration.
-* Ett event hub namnområde.
+* Ett namnområde för en händelsehubb.
 
-Om du vill skicka meddelanden till en händelsehubb, använder vi Visual Studio för att skriva ett C#-konsolprogram.
+För att skicka meddelanden till en händelsehubb använder den här självstudien Visual Studio för att skriva ett C#-konsolprogram.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
 
-Det första steget är att använda den [Azure-portalen](https://portal.azure.com) att skapa ett namnområde för händelsetypen hubb och skaffa autentiseringsuppgifter för hantering som behövs i programmet för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb, följer du proceduren i [i den här artikeln](event-hubs-create.md), och fortsätt sedan med följande steg.
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Even Hub och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -46,16 +46,16 @@ Starta Visual Studio. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på
 
 ![Nytt projekt][1]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Lägg till Event Hubs NuGet-paketet
+## <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 
-Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard bibliotekets NuGet-paket i projektet genom att följa dessa steg: 
+Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard-bibliotekets NuGet-paket till projektet genom att följa dessa steg: 
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-2. Klicka på den **Bläddra** fliken och Sök efter ”Microsoft.Azure.EventHubs” och välj sedan den **Microsoft.Azure.EventHubs** paketet. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
+2. Klicka på fliken **Bläddra**, sök efter ”Microsoft.Azure.EventHubs” och markera paketet **Microsoft.Azure.EventHubs**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-1. Lägg till följande `using`-instruktioner överst i Program.cs-filen.
+1. Lägg till följande `using`-instruktioner överst i Program.cs-filen:
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -63,7 +63,7 @@ Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Mi
     using System.Threading.Tasks;
     ```
 
-2. Lägg till konstanter till den `Program` klass för Händelsehubbar sträng och entiteten anslutningssökvägen (enskilda händelsehubbens namn). Ersätt platshållarna med hakparenteser med rätt värden som erhölls när du skapar händelsehubben. Se till att den `{Event Hubs connection string}` är anslutningssträngen för namnområdesnivån och inte event hub-sträng. 
+2. Lägg till konstanter för `Program`-klassen för händelsehubbens anslutningssträng och entitetssökväg (enskilt händelsehubbnamn). Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade händelsehubben. Kontrollera att `{Event Hubs connection string}` är anslutningssträngen på namnrymdsnivå och inte händelsehubbens sträng. 
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -71,14 +71,14 @@ Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Mi
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Lägg till en ny metod med namnet `MainAsync` till den `Program` class, enligt följande:
+3. Lägg till en ny metod som heter `MainAsync` till `Program`-klassen enligt följande:
 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -95,7 +95,7 @@ Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Mi
     }
     ```
 
-4. Lägg till en ny metod med namnet `SendMessagesToEventHub` till den `Program` class, enligt följande:
+4. Lägg till en ny metod som heter `SendMessagesToEventHub` till `Program`-klassen enligt följande:
 
     ```csharp
     // Creates an event hub client and sends 100 messages to the event hub.
@@ -121,7 +121,7 @@ Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Mi
     }
     ```
 
-5. Lägg till följande kod i den `Main` metod i den `Program` klass.
+5. Lägg till följande kod till `Main`-metoden i `Program`-klassen:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -151,8 +151,8 @@ Lägg till den [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Mi
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath

@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes på Azure tutorial – distribuera program"
-description: "AKS tutorial – distribuera program"
+title: "Självstudie om Kubernetes i Azure – Distribuera program"
+description: "Självstudie om AKS – Distribuera program"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,62 +9,62 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Köra program i Azure Container Service (AKS)
 
-I den här självstudiekursen del fyra åtta, ett exempelprogram har distribuerats i ett Kubernetes kluster. Slutfört stegen innefattar:
+I den här självstudien, som är del fyra av åtta, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Det här är några av stegen:
 
 > [!div class="checklist"]
-> * Uppdatera Kubernetes manifestfiler
-> * Köra program i Kubernetes
+> * Uppdatera Kubernetes-manifestfiler
+> * Köra programmet i Kubernetes
 > * Testa programmet
 
-Det här programmet skalas ut, uppdateras i efterföljande självstudiekurser och Operations Management Suite som konfigurerats för att övervaka Kubernetes klustret.
+I efterföljande självstudier skalar du ut programmet, uppdaterar det och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
 
-Den här kursen förutsätter en grundläggande förståelse för begrepp Kubernetes detaljerad information om Kubernetes finns i [Kubernetes dokumentationen][kubernetes-documentation].
+I den här självstudien förutsätter vi att du har grundläggande kunskaper om vanliga Kubernetes-begrepp. Detaljerad information om Kubernetes finns i [Kubernetes-dokumentationen][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I föregående självstudier, ett program som har paketerats till en behållare bild, bilden överfördes till registret för Azure-behållare och en Kubernetes klustret har skapats. 
+I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. 
 
-Den här kursen behöver du i förväg skapade `azure-vote-all-in-one-redis.yaml` Kubernetes manifestfil. Den här filen hämtades i föregående självstudiekursen med programmets källkod. Kontrollera att du har klona lagringsplatsen och att du har ändrat kataloger till klonade lagringsplatsen.
+I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Kontrollera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Uppdatera manifestfilen
 
-Azure Container registret (ACR) har använts att lagra en avbildning av behållare i den här självstudiekursen. ACR server inloggningsnamnet måste uppdateras i manifestfilen Kubernetes innan du kör programmet.
+Azure Container Registry (ACR) har använts till att lagra en behållaravbildning i den här självstudien. Innan du kör programmet måste du uppdatera namnet på ACR-inloggningsservern i Kubernetes-manifestfilen.
 
-Hämta ACR server inloggningsnamnet med den [az acr lista] [ az-acr-list] kommando.
+Du hämtar namnet på ACR-inloggningsservern med kommandot [az acr list][az-acr-list].
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Manifestfilen har skapats i förväg med inloggningen servernamnet `microsoft`. Öppna filen med en textredigerare. I det här exemplet filen har öppnats med `vi`.
+Manifestfilen har skapats i förväg med inloggningsservern `microsoft`. Öppna filen med valfritt redigeringsprogram. I det här exemplet öppnas filen med `vi`.
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Ersätt `microsoft` med ACR server inloggningsnamnet. Det här värdet finns på rad **47** för manifestfilen.
+Ersätt `microsoft` med namnet på ACR-inloggningsservern. Du hittar värdet på rad **47** i manifestfilen.
 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Spara och stäng filen.
 
-## <a name="deploy-application"></a>Distribuera program
+## <a name="deploy-application"></a>Distribuera programmet
 
-Använd den [kubectl skapa] [ kubectl-create] kommando för att köra programmet. Det här kommandot Parsar manifestfilen och skapar de definierade Kubernetes-objekt.
+Använd kommandot [kubectl create][kubectl-create] för att köra programmet. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yaml
@@ -79,11 +79,11 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>Testa program
+## <a name="test-application"></a>Testa programmet
 
-En [Kubernetes service] [ kubernetes-service] skapas som visar programmet till internet. Den här processen kan ta ett par minuter. 
+En [Kubernetes-tjänst][kubernetes-service] skapas som gör programmet synligt på internet. Den här processen kan ta ett par minuter. 
 
-För att övervaka förloppet, Använd den [kubectl hämta service] [ kubectl-get] kommandot med de `--watch` argumentet.
+Du kan övervaka förloppet genom att använda kommandot [kubectl get service][kubectl-get] med argumentet `--watch`.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -101,23 +101,23 @@ När *EXTERNAL-IP*-adressen har ändrats från *pending* till en *IP-adress* anv
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Bläddra till den externa IP-adressen om du vill se programmet.
+Bläddra till den externa IP-adressen för att visa programmet.
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har programmet Azure rösten distribuerats till ett kluster med Kubernetes på AKS. Aktiviteter har slutförts är:  
+I den här självstudien distribuerades programmet Azure Voting till ett Kubernetes-kluster i AKS. Det här är några av uppgifterna:  
 
 > [!div class="checklist"]
-> * Hämta Kubernetes manifestfiler
-> * Kör programmet i Kubernetes
+> * Ladda ned Kubernetes-manifestfiler
+> * Köra programmet i Kubernetes
 > * Testa programmet
 
-Gå vidare till nästa kurs att lära dig om att skala både ett Kubernetes program och den underliggande Kubernetes-infrastrukturen. 
+Gå vidare till nästa självstudie om du vill lära dig om att skala ut både ett Kubernetes-program och den underliggande Kubernetes-infrastrukturen. 
 
 > [!div class="nextstepaction"]
-> [Skala Kubernetes program och infrastruktur][aks-tutorial-scale]
+> [Skala ut ett Kubernetes-program och tillhörande infrastruktur][aks-tutorial-scale]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

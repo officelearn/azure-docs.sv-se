@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2242851d51dee56679231b9f34c8b474ba6578d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurera tjänstslutpunkter för virtuellt nätverk
 
@@ -75,7 +75,7 @@ Resursgrupp|Låt Skapa ny vara markerat och ange ett namn.
 Plats|Valfri region som stöds, t.ex. Östra Australien
 Prenumeration|Välj din prenumeration.
 __ServiceEndpoints__|Enabled
-__Tjänster__ | Välj en eller alla tillgängliga tjänster. Vid tidpunkten för förhandsversionen är tjänster som stöds: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Tjänster__ | Välj en eller alla tillgängliga tjänster. Tjänster som stöds: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Välj tjänster för slutpunkter: ![Select Service Endpoint Services](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png) (Välj tjänstens slutpunktstjänster)
 
@@ -385,9 +385,9 @@ Tjänstslutpunkter kan konfigureras på virtuella nätverk separat, av en använ
 
 För att kunna skydda Azure-tjänstresurser i ett virtuellt nätverk måste behörigheten "Microsoft.Network/JoinServicetoaSubnet" för undernäten läggas till för användaren. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
 
-Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) och att tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) och att tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om de finns i olika prenumerationer bör resurserna finnas under samma Active Directory-klient (AD) vid tidpunkten för den här förhandsversionen.
+Virtuella nätverk och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om de finns i olika prenumerationer bör resurserna finnas under samma Active Directory-klient (AD).
 
 ## <a name="next-steps"></a>Nästa steg
 

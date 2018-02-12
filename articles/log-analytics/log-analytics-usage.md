@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
-Log Analytics innehåller information om hur mycket data som samlas in, vilka datorer som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
+Log Analytics innehåller information om hur mycket data som samlas in, vilka system som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
 
 ## <a name="understand-the-usage-dashboard"></a>Förstå instrumentpanelen för användning
 Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehåller följande information:
@@ -37,24 +37,18 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
     - Insikts- och analysnoder
     - Automatiserings- och styrningsnoder
     - Säkerhetsnoder
-- Prestanda
-    - Hur lång tid det tar att samla in och indexera data
 - Lista med frågor
 
 ![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
-1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
-2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
-    ![Azure-hubb](./media/log-analytics-usage/hub.png)
-3. Instrumentpanelen för **Log Analytics** visar en lista över dina arbetsytor. Välj en arbetsyta.
-4. På instrumentpanelen för *arbetsytan* klickar du på **Log Analytics usage** (Log Analytics-användning).
-5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.  
-    ![tidsintervall](./media/log-analytics-usage/time.png)
-6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).  
-    ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)
-7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.  
-    ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
+4. Välj **Logganalys-användning** på listan i det vänstra fönstret.
+5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/time.png)<br><br>
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).<br><br> ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)<br><br>
+7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.<br><br> ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
 I det här avsnittet beskrivs hur du skapar en avisering om:
@@ -63,20 +57,20 @@ I det här avsnittet beskrivs hur du skapar en avisering om:
 
 Log Analytics-[aviseringar](log-analytics-alerts-creating.md) använder sökfrågor. Följande fråga har ett resultat när det finns fler än 100 GB data som har samlats in under de senaste 24 timmarna:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 Följande fråga använder en enkel formel för att förutsäga när mer än 100 GB data skickas under en dag: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Ändra 100 i frågan till antalet GB som du vill ange som gräns för att skicka en datavolymavisering.
 
 Använd stegen som beskrivs i [skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) om du vill meddelas när datainsamlingen är högre än förväntat.
 
-När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:
-- **Namnet** till *Datavolym är större än 100 GB på 24 timmar*
-- **Allvarlighetsgrad** till *varning*
-- **Sökfråga** till`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:  
+- **Namnet** till *Datavolym är större än 100 GB på 24 timmar*  
+- **Allvarlighetsgrad** till *varning*  
+- **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
 - **Tidsfönster** till *24 timmar*.
 - **Varningsfrekvens** till en timme, eftersom användningsdata uppdateras en gång i timmen.
 - **Skapa en avisering baserat på** som *antal resultat*
@@ -87,7 +81,7 @@ Använd stegen som beskrivs i [Lägga till åtgärder i varningsregler](log-anal
 När du skapar aviseringen för den andra frågan--när mer än 100 GB data på 24 timmar förväntas, ange:
 - **Namnet** till *Datavolym förväntas vara större än 100 GB på 24 timmar*
 - **Allvarlighetsgrad** till *varning*
-- **Sökfråga** till`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Sökfråga** till`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 - **Tidsfönster** till *3 timmar*.
 - **Varningsfrekvens** till en timme, eftersom användningsdata uppdateras en gång i timmen.
 - **Skapa en avisering baserat på** som *antal resultat*
@@ -115,33 +109,29 @@ I de här två diagrammen visas alla data. Vissa data är fakturerbara och andra
 
 Titta på diagrammet *Datavolym över tid*. Klicka på namnet på datorn för att visa de lösningar och datatyper som skickar de mest data för en specifik dator. Klicka på namnet på den första datorn i listan.
 
-I följande skärmbild skickar datatypen *Log Management/Perf* mest data för datorn. 
-
-![datavolym för en dator](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+I följande skärmbild skickar datatypen *Log Management/Perf* mest data för datorn.<br><br> ![datavolymen för en dator](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Gå sedan tillbaka till instrumentpanelen *Användning* och titta på diagrammet *Datavolym per lösning*. Klicka på namnet på lösningen i listan om du vill se de datorer som skickar mest data för en lösning. Klicka på namnet på den första lösningen i listan. 
 
-I följande skärmbild bekräftas att datorn *acmetomcat* skickar mest data för Log Management-lösningen.
-
-![datavolymen för en lösning](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+I följande skärmbild bekräftas att datorn *acmetomcat* skickar mest data för Log Management-lösningen.<br><br> ![datavolymen för en lösning](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Vid behov kan du utföra ytterligare analyser för att identifiera stora volymer inom en lösning eller datatyp. Exempelfrågor omfattar:
 
 + **Security**-lösningen
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Log Management**-lösningen
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + **Perf**-datatypen
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + **Event**-datatypen
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + **Syslog**-datatypen
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + Datatypen **AzureDiagnostics**
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Använd följande steg för att minska mängden på de loggar som samlats in:
 
@@ -155,20 +145,31 @@ Använd följande steg för att minska mängden på de loggar som samlats in:
 | Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrollera om det finns fler noder än förväntat
-Om du har prisnivån *per nod (OMS)* debiteras du därefter baserat på antalet noder och lösningar som du använder. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.
-
-![instrumentpanelen användning](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+Om du har prisnivån *per nod (OMS)* debiteras du därefter baserat på antalet noder och lösningar som du använder. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.<br><br> ![instrumentpanelen användning](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Klicka på **Visa alla...**  för att visa en fullständig lista över datorer som skickar data för det valda erbjudandet.
 
 Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Kontrollera om det finns någon datainmatningssvarstid
+Med Log Analytics finns det en förväntad svarstid med datainmatningen av insamlade data.  Den absoluta tiden mellan indexering av data och när den är tillgänglig för sökning kan vara oförutsägbar. Tidigare inkluderade vi ett prestandadiagram på instrumentpanelen som visade hur lång tid det tar att samla in och indexera data, och med introduktionen av det nya frågespråket har vi tillfälligt tagit bort diagrammet.  Som en tillfällig lösning tills vi släpper uppdaterade mått för datainmatningssvarstider kan följande fråga användas för att uppskatta svarstiden för varje datatyp.  
+
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> Inmatningen av svarstidsfrågan visar inte historiska svarstider och är begränsad till att endast returnera resultat för den aktuella tiden.  Värdet för *TimeGenerated* fylls i hos agenten för gemensamma schemaloggningar och fylls i vid samlingens slutpunkt för anpassade loggar.  
+>
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](log-analytics-log-searches.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) om du vill meddelas när ett sökvillkor har uppfyllts
 * Använd [lösningsmål](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer
-* Välj [vanliga eller minimala säkerhetshändelser](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md)
 * Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md)
-* Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md)
-* Ändra [systemloggens konfiguration](log-analytics-data-sources-syslog.md)
+* Om du vill ändra inställningarna för insamling av händelser kan du läsa [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md)
+* Om du vill ändra inställningarna för insamling av systemlogg kan du läsa [ systemloggens konfiguration](log-analytics-data-sources-syslog.md)

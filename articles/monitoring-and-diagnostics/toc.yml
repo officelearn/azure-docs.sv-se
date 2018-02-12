@@ -1,7 +1,6 @@
 - name: Dokumentation om Azure Monitor
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Övervakning i Azure
       href: monitoring-overview.md
@@ -42,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Aktivitetslogg
           href: monitoring-overview-activity-logs.md
+        - name: Aktivitetsloggaviseringar (förhandsversion)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Åtgärdsgrupper
           href: monitoring-action-groups.md
         - name: Diagnostikloggar
@@ -85,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Konfigurera aviseringar med Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Få en måttavisering att anropa en webhook
-          href: insights-webhooks-alerts.md
+        - name: Webhook-åtgärder för loggaviseringar
+          href: monitor-alerts-unified-log-webhook.md
         - name: Skapa en metrisk varning med en Resource Manager-mall
           href: monitoring-enable-alerts-using-template.md
     - name: Använda automatisk skalning

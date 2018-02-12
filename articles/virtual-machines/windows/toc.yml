@@ -1,6 +1,6 @@
 - name: Dokumentation för virtuella Windows-datorer
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Virtual Machines
       href: overview.md
@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Använd kapslad virtualisering
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Installera VM-agenten i offlineläge
+          href: install-vm-agent-offline.md
 - name: Referens
   items:
     - name: Azure CLI

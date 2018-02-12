@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Application Gateway](application-gateway-introduction.md)
 ## [Vanliga frågor och svar om Application Gateway](application-gateway-faq.md)
 ## [Brandvägg för webbappar](application-gateway-web-application-firewall-overview.md)
@@ -41,11 +40,19 @@
 ## Konfigurera värdtjänster för flera webbplatser
 ### [Azure-portalen](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Konfigurera omdirigering
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
 ## Konfigurera extern omdirigering
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Azure CLI](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Konfigurera intern omdirigering
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Konfigurera omdirigering från HTTP till HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## Konfigurera URL-omdirigering
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Konfigurera webbappar som medlemmar i serverdelspool
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurera hälsotillståndsavsökningar

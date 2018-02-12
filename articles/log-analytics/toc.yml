@@ -1,6 +1,6 @@
 - name: Azure Log Analytics-dokumentation
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Vad är Log Analytics?
       href: log-analytics-overview.md
@@ -135,7 +135,7 @@
           href: log-analytics-dashboards.md
         - name: Vydesigner
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: log-analytics-view-designer.md
             - name: Panelreferens
               href: log-analytics-view-designer-tiles.md

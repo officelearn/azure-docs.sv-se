@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure IoT Edge
       href: how-iot-edge-works.md
@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Felsöka Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Lagra data på gränsen
+      href: sql-storage.md
     - name: Felsöka
       href: troubleshoot.md
 - name: Begrepp

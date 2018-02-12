@@ -1,6 +1,6 @@
 - name: Dokumentation om Site Recovery
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Vad är Site Recovery?
       href: site-recovery-overview.md
@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Stödmatris för lokal till sekundär plats
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Typer av återställning efter fel
+      href: concepts-types-of-failback.md
     - name: Haveriberedskap för arbetsbelastningar
       href: site-recovery-workload.md
     - name: Migrering till Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Kvarhålla IP för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
           href: site-recovery-network-mapping.md
         - name: Konfigurera IP-adresser för åtkomst till Azure efter redundansväxling
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problem med redundans till Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problem med återaktivering av skydd och återställning efter fel
+          href: troubleshoot-failback-reprotect.md
         - name: Övervaka Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Referens

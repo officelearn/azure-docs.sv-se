@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Om Azures identitetshantering](identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
@@ -84,6 +83,7 @@
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrera användare mellan produktlicenser](active-directory-licensing-group-product-migration.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
@@ -201,8 +201,6 @@
 ##### [Anslutningsappar](application-proxy-understand-connectors.md)
 ##### [Säkerhet](application-proxy-security-considerations.md)
 ##### [Nätverk](application-proxy-network-topology-considerations.md)
-
-
 ##### [Uppgradera från TMG eller UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Avancerade konfigurationer
@@ -213,6 +211,8 @@
 ##### [Tyst installation](active-directory-application-proxy-silent-installation.md)
 ##### [Anpassad startsida](application-proxy-office365-app-launcher.md)
 ##### [Översätt infogade länkar](application-proxy-link-translation.md)
+##### [Program med jokertecken](active-directory-application-proxy-wildcard.md)
+
 #### Publicera genomgångar
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -294,8 +294,9 @@
 
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
-#### [Kontroller](active-directory-conditional-access-controls.md)
+#### [Villkor](active-directory-conditional-access-conditions.md)
 #### [Platsvillkor](active-directory-conditional-access-locations.md)
+#### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)

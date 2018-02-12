@@ -2,8 +2,7 @@
   href: /azure/hdinsight
 - name: Spark på HDInsight
   items:
-    - name: |
-        Översikt
+    - name: Översikt
       href: apache-spark-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -87,10 +86,12 @@
           href: apache-spark-use-with-data-lake-store.md
         - name: Ansluta till Azure SQL-databas
           href: apache-spark-connect-to-sql-database.md
+        - name: Implementera ett lambda-arkitektur med Spark och Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark-strömning
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: apache-spark-streaming-overview.md
         - name: Skapa Spark-direktuppspelningsjobb med hög tillgänglighet i YARN
           href: apache-spark-streaming-high-availability.md
@@ -355,8 +356,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

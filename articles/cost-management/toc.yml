@@ -1,7 +1,6 @@
 - name: Azure Cost Management-dokumentation
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Vad är kostnadshantering?
       href: overview.md
@@ -34,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: Lägga till utökade mått för virtuella datorer
       href: azure-vm-extended-metrics.md
+    - name: Ansluta ett Google-konto
+      href: connect-google-account.md
+    - name: Ansluta ett AWS-konto
+      href: connect-aws-account.md
     - name: Använda Cost Management-rapporter
       href: use-reports.md
 - name: Resurser

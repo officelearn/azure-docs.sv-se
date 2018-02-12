@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Virtuella nätverk](virtual-networks-overview.md)
 ## [Routning](virtual-networks-udr-overview.md)
 ## [Virtuell nätverkspeering](virtual-network-peering-overview.md)
@@ -158,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Loggar](virtual-network-nsg-manage-log.md)
+### [Routningstabeller](manage-route-table.md)
 ### Nätverksgränssnitt (nätverkskort)
 #### [Skapa, ändra eller ta bort nätverkskort](virtual-network-network-interface.md)
 #### [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md)
@@ -178,6 +178,7 @@
 ### [Testning av dataflöde](virtual-network-bandwidth-testing.md)
 ### [Det går inte att ta bort virtuella nätverk](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problem med anslutning mellan virtuella datorer](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Konfigurera PTR för SMTP-banderollskontroll](create-ptr-for-smtp-service.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

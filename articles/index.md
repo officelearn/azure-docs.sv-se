@@ -5,11 +5,11 @@ title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
 featureFlags:
 - clicktale
-ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4263,12 +4263,12 @@ SQL-verktyg </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-En uppsättning rekommenderade arkitekturer för molnprogram. Varje arkitektur innehåller rekommendationer, ingående anvisningar och en körbar komponent som återspeglar rekommendationerna.
+I Azure Architecture Center finns vägledning för att skapa fullständiga säkerhetslösningar på Microsoft Azure. Här hittar du referensarkitektur, metodtips, designmönster, scenarioguider och referensimplementeringar.
                                     </p>
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/guide/">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4278,8 +4278,27 @@ En uppsättning rekommenderade arkitekturer för molnprogram. Varje arkitektur i
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
+                                                    <h3>Azure Architecture Center</h3>
+                                                    <p>Riktlinjer för att skapa fullständiga lösningar på Microsoft Azure.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/architecture/guide/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
                                                     <h3>Guide för Azure-programarkitektur</h3>
-                                                    <p>Skaffa dig grundläggande kunskaper för att lyckas i molnet. Börja här om du är nybörjare i molnet eller Azure.</p>
+                                                    <p>I den här guiden presenteras en strukturerad metod för att designa program på Azure som är skalbara, återhämtningsbara och mycket tillgängliga. Den baseras på beprövade metoder som vi har lärt oss i arbetet med kunder.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4318,27 +4337,6 @@ En uppsättning rekommenderade arkitekturer för molnprogram. Varje arkitektur i
                                                 <div class="cardText">
                                                     <h3>Designmönster för molnet</h3>
                                                     <p>Utforma mönster för molnet. Varje mönster beskriver problem, ett mönster som åtgärdar problemet och ett exempel baserat på Azure.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/architecture/best-practices/api-design">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_best-practices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bästa praxis för molnprogram</h3>
-                                                    <p>
-En uppsättning rekommenderade metoder för molnprogram som omfattar områden som automatisk skalning, cachelagring, datapartitionering, API-design och övervakning.
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

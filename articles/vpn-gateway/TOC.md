@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Om VPN-gateway](vpn-gateway-about-vpngateways.md)
 ## [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md)
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
@@ -35,6 +34,7 @@
 ### Konfigurera ett virtuellt privat P2S-nätverk
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [Skapa och installera VPN-klientkonfigurationsfiler](point-to-site-vpn-client-configuration-radius.md)
+### [Integrera P2S VPN RADIUS-autentisering med NPS-server](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## Konfigurera anslutningar mellan virtuella nätverk
 ### [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

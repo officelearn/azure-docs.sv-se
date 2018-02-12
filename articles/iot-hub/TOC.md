@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Azure och IoT](iot-hub-what-is-azure-iot.md)
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
@@ -38,6 +37,9 @@
 ### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
 ### [Enhetshantering med IoT-tillägg för Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+
+## Använda MXChip IoT DevKit
+### [Använda Azure IoT Suite för fjärrövervakning](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 # Instruktionsguider
 ## Planera

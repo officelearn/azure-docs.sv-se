@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Kafka på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: Översikt
       href: apache-kafka-introduction.md
     - name: Versionshantering för komponenter
       href: ../hdinsight-component-versioning.md
@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Analysera Kafka-loggar
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Använda Kafka med Azure Container Service
+      href: apache-kafka-azure-container-services.md
     - name: Skapa strömningspipelines
       items:
         - name: Kafka och Spark (Structured Streaming)

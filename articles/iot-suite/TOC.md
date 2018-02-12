@@ -58,7 +58,9 @@
 ### [Använda regler för att identifiera problem](iot-suite-remote-monitoring-automate.md)
 ### [Hantera dina enheter](iot-suite-remote-monitoring-manage.md)
 ### [Felsöka enhetsproblem](iot-suite-remote-monitoring-maintain.md)
-### [Använda simulerade enheter](iot-suite-remote-monitoring-test.md)
+### [Förstå schemat för enhetsmodellen](iot-suite-remote-monitoring-device-schema.md)
+### [Förstå beteendet för enhetsmodellen](iot-suite-remote-monitoring-device-behavior.md)
+### [Skapa en ny simulerad enhet](iot-suite-remote-monitoring-test.md)
 ### [Anpassa lösningen](iot-suite-remote-monitoring-customize.md)
 ### [Distribuera användningen av CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### Ansluta en fysisk enhet
@@ -68,7 +70,7 @@
 #### [Node.js på Raspberry Pi](iot-suite-connecting-pi-node.md)
 #### [C på Raspberry Pi](iot-suite-connecting-pi-c.md)
 
-### Koncept
+### Begrepp
 #### [Arkitektur för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 ## Ansluten fabrik

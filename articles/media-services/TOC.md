@@ -171,6 +171,7 @@
 #### [Genomgång av ansiktsredigering](media-services-redactor-walkthrough.md)
 ### [Bearbeta med videominiatyrer](media-services-video-summarization.md)
 ### [Bearbeta med OCR](media-services-video-optical-character-recognition.md)
+### [Bearbeta med Content Moderator](media-services-content-moderation.md)
 
 ## [Konfigurera telemetri](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)

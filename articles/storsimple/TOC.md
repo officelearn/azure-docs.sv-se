@@ -1,7 +1,6 @@
 # StorSimple virtuell matris
 
 ## Översikt
-
 ### [Vad är lösningen?](storsimple-ova-overview.md)
 
 ## Kom igång
@@ -57,7 +56,6 @@
 # StorSimple 8000-serien (Azure Portal)
 
 ## Översikt
-
 ### [Vad är lösningen?](storsimple-overview.md)
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
@@ -208,7 +206,6 @@
 # StorSimple Data Manager
 
 ## Översikt
-
 ### [Vad är lösningen?](storsimple-data-manager-overview.md)
 
 ## Kom igång
@@ -222,7 +219,6 @@
 # StorSimple för partner
 
 ## Översikt
-
 ### [Vad är lösningen?](storsimple-partner-csp-overview.md)
 
 ## Kom igång
@@ -240,6 +236,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Marknadsföringsblogg](http://blogs.technet.com/b/cis/)
 ## [Marknadsföring](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [StorSimple-supportalternativ](storsimple-8000-support-options.md)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

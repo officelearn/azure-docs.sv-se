@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Cloud Services?](cloud-services-choose-me.md)
 ## [Konfigurationsfiler och paketering av molntjänster](cloud-services-model-and-package.md)
 
@@ -65,13 +64,13 @@
 
 ## Övervaka
 ### [Övervaka molntjänster](cloud-services-how-to-monitor.md)
+### [Använda prestandaräknare](diagnostics-performance-counters.md)
 ### [Testa prestanda](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testa med Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Aktivera diagnostik
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Använda prestandaräknare i Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Lagra och visa diagnostikdata i Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Spåra en molntjänst med diagnostik](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Skicka diagnostikdata till App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)

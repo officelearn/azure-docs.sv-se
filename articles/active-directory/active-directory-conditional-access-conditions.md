@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 22cc43a861e2a9d1d0c508da362a5f0b48d0c268
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
-![Kontroll](./media/active-directory-conditional-access-conditions/10.png)
+![Kontrollen](./media/active-directory-conditional-access-conditions/10.png)
 
 
 I samband med villkorlig åtkomst:
@@ -36,7 +36,7 @@ I samband med villkorlig åtkomst:
 
 Kombinationen av dina villkor med din åtkomstkontroller representerar en princip för villkorlig åtkomst.
 
-![Kontroll](./media/active-directory-conditional-access-conditions/61.png)
+![Kontrollen](./media/active-directory-conditional-access-conditions/61.png)
 
 Den här artikeln ger en översikt över villkor och hur de används i en princip för villkorlig åtkomst. 
 
@@ -45,7 +45,7 @@ Den här artikeln ger en översikt över villkor och hur de används i en princi
 
 Villkor för användare och grupper är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen väljer **alla användare** eller Välj användare och grupper.
 
-![Kontroll](./media/active-directory-conditional-access-conditions/02.png)
+![Kontrollen](./media/active-directory-conditional-access-conditions/02.png)
 
 När du väljer:
 
@@ -67,7 +67,7 @@ En molnapp är en webbplatser eller tjänst. Detta inkluderar webbplatser som sk
 
 Molnet appar villkoret är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen väljer **alla molnappar** eller markera specifika appar.
 
-![Kontroll](./media/active-directory-conditional-access-conditions/03.png)
+![Kontrollen](./media/active-directory-conditional-access-conditions/03.png)
 
 Du kan välja:
 

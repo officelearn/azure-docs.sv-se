@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - System och tjänster förvärv"
-description: "Webbprogram för FedRAMP - System och tjänster förvärv"
+title: "Säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - systemet och Azure Services förvärv"
+description: "FedRAMP Web Applications Automation - System och tjänster förvärv"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>System och tjänster förvärv (SA)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå system och principer för inköp av tjänsten och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-2a"></a>NIST 800 53 kontrollen SA-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå resurs allokeringsprocessen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-2b"></a>NIST 800 53 kontrollen SA-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå resurs allokeringsprocessen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-2c"></a>NIST 800 53 kontrollen SA-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå resurs allokeringsprocessen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-3a"></a>NIST 800 53 kontrollen SA-3.a
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera kunden distribuerade resurser (om du vill inkludera program, operativsystem, databaser och program) med hjälp av en livscykel för system utveckling (SDLC). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-3b"></a>NIST 800 53 kontrollen SA-3.b
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera kunden distribuerade resurser med hjälp av en livscykel för system utveckling (SDLC). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-3c"></a>NIST 800 53 kontrollen SA-3.c
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera kunden distribuerade resurser med hjälp av en livscykel för system utveckling (SDLC). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-3d"></a>NIST 800 53 kontrollen SA-3.d
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera kunden distribuerade resurser med hjälp av en livscykel för system utveckling (SDLC). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-4"></a>NIST 800 53 kontrollen SA-4
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå förvärv processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-4-1"></a>NIST 800 53 kontrollen SA-4 (1)
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå förvärv process kan fastställa krav för Informationsdokumentation som tillhandahålls av utvecklare av säkerhetsåtgärder. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-4-2"></a>NIST 800 53 kontrollen SA-4 (2)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå förvärv process kan fastställa krav för säkerhetskontroller implementeras av information system-utvecklare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-4-8"></a>NIST 800 53 kontrollen SA-4 (8)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå förvärv process kan fastställa krav för utvecklare-kontinuerlig övervakning dokumentationen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-4-9"></a>NIST 800 53 kontrollen SA-4 (9)
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå förvärv process kan fastställa krav för angivna developer funktioner kontinuerlig dokumentation. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-4-10"></a>NIST 800 53 kontrollen SA-4 (10)
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå system och principer för inköp av tjänsten kan uppfylla krav för PIV-produkter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-5a"></a>NIST 800 53 kontrollen SA-5.a
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att erhålla administratör dokumentation för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-5b"></a>NIST 800 53 kontrollen SA-5.b
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att erhålla användardokumentation för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-5c"></a>NIST 800 53 kontrollen SA-5.c
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera försöker skaffa administratören och/eller användare dokumentation för kunden distribuerade resurser när dessa dokument inte är tillgänglig/inte finns. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-5d"></a>NIST 800 53 kontrollen SA-5.d
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda administratörs- och dokumentation för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-5e"></a>NIST 800 53 kontrollen SA-5.e
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att distribuera dokumentationen för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-8"></a>NIST 800 53 kontrollen SA-8
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för tillämpning av säkerhet tekniska principer till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-9a"></a>NIST 800 53 kontrollen SA-9.a
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. FedRAMP definierar säkerhetskrav som CSP: er måste uppfylla. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-9b"></a>NIST 800 53 kontrollen SA-9.b
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. FedRAMP innehåller en process för tillsyn för kompatibilitet med FedRAMP säkerhetskrav. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-9c"></a>NIST 800 53 kontrollen SA-9.c
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. FedRAMP innehåller en process för tillsyn för kompatibilitet med FedRAMP säkerhetskrav. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-9-1a"></a>NIST 800 53 kontrollen SA-9 (1) en
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. FedRAMP är utformat för att hantera risken som är associerade med en delad säkerhetsmodell ansvar. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-9-1b"></a>NIST 800 53 kontrollen SA-9 (1) .b
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. FedRAMP är utformat för att hantera risken som är associerade med en delad säkerhetsmodell ansvar.  Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-9-2"></a>NIST 800 53 kontrollen SA-9 (2)
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. En SSP som dokument Azure säkerhetsarkitekturen är tillgängliga för kunder via FedRAMP. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Azure-hanteringsportalen kan vara åtkomst med hjälp av en webbläsare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-9-4"></a>NIST 800 53 kontrollen SA-9 (4)
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB).  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-9-5"></a>NIST 800 53 kontrollen SA-9 (5)
@@ -414,7 +414,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå externa system services förvärv informationsprincip inkluderar en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. Azure myndighetsdatacenter finns inom USA. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB).  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-10a"></a>NIST 800 53 kontrollen SA-10.a
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-10b"></a>NIST 800 53 kontrollen SA-10.b
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-10c"></a>NIST 800 53 kontrollen SA-10.c
@@ -456,7 +456,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-10d"></a>NIST 800 53 kontrollen SA-10.d
@@ -470,7 +470,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-10e"></a>NIST 800 53 kontrollen SA-10.e
@@ -484,7 +484,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-10-1"></a>NIST 800 53 kontrollen SA-10 (1)
@@ -498,7 +498,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) att använda konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-11a"></a>NIST 800 53 kontrollen SA-11.a
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) för testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-11b"></a>NIST 800 53 kontrollen SA-11.b
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att utföra testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-11c"></a>NIST 800 53 kontrollen SA-11.c
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att utföra testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-11d"></a>NIST 800 53 kontrollen SA-11.d
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att utföra testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-11e"></a>NIST 800 53 kontrollen SA-11.e
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser för att utföra testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-11-1"></a>NIST 800 53 kontrollen SA-11 (1)
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) för testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-11-2"></a>NIST 800 53 kontrollen SA-11 (2)
@@ -596,7 +596,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) för testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-sa-11-8"></a>NIST 800 53 kontrollen SA-11 (8)
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) för testning och utvärdering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-12"></a>NIST 800 53 kontrollen SA-12
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå ange ändra skydd kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-15a"></a>NIST 800 53 kontrollen SA-15.a
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) att följa dokumenterade utvecklingsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-15b"></a>NIST 800 53 kontrollen SA-15.b
@@ -652,7 +652,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska utvecklingsprocessen, standarder, verktyg och verktyget alternativ/konfigurationerna som behövs för att avgöra om de uppfyller kraven. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-16"></a>NIST 800 53 kontrollen SA-16
@@ -666,7 +666,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) för att tillhandahålla utbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-17a"></a>NIST 800 53 kontrollen SA-17.a
@@ -680,7 +680,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) att skapa en design-specifikationen och säkerhet arkitektur. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-17b"></a>NIST 800 53 kontrollen SA-17.b
@@ -694,7 +694,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser att skapa en design-specifikationen och säkerhetsarkitekturen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-sa-17c"></a>NIST 800 53 kontrollen SA-17.c
@@ -708,4 +708,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kräva att utvecklare av kunden distribuerade resurser att skapa en design-specifikationen och säkerhetsarkitekturen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

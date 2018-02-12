@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - riskbedömning"
-description: "Webbprogram för FedRAMP - riskbedömning"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - riskbedömning"
+description: "FedRAMP Web Applications Automation - riskbedömning"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Riskbedömning (RA)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå risk assessment principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-2a"></a>NIST 800 53 kontrollen RA-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för kategorisering av kunden distribuerade resurser och den information som finns. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-2b"></a>NIST 800 53 kontrollen RA-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera resultaten av den säkerhet kategorisering som definierats i RA 02.a. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-2c"></a>NIST 800 53 kontrollen RA-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att säkerställa säkerheten kategorisering beslut granskas och godkännas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-3a"></a>NIST 800 53 kontrollen RA-3.a
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra en riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-3b"></a>NIST 800 53 kontrollen RA-3.b
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra en riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-3c"></a>NIST 800 53 kontrollen RA-3.c
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra en riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-3d"></a>NIST 800 53 kontrollen RA-3.d
@@ -134,21 +134,21 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra en riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-3e"></a>NIST 800 53 kontrollen RA-3.e
 
 #### <a name="risk-assessment"></a>Riskbedömning
 
-**RA 3.e** Organisationen uppdaterar riskbedömningen [tilldelning: organisation definierats frekvens] eller när det finns betydande förändringar för informationssystem eller miljön för åtgärden (inklusive identifiering av nya hot och säkerhetsrisker), eller andra villkor som kan påverka systemets säkerhetstillstånd.
+**RA-3.e** Organisationen uppdaterar riskbedömningen [tilldelning: organisation definierats frekvens] eller när det finns betydande förändringar för informationssystem eller miljön för åtgärden (inklusive identifiering av nya hot och säkerhetsrisker), eller andra villkor som kan påverka systemets säkerhetstillstånd.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra en riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-5a"></a>NIST 800 53 kontrollen RA-5.a
@@ -161,8 +161,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Baslinje Assessment utvärderar en uppsättning registernycklar, principinställningarna för granskning och inställningar för säkerhetsprincip tillsammans med Microsofts rekommenderade värdena för dessa inställningar. Utvärdering av uppdateringar utvärderar status för uppdateringar på alla distribuerade virtuella datorer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Baslinje Assessment utvärderar en uppsättning registernycklar, principinställningarna för granskning och inställningar för säkerhetsprincip tillsammans med Microsofts rekommenderade värdena för dessa inställningar. Utvärdering av uppdateringar utvärderar status för uppdateringar på alla distribuerade virtuella datorer. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-5b"></a>NIST 800 53 kontrollen RA-5.b
@@ -175,8 +175,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Kända problem som har tilldelats en allvarlighetsgrad. Common Configuration Enumeration (CCE)-ID: N har angetts för baslinje Assessment regler.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Kända problem som har tilldelats en allvarlighetsgrad. Common Configuration Enumeration (CCE)-ID: N har angetts för baslinje Assessment regler.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-5c"></a>NIST 800 53 kontrollen RA-5.c
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att analysera genomsökning rapporter och resultat av säkerhet kontrollen bedömningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-5d"></a>NIST 800 53 kontrollen RA-5.d
@@ -204,21 +204,21 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för hälsostatus säkerhetsproblem i kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) i enlighet med kunden riskbedömning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ra-5e"></a>NIST 800 53 kontrollen RA-5.e
 
 #### <a name="vulnerability-scanning"></a>Säkerhetsproblem Scanning
 
-**RA 5.e** Organisationen delar information som hämtas från säkerhetsrisken genomsökning processen och säkerhet kontroll-bedömning med [tilldelning: personal som definierats av organisationen eller roller] för att ta bort motsvarande sårbarhet i andra informationssystem (dvs. systemfel svagheter eller brister).
+**RA-5.e** Organisationen delar information som hämtas från säkerhetsrisken genomsökning processen och säkerhet kontroll-bedömning med [tilldelning: personal som definierats av organisationen eller roller] för att ta bort motsvarande sårbarhet i andra informationssystem (dvs. systemfel svagheter eller brister).
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dela information som hämtas från säkerhetsrisken genomsökning processen och säkerhet kontrollen bedömningar för att hjälpa till att eliminera liknande säkerhetsproblem för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-1"></a>NIST 800 53 kontrollen RA-5 (1)
@@ -231,8 +231,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. De kriterier som mot dessa lösningar utvärdera uppdateras automatiskt. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. De kriterier som mot dessa lösningar utvärdera uppdateras automatiskt. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-2"></a>NIST 800 53 kontrollen RA-5 (2)
@@ -245,8 +245,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. De kriterier som mot dessa lösningar utvärdera uppdateras automatiskt. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. De kriterier som mot dessa lösningar utvärdera uppdateras automatiskt. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-3"></a>NIST 800 53 kontrollen RA-5 (3)
@@ -259,8 +259,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Utvärdering av uppdateringar utför assessment mot Windows- och Linux virtuella datorer. Baslinje assessment utför assessment mot Windows-datorer med hjälp av en Microsoft utvecklade baslinje baserade på branschstandardens rekommendationer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Två säkerhetsdomäner utvärdering av uppdateringar och baslinjen Assessment finns inne i lösningen. Utvärdering av uppdateringar utför assessment mot Windows- och Linux virtuella datorer. Baslinje assessment utför assessment mot Windows-datorer med hjälp av en Microsoft utvecklade baslinje baserade på branschstandardens rekommendationer. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-4"></a>NIST 800 53 kontrollen RA-5 (4)
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att vidta åtgärder som svar på identifierbar information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-5"></a>NIST 800 53 kontrollen RA-5 (5)
@@ -287,8 +287,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Tjänsten Microsoft Monitoring Agent, som har konfigurerats på virtuella datorer som distribueras med den här Azure-plan, är konfigurerad som en automatisk tjänst med privilegier som krävs för bedömningsaktiviteterna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Tjänsten Microsoft Monitoring Agent, som har konfigurerats på virtuella datorer som distribueras med den här plan, är konfigurerad som en automatisk tjänst med privilegier som krävs för bedömningsaktiviteterna. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-6"></a>NIST 800 53 kontrollen RA-5 (6)
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | OMS ger möjlighet att skapa anpassade instrumentpaneler för att analysera data som samlas in av logganalys och Microsoft Monitoring Agent. Dessa paneler kan anpassas för att visa trender över tid. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-8"></a>NIST 800 53 kontrollen RA-5 (8)
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska historiska granskningsloggar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ra-5-10"></a>NIST 800 53 kontrollen RA-5 (10)
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: e18de2adc9aac585d6890dd7b43a54f1a0ca177e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1cadec240dc7f6e3ac5b8932d66c3d55c76e42
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Arbetsflöde för Media Encoder Premium format och codec
 > [!NOTE]
-> E-mepd på Microsoft.com för premium-kodare frågor.
+> Premium-kodare frågor du e-post mepd@microsoft.com.
 > 
 > Media Encoder Premium arbetsflöde medieprocessor som beskrivs i det här avsnittet är inte tillgänglig i Kina. 
 > 
@@ -45,14 +45,14 @@ I följande avsnitt visas codec och -filformat som har stöd för den här medie
 * GXF
 * MPEG-2-transportströmmar
 * MPEG-2-strömmar
-* MP4-MPEG-4
+* MPEG-4/MP4
 * Windows Media/ASF
 * AVI (okomprimerad 8-bitars/10 bitar)
 
 ### <a name="input-video-codecs"></a>Inkommande Video-codec
 * AVC 8-/ 10-bitars, upp till 4:2:2, inklusive AVCIntra
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (i MXF)
+* DVCPro/DVCProHD (in MXF)
 * JPEG2000
 * MPEG-2 (upp till 422 profil och högnivå, inklusive varianter, till exempel XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
 * MPEG-1
@@ -66,7 +66,7 @@ I följande avsnitt visas codec och -filformat som har stöd för den här medie
 * MPEG nivå 2
 * MP3 (MPEG-1 ljud nivå 3)
 * Windows Media Audio
-* WAV PCM /
+* WAV/PCM
 
 ## <a id="output_format"></a>Media Encoder Premium arbetsflödet utdataformat och codec
 I följande avsnitt visas codec och -filformat som stöds som utdata från den här medieprocessor.
@@ -76,7 +76,7 @@ I följande avsnitt visas codec och -filformat som stöds som utdata från den h
 * MXF (OP1a, XDCAM och AS02)
 * DPP (inklusive AS11)
 * GXF
-* MP4-MPEG-4
+* MPEG-4/MP4
 * Windows Media/ASF
 * AVI (okomprimerad 8-bitars/10 bitar)
 * Filformatet för Smooth Streaming (PIFF 1.3)
@@ -85,7 +85,7 @@ I följande avsnitt visas codec och -filformat som stöds som utdata från den h
 ### <a name="output-video-codecs"></a>Utdata Video-codec
 * AVC (H.264; 8-bitars, upp till hög profil nivå 5.2; 4 K extra HD; AVC Intra)
 * Avid DNxHD (i MXF)
-* DVCPro/DVCProHD (i MXF)
+* DVCPro/DVCProHD (in MXF)
 * MPEG-2 (upp till 422 profil och högnivå, inklusive varianter, till exempel XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10)
 * MPEG-1
 * Windows Media Video-VC-1

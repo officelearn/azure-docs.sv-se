@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - PERSONALSÄKERHET"
-description: "Webbprogram för FedRAMP - PERSONALSÄKERHET"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - PERSONALSÄKERHET"
+description: FedRAMP Web Applications Automation - Personnel Security
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>PERSONALSÄKERHET (PS)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå personal säkerhetsprinciper och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-2a"></a>NIST 800 53 kontrollen PS-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå positionen risken beteckningar kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-2b"></a>NIST 800 53 kontrollen PS-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå positionen risken beteckningar kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-2c"></a>NIST 800 53 kontrollen PS-2.c
@@ -78,10 +78,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå positionen risken beteckningar kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-ps-3a"></a>NIST 800 53 kontrollen PS-3.a
+ ## <a name="nist-800-53-control-ps-3a"></a>NIST 800-53 Control PS-3.a
 
 #### <a name="personnel-screening"></a>Personal filgallring
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå personal filgallring processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-3b"></a>NIST 800 53 kontrollen PS-3.b
@@ -106,10 +106,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå personal filgallring processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800 53 styra PS-3 (3) en
+ ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800-53 Control PS-3 (3).a
 
 #### <a name="personnel-screening--information-with-special-protection-measures"></a>Personal filgallring | Information med särskilda skyddsåtgärder
 
@@ -120,10 +120,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå personal filgallring processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ps-3-3b"></a>NIST 800 53 styra PS-3 (3) .b
+ ### <a name="nist-800-53-control-ps-3-3b"></a>NIST 800-53 Control PS-3 (3).b
 
 #### <a name="personnel-screening--information-with-special-protection-measures"></a>Personal filgallring | Information med särskilda skyddsåtgärder
 
@@ -134,10 +134,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå personal filgallring processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-ps-4a"></a>NIST 800 53 kontrollen PS-4.a
+ ## <a name="nist-800-53-control-ps-4a"></a>NIST 800-53 Control PS-4.a
 
 #### <a name="personnel-termination"></a>Personal uppsägning
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan upprätta en process för att kontrollera åtkomsten till information system avslutas omedelbart. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-4b"></a>NIST 800 53 kontrollen PS-4.b
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan upprätta en process för att avsluta/revoke autentiserare-autentiseringsuppgifter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-4c"></a>NIST 800 53 kontrollen PS-4.c
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan omfatta intervju avsluta. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-4d"></a>NIST 800 53 kontrollen PS-4.d
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan upprätta en process för att hämta säkerhetsrelaterad information och egenskapen från avslutade anställda. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-4e"></a>NIST 800 53 kontrollen PS-4.e
@@ -204,10 +204,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan upprätta en process för att se till att informationssystem finns kvar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-ps-4f"></a>NIST 800 53 kontrollen PS-4.f
+ ## <a name="nist-800-53-control-ps-4f"></a>NIST 800-53 Control PS-4.f
 
 #### <a name="personnel-termination"></a>Personal uppsägning
 
@@ -218,10 +218,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan innehålla en Meddelandeprocess. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ps-4-2"></a>NIST 800 53 kontrollen PS-4 (2)
+ ### <a name="nist-800-53-control-ps-4-2"></a>NIST 800-53 Control PS-4 (2)
 
 #### <a name="personnel-termination--automated-notification"></a>Personal avslutning | Automatisk anmälan
 
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå avslutning procedurer kan använda en automatisk mekanismer för att meddela avslutning som passar organisationens personal eller roller. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-5a"></a>NIST 800 53 kontrollen PS-5.a
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå överföring procedurer kan behandla logiska och fysiska åtkomst auktorisering granska. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-5b"></a>NIST 800 53 kontrollen PS-5.b
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå överföring procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-5c"></a>NIST 800 53 kontrollen PS-5.c
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå överföring procedurer kan upprätta en process för att ändra tillstånd för åtkomst vid behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-5d"></a>NIST 800 53 kontrollen PS-5.d
@@ -288,10 +288,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå överföring procedurer kan upprätta en Meddelandeprocess. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-ps-6a"></a>NIST 800 53 kontrollen PS-6.a
+ ## <a name="nist-800-53-control-ps-6a"></a>NIST 800-53 Control PS-6.a
 
 #### <a name="access-agreements"></a>Åtkomst-avtal
 
@@ -302,10 +302,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå åtkomst avtal (t.ex. enligt avtal, avtal för godkänd användning) kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-ps-6b"></a>NIST 800 53 kontroll-PS-6 b
+ ## <a name="nist-800-53-control-ps-6b"></a>NIST 800-53 Control PS-6.b
 
 #### <a name="access-agreements"></a>Åtkomst-avtal
 
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå åtkomst avtal (t.ex. enligt avtal, avtal för godkänd användning) kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-6c"></a>NIST 800 53 kontrollen PS-6
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå åtkomst avtal (t.ex. enligt avtal, avtal för godkänd användning) kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-7a"></a>NIST 800 53 kontrollen PS-7.a
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå från tredje part personal filgallring process kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-7b"></a>NIST 800 53 kontrollen PS-7.b
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå från tredje part personal filgallring process kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-7c"></a>NIST 800 53 kontrollen PS-7.c
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå från tredje part personal filgallring process kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-7d"></a>NIST 800 53 kontrollen PS-7.d
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå från tredje part personal filgallring process kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-7e"></a>NIST 800 53 kontrollen PS-7.e
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå från tredje part personal filgallring process kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-8a"></a>NIST 800 53 kontrollen PS-8.a
@@ -414,7 +414,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå medarbetare påföljder processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ps-8b"></a>NIST 800 53 kontrollen PS-8.b
@@ -428,4 +428,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå medarbetare påföljder processen kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

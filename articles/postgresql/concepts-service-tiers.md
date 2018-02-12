@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-databas för PostgreSQL-alternativ och prestanda: förstå vad som är tillgängliga i varje prisnivå
 När du skapar en Azure-databas för PostgreSQL-servern, besluta om tre huvudsakliga alternativ för att konfigurera de resurser som allokerats för servern. Dessa alternativ kan påverka prestanda och skalning av servern.
@@ -46,8 +46,8 @@ Om du vill välja en prisnivå, först starta genom att fastställa om din arbet
 | :------------------------ | :-------- | :----------- |
 | Maximal beräknings-enheter | 100 | 800 | 
 | Maximalt totalt lagringsutrymme | 1 TB | 1 TB | 
-| Lagring IOPS garanti | Saknas | Ja | 
-| Maximalt lagringsutrymme IOPS | Saknas | 3 000 | 
+| Lagring IOPS garanti | Gäller inte | Ja | 
+| Maximalt lagringsutrymme IOPS | Gäller inte | 3 000 | 
 | Databasen period för lagring av säkerhetskopior. | 7 dagar | 35 dagar | 
 
 Du kan inte ändra prisnivån när servern har skapats under tidsramen för förhandsgranskning. I framtiden, ska det vara möjligt att uppgradera eller nedgradera en server från en prisnivå till ett annat skikt.
@@ -73,7 +73,7 @@ Beräkna enheter är ett mått på CPU bearbetning dataflödet som garanterat sk
 | **Prestandanivå** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Max beräknings-enheter | 100 | 200 | 400 | 800 |
-| Inkluderade lagringsstorlek och etablerade IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Inkluderade lagringsstorlek och etablerade IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Maxstorlek för storage server\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Konfigurera max servern IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS |
 | Konfigurera max servern IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB |
@@ -81,7 +81,7 @@ Beräkna enheter är ett mått på CPU bearbetning dataflödet som garanterat sk
 \*Maxstorlek server lagring refererar till etablerade lagringsstorleken för servern.
 
 ## <a name="storage"></a>Lagring 
-Lagringskonfigurationen definierar mängden lagringskapacitet till en Azure-databas för PostgreSQL-servern. Det lagringsutrymme som används av tjänsten innehåller databasfiler och transaktionsloggar PostgreSQL i serverloggen. Överväg storleken på lagring som krävs för att vara värd för dina databaser och prestandakrav (IOPS) när du väljer lagringskonfigurationen.
+Lagringskonfigurationen definierar mängden lagringskapacitet till en Azure-databas för PostgreSQL-servern. Lagring som används av tjänsten innehåller databasfilerna, temporära filer, transaktionsloggar och PostgreSQL i serverloggen. Överväg storleken på lagring som krävs för att vara värd för dina databaser och prestandakrav (IOPS) när du väljer lagringskonfigurationen.
 
 Vissa lagringskapacitet ingår minst med varje prisnivå som anges i tabellen ovan som ”ingår lagringsstorlek”. Ytterligare lagringskapacitet kan läggas till när servern har skapats i steg om 125 GB, upp till maximalt tillåtna lagringsutrymme. Ytterligare lagringskapaciteten kan konfigureras oberoende av konfigurationen Compute-enheter. Kursen ändras baserat på hur mycket lagringsutrymme som valts.
 

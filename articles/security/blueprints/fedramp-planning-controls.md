@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - planering
-description: "Webbprogram för FedRAMP - planering"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - planering"
+description: FedRAMP Web Applications Automation - planering
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="planning-pl"></a>Planera (PL)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå säkerhetsplanering principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-2a"></a>NIST 800 53 kontrollen PL-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla ett system skyddsplan (SSP) som uppfyller de kriterier som definieras av tillståndet för mål (t.ex. FedRAMP). Kunder kan referera till NIST Special Publication 800-18 R1, Guide för utveckling av säkerheten planerar för Federal Information Systems. Kunden SSP ska åtgärda kontroller som ärvs från Microsoft Azure och referera till Microsoft Azure SSP för implementeringsinformation. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-2b"></a>NIST 800 53 kontrollen PL-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att distribuera säkerhetsplan system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-2c"></a>NIST 800 53 kontrollen PL-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska säkerhetsplan system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-2d"></a>NIST 800 53 kontrollen PL-2.d
@@ -92,21 +92,21 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att uppdatera säkerhetsplan system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-2e"></a>NIST 800 53 kontrollen PL-2.e
 
 #### <a name="system-security-plan"></a>Plan för system
 
-**PL 2.e** Organisationen skyddar säkerhetsplan från obehöriga avslöjande och ändringar.
+**PL-2.e** Organisationen skyddar säkerhetsplan från obehöriga avslöjande och ändringar.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda säkerhetsplan system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-pl-2-3"></a>NIST 800 53 kontrollen PL-2 (3)
@@ -120,10 +120,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för planering och samordna säkerhetsrelaterade aktiviteter för att minska påverkan på andra organisatoriska entiteter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-pl-4a"></a>NIST 800 53 kontrollen PL-4.a
+ ## <a name="nist-800-53-control-pl-4a"></a>NIST 800-53 Control PL-4.a
 
 #### <a name="rules-of-behavior"></a>Regler för
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå regler för kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-4b"></a>NIST 800 53 kontrollen PL-4.b
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå regler för kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-4c"></a>NIST 800 53 kontrollen PL-4.c
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå regler för kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-4d"></a>NIST 800 53 kontrollen PL-4.d
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå regler för kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-pl-4-1"></a>NIST 800 53 kontrollen PL-4 (1)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå regler för kan innehålla begränsningar för sociala medier / nätverk platser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-8a"></a>NIST 800 53 kontrollen PL-8.a
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla en information security arkitektur för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-8b"></a>NIST 800 53 kontrollen PL-8.b
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och uppdatera säkerhetsarkitekturen information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-pl-8c"></a>NIST 800 53 kontrollen PL-8.c
@@ -232,4 +232,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för för planerad ändringar till säkerhetsarkitekturen information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

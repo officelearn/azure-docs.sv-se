@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d8b3046bc242deb90f435498c79eb94420c3909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook
 
@@ -31,7 +31,7 @@ Integrera arbetsplats av Facebook med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med arbetsplats av Facebook, behöver du följande:
 
@@ -113,10 +113,10 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<instancename>.facebook.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.facebook.com/company/<instancename>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [arbetsplats av Facebook klienten supportteamet](https://workplace.fb.com/faq/) att hämta dessa värden. 
+    > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Visas på sidan autentisering på arbetsplatsen företagets instrumentpanelen för korrekta värden för din arbetsplats. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

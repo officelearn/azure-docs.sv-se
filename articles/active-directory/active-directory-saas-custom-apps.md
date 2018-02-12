@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
 Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-editions.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
 
-Azure Active Directory-programgalleriet innehåller en lista över program som stöder en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](active-directory-appssoaccess-whatis.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du sätta igång genom att följa instruktionerna i Azures hanteringsportal för att aktivera enkel inloggning.
+Azure Active Directory-programgalleriet innehåller en lista över program som stöder en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](active-directory-appssoaccess-whatis.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
 
-Kunder med [Azure Active Directory Premium](active-directory-editions.md) licenser också få dessa ytterligare funktioner:
+Kunder med [Azure Active Directory Premium](active-directory-editions.md) licens också få dessa ytterligare funktioner:
 
 * Självbetjäning integrering av alla program som stöder SAML 2.0 identitetsleverantörer (SP-initierad eller IdP-initierad)
 * Självbetjäning integrering av alla webbprogram som har en HTML-baserad inloggningssidan med [lösenordsbaserade SSO](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -38,32 +38,32 @@ Detta kan inkludera inte bara SaaS-program som du använder men har inte ännu h
 Dessa funktioner, även kallat *app integration mallar*anger standardbaserad anslutningspunkter för appar som stöder SAML, SCIM eller formulärbaserad autentisering och inkludera flexibla alternativ och inställningar för kompatibilitet med ett stort antal program. 
 
 ## <a name="adding-an-unlisted-application"></a>Lägga till ett program som inte finns i listan
-Logga in på Azure-hanteringsportalen med ditt konto i Azure Active Directory-administratör för att ansluta ett program med en mall för integrering av appen, och bläddra till den **Active Directory > [Directory] > program** väljer **Lägg till**, och sedan **lägga till ett program från galleriet**. 
+Logga in på Azure-portalen med ditt konto i Azure Active Directory-administratör för att ansluta ett program med en mall för integrering av appen, och bläddra till den **Active Directory > företagsprogram > Nytt program > Icke-galleriet programmet** väljer **Lägg till**, och sedan **lägga till ett program från galleriet**.
 
-![][1]
+  ![][1]
 
-I appgalleriet, du kan lägga till en ny app med hjälp av den **anpassad** kategori till vänster eller genom att välja den **lägga till ett olistade program** länk som visas i sökresultaten om appen önskade inte hittades. Du kan konfigurera alternativ för enkel inloggning och beteende när du har angett ett namn för ditt program. 
+I appgalleriet, du kan lägga till en ny app genom att välja den **icke-galleriet programmet** sida vid sida som visas i sökresultaten om appen önskade inte hittades. Du kan konfigurera alternativ för enkel inloggning och beteende när du har angett ett namn för ditt program. 
 
-**Tips**: Använd sökfunktionen ett bra tips är för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämns ”enkel inloggning” och sedan programmet har redan stöd för federerad enkel inloggning. 
+**Tips**: Använd sökfunktionen ett bra tips är för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämns ”enkel inloggning”, stöds redan programmet för federerad enkel inloggning.
 
-![][2]
+  ![][2]
 
-Lägga till ett program som det här sättet ger en mycket lik upplevelse till den tillgängliga för redan integrerade program. Om du vill starta, Välj **Konfigurera enkel inloggning**. På nästa skärm visas följande alternativ för att konfigurera enkel inloggning, som beskrivs i följande avsnitt.
+Lägga till ett program som det här sättet ger en mycket lik upplevelse till den tillgängliga för redan integrerade program. Om du vill starta, Välj **Konfigurera enkel inloggning**. På nästa skärm anger följande tre alternativ för att konfigurera enkel inloggning, som beskrivs i följande avsnitt.
 
-![][3]
+  ![][3]
 
-## <a name="azure-ad-single-sign-on"></a>Azure AD-Single Sign-On
-Välj det här alternativet för att konfigurera SAML-baserad autentisering för programmet. Detta kräver att programmets support SAML 2.0, och du bör samla in information om hur du använder SAML-funktioner i programmet innan du fortsätter. När du har valt **nästa**, uppmanas du att ange tre olika URL: er för SAML-slutpunkter för programmet. 
+## <a name="saml-based-sign-on"></a>SAML-baserade inloggning
+Välj det här alternativet för att konfigurera SAML-baserad autentisering för programmet. Detta kräver att programmets support SAML 2.0, och du bör samla in information om hur du använder SAML-funktioner i programmet innan du fortsätter. När du har valt **nästa**, uppmanas du att ange tre olika URL: er för SAML-slutpunkter för programmet.
 
-![][4]
+  ![][4]
 
 Dessa är:
 
-* **Logga URL (SP-initierad endast)** – där användaren går för att logga in på det här programmet. Om programmet har konfigurerats för att utföra service provider-initierad enkel inloggning på sedan när användarna navigerar till den här URL: en gör tjänstleverantör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls använder Azure AD sedan denna URL starta program från Office 365 och Azure AD-åtkomstpanelen. Om fältet utelämnas, så Azure AD i stället utför identitetsleverantör-initierat inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller Azure AD enkel inloggnings-URL (copyable från fliken instrumentpanel).
-* **Utfärdar-URL** -utfärdar-URL ska identifiera programmet för vilket enkel inloggning är konfigurerade. Detta är det värde som Azure AD skickar tillbaka till programmet som den **målgruppen** parametern för SAML-token och programmet förväntas att verifiera den. Det här värdet visas också som den **enhets-ID** i eventuella SAML-metadata som tillhandahålls av programmet. Kontrollera programmets SAML-dokumentationen för mer information om vad det är enhets-ID eller målgruppen värdet. Nedan visas ett exempel på hur URL: en målgrupp visas i SAML-token som returneras till programmet:
-
-```
-    <Subject>
+* **Logga URL (SP-initierad endast)** – där användaren går för att logga in på det här programmet. Om programmet har konfigurerats för att utföra service provider-initierad enkel inloggning, och sedan när användarna navigerar till den här URL: en, tjänstleverantör gör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls använder Azure AD sedan denna URL starta program från Office 365 och Azure AD-åtkomstpanelen. Om fältet utelämnas, så Azure AD i stället utför identitetsleverantör-initieras inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller i Azure AD enkel inloggnings-URL (copyable från fliken instrumentpanel).
+* **Utfärdar-URL** -utfärdar-URL ska identifiera programmet där enkel inloggning som ska konfigureras. Detta är det värde som Azure AD skickar tillbaka till programmet som den **målgruppen** parametern för SAML-token och programmet förväntas att verifiera den. Det här värdet visas också som den **enhets-ID** i eventuella SAML-metadata som tillhandahålls av programmet. Kontrollera programmets SAML dokumentation för information om dess värde med enhets-ID eller en publik är. Nedan visas ett exempel på hur URL: en målgrupp visas i SAML-token som returneras till programmet:
+  
+  ```
+  <Subject>
     <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
         <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
       </Subject>
@@ -72,12 +72,14 @@ Dessa är:
           <Audience>https://tenant.example.com</Audience>
         </AudienceRestriction>
       </Conditions>
-```
+    ```
 
 * **Reply URL** -reply-URL är där programmet förväntas ta emot SAML-token. Detta kallas även för som den **Assertion konsumenten Service (ACS) URL**. Kontrollera programmets SAML dokumentation för information om dess SAML-token reply URL eller ACS-URL är.
-  När dessa har angetts, klickar du på **nästa** fortsätta till nästa sida. Den här skärmen innehåller information om vad som måste konfigureras på program på klientsidan att godkänna en SAML-token från Azure AD. 
+  När dessa har angetts, klickar du på **nästa** fortsätta till nästa sida. Den här skärmen innehåller information om vad som måste konfigureras på program på klientsidan att godkänna en SAML-token från Azure AD.
 
-![][5]
+  * Klicka på **konfigurera Litware**.
+  
+    ![][5]
 
 Vilka värden som krävs varierar beroende på programmet, så kontrollera programmets SAML-dokumentationen för mer information. Den **inloggning** och **utloggning** URL både motsvara samma slutpunkt, vilket är SAML hantering av begäran slutpunkten för din instans av Azure AD-tjänsten. Utfärdar-URL är det värde som visas som ”utfärdaren” i SAML-token utfärdas till programmet. 
 
@@ -86,9 +88,9 @@ När programmet har konfigurerats, klickar du på **nästa** knappen och sedan d
 ## <a name="assigning-users-and-groups-to-your-saml-application"></a>Tilldela användare och grupper till SAML-program
 När programmet har konfigurerats för att använda Azure AD som en SAML-baserade identitetsleverantör, är det nästan redo att testa. Azure AD utfärdar inte en token så att de kan logga in på programmet, om de har beviljats åtkomst med hjälp av Azure AD som en säkerhetskontroll. Användare kan beviljas åtkomst direkt eller via en grupp som är medlem i. 
 
-Om du vill tilldela en användare eller grupp i programmet, klickar du på den **tilldela användare** knappen. Välj den användare eller grupp som du vill tilldela och välj sedan den **tilldela** knappen. 
+Om du vill tilldela en användare eller grupp i programmet, klickar du på den **tilldela användare** knappen. Välj den användare eller grupp som du vill tilldela och välj sedan den **tilldela** knappen.
 
-![][6]
+  ![][6]
 
 Tilldela en användare kan Azure AD för att utfärda en token för användaren som orsakar en panel för det här programmet ska visas i användarens åtkomstpanelen. Ett program sida vid sida visas också i startprogrammet för Office 365 om användaren använder Office 365. 
 
@@ -97,9 +99,9 @@ Du kan ladda upp en ikonlogotyp för program med den **överföra logotypen** kn
 ### <a name="customizing-the-claims-issued-in-the-saml-token"></a>Anpassa anspråk som utfärdats i SAML-token
 När en användare autentiseras för utfärdar Azure AD en SAML-token till appen som innehåller information (eller anspråk) om användaren som unikt identifierar dem. Som standard innehåller detta användarens användarnamn, e-postadress, Förnamn och efternamn. 
 
-Du kan visa eller redigera anspråk skickas i SAML-token till programmet under den **attribut** fliken. 
+Du kan visa eller redigera anspråk skickas i SAML-token till programmet under den **attribut** fliken.
 
-![][7]
+  ![][7]
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token: •mål program som har skrivits till kräver en annan uppsättning anspråk URI: er eller anspråksvärden •Your programmet har distribuerats på ett sätt som kräver NameIdentifier påstår sig vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure Active Directory. 
 

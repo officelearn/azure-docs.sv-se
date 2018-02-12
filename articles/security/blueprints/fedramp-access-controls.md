@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - åtkomstkontroll"
-description: "Webbprogram för FedRAMP - åtkomstkontroll"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - åtkomstkontroll"
+description: "FedRAMP Web Applications Automation - åtkomstkontroll"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Åtkomstkontroll (nät)
 
 > [!NOTE]
-> De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Läs NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
+> De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Referera till NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
 
 ## <a name="nist-800-53-control-ac-1"></a>NIST 800 53 kontrollen AC-1
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens principer för åtkomstkontroll på företagsnivå och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2a"></a>NIST 800 53 kontrollen AC-2.a
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell förlitar sig på och implementerar typer av följande system: Azure Active Directory-användare (används för att distribuera lösningen och hantera åtkomst till Azure-resurser), Windows OS-användare (hanteras av Active Directory), SQL Server-tjänstkontot. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet förlitar sig på och implementerar typer av följande system: Azure Active Directory-användare (används för att distribuera lösningen och hantera åtkomst till Azure-resurser), Windows OS-användare (hanteras av Active Directory), SQL Server-tjänstkontot. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2b"></a>NIST 800 53 kontrollen AC-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att tilldela konton som identifierats i AC-02.a chefer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2c"></a>NIST 800 53 kontrollen AC-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att upprätta roll och grupp kriterier för medlemskap för kund-kontrollerade kontotyper (se AC-02.a). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2d"></a>NIST 800 53 kontrollen AC-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på en upprättad på företagsnivå konto auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2e"></a>NIST 800 53 kontrollen AC-2.e
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på en upprättad på företagsnivå konto auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2f"></a>NIST 800 53 kontrollen AC-2.f
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan vara beroende av en process för hantering av etablerade på företagsnivå konto. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2g"></a>NIST 800 53 kontrollen AC-2.g
@@ -133,8 +133,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka användningen av information Systemkonton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka användningen av information Systemkonton. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2h"></a>NIST 800 53 kontrollen AC-2.h
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en process för att meddela chefen lämpligt konto när ett konto inte längre behövs. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2i"></a>NIST 800 53 kontrollen AC-2.i
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en åtkomst-auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2j"></a>NIST 800 53 kontrollen AC-2.j
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för granska kund-kontrollerade konton för den obligatoriska frekvensen för att avgöra om konton som är kompatibla med alla organisationens krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-2k"></a>NIST 800 53 kontrollen AC-2.k
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en process för hantering av grupp-kontouppgifter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-1"></a>NIST 800 53 kontrollen AC-2 (1)
@@ -203,8 +203,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen aktivera Kontoansvariga att övervaka användningen av information Systemkonton. OMS kan konfigureras för att skicka aviseringar när ovanliga aktiviteten är misstänkt eller andra fördefinierade händelser inträffar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka användningen av information Systemkonton. OMS kan konfigureras för att skicka aviseringar när ovanliga aktiviteten är misstänkt eller andra fördefinierade händelser inträffar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-2"></a>NIST 800 53 kontrollen AC-2 (2)
@@ -217,8 +217,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-utkast distribuerar inte tillfälliga eller nödfall konton. Om du inte manuellt inaktiveras inaktiverar distribuerade domänkontrollanten automatiskt alla inaktiva konton efter 35 dagar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar inte tillfälliga eller nödfall konton. Om du inte manuellt inaktiveras inaktiverar distribuerade domänkontrollanten automatiskt alla inaktiva konton efter 35 dagar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-3"></a>NIST 800 53 kontrollen AC-2 (3)
@@ -231,8 +231,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den domänkontrollant som distribueras med den här Azure-modell är konfigurerad för att inaktivera alla användarkonton efter 35 dagar av inaktivitet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Den domänkontrollant som distribueras med den här modell är konfigurerad för att inaktivera alla användarkonton efter 35 dagar av inaktivitet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-4"></a>NIST 800 53 kontrollen AC-2 (4)
@@ -245,8 +245,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar typer av följande system: Azure Active Directory-användare, Windows OS-användare, SQL Server-tjänstkontot. Azure Active Directory-konto hanteringsåtgärder Generera en händelse i Azure-aktivitetsloggen; OS-nivå konto hanteringsåtgärder Generera en händelse i systemloggen. Dessa loggar samlas in av logganalys och lagras i OMS-databasen. OMS kan konfigureras för att skicka aviseringar när fördefinierade händelser inträffar.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar typer av följande system: Azure Active Directory-användare, Windows OS-användare, SQL Server-tjänstkontot. Azure Active Directory-konto hanteringsåtgärder Generera en händelse i Azure-aktivitetsloggen; OS-nivå konto hanteringsåtgärder Generera en händelse i systemloggen. Dessa loggar samlas in av logganalys och lagras i OMS-databasen. OMS kan konfigureras för att skicka aviseringar när fördefinierade händelser inträffar.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-5"></a>NIST 800 53 kontrollen AC-2 (5)
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan upprätta en princip som användarna logga ut när de vill inaktiveras för en viss tidsperiod (eller andra faktorer). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-7a"></a>NIST 800 53 styra AC-2 (7) schemanivån
@@ -273,8 +273,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar typer av följande system: Azure Active Directory-användare, Windows OS-användare, SQL Server-tjänstkontot. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. Dessa rollbaserade scheman kan utökas av kunden uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar typer av följande system: Azure Active Directory-användare, Windows OS-användare, SQL Server-tjänstkontot. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. Dessa rollbaserade scheman kan utökas av kunden uppdrag behov. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-7b"></a>NIST 800 53 styra AC-2 (7) .b
@@ -287,8 +287,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar OMS säkerhet och granska lösningen identitet och instrumentpanelen. Den här instrumentpanelen kan Kontoansvariga att övervaka användningen av information Systemkonton. Den här lösningen kan efterfrågas om du vill rapportera Privilegierade rolltilldelningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar OMS säkerhets- och granska lösningen identitets- och instrumentpanelen. Den här instrumentpanelen kan Kontoansvariga att övervaka användningen av information Systemkonton. Den här lösningen kan efterfrågas om du vill rapportera Privilegierade rolltilldelningar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-7c"></a>NIST 800 53 styra AC-2 (7) .c
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att vidta åtgärder för kund-kontrollerade konton när det inte längre att lämpliga Privilegierade rolltilldelningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-9"></a>NIST 800 53 kontrollen AC-2 (9)
@@ -315,8 +315,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-10"></a>NIST 800 53 kontrollen AC-2 (10)
@@ -329,8 +329,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-11"></a>NIST 800 53 kontrollen AC-2 (11)
@@ -343,8 +343,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip kan fastställas i Active Directory och konfigurerad för att implementera begränsningar för tid på dagen eller andra villkor för användning av kontot. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip kan fastställas i Active Directory och konfigurerad för att implementera begränsningar för tid på dagen eller andra villkor för användning av kontot. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-12a"></a>NIST 800 53 styra AC-2 (12) schemanivån
@@ -357,8 +357,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka åtkomstförsök mot distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka åtkomstförsök mot distribuerade resurser. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-12b"></a>NIST 800 53 styra AC-2 (12) .b
@@ -371,8 +371,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen aktivera Kontoansvariga att övervaka åtkomstförsök mot distribuerade resurser. Den här lösningen kan konfigureras för att skicka aviseringar när ovanliga aktiviteten är misstänkt eller andra fördefinierade händelser inträffar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar OMS säkerhets- och gransknings-lösningens identitets- och instrumentpanel. Den här instrumentpanelen kan Kontoansvariga att övervaka åtkomstförsök mot distribuerade resurser. Den här lösningen kan konfigureras för att skicka aviseringar när ovanliga aktiviteten är misstänkt eller andra fördefinierade händelser inträffar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-2-13"></a>NIST 800 53 kontrollen AC-2 (13)
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll och procedurer som kan upprätta villkor för att inaktivera konton för användare som utgör en betydande risk för organisationen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-3"></a>NIST 800 53 kontrollen AC-3
@@ -399,8 +399,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell tillämpar logisk åtkomst tillstånd med hjälp av rollbaserad åtkomstkontroll som tillämpas av Azure Active Directory genom att tilldela användare till roller, Active Directory genom att tilldela användare till säkerhetsgrupper, och kontrollerar Windows OS-nivå. Azure Active Directory-roller har tilldelats till användare eller grupper kontrollera logiska åtkomsten till resurser i Azure på nivån resurs, grupp eller prenumeration. Active Directory-säkerhetsgrupper åtkomstkontroll logiska till resurser för OS-nivå och funktioner. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet tillämpar logisk åtkomst tillstånd med hjälp av rollbaserad åtkomstkontroll som tillämpas av Azure Active Directory genom att tilldela användare till roller, Active Directory genom att tilldela användare till säkerhetsgrupper, och kontrollerar Windows OS-nivå. Azure Active Directory-roller har tilldelats till användare eller grupper kontrollera logiska åtkomsten till resurser i Azure på nivån resurs, grupp eller prenumeration. Active Directory-säkerhetsgrupper åtkomstkontroll logiska till resurser för OS-nivå och funktioner. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-4"></a>NIST 800 53 kontrollen AC-4
@@ -413,8 +413,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell tillämpar information flödet begränsningar genom att använda nätverkssäkerhetsgrupper som tillämpas på undernät där resurser har distribuerats, Application Gateway och belastningsutjämnare. Nätverkssäkerhetsgrupper se till att kontrolleras informationsflödet mellan resurser baserat på godkända regler. Programmet Gateway och läsa in belastningsutjämning dynamiskt vidarebefordra trafik till specifika resurser baserat på godkända roller. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet tillämpar information flödet begränsningar genom att använda nätverkssäkerhetsgrupper som tillämpas på undernät där resurser har distribuerats, Application Gateway och belastningsutjämnare. Nätverkssäkerhetsgrupper se till att kontrolleras informationsflödet mellan resurser baserat på godkända regler. Programmet Gateway och läsa in belastningsutjämning dynamiskt vidarebefordra trafik till specifika resurser baserat på godkända roller. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-4-8"></a>NIST 800 53 kontrollen AC-4 (8)
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att genomdriva information flödeskontroll inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-4-21"></a>NIST 800 53 kontrollen AC-4 (21)
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att avgränsa informationsflödet i kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-5a"></a>NIST 800 53 kontrollen AC-5.a
@@ -456,7 +456,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för uppdelning av uppgifter mellan kund-kontrollerade konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-5b"></a>NIST 800 53 kontrollen AC-5.b
@@ -470,7 +470,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera uppdelning av uppgifter mellan kund-kontrollerade konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-5c"></a>NIST 800 53 kontrollen AC-5.c
@@ -483,8 +483,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar rollbaserad åtkomstkontroll som kan konfigureras för att skilja uppgifter enligt organisationens krav. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar rollbaserade åtkomstkontroller som kan konfigureras för att skilja uppgifter enligt organisationens krav. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-6"></a>NIST 800 53 kontrollen AC-6
@@ -497,8 +497,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats. Azure Active Directory-tjänstkontot har implementerats med rollbaserad åtkomstkontroll genom att tilldela användare till roller; Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-1"></a>NIST 800 53 kontrollen AC-6 (1)
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en åtkomst-auktoriseringen som ger åtkomst till säkerhetsfunktioner. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-2"></a>NIST 800 53 kontrollen AC-6 (2)
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan måste användarna använda icke-privilegierade konton vid åtkomst till icke-funktioner. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-3"></a>NIST 800 53 kontrollen AC-6.3
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan definiera Privilegierade kommandon som kan nås över ett nätverk. Obs: Kunder har ingen fysisk åtkomst till Azure-infrastrukturen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-5"></a>NIST 800 53 kontrollen AC-6 (5)
@@ -554,10 +554,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan definiera begränsningar för användningen av Privilegierade konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ac-6-7a"></a>NIST 800 53 styra AC-6 (7) schemanivån
+ ### <a name="nist-800-53-control-ac-6-7a"></a>NIST 800-53 Control AC-6 (7).a
 
 #### <a name="least-privilege--review-of-user-privileges"></a>Minsta behörighet | Granskning av behörigheter
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska användarbehörigheter för kund-kontrollerade konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-7b"></a>NIST 800 53 styra AC-6 (7) .b
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att tilldela eller ta bort behörigheter för kund-kontrollerade konton när det är lämpligt. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-8"></a>NIST 800 53 kontrollen AC-6 (8)
@@ -595,8 +595,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats. Skydd för virtuella OS-nivå tillåter inte att programvara ska köras på en högre Privilegienivå än användare kör programmet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats. Skydd för virtuella OS-nivå tillåter inte att programvara ska köras på en högre Privilegienivå än användare kör programmet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-9"></a>NIST 800 53 kontrollen AC-6 (9)
@@ -609,8 +609,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Log Analytics-tjänsten i OMS. Distribuera virtuella datorer och Azure diagnostics storage-konton är anslutna datakällor till logganalys att säkerställa att körningen av Privilegierade funktioner granskas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Log Analytics-tjänsten i OMS. Distribuera virtuella datorer och Azure diagnostics storage-konton är anslutna datakällor till logganalys att säkerställa att körningen av Privilegierade funktioner granskas. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-6-10"></a>NIST 800 53 kontrollen AC-6 (10)
@@ -623,8 +623,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar rollbaserad åtkomstkontroll för att begränsa användare till endast de behörigheter som tilldelats.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-7a"></a>NIST 800 53 kontrollen AC-7.a
@@ -637,8 +637,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | I Azure portal gränser i följd felaktiga inloggningsförsök av användare. En Grupprincip tillämpas på operativsystemnivå för alla virtuella datorer som distribueras med den här Azure-modell. Principen begränsar på varandra följande felaktiga inloggningsförsök av användare till högst tre inom 15 minuter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | I Azure portal gränser i följd felaktiga inloggningsförsök av användare. En Grupprincip tillämpas på operativsystemnivå för alla virtuella datorer som distribueras med det här utkastet. Principen begränsar på varandra följande felaktiga inloggningsförsök av användare till högst tre inom 15 minuter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-7b"></a>NIST 800 53 kontrollen AC-7.b
@@ -651,8 +651,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Azure-portalen låser konton när efterföljande felaktiga inloggningsförsök av användare. En Grupprincip tillämpas på operativsystemnivå för alla virtuella datorer som distribueras med den här Azure-modell. Principen låser konton tre timmar efter tre på varandra följande felaktiga inloggningsförsök av användare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Azure-portalen låser konton när efterföljande felaktiga inloggningsförsök av användare. En Grupprincip tillämpas på operativsystemnivå för alla virtuella datorer som distribueras med det här utkastet. Principen låser konton tre timmar efter tre på varandra följande felaktiga inloggningsförsök av användare. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-7-2"></a>NIST 800 53 kontrollen AC-7 (2)
@@ -666,7 +666,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Mobila enheter inte omfattas av system distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-8a"></a>NIST 800 53 kontrollen AC-8.a
@@ -679,8 +679,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar en systemavisering för användning som visas för användarna innan inloggningen. Obs: Den Azure-modell implementerar en Använd Systemmeddelande exempel. Kunden måste redigera texten för att uppfylla organisation och/eller regulatoriska brödtext krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar en systemavisering för användning som visas för användarna innan inloggningen. Obs: Den här utkast implementerar en Använd Systemmeddelande exempel. Kunden måste redigera texten för att uppfylla organisation och/eller regulatoriska brödtext krav. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-8b"></a>NIST 800 53 kontrollen AC-8.b
@@ -693,8 +693,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar en systemavisering för användning som visas för användarna innan inloggning. Användaren måste bekräfta meddelandet för att kunna logga in. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar en systemavisering för användning som visas för användarna innan inloggning. Användaren måste bekräfta meddelandet för att kunna logga in. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-8c"></a>NIST 800 53 kontrollen AC-8.c
@@ -708,7 +708,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att visa ett meddelande för användning av system för alla offentligt tillgänglig kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-10"></a>NIST 800 53 kontrollen AC-10
@@ -721,8 +721,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | En princip för operativsystemet implementeras för virtuella datorer som distribueras med den här Azure-modell. Principen implementerar begränsningar för samtidiga sessionen (två sessioner). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | En princip för operativsystemet implementeras för virtuella datorer som distribueras med det här utkastet. Principen implementerar begränsningar för samtidiga sessionen (två sessioner). |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-11a"></a>NIST 800 53 kontrollen AC-11.a
@@ -735,8 +735,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Användare kan manuellt initiera låset. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Användare kan manuellt initiera låset. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-11b"></a>NIST 800 53 kontrollen AC-11.b
@@ -749,8 +749,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Användarna måste autentiseras för att låsa upp sessionen.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Användarna måste autentiseras för att låsa upp sessionen.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-11-1"></a>NIST 800 53 kontrollen AC-11 (1)
@@ -763,8 +763,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Sessionen låset innehåller information som tidigare visas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip implementerar ett lås för inaktivitet för RDP-sessioner. Sessionen låset innehåller information som tidigare visas. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-12"></a>NIST 800 53 kontrollen AC-12
@@ -777,8 +777,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Remote Desktop session host konfigurationen för Windows-datorer som distribueras med den här Azure-modell kan konfigureras för att uppfylla krav för organisation sessionen avslutas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Fjärrskrivbord värden sessionskonfigurationen för Windows-datorer som distribueras med den här modell kan konfigureras för att uppfylla krav för organisation sessionen avslutas. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-12-1a"></a>NIST 800 53 kontrollen AC-12 (1) en
@@ -791,8 +791,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Azure portal virtuella operativsystemen och distribueras med den här Azure-modell aktivera använder för att initiera en logga ut. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Azure portal virtuella operativsystemen och distribueras med den här utkast aktivera använder för att initiera en logga ut. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-12-1b"></a>NIST 800 53 kontrollen AC-12 (1) .b
@@ -805,8 +805,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Azure portal virtuella operativsystemen och distribueras med den här Azure-modell aktivera använder för att initiera en logga ut. Logga ut processen ger indikation för användarna att sessionen har avslutats. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Azure portal virtuella operativsystemen och distribueras med den här utkast aktivera använder för att initiera en logga ut. Logga ut processen ger indikation för användarna att sessionen har avslutats. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-14a"></a>NIST 800 53 kontrollen AC-14.a
@@ -820,7 +820,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att identifiera åtgärder som kan utföras på kunden distribuerade resurser utan identifiering eller autentisering (t.ex. till exempel visar en offentligt tillgänglig webbsida). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-14b"></a>NIST 800 53 kontrollen AC-14.b
@@ -834,7 +834,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att tillhandahålla dokumentation för användaråtgärder som inte kräver identifiering eller autentisering på kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-17a"></a>NIST 800 53 kontrollen AC-17.a
@@ -848,7 +848,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan definiera fjärråtkomst användningsbegränsningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-17b"></a>NIST 800 53 kontrollen AC-17.b
@@ -862,7 +862,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en fjärråtkomst auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-1"></a>NIST 800 53 kontrollen AC-17 (1)
@@ -875,8 +875,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-utkast ger fjärråtkomst till informationssystem via Azure-portalen via anslutning till fjärrskrivbord via en jumpbox och via en kund implementerade webbprogram. Åtkomst via Azure portal och fjärrskrivbordssessioner granskas och kan övervakas via OMS. Kunden måste implementera fjärråtkomst kontroller som behövs för att webbprogrammet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet ger fjärråtkomst till informationssystem via Azure-portalen via anslutning till fjärrskrivbord via en jumpbox och via en kund implementerade webbprogram. Åtkomst via Azure portal och fjärrskrivbordssessioner granskas och kan övervakas via OMS. Kunden måste implementera fjärråtkomst kontroller som behövs för att webbprogrammet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-2"></a>NIST 800 53 kontrollen AC-17 (2)
@@ -889,8 +889,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Fjärråtkomst till resurser som distribueras med den här Azure-modell, inklusive Azure-portalen, fjärrskrivbord och web Programgateway skyddas med hjälp av TLS. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Fjärråtkomst till resurser som distribueras med den här modell, inklusive Azure-portalen, fjärrskrivbord och web Programgateway skyddas med hjälp av TLS. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-3"></a>NIST 800 53 kontrollen AC-17 (3)
@@ -903,8 +903,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Fjärråtkomst till konstruerade webbprogrammet distribueras med den här Azure-modell är via en Programgateway. Fjärråtkomst till alla andra resurser är via en jumpbox. Det finns inga offentliga slutpunkter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Fjärråtkomst till konstruerade webbprogrammet distribueras med den här modell är via en Programgateway. Fjärråtkomst till alla andra resurser är via en jumpbox. Det finns inga offentliga slutpunkter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-4a"></a>NIST 800 53 styra AC-17 (4) schemanivån
@@ -918,7 +918,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan definiera Privilegierade kommandon som kan nås via fjärranslutning och innehålla en motivering. Obs: Kunder har inga direkt tillgång till Azure-infrastrukturen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-4b"></a>NIST 800 53 styra AC-17 (4) .b
@@ -932,7 +932,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan definiera Privilegierade kommandon som kan nås via fjärranslutning och innehålla en motivering. Obs: Kunder har inga direkt tillgång till Azure-infrastrukturen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-17-9"></a>NIST 800 53 kontrollen AC-17 (9)
@@ -945,8 +945,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell ger fjärråtkomst till informationssystemet via Azure portal, via anslutning till fjärrskrivbord via en jumpbox och via ett webbprogram. Om ett Azure Active Directory-konto har inaktiverats eller tagits bort, kopplas Azure portalåtkomst omedelbart. Om en virtuell dator OS-nivå kontot inaktiveras eller tas bort, kopplas på samma sätt fjärråtkomst till skrivbordet via jumpbox omedelbart. Kunderna måste implementera fjärråtkomst koppla för webbprogrammet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet ger fjärråtkomst till informationssystemet via Azure portal, via anslutning till fjärrskrivbord via en jumpbox och via ett webbprogram. Om ett Azure Active Directory-konto har inaktiverats eller tagits bort, kopplas Azure portalåtkomst omedelbart. Om en virtuell dator OS-nivå kontot inaktiveras eller tas bort, kopplas på samma sätt fjärråtkomst till skrivbordet via jumpbox omedelbart. Kunderna måste implementera fjärråtkomst koppla för webbprogrammet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-18a"></a>NIST 800 53 kontrollen AC-18.a
@@ -960,7 +960,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure upprättar användningsbegränsningar, konfigurationsanslutning/krav och implementering vägledning för trådlös åtkomst via den Network Security Standard, som uttryckligen förhindrar användning av trådlös i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft Azure upprättar användningsbegränsningar, konfigurationsanslutning/krav och implementering vägledning för trådlös åtkomst via den Network Security Standard, som uttryckligen förhindrar användning av trådlös i Microsoft Azure-miljön. |
 
 
  ## <a name="nist-800-53-control-ac-18b"></a>NIST 800 53 kontrollen AC-18.b
@@ -974,7 +974,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-datacenter. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-datacenter. |
 
 
  ### <a name="nist-800-53-control-ac-18-1"></a>NIST 800 53 kontrollen AC-18 (1)
@@ -988,7 +988,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
 
 
  ### <a name="nist-800-53-control-ac-18-3"></a>NIST 800 53 kontrollen AC-18 (3)
@@ -1002,7 +1002,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
 
 
  ### <a name="nist-800-53-control-ac-18-4"></a>NIST 800 53 kontrollen AC-18 (4)
@@ -1016,7 +1016,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
 
 
  ### <a name="nist-800-53-control-ac-18-5"></a>NIST 800 53 kontrollen AC-18 (5)
@@ -1030,7 +1030,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen trådlös åtkomst inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte trådlös åtkomst i Microsoft Azure-miljön. |
 
 
  ## <a name="nist-800-53-control-ac-19a"></a>NIST 800 53 kontrollen AC-19.a
@@ -1044,7 +1044,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns inga kund-kontrollerade mobila enheter inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-19b"></a>NIST 800 53 kontrollen AC-19.b
@@ -1058,7 +1058,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns inga kund-kontrollerade mobila enheter inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-ac-19-5"></a>NIST 800 53 kontrollen AC-19 (5)
@@ -1072,7 +1072,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns inga kund-kontrollerade mobila enheter inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte mobila enheter i Azure gränsen. Därför gäller inte den här kontrollen till Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-ac-20a"></a>NIST 800 53 kontrollen AC-20.a
@@ -1086,7 +1086,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan innehålla en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB) gör att förvärv kan använda Azure-molntjänster av myndigheter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-20b"></a>NIST 800 53 kontrollen AC-20.b
@@ -1100,7 +1100,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan innehålla en etablera om användningen av molnet Tjänsterbjudanden under FedRAMP. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB) gör att förvärv kan använda Azure-molntjänster av myndigheter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-20-1"></a>NIST 800 53 kontrollen AC-20 (1)
@@ -1114,7 +1114,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå information technology grupp kan kontrollera cloud service provider säkerhetskraven organisation information och godkänna företagsomfattande om du vill använda Tjänsterbjudanden associerade molnet. Azure har fått en provisorisk tillstånd att driva (P ATO) av den FedRAMP gemensamma auktorisering Board (JAB). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ac-20-2"></a>NIST 800 53 kontrollen AC-20 (2)
@@ -1128,7 +1128,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft kan inte kunden-kontrollerade flyttbara lagringsenheter i Microsoft Azure-miljön. |
+| **Provider (Microsoft Azure)** | Microsoft kan inte kunden-kontrollerade flyttbara lagringsenheter i Microsoft Azure-miljön. |
 
 
  ## <a name="nist-800-53-control-ac-21a"></a>NIST 800 53 kontrollen AC-21.a
@@ -1142,7 +1142,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå principer för åtkomstkontroll kan innehålla bestämmelser om att dela information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-21b"></a>NIST 800 53 kontrollen AC-21.b
@@ -1156,7 +1156,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå information delning beslut stöd för funktionen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-22a"></a>NIST 800 53 kontrollen AC-22.a
@@ -1170,7 +1170,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan ange de personer som har behörighet att publicera offentligt tillgänglig information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-22b"></a>NIST 800 53 kontrollen AC-22.b
@@ -1184,7 +1184,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå utbildning för enskilda användare behörighet att publicera offentligt tillgänglig information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-22c"></a>NIST 800 53 kontrollen AC-22.c
@@ -1198,7 +1198,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en granskningsprocess för innehåll som föreslås ska publiceras en offentligt tillgänglig system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ac-22d"></a>NIST 800 53 kontrollen AC-22.d
@@ -1212,5 +1212,5 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Procedurer för kundens företagsnivå åtkomstkontroll kan upprätta en process för regelbunden granskning av innehåll i offentligt tillgänglig system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 

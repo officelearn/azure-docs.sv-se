@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - systemet och informationens integritet
-description: "Webbprogram för FedRAMP - System och informationens integritet"
+title: "Säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - systemet och Azure informationens integritet"
+description: FedRAMP Web Applications Automation - systemet och informationens integritet
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>System- och informationens integritet (SI)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå system- och integritet principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-2a"></a>NIST 800 53 kontrollen SI-2.a
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. Från OMS-instrumentpanelen visar panelen uppdateringshantering fel reparationsstatus för alla distribuerade Windows-servrar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. Från OMS-instrumentpanelen visar panelen uppdateringshantering fel reparationsstatus för alla distribuerade Windows-servrar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-2b"></a>NIST 800 53 kontrollen SI-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att testa uppdateringar som rör fel reparation effektivitet och potentiella sidoeffekter före installation på kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-2c"></a>NIST 800 53 kontrollen SI-2.c
@@ -77,8 +77,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Windows-datorer som distribueras med den här Azure-modell är konfigurerade som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen distribuerar också kontrollen & OMS Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Windows-datorer som distribueras med den här utkast konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen distribuerar också kontrollen & OMS Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-2d"></a>NIST 800 53 kontrollen SI-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att inkludera reparationen för fel i konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-2-1"></a>NIST 800 53 kontrollen SI-2 (1)
@@ -105,11 +105,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. Från OMS-instrumentpanelen visar panelen uppdateringshantering fel reparationsstatus för alla distribuerade Windows-servrar. Distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. Från OMS-instrumentpanelen visar panelen uppdateringshantering fel reparationsstatus för alla distribuerade Windows-servrar. Distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-si-2-2"></a>NIST 800 53 kontrollen SI-2 (2)
+ ### <a name="nist-800-53-control-si-2-2"></a>NIST 800-53 Control SI-2 (2)
 
 #### <a name="flaw-remediation--automated-flaw-remediation-status"></a>Fel reparation | Reparationsstatus för automatisk fel
 
@@ -119,11 +119,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. För varje hanterad Windows-dator utförs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats, och i så fall om en fullständig genomsökning har initierats. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar kontrollen & OMS Automation-lösningen för att spåra statusen för uppdateringar för Windows-datorer som distribueras i den här arkitekturen. För varje hanterad Windows-dator utförs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats, och i så fall om en fullständig genomsökning har initierats. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800 53 styra SI-2 (3) en
+ ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800-53 Control SI-2 (3).a
 
 #### <a name="flaw-remediation--time-to-remediate-flaws--benchmarks-for-corrective-actions"></a>Fel reparation | Tid för att reparera fel / riktmärken för korrigerande åtgärder
 
@@ -134,10 +134,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för hälsostatus fel inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-si-2-3b"></a>NIST 800 53 styra SI-2 (3) .b
+ ### <a name="nist-800-53-control-si-2-3b"></a>NIST 800-53 Control SI-2 (3).b
 
 #### <a name="flaw-remediation--time-to-remediate-flaws--benchmarks-for-corrective-actions"></a>Fel reparation | Tid för att reparera fel / riktmärken för korrigerande åtgärder
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå prestandamått för fel reparation processer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-3a"></a>NIST 800 53 kontrollen SI-3.a
@@ -161,8 +161,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-3b"></a>NIST 800 53 kontrollen SI-3.b
@@ -175,8 +175,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att automatiskt uppdatera båda antimalware-motorn och skydd signaturer som blir tillgängliga versionen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att automatiskt uppdatera båda antimalware-motorn och skydd signaturer som blir tillgängliga versionen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-3c"></a>NIST 800 53 kontrollen SI-3.c
@@ -189,8 +189,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att både i realtid och regelbundna sökningar (varje vecka), automatiskt uppdatera båda antimalware-motorn och skydd signaturer och utföra automatiska åtgärder. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att både i realtid och regelbundna sökningar (varje vecka), automatiskt uppdatera båda antimalware-motorn och skydd signaturer och utföra automatiska åtgärder. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-3d"></a>NIST 800 53 kontrollen SI-3.d
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda mot skadlig kod. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-3-1"></a>NIST 800 53 kontrollen SI-3 (1)
@@ -217,8 +217,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Azure OMS tillhandahåller en centraliserad möjligheten att granska den aktuella statusen för program mot skadlig kod. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Azure OMS tillhandahåller en centraliserad möjligheten att granska den aktuella statusen för program mot skadlig kod. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-3-2"></a>NIST 800 53 kontrollen SI – 3 (2)
@@ -231,8 +231,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att automatiskt uppdatera båda antimalware-motorn och skydd signaturer som blir tillgängliga versionen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget är konfigurerad att automatiskt uppdatera båda antimalware-motorn och skydd signaturer som blir tillgängliga versionen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-3-7"></a>NIST 800 53 kontrollen SI – 3 (7)
@@ -245,8 +245,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget har konfigurerats för att utföra heuristisk identifiering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar värdbaserade program mot skadlig kod skydd för alla distribuerade virtuella Windows-datorer implementeras med hjälp av Microsoft Antimalware-tillägget för virtuell dator. Det här tillägget har konfigurerats för att utföra heuristisk identifiering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4a"></a>NIST 800 53 kontrollen SI-4.a
@@ -259,8 +259,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Log Analytics och OMS säkerhet och granska lösningen. Den här lösningen ger en omfattande vy av säkerhetstillståndet attacker och indikatorer för potentiella attacker. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Log Analytics och OMS säkerhet och granska lösningen. Den här lösningen ger en omfattande vy av säkerhetstillståndet attacker och indikatorer för potentiella attacker. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4b"></a>NIST 800 53 kontrollen SI-4.b
@@ -273,8 +273,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Identifiera och åtkomst till domänen innehåller en instrumentpanel med en översikt över information identitet systemtillstånd, inklusive antalet misslyckade försök att logga in och antal konton som är inloggade i. Informationen i den här instrumentpanelen kan hjälpa identifiering av potentiellt misstänkt aktivitet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Identifiera och åtkomst till domänen innehåller en instrumentpanel med en översikt över information identitet systemtillstånd, inklusive antalet misslyckade försök att logga in och antal konton som är inloggade i. Informationen i den här instrumentpanelen kan hjälpa identifiering av potentiellt misstänkt aktivitet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4c"></a>NIST 800 53 kontrollen SI-4.c
@@ -287,8 +287,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Log Analytics och OMS säkerhet och granska lösningen. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar, inklusive inblick i VM-operativsystemet övervakningsdata. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Log Analytics och OMS säkerhet och granska lösningen. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar, inklusive inblick i VM-operativsystemet övervakningsdata. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4d"></a>NIST 800 53 kontrollen SI-4.d
@@ -301,22 +301,22 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Logiska åtkomstkontroller för att skydda informationen av övervakningen inom den här Azure-modell från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att se övervakningsinformation och använda övervakningsverktyg kan vara begränsad till användare som kräver dessa behörigheter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Logiska åtkomstkontroller för att skydda informationen av övervakningen inom det här utkastet från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att se övervakningsinformation och använda övervakningsverktyg kan vara begränsad till användare som kräver dessa behörigheter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4e"></a>NIST 800 53 kontrollen SI-4.e
 
 #### <a name="information-system-monitoring"></a>Information systemövervakning
 
-**SI 4.e** Organisationen ökar nivå av övervakning av aktivitet när det är en indikation på ökad risk för organisationens åtgärder och tillgångar, personer, andra organisationer eller av landet enligt lag tvingande information affärsinformation eller andra trovärdig informationskällor.
+**SI-4.e** Organisationen ökar nivå av övervakning av aktivitet när det är en indikation på ökad risk för organisationens åtgärder och tillgångar, personer, andra organisationer eller av landet enligt lag tvingande information affärsinformation eller andra trovärdig informationskällor.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4f"></a>NIST 800 53 kontrollen SI-4.f
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-4g"></a>NIST 800 53 kontrollen SI-4.g
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-1"></a>NIST 800 53 kontrollen SI-4 (1)
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-2"></a>NIST 800 53 kontrollen SI-4 (2)
@@ -371,8 +371,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Log Analytics och olika OMS-lösningar, inklusive säkerhet och granska lösningen. Log Analytics ger nästan realtid analys av händelser över distribuerade resurser. OMS-lösningar ger en omfattande vy av säkerhetstillståndet lösning domäner. OMS ger inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. OMS kan konfigureras för att generera varningar baserat på definierade villkor. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Log Analytics och olika OMS-lösningar, inklusive säkerhet och granska lösningen. Log Analytics ger nästan realtid analys av händelser över distribuerade resurser. OMS-lösningar ger en omfattande vy av säkerhetstillståndet lösning domäner. OMS ger inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. OMS kan konfigureras för att generera varningar baserat på definierade villkor. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-4"></a>NIST 800 53 kontrollen SI-4 (4)
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-5"></a>NIST 800 53 kontrollen SI-4 (5)
@@ -399,8 +399,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar olika OMS-lösningar, inklusive säkerhet och granska lösningen. Log Analytics ger nästan realtid analys av händelser över distribuerade resurser. OMS-lösningar ger en omfattande vy av säkerhetstillståndet lösning domäner. OMS kan konfigureras för att generera varningar baserat på definierade villkor. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar olika OMS-lösningar, inklusive säkerhet och granska lösningen. Log Analytics ger nästan realtid analys av händelser över distribuerade resurser. OMS-lösningar ger en omfattande vy av säkerhetstillståndet lösning domäner. OMS kan konfigureras för att generera varningar baserat på definierade villkor. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-11"></a>NIST 800 53 kontrollen SI-4 (11)
@@ -414,7 +414,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att analysera kommunikation trafik avvikelser för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-14"></a>NIST 800 53 kontrollen SI-4 (14)
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Ingen kund-kontrollerade maskinvara, inklusive trådlösa enheter tillåts i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure övervakar regelbundet för falsk trådlösa signaler kvartalsvis enligt beskrivningen i AC-18. <br /> Microsoft Azure implementerar den här kontrollen för IaaS- och PaaS-kunder. |
+| **Provider (Microsoft Azure)** | Microsoft Azure övervakar regelbundet för falsk trådlösa signaler kvartalsvis enligt beskrivningen i AC-18. <br /> Microsoft Azure implementerar den här kontrollen för IaaS- och PaaS-kunder. |
 
 
  ### <a name="nist-800-53-control-si-4-16"></a>NIST 800 53 kontrollen SI-4 (16)
@@ -441,8 +441,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Log Analytics och olika OMS-lösningar, inklusive säkerhet och granska lösningen. OMS ger inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Log Analytics och olika OMS-lösningar, inklusive säkerhet och granska lösningen. OMS ger inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-18"></a>NIST 800 53 kontrollen SI-4 (18)
@@ -456,7 +456,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att analysera kommunikationstrafiken för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-19"></a>NIST 800 53 kontrollen SI-4 (19)
@@ -470,10 +470,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för att övervaka personer som innebär en större risk. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-si-4-20"></a>NIST 800 53 kontrollen SI-4 (20)
+ ### <a name="nist-800-53-control-si-4-20"></a>NIST 800-53 Control SI-4 (20)
 
 #### <a name="information-system-monitoring--privileged-users"></a>Information systemövervakning | Privilegierade användare
 
@@ -484,7 +484,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för att övervaka Privilegierade användare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-22"></a>NIST 800 53 kontrollen SI-4 (22)
@@ -498,7 +498,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att upptäcka otillåten nätverkstjänster. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-23"></a>NIST 800 53 kontrollen SI-4 (23)
@@ -511,8 +511,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell samlar in övervakningsdata från distribuerade resurser, inklusive data från värdbaserade övervakningsfunktionerna. Microsoft Monitoring Agent är installerad på alla Windows-datorer för att samla in övervakningsdata som används av logganalys och andra OMS-lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet samlar in övervakningsdata från distribuerade resurser, inklusive data från värdbaserade övervakningsfunktionerna. Microsoft Monitoring Agent är installerad på alla Windows-datorer för att samla in övervakningsdata som används av logganalys och andra OMS-lösningar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-4-24"></a>NIST 800 53 kontrollen SI-4 (24)
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för identifiering, samla in, distribuera och använda indikatorer för kompromettering till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-5a"></a>NIST 800 53 kontrollen SI-5.a
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera säkerhetsaviseringar, rekommendationerna och riktlinjer för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-5b"></a>NIST 800 53 kontrollen SI-5.b
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera säkerhetsaviseringar, rekommendationerna och riktlinjer för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-5c"></a>NIST 800 53 kontrollen SI-5.c
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera säkerhetsaviseringar, rekommendationerna och riktlinjer för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-5d"></a>NIST 800 53 kontrollen SI-5.d
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera säkerhetsaviseringar, rekommendationerna och riktlinjer för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-5-1"></a>NIST 800 53 kontrollen SI-5 (1)
@@ -596,10 +596,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera säkerhetsaviseringar, rekommendationerna och riktlinjer för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-si-6a"></a>NIST 800 53 kontrollen SI-6.a
+ ## <a name="nist-800-53-control-si-6a"></a>NIST 800-53 Control SI-6.a
 
 #### <a name="security-function-verification"></a>Funktionen säkerhetskontroll
 
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för funktionen säkerhetsverifiering för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-6b"></a>NIST 800 53 kontroll-SI-6 b
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för funktionen säkerhetsverifiering för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-6c"></a>NIST 800 53 kontrollen SI-6
@@ -638,10 +638,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för funktionen säkerhetsverifiering för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-si-6d"></a>NIST 800 53 kontrollen SI-6.d
+ ## <a name="nist-800-53-control-si-6d"></a>NIST 800-53 Control SI-6.d
 
 #### <a name="security-function-verification"></a>Funktionen säkerhetskontroll
 
@@ -652,7 +652,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för funktionen säkerhetsverifiering för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-7"></a>NIST 800 53 kontrollen SI-7
@@ -665,8 +665,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | De virtuella datorerna som distribueras med den här Azure-modell kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | De virtuella datorerna som distribueras med den här utkast kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-7-1"></a>NIST 800 53 kontrollen SI-7 (1)
@@ -679,8 +679,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | De virtuella datorerna som distribueras med den här Azure-modell kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen. WRP kan realtid integritetskontroll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | De virtuella datorerna som distribueras med den här utkast kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen. WRP kan realtid integritetskontroll. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-7-2"></a>NIST 800 53 kontrollen SI-7 (2)
@@ -693,8 +693,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | De virtuella datorerna som distribueras med den här Azure-modell kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | De virtuella datorerna som distribueras med den här utkast kör Windows-operativsystem. Windows tillhandahåller realtid filen integritet verifiering, skydd och återställning av viktiga systemfiler som installeras som en del av Windows eller auktoriserade systemuppdateringar via Windows Resource Protection WRP ()-funktionen.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-7-5"></a>NIST 800 53 kontrollen SI-7 (5)
@@ -708,7 +708,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att automatiskt svara på integritet överträdelser inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-7-7"></a>NIST 800 53 kontrollen SI-7 (7)
@@ -722,7 +722,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda integriteten för programvaran och information för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-7-14"></a>NIST 800 53 kontrollen SI-7 (14)
@@ -736,7 +736,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå system- och integritet procedurer kan fastställa kraven för att hämta källkoden för binär eller maskin körbar kod från vissa källor. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-8a"></a>NIST 800 53 kontrollen SI-8.a
@@ -749,8 +749,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen e-postservrar distribueras som en del av den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen e-postservrar distribueras som en del av det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-8b"></a>NIST 800 53 kontrollen SI-8.b
@@ -763,8 +763,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen e-postservrar distribueras som en del av den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen e-postservrar distribueras som en del av det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-8-1"></a>NIST 800 53 kontrollen SI-8 (1)
@@ -777,8 +777,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen e-postservrar distribueras som en del av den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen e-postservrar distribueras som en del av det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-si-8-2"></a>NIST 800 53 kontrollen SI-8 (2)
@@ -791,8 +791,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen e-postservrar distribueras som en del av den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen e-postservrar distribueras som en del av det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-10"></a>NIST 800 53 kontrollen SI-10
@@ -806,7 +806,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för information verifiering av indata för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-11a"></a>NIST 800 53 kontrollen SI-11.a
@@ -819,8 +819,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som har distribuerats av den här Azure-modell av kommersiella operativsystem och program. Den här programvaran använder branschens bästa praxis för att kontrollera känslig information som inte visas i felmeddelanden. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som har distribuerats av den här modell av kommersiella operativsystem och program. Den här programvaran använder branschens bästa praxis för att kontrollera känslig information som inte visas i felmeddelanden. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-11b"></a>NIST 800 53 kontrollen SI-11.b
@@ -833,8 +833,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som har distribuerats av den här Azure-modell av kommersiella operativsystem och program. Den här programvaran använder branschens bästa praxis för felmeddelanden som är lämpliga i samband med användning som tar emot meddelandet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som har distribuerats av den här modell av kommersiella operativsystem och program. Den här programvaran använder branschens bästa praxis för felmeddelanden som är lämpliga i samband med användning som tar emot meddelandet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-12"></a>NIST 800 53 kontrollen SI – 12
@@ -848,7 +848,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera och behåller information i kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) och information utdata från de här resurserna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-si-16"></a>NIST 800 53 kontrollen SI-16
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | De virtuella datorerna som distribueras med den här Azure-modell kör Windows-operativsystem. Windows har skydd för förhindrar körning av kod i begränsade minnesplatser: Nej köra (NX), adress utrymme Layout slumpmässig (ASLR) och dataexekveringsskydd (DEP). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | De virtuella datorerna som distribueras med den här utkast kör Windows-operativsystem. Windows har skydd för förhindrar körning av kod i begränsade minnesplatser: Nej köra (NX), adress utrymme Layout slumpmässig (ASLR) och dataexekveringsskydd (DEP). |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

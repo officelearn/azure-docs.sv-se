@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation--Utvärdering av säkerheten och auktorisering"
-description: "Webbprogram för FedRAMP - utvärdering av säkerheten och auktorisering"
+title: "Azure-säkerhet och säkerhet kompatibilitetsutvärdering modell - FedRAMP Web Applications Automation-- och auktorisering"
+description: "FedRAMP Web Applications Automation - utvärdering av säkerheten och auktorisering"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Utvärdering av säkerheten och auktorisering (CA)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå bedömning och auktorisering säkerhetsprinciper och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-2a"></a>NIST 800 53 kontrollen CA-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla en plan för riskbedömning av säkerhet för kunden distribuerade system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-2b"></a>NIST 800 53 kontrollen CA-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att bedöma de säkerhetskontroller som definierats i CA-02.a på kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-2c"></a>NIST 800 53 kontrollen CA-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att framställa en security assessment rapporten. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-2d"></a>NIST 800 53 kontrollen CA-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att leverera säkerhet resultaten till krävs enskilda användare och roller. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-2-1"></a>NIST 800 53 kontrollen CA-2 (1)
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda oberoende experter eller assessment team för att genomföra säkerhet kontrollen bedömningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-2-2"></a>NIST 800 53 kontrollen CA-2 (2)
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att välja testas att ingå som en del av säkerhet kontrollen bedömningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-2-3"></a>NIST 800 53 kontrollen CA-2 (3)
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå bedömning och auktorisering säkerhetsrutiner kan adress godkännande av resultat från utvärdering av molntjänster tjänster (t.ex. Azure) utförs av en extern organisation under FedRAMP (t.ex. en tredje parts utvärdering organisation (3PAO) eller ett annat företag). Används för att utvärdera Azure av en FedRAMP godkända från tredje part assessment organisation (3PAO) för att kontrollera kompatibiliteten med styrning FedRAMP och andra krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-3a"></a>NIST 800 53 kontrollen CA-3.a
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utvärdering av kundens på företagsnivå säkerheten och auktorisering procedurer kan behandla auktorisering av system-anslutningarna. Obs: FedRAMP kräver inte ISAs mellan en CSP och Federal agency. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-3b"></a>NIST 800 53 kontrollen CA-3.b
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utvärdering av kundens på företagsnivå säkerheten och auktorisering procedurer kan upprätta krav för att upprätta system anslutningarna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-3c"></a>NIST 800 53 kontrollen CA-3.c
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utvärdering av kundens på företagsnivå säkerheten och auktorisering procedurer kan upprätta ISA granska och uppdatera processer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-3-3"></a>NIST 800 53 kontrollen CA-3 (3)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utvärdering av kundens på företagsnivå säkerheten och auktorisering procedurer kan upprätta gräns skyddskraven för system-anslutningarna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-3-5"></a>NIST 800 53 kontrollen CA-3 (5)
@@ -203,8 +203,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Azure Application Gateway och nätverk säkerhetsgrupper distribueras för att begränsa extern anslutning till resurser som distribueras med den här Azure-modell. Regeluppsättningar som tillämpas på nätverkssäkerhetsgrupper konfigureras med ett neka standardschema. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Azure Application Gateway och nätverk säkerhetsgrupper distribueras för att begränsa extern anslutning till resurser som distribueras med det här utkastet. Regeluppsättningar som tillämpas på nätverkssäkerhetsgrupper konfigureras med ett neka standardschema. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-5a"></a>NIST 800 53 kontrollen CA-5.a
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla en plan för åtgärden och milstolpar (upp & M) för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-5b"></a>NIST 800 53 kontrollen CA-5.b
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att uppdatera upp & M objekten som definierats i CA-05.a. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-6a"></a>NIST 800 53 kontrollen CA-6.a
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan vara beroende av en process där utfärdande tjänstemän tilldelas för på företagsnivå. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-6b"></a>NIST 800 53 kontrollen CA-6 b
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på ett system på företagsnivå auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-6c"></a>NIST 800 53 kontrollen CA-6
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på ett system på företagsnivå auktoriseringsprocessen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7a"></a>NIST 800 53 kontrollen CA-7.a
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7b"></a>NIST 800 53 kontrollen CA-7.b
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7c"></a>NIST 800 53 kontrollen CA-7.c
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7d"></a>NIST 800 53 kontrollen CA-7.d
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7e"></a>NIST 800 53 kontrollen CA-7.e
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7f"></a>NIST 800 53 kontrollen CA-7.f
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-7g"></a>NIST 800 53 kontrollen CA-7.g
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning programmet kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-7-1"></a>NIST 800 53 kontrollen CA-7 (1)
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning program kan upprätta en process för oberoende bedömning av säkerhetsåtgärder. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-7-3"></a>NIST 800 53 kontrollen CA-7 (3)
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå kontinuerlig övervakning program kan upprätta en process för trendanalys. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-8"></a>NIST 800 53 kontrollen CA-8
@@ -414,7 +414,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på en företagsnivå intrång testning assessment. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ca-8-1"></a>NIST 800 53 kontrollen CA-8 (1)
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på en företagsnivå intrång testning bedömning som utförs av en oberoende agent eller team. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-9a"></a>NIST 800 53 kontrollen CA-9.a
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att auktorisera interna anslutningar mellan kunden distribuerade resurser (t.ex. systemanslutningar till virtuella datorer). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ca-9b"></a>NIST 800 53 kontrollen CA-9.b
@@ -456,4 +456,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera information om varje intern anslutning mellan klasser/resurser som definierats i CA-09.a. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: e6b9b5e497258f37037e0dc3f8efe656d5206af3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasinformation identifiering och klassificering
 Identifiering av data & klassificering (för närvarande i förhandsversion) ger avancerade funktioner finns inbyggda i Azure SQL Database för **identifiera**, **klassificera**, **etiketter**  &  **skyddar** känsliga data i databasen.
-Identifiera och klassificera dina största känsliga data (företag för finansiella, hälsovård, personligt identifierbar information, etc.) kan en nyckelroll i din organisation Information protection status. Den kan fungera som infrastrukturen för:
+Identifiera och klassificera dina mest känsliga data (business, finansiella, hälsovård, personligt identifierbar information, etc.) kan en nyckelroll i din organisations information protection-status. Den kan fungera som infrastrukturen för:
+* Hjälper att uppfylla data sekretess standarder och regelefterlevnad krav, t.ex BNPR.
 * Olika säkerhetsscenarier, till exempel övervakning (granskning) och aviseringar om avvikande tillgång till känsliga data.
 * Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller känsliga data.
-* Hjälper att uppfylla data sekretess standarder och regelefterlevnad krav, t.ex BNPR.
 
 ## <a id="subheading-1"></a>Översikt över
 Identifiering av data & klassificering innehåller en uppsättning avancerade tjänster och nya SQL-funktioner, som utgör en ny SQL-informationsskydd paradigmet syftar till att skydda data, inte bara databasen:
@@ -93,7 +93,9 @@ Klassificeringen innehåller två metadataattribut:
 
 ## <a id="subheading-3"></a>Granska åtkomst till känsliga data
 
-En viktig del av information protection paradigmet är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar klassificeringen känslighet (etiketter) på data som returnerades av frågan.
+En viktig del av information protection paradigmet är möjligheten att övervaka åtkomsten till känsliga data.
+
+[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar känslighet klassificeringar (etiketter) den faktiska data som returnerades av frågan.
 
 ![Navigeringsfönstret][11]
 

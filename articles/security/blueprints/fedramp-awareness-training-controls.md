@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - medvetenhet och utbildning
-description: "Webbprogram för FedRAMP - medvetenhet och utbildning"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - medvetenhet och utbildning"
+description: FedRAMP Web Applications Automation - medvetenhet och utbildning
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>Medvetenhet och utbildning (AT)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå medvetenheten och utbildning principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-2a"></a>NIST 800 53 kontrollen AT-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utbildningsprogram för kundens företag säkerhetsnivå medvetenhet kan ge grundläggande utbildning för alla systemanvändare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-2b"></a>NIST 800 53 kontrollen AT-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utbildningsprogram för kundens företag säkerhetsnivå medvetenhet kan tillhandahålla behöver-baserade utbildning för alla användare på datorn. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-2c"></a>NIST 800 53 kontrollen AT-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utbildningsprogram för kundens företag säkerhetsnivå medvetenhet kan tillhandahålla pågående utbildning för alla användare på datorn. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-at-2-2"></a>NIST 800 53 kontrollen AT-2 (2)
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå medvetenhet utbildning säkerhetsinnehåll kan omfatta insider hot medvetenhet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-3a"></a>NIST 800 53 kontrollen AT-3.a
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan ge Rollbaserad säkerhetsutbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-3b"></a>NIST 800 53 kontrollen AT-3.b
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan ge behovet av rollbaserad säkerhetsutbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-3c"></a>NIST 800 53 kontrollen AT-3.c
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan tillhandahålla utbildning för pågående rollbaserad säkerhet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-at-3-3"></a>NIST 800 53 kontrollen AT-3 (3)
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Rollbaserad säkerhetsutbildning kan omfatta praktiska övningarna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-at-3-4"></a>NIST 800 53 kontrollen AT-3 (4)
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Rollbaserad säkerhetsutbildning kan omfatta igenkänning av misstänkt kommunikation och avvikande systembeteendet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-4a"></a>NIST 800 53 kontrollen AT-4.a
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utbildningsprogram för kundens företag säkerhetsnivå medvetenhet kan omfatta dokumentation och övervakning av utbildning aktivitet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-at-4b"></a>NIST 800 53 kontrollen AT-4.b
@@ -190,4 +190,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Utbildningsprogram för kundens företag säkerhetsnivå medvetenhet kan uppfylla utbildning registrera kvarhållning krav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

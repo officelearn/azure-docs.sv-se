@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - Underhåll"
-description: "Webbprogram för FedRAMP - Underhåll"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - Underhåll"
+description: "FedRAMP Web Applications Automation - Underhåll"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a0546f6e10b04bbfdb5b02e5c0bbe6d907c76e72
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="maintenance-ma"></a>Underhåll (MA)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens systemprincipen Underhåll på företagsnivå och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-2a"></a>NIST 800 53 kontrollen MA-2.a
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för kontrollerad underhåll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-2b"></a>NIST 800 53 kontrollen MA-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för kontrollerad underhåll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-2c"></a>NIST 800 53 kontrollen MA-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure kräver att egenskapen tillgångar (t.ex. nätverksenhet eller server) kräver överföring externt har explicit tillgången ägarens godkännande. |
+| **Provider (Microsoft Azure)** | Microsoft Azure kräver att egenskapen tillgångar (t.ex. nätverksenhet eller server) kräver överföring externt har explicit tillgången ägarens godkännande. |
 
 
  ## <a name="nist-800-53-control-ma-2d"></a>NIST 800 53 kontrollen MA-2.d
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillgången skydd Standard definierar tillgången hantering försiktighetsåtgärder som krävs för externt överföring av tillgångar. Tillgångsinformation skydd Standard kräver att lagring datatillgångar avmarkerad/rensas i överensstämmelse med NIST SP 800-88, riktlinjer för rensning av Media, innan de lämnar datacentret. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillgången skydd Standard definierar tillgången hantering försiktighetsåtgärder som krävs för externt överföring av tillgångar. Tillgångsinformation skydd Standard kräver att lagring datatillgångar avmarkerad/rensas i överensstämmelse med NIST SP 800-88, riktlinjer för rensning av Media, innan de lämnar datacentret. |
 
 
  ## <a name="nist-800-53-control-ma-2e"></a>NIST 800 53 kontrollen MA-2.e
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för kontrollerad underhåll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-2f"></a>NIST 800 53 kontrollen MA-2.f
@@ -120,10 +120,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för kontrollerad underhåll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800 53 kontrollen MA-2 (2) en
+ ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800-53 Control MA-2 (2).a
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Kontrollerade Underhåll | Automatisk underhållsaktiviteter
 
@@ -134,10 +134,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att automatisera underhållsaktiviteter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ma-2-2b"></a>NIST 800 53 kontrollen MA-2 (2) .b
+ ### <a name="nist-800-53-control-ma-2-2b"></a>NIST 800-53 Control MA-2 (2).b
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Kontrollerade Underhåll | Automatisk underhållsaktiviteter
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att automatisera underhållsaktiviteter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-3"></a>NIST 800 53 kontrollen MA-3
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure använder flera verktyg för att slutföra underhållet. Programvaruhantering verktyg godkänts, kontrolleras och underhålls med Microsoft Azure ändra och utgivningen. <br /> Platstjänster teamet upprätthåller en förteckning över godkända underhållsverktyg för användning i datacenter (se MA-3). Underhållspersonal dirigeras att använda de angivna underhållsverktyg. Datacenter management godkännande krävs för att kunna använda inte verktygen i datacentret. Fysiska handverktyg (skruvmejslar, wrenches osv.) är undantagna från den här kontrollen. <br /> Varje anläggning innehåller en begränsad fysiska lås eller åtkomst-kontrollerade utrymme för lagring av särskilda underhållsverktyg fluke ether-scope, fluke fiber channel Testare, Ethernet-sidor, t.ex. Platstjänster teamet utför rutinmässiga inventering kontroller för att kontrollera statusen för alla verktyg. Åtkomst till låsa rutan eller underhåll utrymme spåras i åtkomst Aktivitetsikon reader loggarna, vilket är tillgängligt i händelse av en undersökning. |
+| **Provider (Microsoft Azure)** | Microsoft Azure använder flera verktyg för att slutföra underhållet. Programvaruhantering verktyg godkänts, kontrolleras och underhålls med Microsoft Azure ändra och utgivningen. <br /> Platstjänster teamet upprätthåller en förteckning över godkända underhållsverktyg för användning i datacenter (se MA-3). Underhållspersonal dirigeras att använda de angivna underhållsverktyg. Datacenter management godkännande krävs för att kunna använda inte verktygen i datacentret. Fysiska handverktyg (skruvmejslar, wrenches osv.) är undantagna från den här kontrollen. <br /> Varje anläggning innehåller en begränsad fysiska lås eller åtkomst-kontrollerade utrymme för lagring av särskilda underhållsverktyg fluke ether-scope, fluke fiber channel Testare, Ethernet-sidor, t.ex. Platstjänster teamet utför rutinmässiga inventering kontroller för att kontrollera statusen för alla verktyg. Åtkomst till låsa rutan eller underhåll utrymme spåras i åtkomst Aktivitetsikon reader loggarna, vilket är tillgängligt i händelse av en undersökning. |
 
 
  ### <a name="nist-800-53-control-ma-3-1"></a>NIST 800 53 kontrollen MA-3 (1)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure Site Services-teamet upprätthåller en förteckning över godkända underhållsverktyg för användning i datacenter (se MA-3 för ytterligare information). Underhållspersonal dirigeras att använda de angivna underhållsverktyg. DCM-godkännande krävs för att kunna använda inte verktygen i datacentret. |
+| **Provider (Microsoft Azure)** | Microsoft Azure Site Services-teamet upprätthåller en förteckning över godkända underhållsverktyg för användning i datacenter (se MA-3 för ytterligare information). Underhållspersonal dirigeras att använda de angivna underhållsverktyg. DCM-godkännande krävs för att kunna använda inte verktygen i datacentret. |
 
 
  ### <a name="nist-800-53-control-ma-3-2"></a>NIST 800 53 kontrollen MA-3 (2)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte att använda mobildata eller lagringsmedia i produktionsmiljö av Microsoft Azure-datacenter utan godkännande för hantering av datacenter. Användning av personligt ägda media är förbjuden används i produktionsmiljön för Microsoft Azure-datacenter. <br /> Microsoft Azure har implementerat en process för att inspektera bärbara datorer innan som används i produktionsmiljön för Microsoft Azure-datacenter. Säkerhet polis tränas anropar personal som använder bärbara datorer i produktionsmiljön för att kontrollera att de bärbara datorerna har genomgått och genomgått. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte att använda mobildata eller lagringsmedia i produktionsmiljö av Microsoft Azure-datacenter utan godkännande för hantering av datacenter. Användning av personligt ägda media är förbjuden används i produktionsmiljön för Microsoft Azure-datacenter. <br /> Microsoft Azure har implementerat en process för att inspektera bärbara datorer innan som används i produktionsmiljön för Microsoft Azure-datacenter. Säkerhet polis tränas anropar personal som använder bärbara datorer i produktionsmiljön för att kontrollera att de bärbara datorerna har genomgått och genomgått. |
 
 
  ### <a name="nist-800-53-control-ma-3-3"></a>NIST 800 53 kontrollen MA-3 (3)
@@ -204,10 +204,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure använder datacenter specifika underhållsverktyg som finns kvar i funktionen och tas inte bort. Varje anläggning innehåller ett begränsat fysiska lås rutan eller lagring rum som lagrar underhållsverktyg fluke ether-scope, fluke fiber channel Testare, Ethernet-sidor, t.ex. Åtkomst styrs till Lås rutan eller lagring rum i DCAT förhindra obehörig åtkomst till verktyg för Systemunderhåll. <br /> Organisationsinformation skyddas under underhåll av kontrollerna i MA-4. För att komma åt organisationsinformation har användaren Privilegierade konton och autentiserare. |
+| **Provider (Microsoft Azure)** | Microsoft Azure använder datacenter specifika underhållsverktyg som finns kvar i funktionen och tas inte bort. Varje anläggning innehåller ett begränsat fysiska lås rutan eller lagring rum som lagrar underhållsverktyg fluke ether-scope, fluke fiber channel Testare, Ethernet-sidor, t.ex. Åtkomst styrs till Lås rutan eller lagring rum i DCAT förhindra obehörig åtkomst till verktyg för Systemunderhåll. <br /> Organisationsinformation skyddas under underhåll av kontrollerna i MA-4. För att komma åt organisationsinformation har användaren Privilegierade konton och autentiserare. |
 
 
- ## <a name="nist-800-53-control-ma-4a"></a>NIST 800 53 kontrollen MA-4.a
+ ## <a name="nist-800-53-control-ma-4a"></a>NIST 800-53 Control MA-4.a
 
 #### <a name="nonlocal-maintenance"></a>Icke-lokala Underhåll
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra icke-lokala Underhåll på kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-4b"></a>NIST 800 53 kontrollen MA-4.b
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra icke-lokala Underhåll på kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-4c"></a>NIST 800 53 kontrollen MA-4.c
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra icke-lokala Underhåll på kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-4d"></a>NIST 800 53 kontrollen MA-4.d
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra icke-lokala Underhåll på kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-4e"></a>NIST 800 53 kontrollen MA-4.e
@@ -274,10 +274,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra icke-lokala Underhåll på kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ma-4-2"></a>NIST 800 53 kontrollen MA-4 (2)
+ ### <a name="nist-800-53-control-ma-4-2"></a>NIST 800-53 Control MA-4 (2)
 
 #### <a name="nonlocal-maintenance--document-nonlocal-maintenance"></a>Icke-lokala Underhåll | Dokumentet icke-lokala Underhåll
 
@@ -288,10 +288,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera icke-lokala Underhåll i skyddsplan för kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ma-4-3"></a>NIST 800 53 kontrollen MA-4 (3)
+ ### <a name="nist-800-53-control-ma-4-3"></a>NIST 800-53 Control MA-4 (3)
 
 #### <a name="nonlocal-maintenance--comparable-security--sanitization"></a>Icke-lokala Underhåll | Jämförbara säkerhet / rensning
 
@@ -302,10 +302,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra alla icke-lokala underhåll av kunden distribuerade operativsystem från ett informationssystem som har jämförbara säkerhet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-ma-4-6"></a>NIST 800 53 kontrollen MA-4 (6)
+ ### <a name="nist-800-53-control-ma-4-6"></a>NIST 800-53 Control MA-4 (6)
 
 #### <a name="nonlocal-maintenance--cryptographic-protection"></a>Icke-lokala Underhåll | Kryptografiska skydd
 
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera kryptografiska metoder när du utför icke-lokala underhåll och diagnostik av kunden distribuerade operativsystem. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-5a"></a>NIST 800 53 kontrollen MA-5.a
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Underhåll personal auktoriserings- och eskort systemprocesser kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-5b"></a>NIST 800 53 kontrollen MA-5.b
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Underhåll personal auktoriserings- och eskort systemprocesser kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-5c"></a>NIST 800 53 kontrollen MA-5.c
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Underhåll personal auktoriserings- och eskort systemprocesser kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ma-5-1a"></a>NIST 800 53 kontrollen MA-5 (1) en
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Underhåll personal auktoriserings- och eskort systemprocesser kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ma-5-1b"></a>NIST 800 53 kontrollen MA-5 (1) .b
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå Underhåll personal auktoriserings- och eskort systemprocesser kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ma-6"></a>NIST 800 53 kontrollen MA-6
@@ -400,4 +400,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure-Datacenter Underhåll resident underhållspersonal för att stödja kritiska datacenter infrastruktursystem samt datacenter åtgärder. Team har identifierat kritiska systemkomponenter för säkerhet och teknik som de bibehåller besparar för på-plats. Kritiska system som är utformade i N + 1 konfigurationer och tjänster som är utformade för att hantera. Detta gör att datacenter management-teamet att uppfylla Återställningsmål om ett avbrott i tjänsten eller beredskapsplan situation. Viktig information systemtjänster etableras från flera datacenter för att undvika avbrott i tjänsten på grund av en incident på någon av datacenter. Kundprogram ansvarar för att distribuera till flera Datacenter för att ge redundans och återhämtning. |
+| **Provider (Microsoft Azure)** | Microsoft Azure-Datacenter Underhåll resident underhållspersonal för att stödja kritiska datacenter infrastruktursystem samt datacenter åtgärder. Team har identifierat kritiska systemkomponenter för säkerhet och teknik som de bibehåller besparar för på-plats. Kritiska system som är utformade i N + 1 konfigurationer och tjänster som är utformade för att hantera. Detta gör att datacenter management-teamet att uppfylla Återställningsmål om ett avbrott i tjänsten eller beredskapsplan situation. Viktig information systemtjänster etableras från flera datacenter för att undvika avbrott i tjänsten på grund av en incident på någon av datacenter. Kundprogram ansvarar för att distribuera till flera Datacenter för att ge redundans och återhämtning. |

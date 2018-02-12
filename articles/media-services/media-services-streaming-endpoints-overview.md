@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över strömmande slutpunkter 
 
@@ -86,7 +86,7 @@ Dynamisk paketering|Ja|Ja
 Skala|Automatisk skalar upp till det riktade dataflödet.|Ytterligare enheter för strömning
 IP-filtrering/G20/Custom värd|Ja|Ja
 Progressiv hämtning|Ja|Ja
-Rekommenderade användning |Vi rekommenderar för det stora flertalet av strömning scenarier.|Professional användning.<br/>Om du tror att kan du ha behov utöver Standard. Kontakta oss (amsstreaming på microsoft.com) om du tror att en samtidiga målgruppen storlek är större än 50 000 användare.
+Rekommenderade användning |Vi rekommenderar för det stora flertalet av strömning scenarier.|Professional användning.<br/>Om du tror att kan du ha behov utöver Standard. Kontakta oss (amsstreaming@microsoft.com) om du tror att en samtidiga målgruppen storlek är större än 50 000 användare.
 
 
 ## <a name="migration-between-types"></a>Migrering mellan typer

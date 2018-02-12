@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
 Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
@@ -80,10 +80,10 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-setup"></a>Avsnittsnamn: installationsprogrammet
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| FabricDataRoot |Sträng | Inte tillåtet |Rotkatalogen för Service Fabric-data. Som standard för Azure är d:\svcfab |
-| FabricLogRoot |Sträng | Inte tillåtet |Service fabric rot loggkatalogen. Detta är SA loggar och spårningar placering. |
-| ServiceRunAsAccountName |Sträng | Inte tillåtet |Kontonamn som du vill köra infrastrukturvärdtjänsten under. |
-| SkipFirewallConfiguration |Bool, standard är FALSKT | Inte tillåtet |Anger om brandväggsinställningar måste anges i systemet eller inte. Detta gäller endast om du använder windows-brandväggen. Om du använder brandväggar från tredje part, måste du öppna portar för system och program som ska användas |
+| FabricDataRoot |Sträng | Inte tillåten |Rotkatalogen för Service Fabric-data. Som standard för Azure är d:\svcfab |
+| FabricLogRoot |Sträng | Inte tillåten |Service fabric rot loggkatalogen. Detta är SA loggar och spårningar placering. |
+| ServiceRunAsAccountName |Sträng | Inte tillåten |Kontonamn som du vill köra infrastrukturvärdtjänsten under. |
+| SkipFirewallConfiguration |Bool, standard är FALSKT | Inte tillåten |Anger om brandväggsinställningar måste anges i systemet eller inte. Detta gäller endast om du använder windows-brandväggen. Om du använder brandväggar från tredje part, måste du öppna portar för system och program som ska användas |
 |NodesToBeRemoved|sträng, standardvärdet är ””| Dynamisk |Noder som ska tas bort som en del av konfigurationen uppgraderingen. (Endast för distributioner av fristående)|
 |ContainerNetworkSetup|bool, standard är FALSKT| Statisk |Om du vill konfigurera ett nätverk för behållaren.|
 |ContainerNetworkName|String, standard är L ””| Statisk |Nätverksnamn ska användas när du konfigurerar ett nätverk för behållaren.|
@@ -102,13 +102,13 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | MaxSecondaryReplicationQueueSize |Uint, standard är 16384 | Statisk |Detta är det maximala antalet åtgärder som kan finnas i sekundära Replikeringskön. Observera att det måste vara delbart med 2. |
 | MaxSecondaryReplicationQueueMemorySize |Uint, standardvärdet är 0 | Statisk |Detta är det maximala värdet för den sekundära Replikeringskön i byte. |
 | SecondaryClearAcknowledgedOperations |Bool, standard är FALSKT | Statisk |Bool som styr om åtgärder på sekundär replikatorn är avmarkerad när de bekräftas till den primära servern (replikatorn tömmer till disken). Inställningar för den till TRUE kan medföra ytterligare Diskläsningar på den nya primärt när fånga repliker efter en redundansväxling. |
-| MaxMetadataSizeInKB |Int, standardvärdet är 4 |Inte tillåtet|Maximal storlek för log-metadata för dataströmmen. |
-| MaxRecordSizeInKB |Uint, standard är 1024 |Inte tillåtet| Maximal storlek för en loggpost för dataströmmen. |
+| MaxMetadataSizeInKB |Int, standardvärdet är 4 |Inte tillåten|Maximal storlek för log-metadata för dataströmmen. |
+| MaxRecordSizeInKB |Uint, standard är 1024 |Inte tillåten| Maximal storlek för en loggpost för dataströmmen. |
 | CheckpointThresholdInMB |Int, standardvärdet är 50 |Statisk|En kontrollpunkt påbörjas när loggen användningen överskrider detta värde. |
 | MaxAccumulatedBackupLogSizeInMB |Int, är standard 800 |Statisk|Max ackumulerade storleken (i MB) för säkerhetskopiering loggar i en viss loggkedja. En inkrementell säkerhetskopiering begäranden misslyckas om den inkrementella säkerhetskopian skulle Generera en säkerhetskopiering logg som skulle orsaka de ackumulerade antalet säkerhetskopieringsloggar sedan den relevanta fullständiga säkerhetskopian ska vara större än den här storleken. I sådana fall måste användaren gör en fullständig säkerhetskopia. |
-| MaxWriteQueueDepthInKB |Int, standardvärdet är 0 |Inte tillåtet| Int för maximal skriva ködjup som core loggaren kan använda som anges i kilobyte för den logg som är associerad med den här repliken. Det här värdet är maximalt antal byte som kan vara utestående under viktiga uppdateringar av meddelandeloggfiler. Det kan vara 0 för kärnor loggaren att beräkna ett lämpligt värde eller en multipel av 4. |
-| SharedLogId |Sträng |Inte tillåtet|Delade identifierare. Detta är ett guid och måste vara unikt för varje delad logg. |
-| SharedLogPath |Sträng |Inte tillåtet|Sökvägen till delad loggen. Om det här värdet är tomt används standard delade loggen. |
+| MaxWriteQueueDepthInKB |Int, standardvärdet är 0 |Inte tillåten| Int för maximal skriva ködjup som core loggaren kan använda som anges i kilobyte för den logg som är associerad med den här repliken. Det här värdet är maximalt antal byte som kan vara utestående under viktiga uppdateringar av meddelandeloggfiler. Det kan vara 0 för kärnor loggaren att beräkna ett lämpligt värde eller en multipel av 4. |
+| SharedLogId |Sträng |Inte tillåten|Delade identifierare. Detta är ett guid och måste vara unikt för varje delad logg. |
+| SharedLogPath |Sträng |Inte tillåten|Sökvägen till delad loggen. Om det här värdet är tomt används standard delade loggen. |
 | SlowApiMonitoringDuration |Tid i sekunder, standard är 300 |Statisk| Ange varaktighet för api innan varning hälsa händelsen utlöses.|
 | MinLogSizeInMB |Int, standardvärdet är 0 |Statisk|Minsta storlek för transaktionell loggen. Loggen kommer inte att kunna trunkera till en storlek under den här inställningen. 0 anger att replikatorn avgör den minsta loggfilsstorleken enligt andra inställningar. Det här värdet ökar risken för att göra partiella kopior och inkrementella säkerhetskopieringar eftersom risken för relevanta loggposter trunkerades sänks. |
 
@@ -178,7 +178,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-paas"></a>Avsnittsnamn: Paas
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| ClusterId |sträng, standardvärdet är ”” |Inte tillåtet|X509 certifikatarkivet användas av fabric för konfiguration av skydd. |
+| ClusterId |sträng, standardvärdet är ”” |Inte tillåten|X509 certifikatarkivet användas av fabric för konfiguration av skydd. |
 
 ### <a name="section-name-fabrichost"></a>Avsnittsnamn: FabricHost
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
@@ -202,11 +202,11 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | UserMaxStandByReplicaCount |Int, standardvärdet är 1 |Dynamisk|Standard max antal StandBy-repliker som systemet håller för användaren tjänster. |
 | ExpectedClusterSize|Int, standardvärdet är 1|Dynamisk|När klustret startas först. FM väntar på att detta många noder om du vill rapportera själva in innan den börjar placera andra tjänster. inklusive systemtjänster som namnges.  Det här värdet ökar den tid det tar ett kluster att starta. men förhindrar tidig noder från blir överbelastad och ytterligare flyttar som kommer att vara nödvändigt som fler noder är online.  Det här värdet ska normalt anges till en liten del av den första klusterstorleken. |
 |ClusterPauseThreshold|Int, standardvärdet är 1|Dynamisk|Om antalet noder i systemet under detta värde än placering; belastningsutjämning; och växling vid fel har stoppats. |
-|TargetReplicaSetSize|Int, standard är 7|Inte tillåtet|Detta är antalet mål av FM repliker med Windows Fabric.  En hög siffra resulterar i högre tillförlitlighet för FM-data. med en liten prestanda kompromiss. |
-|MinReplicaSetSize|Int, standardinställningen är 3|Inte tillåtet|Det här är den minsta storleken på replikuppsättningen för FM.  Om antalet aktiva FM repliker hamnar under detta värde. FM avvisar ändringar i klustret tills minst min. antal repliker återställs |
-|ReplicaRestartWaitDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Inte tillåtet|Ange tidsintervall i sekunder. Det här är ReplicaRestartWaitDuration för FMService |
-|StandByReplicaKeepDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Inte tillåtet|Ange tidsintervall i sekunder. Det här är StandByReplicaKeepDuration för FMService |
-|PlacementConstraints|String, standard är L ””|Inte tillåtet|Alla placeringen för failover manager-repliker |
+|TargetReplicaSetSize|Int, standard är 7|Inte tillåten|Detta är antalet mål av FM repliker med Windows Fabric.  En hög siffra resulterar i högre tillförlitlighet för FM-data. med en liten prestanda kompromiss. |
+|MinReplicaSetSize|Int, standardinställningen är 3|Inte tillåten|Det här är den minsta storleken på replikuppsättningen för FM.  Om antalet aktiva FM repliker hamnar under detta värde. FM avvisar ändringar i klustret tills minst min. antal repliker återställs |
+|ReplicaRestartWaitDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Inte tillåten|Ange tidsintervall i sekunder. Det här är ReplicaRestartWaitDuration för FMService |
+|StandByReplicaKeepDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Inte tillåten|Ange tidsintervall i sekunder. Det här är StandByReplicaKeepDuration för FMService |
+|PlacementConstraints|String, standard är L ””|Inte tillåten|Alla placeringen för failover manager-repliker |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktigheten för en nod som ska uppgraderas under Windows Fabric-uppgraderingen. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktigheten för alla repliker som ska uppgraderas på en nod under uppgradering av programmet. |
 |ExpectedNodeDeactivationDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(60.0 * 30)|Dynamisk|Ange tidsintervall i sekunder. Det här är den förväntade varaktighet för en nod slutföra inaktiveringen i. |
@@ -219,12 +219,12 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-namingservice"></a>Avsnittsnamn: NamingService
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, standard är 7 |Inte tillåtet|Antal replik anger för varje partition för arkivet Naming Service. Öka antalet replikuppsättningar ger en högre tillförlitlighet för informationen i arkivet Naming; minska ändringen att informationen går förlorade på grund av nodfel; kostnad för ökad belastning på Windows Fabric och hur lång tid tar det för att utföra uppdateringar på namngivning data.|
-|MinReplicaSetSize | Int, standardinställningen är 3 |Inte tillåtet| Det minsta antalet namngivningstjänst repliker som krävs för att skriva till att slutföra en uppdatering. Om det finns färre repliker än det aktiva i systemet systemets tillförlitlighet nekar uppdateringar till arkivet Naming förrän replikeringarna har återställts. Det här värdet ska aldrig vara mer än TargetReplicaSetSize. |
-|ReplicaRestartWaitDuration | Tid i sekunder är standardvärdet (60,0 * 30)|Inte tillåtet| Ange tidsintervall i sekunder. När en replik för namngivningstjänst kraschar; den här timern startas.  När den upphör FM börjar ersätta repliker som är nere (den inte ännu anser tappas bort). |
-|QuorumLossWaitDuration | Tid i sekunder är standardvärdet MaxValue |Inte tillåtet| Ange tidsintervall i sekunder. När en Naming Service hämtar i kvorumförlust; den här timern startas.  När den upphör att gälla beaktas FM nedåt repliker som gå förlorad. och försöka att återställa kvorum. Inte som den här kan resultera i förlust av data. |
-|StandByReplicaKeepDuration | Tid i sekunder är standard 3600.0 * 2 |Inte tillåtet| Ange tidsintervall i sekunder. När en replik Naming Service kommer tillbaka från ett nedåt tillstånd. den kan ha redan ersatts.  Den här timern anger hur länge FM behåller vänteläge repliken innan du tar bort den. |
-|PlacementConstraints | sträng, standardvärdet är ”” |Inte tillåtet| Placering begränsningen för namngivning av tjänsten. |
+| TargetReplicaSetSize |Int, standard är 7 |Inte tillåten|Antal replik anger för varje partition för arkivet Naming Service. Öka antalet replikuppsättningar ger en högre tillförlitlighet för informationen i arkivet Naming; minska ändringen att informationen går förlorade på grund av nodfel; kostnad för ökad belastning på Windows Fabric och hur lång tid tar det för att utföra uppdateringar på namngivning data.|
+|MinReplicaSetSize | Int, standardinställningen är 3 |Inte tillåten| Det minsta antalet namngivningstjänst repliker som krävs för att skriva till att slutföra en uppdatering. Om det finns färre repliker än det aktiva i systemet systemets tillförlitlighet nekar uppdateringar till arkivet Naming förrän replikeringarna har återställts. Det här värdet ska aldrig vara mer än TargetReplicaSetSize. |
+|ReplicaRestartWaitDuration | Tid i sekunder är standardvärdet (60,0 * 30)|Inte tillåten| Ange tidsintervall i sekunder. När en replik för namngivningstjänst kraschar; den här timern startas.  När den upphör FM börjar ersätta repliker som är nere (den inte ännu anser tappas bort). |
+|QuorumLossWaitDuration | Tid i sekunder är standardvärdet MaxValue |Inte tillåten| Ange tidsintervall i sekunder. När en Naming Service hämtar i kvorumförlust; den här timern startas.  När den upphör att gälla beaktas FM nedåt repliker som gå förlorad. och försöka att återställa kvorum. Inte som den här kan resultera i förlust av data. |
+|StandByReplicaKeepDuration | Tid i sekunder är standard 3600.0 * 2 |Inte tillåten| Ange tidsintervall i sekunder. När en replik Naming Service kommer tillbaka från ett nedåt tillstånd. den kan ha redan ersatts.  Den här timern anger hur länge FM behåller vänteläge repliken innan du tar bort den. |
+|PlacementConstraints | sträng, standardvärdet är ”” |Inte tillåten| Placering begränsningen för namngivning av tjänsten. |
 |ServiceDescriptionCacheLimit | Int, standardvärdet är 0 |Statisk| Det maximala antalet poster som underhålls i LRU tjänstens beskrivning cache på lagringstjänst Naming (Ange 0 för ingen gräns). |
 |RepairInterval | Tid i sekunder, standardvärdet är 5 |Statisk| Ange tidsintervall i sekunder. Intervall som reparera namngivning inkonsekvens mellan myndigheten ägare och namnägare startar. |
 |MaxNamingServiceHealthReports | Int, standardvärdet är 10 |Dynamisk|Det maximala antalet långsam åtgärder som lagrar Naming service rapporter feltillstånd i taget. Om 0; alla åtgärder för långsam skickas. |
@@ -236,7 +236,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 | MaxOutstandingNotificationsPerClient |Int, standardvärdet är 1000 |Dynamisk|Det maximala antalet väntande meddelanden innan en klientregistrering stängs framtvingar av gateway. |
 | MaxIndexedEmptyPartitions |Int, standardvärdet är 1000 |Dynamisk|Det maximala antalet tomma partitioner som ska vara indexera i notification-cache för att synkronisera återanslutning klienter. Eventuella tomma partitioner ovanför det här numret tas bort från indexet i stigande ordning för sökning version. Ansluta klienter kan fortfarande synkronisera och ta emot uppdateringar missade tom partition. men synkroniseringsprotokollet blir dyrare. |
 | GatewayServiceDescriptionCacheLimit |Int, standardvärdet är 0 |Statisk|Det maximala antalet poster som underhålls i LRU tjänstens beskrivning cache på Namngivningsgateway (Ange 0 för ingen gräns). |
-| PartitionCount |Int, standardinställningen är 3 |Inte tillåtet|Antalet partitioner för tjänsten Naming lagra som ska skapas. Varje partition äger en enda partitionsnyckel som motsvarar dess index. så partitionsnycklar [0; PartitionCount) finns. Öka antalet namngivningstjänst partitioner ökar skalan som Naming Service kan utföra genom att minska den genomsnittliga mängden data från alla stödjande repliker ange; kostnad ökad användning av resurser (eftersom PartitionCount * ReplicaSetSize service repliker måste underhållas).|
+| PartitionCount |Int, standardinställningen är 3 |Inte tillåten|Antalet partitioner för tjänsten Naming lagra som ska skapas. Varje partition äger en enda partitionsnyckel som motsvarar dess index. så partitionsnycklar [0; PartitionCount) finns. Öka antalet namngivningstjänst partitioner ökar skalan som Naming Service kan utföra genom att minska den genomsnittliga mängden data från alla stödjande repliker ange; kostnad ökad användning av resurser (eftersom PartitionCount * ReplicaSetSize service repliker måste underhållas).|
 
 ### <a name="section-name-runas"></a>Avsnittsnamn: RunAs
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
@@ -426,10 +426,10 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-upgradeservice"></a>Avsnittsnamn: UpgradeService
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| PlacementConstraints |sträng, standardvärdet är ”” |Inte tillåtet|PlacementConstraints för uppgradering. |
-| TargetReplicaSetSize | Int, standardinställningen är 3 |Inte tillåtet| TargetReplicaSetSize för UpgradeService. |
-| MinReplicaSetSize | Int, standardvärdet är 2 |Inte tillåtet| MinReplicaSetSize för UpgradeService. |
-| CoordinatorType | strängen, standard är ”WUTest”|Inte tillåtet|CoordinatorType för UpgradeService. |
+| PlacementConstraints |sträng, standardvärdet är ”” |Inte tillåten|PlacementConstraints för uppgradering. |
+| TargetReplicaSetSize | Int, standardinställningen är 3 |Inte tillåten| TargetReplicaSetSize för UpgradeService. |
+| MinReplicaSetSize | Int, standardvärdet är 2 |Inte tillåten| MinReplicaSetSize för UpgradeService. |
+| CoordinatorType | strängen, standard är ”WUTest”|Inte tillåten|CoordinatorType för UpgradeService. |
 | BaseUrl | sträng, standardvärdet är ”” |Statisk|BaseUrl för UpgradeService. |
 | ClusterId | sträng, standardvärdet är ”” |Statisk|ClusterId för UpgradeService. |
 | X509StoreName | sträng, standardvärdet är ”Mina”|Dynamisk|X509StoreName för UpgradeService. |
@@ -443,7 +443,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-security"></a>Avsnittsnamn: säkerhet
 | **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|ClusterCredentialType|String, standard är L ”None”|Inte tillåtet|Anger vilken typ av säkerhetsreferenser som ska användas för att skydda klustret. Giltiga värden är ”ingen/X509/Windows” |
+|ClusterCredentialType|String, standard är L ”None”|Inte tillåten|Anger vilken typ av säkerhetsreferenser som ska användas för att skydda klustret. Giltiga värden är ”ingen/X509/Windows” |
 |ServerAuthCredentialType|String, standard är L ”None”|Statisk|Anger vilken typ av säkerhetsreferenser som ska användas för att skydda kommunikationen mellan FabricClient och klustret. Giltiga värden är ”ingen/X509/Windows” |
 |ClientRoleEnabled|bool, standard är FALSKT|Statisk|Anger om klientrollen är aktiverad; Om värdet är true; klienter tilldelas roller baserat på deras identiteter. För V2; aktivera detta innebär att klienten inte i AdminClientCommonNames/AdminClientIdentities kan endast köra skrivskyddade åtgärder. |
 |ClusterCertThumbprints|String, standard är L ””|Dynamisk|Tumavtryck för certifikat som tillåts att ansluta klusternoderna. en kommaavgränsad lista med. |
@@ -460,7 +460,7 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 |ClientClaimAuthEnabled|bool, standard är FALSKT|Statisk|Anger om Anspråksbaserad autentisering har aktiverats på klienter. Anger det här värdet är true implicit anger ClientRoleEnabled. |
 |ClientClaims|String, standard är L ””|Dynamisk|Alla möjliga anspråk som förväntas från klienter för att ansluta till gatewayen. Detta är en lista med 'Eller': ClaimsEntry || ClaimsEntry || ClaimsEntry... varje ClaimsEntry är en ”AND”-lista: ClaimType = ClaimValue & & ClaimType = ClaimValue & & ClaimType = ClaimValue... |
 |AdminClientClaims|String, standard är L ””|Dynamisk|Alla möjliga anspråk som förväntas från admin-klienter. samma format som ClientClaims; den här listan läggs internt till ClientClaims; Därför behöver du också lägga till samma poster i ClientClaims. |
-|ClusterSpn|String, standard är L ””|Inte tillåtet|Tjänstens huvudnamn klusternoderna. När fabric körs som en enda domänanvändare (gMSA/domänanvändarkonto). Det är SPN för lånet lyssnare och lyssnare i fabric.exe: federation lyssnare; internt replikering lyssnare; Runtime service lyssnare och namngivning gateway-lyssnare. Detta ska vara tomt när fabric körs som datorkonton; i så fall ansluter sida för att beräkna lyssnare SPN från lyssnare transportadress. |
+|ClusterSpn|String, standard är L ””|Inte tillåten|Tjänstens huvudnamn klusternoderna. När fabric körs som en enda domänanvändare (gMSA/domänanvändarkonto). Det är SPN för lånet lyssnare och lyssnare i fabric.exe: federation lyssnare; internt replikering lyssnare; Runtime service lyssnare och namngivning gateway-lyssnare. Detta ska vara tomt när fabric körs som datorkonton; i så fall ansluter sida för att beräkna lyssnare SPN från lyssnare transportadress. |
 |ClusterIdentities|String, standard är L ””|Dynamisk|Windows-identiteten för noder i klustret. används för klustret medlemskap auktorisering. Det är en kommaavgränsad lista. varje post är ett namn på ett domänkonto eller gruppnamn |
 |ClientIdentities|String, standard är L ””|Dynamisk|Windows-identiteten för FabricClient; namngivning gateway använder dem för att tillåta inkommande anslutningar. Det är en kommaavgränsad lista. varje post är ett namn på ett domänkonto eller gruppnamn. För bekvämlighet. det konto som kör fabric.exe tillåts automatiskt; Därför är grupp ServiceFabricAllowedUsers och ServiceFabricAdministrators. |
 |AdminClientIdentities|String, standard är L ””|Dynamisk|Windows-identiteten för fabric-klienter i rollen Administratör; används för att auktorisera Privilegierade fabric-åtgärder. Det är en kommaavgränsad lista. varje post är ett namn på ett domänkonto eller gruppnamn. För bekvämlighet. det konto som kör fabric.exe tilldelas automatiskt administratörsroll; Därför är gruppera ServiceFabricAdministrators. |
@@ -482,17 +482,32 @@ Följande är en lista av Fabric-inställningar som du kan anpassa, ordnade efte
 ### <a name="section-name-securityclientx509names"></a>Avsnittsnamn: Säkerhet/ClientX509Names
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
+|PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 
 ### <a name="section-name-securityclusterx509names"></a>Avsnittsnamn: Säkerhet/ClusterX509Names
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
+|PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 
 ### <a name="section-name-securityserverx509names"></a>Avsnittsnamn: Säkerhet/ServerX509Names
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
+|PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>Avsnittsnamn: Säkerhet/ClientCertificateIssuerStores
+| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdaren certifikatarkiv för klientcertifikat; Name = clientIssuerCN; Värde = kommaavgränsad lista över lager |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>Avsnittsnamn: Säkerhet/ClusterCertificateIssuerStores
+| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdaren certifikatarkiv för klustercertifikat; Name = clusterIssuerCN; Värde = kommaavgränsad lista över lager |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>Avsnittsnamn: Säkerhet/ServerCertificateIssuerStores
+| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdaren certifikatarkiv för servercertifikat; Name = serverIssuerCN; Värde = kommaavgränsad lista över lager |
 
 ### <a name="section-name-securityclientaccess"></a>Avsnittsnamn: Säkerhet/ClientAccess
 | **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
@@ -555,35 +570,35 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 | StartClusterConfigurationUpgrade |String, standard är ”Admin” |Dynamisk| Startar StartClusterConfigurationUpgrade på en partition. |
 | GetUpgradesPendingApproval |String, standard är ”Admin” |Dynamisk| Startar GetUpgradesPendingApproval på en partition. |
 | StartApprovedUpgrades |String, standard är ”Admin” |Dynamisk| Startar StartApprovedUpgrades på en partition. |
-| Pinga |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
-| Fråga |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för frågor. |
-| NameExists |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration namngivnings-URI befintliga kontrollerar. |
-| EnumerateSubnames |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för namngivnings-URI-uppräkningen. |
-| EnumerateProperties |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration för namngivning av egenskapen uppräkningen. |
-| PropertyReadBatch |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för Naming egenskapen läsåtgärder. |
-| GetServiceDescription |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för lång avsökning tjänstmeddelanden och läsa beskrivningar. |
-| ResolveService |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst. |
-| ResolveNameOwner |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration för att lösa namngivnings-URI-ägare. |
-| ResolvePartition |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration för att lösa systemtjänster. |
-| ServiceNotifications |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för händelsebaserat tjänstmeddelanden. |
-| PrefixResolveService |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst prefix. |
-| GetUpgradeStatus |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för avsökning av uppgraderingsstatus för programmet. |
-| GetFabricUpgradeStatus |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för avsökning av uppgraderingsstatus för klustret. |
-| InvokeInfrastructureQuery |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration för frågor infrastrukturen. |
-| Visa lista |strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra klientåtgärden filen lista. |
-| ResetPartitionLoad |strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för återställning för en failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för växla utförlig ServicePlacement HealthReporting. |
-| GetPartitionDataLossProgress | strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Hämtar status för en api-anrop invoke data går förlorade. |
-| GetPartitionQuorumLossProgress | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Hämtar status för ett invoke kvorum förlust api-anrop. |
-| GetPartitionRestartProgress | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Hämtar status för en omstart partition api-anrop. |
-| GetChaosReport | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Hämtar status för Chaos inom ett angivet tidsintervall. |
-| GetNodeTransitionProgress | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Säkerhetskonfiguration för att hämta pågår på en nod övergång. |
-| GetClusterConfigurationUpgradeStatus | strängen, standard är ”Admin\|\|Användaren ” |Dynamisk| Startar GetClusterConfigurationUpgradeStatus på en partition. |
-| GetClusterConfiguration | strängen, standard är ”Admin\|\|Användaren ” | Dynamisk|Startar GetClusterConfiguration på en partition. |
+| Pinga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
+| Fråga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för frågor. |
+| NameExists |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration namngivnings-URI befintliga kontrollerar. |
+| EnumerateSubnames |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för namngivnings-URI-uppräkningen. |
+| EnumerateProperties |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för namngivning av egenskapen uppräkningen. |
+| PropertyReadBatch |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för Naming egenskapen läsåtgärder. |
+| GetServiceDescription |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för lång avsökning tjänstmeddelanden och läsa beskrivningar. |
+| ResolveService |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst. |
+| ResolveNameOwner |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för att lösa namngivnings-URI-ägare. |
+| ResolvePartition |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för att lösa systemtjänster. |
+| ServiceNotifications |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för händelsebaserat tjänstmeddelanden. |
+| PrefixResolveService |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst prefix. |
+| GetUpgradeStatus |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för avsökning av uppgraderingsstatus för programmet. |
+| GetFabricUpgradeStatus |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för avsökning av uppgraderingsstatus för klustret. |
+| InvokeInfrastructureQuery |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för frågor infrastrukturen. |
+| Visa lista |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra klientåtgärden filen lista. |
+| ResetPartitionLoad |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för återställning för en failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för växla utförlig ServicePlacement HealthReporting. |
+| GetPartitionDataLossProgress | sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Hämtar status för en api-anrop invoke data går förlorade. |
+| GetPartitionQuorumLossProgress | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Hämtar status för ett invoke kvorum förlust api-anrop. |
+| GetPartitionRestartProgress | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Hämtar status för en omstart partition api-anrop. |
+| GetChaosReport | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Hämtar status för Chaos inom ett angivet tidsintervall. |
+| GetNodeTransitionProgress | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för att hämta pågår på en nod övergång. |
+| GetClusterConfigurationUpgradeStatus | sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Startar GetClusterConfigurationUpgradeStatus på en partition. |
+| GetClusterConfiguration | sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Startar GetClusterConfiguration på en partition. |
 |CreateComposeDeployment|String, standard är L ”Admin”| Dynamisk|Skapar en Skriv-distribution som beskrivs genom att skriva filer |
 |DeleteComposeDeployment|String, standard är L ”Admin”| Dynamisk|Tar bort Skriv-distribution |
 |UpgradeComposeDeployment|String, standard är L ”Admin”| Dynamisk|Uppgraderar Skriv-distribution |
-|ResolveSystemService|String, standard är L ”Admin\|\|Användaren ”|Dynamisk| Konfiguration för att lösa systemtjänster |
+|ResolveSystemService|String, standard är L ”Admin\|\|användare”|Dynamisk| Konfiguration för att lösa systemtjänster |
 |GetUpgradeOrchestrationServiceState|String, standard är L ”Admin”| Dynamisk|Startar GetUpgradeOrchestrationServiceState på en partition |
 |SetUpgradeOrchestrationServiceState|String, standard är L ”Admin”| Dynamisk|Startar SetUpgradeOrchestrationServiceState på en partition |
 
@@ -656,7 +671,7 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |AutoDetectAvailableResources|bool, standard är SANT|Statisk|Den här konfigurationen utlöser automatisk identifiering av tillgängliga resurser på noden (processor och minne) när den här konfigurationen är inställd på true - kommer att läsa verkliga kapacitet och korrigera dem om användaren anges felaktiga noden kapacitet eller inte har definierat dem alls om den här konfigurationen är inställd på false - kommer vi  spåra en varning som användaren angett felaktiga noden kapacitet; men vi kan inte korrigera dem. vilket innebär att användaren vill ha de kapacitet som angetts som > än verkligen har noden eller om de kapaciteter som är odefinierad; den antar obegränsad kapacitet |
 
 ### <a name="section-name-hosting"></a>Avsnittsnamn: värd
-| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Tid i sekunder, standard är 300 |Dynamisk|Högsta tillåtna tiden för ServiceType registreras med fabric |
 | ServiceTypeDisableFailureThreshold |Heltal, standard är 1 |Dynamisk|Detta är tröskelvärdet för antal fel som efter vilket meddelas FailoverManager (FM) att inaktivera tjänsttypen på noden och prova en annan nod för placering. |
@@ -689,25 +704,25 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |EnableDockerHealthCheckIntegration|bool, standard är SANT|Statisk|Möjliggör integrering av docker-hälsokontroll händelser med hälsorapport för Service Fabric-system |
 
 ### <a name="section-name-federation"></a>Avsnittsnamn: Federation
-| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 | LeaseDuration |Tid i sekunder, standardvärdet är 30 |Dynamisk|Varaktighet som ett lån pågår mellan en nod och sina grannar. |
 | LeaseDurationAcrossFaultDomain |Tid i sekunder, standardvärdet är 30 |Dynamisk|Varaktighet som ett lån pågår mellan en nod och sina grannar över feldomäner. |
 
 ### <a name="section-name-clustermanager"></a>Avsnittsnamn: ClusterManager
-| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Princip för versionsuppgradering** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 | UpgradeStatusPollInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvens för avsökning för uppgraderingsstatus för programmet. Det här värdet fastställer mängden uppdatering för alla GetApplicationUpgradeProgress-anrop |
 | UpgradeHealthCheckInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen av hälsostatus kontrollerar under en uppgradering för övervakade program |
 | FabricUpgradeStatusPollInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvens för avsökning för Fabric uppgraderingsstatus. Det här värdet fastställer mängden uppdatering för alla GetFabricUpgradeProgress-anrop |
 | FabricUpgradeHealthCheckInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen av hälsostatus Kontrollera under en övervakad Fabric-uppgradering |
 |InfrastructureTaskProcessingInterval | Tid i sekunder är standard 10 |Dynamisk|Ange tidsintervall i sekunder. Det intervall som används av aktiviteten infrastruktur för bearbetning av datorn. |
-|TargetReplicaSetSize |Int, standard är 7 |Inte tillåtet|TargetReplicaSetSize för ClusterManager. |
-|MinReplicaSetSize |Int, standardinställningen är 3 |Inte tillåtet|MinReplicaSetSize för ClusterManager. |
-|ReplicaRestartWaitDuration |Tid i sekunder är standardvärdet (60,0 * 30)|Inte tillåtet|Ange tidsintervall i sekunder. ReplicaRestartWaitDuration för ClusterManager. |
-|QuorumLossWaitDuration |Tid i sekunder är standardvärdet MaxValue |Inte tillåtet| Ange tidsintervall i sekunder. QuorumLossWaitDuration för ClusterManager. |
-|StandByReplicaKeepDuration | Tid i sekunder är standardvärdet (3600.0 * 2)|Inte tillåtet|Ange tidsintervall i sekunder. StandByReplicaKeepDuration för ClusterManager. |
-|PlacementConstraints | sträng, standardvärdet är ”” |Inte tillåtet|PlacementConstraints för ClusterManager. |
+|TargetReplicaSetSize |Int, standard är 7 |Inte tillåten|TargetReplicaSetSize för ClusterManager. |
+|MinReplicaSetSize |Int, standardinställningen är 3 |Inte tillåten|MinReplicaSetSize för ClusterManager. |
+|ReplicaRestartWaitDuration |Tid i sekunder är standardvärdet (60,0 * 30)|Inte tillåten|Ange tidsintervall i sekunder. ReplicaRestartWaitDuration för ClusterManager. |
+|QuorumLossWaitDuration |Tid i sekunder är standardvärdet MaxValue |Inte tillåten| Ange tidsintervall i sekunder. QuorumLossWaitDuration för ClusterManager. |
+|StandByReplicaKeepDuration | Tid i sekunder är standardvärdet (3600.0 * 2)|Inte tillåten|Ange tidsintervall i sekunder. StandByReplicaKeepDuration för ClusterManager. |
+|PlacementConstraints | sträng, standardvärdet är ”” |Inte tillåten|PlacementConstraints för ClusterManager. |
 |SkipRollbackUpdateDefaultService | Bool, standard är FALSKT |Dynamisk|CM hoppar över Återför uppdaterade standardtjänster under uppgraderingen återställningen av programmet. |
 |EnableDefaultServicesUpgrade | Bool, standard är FALSKT |Dynamisk|Aktivera uppgradering standardtjänster under uppgradering av programmet. Standardtjänsterna skulle skrivas efter uppgraderingen. |
 |InfrastructureTaskHealthCheckWaitDuration |Tid i sekunder, standardvärdet är 0|Dynamisk| Ange tidsintervall i sekunder. Mängden tid som ska förflyta innan du startar hälsokontroller när aktiviteten en infrastruktur för efterbearbetning. |
@@ -721,47 +736,45 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |MaxDataMigrationTimeout |Tid i sekunder, standard är 600 |Dynamisk|Ange tidsintervall i sekunder. Maximal tidsgräns för data migrering återställningsåtgärder när en Fabric-uppgraderingen har ägt rum. |
 |MaxOperationRetryDelay |Tid i sekunder, standardvärdet är 5|Dynamisk| Ange tidsintervall i sekunder. Maximal fördröjning för interna återförsök när fel uppstår. |
 |ReplicaSetCheckTimeoutRollbackOverride |Tid i sekunder är standardvärdet 1200 |Dynamisk| Ange tidsintervall i sekunder. Om ReplicaSetCheckTimeout är det maximala värdet för DWORD; sedan är den åsidosättas med värdet för den här konfigurationen för återställning. Det värde som används för sammanslagning vanlig åsidosätts aldrig. |
-|ImageBuilderJobQueueThrottle |Int, standardvärdet är 10 |Dynamisk|Tråden antal begränsning för Image Builder proxy jobbkön på programförfrågningar. |
-|MaxExponentialOperationRetryDelay|TimeSpan, standard är Common::TimeSpan::FromSeconds(30)|Dynamisk|Ange tidsintervall i sekunder. Maximal exponentiell fördröjning för interna återförsök när fel uppstår upprepade gånger |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>Avsnittsnamn: DefragmentationEmptyNodeDistributionPolicy
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, standard är ingen|Dynamisk|Anger principen defragmenteringen följer vid tömma noder. För ett visst mått anger 0 att SA ska försöka defragmentera noder jämnt över UDs och FDs; 1 anger bara att noder måste defragmenteras |
 
 ### <a name="section-name-defragmentationmetrics"></a>Avsnittsnamn: DefragmentationMetrics
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, standard är ingen|Dynamisk|Anger uppsättningen mått som ska användas för defragmentering och inte för belastningsutjämning. |
 
 ### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Avsnittsnamn: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Anger antalet noder – kostnadsfria som behövs för att överväga klustret defragmenteras genom att ange antingen procent i intervallet [0.0-1.0) eller antalet tom noder som tal > = 1.0 |
 
 ### <a name="section-name-dnsservice"></a>Avsnittsnamn: DnsService
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, standard är FALSKT|Statisk| |
 |InstanceCount|int, standard är-1|Statisk|  |
 
 ### <a name="section-name-metricactivitythresholds"></a>Avsnittsnamn: MetricActivityThresholds
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, standard är ingen|Dynamisk|Anger uppsättningen MetricActivityThresholds för mätvärdena i klustret. Belastningsutjämning fungerar om maxNodeLoad är större än MetricActivityThresholds. Defragmenterar mått för den definierar mängden belastningen är lika med eller lägre än som Service Fabric beaktas noden tom |
 
 ### <a name="section-name-metricbalancingthresholds"></a>Avsnittsnamn: MetricBalancingThresholds
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Anger uppsättningen MetricBalancingThresholds för mätvärdena i klustret. Belastningsutjämning fungerar om maxNodeLoad/minNodeLoad är större än MetricBalancingThresholds. Defragmentering fungerar om maxNodeLoad/minNodeLoad i minst en FD eller UD är mindre än MetricBalancingThresholds. |
 
 ### <a name="section-name-nodebufferpercentage"></a>Avsnittsnamn: NodeBufferPercentage
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Noden nätverkskapaciteten i procent per måttnamnet; används som en buffert för att skydda vissa ledigt plats på en nod för växling vid fel fall. |
 
 ### <a name="section-name-replication"></a>Avsnittsnamn: replikering
-| **Parametern** | **Tillåtna värden** | **Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Princip för versionsuppgradering**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |MaxCopyQueueSize|Uint, standard är 1024|Statisk|Detta är högsta värdet definierar den ursprungliga storleken för kön som underhåller replikeringsåtgärder.  Observera att det måste vara delbart med 2.  Om körningsfel kön storlek i den här åtgärden kommer att begränsas mellan de primära och sekundära replikatörer.|
 |BatchAcknowledgementInterval|TimeSpan, standard är Common::TimeSpan::FromMilliseconds(15)|Statisk|Ange tidsintervall i sekunder. Anger hur lång tid som replikatorn väntar när du har fått en åtgärd innan en bekräftelse skickas tillbaka. Andra åtgärder som togs emot under den här tiden har sina bekräftelser skickas tillbaka i ett enda meddelande -> minska nätverkstrafiken men potentiellt minskar genomflödet av replikatorn.|
@@ -778,7 +791,7 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |RetryInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(5)|Statisk|Ange tidsintervall i sekunder. När en åtgärd går förlorad eller avvisa den här timern avgör hur ofta replikatorn försöker skicka igen.|
 
 ### <a name="section-name-transport"></a>Avsnittsnamn: Transport
-| **Parametern** | **Tillåtna värden** |**Princip för versionsuppgradering** |**Vägledning eller en kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Princip för versionsuppgradering** |**Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |ResolveOption|sträng, standard är L ”okänt”|Statisk|Anger hur FQDN är löst.  Giltiga värden är ”ospecificerade/ipv4/ipv6-”. |
 |ConnectionOpenTimeout|TimeSpan, standard är Common::TimeSpan::FromSeconds(60)|Statisk|Ange tidsintervall i sekunder. Timeout för anslutning inställningen på både inkommande och accepterar sida (inklusive säkerhetsförhandlingen i säkert läge) |

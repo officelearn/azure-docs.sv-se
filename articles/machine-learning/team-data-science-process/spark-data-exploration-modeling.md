@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 59f1e4c5bf1c1a3ea4af42872246b5230d4c6d24
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -42,7 +42,7 @@ Modellering stegen innehåller också kod visar hur du träna, utvärdera och sp
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver ett Azure-konto och en Spark 1.6 (eller Spark 2.0) HDInsight-klustret för att slutföra den här genomgången. Finns det [översikt av datavetenskap med Spark på Azure HDInsight](spark-overview.md) för instruktioner om hur du uppfyller dessa krav. Avsnittet innehåller också en beskrivning av NYC 2013 Taxi data används här och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark-kluster och bärbara datorer
@@ -55,8 +55,8 @@ Konfigurationsstegen och kod finns i den här genomgången för att använda ett
 ### <a name="spark-20-notebooks"></a>Spark 2.0 bärbara datorer
 Regression och klassificering uppgifter som implementeras med hjälp av ett 2.0 Spark-kluster finns i separata anteckningsböcker och klassificering anteckningsboken använder en annan datauppsättning:
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning modellering, och bedömningen i Spark 2.0-kluster med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har angetts för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi data, finns i nästa anteckningsboken i den här listan. Om du hittar information efter den här listan som jämför dessa datorer. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning modellering, och bedömningen i Spark 2.0-kluster med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har angetts för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi data, finns i nästa anteckningsboken i den här listan. Om du hittar information efter den här listan som jämför dessa datorer. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data wrangling (Spark SQL och dataframe operations), utforskning modellering och bedömningen med välkända flygbolag i tid avvikelse datauppsättningen från 2011 och 2012. Vi integrerad flygbolag dataset med flygplats väder data (t.ex. vindhastigheten temperatur, höjd etc.) innan du modellera, så att funktionerna väder kan ingå i modellen.
 
 <!-- -->
@@ -969,7 +969,7 @@ R-sqr = 0.759661334921
 ### <a name="gradient-boosting-trees-regression"></a>Toning den träd regression
 Koden i det här avsnittet visar hur du träna, utvärdera och spara en toning den träd modell som beräknar tips belopp för NYC taxi resa data.
 
-** Träna och utvärdera **
+**Träna och utvärdera**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1047,7 +1047,7 @@ Här är koden för att rita data med Jupyter-server.
 
 **UTDATA:**
 
-![Aktuella-vs-förutsade-tips-belopp](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
+![Actual-vs-predicted-tip-amounts](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Rensa objekt från minnet
 Använd `unpersist()` att ta bort objekt som cachelagrats i minnet.
@@ -1089,11 +1089,11 @@ Att använda och resultatet av en oberoende datauppsättning som beskrivs i den 
 
 logisticRegFileLoc = modelDir + ”LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568”
 
-linearRegFileLoc = modelDir + ”LinearRegressionWithSGD_2016-05-0317_05_21.577773”
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0317_05_21.577773"
 
-randomForestClassificationFileLoc = modelDir + ”RandomForestClassification_2016-05-0317_04_11.950206”
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0317_04_11.950206"
 
-randomForestRegFileLoc = modelDir + ”RandomForestRegression_2016-05-0317_06_08.723736”
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0317_06_08.723736"
 
 BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassification_2016-05-0317_04_36.346583”
 

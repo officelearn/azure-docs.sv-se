@@ -3,6 +3,7 @@
 > * [Device: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Enhet: C#-tjänsten: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Enhet: Java-tjänsten: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Enhet: Python-tjänsten: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Backend-appar kan använda Azure IoT Hub primitiver t.ex [enheten dubbla] [ lnk-devtwin] och [direkt metoder][lnk-c2dmethod], för att starta och övervaka enheten via fjärranslutning Management-åtgärder på enheterna. Den här kursen visar hur en backend-app och en enhetsapp kan fungera tillsammans för att initiera och övervaka fjärranslutna enheten startas om med IoT-hubb.
 

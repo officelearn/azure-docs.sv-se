@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - kontroll och ansvar
-description: "Webbprogram för FedRAMP - kontroll och ansvar"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - granskning och ansvar"
+description: FedRAMP Web Applications Automation - kontroll och ansvar
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Granskning och Accountability (AU)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå granskning och accountability principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-2a"></a>NIST 800 53 kontrollen AU-2.a
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Granska kapaciteten för den här Azure-modell tillhandahålls av Azure-Monitor och Log Analytics-tjänsten i OMS. Azure övervakning ger detaljerad granskningsloggar om aktiviteter som är associerade med distribuerade resurser. Dessa och OS-nivå loggar samlas in av logganalys och lagras i OMS-databasen. Logganalys korrelerar granskningsdata över resurser som distribueras med den här lösningen och kan utökas till kunden distribuerade webbprogrammet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Granska kapaciteten för det här utkastet tillhandahålls av Azure-Monitor och Log Analytics-tjänsten i OMS. Azure övervakning ger detaljerad granskningsloggar om aktiviteter som är associerade med distribuerade resurser. Dessa och OS-nivå loggar samlas in av logganalys och lagras i OMS-databasen. Logganalys korrelerar granskningsdata över resurser som distribueras med den här lösningen och kan utökas till kunden distribuerade webbprogrammet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-2b"></a>NIST 800 53 kontrollen AU-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på en upprättad på företagsnivå process som bestämmer granskningsbara händelser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-2c"></a>NIST 800 53 kontrollen AU-2.c
@@ -77,8 +77,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Händelser som granskas av den här Azure-modell innehåller information som är tillräckligt för att avgöra när händelser inträffar, källan för händelsen, resultatet av händelsen och annan information som har stöd för undersökning av säkerhetsincidenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Händelser som granskas av den här utkast innehåller information som är tillräckligt för att avgöra när händelser inträffar, källan för händelsen, resultatet av händelsen och annan information som har stöd för undersökning av säkerhetsincidenter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-2d"></a>NIST 800 53 kontrollen AU-2.d
@@ -91,8 +91,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Händelser som granskas av den här Azure-modell med dessa granskad med Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Händelser som granskas av den här utkast innehåller de granskas av Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-2-3"></a>NIST 800 53 kontrollen AU-2 (3)
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlitar sig en upprättad på företagsnivå regelbunden granskning och uppdatera process för en definierad uppsättning granskade händelser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-3"></a>NIST 800 53 kontrollen AU-3
@@ -119,8 +119,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell är beroende av inbyggda audit funktionerna i Azure, Windows Server och SQL Server. Dessa granska lösningar avbilda granskningsposter med tillräckligt detaljerat för att uppfylla kraven för den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet är beroende av inbyggda audit funktionerna i Azure, Windows Server och SQL Server. Dessa granska lösningar avbilda granskningsposter med tillräckligt detaljerat för att uppfylla kraven för den här kontrollen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-3-1"></a>NIST 800 53 kontrollen Australien – 3 (1)
@@ -133,8 +133,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Azure aktivitetsloggen händelser använder en detaljerad schema som innehåller fält för fler än 20 typer av granskningsinformation. Förutom aktivitetsloggen distribuerar modell för den här Azure logganalys-lösning i OMS som stöder en mängd olika datakällor, inklusive Windows-loggar, Linux loggar, Azure-diagnostik loggar och kunden loggar.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Azure aktivitetsloggen händelser använder en detaljerad schema som innehåller fält för fler än 20 typer av granskningsinformation. Förutom aktivitetsloggen distribuerar det här utkastet logganalys lösningen i OMS som stöder en mängd olika datakällor, inklusive Windows-loggar, Linux loggar, Azure-diagnostik loggar och kunden loggar.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-3-2"></a>NIST 800 53 kontrollen Australien – 3 (2)
@@ -147,8 +147,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla virtuella datorer som distribueras med den här Azure-modell är anslutna till den distribuerade Active Directory-domänen. En grupprincip som kan konfigureras för att centralt hantera systemkonfigurationen OS-nivå audit implementeras i alla domänanslutna virtuella datorer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla virtuella datorer som distribueras med den här modell är anslutna till den distribuerade Active Directory-domänen. En grupprincip som kan konfigureras för att centralt hantera systemkonfigurationen OS-nivå audit implementeras i alla domänanslutna virtuella datorer. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-4"></a>NIST 800 53 kontrollen AU-4
@@ -161,8 +161,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell allokerar tillräcklig kapacitet att behålla granskningsposter för ett år. Alla granskningsposter samlas in av logganalys som är konfigurerad för ett år kvarhållning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet allokerar tillräcklig kapacitet att behålla granskningsposter för ett år. Alla granskningsposter samlas in av logganalys som är konfigurerad för ett år kvarhållning. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-5a"></a>NIST 800 53 kontrollen AU-5.a
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Status för tjänsten för Azure-Monitor och Log Analytics finns på statuswebbplatsen Azure och bladet tjänsten för hälsotillstånd i Azure-portalen. Aviseringar kan konfigureras via Log Analytics för andra typer av audit bearbetningsfel. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-5b"></a>NIST 800 53 kontrollen AU-5.b
@@ -189,8 +189,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla granskningsposter som genererats av resurser som distribueras med den här Azure-utkast som samlas in av logganalys och bevaras under en period av ett år. Lagringsutrymme för lagringen audit poster dynamiskt allokerade säkerställa tillräcklig kapacitet är tillgänglig. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla granskningsposter som genererats av resurser som distribueras med den här modell som samlas in av logganalys och bevaras under en period av ett år. Lagringsutrymme för lagringen audit poster dynamiskt allokerade säkerställa tillräcklig kapacitet är tillgänglig. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-5-1"></a>NIST 800 53 kontrollen AU-5 (1)
@@ -203,8 +203,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla granskningsposter som genererats av resurser som distribueras med den här Azure-utkast som samlas in av logganalys och bevaras under en period av ett år. Lagringsutrymme för lagringen audit poster dynamiskt allokerade säkerställa tillräcklig kapacitet är tillgänglig. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla granskningsposter som genererats av resurser som distribueras med den här modell som samlas in av logganalys och bevaras under en period av ett år. Lagringsutrymme för lagringen audit poster dynamiskt allokerade säkerställa tillräcklig kapacitet är tillgänglig. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-5-2"></a>NIST 800 53 kontrollen AU-5 (2)
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Status för tjänsten för Azure finns på bladet tjänsten för hälsotillstånd i Azure-portalen. Aviseringar kan konfigureras via Log Analytics för andra typer av audit bearbetningsfel. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-6a"></a>NIST 800 53 kontrollen AU-6.a
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och analysera granskningsposter av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-6b"></a>NIST 800 53 kontroll-AU-6 b
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att rapportera resultaten av olämpliga eller ovanlig aktivitet (definieras i Australien 06.a) på kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-1"></a>NIST 800 53 kontrollen Australien – 6 (1)
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå central granskning granska, analys- och rapporteringsfunktion. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-3"></a>NIST 800 53 kontrollen Australien – 6 (3)
@@ -273,8 +273,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar logganalys-lösning i OMS att centralisera granskningsdata över distribuerade resurser stöder precisa medvetenhet för hela organisationen. Kunder kan välja att ytterligare integrera logganalys med andra system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar logganalys-lösning i OMS att centralisera granskningsdata över distribuerade resurser som stödjer precisa medvetenhet för hela organisationen. Kunder kan välja att ytterligare integrera logganalys med andra system. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-4"></a>NIST 800 53 kontrollen Australien – 6 (4)
@@ -287,8 +287,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar logganalys-lösning i OMS att centralisera granskningsdata över distribuerade resurser, stödjande central granskning, analys och rapportering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar logganalys-lösning i OMS att centralisera granskningsdata över distribuerade resurser, stödjande central granskning, analys och rapportering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-5"></a>NIST 800 53 kontrollen Australien – 6 (5)
@@ -301,8 +301,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar, integrera loggdata och säkerhetsproblem data från baslinjen och korrigering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar lösningen OMS säkerhets- och granskning. Den här lösningen ger en omfattande vy av säkerhet. Säkerhet och granska instrumentpanelen ger övergripande inblick i säkerhetsläget för distribuerade resurser med hjälp av tillgängliga data mellan distribuerade OMS-lösningar, integrera loggdata och säkerhetsproblem data från baslinjen och korrigering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-6"></a>NIST 800 53 kontrollen Australien – 6 (6)
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte tillgång till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure SIM-teamet använder relaterade fysiska övervakningsdata och korrelerar med granskningsposter för att avgöra om det finns kopplade logiska överträdelse eller misstänkt beteende när fysiska incidenter identifieras. |
+| **Provider (Microsoft Azure)** | Microsoft Azure SIM-teamet använder relaterade fysiska övervakningsdata och korrelerar med granskningsposter för att avgöra om det finns kopplade logiska överträdelse eller misstänkt beteende när fysiska incidenter identifieras. |
 
 
  ### <a name="nist-800-53-control-au-6-7"></a>NIST 800 53 kontrollen Australien – 6 (7)
@@ -329,8 +329,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Windows-datorer som distribueras med den här Azure-modell implementera OS-behörighet som begränsar de åtgärder som en användare kan utföra med avseende granskningsinformation. I Azure, användare eller grupper av användare kan tilldelas till roller (t.ex. ägare, deltagare, reader eller en anpassad roll) för att begränsa åtgärder som är tillgängliga med avseende på några resurser eller distribueras lösningar, inklusive logganalys.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Windows-datorer som distribueras med den här utkast implementera OS-behörighet som begränsar de åtgärder som en användare kan utföra med avseende granskningsinformation. I Azure, användare eller grupper av användare kan tilldelas till roller (t.ex. ägare, deltagare, reader eller en anpassad roll) för att begränsa åtgärder som är tillgängliga med avseende på några resurser eller distribueras lösningar, inklusive logganalys.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-6-10"></a>NIST 800 53 kontrollen Australien – 6 (10)
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att justera säkerhetsnivån granskning granska, analys och rapportering för kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) när det finns en ändring i risk baserat på informationen som ges enligt lag tvingande, intelligence eller andra trovärdig källor. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-7a"></a>NIST 800 53 kontrollen AU-7.a
@@ -357,8 +357,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När data har samlats in är de tillgängliga för avisering, analys och export. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När data har samlats in är de tillgängliga för avisering, analys och export. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-7b"></a>NIST 800 53 kontrollen AU-7.b
@@ -371,8 +371,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. Innehåll och tid sorteringen av granskningsposter ändras inte när samlas in av logganalys. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. Innehåll och tid sorteringen av granskningsposter ändras inte när samlas in av logganalys. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-7-1"></a>NIST 800 53 kontrollen AU-7 (1)
@@ -385,8 +385,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När data har samlats in är de tillgängliga för avisering, analys och export. Log Analytics innehåller ett kraftfullt frågespråk för att extrahera data som lagras i databasen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar logganalys-lösning i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När data har samlats in är de tillgängliga för avisering, analys och export. Log Analytics innehåller ett kraftfullt frågespråk för att extrahera data som lagras i databasen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-8a"></a>NIST 800 53 kontrollen AU-8.a
@@ -399,8 +399,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som distribueras med den här Azure-modell använder interna systemklockorna för att generera tidsstämplar för granskningsposter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som distribueras med den här utkast använder interna systemklockorna för att generera tidsstämplar för granskningsposter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-8b"></a>NIST 800 53 kontrollen AU-8.b
@@ -413,8 +413,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som distribueras med den här Azure-modell använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Tidsstämplar registreras i UTC. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som distribueras med den här utkast använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Tidsstämplar registreras i UTC. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-8-1a"></a>NIST 800 53 kontrollen Australien 8 (1) en
@@ -427,8 +427,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som distribueras med den här Azure-modell använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Internt systemklockorna har konfigurerats för synkronisering med en auktoritär tidskälla. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som distribueras med den här utkast använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Internt systemklockorna har konfigurerats för synkronisering med en auktoritär tidskälla. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-8-1b"></a>NIST 800 53 kontrollen Australien 8 (1) .b
@@ -441,8 +441,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som distribueras med den här Azure-modell använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Internt systemklockorna har konfigurerats för synkronisering med en auktoritär tidskälla. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som distribueras med den här utkast använder interna systemklockorna för att generera tidsstämplar för granskningsposter. Internt systemklockorna har konfigurerats för synkronisering med en auktoritär tidskälla. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-9"></a>NIST 800 53 kontrollen AU-9
@@ -455,8 +455,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Logiska åtkomstkontroller för att skydda verktyg i den här Azure-modell och granskningsinformation från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att granska information och använda granskningsverktygen kan vara begränsad till användare som kräver dessa behörigheter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Logiska åtkomstkontroller för att skydda granskningsinformation och verktyg i det här utkastet från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att granska information och använda granskningsverktygen kan vara begränsad till användare som kräver dessa behörigheter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-9-2"></a>NIST 800 53 kontrollen AU-9 (2)
@@ -469,8 +469,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Log Analytics-tjänsten i OMS. Distribuera virtuella datorer och Azure diagnostics storage-konton är anslutna datakällor till logganalys och sparade separat från sina ursprung. Data samlas in av OMS i nära realtid. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Log Analytics-tjänsten i OMS. Distribuera virtuella datorer och Azure diagnostics storage-konton är anslutna datakällor till logganalys och sparade separat från sina ursprung. Data samlas in av OMS i nära realtid. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-9-3"></a>NIST 800 53 kontrollen AU-9 (3)
@@ -483,8 +483,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Log Analytics-tjänsten i OMS. Logganalys garanterar att inkommande data från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Log Analytics-tjänsten i OMS. Logganalys garanterar att inkommande data från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-9-4"></a>NIST 800 53 kontrollen AU-9 (4)
@@ -497,9 +497,9 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Logiska åtkomstkontroller för att skydda verktyg i den här Azure-modell och granskningsinformation från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att granska information och använda granskningsverktygen kan vara begränsad till användare som kräver dessa behörigheter.
+| **Kunden** | Logiska åtkomstkontroller för att skydda granskningsinformation och verktyg i det här utkastet från obehörig åtkomst, ändras eller tas bort. Azure Active Directory tillämpar godkända logiska åtkomst med hjälp av rollbaserad gruppmedlemskap. Möjlighet att granska information och använda granskningsverktygen kan vara begränsad till användare som kräver dessa behörigheter.
  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-10"></a>NIST 800 53 kontrollen 10-Australien
@@ -512,8 +512,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Granska kapaciteten för den här Azure-modell tillhandahålls av Azure-Monitor och Log Analytics-tjänsten i OMS. Azure övervakning ger detaljerad granskningsloggar om aktiviteter som är associerade med distribuerade resurser. Dessa och OS-nivå loggar samlas in av logganalys och lagras i OMS-databasen. Dessa loggar finns detaljerade register över information systemhändelser och skyddar mot oavvislighet. Dessutom är logga data begränsade använda rollbaserad åtkomstkontroll för att förhindra unauthored ändras eller tas bort av loggdata. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Granska kapaciteten för det här utkastet tillhandahålls av Azure-Monitor och Log Analytics-tjänsten i OMS. Azure övervakning ger detaljerad granskningsloggar om aktiviteter som är associerade med distribuerade resurser. Dessa och OS-nivå loggar samlas in av logganalys och lagras i OMS-databasen. Dessa loggar finns detaljerade register över information systemhändelser och skyddar mot oavvislighet. Dessutom är logga data begränsade använda rollbaserad åtkomstkontroll för att förhindra unauthored ändras eller tas bort av loggdata. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-11"></a>NIST 800 53 kontrollen AU-11
@@ -526,8 +526,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Log Analytics-tjänsten i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När samlats in behålls data för ett år per konfiguration för logganalys. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Log Analytics-tjänsten i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. När samlats in behålls data för ett år per konfiguration för logganalys. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-12a"></a>NIST 800 53 kontrollen AU-12.a
@@ -540,8 +540,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Händelser som granskas av den här Azure-modell med dessa granskad med Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Händelser som granskas av den här utkast innehåller de granskas av Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-12b"></a>NIST 800 53 kontrollen AU-12.b
@@ -554,8 +554,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Åtkomst till granska funktioner begränsas med rollbaserad åtkomstkontroll i Azure och på den virtuella datorn OS-nivå. Konfigurationen av händelser som ska granskas av resurser som distribueras med den här Azure-modell kan konfigureras av användare med lämpliga rollbaserad auktorisering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Åtkomst till granska funktioner begränsas med rollbaserad åtkomstkontroll i Azure och på den virtuella datorn OS-nivå. Konfigurationen av händelser som ska granskas av resurser som distribueras med den här modell kan konfigureras av användare med lämpliga rollbaserad auktorisering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-au-12c"></a>NIST 800 53 kontrollen AU-12.c
@@ -568,8 +568,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Händelser som granskas av den här Azure-modell med dessa granskad med Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Händelser som granskas av den här utkast innehåller de granskas av Azure aktivitetsloggar för distribuerade resurser, OS-nivå loggar, Active Directory-loggar och SQL Server-loggar. Kunder kan välja ytterligare händelser som ska granskas för att uppfylla uppdrag behov. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-12-1"></a>NIST 800 53 kontrollen Australien – 12 (1)
@@ -582,8 +582,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Log Analytics-tjänsten i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. Granska poster tidsstämplar ändras inte, granskningsloggen är därför tid korrelerad. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Log Analytics-tjänsten i OMS. Log Analytics tillhandahåller övervakningstjänster för OMS genom att samla in data från hanterade resurser i en central databas. Granska poster tidsstämplar ändras inte, granskningsloggen är därför tid korrelerad. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-au-12-3"></a>NIST 800 53 kontrollen Australien – 12 (3)
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Åtkomst till granska funktioner begränsas med rollbaserad åtkomstkontroll i Azure och på den virtuella datorn OS-nivå. Konfigurationen av händelser som ska granskas av resurser som distribueras med den här Azure-modell kan konfigureras av användare med lämpliga rollbaserad auktorisering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Åtkomst till granska funktioner begränsas med rollbaserad åtkomstkontroll i Azure och på den virtuella datorn OS-nivå. Konfigurationen av händelser som ska granskas av resurser som distribueras med den här modell kan konfigureras av användare med lämpliga rollbaserad auktorisering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

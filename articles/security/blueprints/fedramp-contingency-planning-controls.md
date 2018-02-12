@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure utkast Automation - planering för oförutsedda händelser"
-description: "Webbprogram för FedRAMP - planering för oförutsedda händelser"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - planering för oförutsedda händelser"
+description: "FedRAMP Web Applications Automation - planering för oförutsedda händelser"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Beredskap planera (CP)
 
@@ -36,10 +36,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå beredskap planera principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-2a"></a>NIST 800 53 kontrollen CP-2.a
+ ## <a name="nist-800-53-control-cp-2a"></a>NIST 800-53 Control CP-2.a
 
 #### <a name="contingency-plan"></a>Beredskapsplan
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla en beredskapsplan för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2b"></a>NIST 800 53 kontrollen CP-2.b
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att distribuera Beredskapsplanen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2c"></a>NIST 800 53 kontrollen CP-2.c
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att samordna planering för oförutsedda händelser med hantering av incidenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2d"></a>NIST 800 53 kontrollen CP-2.d
@@ -92,21 +92,21 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska Beredskapsplanen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2e"></a>NIST 800 53 kontrollen CP-2.e
 
 #### <a name="contingency-plan"></a>Beredskapsplan
 
-**CP 2.e** Organisationen uppdaterar Beredskapsplanen för adress ändringar i organisationen, informationssystem eller miljö och problem som uppstår under beredskapsplan implementering, körning eller testning.
+**CP-2.e** Organisationen uppdaterar Beredskapsplanen för adress ändringar i organisationen, informationssystem eller miljö och problem som uppstår under beredskapsplan implementering, körning eller testning.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att uppdatera Beredskapsplanen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2f"></a>NIST 800 53 kontrollen CP-2.f
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att kommunicera ändringar som gjorts i Beredskapsplanen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-2g"></a>NIST 800 53 kontrollen CP-2.g
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda Beredskapsplanen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-1"></a>NIST 800 53 kontrollen CP-2 (1)
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå beredskapsplan samordning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800 53 kontrollen CP-2 (2)
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå kapacitetsplaneringen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-3"></a>NIST 800 53 kontrollen CP-2 (3)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå organisationsomfattande planering för oförutsedda händelser för grundläggande uppdrag och funktionerna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-4"></a>NIST 800 53 kontrollen CP-2 (4)
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå organisationsomfattande planering för oförutsedda händelser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-5"></a>NIST 800 53 kontrollen CP-2 (5)
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå organisationsomfattande planering för oförutsedda händelser för grundläggande uppdrag och funktionerna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-2-8"></a>NIST 800 53 kontrollen CP-2 (8)
@@ -218,10 +218,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå organisationsomfattande planering för oförutsedda händelser att identifiera kritiska tillgångar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-3a"></a>NIST 800 53 kontrollen CP-3.a
+ ## <a name="nist-800-53-control-cp-3a"></a>NIST 800-53 Control CP-3.a
 
 #### <a name="contingency-training"></a>Oförutsedda händelser utbildning
 
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan ge oförutsedda händelser utbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-3b"></a>NIST 800 53 kontrollen CP-3.b
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan ge behöver-baserade oförutsedda händelser utbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-3c"></a>NIST 800 53 kontrollen CP-3.c
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå utbildningsprogram kan ge pågående oförutsedda händelser utbildning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-3-1"></a>NIST 800 53 kontrollen CP-3 (1)
@@ -274,10 +274,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå oförutsedda händelser utbildning kan omfatta simulerade händelser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-4a"></a>NIST 800 53 kontrollen CP-4.a
+ ## <a name="nist-800-53-control-cp-4a"></a>NIST 800-53 Control CP-4.a
 
 #### <a name="contingency-plan-testing"></a>Beredskapsplan testning
 
@@ -288,10 +288,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att testa beredskapsplan för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-4b"></a>NIST 800 53 kontrollen CP-4.b
+ ## <a name="nist-800-53-control-cp-4b"></a>NIST 800-53 Control CP-4.b
 
 #### <a name="contingency-plan-testing"></a>Beredskapsplan testning
 
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska resultatet av beredskapsplan testning (se CP 04.a). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-4c"></a>NIST 800 53 kontrollen CP-4.c
@@ -316,7 +316,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att initiera korrigerande åtgärd om beredskapsplan testning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-4-1"></a>NIST 800 53 kontrollen CP-4 (1)
@@ -330,10 +330,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå beredskapsplan testning samordning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800 53 styra CP-4 (2) en
+ ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Testa beredskapsplan | Alternativa platsen
 
@@ -344,10 +344,10 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att testa beredskapsplan på en annan bearbetning position. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800 53 styra CP-4 (2) .b
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Testa beredskapsplan | Alternativa platsen
 
@@ -358,12 +358,12 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att testa beredskapsplan på en annan bearbetning position. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-6a"></a>NIST 800 53 kontrollen CP-6.a
+ ## <a name="nist-800-53-control-cp-6a"></a>NIST 800-53 Control CP-6.a
 
-#### <a name="alternate-storage-site"></a>Alternativ för lagring
+#### <a name="alternate-storage-site"></a>Alternate Storage Site
 
 **CP 6.a** organisationen upprättar en alternativa lagringsgruppen plats inklusive nödvändiga avtal tillåta lagring och hämtning av information Systeminformation för säkerhetskopiering.
 
@@ -371,13 +371,13 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla lagringskonton som distribueras med den här Azure-modell replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. sex kopior av all data bevaras på olika noder i två datacenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla lagringskonton som distribueras med den här utkast replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. sex kopior av all data bevaras på olika noder i två datacenter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ## <a name="nist-800-53-control-cp-6b"></a>NIST 800 53 kontroll-CP-6 b
+ ## <a name="nist-800-53-control-cp-6b"></a>NIST 800-53 Control CP-6.b
 
-#### <a name="alternate-storage-site"></a>Alternativ för lagring
+#### <a name="alternate-storage-site"></a>Alternate Storage Site
 
 **CP-6 b** organisationen garanterar att den alternativa lagringsgruppen platsen innehåller information säkerhetsåtgärder som motsvarar den primära platsen.
 
@@ -385,8 +385,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla lagringskonton som distribueras med den här Azure-modell replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). Fysiska säkerhetsåtgärder implementeras enhetligt över Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla lagringskonton som distribueras med den här utkast replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). Fysiska säkerhetsåtgärder implementeras enhetligt över Azure-datacenter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-6-1"></a>NIST 800 53 kontrollen CP-6 (1)
@@ -399,11 +399,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla lagringskonton som distribueras med den här Azure-modell replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. Primära och sekundära regioner länkas för att säkerställa nödvändiga avståndet mellan Datacenter till att garantera vid en wide area avbrott eller katastrof. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla lagringskonton som distribueras med den här utkast replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. Primära och sekundära regioner länkas för att säkerställa nödvändiga avståndet mellan Datacenter till att garantera vid en wide area avbrott eller katastrof. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-cp-6-2"></a>NIST 800 53 kontrollen CP-6 (2)
+ ### <a name="nist-800-53-control-cp-6-2"></a>NIST 800-53 Control CP-6 (2)
 
 #### <a name="alternate-storage-site--recovery-time--point-objectives"></a>Alternativ för lagring | Återställningstid / peka mål
 
@@ -413,11 +413,11 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla lagringskonton som distribueras med den här Azure-modell replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. Kunderna måste kontrollera Azure replikering datamodellen är kompatibel med oförutsedda händelser mål. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla lagringskonton som distribueras med den här utkast replikeras för att säkerställa hög tillgänglighet med hjälp av geo-redundant lagring (GRS). GRS garanterar att data replikeras till en sekundär region. Kunderna måste kontrollera Azure replikering datamodellen är kompatibel med oförutsedda händelser mål. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
- ### <a name="nist-800-53-control-cp-6-3"></a>NIST 800 53 kontrollen CP-6.3
+ ### <a name="nist-800-53-control-cp-6-3"></a>NIST 800-53 Control CP-6 (3)
 
 #### <a name="alternate-storage-site--accessibility"></a>Alternativ för lagring | Hjälpmedel
 
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte åtkomst till Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure hanterar alla Microsoft-datacenter och har nödsituation Management team (EMT) för att diskutera med alla gruppmedlemmar hjälpmedel problem till behandling av alternativa platser vid avbrott i ett wide area eller katastrof och information som är explicit minskning åtgärder. Om det finns ett avbrott till den primära platsen, behöver Azure personal från den platsen inte gå till den sekundära platsen eftersom Azure personal som redan används och körs på den sekundära platsen. En område hela avbrott eller katastrof på den primära platsen påverkar inte webbplatsen Microsoft Azure sekundär lagring eftersom de befinner sig i geografiskt åtskilda områden för varje dator. <br /> Microsoft Azure-personal med logiska åtkomst finns i Puget ljud fungerar. Det finns därför ingen hjälpmedel Bekymren för logiska administration av Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure hanterar alla Microsoft-datacenter och har nödsituation Management team (EMT) för att diskutera med alla gruppmedlemmar hjälpmedel problem till behandling av alternativa platser vid avbrott i ett wide area eller katastrof och information som är explicit minskning åtgärder. Om det finns ett avbrott till den primära platsen, behöver Azure personal från den platsen inte gå till den sekundära platsen eftersom Azure personal som redan används och körs på den sekundära platsen. En område hela avbrott eller katastrof på den primära platsen påverkar inte webbplatsen Microsoft Azure sekundär lagring eftersom de befinner sig i geografiskt åtskilda områden för varje dator. <br /> Microsoft Azure-personal med logiska åtkomst finns i Puget ljud fungerar. Det finns därför ingen hjälpmedel Bekymren för logiska administration av Microsoft Azure. |
 
 
  ## <a name="nist-800-53-control-cp-7a"></a>NIST 800 53 kontrollen CP-7.a
@@ -441,8 +441,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-7b"></a>NIST 800 53 kontrollen CP-7.b
@@ -455,8 +455,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region hanteras utrustning etablering av Azure. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region hanteras utrustning etablering av Azure. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-7c"></a>NIST 800 53 kontrollen CP-7.c
@@ -469,8 +469,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. Säkerhetsåtgärder implementeras enhetligt på Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. Säkerhetsåtgärder implementeras enhetligt på Azure-datacenter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-7-1"></a>NIST 800 53 kontrollen CP-7 (1)
@@ -483,8 +483,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. Azure-Datacenter är geografiskt åtskilda. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. Azure-Datacenter är geografiskt åtskilda. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-7-2"></a>NIST 800 53 kontrollen CP-7 (2)
@@ -498,7 +498,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunder har inte åtkomst till Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure hanterar alla Microsoft-datacenter och har nödsituation Management team (EMT) för att diskutera med alla gruppmedlemmar hjälpmedel problem till behandling av alternativa platser vid avbrott i ett wide area eller katastrof och information som är explicit minskning åtgärder. Om det finns ett avbrott till den primära platsen, behöver Azure personal från den platsen inte gå till den sekundära platsen eftersom Azure personal som redan används och körs på den sekundära platsen. En område hela avbrott eller katastrof på den primära platsen påverkar inte webbplatsen Microsoft Azure sekundär lagring eftersom de befinner sig i geografiskt åtskilda områden för varje dator. <br /> Microsoft Azure-personal med logiska åtkomst finns i Puget ljud fungerar. Det finns därför ingen hjälpmedel Bekymren för logiska administration av Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure hanterar alla Microsoft-datacenter och har nödsituation Management team (EMT) för att diskutera med alla gruppmedlemmar hjälpmedel problem till behandling av alternativa platser vid avbrott i ett wide area eller katastrof och information som är explicit minskning åtgärder. Om det finns ett avbrott till den primära platsen, behöver Azure personal från den platsen inte gå till den sekundära platsen eftersom Azure personal som redan används och körs på den sekundära platsen. En område hela avbrott eller katastrof på den primära platsen påverkar inte webbplatsen Microsoft Azure sekundär lagring eftersom de befinner sig i geografiskt åtskilda områden för varje dator. <br /> Microsoft Azure-personal med logiska åtkomst finns i Puget ljud fungerar. Det finns därför ingen hjälpmedel Bekymren för logiska administration av Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-cp-7-3"></a>NIST 800 53 kontrollen CP-7 (3)
@@ -511,8 +511,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region hanteras resurstillgänglighet av Azure. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region hanteras resurstillgänglighet av Azure. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-7-4"></a>NIST 800 53 kontrollen CP-7 (4)
@@ -525,8 +525,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region, hanteras förberedelse av fysisk resurs av Azure. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller information om hur den här lösningen kan distribueras samtidigt i flera områden och konfigurerats för att tillhandahålla fullständig redundans på en alternativa platsen. När du distribuerar till en annan Azure-region, hanteras förberedelse av fysisk resurs av Azure. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-8"></a>NIST 800 53 kontrollen CP-8
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure är ansvarig för att garantera kontinuitet i dess tjänster telecommunications genom processen med att använda olika fiber vägar och redundant maskinvara för att ge högsta tillgänglighet. Var och en av Datacenter representeras som en del av Microsoft Azure-gräns är aktiva, oberoende av varandra och fungerar med möjlighet att tillhandahålla tjänster när som helst. Utöver konfigurationen active datacenter minskar Microsoft Azure dessutom du risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje datacenter att ha minst två olika fiber sökvägar. Microsoft äger och behåller sitt eget fiber nätverk vars syfte är att endast stöd för egenskaper för Microsoft fungerar som en global fiber stamnät jämförbar med flera Internet-leverantörer. Microsoft kontrakt med nivå 3-kommunikation för att ange fältet Underhåll vid fel, fel eller fel. Servicenivåmålet för underhåll på begäran och kritisk tiden att reparera är fyra timmar. Kritiska problem definieras som incidenter eller avbrott, utom på grund av ett befriad avbrott, vilket leder till ett Microsoft Equipment fel, som Microsoft inte kan ta emot några data. |
+| **Provider (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure är ansvarig för att garantera kontinuitet i dess tjänster telecommunications genom processen med att använda olika fiber vägar och redundant maskinvara för att ge högsta tillgänglighet. Var och en av Datacenter representeras som en del av Microsoft Azure-gräns är aktiva, oberoende av varandra och fungerar med möjlighet att tillhandahålla tjänster när som helst. Utöver konfigurationen active datacenter minskar Microsoft Azure dessutom du risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje datacenter att ha minst två olika fiber sökvägar. Microsoft äger och behåller sitt eget fiber nätverk vars syfte är att endast stöd för egenskaper för Microsoft fungerar som en global fiber stamnät jämförbar med flera Internet-leverantörer. Microsoft kontrakt med nivå 3-kommunikation för att ange fältet Underhåll vid fel, fel eller fel. Servicenivåmålet för underhåll på begäran och kritisk tiden att reparera är fyra timmar. Kritiska problem definieras som incidenter eller avbrott, utom på grund av ett befriad avbrott, vilket leder till ett Microsoft Equipment fel, som Microsoft inte kan ta emot några data. |
 
 
  ### <a name="nist-800-53-control-cp-8-1a"></a>NIST 800 53 kontrollen CP-8 (1) en
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure styr sin egen nätverksroutning och därför Service prioritetsinställningen för nödfall krävs inte. Microsoft Azure är ansvarig för att definiera en egen routning prioritet baserat på egenskapen tillgänglighet och nödfall. I molnmiljön finns det ingen prioritetsordning eftersom det finns olika team att ta tillbaka online varje specifik komponent i RTOs som definierats för varje komponent. Alla komponenter är därför en prioritet i ett scenario för avbrott. |
+| **Provider (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure styr sin egen nätverksroutning och därför Service prioritetsinställningen för nödfall krävs inte. Microsoft Azure är ansvarig för att definiera en egen routning prioritet baserat på egenskapen tillgänglighet och nödfall. I molnmiljön finns det ingen prioritetsordning eftersom det finns olika team att ta tillbaka online varje specifik komponent i RTOs som definierats för varje komponent. Alla komponenter är därför en prioritet i ett scenario för avbrott. |
 
 
  ### <a name="nist-800-53-control-cp-8-1b"></a>NIST 800 53 kontrollen CP-8 (1) .b
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure styr sin egen nätverksroutning och därför Service prioritetsinställningen för nödfall krävs inte. |
+| **Provider (Microsoft Azure)** | Microsoft Azure finns i Microsoft Azure-datacenter. Microsoft Azure styr sin egen nätverksroutning och därför Service prioritetsinställningen för nödfall krävs inte. |
 
 
  ### <a name="nist-800-53-control-cp-8-2"></a>NIST 800 53 kontrollen CP-8 (2)
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure minskar risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje datacenter att ha minst två olika fiber sökvägar. Microsoft äger och behåller sitt eget fiber nätverk vars syfte är att endast stöd för egenskaper för Microsoft fungerar som en global fiber stamnät jämförbar med flera Internet-leverantörer. Microsoft Azure kontrakt med en stor providern att tillhandahålla fältet Underhåll vid fel, fel eller fel. Servicenivåmålet för underhåll på begäran och kritisk tiden att reparera är fyra timmar. |
+| **Provider (Microsoft Azure)** | Microsoft Azure minskar risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje datacenter att ha minst två olika fiber sökvägar. Microsoft äger och behåller sitt eget fiber nätverk vars syfte är att endast stöd för egenskaper för Microsoft fungerar som en global fiber stamnät jämförbar med flera Internet-leverantörer. Microsoft Azure kontrakt med en stor providern att tillhandahålla fältet Underhåll vid fel, fel eller fel. Servicenivåmålet för underhåll på begäran och kritisk tiden att reparera är fyra timmar. |
 
 
  ### <a name="nist-800-53-control-cp-8-3"></a>NIST 800 53 kontrollen CP-8 (3)
@@ -596,7 +596,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure minskar risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje Azure-Datacenter att ha minst två olika fiber sökvägar. Redundant kommunikation länkarna var etablerade följande olika sökvägar via Microsoft fiber nätverket. Detta är ett kontinuerligt operativa lösning som hanteras av Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure minskar risken för enskilda felpunkter på fel med telekommunikationslänkar genom att kräva att varje Azure-Datacenter att ha minst två olika fiber sökvägar. Redundant kommunikation länkarna var etablerade följande olika sökvägar via Microsoft fiber nätverket. Detta är ett kontinuerligt operativa lösning som hanteras av Azure. |
 
 
  ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800 53 styra CP-8 (4) schemanivån
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure har implementerat beredskap planera principen via publiceringen av säkerhetsprincipen Microsoft underhålls av Azure-säkerhet. Azure kontinuitet management princip målet är att skydda externa kunder och interna Microsoft business genom att tillhandahålla en tjänst och funktionella återhämtning, tillsammans med en återställning möjligheten att återställa prenumererade tjänsterna och företag kärnor kunskaper i ett förutbestämt tidsintervall under en betydande avbrott. |
+| **Provider (Microsoft Azure)** | Microsoft Azure har implementerat beredskap planera principen via publiceringen av säkerhetsprincipen Microsoft underhålls av Azure-säkerhet. Azure kontinuitet management princip målet är att skydda externa kunder och interna Microsoft business genom att tillhandahålla en tjänst och funktionella återhämtning, tillsammans med en återställning möjligheten att återställa prenumererade tjänsterna och företag kärnor kunskaper i ett förutbestämt tidsintervall under en betydande avbrott. |
 
 
  ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800 53 styra CP-8 (4) .b
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure-säkerhetsprincip granskat och årligen godkänns av Azure security Management och underhålls i GRC-verktyget. Microsoft säkerhet som principen gäller hela organisationen till alla uppgifter och processer som används i över Microsoft verksamhet. Alla Microsoft-anställda och tillfällig personal är ansvariga och ansvarar för att följa dessa riktlinjer inom deras avsedda roller. |
+| **Provider (Microsoft Azure)** | Microsoft Azure-säkerhetsprincip granskat och årligen godkänns av Azure security Management och underhålls i GRC-verktyget. Microsoft säkerhet som principen gäller hela organisationen till alla uppgifter och processer som används i över Microsoft verksamhet. Alla Microsoft-anställda och tillfällig personal är ansvariga och ansvarar för att följa dessa riktlinjer inom deras avsedda roller. |
 
 
  ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800 53 styra CP-8 (4) .c
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunderna styr inte telekommunikation services som tillhandahåller anslutningar för datorer i Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure implementerar beredskapsplan testning och övningarna genom att följa principen anges i ERDRP för Azure-Datacenter. Procedurer för testning och underhåll av beredskapsplan implementeras med målet att upprätthålla ERDRP i ett konsekvent tillstånd av beredskap. Dessa procedurer gäller fortsatt underhåll, testning och utbildningskrav för ERDRP. Samordning av ERDRP ansvarar för Datacenter Manager. Hanteraren för Datacenter är ansvarig för granskningen och testning av ERDRP minst en gång om året. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implementerar beredskapsplan testning och övningarna genom att följa principen anges i ERDRP för Azure-Datacenter. Procedurer för testning och underhåll av beredskapsplan implementeras med målet att upprätthålla ERDRP i ett konsekvent tillstånd av beredskap. Dessa procedurer gäller fortsatt underhåll, testning och utbildningskrav för ERDRP. Samordning av ERDRP ansvarar för Datacenter Manager. Hanteraren för Datacenter är ansvarig för granskningen och testning av ERDRP minst en gång om året. |
 
 
  ## <a name="nist-800-53-control-cp-9a"></a>NIST 800 53 kontrollen CP-9.a
@@ -651,8 +651,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar ett Recovery Services-valv. Användarnivå informationen i den distribuerade SQL-databasen har implementerats med hjälp av SQL Virtuella IaaS-tillägget. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar ett Recovery Services-valv. Användarnivå informationen i den distribuerade SQL-databasen har implementerats med hjälp av SQL Virtuella IaaS-tillägget. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-9b"></a>NIST 800 53 kontrollen CP-9.b
@@ -665,8 +665,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar ett Recovery Services-valv. En princip för Azure Backup upprättas för alla virtuella datorer som implementerar ett säkerhetskopian för dagliga, veckovisa, månatliga och årliga Kvarhållningsintervall.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar ett Recovery Services-valv. En princip för Azure Backup upprättas för alla virtuella datorer som implementerar ett säkerhetskopian för dagliga, veckovisa, månatliga och årliga Kvarhållningsintervall.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-9c"></a>NIST 800 53 kontrollen CP-9.c
@@ -680,7 +680,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utföra säkerhetskopieringar av kunden distribuerade resurser (om du vill inkludera program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-9d"></a>NIST 800 53 kontrollen CP-9.d
@@ -693,8 +693,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Sekretess och integriteten hos alla storage-blobbar som distribueras med den här Azure-modell skyddas med hjälp av Azure SSE som använder 256-bitars AES-kryptering för alla data i vila. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Sekretess och integriteten hos alla storage-blobbar som distribueras med den här utkast skyddas med hjälp av Azure SSE som använder 256-bitars AES-kryptering för alla data i vila. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-9-1"></a>NIST 800 53 kontrollen CP-9 (1)
@@ -708,7 +708,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Recovery Services-valv använder onlinelagring; Det finns ingen kund säkerhetskopieringsmedia inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure Övervakare säkerhetskopieringar kontinuerligt med hjälp av genererade aviseringar som meddelar Microsoft Azure driftteamet av en misslyckad eller ofullständig säkerhetskopieringar. Förutom systemgenererade aviseringar återställningen-tester för alla säkerhetskopior som ägs av Microsoft Azure var 12 månader med verktyget BCDR Manager. Informationens integritet bekräftas automatiskt när säkerhetskopieringen har slutförts. <br /> När som helst en håller Microsoft Azure SQL DB tre kopior av data, en primär replik och två sekundära repliker. Microsoft Azure SQL DB använder ett kvorum baserat commit schema där data skrivs till den primära servern och en sekundär replik innan transaktionen genomförts. Om maskinvaran inte på den primära repliken, Microsoft Azure SQL DB identifierar misslyckandet och flyttas över till den sekundära repliken. Vid en fysisk förlust av en replik skapar Microsoft Azure SQL DB en ny replik automatiskt. Det finns därför minst två fysiska transaktionen konsekvent kopior av kundinformation i datacentret. Microsoft Azure SQL DB kommer inte att skriva transaktioner till databasen om primära och sekundära repliker görs. |
+| **Provider (Microsoft Azure)** | Microsoft Azure Övervakare säkerhetskopieringar kontinuerligt med hjälp av genererade aviseringar som meddelar Microsoft Azure driftteamet av en misslyckad eller ofullständig säkerhetskopieringar. Förutom systemgenererade aviseringar återställningen-tester för alla säkerhetskopior som ägs av Microsoft Azure var 12 månader med verktyget BCDR Manager. Informationens integritet bekräftas automatiskt när säkerhetskopieringen har slutförts. <br /> När som helst en håller Microsoft Azure SQL DB tre kopior av data, en primär replik och två sekundära repliker. Microsoft Azure SQL DB använder ett kvorum baserat commit schema där data skrivs till den primära servern och en sekundär replik innan transaktionen genomförts. Om maskinvaran inte på den primära repliken, Microsoft Azure SQL DB identifierar misslyckandet och flyttas över till den sekundära repliken. Vid en fysisk förlust av en replik skapar Microsoft Azure SQL DB en ny replik automatiskt. Det finns därför minst två fysiska transaktionen konsekvent kopior av kundinformation i datacentret. Microsoft Azure SQL DB kommer inte att skriva transaktioner till databasen om primära och sekundära repliker görs. |
 
 
  ### <a name="nist-800-53-control-cp-9-2"></a>NIST 800 53 kontrollen CP-9 (2)
@@ -722,7 +722,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att testa säkerhetskopierad information. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-9-3"></a>NIST 800 53 kontrollen CP-9 (3)
@@ -736,7 +736,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för lagring av säkerhetskopierad information separat. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-9-5"></a>NIST 800 53 kontrollen CP-9 (5)
@@ -749,8 +749,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla distribuerade storage-konton i den här Azure-modell, inklusive de som används för säkerhetskopiering, implementera geo-redundant lagring, säkerställer sex kopior av all data bevaras på olika noder mellan två datacenter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla distribuerade storage-konton i den här modell, inklusive de som används för säkerhetskopiering, implementera geo-redundant lagring, säkerställer sex kopior av all data bevaras på olika noder mellan två datacenter. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cp-10"></a>NIST 800 53 kontrollen CP-10
@@ -764,7 +764,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för återställningen och färdigställas av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-10-2"></a>NIST 800 53 kontrollen CP-10 (2)
@@ -777,8 +777,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar SQL Server i en Always On-Tillgänglighetsgruppen. SQL-servern upprätthåller en transaktionslogg som har stöd för transaktion återställning vid ett systemfel. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar SQL Server i en Always On-Tillgänglighetsgruppen. SQL-servern upprätthåller en transaktionslogg som har stöd för transaktion återställning vid ett systemfel. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cp-10-4"></a>NIST 800 53 kontrollen CP-10 (4)
@@ -792,5 +792,5 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att återställa kunden distribuerade resurser till en känd användningstillstånd. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 

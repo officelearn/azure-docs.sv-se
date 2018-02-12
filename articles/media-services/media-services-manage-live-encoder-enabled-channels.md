@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 ## <a name="overview"></a>Översikt
@@ -83,7 +83,7 @@ Följande diagram representerar en live-streaming arbetsflöde där en kanal som
 Följande steg är allmänna steg som ingår i att skapa vanliga program för direktsänd strömning.
 
 > [!NOTE]
-> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tid. Tänk på att det finns en fakturering påverkan för live encoding och ska du komma ihåg att lämna en live encoding kanal i tillståndet ”körs” kommer avgifter per timme faktureringsinformation.  Vi rekommenderar att du stoppar du omedelbart dina kanaler som körs när din direktsänd strömning händelse är klar att undvika extra timvis avgifter. 
+> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under längre tid. Tänk på att det finns en fakturering påverkan för live encoding och ska du komma ihåg att lämna en live encoding kanal i tillståndet ”körs” kommer avgifter per timme faktureringsinformation.  Vi rekommenderar att du stoppar du omedelbart dina kanaler som körs när din direktsänd strömning händelse är klar att undvika extra timvis avgifter. 
 > 
 > 
 
@@ -148,7 +148,7 @@ Att tänka på:
     * Baslinje, Main, hög profil (8-bitars 4:2:0)
     * Hög 10 profil (10 bitar 4:2:0)
     * Hög 422 profil (10 bitar 4:2:2)
-  * MPEG-2 AAC-LC ljud 
+  * MPEG-2 AAC-LC Audio 
     
     * Mono, Stereo Surround (5.1, 7.1)
     * MPEG-2-style ADTS paketering
@@ -175,13 +175,13 @@ Att tänka på:
 * Baslinje, Main, hög profil (8-bitars 4:2:0)
 * Hög 10 profil (10 bitar 4:2:0)
 * Hög 422 profil (10 bitar 4:2:2)
-* MPEG-2 AAC-LC ljud
+* MPEG-2 AAC-LC Audio
 * Mono, Stereo Surround (5.1, 7.1)
 * 44,1 samplingsfrekvensen
 * MPEG-2-style ADTS paketering
 * Rekommenderade kodare inkluderar:
 * Telestream Wirecast
-* Flash Media Livekodare
+* Flash Media Live Encoder
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>Fragmenterad MP4 med enkel bithastighet (Smooth Streaming)
 Vanligt användningsfall:
@@ -208,7 +208,7 @@ Du kan ange IP-adresser som får publicera video i den här kanalen. Tillåtna I
 
 Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
-## <a name="channel-preview"></a>Kanal preview
+## <a name="channel-preview"></a>Förhandsgranskning av kanal
 ### <a name="preview-urls"></a>URL: er för förhandsgranskning
 Kanaler ange förhandsgranskningsslutpunkten (förhandsgranskning URL) som används för att förhandsgranska och verifiera strömmen innan ytterligare bearbetning och leverans.
 
@@ -262,7 +262,7 @@ Det kan vara upp till 8 ljudström mängder anges om indata till kanalen är MPE
 ### <a id="preset"></a>System förinställda
 Anger förinställningen som ska användas av livekodaren i den här kanalen. Det enda tillåtna värdet är för närvarande **Default720p** (standard).
 
-Observera att om du behöver anpassade förinställningar, bör du kontakta amslived på Microsoft.com.
+Observera att om du behöver anpassade förinställningar, bör du kontakta amslived@microsoft.com.
 
 **Default720p** kommer koda videon till följande 7 lager.
 
@@ -381,7 +381,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 * Som standard kan du bara lägga till 5 kanaler Media Services-kontot. Det här är en icke-begränsande kvot för alla nya konton. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 * Du kan inte ändra indataprotokollet när kanalen eller dess associerade program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje indataprotokoll.
 * Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [detta](media-services-manage-live-encoder-enabled-channels.md#states) avsnitt.
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under längre tid.
 * Se till att ha den strömningsslutpunkt från vilken du vill strömma innehåll i den **kör** tillstånd.
 * När mata in flera språkspår och utföra live encoding med Azure, endast RTP stöds för flera språk indata. Du kan ange upp till 8 ljudströmmar med MPEG-2 TS över RTP. Vill föra in flera ljud spår med RTMP eller Smooth streaming stöds inte för närvarande. När du gör live encoding med [lokalt live kodar](media-services-live-streaming-with-onprem-encoders.md), det finns ingen sådan begränsning eftersom det skickas till AMS passerar genom en kanal utan vidare bearbetning.
 * Kodning förinställningen använder begreppet ”max bildfrekvens” på 30 fps. Om indata är 60fps 59.97i, inkommande ramarna är bort/de-interlaced till 30/29,97 fps. Om indata är 50fps/50i, är inkommande ramarna bort/de-interlaced till 25 bildrutor per sekund. Om indata är 25 bildrutor förblir utdata 25 bildrutor per sekund.

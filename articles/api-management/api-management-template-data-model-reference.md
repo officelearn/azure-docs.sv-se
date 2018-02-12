@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0e303e2744023711a7648f9a6b29709e549d40e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management-mall datamodell referens
 Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som används i datamodeller för developer portal mallar i Azure API Management.  
@@ -32,7 +32,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 -   [Kodexempel](#Sample)  
 -   [Kommentar](#Comment)  
 -   [Filtrering](#Filtering)  
--   [Huvudet](#Header)  
+-   [Header](#Header)  
 -   [HTTP-begäran](#HTTPRequest)  
 -   [HTTP-svar](#HTTPResponse)  
 -   [Problemet](#Issue)  
@@ -40,7 +40,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 -   [Åtgärd-menyn](#Menu)  
 -   [Åtgärden menyobjekt](#MenuItem)  
 -   [Växling](#Paging)  
--   [Parametern](#Parameter)  
+-   [Parameter](#Parameter)  
 -   [Produkten](#Product)  
 -   [Leverantör](#Provider)  
 -   [Representation](#Representation)  
@@ -50,16 +50,16 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 -   [Användaren logga in](#UseSignIn)  
 -   [Användaren loggar in](#UserSignUp)  
   
-##  <a name="API"></a>API  
+##  <a name="API"></a> API  
  Den `API` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|id|Sträng|Resursidentifieraren. Identifierar API inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
-|namn|Sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|description|Sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
-|serviceUrl|Sträng|Absolut URL för backend-tjänsten implementerar detta API.|  
-|sökväg|Sträng|Relativ URL som unikt identifierar denna API och alla dess resurs sökvägar i API Management service-instans. Den läggs till API-slutpunkten bas-URL anges när tjänsten instans skapades för att bilda en offentlig URL för detta API.|  
+|id|sträng|Resursidentifieraren. Identifierar API inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
+|namn|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|description|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
+|serviceUrl|sträng|Absolut URL för backend-tjänsten implementerar detta API.|  
+|sökväg|sträng|Relativ URL som unikt identifierar denna API och alla dess resurs sökvägar i API Management service-instans. Den läggs till API-slutpunkten bas-URL anges när tjänsten instans skapades för att bilda en offentlig URL för detta API.|  
 |Protokoll|matris med tal|Beskriver på vilket protokoll åtgärder i detta API kan anropas. Tillåtna värden är `1 - http` och `2 - https`, eller båda.|  
 |authenticationSettings|[Auktoriseringsinställningar server-autentisering](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Samling autentiseringsinställningar som ingår i detta API.|  
 |subscriptionKeyParameterNames|objekt|Egenskapen som kan användas för att ange anpassade namn för frågan och/eller huvudet parametrar som innehåller nyckeln för prenumerationen. När den här egenskapen är finns måste det innehålla minst en av följande två egenskaper.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
@@ -69,25 +69,25 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|id|Sträng|Resursidentifieraren. Identifierar API inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
-|namn|Sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|description|Sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
+|id|sträng|Resursidentifieraren. Identifierar API inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{id}` där `{id}` är en API-identifierare. Den här egenskapen är skrivskyddad.|  
+|namn|sträng|Namnet på API: et. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|description|sträng|Beskrivning av API: et. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
   
 ##  <a name="Application"></a>Programmet  
  Den `application` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Unik identifierare för programmet.|  
-|Rubrik|Sträng|Titeln på programmet.|  
-|Beskrivning|Sträng|Beskrivning av programmet.|  
+|Id|sträng|Unik identifierare för programmet.|  
+|Rubrik|sträng|Titeln på programmet.|  
+|Beskrivning|sträng|Beskrivning av programmet.|  
 |URL|URI|URI för programmet.|  
-|Version|Sträng|Versionsinformation för programmet.|  
-|Krav|Sträng|En beskrivning av kraven för programmet.|  
-|Status|nummer|Det aktuella tillståndet för programmet.<br /><br /> -0 - registrerad<br /><br /> -1 - har skickats<br /><br /> -2 - publicerade<br /><br /> -3 - avvisade<br /><br /> -4 - Opublicerat|  
+|Version|sträng|Versionsinformation för programmet.|  
+|Krav|sträng|En beskrivning av kraven för programmet.|  
+|Status|Antal|Det aktuella tillståndet för programmet.<br /><br /> -0 - registrerad<br /><br /> -1 - har skickats<br /><br /> -2 - publicerade<br /><br /> -3 - avvisade<br /><br /> -4 - Opublicerat|  
 |RegistrationDate|DateTime|Datum och tid som programmet har registrerats.|  
-|CategoryId|nummer|Kategori för programmet (ekonomi, underhållning osv.)|  
-|DeveloperId|Sträng|Unik identifierare för utvecklare som skickats av programmet.|  
+|CategoryId|Antal|Kategori för programmet (ekonomi, underhållning osv.)|  
+|DeveloperId|sträng|Unik identifierare för utvecklare som skickats av programmet.|  
 |Bifogade filer|Samling av [bilaga](#Attachment) entiteter.|Eventuella bifogade filer för programmet, till exempel skärmdumpar eller ikoner.|  
 |Ikon|[Bifogad fil](#Attachment)|Ikonen för den för programmet.|  
   
@@ -96,25 +96,25 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Unikt ID|Sträng|Den unika identifieraren för den bifogade filen.|  
-|URL|Sträng|URL till resursen.|  
-|Typ|Sträng|Typ av bifogad fil.|  
-|ContentType|Sträng|Medietyp för den bifogade filen.|  
+|Unikt ID|sträng|Den unika identifieraren för den bifogade filen.|  
+|URL|sträng|URL till resursen.|  
+|Typ|sträng|Typ av bifogad fil.|  
+|ContentType|sträng|Medietyp för den bifogade filen.|  
   
 ##  <a name="Sample"></a>Kodexempel  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|rubrik|Sträng|Namnet på åtgärden.|  
-|fragment|Sträng|Den här egenskapen är inaktuell och bör inte användas.|  
-|pensel|Sträng|Vilka kodsyntax färgläggning mall som ska användas när du visar kodexemplet. Tillåtna värden är `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, och `csharp`.|  
-|mall|Sträng|Namnet på den här koden exempelmall.|  
-|brödtext|Sträng|En platshållare för koden exempel del av kodavsnittet.|  
-|Metoden|Sträng|HTTP-metoden för åtgärden.|  
-|schemat|Sträng|Protokollet som ska användas för begäran igen.|  
-|sökväg|Sträng|Sökvägen till åtgärden.|  
-|DocumentDB|Sträng|Exempel på frågan sträng med definierade parametrar.|  
-|värden|Sträng|URL för API Management-tjänsten gateway-API: t som innehåller den här åtgärden.|  
+|rubrik|sträng|Namnet på åtgärden.|  
+|fragment|sträng|Den här egenskapen är inaktuell och bör inte användas.|  
+|pensel|sträng|Vilka kodsyntax färgläggning mall som ska användas när du visar kodexemplet. Tillåtna värden är `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, och `csharp`.|  
+|mall|sträng|Namnet på den här koden exempelmall.|  
+|brödtext|sträng|En platshållare för koden exempel del av kodavsnittet.|  
+|Metoden|sträng|HTTP-metoden för åtgärden.|  
+|schemat|sträng|Protokollet som ska användas för begäran igen.|  
+|sökväg|sträng|Sökvägen till åtgärden.|  
+|DocumentDB|sträng|Exempel på frågan sträng med definierade parametrar.|  
+|värd|sträng|URL för API Management-tjänsten gateway-API: t som innehåller den här åtgärden.|  
 |rubriker|Samling av [huvud](#Header) entiteter.|Huvuden för den här åtgärden.|  
 |parameters|Samling av [parametern](#Parameter) entiteter.|Parametrar som definierats för den här åtgärden.|  
   
@@ -123,9 +123,9 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|nummer|Id för kommentaren.|  
-|CommentText|Sträng|Innehållet i kommentaren. Kan innehålla HTML.|  
-|DeveloperCompany|Sträng|Företagsnamn som utvecklare.|  
+|Id|Antal|Id för kommentaren.|  
+|CommentText|sträng|Innehållet i kommentaren. Kan innehålla HTML.|  
+|DeveloperCompany|sträng|Företagsnamn som utvecklare.|  
 |PostedOn|DateTime|Datum och tid som kommentaren anslogs.|  
   
 ##  <a name="Issue"></a>Problemet  
@@ -133,12 +133,12 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Den unika identifieraren för problemet.|  
-|ApiID|Sträng|Id för API: et för vilken det här problemet har rapporterats.|  
-|Rubrik|Sträng|Titel på problemet.|  
-|Beskrivning|Sträng|Beskrivning av problemet.|  
-|SubscriptionDeveloperName|Sträng|Förnamn som utvecklare som rapporterats av problemet.|  
-|IssueState|Sträng|Det aktuella tillståndet för problemet. Möjliga värden är Proposed, öppnade, stängd.|  
+|Id|sträng|Den unika identifieraren för problemet.|  
+|ApiID|sträng|Id för API: et för vilken det här problemet har rapporterats.|  
+|Rubrik|sträng|Titel på problemet.|  
+|Beskrivning|sträng|Beskrivning av problemet.|  
+|SubscriptionDeveloperName|sträng|Förnamn som utvecklare som rapporterats av problemet.|  
+|IssueState|sträng|Det aktuella tillståndet för problemet. Möjliga värden är Proposed, öppnade, stängd.|  
 |ReportedOn|DateTime|Datum och tid problemet har rapporterats.|  
 |Kommentarer|Samling av [kommentar](#Comment) entiteter.|Kommentarer om det här problemet.|  
 |Bifogade filer|Samling av [bilaga](api-management-template-data-model-reference.md#Attachment) entiteter.|Bifogade till problemet.|  
@@ -149,28 +149,28 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Mönster|Sträng|Aktuella söktermen; eller `null` om det finns ingen sökterm.|  
-|Platshållare|Sträng|Texten som visas i sökrutan när det finns ingen sökterm som angetts.|  
+|Mönster|sträng|Aktuella söktermen; eller `null` om det finns ingen sökterm.|  
+|Platshållare|sträng|Texten som visas i sökrutan när det finns ingen sökterm som angetts.|  
   
 ##  <a name="Header"></a>Huvudet  
  Det här avsnittet beskrivs de `parameter` representation.  
   
 |Egenskap|Beskrivning|Typ|  
 |--------------|-----------------|----------|  
-|namn|Sträng|Parameternamnet.|  
-|description|Sträng|Parameterbeskrivning.|  
-|värde|Sträng|Huvudets värde.|  
-|TypeName|Sträng|Datatypen för huvudvärde.|  
-|alternativ|Sträng|Alternativ.|  
-|Krävs|Booleskt värde|Anger om sidhuvudet krävs.|  
-|Skrivskyddad|Booleskt värde|Anger om sidhuvudet är skrivskyddad.|  
+|namn|sträng|Parameternamnet.|  
+|description|sträng|Parameterbeskrivning.|  
+|värde|sträng|Huvudets värde.|  
+|TypeName|sträng|Datatypen för huvudvärde.|  
+|alternativ|sträng|Alternativ.|  
+|Krävs|boolesk|Anger om sidhuvudet krävs.|  
+|Skrivskyddad|boolesk|Anger om sidhuvudet är skrivskyddad.|  
   
 ##  <a name="HTTPRequest"></a>HTTP-begäran  
  Det här avsnittet beskrivs de `request` representation.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|description|Sträng|Beskrivning av åtgärden begäran.|  
+|description|sträng|Beskrivning av åtgärden begäran.|  
 |rubriker|matris med [huvud](#Header) entiteter.|Huvuden för begäran.|  
 |parameters|matris med [Parameter](#Parameter)|De parametrar som begäran igen.|  
 |garantier|matris med [Representation](#Representation)|Åtgärden begäran garantier samling.|  
@@ -181,7 +181,7 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |statuskod|Positivt heltal|Åtgärden Svarets statuskod.|  
-|description|Sträng|Beskrivning av åtgärden svar.|  
+|description|sträng|Beskrivning av åtgärden svar.|  
 |garantier|matris med [Representation](#Representation)|Åtgärden svar garantier samling.|  
   
 ##  <a name="Operation"></a>Åtgärden  
@@ -189,13 +189,13 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|id|Sträng|Resursidentifieraren. Identifierar åtgärden inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{aid}/operations/{id}` där `{aid}` är en API-identifierare och `{id}` är en identifierare för åtgärden. Den här egenskapen är skrivskyddad.|  
-|namn|Sträng|Namnet på åtgärden. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|description|Sträng|Beskrivning av åtgärden. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
-|schemat|Sträng|Beskriver på vilket protokoll åtgärder i detta API kan anropas. Tillåtna värden är `http`, `https`, eller båda `http` och `https`.|  
-|uriTemplate|Sträng|Relativa URL: en mall identifierar målresursen för den här åtgärden. Kan innehålla parametrar. Exempel:`customers/{cid}/orders/{oid}/?date={date}`|  
-|värden|Sträng|URL för API Management-gateway som är värd för API: et.|  
-|HttpMethod|Sträng|HTTP-åtgärdsmetod.|  
+|id|sträng|Resursidentifieraren. Identifierar åtgärden inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `apis/{aid}/operations/{id}` där `{aid}` är en API-identifierare och `{id}` är en identifierare för åtgärden. Den här egenskapen är skrivskyddad.|  
+|namn|sträng|Namnet på åtgärden. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|description|sträng|Beskrivning av åtgärden. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
+|schemat|sträng|Beskriver på vilket protokoll åtgärder i detta API kan anropas. Tillåtna värden är `http`, `https`, eller båda `http` och `https`.|  
+|uriTemplate|sträng|Relativa URL: en mall identifierar målresursen för den här åtgärden. Kan innehålla parametrar. Exempel:`customers/{cid}/orders/{oid}/?date={date}`|  
+|värd|sträng|URL för API Management-gateway som är värd för API: et.|  
+|HttpMethod|sträng|HTTP-åtgärdsmetod.|  
 |Begäran|[HTTP-begäran](#HTTPRequest)|En entitet som innehåller detaljer om förfrågan.|  
 |svar|matris med [HTTP-svar](#HTTPResponse)|Matris med åtgärden [HTTP-svar](#HTTPResponse) entiteter.|  
   
@@ -204,9 +204,9 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|ApiId|Sträng|Id för den aktuella API.|  
-|CurrentOperationId|Sträng|Id för den aktuella åtgärden.|  
-|Åtgärd|Sträng|Menytyp.|  
+|ApiId|sträng|Id för den aktuella API.|  
+|CurrentOperationId|sträng|Id för den aktuella åtgärden.|  
+|Åtgärd|sträng|Menytyp.|  
 |MenuItems|Samling av [åtgärden menyalternativet](#MenuItem) entiteter.|Åtgärder för den aktuella API.|  
   
 ##  <a name="MenuItem"></a>Åtgärden menyobjekt  
@@ -214,46 +214,46 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Id för åtgärden.|  
-|Rubrik|Sträng|Beskrivning av åtgärden.|  
-|HttpMethod|Sträng|Http-metoden för åtgärden.|  
+|Id|sträng|Id för åtgärden.|  
+|Rubrik|sträng|Beskrivning av åtgärden.|  
+|HttpMethod|sträng|Http-metoden för åtgärden.|  
   
 ##  <a name="Paging"></a>Växling  
  Den `paging` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Sida|nummer|Det aktuella sidnumret.|  
-|PageSize|nummer|De maximala resultat som ska visas på en sida.|  
-|TotalItemCount|nummer|Antal objekt för visning.|  
-|{ShowAll|Booleskt värde|Om du vill visa alla resultat på en sida.|  
-|PageCount|nummer|Antalet sidor i resultaten.|  
+|Sida|Antal|Det aktuella sidnumret.|  
+|PageSize|Antal|De maximala resultat som ska visas på en sida.|  
+|TotalItemCount|Antal|Antal objekt för visning.|  
+|{ShowAll|boolesk|Om du vill visa alla resultat på en sida.|  
+|PageCount|Antal|Antalet sidor i resultaten.|  
   
 ##  <a name="Parameter"></a>Parametern  
  Det här avsnittet beskrivs de `parameter` representation.  
   
 |Egenskap|Beskrivning|Typ|  
 |--------------|-----------------|----------|  
-|namn|Sträng|Parameternamnet.|  
-|description|Sträng|Parameterbeskrivning.|  
-|värde|Sträng|Parametervärdet.|  
+|namn|sträng|Parameternamnet.|  
+|description|sträng|Parameterbeskrivning.|  
+|värde|sträng|Parametervärdet.|  
 |alternativ|Strängmatris|Värden som definierats för frågeparametervärden.|  
-|Krävs|Booleskt värde|Anger om parametern är obligatorisk.|  
-|typ|nummer|Om den här parametern är en sökvägsparameter (1) eller en querystring-parameter (2).|  
-|TypeName|Sträng|Parametertypen.|  
+|Krävs|boolesk|Anger om parametern är obligatorisk.|  
+|typ|Antal|Om den här parametern är en sökvägsparameter (1) eller en querystring-parameter (2).|  
+|TypeName|sträng|Parametertypen.|  
   
 ##  <a name="Product"></a>Produkten  
  Den `product` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Resursidentifieraren. Identifierar produkten i den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare. Den här egenskapen är skrivskyddad.|  
-|Rubrik|Sträng|Namnet på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|Beskrivning|Sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
-|Villkor|Sträng|Produkten villkor för användning. Utvecklare som försöker prenumerera produkten ska visas och krävs för att acceptera villkoren innan de kan slutföras prenumeration.|  
-|ProductState|nummer|Anger om produkten är publicerad eller inte. Publicerade produkter är kan upptäckas av utvecklare på developer-portalen. Icke-publicerade produkter visas endast till administratörer.<br /><br /> Tillåtna värden för Produkttillstånd är:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
-|AllowMultipleSubscriptions|Booleskt värde|Anger om en användare kan ha flera prenumerationer för den här produkten på samma gång.|  
-|MultipleSubscriptionsCount|nummer|Antalet prenumerationer på den här produkten av den aktuella användaren.|  
+|Id|sträng|Resursidentifieraren. Identifierar produkten i den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare. Den här egenskapen är skrivskyddad.|  
+|Rubrik|sträng|Namnet på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|Beskrivning|sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
+|Villkor|sträng|Produkten villkor för användning. Utvecklare som försöker prenumerera produkten ska visas och krävs för att acceptera villkoren innan de kan slutföras prenumeration.|  
+|ProductState|Antal|Anger om produkten är publicerad eller inte. Publicerade produkter är kan upptäckas av utvecklare på developer-portalen. Icke-publicerade produkter visas endast till administratörer.<br /><br /> Tillåtna värden för Produkttillstånd är:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|AllowMultipleSubscriptions|boolesk|Anger om en användare kan ha flera prenumerationer för den här produkten på samma gång.|  
+|MultipleSubscriptionsCount|Antal|Maximalt antal prenumerationer på den här produkten en användare får ha på samma gång.|  
   
 ##  <a name="Provider"></a>Providern  
  Den `provider` entiteten har följande egenskaper.  
@@ -261,99 +261,99 @@ Det här avsnittet beskriver entitet och typ garantier för vanliga objekt som a
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
 |Egenskaper|sträng ordlista|Egenskaper för den här autentiseringsprovider.|  
-|AuthenticationType|Sträng|Providertyp. (Azure Active Directory, Facebook-inloggningar, Google-konto, Account, Twitter).|  
-|Undertext|Sträng|Visar namnet på leverantören.|  
+|AuthenticationType|sträng|Providertyp. (Azure Active Directory, Facebook-inloggningar, Google-konto, Account, Twitter).|  
+|Beskrivning|sträng|Visar namnet på leverantören.|  
   
 ##  <a name="Representation"></a>Representation  
  Det här avsnittet beskrivs en `representation`.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|ContentType|Sträng|Anger en registrerad eller anpassat innehåll representation, t.ex. `application/xml`.|  
-|exempel|Sträng|Ett exempel på representationen.|  
+|contentType|sträng|Anger en registrerad eller anpassat innehåll representation, t.ex. `application/xml`.|  
+|exempel|sträng|Ett exempel på representationen.|  
   
 ##  <a name="Subscription"></a>Prenumerationen  
  Den `subscription` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Resursidentifieraren. Identifierar prenumeration inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
-|Produkt-ID|Sträng|Produkten Resursidentifieraren produktens prenumererar på. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare.|  
-|ProductTitle|Sträng|Namnet på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|Produktbeskrivning|Sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
-|ProductDetailsUrl|Sträng|Relativ URL till produktinformation.|  
-|state|Sträng|Tillståndet för prenumerationen. Möjliga tillstånd är:<br /><br /> - `0 - suspended`– prenumerationen blockeras och prenumeranten kan inte anropa alla API: er av produkten.<br /><br /> - `1 - active`– prenumerationen är aktiv.<br /><br /> - `2 - expired`– prenumerationen uppnåtts dess förfallodatum och har inaktiverats.<br /><br /> - `3 - submitted`– prenumerationsbegäran har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected`– prenumerationsbegäran har nekats av en administratör.<br /><br /> - `5 - cancelled`– prenumerationen har avbrutits av utvecklare eller administratör.|  
-|DisplayName|Sträng|Visningsnamnet för prenumerationen.|  
+|Id|sträng|Resursidentifieraren. Identifierar prenumeration inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
+|ProductId|sträng|Produkten Resursidentifieraren produktens prenumererar på. Värdet är en giltig relativ URL i formatet `products/{pid}` där `{pid}` är en produktidentifierare.|  
+|ProductTitle|sträng|Namnet på produkten. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|Produktbeskrivning|sträng|Beskrivning av produkten. Får inte vara tomt. Kan innehålla HTML-kod. Maximal längd är 1000 tecken.|  
+|ProductDetailsUrl|sträng|Relativ URL till produktinformation.|  
+|state|sträng|Tillståndet för prenumerationen. Möjliga tillstånd är:<br /><br /> - `0 - suspended`– prenumerationen blockeras och prenumeranten kan inte anropa alla API: er av produkten.<br /><br /> - `1 - active`– prenumerationen är aktiv.<br /><br /> - `2 - expired`– prenumerationen uppnåtts dess förfallodatum och har inaktiverats.<br /><br /> - `3 - submitted`– prenumerationsbegäran har gjorts av utvecklaren, men har ännu inte godkänts eller avvisats.<br /><br /> - `4 - rejected`– prenumerationsbegäran har nekats av en administratör.<br /><br /> - `5 - cancelled`– prenumerationen har avbrutits av utvecklare eller administratör.|  
+|Visningsnamn|sträng|Visningsnamnet för prenumerationen.|  
 |CreatedDate|Datum och tid|Det datum då prenumerationen skapades, i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|Booleskt värde|Om prenumerationen kan avbrytas av den aktuella användaren.|  
-|IsAwaitingApproval|Booleskt värde|Om prenumerationen väntar på godkännande.|  
+|CanBeCancelled|boolesk|Om prenumerationen kan avbrytas av den aktuella användaren.|  
+|IsAwaitingApproval|boolesk|Om prenumerationen väntar på godkännande.|  
 |Startdatum|Datum och tid|Startdatum för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
 |ExpirationDate|Datum och tid|Utgångsdatumet för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
 |NotificationDate|Datum och tid|Meddelande-datum för prenumerationen i ISO 8601-format: `2014-06-24T16:25:00Z`.|  
-|primaryKey|Sträng|Nyckeln primära prenumeration. Maximal längd är 256 tecken.|  
-|sekundär nyckel|Sträng|Sekundär prenumeration nyckeln. Maximal längd är 256 tecken.|  
-|CanBeRenewed|Booleskt värde|Om prenumerationen förnyas av den aktuella användaren.|  
-|HasExpired|Booleskt värde|Om prenumerationen har gått ut.|  
-|IsRejected|Booleskt värde|Om prenumerationsbegäran nekades.|  
-|CancelUrl|Sträng|Relativ Url som avbryter prenumerationen.|  
-|RenewUrl|Sträng|Relativ Url att förnya prenumerationen.|  
+|primaryKey|sträng|Nyckeln primära prenumeration. Maximal längd är 256 tecken.|  
+|sekundär nyckel|sträng|Sekundär prenumeration nyckeln. Maximal längd är 256 tecken.|  
+|CanBeRenewed|boolesk|Om prenumerationen förnyas av den aktuella användaren.|  
+|HasExpired|boolesk|Om prenumerationen har gått ut.|  
+|IsRejected|boolesk|Om prenumerationsbegäran nekades.|  
+|CancelUrl|sträng|Relativ Url som avbryter prenumerationen.|  
+|RenewUrl|sträng|Relativ Url att förnya prenumerationen.|  
   
 ##  <a name="SubscriptionSummary"></a>Prenumerationen sammanfattning  
  Den `subscription summary` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Id|Sträng|Resursidentifieraren. Identifierar prenumeration inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
-|DisplayName|Sträng|Visningsnamnet för prenumerationen|  
+|Id|sträng|Resursidentifieraren. Identifierar prenumeration inom den aktuella API Management service-instansen. Värdet är en giltig relativ URL i formatet `subscriptions/{sid}` där `{sid}` är ett prenumerations-ID. Den här egenskapen är skrivskyddad.|  
+|Visningsnamn|sträng|Visningsnamnet för prenumerationen|  
   
 ##  <a name="UserAccountInfo"></a>Information om användarkonto  
  Den `user account info` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|Förnamn|Sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|Efternamn|Sträng|Efternamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|E-post|Sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
-|Lösenord|Sträng|Lösenordet för användarkontot.|  
-|NameIdentifier|Sträng|Konto-ID detsamma som användarens e-postadress.|  
-|ProviderName|Sträng|Providernamn för autentisering.|  
-|IsBasicAccount|Booleskt värde|TRUE om det här kontot har registrerats med hjälp av e-post och lösenord. FALSKT om kontot har registrerats med hjälp av en provider.|  
+|Förnamn|sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|Efternamn|sträng|Efternamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|E-post|sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
+|Lösenord|sträng|Lösenordet för användarkontot.|  
+|NameIdentifier|sträng|Konto-ID detsamma som användarens e-postadress.|  
+|ProviderName|sträng|Providernamn för autentisering.|  
+|IsBasicAccount|boolesk|TRUE om det här kontot har registrerats med hjälp av e-post och lösenord. FALSKT om kontot har registrerats med hjälp av en provider.|  
   
 ##  <a name="UseSignIn"></a>Användaren logga in  
  Den `user sign in` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|E-post|Sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
-|Lösenord|Sträng|Lösenordet för användarkontot.|  
-|ReturnUrl|Sträng|URL till sidan där användaren har klickat på Logga in.|  
-|RememberMe|Booleskt värde|Om du vill spara den aktuella användarens information.|  
-|RegistrationEnabled|Booleskt värde|Om registrering är aktiverat.|  
-|DelegationEnabled|Booleskt värde|Om delegerade inloggning är aktiverat.|  
-|DelegationUrl|Sträng|Delegerad tecken i URL: en, om aktiverat.|  
-|SsoSignUpUrl|Sträng|URL: en enkel inloggning för användaren, om sådan finns.|  
-|AuxServiceUrl|Sträng|Om den aktuella användaren är administratör är en länk till instansen för tjänsten i Azure-portalen.|  
+|E-post|sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
+|Lösenord|sträng|Lösenordet för användarkontot.|  
+|ReturnUrl|sträng|URL till sidan där användaren har klickat på Logga in.|  
+|RememberMe|boolesk|Om du vill spara den aktuella användarens information.|  
+|RegistrationEnabled|boolesk|Om registrering är aktiverat.|  
+|DelegationEnabled|boolesk|Om delegerade inloggning är aktiverat.|  
+|DelegationUrl|sträng|Delegerad tecken i URL: en, om aktiverat.|  
+|SsoSignUpUrl|sträng|URL: en enkel inloggning för användaren, om sådan finns.|  
+|AuxServiceUrl|sträng|Om den aktuella användaren är administratör är en länk till instansen för tjänsten i Azure-portalen.|  
 |Leverantörer|Samling av [Provider](#Provider) entiteter|Autentiseringsproviders för den här användaren.|  
-|UserRegistrationTerms|Sträng|Villkoren som en användare måste acceptera att innan du loggar in.|  
-|UserRegistrationTermsEnabled|Booleskt värde|Om villkoren är aktiverade.|  
+|UserRegistrationTerms|sträng|Villkoren som en användare måste acceptera att innan du loggar in.|  
+|UserRegistrationTermsEnabled|boolesk|Om villkoren är aktiverade.|  
   
 ##  <a name="UserSignUp"></a>Användaren loggar in  
  Den `user sign up` entiteten har följande egenskaper.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|LösenordBekräfta|Booleskt värde|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
-|Lösenord|Sträng|Lösenordet för användarkontot.|  
-|PasswordVerdictLevel|nummer|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
-|UserRegistrationTerms|Sträng|Villkoren som en användare måste acceptera att innan du loggar in.|  
-|UserRegistrationTermsOptions|nummer|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
-|ConsentAccepted|Booleskt värde|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
-|E-post|Sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
-|Förnamn|Sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|Efternamn|Sträng|Efternamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
-|UserData|Sträng|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up) kontroll.|  
-|NameIdentifier|Sträng|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
-|ProviderName|Sträng|Providernamn för autentisering.|
+|LösenordBekräfta|boolesk|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
+|Lösenord|sträng|Lösenordet för användarkontot.|  
+|PasswordVerdictLevel|Antal|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
+|UserRegistrationTerms|sträng|Villkoren som en användare måste acceptera att innan du loggar in.|  
+|UserRegistrationTermsOptions|Antal|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
+|ConsentAccepted|boolesk|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
+|E-post|sträng|E-postadress. Får inte vara tomt och måste vara unika inom tjänstinstansen. Maximal längd är 254 tecken.|  
+|Förnamn|sträng|Förnamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|Efternamn|sträng|Efternamn. Får inte vara tomt. Maximal längd är 100 tecken.|  
+|UserData|sträng|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up) kontroll.|  
+|NameIdentifier|sträng|Värdet som används av den [anmälan](api-management-page-controls.md#sign-up)anmälan kontroll.|  
+|ProviderName|sträng|Providernamn för autentisering.|
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).

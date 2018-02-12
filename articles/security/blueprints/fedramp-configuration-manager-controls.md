@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - konfigurationshantering
-description: "Webbprogram för FedRAMP - konfigurationshantering"
+title: "Azure-säkerhet och hantering av regelefterlevnad modell - FedRAMP Web Applications Automation - konfiguration"
+description: FedRAMP Web Applications Automation - konfigurationshantering
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Konfigurationshantering (CM)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens princip för hantering av företagsnivå konfiguration och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-2"></a>NIST 800 53 kontrollen CM-2
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Representerar en ”som kod” konfigurationsbaslinje för distribuerad arkitektur Azure Resource Manager-mallar och tillhörande resurser som utgör den här Azure-modell. Lösningen tillhandahålls via GitHub, som kan användas för av konfigurationskontrollen. Lösningen innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Representerar en ”som kod” konfigurationsbaslinje för distribuerad arkitektur Azure Resource Manager-mallar och tillhörande resurser som utgör det här utkastet. Lösningen tillhandahålls via GitHub, som kan användas för av konfigurationskontrollen. Lösningen innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-1a"></a>NIST 800 53 kontrollen CM-2 (1) en
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och uppdatera grundläggande konfiguration av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-1b"></a>NIST 800 53 kontrollen CM-2 (1) .b
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och uppdatera grundläggande konfiguration av kunden distribuerade resurser vid behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-1c"></a>NIST 800 53 kontrollen CM-2 (1) .c
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och uppdatera grundläggande konfiguration av kunden distribuerade resurser vid behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-2"></a>NIST 800 53 kontrollen CM-2 (2)
@@ -105,8 +105,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Representerar en ”som kod” konfigurationsbaslinje för distribuerad arkitektur Azure Resource Manager-mallar och tillhörande resurser som utgör den här Azure-modell. Lösningen tillhandahålls via GitHub, som kan användas för av konfigurationskontrollen. Ett automation-skript är tillgänglig för alla distribuerade resurser i Azure-portalen och ger en alltid uppdaterad representation av dessa resurser.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Representerar en ”som kod” konfigurationsbaslinje för distribuerad arkitektur Azure Resource Manager-mallar och tillhörande resurser som utgör det här utkastet. Lösningen tillhandahålls via GitHub, som kan användas för av konfigurationskontrollen. Ett automation-skript är tillgänglig för alla distribuerade resurser i Azure-portalen och ger en alltid uppdaterad representation av dessa resurser.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-3"></a>NIST 800 53 kontrollen CM-2 (3)
@@ -120,7 +120,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att behålla tidigare versioner av baslinjen konfigurationer för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-2-7a"></a>NIST 800 53 styra schemanivån för CM-2 (7)
@@ -134,7 +134,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen kund-kontrollerade fysiska enheter inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure kunden innehållet lagras aldrig utanför Microsoft Azure, vilket inte fysiskt finns inom continental USA. Microsoft Azure-personal reser inte med enheter som ingår i Microsoft Azure-lagret. Därför gäller inte den här kontrollen till Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure kunden innehållet lagras aldrig utanför Microsoft Azure, vilket inte fysiskt finns inom continental USA. Microsoft Azure-personal reser inte med enheter som ingår i Microsoft Azure-lagret. Därför gäller inte den här kontrollen till Microsoft Azure. |
 
 
  ### <a name="nist-800-53-control-cm-2-7b"></a>NIST 800 53 styra CM-2 (7) .b
@@ -148,7 +148,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Det finns ingen kund-kontrollerade fysiska enheter inom omfånget för system som distribueras på Azure. |
-| **Providern (Microsoft Azure)** | Microsoft Azure kunden innehåll lagras aldrig utanför Microsoft Azure och Microsoft Azure-personal reser inte med enheter som ingår i Microsoft Azure-lagret, vilket denna kontroll gäller inte. |
+| **Provider (Microsoft Azure)** | Microsoft Azure kunden innehåll lagras aldrig utanför Microsoft Azure och Microsoft Azure-personal reser inte med enheter som ingår i Microsoft Azure-lagret, vilket denna kontroll gäller inte. |
 
 
  ## <a name="nist-800-53-control-cm-3a"></a>NIST 800 53 kontrollen CM-3.a
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att bestämma vilka typer av ändringar av kunden distribuerade resurser (till exempel program, operativsystem, databaser och programvara) är styrs av konfiguration. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3b"></a>NIST 800 53 kontrollen CM-3.b
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska föreslagna configuration-kontrollerade ändringar till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3c"></a>NIST 800 53 kontrollen CM-3.c
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att dokumentera configuration-kontrollerade ändringar som är kopplade till kunden distribuerade resurser (se 03.b CM). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3d"></a>NIST 800 53 kontrollen CM-3.d
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera configuration-kontrollerade ändringar som godkänts i CM-03.b. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3e"></a>NIST 800 53 kontrollen CM-3.e
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att behålla en post av configuration-kontrollerade ändringar av kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3f"></a>NIST 800 53 kontrollen CM-3.f
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för granskning och granskning av ändringar i konfigurationen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-3g"></a>NIST 800 53 kontrollen CM-3.g
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att samordna och tillhandahålla tillsyn för konfigurationsaktiviteter Ändra kontroll. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1a"></a>NIST 800 53 kontrollen CM-3 (1) en
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda automatisk mekanismer för att dokumentera föreslagna ändringar (se 03.b CM). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1b"></a>NIST 800 53 kontrollen CM-3 (1) .b
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en automatiserad mekanism för vägen och begäran om godkännande för föreslagna ändringar till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1c"></a>NIST 800 53 kontrollen CM-3 (1) .c
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en automatiserad metod för att markera inte granskats ändra förslag. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1d"></a>NIST 800 53 kontrollen CM-3 (1) .d
@@ -302,21 +302,21 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en automatiserad mekanism för att förhindra implementeringen av icke-godkända ändringar av kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1e"></a>NIST 800 53 kontrollen CM-3 (1) .e
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Konfiguration för ändringshantering | Automatisk dokumentet / meddelanden / förbud mot ändringar
 
-**CM-3 (1) .e** Organisationen använder automatisk mekanismer för att dokumentera alla ändringar till systemet.
+**CM-3 (1).e** Organisationen använder automatisk mekanismer för att dokumentera alla ändringar till systemet.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en automatiserad metod för att dokumentera alla implementerade ändringar av kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-1f"></a>NIST 800 53 kontrollen CM-3 (1) .f
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en automatiserad mekanism för meddelanden när godkända ändringar till kunden distribuerade resurser har slutförts. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-2"></a>NIST 800 53 kontrollen CM-3 (2)
@@ -344,7 +344,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för testning, och dokumentera ändringar till kunden distribuerade resurser före implementeringen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-4"></a>NIST 800 53 kontrollen CM-3 (4)
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att tilldela en information security representant om du vill vara medlem i det ändringen kontrollen elementet har definierats i CM-03.g. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-3-6"></a>NIST 800 53 kontrollen CM-3 (6)
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att säkerställa att kryptografiska metoder är under konfigurationshantering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-4"></a>NIST 800 53 kontrollen CM-4
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att analysera föreslagna ändringar till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-4-1"></a>NIST 800 53 kontrollen CM-4 (1)
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att analysera föreslagna ändringar till kunden distribuerade resurser i en testmiljö före implementering i en driftsmiljö. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-5"></a>NIST 800 53 kontrollen CM-5
@@ -414,7 +414,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Active Directory kontot behörighet implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till roller som tillhandahåller strikt kontroll över vilka användare kan visa och kontroll distribuerade resurser. Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. Dessa säkerhetsgrupper styr åtgärder som användarna kan utföra med avseende på operativsystemets konfiguration. Dessa rollbaserade scheman kan utökas av kunden uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-5-1"></a>NIST 800 53 kontrollen CM-5 (1)
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Active Directory kontot behörighet implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till roller som tillhandahåller strikt kontroll över vilka användare kan visa och kontroll distribuerade resurser. Behörighet för Active Directory implementeras med hjälp av rollbaserad åtkomstkontroll genom att tilldela användare till säkerhetsgrupper. Dessa säkerhetsgrupper styr åtgärder som användarna kan utföra med avseende på operativsystemets konfiguration. Alla har åtkomst och åtkomstförsök granskas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-5-2"></a>NIST 800 53 kontrollen CM-5 (2)
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska ändringar av kunden distribuerade resurser för att fastställa om obehöriga ändringar har inträffat. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-5-3"></a>NIST 800 53 kontrollen CM-5 (3)
@@ -455,8 +455,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Virtuella datorer som distribueras med den här Azure-modell implementera Windows AppLocker för att ange vilka användare kan installera eller köra vissa program. Ytterligare, alla Windows uppdateringar av operativsystemet är digitalt singed. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Virtuella datorer som distribueras med den här utkast implementera Windows AppLocker för att ange vilka användare kan installera eller köra vissa program. Ytterligare, alla Windows uppdateringar av operativsystemet är digitalt singed. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-5-5a"></a>NIST 800 53 styra schemanivån för CM-5 (5)
@@ -470,7 +470,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att begränsa behörighet för att göra ändringar i kunden distribuerade produktion eller operativa miljöer. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-5-5b"></a>NIST 800 53 styra CM-5 (5) .b
@@ -484,7 +484,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och reevaluating privilegier som definieras i en CM-05 (05). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-6a"></a>NIST 800 53 kontrollen CM-6.a
@@ -497,8 +497,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. Dessa deklarativ PowerShell-skript definierar och konfigurerar de resurser som de tillämpas. Baslinjen DSC ingår för resurser som distribueras med den här lösningen kan utökas av kunden uppdrag behov. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. Dessa deklarativ PowerShell-skript definierar och konfigurerar de resurser som de tillämpas. Baslinjen DSC ingår för resurser som distribueras med den här lösningen kan utökas av kunden uppdrag behov. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-6b"></a>NIST 800 53 kontroll-CM-6 b
@@ -511,8 +511,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. Baslinjer automatiskt tillämpas på virtuella datorer under distributionen med hjälp av tillägget för anpassat skript för virtuell dator. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet innehåller en baslinje för önskad tillstånd Configuration (DSC) för varje distribuerad virtuell dator. Baslinjer automatiskt tillämpas på virtuella datorer under distributionen med hjälp av tillägget för anpassat skript för virtuell dator. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-6c"></a>NIST 800 53 kontrollen CM-6
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att identifiera, dokumentera och godkänna eventuella avvikelser från etablerade konfigurationsinställningar för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-6d"></a>NIST 800 53 kontrollen CM-6.d
@@ -539,8 +539,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Automation DSC. Automation DSC justerar datorkonfigurationer med en viss konfiguration som definierats av organisationen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Automation DSC. Automation DSC justerar datorkonfigurationer med en viss konfiguration som definierats av organisationen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-6-1"></a>NIST 800 53 kontrollen CM-6 (1)
@@ -553,8 +553,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Azure Automation DSC. Automation DSC justerar datorkonfigurationer med en viss konfiguration som definierats av organisationen och övervakar kontinuerligt för ändringar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Azure Automation DSC. Automation DSC justerar datorkonfigurationer med en viss konfiguration som definierats av organisationen och övervakar kontinuerligt för ändringar. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-6-2"></a>NIST 800 53 kontrollen CM-6 (2)
@@ -567,8 +567,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Azure Automation DSC. En del av Azures Operations Management Suite (OMS), Automation DSC kan konfigureras att generera en avisering eller att åtgärda felaktiga konfigurationer om identifieras. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Azure Automation DSC. En del av Azures Operations Management Suite (OMS), Automation DSC kan konfigureras att generera en avisering eller att åtgärda felaktiga konfigurationer om identifieras. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-7a"></a>NIST 800 53 kontrollen CM-7.a
@@ -581,8 +581,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Resurser som har distribuerats av den här Azure-modell har konfigurerats för att tillhandahålla minst funktionerna för deras syfte. En önskad tillstånd Configuration DSC ()-baslinje ingår för varje distribuerad virtuell dator. Dessa deklarativ PowerShell-skript definierar och konfigurerar de resurser som de tillämpas. Baslinjen DSC ingår för resurser som distribueras med den här lösningen kan utökas av kunden att ytterligare begränsa funktioner som uppfyller behoven för verksamhetskritiska. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Resurser som har distribuerats av det här utkastet konfigureras för att tillhandahålla minst funktioner för deras syfte. En önskad tillstånd Configuration DSC ()-baslinje ingår för varje distribuerad virtuell dator. Dessa deklarativ PowerShell-skript definierar och konfigurerar de resurser som de tillämpas. Baslinjen DSC ingår för resurser som distribueras med den här lösningen kan utökas av kunden att ytterligare begränsa funktioner som uppfyller behoven för verksamhetskritiska. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-7b"></a>NIST 800 53 kontrollen CM-7.b
@@ -595,8 +595,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar Azure Application Gateway och nätverk säkerhetsgrupper för att begränsa användningen av portar och protokoll till endast de som är nödvändiga. Programgateway nätverkssäkerhetsgrupper och DSC baslinjer för virtuella datorer kan ytterligare konfigureras av kunden att begränsa användningen av funktioner, portar, protokoll och tjänster för att tillhandahålla de funktioner som avsett. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar Azure Application Gateway och nätverk säkerhetsgrupper för att begränsa användningen av portar och protokoll till endast de som är nödvändiga. Programgateway nätverkssäkerhetsgrupper och DSC baslinjer för virtuella datorer kan ytterligare konfigureras av kunden att begränsa användningen av funktioner, portar, protokoll och tjänster för att tillhandahålla de funktioner som avsett. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-1a"></a>NIST 800 53 kontrollen CM-7 (1) en
@@ -610,7 +610,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska kunden distribuerade resurser (om du vill inkludera program, operativsystem, databaser och programvara) för att identifiera onödiga och/eller osäkra funktioner, portar, protokoll och tjänster. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-1b"></a>NIST 800 53 kontrollen CM-7 (1) .b
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att inaktivera funktioner, portar, protokoll och tjänster som har bedömts vara onödiga eller osäkra. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-2"></a>NIST 800 53 kontrollen CM-7 (2)
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att förhindra att programmet körs i enlighet med kunddefinierade programvara användningsprinciper för programmet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-5a"></a>NIST 800 53 styra schemanivån för CM-7 (5)
@@ -652,7 +652,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att identifiera auktoriserade program. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-5b"></a>NIST 800 53 styra CM-7 (5) .b
@@ -666,7 +666,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda en neka alla tillstånd av undantag principen så att körningen av auktoriserade program på kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-7-5c"></a>NIST 800 53 styra CM-7 (5) .c
@@ -680,7 +680,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att granska och uppdatera listan över godkända programvaror. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-8a"></a>NIST 800 53 kontrollen CM-8.a
@@ -693,8 +693,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser och kan anpassas till taggen och grupp resurser för hantering av inventering. Resurser som distribueras med den här lösningen får en viss resurs-tagg som kan associeras med systemgränsen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser och kan anpassas till taggen och grupp resurser för hantering av inventering. Resurser som distribueras med den här lösningen får en viss resurs-tagg som kan associeras med systemgränsen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-8b"></a>NIST 800 53 kontrollen CM-8.b
@@ -707,8 +707,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser som är tillgänglig för granskning i Azure-portalen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser som är tillgänglig för granskning i Azure-portalen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-1"></a>NIST 800 53 kontrollen CM-8 (1)
@@ -721,8 +721,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Bladet resurser i Azure-portalen visar en lista över alla distribuerade resurser, tillhandahålla en alltid uppdaterad inventering som resurser har distribuerats och tas bort. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Bladet resurser i Azure-portalen visar en lista över alla distribuerade resurser, tillhandahålla en alltid uppdaterad inventering som resurser har distribuerats och tas bort. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-2"></a>NIST 800 53 kontrollen CM-8 (2)
@@ -735,8 +735,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Bladet resurser i Azure-portalen visar en lista över alla distribuerade resurser, tillhandahålla en alltid uppdaterad inventering som resurser har distribuerats och tas bort. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Bladet resurser i Azure-portalen visar en lista över alla distribuerade resurser, tillhandahålla en alltid uppdaterad inventering som resurser har distribuerats och tas bort. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-3a"></a>NIST 800 53 styra CM-8 (3) en
@@ -750,7 +750,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda automatisk mekanismer för att detektera förekomst av otillåten programvara i kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-3b"></a>NIST 800 53 styra CM-8 (3) .b
@@ -764,7 +764,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att vidta åtgärder när otillåten programvara upptäcks. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-4"></a>NIST 800 53 kontrollen CM-8 (4)
@@ -777,8 +777,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure-resurs-taggar är nyckel / värde-par som kan användas för att kategorisera resurser för accountability och/eller management ändamål. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure-resurs-taggar är nyckel / värde-par som kan användas för att kategorisera resurser för accountability och/eller management ändamål. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-8-5"></a>NIST 800 53 kontrollen CM-8 (5)
@@ -791,8 +791,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser. Resurser som distribueras med den här lösningen får en viss resurs-tagg som kan associeras med systemgränsen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar alla resurser till en resursgrupp i Azure Resource Manager. Azure Resource Manager tillhandahåller en alltid uppdaterad lista över distribuerade resurser. Resurser som distribueras med den här lösningen får en viss resurs-tagg som kan associeras med systemgränsen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-9a"></a>NIST 800 53 kontrollen CM-9.a
@@ -806,7 +806,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla, dokumentera och genomföra en plan för hantering av konfiguration för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-9b"></a>NIST 800 53 kontrollen CM-9.b
@@ -820,7 +820,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla, dokumentera och genomföra en plan för hantering av konfiguration för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-9c"></a>NIST 800 53 kontrollen CM-9.c
@@ -834,7 +834,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla, dokumentera och genomföra en plan för hantering av konfiguration för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-9d"></a>NIST 800 53 kontrollen CM-9.d
@@ -848,7 +848,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att utveckla, dokumentera och genomföra en plan för hantering av konfiguration för kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-10a"></a>NIST 800 53 kontrollen CM-10.a
@@ -861,8 +861,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Licenser för Windows och SQL Server anges för de resurser som distribueras med den här Azure-modell. Detta är en inbyggd funktion i Azure. Organisationer med befintliga licensavtal kan överväga att distribuera alternativa licens modeller. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Windows- och SQL Server-licenser ingår för resurser som har distribuerats av det här utkastet. Detta är en inbyggd funktion i Azure. Organisationer med befintliga licensavtal kan överväga att distribuera alternativa licens modeller. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-10b"></a>NIST 800 53 kontrollen CM-10.b
@@ -875,8 +875,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Licenser för Windows och SQL Server anges för de resurser som distribueras med den här Azure-modell. Användaren behöver inte separat spåra användning av licenser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Windows- och SQL Server-licenser ingår för resurser som har distribuerats av det här utkastet. Användaren behöver inte separat spåra användning av licenser. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-10c"></a>NIST 800 53 kontrollen CM-10.c
@@ -889,8 +889,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen peer-to-peer-fil som delar kapaciteten som distribueras med den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen peer-to-peer-fil som delar kapaciteten som distribuerats av det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-10-1"></a>NIST 800 53 kontrollen CM-10 (1)
@@ -904,7 +904,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Princip för hantering av kundens på företagsnivå konfiguration kan adressera begränsningar för användning av programvara med öppen källkod. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-11a"></a>NIST 800 53 kontrollen CM-11.a
@@ -918,7 +918,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att upprätta en princip som gäller för installationen av programvaran på kunden distribuerade resurser av användare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-11b"></a>NIST 800 53 kontrollen CM-11.b
@@ -932,7 +932,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att genomdriva principer för Programvaruinstallation. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-cm-11c"></a>NIST 800 53 kontrollen CM-11.c
@@ -946,7 +946,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att övervaka efterlevnaden av kunden distribuerade resurser med principer som identifieras i CM-11.a. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-cm-11-1"></a>NIST 800 53 kontrollen CM-11 (1)
@@ -960,5 +960,5 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att tillhandahålla aviseringar när obehörig installationen av programvaran har upptäckts. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 

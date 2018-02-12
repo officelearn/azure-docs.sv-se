@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -21,7 +21,7 @@ Resursdefinitionen princip som används av principen i Azure kan du etablera kon
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
-* läge
+* Läge
 * parameters
 * Visningsnamn
 * description
@@ -66,14 +66,11 @@ Alla Azure princip mallen prover finns på [mallar för Azure princip](json-samp
 
 ## <a name="mode"></a>Läge
 
-Vi rekommenderar att du ställer in `mode` till `all` har en princip för tilldelning utvärdera alla resursgrupper och typer. Du kan se ett exempel på en principdefinition som tillämpar taggarna i en resursgrupp i [Tillåt anpassade VM-avbildning från en resursgrupp](scripts/allow-custom-vm-image.md).
+Den **läge** bestämmer vilka typer av resurser som ska utvärderas för en princip. Läget stöds är:
+* `all`: utvärderar resursgrupper och alla typer av resurser 
+* `indexed`: endast utvärdera resurstyper som har stöd för etiketter och plats
 
-När du anger till **alla**, resursgrupper och alla resurstyper utvärderas för principen. Portalen använder **alla** för alla principer. Om du använder PowerShell eller Azure CLI, måste du ange den `mode` parametern och ange det till **alla**.
-
-Alla principdefinitioner som skapats med hjälp av portalen använder en `all` läge, men om du vill använda PowerShell eller Azure CLI, måste du ange den `mode` parametern och ange det till `all`.
-
-Om du anger läget till `indexed`, principtilldelningen utvärderas endast om resurstyper som har stöd för etiketter och plats.
-
+Vi rekommenderar att du ställer in **läge** till `all`. Alla principdefinitioner som skapats via portalen användningen av `all` läge. Om du använder PowerShell eller Azure CLI, måste du ange den **läge** parametern och ange det till `all`. 
 
 ## <a name="parameters"></a>Parametrar
 

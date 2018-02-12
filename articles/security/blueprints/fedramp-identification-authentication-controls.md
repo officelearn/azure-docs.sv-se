@@ -1,6 +1,6 @@
 ---
-title: FedRAMP Azure utkast Automation - identifiering och verifiering
-description: "Webbprogram för FedRAMP - identifiering och verifiering"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation - identifiering och autentisering"
+description: FedRAMP Web Applications Automation - identifiering och verifiering
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identifiering och verifiering (IA)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kundens på företagsnivå identifiering och verifiering principer och procedurer kan vara tillräcklig för att åtgärda den här kontrollen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-2"></a>NIST 800 53 kontrollen IA-2
@@ -49,8 +49,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Konton som skapats av den här Azure-modell har unika identifierare. Inbyggda konton med icke-unika identifierare inaktiverats eller tagits bort. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Konton som skapats av den här modell har unika identifierare. Inbyggda konton med icke-unika identifierare inaktiverats eller tagits bort. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-1"></a>NIST 800 53 kontrollen IA-2 (1)
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera multifaktorautentisering för nätverksåtkomst till behöriga konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-2"></a>NIST 800 53 kontrollen IA-2 (2)
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera multifaktorautentisering för nätverksåtkomst till icke-privilegierade konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-3"></a>NIST 800 53 kontrollen IA-2 (3)
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden har inte åtkomst till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tillåter inte lokal åtkomst om fysisk åtkomst krävs. Lokal administratörsåtkomst endast användas för att felsöka problem i fall där medlemsservern upplever nätverksproblem och domänautentisering fungerar inte. <br /> Azure implementerar flerfunktionsautentisering för lokal åtkomst via åtkomst kontrollmekanismer som krävs för fysisk åtkomst till miljön. Lokaler i Azure-datacenter som innehåller alla Azure infrastruktursystem systemgränsen begränsas via olika fysiska säkerhetsmekanismer, inklusive krav för företagets smartkort badging åtkomst och biometriska enheter. Båda typer av autentisering krävs för fysisk åtkomst vid ingång pekar på Azure-datacenter colocations. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tillåter inte lokal åtkomst om fysisk åtkomst krävs. Lokal administratörsåtkomst endast användas för att felsöka problem i fall där medlemsservern upplever nätverksproblem och domänautentisering fungerar inte. <br /> Azure implementerar flerfunktionsautentisering för lokal åtkomst via åtkomst kontrollmekanismer som krävs för fysisk åtkomst till miljön. Lokaler i Azure-datacenter som innehåller alla Azure infrastruktursystem systemgränsen begränsas via olika fysiska säkerhetsmekanismer, inklusive krav för företagets smartkort badging åtkomst och biometriska enheter. Båda typer av autentisering krävs för fysisk åtkomst vid ingång pekar på Azure-datacenter colocations. |
 
 
  ### <a name="nist-800-53-control-ia-2-4"></a>NIST 800 53 kontrollen IA-2 (4)
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden har inte åtkomst till alla systemresurser i Azure-datacenter. |
-| **Providern (Microsoft Azure)** | Microsoft Azure tar hänsyn till alla Microsoft Azure Government-konton som används av Microsoft Azure Government-personal som Privilegierade. Multifaktorautentisering har implementerats för alla Microsoft Azure Government personal konton med smartkort och PIN-koder, vilket innefattar lokal åtkomst. |
+| **Provider (Microsoft Azure)** | Microsoft Azure tar hänsyn till alla Microsoft Azure Government-konton som används av Microsoft Azure Government-personal som Privilegierade. Multifaktorautentisering har implementerats för alla Microsoft Azure Government personal konton med smartkort och PIN-koder, vilket innefattar lokal åtkomst. |
 
 
  ### <a name="nist-800-53-control-ia-2-5"></a>NIST 800 53 kontrollen IA-2 (5)
@@ -119,8 +119,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-8"></a>NIST 800 53 kontrollen IA-2 (8)
@@ -133,8 +133,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Åtkomst till resurser som distribueras med den här Azure-modell är skyddat från repetitionsattacker av inbyggda Kerberos-funktionerna i Azure Active Directory, Active Directory och Windows-operativsystemet. I Kerberos-autentisering innehåller autentiseraren skickades av klienten ytterligare data, till exempel en krypterad IP-lista och klienten tidsstämplar biljett livslängd. Om ett paket spelas kontrolleras tidsstämpel. Om tidsstämpeln är tidigare än, eller samma som en tidigare authenticator paketet avvisas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Åtkomst till resurser som distribueras med den här utkast skyddas från repetitionsattacker av inbyggda Kerberos-funktionerna i Azure Active Directory, Active Directory och Windows-operativsystemet. I Kerberos-autentisering innehåller autentiseraren skickades av klienten ytterligare data, till exempel en krypterad IP-lista och klienten tidsstämplar biljett livslängd. Om ett paket spelas kontrolleras tidsstämpel. Om tidsstämpeln är tidigare än, eller samma som en tidigare authenticator paketet avvisas. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-9"></a>NIST 800 53 kontrollen IA-2 (9)
@@ -147,8 +147,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Åtkomst till resurser som distribueras med den här Azure-modell är skyddat från repetitionsattacker av inbyggda Kerberos-funktionerna i Azure Active Directory, Active Directory och Windows-operativsystemet. I Kerberos-autentisering innehåller autentiseraren skickades av klienten ytterligare data, till exempel en krypterad IP-lista och klienten tidsstämplar biljett livslängd. Om ett paket spelas kontrolleras tidsstämpel. Om tidsstämpeln är tidigare än, eller samma som en tidigare authenticator paketet avvisas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Åtkomst till resurser som distribueras med den här utkast skyddas från repetitionsattacker av inbyggda Kerberos-funktionerna i Azure Active Directory, Active Directory och Windows-operativsystemet. I Kerberos-autentisering innehåller autentiseraren skickades av klienten ytterligare data, till exempel en krypterad IP-lista och klienten tidsstämplar biljett livslängd. Om ett paket spelas kontrolleras tidsstämpel. Om tidsstämpeln är tidigare än, eller samma som en tidigare authenticator paketet avvisas. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-11"></a>NIST 800 53 kontrollen IA-2 (11)
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera multifaktorautentisering för att fjärransluta till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-2-12"></a>NIST 800 53 kontrollen IA-2 (12)
@@ -176,7 +176,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att acceptera och verifiera personliga Identity Verification PIV ()-autentiseringsuppgifter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-3"></a>NIST 800 53 kontrollen IA-3
@@ -190,7 +190,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att implementera enheten identifiering och verifiering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-4a"></a>NIST 800 53 kontrollen IA-4.a
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera identifierare (d.v.s. enskilda användare, grupper, roller och -enheter) för kund-resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-4b"></a>NIST 800 53 kontrollen IA-4.b
@@ -217,8 +217,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell uppmanar under distributionen för anges av kunden identifierare för enskilda konton.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet uppmanar under distributionen för anges av kunden identifierare för enskilda konton.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-4c"></a>NIST 800 53 kontrollen IA-4.c
@@ -232,7 +232,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera identifierare (d.v.s. enskilda användare, grupper, roller och -enheter) för kund-resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-4d"></a>NIST 800 53 kontrollen IA-4.d
@@ -246,7 +246,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Active Directory och lokala konton i Windows-operativsystem har tilldelats en unika säkerhetsidentifierare (SID). Azure Active Directory-konton tilldelas ett globalt unikt objekt-ID. De här unika ID: N är inte kan återanvändas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-4e"></a>NIST 800 53 kontrollen IA-4.e
@@ -259,8 +259,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar en schemalagd aktivitet för Active Directory för att automatiskt inaktivera konton efter 35 dagar av inaktivitet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar en schemalagd aktivitet för Active Directory för att automatiskt inaktivera konton efter 35 dagar av inaktivitet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-4-4"></a>NIST 800 53 kontrollen IA-4 (4)
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Active Directory och Active Directory-stöd som anger leverantörer, leverantörer och andra användare med hjälp av namnkonventioner som tillämpas på deras identifierare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5a"></a>NIST 800 53 kontrollen IA-5.a
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera autentiserare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5b"></a>NIST 800 53 kontrollen IA-5.b
@@ -301,8 +301,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla inledande authenticator innehåll för konton som skapats av den här Azure-modell uppfyller de krav som anges i IA-5 (1) kontrolleras när anges av kunden under distributionen.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla inledande authenticator innehåll för konton som skapats av den här utkast uppfyller de krav som anges i IA-5 (1) kontrolleras när anges av kunden under distributionen.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5c"></a>NIST 800 53 kontrollen IA-5.c
@@ -315,8 +315,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Autentiseringar som används av den här Azure utkast uppfyller kraven för styrkan som krävs av FedRAMP. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Autentiseringar som används av den här utkast uppfyller kraven för styrkan som krävs av FedRAMP. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5d"></a>NIST 800 53 kontrollen IA-5.d
@@ -330,7 +330,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera autentiserare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5e"></a>NIST 800 53 kontrollen IA-5.e
@@ -343,8 +343,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Alla autentiserare för komponenter i den här Azure-modell har ändrats från standardvärdena. Autentiserare kan anges av kunden under distributionen av den här lösningen. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Alla autentiserare för komponenter i den här modell har ändrats från standardvärdena. Autentiserare kan anges av kunden under distributionen av den här lösningen. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5f"></a>NIST 800 53 kontrollen IA-5.f
@@ -358,7 +358,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att hantera autentiserare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5g"></a>NIST 800 53 kontrollen IA-5.g
@@ -371,8 +371,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerad för att implementera begränsningar för lösenord livslängden (60 dagar). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerad för att implementera begränsningar för lösenord livslängden (60 dagar). |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5h"></a>NIST 800 53 kontrollen IA-5.h
@@ -385,8 +385,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Key Vault för att skydda authenticator innehåll från obehöriga avslöjande och ändringar. Följande autentiserare lagras i Nyckelvalvet: Azure-lösenord för distribuera kontot, virtuella administratörslösenord och lösenordet för SQL Server-tjänsten. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Key Vault för att skydda authenticator innehåll från obehöriga avslöjande och ändringar. Följande autentiserare lagras i Nyckelvalvet: Azure-lösenord för distribuera kontot, virtuella administratörslösenord och lösenordet för SQL Server-tjänsten. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5i"></a>NIST 800 53 kontrollen IA-5.i
@@ -399,8 +399,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell implementerar Key Vault för att skydda authenticator innehåll från obehöriga avslöjande och ändringar. Följande autentiserare lagras i Nyckelvalvet: Azure-lösenord för distribuera kontot, virtuella administratörslösenord och lösenordet för SQL Server-tjänsten. Key Vault krypterar nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet implementerar Key Vault för att skydda authenticator innehåll från obehöriga avslöjande och ändringar. Följande autentiserare lagras i Nyckelvalvet: Azure-lösenord för distribuera kontot, virtuella administratörslösenord och lösenordet för SQL Server-tjänsten. Key Vault krypterar nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-5j"></a>NIST 800 53 kontrollen IA-5.j
@@ -413,8 +413,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med den här Azure-modell. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Inga delade/grupp-konton är aktiverade på resurser som distribueras med det här utkastet. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1a"></a>NIST 800 53 kontrollen IA-5 (1) en
@@ -427,8 +427,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerats för att upprätthålla kraven på lösenordskomplexitet för lokala konton för virtuell dator och AD-konton.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerats för att upprätthålla kraven på lösenordskomplexitet för lokala konton för virtuell dator och AD-konton.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1b"></a>NIST 800 53 kontrollen IA-5 (1) .b
@@ -442,7 +442,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda lösenordsbaserad autentisering med kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1c"></a>NIST 800 53 kontrollen IA-5 (1) .c
@@ -456,7 +456,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Directory används för att se till att alla lösenord skyddas kryptografiskt medan lagras och överförs. Lösenord som lagras av Active Directory och lokalt på distribuerade virtuella Windows-datorer kodas automatiskt som en del av inbyggda säkerhetsfunktionerna. Remote desktop autentisering sessioner är skyddade använder TLS för att garantera autentiserare skyddas när de skickas. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1d"></a>NIST 800 53 kontrollen IA-5 (1) .d
@@ -469,22 +469,22 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip upprättas och konfigurerats till att framtvinga begränsningar för lösenord som tvinga minsta (1 dag) och högsta (60 dagar) livstid begränsningar för AD och lokala konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En grupprincip upprättas och konfigurerats till att framtvinga begränsningar för lösenord som tvinga minsta (1 dag) och högsta (60 dagar) livstid begränsningar för AD och lokala konton. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1e"></a>NIST 800 53 kontrollen IA-5 (1) .e
 
 #### <a name="authenticator-management--password-based-authentication"></a>Hantering av Authenticator | Lösenordsbaserad autentisering
 
-**.E IA-5 (1)** Systemets information för lösenordsbaserad autentisering förhindrar återanvändning av lösenord för [tilldelning: organisation definierats nummer] generationer.
+**IA-5 (1).e** Systemets information för lösenordsbaserad autentisering förhindrar återanvändning av lösenord för [tilldelning: organisation definierats nummer] generationer.
 
 **Ansvarsområden:**`Customer Only`
 
 |||
 |---|---|
-| **Kunden** | Den här Azure-modell distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerats till att framtvinga begränsningar på återanvändning villkor (24 lösenord) för AD och lokala konton. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det här utkastet distribuerar en domänkontrollant som alla distribuerade virtuella datorer är anslutna. En Grupprincip är etablerad och konfigurerats till att framtvinga begränsningar på återanvändning villkor (24 lösenord) för AD och lokala konton. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-1f"></a>NIST 800 53 kontrollen IA-5 (1) .f
@@ -498,7 +498,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Azure Active Directory används för att hantera styr åtkomsten till systemet. När ett konto skapas, eller ett tillfälligt lösenord skapas, används Azure Active Directory och kräver att användaren ändra lösenord vid nästa inloggning. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800 53 kontrollen IA-5 (2) en
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda PKI-baserad autentisering inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-2b"></a>NIST 800 53 kontrollen IA-5.2 .b
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda PKI-baserad autentisering inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800 53 kontrollen IA-5 (2) .c
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda PKI-baserad autentisering inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-2d"></a>NIST 800 53 kontrollen IA-5 (2) .d
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda PKI-baserad autentisering inom kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-3"></a>NIST 800 53 kontrollen IA-5 (3)
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att registrera autentiserare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-4"></a>NIST 800 53 kontrollen IA-5 (4)
@@ -581,8 +581,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Användarkonton som distribueras med den här Azure-modell innehåller AD och lokala användarkonton. Båda dessa ger mekanismer som tvingar kompatibilitet med etablerade lösenordskrav för att skapa ett initialt lösenord och under lösenordsändringar. Azure Active Directory är automatiseringsverktyg utnyttjas för att fastställa om lösenordet autentiserare är tillräckligt starkt att uppfylla längd på lösenord, komplexitet, rotation och livslängd begränsningar som fastställs i IA-5 (1). Azure Active Directory säkerställer att authenticator lösenordssäkerhet när skapas uppfyller dessa normer. Kunden har angett lösenord som används för att distribuera den här lösningen kontrolleras för att uppfylla lösenordskrav. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Användarkonton som distribueras med den här utkast innehåller AD och lokala användarkonton. Båda dessa ger mekanismer som tvingar kompatibilitet med etablerade lösenordskrav för att skapa ett initialt lösenord och under lösenordsändringar. Azure Active Directory är automatiseringsverktyg utnyttjas för att fastställa om lösenordet autentiserare är tillräckligt starkt att uppfylla längd på lösenord, komplexitet, rotation och livslängd begränsningar som fastställs i IA-5 (1). Azure Active Directory säkerställer att authenticator lösenordssäkerhet när skapas uppfyller dessa normer. Kunden har angett lösenord som används för att distribuera den här lösningen kontrolleras för att uppfylla lösenordskrav. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-6"></a>NIST 800 53 kontrollen IA-5 (6)
@@ -596,7 +596,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att skydda autentiserare. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-7"></a>NIST 800 53 kontrollen IA-5 (7)
@@ -609,8 +609,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Det finns ingen användning av okrypterade statiska autentiserare inbäddade i program, skript för att komma åt eller funktionstangenter som distribueras med den här Azure-modell. Skript eller program som använder en autentiserare gör ett anrop till en Azure Key Vault-behållare före varje användning. Åtkomst till Azure Key Vault behållare granskas, vilket gör att identifiering av brott mot detta förbud om ett tjänstkonto som används för att komma åt ett system utan ett motsvarande anrop till Azure Key Vault-behållaren. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Det finns ingen användning av okrypterade statiska autentiserare inbäddade i program, skript för att komma åt eller funktionstangenter som distribuerats av det här utkastet. Skript eller program som använder en autentiserare gör ett anrop till en Azure Key Vault-behållare före varje användning. Åtkomst till Azure Key Vault behållare granskas, vilket gör att identifiering av brott mot detta förbud om ett tjänstkonto som används för att komma åt ett system utan ett motsvarande anrop till Azure Key Vault-behållaren. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-8"></a>NIST 800 53 kontrollen IA-5 (8)
@@ -624,7 +624,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden kan förlita sig på företagsnivå säkerhetsåtgärder för att hantera risker som är kopplade till enskilda användare med konton på flera system. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-11"></a>NIST 800 53 kontrollen IA-5 (11)
@@ -638,7 +638,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda mekanismer för att uppfylla maskinvarukraven tokenbaserad autentisering kvalitet. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-5-13"></a>NIST 800 53 kontrollen IA-5 (13)
@@ -651,8 +651,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Inga resurser har distribuerats av den här Azure-modell är konfigurerade för att tillåta användning av cachelagrade autentiserare. Autentisering för att distribuerade virtuella datorer kräver att en autentiserare anges vid tidpunkten för autentisering. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Inga resurser har distribuerats av den här modell är konfigurerade för att tillåta användning av cachelagrade autentiserare. Autentisering för att distribuerade virtuella datorer kräver att en autentiserare anges vid tidpunkten för autentisering. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-6"></a>NIST 800 53 kontrollen IA-6
@@ -665,8 +665,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Åtkomst till resurser som distribueras med den här Azure-modell är via fjärrskrivbord och bygger på Windows-autentisering. Standardbeteendet för Windows-autentisering sessioner döljer lösenord när indata under en session för autentisering.  |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Åtkomst till resurser som distribueras med den här modell är via fjärrskrivbord och bygger på Windows-autentisering. Standardbeteendet för Windows-autentisering sessioner döljer lösenord när indata under en session för autentisering.  |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-7"></a>NIST 800 53 kontrollen IA-7
@@ -679,8 +679,8 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Kunden** | Windows-autentisering, fjärrskrivbord och BitLocker är anställda av den här Azure-modell. Dessa komponenter kan konfigureras för att förlita sig på FIPS 140 validerade kryptografiska modulerna. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Kunden** | Windows-autentisering, fjärrskrivbord och BitLocker är anställda av det här utkastet. Dessa komponenter kan konfigureras för att förlita sig på FIPS 140 validerade kryptografiska modulerna. |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ## <a name="nist-800-53-control-ia-8"></a>NIST 800 53 kontrollen IA-8
@@ -694,7 +694,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att identifiera och autentisera icke organisationens användare åtkomst till kunden distribuerade resurser. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-8-1"></a>NIST 800 53 kontrollen IA-8 (1)
@@ -708,7 +708,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att acceptera och verifiera personliga Identity Verification PIV ()-autentiseringsuppgifter som utfärdats av andra federala myndigheter. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-8-2"></a>NIST 800 53 kontrollen IA-8 (2)
@@ -722,7 +722,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att endast acceptera tredjeparts-autentiseringsuppgifter som har godkänts av initiativet Federal identitet, autentiseringsuppgifter och Access Management (FICAM) förtroende Framework lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-8-3"></a>NIST 800 53 kontrollen IA-8 (3)
@@ -736,7 +736,7 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden ansvarar för att använda endast Federal identitet, autentiseringsuppgifter och Access Management (FICAM) förtroende Framework lösningar initiativ godkända resurser för att acceptera autentiseringsuppgifter från tredje part. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |
 
 
  ### <a name="nist-800-53-control-ia-8-4"></a>NIST 800 53 kontrollen IA-8 (4)
@@ -750,4 +750,4 @@ ms.lasthandoff: 11/23/2017
 |||
 |---|---|
 | **Kunden** | Kunden är ansvarig för som överensstämmer med de profiler som utfärdats av initiativet Federal identitet, autentiseringsuppgifter och Access Management (FICAM) förtroende Framework lösningar. |
-| **Providern (Microsoft Azure)** | Inte tillämpligt |
+| **Provider (Microsoft Azure)** | Inte tillämpligt |

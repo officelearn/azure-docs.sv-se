@@ -90,7 +90,6 @@
 ### [Introduktion till loggintegrering med Azure](security-azure-log-integration-overview.md)
 #### [Komma igång med loggintegrering med Azure](security-azure-log-integration-get-started.md)
 #### [Integrera Azure Active Directory med granskningsloggar](security-azure-log-integration-ad.md)
-#### [Integrera aviseringar i Security Center](security-azure-log-integration-security-center.md)
 #### [Integrera loggar från Key Vault med Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Vanliga frågor och svar](security-azure-log-integration-faq.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Data Lake Store med hjälp av Azure portal
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ I det här avsnittet skapar du ett HDInsight-kluster med Data Lake Store-konton 
 
     ![Lägg till tjänstens huvudnamn till HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Lägg till tjänstens huvudnamn till HDInsight-kluster")
 
-    - **Välj Data Lake Store-konto**: Välj ett befintligt Data Lake Store-konto. Ett befintligt Data Lake Store-konto krävs.  Se [krav](#prereuisites).
+    - **Välj Data Lake Store-konto**: Välj ett befintligt Data Lake Store-konto. Ett befintligt Data Lake Store-konto krävs.  Se [krav](#prerequisites).
     - **Rotsökvägen**: Ange en sökväg där klusterspecifika filerna ska lagras. På skärmbilden, är det __/kluster-myhdiadlcluster__, där den __/kluster__ mappen måste finnas och skapar portalen *myhdicluster* mapp.  Den *myhdicluster* är klusternamnet.
     - **Data Lake Store-åtkomst**: Konfigurera åtkomst mellan Data Lake Store-konto och HDInsight-kluster. Instruktioner finns i [konfigurera Data Lake Store-åtkomst](#configure-data-lake-store-access).
     - **Ytterligare lagringskonton**: Lägg till Azure Storage-konton som ytterligare lagringsutrymme konton för klustret. Om du vill lägga till ytterligare görs Data Lake lagrar genom att ge behörigheterna som klustret på data i flera datasjölagerkonton när du konfigurerar ett Data Lake Store-konto som den primära lagringstypen. Läs mer i [Konfigurera åtkomst till Data Lake Store](#configure-data-lake-store-access).

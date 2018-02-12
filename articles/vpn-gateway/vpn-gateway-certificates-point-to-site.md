@@ -1,6 +1,6 @@
 ---
 title: "Generera och exporterar certifikat för plats-till-plats: PowerShell: Azure | Microsoft Docs"
-description: "Den här artikeln innehåller steg för att skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med hjälp av PowerShell på Windows 10."
+description: "Den här artikeln innehåller steg för att skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: be2e8fe12dee88ccf81faaa114056a29e03881bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Generera och exporterar certifikat för plats-till-plats-anslutningar med hjälp av PowerShell på Windows 10
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Generera och exporterar certifikat för plats-till-plats-anslutningar med hjälp av PowerShell på Windows 10 eller Windows Server 2016
 
-Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna Configure punkt-till-platsen från listan nedan:
+Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna Configure punkt-till-platsen från listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Skapa självsignerat certifikat - PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -35,15 +35,15 @@ Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här 
 > 
 
 
-Du måste utföra stegen i den här artikeln på en dator som kör Windows 10. PowerShell-cmdlets som används för att generera certifikat är en del av operativsystemet Windows 10 och fungerar inte på andra versioner av Windows. Windows 10-dator krävs endast för att generera certifikat. När certifikat som genereras kan du överför dem. eller installera dem på alla operativsystem stöds för klientdatorer. 
+Du måste utföra stegen i den här artikeln på en dator som kör Windows 10 eller Windows Server 2016. PowerShell-cmdlets som används för att generera certifikat är en del av operativsystemet och fungerar inte på andra versioner av Windows. Windows 10 eller Windows Server 2016-dator krävs endast för att generera certifikat. När certifikat som genereras kan du överför dem. eller installera dem på alla operativsystem stöds för klientdatorer. 
 
-Om du inte har tillgång till en Windows 10-dator kan du använda [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) att generera certifikat. De certifikat som du skapar med någon av metoderna kan installeras på något [stöds](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientoperativsystem.
+Om du inte har tillgång till en Windows 10 eller Windows Server 2016-dator kan du använda [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) att generera certifikat. De certifikat som du skapar med någon av metoderna kan installeras på något [stöds](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) klientoperativsystem.
 
 ## <a name="rootcert"></a>Skapa ett självsignerat rotcertifikat
 
 Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rotcertifikat. Ytterligare parameterinformation finns [ny SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Öppna en Windows PowerShell-konsol med utökade privilegier från en dator som kör Windows 10.
+1. Öppna en Windows PowerShell-konsol från en dator som kör Windows 10 eller Windows Server 2016 med förhöjd behörighet.
 2. Använd följande exempel för att skapa självsignerat rotcertifikatet. I följande exempel skapas ett självsignerat rotcertifikat med namnet 'P2SRootCert' som installeras automatiskt i 'Certifikat-aktuell User\Personal\Certificates'. Du kan visa certifikatet genom att öppna *certmgr.msc*, eller *Hantera användarcertifikat*.
 
   ```powershell

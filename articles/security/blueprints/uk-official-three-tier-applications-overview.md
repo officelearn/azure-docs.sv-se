@@ -1,6 +1,6 @@
 ---
-title: "Plan för Azure Automation - webbprogram med tre nivåer för Storbritannien officiella"
-description: "Azure utkast Automation & -webbprogram med tre nivåer för Storbritannien officiella"
+title: "Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation"
+description: "Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Plan för Azure Automation: Trelagers-webbprogram för Storbritannien officiella
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-säkerhet och efterlevnad modell - Storbritannien officiella tre skikt Web Applications Automation
 
 ## <a name="overview"></a>Översikt
 
  Den här artikeln innehåller vägledning och automation skript för att leverera en Microsoft Azure webbaserade trelagers-arkitektur för hantering av många arbetsbelastningar som klassificeras som officiella i Storbritannien.
 
- Med hjälp av en infrastruktur som kod hanterar uppsättningen av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (ARM) mallar distribuerar en miljö som justerar till den Storbritannien National Cyber Security Centre (NCSC) 14 [moln säkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)och Center för Internet Security (CIS) [kritiska säkerhetsåtgärder](https://www.cisecurity.org/critical-controls.cfm).
+ Med hjälp av en infrastruktur som kod hanterar uppsättningen av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar distribuerar en miljö som justerar till den Storbritannien National Cyber Security Centre (NCSC) 14 [moln säkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) och Center för Internet Security (CIS) [kritiska säkerhetsåtgärder](https://www.cisecurity.org/critical-controls.cfm).
 
  NCSC rekommenderar sina moln säkerhetsprinciper används av kunder att utvärdera säkerhetsegenskaperna för tjänsten och för att förstå divisionen av ansvar mellan kunden och leverantören. Vi har samlat informationen mot var och en av dessa principer som hjälper dig att förstå delningen av ansvarsområden.
 
- Den här arkitekturen och motsvarande ARM-mallar som stöds av Microsoft-whitepaper [Azure utkast för Storbritannien regering](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Det här dokumentet kataloger hur Azure-tjänster överensstämmer med den Storbritannien NCSC 14 molnet säkerhetsprinciper, så att organisationer snabb åtkomst till sin förmåga att uppfylla skyldigheterna kompatibilitet med molnbaserade tjänster globalt och i Storbritannien på Microsoft Azure moln.
+ Den här arkitekturen och motsvarande Azure Resource Manager-mallar som stöds av Microsoft-whitepaper [14 molnet säkerhetsåtgärder för ett visst moln med Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Det här dokumentet kataloger hur Azure-tjänster överensstämmer med den Storbritannien NCSC 14 molnet säkerhetsprinciper, så att organisationer snabb åtkomst till sin förmåga att uppfylla skyldigheterna kompatibilitet med molnbaserade tjänster globalt och i Storbritannien på Microsoft Azure moln.
 
  Den här mallen distribuerar infrastrukturen för arbetsbelastningen. Programkod och ge support affärsnivå och nivå av programvara måste installeras och konfigureras. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/ukwebappblueprintrepo).
 
@@ -44,22 +44,22 @@ ms.lasthandoff: 11/16/2017
 
  Den här lösningen använder följande Azure-tjänster. Information om arkitektur för distribution finns i den [distributionsarkitektur](#deployment-architecture) avsnitt.
 
-((1) /16 virtuellt nätverk - operativa VNet
+(1) /16 Virtual Network - Operational VNet
 - (3) /24 undernät - 3-skikts (webb-, Biz, Data)
 - (1) minst/27 undernät - lägger till
 - ((1) minst/27 undernät - Gateway-undernät
-- ((1) /29 undernät - programmet Gateway-undernät
+- (1) /29 subnet - Application Gateway Subnet
 - Använder som standard (Azure-tillhandahållna) DNS
 - Peering aktiverad till hantering av virtuellt nätverk
 - Nätverkssäkerhetsgrupp (NSG) för att hantera trafikflöde
 
-((1) /24 virtuellt nätverk – hantering av virtuellt nätverk
+(1) /24 Virtual Network - Management VNet
 - ((1) minst/27 undernät
 - Använder (2) lägger till DNS- och (1) Azure DNS-poster
 - Aktiverade till operativa VNet-peering
 - Nätverkssäkerhetsgrupp (NSG) för att hantera trafikflöde
 
-(1) Programgateway
+(1) Application Gateway
 - Brandvägg - aktiverad
 - Brandvägg läge - förebyggande
 - Regelsamlingen: OWASP 3.0
@@ -150,7 +150,7 @@ Lagring
 
 **Hantering av VNet**: detta [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) innehåller resurser som implementerar hantering och övervakning av funktioner för de arbetsbelastningar som körs i produktion VNet.
 
-**Jumpbox**: kallas även en [skyddsmiljö värden](https://en.wikipedia.org/wiki/Bastion_host), vilket är en säker virtuell dator i nätverket som administratörer använder för att ansluta till virtuella datorer i produktion VNet. Jumpbox har en NSG som tillåter fjärråtkomst trafik från offentliga IP-adresser i listan över säkra. Källan för trafiken måste definieras i NSG: N för att tillåta fjärråtkomst fjärrskrivbord (RDP)-trafik. Hantering av produktionsresurser är via RDP med hjälp av en skyddad Jumpbox-VM.
+**Jumpbox**: kallas även en [skyddsmiljö värden](https://en.wikipedia.org/wiki/Bastion_host), vilket är en säker virtuell dator i nätverket som administratörer använder för att ansluta till virtuella datorer i produktion VNet. Jumpboxen har en NSG som endast tillåter fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i NSG: N för att tillåta fjärråtkomst fjärrskrivbord (RDP)-trafik. Hantering av produktionsresurser är via RDP med hjälp av en skyddad Jumpbox-VM.
 
 **Användardefinierade vägar**: [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) används för att definiera flödet av IP-trafik i virtuella Azure-nätverk.
 
@@ -195,17 +195,17 @@ Dessa Vnet fortfarande hanteras som separata resurser, men visas som en gäller 
 
 ### <a name="security"></a>Säkerhet
 
-**Hantering av säkerhet**: den här Azure-modell gör att administratörer kan ansluta till hanteringsserver VNet och Jumpbox med RDP från en betrodd källa. Nätverkstrafik för hantering av virtuellt nätverk kontrolleras med hjälp av NSG: er. Åtkomst till port 3389 är begränsad till trafik från en betrodd IP-adressintervall som kan komma åt det undernät som innehåller Jumpbox.
+**Hantering av säkerhet**: den här modell gör att administratörer kan ansluta till hanteringsserver VNet och Jumpbox med RDP från en betrodd källa. Nätverkstrafik för hantering av virtuellt nätverk kontrolleras med hjälp av NSG: er. Åtkomst till port 3389 är begränsad till trafik från en betrodd IP-adressintervall som kan komma åt det undernät som innehåller Jumpbox.
 
 Kunder kan också överväga att använda en [förbättrad administrativ säkerhetsmodell](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) att skydda miljön vid anslutning till management VNet och Jumpbox. Vi rekommenderar för ökad säkerhet kunder att använda en [arbetsstation för privilegierad åtkomst](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) och RDGateway konfiguration. Användningen av virtuella nätverksenheter och offentliga och privata DMZs erbjuder ytterligare förbättringar av säkerhet.
 
-**Att skydda nätverket**: [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG: er) rekommenderas för varje undernät att tillhandahålla en andra nivå av skydd mot inkommande trafik som kringgår en felaktigt konfigurerad eller inaktiverad gateway. Exempel: [ARM-mall för att distribuera en NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Att skydda nätverket**: [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG: er) rekommenderas för varje undernät att tillhandahålla en andra nivå av skydd mot inkommande trafik som kringgår en felaktigt konfigurerad eller inaktiverad gateway. Exempel: [Resource Manager-mall för att distribuera en NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Skydda offentliga slutpunkter**: internet-gateway exponerar programtjänster för användare via internet. Trafik att komma åt dessa tjänster skyddas med en [Programgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), som tillhandahåller en brandvägg för webbaserade program och HTTPS-protokollet.
 
 **IP-adressintervall**: IP-adressintervall i arkitekturen finns föreslagna intervall. Kunder bör överväga sina egna miljö och använda lämpliga områden.
 
-**Hybridanslutning**: molnbaserad arbetsbelastningar som är anslutna till lokala datacentret via IPSEC VPN med hjälp av Azure VPN-Gateway. Kunder bör se till att de använder en lämplig VPN-Gateway för att ansluta till Azure. Exempel: [VPN-Gateway ARM-mallen](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som använder storskaliga, verksamhetskritiska arbetsbelastningar med stordata krav kanske vill ha en hybrid arkitektur med [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) privata nätverksanslutningen till Microsoft-molntjänster.
+**Hybridanslutning**: molnbaserad arbetsbelastningar är anslutna till det lokala datacentret via IPSEC VPN med hjälp av Azure VPN-Gateway. Kunder bör se till att de använder en lämplig VPN-Gateway för att ansluta till Azure. Exempel: [VPN-Gateway Resource Manager-mall](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som använder storskaliga, verksamhetskritiska arbetsbelastningar med stordata krav kanske vill ha en hybrid arkitektur med [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) privata nätverksanslutningen till Microsoft-molntjänster.
 
 **Uppdelning av säkerhetsskäl**: denna Referensarkitektur avgränsar Vnet för hanteringsåtgärder och verksamheten. Tillåt hantering, inklusive trafiken ingående och utgående begränsningar med hjälp av NSG: er mellan nätverkssegment följande separat Vnet och undernät [Microsoft cloud services och nätverkssäkerhet](https://docs.microsoft.com/azure/best-practices-network-security) bästa praxis.
 
@@ -221,17 +221,17 @@ Kunder kan också överväga att använda en [förbättrad administrativ säkerh
 
 Tjänsten kronornas kommersiella (agency som fungerar för att förbättra kommersiell och inköp av regering) förnyas klassificeringen av Microsoft i omfånget enterprise molntjänster G moln v6, som omfattar alla dess erbjudanden på officiella nivå. Information om Azure och G moln finns i den [Azure Storbritannien G-Cloud security assessment sammanfattning](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Storbritannien officiella Azure utkast lösningen justeras mot 14 moln-säkerhetsprinciper som finns dokumenterade i NCSC [moln säkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som har stöd för arbetsbelastningar som klassificeras som Storbritannien officiella.
+Det här utkastet justeras mot 14 moln-säkerhetsprinciper som finns dokumenterade i NCSC [moln säkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som har stöd för arbetsbelastningar som klassificeras som Storbritannien officiella.
 
 Den [kunden ansvar matrisen](https://aka.ms/blueprintuk-gcrm) (Excel-arbetsbok) visar alla 14 molnet säkerhetsprinciper och matrisen för varje princip (eller princip kapitel) anger om principen implementeringen ansvarar för Microsoft, kund, eller delas mellan två.
 
-Den [princip implementering matrisen](https://aka.ms/ukwebappblueprintpim) (Excel-arbetsbok) visar alla 14 molnet säkerhetsprinciper och matrisen anger, för varje princip (eller princip kapitel) som är utsedd ansvar för en kund i kunden Ansvarsområden matris, 1) om Azure utkast Automation implementerar principen och 2) en beskrivning av hur implementeringen överensstämmer med princip requirement(s). Det här innehållet är också tillgänglig [här](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+Den [princip implementering matrisen](https://aka.ms/ukwebappblueprintpim) (Excel-arbetsbok) visar alla 14 molnet säkerhetsprinciper och matrisen anger, för varje princip (eller princip kapitel) som är utsedd ansvar för en kund i kunden Ansvarsområden matris, 1) om utkast automation implementerar principen och 2) en beskrivning av hur implementeringen överensstämmer med princip requirement(s). Det här innehållet är också tillgänglig [här](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Dessutom publicerade Cloud Security Alliance (CSA) matrisen molntjänster kontroll för att stödja kunder vid utvärderingen av molntjänstleverantörer och identifiera frågor bör besvaras innan du fortsätter till molntjänster. Svar Microsoft Azure besvaras CSA konsensus Assessment initiativ frågeformulär ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), som beskriver hur Microsoft adresser föreslagna principerna.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Det finns två sätt som distribution kan användas för att distribuera den här lösningen för Azure-modell. Den första metoden använder ett PowerShell-skript, medan den andra metoden använder Azure Portal för att distribuera den referens för arkitekturen. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/ukwebappblueprintrepo).
+Det finns två sätt som distribution kan användas för att distribuera det här utkastet automation. Den första metoden använder ett PowerShell-skript, medan den andra metoden använder Azure-portalen för att distribuera den referens för arkitekturen. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
 

@@ -1,6 +1,6 @@
 ---
-title: "Plan för Azure Automation - webbprogram för FedRAMP"
-description: "Plan för Azure Automation - webbprogram för FedRAMP"
+title: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation"
+description: "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Plan för Azure Automation - webbprogram för FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation
 
 ## <a name="overview"></a>Översikt
 
-Den [Federal Risk och auktorisering hanteringsprogram (FedRAMP)](https://www.fedramp.gov), är ett US government hela program som tillhandahåller en standardiserad metod för utvärdering av säkerheten, auktorisering och kontinuerlig övervakning för molnet produkter och tjänster. Den här Azure utkast Automation - webbprogram för FedRAMP vägledning för distribution av en FedRAMP-kompatibel infrastruktur som en tjänst (IaaS) miljö som är lämplig för ett enkelt Internet-riktade webbprogram. Den här lösningen automatiserar distributionen och konfigurationen av Azure-resurser för en vanliga Referensarkitektur visar sätt där kunder kan uppfylla specifika krav för säkerhet och efterlevnad och fungerar som grund för kunder att bygga och Konfigurera sina egna lösningar på Azure. Lösningen implementerar en deluppsättning av kontroller från FedRAMP hög baslinje, baserat på NIST SP 800 53. Mer information om FedRAMP hög kraven och den här lösningen finns [FedRAMP höga krav - High-Level översikt](fedramp-controls-overview.md). ***Obs: Den här lösningen distribueras till Azure Government.***
+Den [Federal Risk och auktorisering hanteringsprogram (FedRAMP)](https://www.fedramp.gov), är ett US government hela program som tillhandahåller en standardiserad metod för utvärdering av säkerheten, auktorisering och kontinuerlig övervakning för molnet produkter och tjänster. Den här Azure-säkerhet och efterlevnad utkast Automation vägledning för distribution av en FedRAMP-kompatibel infrastruktur som en tjänst (IaaS) miljö som är lämplig för ett enkelt Internet-riktade webbprogram. Den här lösningen automatiserar distributionen och konfigurationen av Azure-resurser för en vanliga Referensarkitektur visar sätt där kunder kan uppfylla specifika krav för säkerhet och efterlevnad och fungerar som grund för kunder att bygga och Konfigurera sina egna lösningar på Azure. Lösningen implementerar en deluppsättning av kontroller från FedRAMP hög baslinje, baserat på NIST SP 800 53. Mer information om FedRAMP hög kraven och den här lösningen finns [FedRAMP höga krav - High-Level översikt](fedramp-controls-overview.md). ***Obs: Den här lösningen distribueras till Azure Government.***
 
 Den här arkitekturen är avsett att utgöra grunden för kunder att justera sina särskilda krav och ska inte användas som – i en produktionsmiljö. Distribuera ett program till den här miljön utan ändringar är inte tillräcklig för helt uppfyller kraven för FedRAMP hög baslinjen. Observera följande:
 - Den här arkitekturen ger en baslinje för att hjälpa kunderna att använda Azure på ett sätt som FedRAMP-kompatibel.
@@ -36,33 +36,33 @@ Klicka på [här](https://aka.ms/fedrampblueprintrepo) anvisningar för distribu
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
-Den här Azure utkast Automation distribuerar automatiskt en IaaS web application Referensarkitektur med förkonfigurerade säkerhetsåtgärder för att hjälpa kunderna att uppnå kompatibilitet med FedRAMP krav. Lösningen består av mallar för Azure Resource Manager och PowerShell-skript som hjälper resource distribution och konfiguration. Tillhörande Azure-modell [kompatibilitet dokumentationen](#compliance-documentation) anges, som anger säkerhet kontrollen arv från Azure och distribuerade resurser och konfigurationer som överensstämmer med NIST SP 800 53 säkerhetsåtgärder, vilket göra det möjligt för organisationer snabb åtkomst till följs.
+Den här Azure-säkerhet och efterlevnad utkast Automation distribuerar automatiskt en IaaS web application Referensarkitektur med förkonfigurerade säkerhetsåtgärder för att hjälpa kunderna att uppnå kompatibilitet med FedRAMP krav. Lösningen består av mallar för Azure Resource Manager och PowerShell-skript som hjälper resource distribution och konfiguration. Tillhörande [kompatibilitet dokumentationen](#compliance-documentation) tillhandahålls som anger säkerhet kontrollen arv från Azure och distribuerade resurser och konfigurationer som överensstämmer med NIST SP 800 53 säkerhetsåtgärder, så att organisationer snabb åtkomst till följs.
 
 ## <a name="architecture-diagram"></a>Arkitekturdiagram
 
 Den här lösningen distribuerar en Referensarkitektur för ett IaaS-webbprogram med en serverdel för databasen. Arkitekturen innehåller en webbnivå, data-nivån, Active Directory-infrastruktur, Programgateway, och belastningsutjämnare. Virtuella datorer distribueras på nivåerna web och data som har konfigurerats i en tillgänglighetsuppsättning och SQL Server-instanserna är konfigurerade i en AlwaysOn-tillgänglighetsgrupp för hög tillgänglighet. Virtuella datorer är anslutna till en domän och principer för Active Directory-grupper används för att framtvinga säkerhet och efterlevnad konfigurationer på driftsystemnivå. Management-jumpbox (skyddsmiljö host) innehåller en säker anslutning för administratörer att komma åt distribuerade resurser.
 
-![ALT-text](images/fedramp-architectural-diagram.png?raw=true "IaaS web programmet utkast automation för FedRAMP-kompatibel miljöer")
+![ALT-text](images/fedramp-architectural-diagram.png?raw=true "Azure-säkerhet och efterlevnad modell - FedRAMP Web Applications Automation")
 
 Den här lösningen använder följande Azure-tjänster. Information om arkitektur för distribution finns i den [distributionsarkitektur](#deployment-architecture) avsnitt.
 
-* **Virtuella Azure-datorer**
+* **Azure Virtual Machines**
     - (1) hantering/skyddsmiljö (Windows Server 2016 Datacenter)
     - (2) active Directory-domänkontrollant (Windows Server 2016 Datacenter)
     - (2) SQL Server-klusternod (SQL Server 2016 på Windows Server 2012 R2)
     - (1) SQL Server-vittne (Windows Server 2016 Datacenter)
-    - (2) web/IIS (Windows Server 2016 Datacenter)
+    - (2) Web/IIS (Windows Server 2016 Datacenter)
 * **Tillgänglighetsuppsättningar**
     - (1) active Directory-domänkontrollanter
     - (1) SQL klusternoderna och vittne
-    - (1) web/IIS
+    - (1) Web/IIS
 * **Azure Virtual Network**
     - ((1) /16 virtuella nätverk
     - (5) /24 undernät
     - DNS-inställningarna är inställda på båda domänkontrollanterna
 * **Azure Load Balancer**
     - (1) SQL belastningsutjämnare
-* **Azure Programgateway**
+* **Azure Application Gateway**
     - (1) Brandvägg Programgateway aktiverad
       - Brandväggen läge: förebyggande
       - Regelsamlingen: OWASP 3.0
@@ -72,7 +72,7 @@ Den här lösningen använder följande Azure-tjänster. Information om arkitekt
 * **Azure Backup**
     - (1) återställningstjänstvalvet
 * **Azure Key Vault**
-    - (1) key Vault
+    - (1) Key Vault
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
@@ -91,7 +91,7 @@ I följande avsnitt beskrivs element för utveckling och implementering.
 
 Arkitekturen minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg för webbaserade program (Brandvägg) och OWASP RuleSet-metod aktiverad. Ytterligare funktioner är:
 
-- [Slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS version 1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (Brandvägg läge)
@@ -138,8 +138,8 @@ Azure Disk Encryption används för krypterad Windows IaaS virtuella diskar. [Az
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) innehåller utförlig loggning av system- och användaraktivitet som systemhälsa. 
 
-- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.  
-- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs.   Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
+- **Aktivitetsloggar:**[aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.
+- **Diagnostikloggar:**[diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, Key Vault granskningsloggar och Programgateway loggar för åtkomst och brandväggen.
 - **Loggen arkivering:** Azure aktivitetsloggar och diagnostikloggar som kan anslutas till Azure Log Analytics för bearbetning, lagring och dashboarding. Kvarhållning konfigureras av användaren upp till 730 dag till bevarande organisation-specifika krav.
 
 ### <a name="secrets-management"></a>Hemligheter management
@@ -157,7 +157,7 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön.
 - [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumerationen och åtkomst till resurser kan begränsas baserat på användarrollen.
 - En distribuerad IaaS Active Directory-instans innehåller Identitetshantering på OS-nivå för distribuerade IaaS virtuella datorer.
    
-### <a name="compute-resources"></a>Beräkna resurser
+### <a name="compute-resources"></a>Beräkningsresurser
 
 #### <a name="web-tier"></a>Webbnivå
 
@@ -182,7 +182,7 @@ Management-jumpbox (skyddsmiljö host) innehåller en säker anslutning för adm
 
 ### <a name="patch-management"></a>Uppdateringshantering
 
-Windows-datorer som distribueras med den här utkast Automation konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen distribuerar också OMS Azure Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs.
+Windows-datorer som distribueras med den här Azure-säkerhet och efterlevnad utkast Automation konfigureras som standard för att ta emot automatiska uppdateringar från Windows Update-tjänsten. Den här lösningen distribuerar också OMS Azure Automation-lösningen som distributioner kan skapas för att distribuera korrigeringsfiler till Windows-servrar när det behövs.
 
 ### <a name="operations-management"></a>Verksamhetsstyrning
 
@@ -211,11 +211,11 @@ Den [kundens ansvarsområden matrisen](https://aka.ms/blueprinthighcrm) (Excel-a
 
 ### <a name="control-implementation-matrix"></a>Kontrollen implementering matris
 
-Den [kontroll implementering matrisen](https://aka.ms/blueprintwacim) (Excel-arbetsbok) visar en lista över alla säkerhetskontroller som krävs av FedRAMP hög baslinjen. Matrisen anger för varje kontroll (eller kontroll kapitel) som är tilldelad en kund ansvarsfullt i kundens ansvarsområden matrisen 1) om utkast Automation implementerar kontrollen och 2) en beskrivning av hur implementeringen överensstämmer med den styra requirement(s). Det här innehållet är också tillgänglig [här](fedramp-controls-overview.md).
+Den [kontroll implementering matrisen](https://aka.ms/blueprintwacim) (Excel-arbetsbok) visar en lista över alla säkerhetskontroller som krävs av FedRAMP hög baslinjen. Matrisen anger för varje kontroll (eller kontroll kapitel) som är tilldelad en kund ansvarsfullt i matrisen kundens ansvarsområden 1) om utkast automation implementerar kontrollen 2) en beskrivning av hur implementeringen överensstämmer med den styra requirement(s). Det här innehållet är också tillgänglig [här](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Den här lösningen Azure utkast består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Manager API-tjänsten för att distribuera resurser i Azure. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/fedrampblueprintrepo). ***Obs: Den här lösningen distribueras till Azure Government.***
+Den här Azure-säkerhet och efterlevnad utkast Automation består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Manager API-tjänsten för att distribuera resurser i Azure. Detaljerade stegvisa anvisningar finns [här](https://aka.ms/fedrampblueprintrepo). ***Obs: Den här lösningen distribueras till Azure Government.***
 
 #### <a name="quickstart"></a>Snabbstart
 1. Klona eller hämta [detta](https://aka.ms/fedrampblueprintrepo) GitHub-lagringsplatsen till din lokala arbetsstation.

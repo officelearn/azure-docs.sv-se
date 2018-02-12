@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure virtuella aktivering
 
@@ -26,7 +26,15 @@ ms.lasthandoff: 01/12/2018
 
 Om du har problem när du aktiverar Azure Windows virtuell dator (VM som skapas från en anpassad avbildning) kan använda du informationen i det här dokumentet för att felsöka problemet. 
 
-## <a name="symptom"></a>Symtom
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Förstå Azure KMS-slutpunkter för Windows Produktaktivering av virtuella datorer i Azure
+Azure använder olika slutpunkter för KMS-aktivering beroende på molnet-region där den virtuella datorn finns. När du använder den här felsökningsguiden, använder du den lämpliga KMS-slutpunkt som gäller för din region.
+
+* Offentliga Azure-molnet regioner: kms.core.windows.net:1688
+* Azure Kina nationella molnområdena: kms.core.chinacloudapi.cn:1688
+* Azure Tyskland nationella molnområdena: kms.core.cloudapi.de:1688
+* Azure oss Gov nationella molnområdena: kms.core.usgovcloudapi.net:1688
+
+## <a name="symptom"></a>Symptom
 
 När du försöker aktivera en Windows Azure-VM felmeddelandet meddelande som liknar följande exempel:
 

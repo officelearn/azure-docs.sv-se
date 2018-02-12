@@ -1,6 +1,6 @@
 ---
-title: "Kontrollerna i Azure Active Directory för villkorlig åtkomst | Microsoft Docs"
-description: "Lär dig hur kontrollerna i Azure Active Directory för villkorlig åtkomst fungerar."
+title: "Åtkomst till kontroller i Azure Active Directory för villkorlig åtkomst | Microsoft Docs"
+description: "Lär dig hur åtkomstkontroll i Azure Active Directory villkorlig åtkomst ska fungera."
 services: active-directory
 keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
 documentationcenter: 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 24db2d29684f7ce5822c77c71f944327476b7196
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Kontrollerna i Azure Active Directory för villkorlig åtkomst 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Åtkomstkontroller i Azure Active Directory för villkorlig åtkomst 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
-![Kontroll](./media/active-directory-conditional-access-controls/10.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/10.png)
 
 
 I samband med villkorlig åtkomst 
@@ -38,7 +38,7 @@ I samband med villkorlig åtkomst
 
 Kombinationen av en condition-instruktion med kontrollerna representerar en princip för villkorlig åtkomst.
 
-![Kontroll](./media/active-directory-conditional-access-controls/61.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/61.png)
 
 Varje kontroll är antingen ett krav som måste uppfyllas av personen eller system som loggar in eller en begränsning på vilka användare kan göra när du har loggat in. 
 
@@ -57,7 +57,7 @@ Med grant-kontroller kan du blockera åtkomst helt och hållet eller tillåter �
 - Alla markerade kontroller uppfylls (*och*) 
 - En vald kontroll uppfylls (*eller*)
 
-![Kontroll](./media/active-directory-conditional-access-controls/17.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -127,12 +127,12 @@ Kopiera JSON-data och klistra in den i textrutan relaterade. Du inte göra någr
 
 Alternativet för att skapa en anpassad kontroll som finns i den **hantera** avsnitt i den **villkorlig åtkomst** sidan.
 
-![Kontroll](./media/active-directory-conditional-access-controls/82.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/82.png)
 
 Klicka på **nya anpassade kontrollen**, öppnas ett blad med en textruta för JSON-data för kontrollen.  
 
 
-![Kontroll](./media/active-directory-conditional-access-controls/81.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Ta bort anpassade kontroller
@@ -156,7 +156,7 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 Sessionskontroller aktiverar en begränsad upplevelse inom en molnapp. Sessionen kontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD App om sessionen.
 
-![Kontroll](./media/active-directory-conditional-access-controls/31.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Använd app-framtvingade begränsningar
 

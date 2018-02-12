@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 9b94d9c66f69fac7c73a70618f782b811d4c9e62
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till Molntjänsten övervakning
 
@@ -76,7 +76,7 @@ I den **ServiceDefinition.csdef** lägger du till en ny inställning med namnet 
 
 Detta definierar en ny inställning måste läggas till varje **ServiceConfiguration.cscfg** fil. 
 
-Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.cscfg** för att distribuera till Azure och som heter **ServiceConfiguration.local.cscfg** som används för lokala distributioner i emulerade miljö. Öppna och ändra varje **.cscfg** fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ange värdet till antingen den **primära anslutningssträngen** för klassiska storage-konto. Om du vill använda lokal lagring på utvecklingsdatorn använda `UseDevelopmentStorage=true`.
+Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.cscfg** för att distribuera till Azure och som heter **ServiceConfiguration.local.cscfg** som används för lokala distributioner i emulerade miljö. Öppna och ändra varje **.cscfg** fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ange värdet till den **primära anslutningssträngen** för klassiska storage-konto. Om du vill använda lokal lagring på utvecklingsdatorn använda `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

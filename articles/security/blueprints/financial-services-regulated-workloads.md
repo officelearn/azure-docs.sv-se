@@ -1,6 +1,6 @@
 ---
-title: "Plan för Azure Automation - finansiella tjänster för reglerade arbetsbelastningar"
-description: "Plan för finansiella tjänster för reglerade arbetsbelastningar"
+title: "Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster reglerade arbetsbelastningar"
+description: "Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster reglerade arbetsbelastningar"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 19e26c16866dada8dcff04a520ce4c208d67c365
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a1167f56f595f905c6338868806351345c06b91a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-financial-services-blueprint-for-regulated-workloads"></a>Plan för Azure Automation: Finansiella tjänster utkast för reglerade arbetsbelastningar
+# <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure-säkerhet och efterlevnad modell - FFIEC finansiella tjänster reglerade arbetsbelastningar
 
 ## <a name="overview"></a>Översikt
 
-Plan för finansiella tjänster för regleras arbetsbelastningar kan distribuera en säker och kompatibel plattform som en tjänst (PaaS)-webbprogram som har utformats för att hantera känsliga data i molnet. Modell som består av automatiserade skript och riktlinjer som demonstrerar en enkel referens-arkitektur och en design som förenklar införandet av Microsoft Azure-lösningar. Det här utkastet illustrerar en lösning för att uppfylla behoven för organisationer som vill ha olika sätt att minska belastningen och kostnaden för att distribuera i molnet.
+Azure säkerhet och efterlevnad modell - FFIEC finansiella tjänster Regulated arbetsbelastningar hjälper till att distribuera en säker och kompatibel plattform som en tjänst (PaaS)-webbprogram som har utformats för att hantera känsliga data i molnet. Modell som består av automatiserade skript och riktlinjer som demonstrerar en enkel referens-arkitektur och en design som förenklar införandet av Microsoft Azure-lösningar. Det här utkastet illustrerar en lösning för att uppfylla behoven för organisationer som vill ha olika sätt att minska belastningen och kostnaden för att distribuera i molnet.
 
 Det här utkastet är utformad för att uppfylla kraven för strikta kompatibla standarder som angetts av den American Institute av certifierad offentliga revisorer, till exempel - SOC 1, SOC 2, rådet Payment Card Industry Data Security Standards DSS 3.2 och FFIEC för den insamling, lagring och hämtning av känsliga ekonomiska data. Den visar korrekt hantering av sådana data genom att distribuera en lösning som hanterar ekonomiska data i en miljö med säker, kompatibla och flera nivåer. Lösningen distribueras som en slutpunkt till slutpunkt Azure-baserade PaaS-lösning. 
 
@@ -52,7 +52,7 @@ Arkitekturen består av följande komponenter och använder funktioner för dist
 
 Modell adresser följande användningsfall i nedan.
 
-> Det här scenariot visas hur en fiktiv vi besvarar flyttas känsliga data i en PaaS molnet Azure-baserad lösning. Lösningen exemplet illustrerar hantering och insamling av grundläggande information och valda känsliga data. Detta verk lånar från Azure utkast Automation: betalning bearbetning för PCI DSS-kompatibel miljöer för payment card bearbetning. Mer information om expanderande på detta verk [”granska och riktlinjer för genomförande”](https://aka.ms/pciblueprintprocessingoverview) dokumentet innehåller en granskning av PCI DSS-kompatibel miljöer.
+> Det här scenariot visas hur en fiktiv vi besvarar flyttas känsliga data i en PaaS molnet Azure-baserad lösning. Lösningen exemplet illustrerar hantering och insamling av grundläggande information och valda känsliga data. Detta verk lånar från Azure-säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer. Mer information om expanderande på detta verk [”granska och riktlinjer för genomförande”](https://aka.ms/pciblueprintprocessingoverview) dokumentet innehåller en granskning av PCI DSS-kompatibel miljöer.
 
 ### <a name="use-case"></a>Användningsfall
 En liten vi besvarar kallas *Contoso Webstore* är redo att flytta ekonomiska data som innehåller kundbetalningsinformation till molnet. 
@@ -65,7 +65,7 @@ Administratören för Contoso Webstore är ute efter en lösning som kan distrib
 
 Grundläggande arkitektur är utformad med fiktiva följande element:
 
-Domän-plats`contosowebstore.com`
+Domän-plats `contosowebstore.com`
 
 Användarroller utnyttjas för att illustrera användningsfallet och ger inblick i användargränssnittet.
 
@@ -111,7 +111,7 @@ Edna Benson är hanteraren receptionist och verksamhet. Hon ansvarar för att s�
 - Edna kan skriva över ekonomisk information.
 - Edna konto kan inte visa ofiltrerade ekonomisk information.
 
-> Contoso Webstore, användaren är automatiskt den **Edna** användaren för att testa funktionerna i en distribuerad miljö.
+
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - uppskattade priser
 
@@ -121,8 +121,8 @@ Den här lösningen används följande Azure-tjänster. Information om arkitektu
 
 >- Application Gateway
 >- Azure Active Directory
->- Apptjänst-miljö v2
->- OMS logganalys
+>- App Service Environment v2
+>- OMS Log Analytics
 >- Azure Key Vault
 >- Nätverkssäkerhetsgrupper
 >- Azure SQL-databas
@@ -151,7 +151,7 @@ I följande avsnitt beskrivs element för utveckling och implementering.
 
 Grundläggande arkitektur minskar risken för säkerhetsproblem som använder en Programgateway med en brandvägg för webbaserade program (Brandvägg) och OWASP RuleSet-metod aktiverad. Ytterligare funktioner är:
 
-- [Slutpunkt till slutpunkt SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [SSL-avlastning](/azure/application-gateway/application-gateway-ssl-portal) aktiverad
 - [TLS version 1.0 och v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) inaktiverad
 - [Brandvägg för webbaserade program](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (Brandvägg läge)
@@ -172,7 +172,7 @@ Varje nätverk nivåer har en dedikerad nätverkssäkerhetsgrupp (NSG):
 - En NSG för hantering av jumpbox (skyddsmiljö host)
 - En NSG för apptjänst-miljön
 
-Var och en av de NSG: er har specifika portar och protokoll öppnas för säker och rätt drift av lösningen. Mer information finns i [PCI - vägledning för Nätverkssäkerhetsgrupper](#network-security-groups).
+Var och en av de NSG: er har specifika portar och protokoll öppnas för säker och rätt drift av lösningen. 
 
 Dessutom kan är följande konfigurationer aktiverade för varje NSG:
 
@@ -305,7 +305,7 @@ Standarddistribution är avsedd att ge en basnivå av Security Center rekommenda
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Komponenter för att distribuera den här lösningen är tillgängliga i den [betalning bearbetning utkast databasen][code-repo]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
+Komponenter för att distribuera den här lösningen är tillgängliga i den [modell databasen][code-repo]. Distributionen av den grundläggande arkitekturen kräver flera steg utförs via Microsoft PowerShell v5. Du måste ange ett eget domännamn (t.ex contoso.com) för att ansluta till webbplatsen. Detta anges med hjälp av den `-customHostName` växla i steg 2. Mer information finns i [köpa ett anpassat domännamn för Azure Web Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Ett anpassat domännamn krävs inte för att distribuera och köra lösningen, men du kan inte ansluta till webbplatsen i exempelsyfte.
 
 Skripten lägga till domänanvändare i Azure AD-klient som du anger. Microsoft rekommenderar att skapa en ny Azure AD-klient om du vill använda som ett test.
 
@@ -361,7 +361,7 @@ Microsoft rekommenderar starkt att en ren installation av PowerShell används f�
     
 ## <a name="threat-model"></a>Hotmodell
 
-En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore [betalning bearbetning utkast Hotmodell](https://aka.ms/pciblueprintthreatmodel).
+En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore [modell Hotmodell](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

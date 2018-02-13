@@ -3,7 +3,7 @@ title: Visa Azure Application Insights AppData | Microsoft Docs
 description: "Du kan använda Application Insights Connector-lösning för att diagnostisera prestandaproblem och förstå vad användarna göra med din app när övervakas med Application Insights."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: banders
-ms.openlocfilehash: 49a78faa98bd7eb3da16dc069f65ef39b5e092af
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: magoedte
+ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning) 
+# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
@@ -88,9 +88,9 @@ Instrumentpanelen innehåller blad som visas i tabellen. Varje bladet visar upp 
 
 | **Kolumnen** | **Beskrivning** |
 | --- | --- |
-| Program – antal program | Visar antalet program i programresurser. Visar också programnamn och för varje antalet poster i programmet. Klicka på siffran om du vill köra en logg sökning efter<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Klicka på ett programnamn att köra en sökning för loggen för det program som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
-| Datavolymen – värdar som skickar data | Visar antalet värdar på datorn som data skickas. Visar också datorn är värd och antal poster för varje värd. Klicka på siffran om du vill köra en logg sökning efter<code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Klicka på ett datornamn om du vill utföra en logg-sökning för värden som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
-| Tillgänglighet – Webtest resultat | Visar ett ringdiagram för webbtestresultat, som anger pass eller misslyckas. Klicka på diagrammet om du vill köra en logg sökning efter<code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Resultatet visar antalet gånger och fel för alla test. Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett namn på programmet ska visa en logg sökning visar information om misslyckade webbtest. |
+| Program – antal program | Visar antalet program i programresurser. Visar också programnamn och för varje antalet poster i programmet. Klicka på siffran om du vill köra en logg sökning efter <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Klicka på ett programnamn att köra en sökning för loggen för det program som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
+| Datavolymen – värdar som skickar data | Visar antalet värdar på datorn som data skickas. Visar också datorn är värd och antal poster för varje värd. Klicka på siffran om du vill köra en logg sökning efter <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Klicka på ett datornamn om du vill utföra en logg-sökning för värden som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
+| Tillgänglighet – Webtest resultat | Visar ett ringdiagram för webbtestresultat, som anger pass eller misslyckas. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Resultatet visar antalet gånger och fel för alla test. Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett namn på programmet ska visa en logg sökning visar information om misslyckade webbtest. |
 | Serverbegäranden – förfrågningar per timme | Visar ett linjediagram för serverbegäranden per timme för olika program. Hovra över en linje i diagrammet för att se upp 3 programmen ta emot begäranden för en punkt i tiden. Visar också en lista över program som tar emot begäranden och antalet begäranden för den valda perioden. <br><br>Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> som visar mer detaljerad linjediagram för serverbegäranden per timme för olika program. <br><br> Klicka på ett program i listan för att köra en logg sökning efter <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> som visar en lista med begäranden, diagram för begäranden över tid och begäran varaktighet och en lista över begäran svarskoder.   |
 | Fel – misslyckade begäranden per timme | Visar ett linjediagram för misslyckade programförfrågningar per timme. Hovra över diagrammet för att se de översta 3 program med misslyckade begäranden för en punkt i tiden. Visar en lista över program med antalet misslyckade begäranden för varje också. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> som visar mer detaljerad linjediagram av begäranden om misslyckade program. <br><br>Klicka på ett objekt i listan för att köra en logg sökning efter <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> som visar misslyckade begäranden, diagram för misslyckade begäranden över tid och begäran varaktighet och en lista över svarskoder för misslyckade begäranden. |
 | Undantag – undantag per timme | Visar ett linjediagram av undantag per timme. Hovra över diagrammet för att se de översta 3 program med undantag för en punkt i tiden. Visar en lista över program med antalet undantag för varje också. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> som visar mer detaljerad länken i diagrammet över undantag. <br><br>Klicka på ett objekt i listan för att köra en logg sökning efter <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> som visar en lista över undantag, diagram för undantag över tid och misslyckade begäranden och en lista över typer av undantag.  |
@@ -247,7 +247,7 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | Begärande-ID | ID för att unikt identifiera begäran |
 | RequestName | GET/POST + URL-bas |
 | RequestDuration | Tid i sekunder, för varaktighet för begäran |
-| Webbadress | URL för begäran inte inklusive värden |
+| URL | URL för begäran inte inklusive värden |
 | Värd | Web server-värd |
 | URLBase | Fullständig URL för begäran |
 | ApplicationProtocol | Typ av protokoll som används av programmet |

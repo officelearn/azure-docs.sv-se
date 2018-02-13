@@ -1,7 +1,7 @@
 ---
 title: "Konsekvensnivåer i Azure Cosmos DB | Microsoft Docs"
 description: "Azure Cosmos-DB har fem konsekvensnivåer för att belastningsutjämna eventuell konsekvens, tillgänglighet och svarstid kompromisser."
-keywords: slutliga konsekvensen azure cosmos db, azure, Microsoft azure
+keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
 Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Begränsat föråldrad, session, konsekvent prefix och eventuell är kallas ”Avslappnad konsekvenskontroll modeller” eftersom de ger mindre konsekvent än starkt, vilket är de flesta hög konsekvent modell tillgänglig. 
@@ -110,7 +110,7 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 ## <a name="consistency-levels-for-queries"></a>Konsekvensnivåer för frågor
 Som standard för användardefinierade resurser, konsekvens nivån för frågor är samma som konsekvensnivå för läsning. Indexet uppdateras synkront som standard på varje infoga, Ersätt eller borttagningen av ett objekt i Cosmos-DB-behållaren. Detta gör att frågorna ta hänsyn till samma konsekvensnivå som punkt läsningar. Du kan konfigurera vissa samlingar för att uppdatera deras index lazy medan Azure Cosmos DB skrivåtgärder optimerad och stöd för varaktigt volymer skrivningar, synkron index underhåll och betjänar konsekvent frågor. Lazy indexering ytterligare ökar prestandan för skrivning och är idealisk för bulk införandet scenarier när en arbetsbelastning är främst Läs aktiverat.  
 
-| Indexering läge | Läser | Frågor |
+| Indexering läge | Läsningar | Frågor |
 | --- | --- | --- |
 | Konsekvent (standard) |Välj från stark, begränsat föråldrad, session, konsekvent prefix eller senare |Välj från stark, begränsat föråldrad, session eller senare |
 | Lazy |Välj från stark, begränsat föråldrad, session, konsekvent prefix eller senare |Eventuell |
@@ -118,22 +118,26 @@ Som standard för användardefinierade resurser, konsekvens nivån för frågor 
 
 Med skrivskyddade förfrågningar, kan som du sänka nivån konsekvenskontroll för en specifik fråga begäran i varje API.
 
+## <a name="consistency-levels-for-the-mongodb-api"></a>Konsekvensnivåer för MongoDB-API
+
+Azure Cosmos-DB implementeras för närvarande MongoDB version 3.4, som har två konsekvenskontroll inställningar, starkt och eventuell. Eftersom Azure Cosmos DB multi-api, konsekvens inställningarna tillämpas på kontonivå och verkställandet av konsekvenskontrollen styrs av varje API.  Tills MongoDB 3,6 har inga begreppet sessionskonsekvens, så om du anger ett MongoDB API-konto för att använda sessionskonsekvens konsekvenskontrollen nedgraderas till klientdatorn när du använder MongoDB APIs. Om du behöver din-äger-skrivskyddad säkerhet för MongoDB-API-kontot ska vara inställd på strong konsekvenskontroll standardnivå för kontot eller avgränsas föråldrad.
+
 ## <a name="next-steps"></a>Nästa steg
 Om du vill göra mer läsning om konsekvensnivåer och kompromisser rekommenderar vi följande resurser:
 
 * Doug Terry. Replikerade datakonsekvens beskrivs via baseball (video).   
-  [https://www.YouTube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Doug Terry. Replikerade datakonsekvens beskrivs via baseball.   
-  [http://Research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.PDF](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Doug Terry. Sessionen garantier för svagt konsekvent replikerade Data.   
-  [http://DL.acm.org/citation.cfm?ID=383631](http://dl.acm.org/citation.cfm?id=383631)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 * Mikael Abadi. Konsekvenskontroll kompromisser i moderna distribuerade system databasstruktur: Fästpunkten är endast en del av artikeln ”.   
-  [http://Computer.org/CSDL/mags/CO/2012/02/mco2012020037-ABS.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph m Hellerstein, med Stoica. Probabilistic innanför föråldrad (PBS) för praktiska partiella beslutsförhet.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.PDF](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Werner Vogels. Eventuell konsekvent - Revisited.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor, Avishai ull, Load, kapacitet och tillgängligheten för kvorum system, SIAM Journal för databehandling, v.27 n.2, p.423-447, April 1998.
-  [http://epubs.siam.org/DOI/ABS/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, rad: en fullständig och automatisk linearizability bricka, förfaranden för 2010 ACM SIGPLAN konferens om programmering språk design och implementeringslösning juni 05 10 2010, Stockholmsderbyt, Ontario, Kanada [doi > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, med Stoica Probabilistically avgränsas föråldrad för praktiska partiella beslutsförhet förfaranden VLDB särskilt tillskjutet v.5 n.8, p.776-787, April 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, med Stoica Probabilistically avgränsas föråldrad för praktiska partiella beslutsförhet förfaranden VLDB särskilt tillskjutet v.5 n.8, p.776-787, April 2012 [http:// DL.acm.org/citation.cfm?ID=2212359](http://dl.acm.org/citation.cfm?id=2212359)

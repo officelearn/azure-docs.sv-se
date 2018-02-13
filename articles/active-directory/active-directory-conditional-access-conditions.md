@@ -16,17 +16,17 @@ ms.workload: identity
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: bb2124613ccc467f3c560e92bdf760420410267c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Villkoren i Azure Active Directory för villkorlig åtkomst 
 
 Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. I en princip för villkorlig åtkomst definierar du svaret (”gör”) till orsaken till att utlösa principen (”när detta sker”). 
 
-![Kontrollen](./media/active-directory-conditional-access-conditions/10.png)
+![Kontroll](./media/active-directory-conditional-access-conditions/10.png)
 
 
 I samband med villkorlig åtkomst:
@@ -36,7 +36,7 @@ I samband med villkorlig åtkomst:
 
 Kombinationen av dina villkor med din åtkomstkontroller representerar en princip för villkorlig åtkomst.
 
-![Kontrollen](./media/active-directory-conditional-access-conditions/61.png)
+![Kontroll](./media/active-directory-conditional-access-conditions/61.png)
 
 Den här artikeln ger en översikt över villkor och hur de används i en princip för villkorlig åtkomst. 
 
@@ -45,13 +45,13 @@ Den här artikeln ger en översikt över villkor och hur de används i en princi
 
 Villkor för användare och grupper är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen väljer **alla användare** eller Välj användare och grupper.
 
-![Kontrollen](./media/active-directory-conditional-access-conditions/02.png)
+![Kontroll](./media/active-directory-conditional-access-conditions/02.png)
 
 När du väljer:
 
 - **Alla användare**, din principen gäller för alla användare med i katalogen. Detta inkluderar gästanvändare.
 
-- **Välj användare och grupper**, du kan rikta specifika uppsättningar med användare, till exempel alla medlemmar i HR-avdelningen när de loggar in på en HR-app. 
+- **Välj användare och grupper**, du kan rikta specifika uppsättningar med användare. Exempelvis kan du välja en grupp som innehåller alla medlemmar i HR-avdelningen om du har en HR-app som valts som molnappen. 
 
 - En grupp, det kan vara någon typ av grupp i Azure AD, inklusive dynamiska eller tilldelade säkerhets- och distributionsgrupper grupper.
 
@@ -67,7 +67,7 @@ En molnapp är en webbplatser eller tjänst. Detta inkluderar webbplatser som sk
 
 Molnet appar villkoret är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen väljer **alla molnappar** eller markera specifika appar.
 
-![Kontrollen](./media/active-directory-conditional-access-conditions/03.png)
+![Kontroll](./media/active-directory-conditional-access-conditions/03.png)
 
 Du kan välja:
 
@@ -89,8 +89,8 @@ Om du vill använda det här villkoret behöver du ha [Azure Active Directory Id
  
 Vanliga användningsområden för det här villkoret är principer som:
 
-- Blockera en användare med hög inloggning risk för att förhindra eventuellt inte berättigat användare från att komma åt dina molnappar. 
-- Kräv Multi-Factor authentication när för användare med medelhög risk inloggning. Du kan framtvinga multifaktorautentisering för att tillhandahålla ytterligare förtroende att logga in utförs av legitima ägaren till ett konto.
+- Blockera användare med hög inloggning risk för att förhindra eventuellt inte berättigat användare från att komma åt dina molnappar. 
+- Kräv Multi-Factor authentication för användare med medelhög risk inloggning. Du kan framtvinga multifaktorautentisering för att tillhandahålla ytterligare förtroende att logga in utförs av legitima ägaren till ett konto.
 
 Mer information finns i avsnittet om [riskfyllda inloggningar](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -99,7 +99,7 @@ Mer information finns i avsnittet om [riskfyllda inloggningar](active-directory-
 Enhetsplattformen kännetecknas av operativsystemet som körs på enheten. Azure AD identifierar plattformen genom att använda information från enheten, till exempel användaragent. Eftersom den här informationen är overifierade, rekommenderas det att alla plattformar har en princip som tillämpats på dem, antingen genom att blockera åtkomst till, kompatibilitet med Intune-principer eller som kräver enheten vara ansluten till en domän. Standardvärdet är att använda principen för alla enhetsplattformar. 
 
 
-![Villkor](./media/active-directory-conditional-access-conditions/02.png)
+![Villkor](./media/active-directory-conditional-access-conditions/24.png)
 
 En fullständig lista över enhetsplattformar som stöds finns i [enhet plattform villkoret](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -111,7 +111,7 @@ Ett vanligt användningsfall för det här villkoret är en princip som begräns
 
 Med platser har du möjlighet att definiera villkor som är baserade på där ett anslutningsförsök initierades från. 
      
-![Villkor](./media/active-directory-conditional-access-conditions/03.png)
+![Villkor](./media/active-directory-conditional-access-conditions/25.png)
 
 Vanliga användningsområden för det här villkoret är principer som:
 

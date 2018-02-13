@@ -3,7 +3,7 @@ title: "Övervaka Surface Hub med Azure Log Analytics | Microsoft Docs"
 description: "Använda Surface Hub-lösning för att spåra hälsotillståndet för Surface Hub-enheter och förstå hur de används."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f56369e412bdd285d3c370f5153fee4f539dfcf
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 525b3ced979834a956f91ef8c6f647b659ca21f1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Övervaka Surface Hub-enheter med logganalys att spåra deras hälsa
 
@@ -68,7 +68,7 @@ Om du inte använder Intune för att hantera din miljö, kan du registrera enhet
 3. Klicka på **enheten**, och under **övervakning**, klickar du på **konfigurera inställningarna för OMS**.
 4. Välj **aktivera övervakning**.
 5. Ange i dialogrutan OMS-inställningar för Log Analytics **arbetsyte-ID** och skriver den **Arbetsytenyckel**.  
-   ![inställningar](./media/log-analytics-surface-hubs/settings.png)
+   ![Inställningar](./media/log-analytics-surface-hubs/settings.png)
 6. Klicka på **OK** för att slutföra konfigurationen.
 
 Om huruvida konfigurationen tillämpades på enheten visas en bekräftelse. Om den har visas ett meddelande om att agenten har anslutits till logganalys. Enheten börjar skicka data till logganalys där du kan visa och arbeta med den.

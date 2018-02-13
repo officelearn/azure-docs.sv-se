@@ -3,7 +3,7 @@ title: Samla in och analysera Azure aktivitetsloggar i Log Analytics | Microsoft
 description: "Du kan använda Azure aktivitetsloggar lösningen för att analysera och söka Azure aktivitetsloggen i alla dina Azure-prenumerationer."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: banders
-ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure aktivitetsloggar i logganalys
 
@@ -71,7 +71,7 @@ Utför följande steg för att konfigurera aktiviteten logganalys-lösningen fö
     2. Klicka på prenumerationsnamn för varje prenumeration.  
         ![Lägg till prenumeration](./media/log-analytics-activity/add-subscription.png)
     3. I den *SubscriptionName* bladet, klickar du på **Anslut**.  
-        ![ansluta prenumeration](./media/log-analytics-activity/subscription-connect.png)
+        ![Ansluta prenumeration](./media/log-analytics-activity/subscription-connect.png)
 
 Om du lägger till lösningen med OMS-portalen, visas följande sida vid sida. Logga in på Azure-portalen att ansluta en Azure-prenumeration till arbetsytan.  
 ![utvärdering](./media/log-analytics-activity/tile-performing-assessment.png)
@@ -88,7 +88,7 @@ Klicka på den **Azure aktivitetsloggar** öppna den **Azure aktivitetsloggar** 
 
 Loggdata för aktivitet visas bara *när* du har konfigurerat din aktivitetsloggar att gå till lösning, så att du kan visa data innan.
 
-| Blad | Beskrivning |
+| Bladet | Beskrivning |
 | --- | --- |
 | Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 6baa680a83f381daeb8a31014f276a1d52ffa07a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d6961eb760544ac078fdd6ed0d7c0c4d750a8b9f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Självstudier: Azure Active Directory-integrering med Cisco Cloudlock
 
@@ -106,9 +106,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Cisco Cloudlock domän och URL: er med enkel inloggning information](./media/active-directory-saas-ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. I den **inloggnings-URL** textruta, ange ett URL-Adressen:`https://platform.cloudlock.com`
+    a. I den **inloggnings-URL** textruta, ange ett URL-Adressen:
+    | |
+    |--|
+    | `https://platform.cloudlock.com` |
+    | `https://app.cloudlock.com` |
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://platform.cloudlock.com/gate/saml/sso/<subdomain>`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: 
+    | |
+    |--|
+    | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
+    | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
     > [!NOTE] 
     > ID-värdet är inte verkliga. Uppdatera värdet med den faktiska identifieraren. Kontakta [Cisco Cloudlock klient supportteamet](mailto:support@cloudlock.com) värdet hämtas. 

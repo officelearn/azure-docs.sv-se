@@ -1,6 +1,6 @@
 - name: Dokumentation om Machine Learning Studio
-  href: index.md
-- name: "Översikt\r\n"
+  href: index.yml
+- name: Översikt
   expanded: true
   items:
     - name: Vad är Machine Learning?
@@ -69,7 +69,7 @@
       items:
         - name: Importera utbildningsdata
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: import-data.md
             - name: Från en lokal fil
               href: import-data-from-local-file.md
@@ -119,7 +119,7 @@
                   href: execute-python-scripts.md
     - name: Operationalisera modeller
       items:
-        - name: "Översikt\r\n"
+        - name: Översikt
           href: deploy-consume-web-service-guide.md
         - name: Distribuera modeller
           items:
@@ -149,7 +149,7 @@
               href: scaling-webservice.md
         - name: Omtrimningsmodeller
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: retrain-machine-learning-model.md
             - name: Omtrimma programmässigt
               href: retrain-models-programmatically.md
@@ -163,7 +163,7 @@
               href: troubleshooting-retraining-models.md
         - name: Förbrukningsmodeller
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: consume-web-services.md
             - name: Använda Excel
               href: consuming-from-excel.md
@@ -197,7 +197,7 @@
   items:
     - name: Azure AI-galleriet
       items:
-        - name: "Översikt\r\n"
+        - name: Översikt
           href: gallery-how-to-use-contribute-publish.md
         - name: Branscher
           href: gallery-industries.md

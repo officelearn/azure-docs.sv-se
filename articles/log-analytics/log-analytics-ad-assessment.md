@@ -3,7 +3,7 @@ title: "Optimera din Active Directory-miljö med Azure Log Analytics | Microsoft
 description: "Du kan använda Active Directory Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med Active Directory Health Check-lösningen i logganalys
 
@@ -41,7 +41,7 @@ När du har lagt till lösningen och en kontroll är slutförd, Sammanfattning v
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Active Directory Health Check-lösning kräver en version som stöds av .NET Framework 4.5.2 eller senare installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerad.  MMA agent används av System Center 2016 - Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten. 
+* Active Directory Health Check-lösning kräver en version som stöds av .NET Framework 4.5.2 eller senare installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerad.  MMA agent används av System Center 2016 - Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten.
 * Lösningen har stöd för domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
 * En logganalys-arbetsytan att lägga till Active Directory Health Check-lösning från Azure marketplace i Azure-portalen.  Det krävs ingen ytterligare konfiguration.
 
@@ -62,13 +62,13 @@ Agenten på en domänkontrollant att en Operations Manager-hanteringsgrupp samla
 
 Active Directory Health Check samlar in data från följande källor med agenten som du har aktiverat:
 
-- Register 
-- LDAP 
+- Register
+- LDAP
 - .NET Framework
-- Händelseloggen 
+- Händelseloggen
 - Active Directory Service interfaces (ADSI)
 - Windows PowerShell
-- Fildata 
+- Fildata
 - Windows Management Instrumentation (WMI)
 - DCDIAG verktyget API
 - File Replication Service (NTFRS) API
@@ -93,7 +93,7 @@ Värde för varje rekommendation uttrycks i procent av den sammanlagda poängen 
 
 **Tillgänglighet och affärskontinuitet** -fokus visas här rekommendationer för tjänstetillgänglighet, återhämtning för din infrastruktur och business-skydd.
 
-**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastrukturbehov.
+**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastruktur behov.
 
 **Uppgradera migrering och distribution** -fokus visas här rekommendationer när du uppgraderar, migrera och distribuera Active Directory till din befintliga infrastruktur.
 
@@ -109,7 +109,7 @@ Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till 
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
 3. Klicka på den **översikt** panelen för logganalys-arbetsytan i Azure-portalen.
-4. På den **översikt** klickar du på den **Active Directory Health Check** panelen. 
+4. På den **översikt** klickar du på den **Active Directory Health Check** panelen.
 5. På den **Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
 6. På någon av sidorna fokus område, kan du visa prioriterad rekommendationer för din miljö. Klicka på en rekommendation enligt **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av Health Check rekommendationer](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Du kan vidta åtgärder i **föreslagna åtgärder**. När objektet har behandlats senare bedömningar poster som rekommenderade åtgärder som utförts och kompatibilitet poängen ökar. Korrigerade objekt visas som **skickades objekt**.
@@ -133,7 +133,7 @@ Om du har rekommendationer som du vill ignorera kan skapa du en textfil som Log 
 2. Klistra in eller ange varje RecommendationId för varje rekommendation som du vill logganalys Ignorera på en separat rad och spara och stäng filen.
 3. Placera filen i följande mapp på varje dator där du vill att logganalys att ignorera rekommendationer.
    * På datorer med Microsoft Monitoring Agent (ansluten direkt eller via Operations Manager) - *SystemDrive*: \Program\Microsoft övervakning Agent\Agent
-   * På hanteringsservern för Operations Manager 2012 R2 - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * På hanteringsservern för Operations Manager 2012 R2 - *SystemDrive*: \Program\Microsoft System Center 2012 R2\Operations Manager\Server
    * På hanteringsservern för Operations Manager 2016 - *SystemDrive*: \Program\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Kontrollera att rekommendationer ignoreras

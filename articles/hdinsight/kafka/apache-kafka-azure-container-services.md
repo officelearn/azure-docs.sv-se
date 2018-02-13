@@ -14,35 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 8074797e2d37f98cc3b219dbf3e51f558bbee8c7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Använda Azure-Behållartjänster med Kafka på HDInsight
 
-Lär dig hur du använder Azure Container Service (AKS) med Kafka på HDInsight-kluster.
+Lär dig hur du använder Azure behållaren tjänster (AKS) med Kafka på HDInsight-kluster. Stegen i det här dokumentet använder ett Node.js-program finns i AKS för att verifiera anslutningarna till Kafka. Det här programmet använder den [kafka nod](https://www.npmjs.com/package/kafka-node) paketet för att kommunicera med Kafka. Den använder [Socket.io](https://socket.io/) för händelsen som drivs meddelandehantering mellan klientens webbläsare och serverdelen finns i AKS.
 
 [Apache Kafka](https://kafka.apache.org) är en distribuerad direktuppspelningsplattform med öppen källkod som kan användas för att skapa realtidsuppspelade datapipelines och program. Azure Container Service hanterar din värdmiljö Kubernetes och gör det snabbt och enkelt att distribuera av program. Med ett virtuellt Azure-nätverk kan ansluta du de två tjänsterna.
 
-> [!IMPORTANT]
-> Det här dokumentet förutsätts att du är bekant med hjälp av följande Azure-tjänster och skapa:
->
-> * Kafka på HDInsight
-> * Azure Container Service
-> * Azure Virtual Networks
->
-> Det här dokumentet förutsätter också att du har gått igenom de [Azure Behållartjänster kursen](../../aks/tutorial-kubernetes-prepare-app.md). Den här självstudiekursen skapar en behållartjänst, skapas ett Kubernetes kluster, en behållare i registret och konfigurerar den `kubectl` verktyget.
-
 > [!NOTE]
-> Stegen i det här dokumentet använder ett Node.js-program finns i AKS för att verifiera anslutningarna till Kafka. Det här programmet använder den [kafka nod](https://www.npmjs.com/package/kafka-node) paketet för att kommunicera med Kafka. Den använder [Socket.io](https://socket.io/) för händelsen som drivs meddelandehantering mellan klientens webbläsare och serverdelen finns i AKS.
+> Det här dokumentet fokuserar på de steg som krävs för att aktivera Azure Behållartjänster kan kommunicera med Kafka på HDInsight. Exemplet själva är bara en grundläggande Kafka klient för att demonstrera att konfigurationen fungerar.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* En Azure-prenumeration
+
+Det här dokumentet förutsätts att du är bekant med hjälp av följande Azure-tjänster och skapa:
+
+* Kafka på HDInsight
+* Azure Container Service
+* Azure Virtual Networks
+
+Det här dokumentet förutsätter också att du har gått igenom de [Azure Behållartjänster kursen](../../aks/tutorial-kubernetes-prepare-app.md). Den här självstudiekursen skapar en behållartjänst, skapas ett Kubernetes kluster, en behållare i registret och konfigurerar den `kubectl` verktyget.
 
 ## <a name="architecture"></a>Arkitektur
 
 ### <a name="network-topology"></a>Nätverkstopologi
 
-Både HDInsight och AKS använder du ett virtuellt nätverk i Azure som en behållare för beräkningsresurser. Om du vill aktivera kommunikation mellan HDInsight och AKS, måste du aktivera kommunikation mellan sina nätverk. Stegen i det här dokumentet använder virtuella nätverk Peering till nätverk. Mer information om peering finns i [virtuella nätverk peering](../../virtual-network/virtual-network-peering-overview.md) dokumentet.
+Både HDInsight och AKS använder du ett virtuellt nätverk i Azure som en behållare för beräkningsresurser. Om du vill aktivera kommunikation mellan HDInsight och AKS, måste du aktivera kommunikation mellan sina nätverk. Stegen i det här dokumentet använder virtuella nätverk Peering till nätverk. Andra anslutningar, till exempel VPN, bör också fungera. Mer information om peering finns i [virtuella nätverk peering](../../virtual-network/virtual-network-peering-overview.md) dokumentet.
+
 
 Följande diagram illustrerar nätverkets topologi som används i det här dokumentet:
 
@@ -51,11 +56,6 @@ Följande diagram illustrerar nätverkets topologi som används i det här dokum
 > [!IMPORTANT]
 > Namnmatchning har inte aktiverats mellan peered nätverk, så att IP-adressering används. Som standard konfigureras Kafka på HDInsight för att returnera värdnamn i stället för IP-adresser när klienter ansluter. Stegen i det här dokumentet ändra Kafka om du vill använda IP i stället för annonsering.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* En Azure-prenumeration
-
 ## <a name="create-an-azure-container-service-aks"></a>Skapa ett Azure Container Service (AKS)
 
 Om du inte redan har ett AKS kluster använder du något av följande dokument att lära dig hur du skapar en:
@@ -63,7 +63,10 @@ Om du inte redan har ett AKS kluster använder du något av följande dokument a
 * [Distribuera ett Azure Container Service (AKS) kluster - Portal](../../aks/kubernetes-walkthrough-portal.md)
 * [Distribuera ett Azure Container Service (AKS) kluster - CLI](../../aks/kubernetes-walkthrough.md)
 
-## <a name="configure-the-virtual-networks"></a>Konfigurera virtuella nätverk
+> [!NOTE]
+> AKS skapar ett virtuellt nätverk under installationen. Det här nätverket är peerkopplat den du skapade för HDInsight i nästa avsnitt.
+
+## <a name="configure-virtual-network-peering"></a>Konfigurera virtuella nätverk peering
 
 1. Från den [Azure-portalen](https://portal.azure.com)väljer __resursgrupper__, och leta upp resursgruppen som innehåller det virtuella nätverket för AKS klustret. Resursgruppens namn är `MC_<resourcegroup>_<akscluster>_<location>`. Den `resourcegroup` och `akscluster` poster är namnet på resursgruppen som du skapade klustret i och namnet på klustret. Den `location` är den plats som klustret har skapats i.
 

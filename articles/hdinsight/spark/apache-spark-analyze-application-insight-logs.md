@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/12/2018
 ms.author: larryfr
-ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8534fefc863a6cb04c43e81a4bea459844e58d91
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analysera Application Insights telemetri loggar med Spark i HDInsight
 
@@ -27,7 +27,7 @@ Lär dig använda Spark i HDInsight för att analysera programmet inblick teleme
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) är en analytics-tjänst som övervakar dina webbprogram. Telemetridata som genererats av Application Insights kan exporteras till Azure Storage. När data finns i Azure Storage, användas HDInsight för att analysera den.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett program som är konfigurerad för att använda Application Insights.
 
@@ -50,7 +50,7 @@ Följande diagram illustrerar arkitekturen tjänsten för det här exemplet:
 
 ![diagram som visar data som flödar från Application Insights till blob storage och sedan bearbetas av Spark i HDInsight](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 
 Application Insights kan konfigureras för att exportera kontinuerligt telemetri information till BLOB. HDInsight kan sedan läsa data som lagras i blobar. Det finns dock vissa krav som måste följas:
 

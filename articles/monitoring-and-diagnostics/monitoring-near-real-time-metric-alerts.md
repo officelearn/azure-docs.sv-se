@@ -1,6 +1,6 @@
 ---
 title: "Nära realtid mått aviseringar i Azure-Monitor | Microsoft Docs"
-description: "Nära realtid mått kan aviseringar du övervaka Azure-resurs så ofta som 1 minut."
+description: "Lär dig hur du använder nära mått aviseringar i realtid för att övervaka Azure-resurs med en frekvens som är så liten som 1 minut."
 author: snehithm
 manager: kmadnani1
 editor: 
@@ -15,27 +15,28 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6370f4596e6b20962c6de0dbcbd5f86c3b7777cc
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Nära realtid mått aviseringar (förhandsgranskning)
-Azure-Monitor stöder nu en ny typ av mått aviseringar kallas nära realtid mått aviseringar (förhandsversion). Den här funktionen är för närvarande i förhandsversion.
-Dessa aviseringar skiljer sig från vanlig mått aviseringar på några olika sätt
+Azure-Monitor stöder en ny aviseringstyp kallas nära realtid mått aviseringar (förhandsversion). Den här funktionen är för närvarande i förhandsversion.
 
-- **Förbättrad latens** -nära realtid mått kan aviseringar övervaka ändringar i måttvärden så snart som 1 minut.
-- **Mer kontroll över mått villkor** -nära realtid mått aviseringar kan du definiera bättre Varningsregler. Aviseringarna nu stöd för övervakning maximala, minsta, genomsnittlig och totala värden mätvärden.
-- **Kombinerade övervakning av flera mått** -nära realtid mått aviseringar kan du övervaka flera (för närvarande två) med en enskild regel. Varning aktiveras om båda mätvärdena bryta mot sina respektive tröskelvärden för den angivna tidsperioden.
-- **Modulära meddelandesystem** - nära realtid mått aviseringar Använd [åtgärdsgrupper](monitoring-action-groups.md). Den här funktionen kan användare skapa åtgärder i en modulär sätt och återanvända för många Varningsregler.
+Nära realtid mått aviseringar skiljer sig från vanlig mått aviseringar på flera sätt:
+
+- **Förbättrad latens**: nära realtid mått aviseringar kan övervaka ändringar i måttvärden med en frekvens som är så liten som 1 minut.
+- **Mer kontroll över mått villkor**: du kan definiera bättre Varningsregler i nära realtid mått aviseringar. Aviseringarna stöd för övervakning maximala, minsta, genomsnittlig och totala värden för mått.
+- **Kombinerade övervakning av flera mått**: nära realtid mått aviseringar kan du övervaka flera (för närvarande högst två mått) med en enskild regel. En varning aktiveras om båda mått bryta mot sina respektive tröskelvärden för den angivna tidsperioden.
+- **Modulära meddelandesystem**: nära realtid mått aviseringar använder [åtgärdsgrupper](monitoring-action-groups.md). Du kan använda åtgärdsgrupper skapa modulära åtgärder. Du kan återanvända åtgärdsgrupper för flera Varningsregler.
 
 > [!NOTE]
-> Nära realtid mått aviseringar är för närvarande i förhandsversion. Funktioner och användarupplevelse kan ändras.
+> I nära realtid mått postaviseringsfunktionen är för närvarande i förhandsversion. Funktioner och användarupplevelse kan ändras.
 >
 
-## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>Vilka resurser kan skapa nära realtid mått aviseringar för?
-Fullständig lista över resurstyper som stöds av nära realtid mått aviseringar:
+## <a name="resources-you-can-use-with-near-real-time-metric-alerts"></a>Resurser som du kan använda med nästan realtid mått aviseringar
+Här är en fullständig lista över resurstyper som stöds för nära realtid mått aviseringar:
 
 * Microsoft.ApiManagement/service
 * Microsoft.Automation/automationAccounts
@@ -57,27 +58,26 @@ Fullständig lista över resurstyper som stöds av nära realtid mått avisering
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Nära realtid mått aviseringar på mått med dimensioner
-Stöder nära realtid mått aviseringar varnar vid mått med dimensioner. Dimensioner är ett sätt att filtrera dina mått för rätt nivå. Nära realtid mått stöds aviseringar om mått med dimensioner för följande typer av resurser
+## <a name="near-real-time-metric-alerts-for-metrics-that-use-dimensions"></a>Nära realtid mått aviseringar för mått som använder dimensioner
+Nära realtid mått stöder aviseringar aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Aviseringar för mått som använder dimensioner stöds nära realtid mått för följande typer av resurser:
 
 * Microsoft.ApiManagement/service
 * Microsoft.Storage/storageAccounts (stöds bara för storage-konton i USA regioner)
 * Microsoft.Storage/storageAccounts/services (stöds bara för storage-konton i USA regioner)
 
-
 ## <a name="create-a-near-real-time-metric-alert"></a>Skapa en nära realtid mått
-Nära realtid mått kan för närvarande aviseringar endast skapas via Azure-portalen. Stöd för att konfigurera nästan realtid mått aviseringar via PowerShell-kommandoradsgränssnittet (CLI) och REST-API för Azure-Monitor kommer snart.
+För närvarande kan du skapa nära realtid mått aviseringar endast i Azure-portalen. Stöd för att konfigurera nästan realtid mått aviseringar med hjälp av PowerShell, Azure-kommandoradsgränssnittet (Azure CLI) och Azure övervakaren REST API: er kommer snart.
 
-Skapa aviseringar upplevelsen för nära realtid mått aviseringen har flyttats till den nya **Alerts(Preview)** upplevelse. Även om de aktuella aviseringarna sidan visar **lägga till nära realtid mått avisering**, du omdirigeras till den nya upplevelsen.
+Upplevelse för att skapa en nära realtid mått avisering har flyttats till den nya **aviseringar (förhandsgranskning)** sidan. Även om de aktuella aviseringarna sidan visar **lägga till nära realtid mått avisering**, du omdirigeras till den **aviseringar (förhandsgranskning)** sidan.
 
-Du kan skapa en nära realtid mått med hjälp av stegen som beskrivs [här](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+Information om hur du skapar en nära realtid mått avisering finns [skapa en aviseringsregel i Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-## <a name="managing-near-real-time-metric-alerts"></a>Hantera nära realtid mått aviseringar
-När du har skapat en **nära realtid mått avisering**, den kan hanteras med hjälp av stegen som beskrivs [här](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+## <a name="manage-near-real-time-metric-alerts"></a>Hantera nära realtid mått aviseringar
+När du har skapat en nära realtid mått avisering kan du hantera aviseringen med hjälp av stegen som beskrivs i [Hantera aviseringar i Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Nyttolasten i schemat
 
-POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära realtid mått aviseringar.
+POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära realtid mått aviseringar:
 
 ```json
 {
@@ -123,6 +123,6 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla nära
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mer information om den nya upplevelsen aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
-* [Lär dig mer om loggen aviseringar i Azure aviseringar (förhandsgranskning)](monitor-alerts-unified-log.md)
-* [Lär dig mer om aviseringar i Azure](monitoring-overview-alerts.md)
+* Mer information om den nya [aviseringar (förhandsgranskning)-upplevelse](monitoring-overview-unified-alerts.md).
+* Lär dig mer om [Logga varningar i Azure varningar (förhandsgranskning)](monitor-alerts-unified-log.md).
+* Lär dig mer om [aviseringar i Azure](monitoring-overview-alerts.md).

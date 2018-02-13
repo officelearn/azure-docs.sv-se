@@ -3,7 +3,7 @@ title: "Spåra ändringar med Azure Log Analytics | Microsoft Docs"
 description: "Ändringsspårning lösningen i logganalys hjälper dig att identifiera program- och Windows-tjänst-ändringar som sker i din miljö."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar av programvaran i din miljö med lösningen för ändringsspårning
 
@@ -107,12 +107,12 @@ I följande tabell visar metoder för insamling av data och annan information om
 
 | Plattform | Styr Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows- och Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minuter till 50 minuter beroende på vilken ändringstyp. Visa tabellen nedan för mer information. |
+| Windows och Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minuter till 50 minuter beroende på vilken ändringstyp. Visa tabellen nedan för mer information. |
 
 
 I följande tabell visas data collection frekvensen för vilka typer av ändringar.
 
-| **ändra typen** | **frekvens** | **Har****agent****skicka skillnaderna när?**  |
+| **Ändra typen** | **frequency** | **Har****agent****skicka skillnaderna när?**  |
 | --- | --- | --- |
 | Windows-registret | 50 minuter | Nej |
 | Windows-filen | 30 minuter | Ja. Om ingen ändring har 24 timmar, skickas en ögonblicksbild. |
@@ -130,19 +130,19 @@ Logganalys utför Windows-registret övervakning och spårning med lösningen f�
     - Övervakare skript som körs vid start.
 - HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Övervakare skript som körs vid avstängningen.
-- HKEY\_lokala\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
     - Övervakar nycklar som har lästs in innan användaren loggar in till sina Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitarsdatorer.
 - HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed komponenter
     - Övervakar ändringar på programinställningar.
-- HKEY\_lokala\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
     - Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.
-- HKEY\_lokala\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
     - Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.
 - HKEY\_lokala\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
     - Övervakare vanliga autostart transaktioner koppla direkt i Utforskaren och kör vanligtvis i processen med Explorer.exe.
-- HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Övervakare för ikon täcker registrering.
-- HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Övervakare för ikon täcker registrering för 32-bitars program som körs på 64-bitarsdatorer.
 - HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper objekt
     - Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att komma åt den modellen DOM (Document Object) för den aktuella sidan och att styra navigeringen.
@@ -150,13 +150,13 @@ Logganalys utför Windows-registret övervakning och spårning med lösningen f�
     - Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att komma åt den modellen DOM (Document Object) för den aktuella sidan och styra navigeringen för 32-bitars program som körs på 64-bitarsdatorer.
 - HKEY\_lokala\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Övervakare för nya tillägg för Internet Explorer, till exempel anpassade verktyget menyer och anpassade knappar.
-- HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
     - Övervakare för nya tillägg för Internet Explorer, till exempel anpassade verktyget menyer och anpassade knappar för 32-bitars program som körs på 64-bitarsdatorer.
-- HKEY\_lokala\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Övervakar 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc. Liknar [drivers]-avsnitt i systemet. INI-filen.
-- HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
     - Övervakare 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc för 32-bitars program som körs på 64-bitarsdatorer. Liknar [drivers]-avsnitt i systemet. INI-filen.
-- HKEY\_lokala\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
+- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
     - Övervakar listan över kända eller vanliga system DLL: er; Det här systemet förhindrar att personer utnyttjar katalogbehörigheter svaga program genom att släppa trojansk häst versioner av system-DLL-filer.
 - HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
     - Övervakar listan över paket som kan ta emot meddelanden om händelser från Winlogon modellen interaktiv inloggning stöd för Windows-operativsystemet.

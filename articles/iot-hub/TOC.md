@@ -3,7 +3,7 @@
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
 
-# [Komma igång](iot-hub-get-started.md)
+# [Kom igång](iot-hub-get-started.md)
 
 ## Konfigurera enheten
 ### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
@@ -107,6 +107,7 @@
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-device-management-getstarted.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-python-device-management-get-started.md)
 ### Så här använder du tvillingegenskaper
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-how-to-configure.md)

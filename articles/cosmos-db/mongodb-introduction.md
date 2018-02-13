@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introduktion till Azure Cosmos DB: API för MongoDB
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, [fem väldefinierade konsekvensnivåer](consistency-levels.md) och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det stöder flera modeller och dokument, nyckelvärde graf och kolumndatamodeller. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos-DB tillhandahåller [nyckelfärdig global distributionsplatsen](distribute-data-globally.md), [elastisk skalbarhet av dataflöden och lagringsutrymmen](partition-data.md) över hela världen, en siffra millisekunders latens i 99th percentil och garanterad hög tillgänglighet, alla säkerhetskopieras av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det stöder flera modeller och dokument, nyckelvärde graf och kolumndatamodeller. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -39,7 +39,12 @@ Azure DB Cosmos-databaser kan användas som datalager för appar som skrivits f�
 
 **Inga serverhantering**: du behöver hantera och skala MongoDB-databaser. Azure Cosmos-DB är en helt hanterad tjänst, vilket innebär att du inte behöver hantera någon infrastruktur och de virtuella datorerna själv. Azure Cosmos-DB är tillgänglig i 30 + [Azure-regioner](https://azure.microsoft.com/regions/services/).
 
-**Justerbara konsekvensnivåer:** Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
+**Justerbara konsekvensnivåer:** Azure Cosmos DB implementerar MongoDB version 3.4, som har två konsekvenskontroll inställningar, starkt och eventuell för närvarande. Eftersom Azure Cosmos DB multi-api, konsekvens inställningarna tillämpas på kontonivå och verkställandet av konsekvenskontrollen styrs av varje API. Tills MongoDB 3,6 har inga begreppet sessionskonsekvens, så om du anger ett MongoDB API-konto för att använda sessionskonsekvens konsekvenskontrollen nedgraderas till klientdatorn när du använder MongoDB APIs. Om du behöver din-äger-skrivskyddad säkerhet för MongoDB-API-kontot ska vara inställd på strong konsekvenskontroll standardnivå för kontot eller avgränsas föråldrad. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
+
+| Azure Cosmos DB standardnivå för konsekvenskontroll |   Mongo-API (3.4) |
+|---|---|
+|Session| Eventuell |
+| Stark | Stark |
 
 **Automatisk indexering**: som standard, Azure Cosmos DB indexerar automatiskt alla egenskaper i dokument i din MongoDB-databas och inte förväntar sig eller kräver något schema eller att sekundärindex. Kapacitet för unikt index möjliggör dessutom en unikhetsbegränsningen på dokumentfält som redan är auto-indexerat i Azure Cosmos-databasen.
 

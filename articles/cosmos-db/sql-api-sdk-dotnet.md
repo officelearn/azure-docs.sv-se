@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Exempel**</td><td>[.NET-kodexempel](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Kom igång**</td><td>[Kom igång med Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
+<tr><td>Kom igång</td><td>[Kom igång med Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Självstudier för Web app**</td><td>[Utveckling av webbappar med Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Fast regression där FeedOptions.MaxItemCount = -1 utlöste ett System.ArithmeticException: sidstorleken är negativt.
+* Lägga till en ny funktion ToString() QueryMetrics.
+* Exponeras partitionsstatistik på läsning av samlingar.
+* Tillagda PartitionKey-egenskapen till ChangeFeedOptions.
+* Mindre felkorrigeringar.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Lägger till möjligheten att ange unika index för dokument med UniqueKeyPolicy-egenskapen på dokumentsamling.
@@ -277,6 +285,7 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |
 | [1.18.1](#1.18.1) |07 november 2017 |--- |
@@ -324,6 +333,6 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Läs mer om Cosmos-DB i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) sida. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Betalningen bearbetning utkast för PCI DSS-kompatibel miljöer"
-description: PCI DSS krav
+title: "Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer"
+description: "Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer"
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Automation utkast: Betalning för PCI DSS-kompatibel miljöer bearbetades.
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure säkerhet och efterlevnad modell - PCI DSS-kompatibel bearbetningen av betalningen miljöer
 
 ## <a name="overview"></a>Översikt
 
@@ -43,7 +43,7 @@ Grundläggande arkitektur består av följande komponenter:
 - **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenterna i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
 - **Automatisk distribution skript**. Dessa skript att distribuera lösningen för slutpunkt till slutpunkt. Skripten består av:
     - En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade.
-    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [betalning bearbetning utkast databasen][code-repo]. 
+    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [ modell databasen][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 
@@ -66,7 +66,7 @@ Administratören ute efter en lösning som kan distribueras snabbt för att uppn
 
 Grundläggande arkitektur är utformad med fiktiva följande element:
 
-Domän-plats`contosowebstore.com`
+Domän-plats `contosowebstore.com`
 
 Användarroller som används för att illustrera användningsfallet och ger inblick i användargränssnittet.
 
@@ -111,8 +111,6 @@ Edna Benson är hanteraren receptionist och verksamhet. Hon ansvarar för att s�
 - Edna kan ändra kundinformation.
 - Edna kan skriva över eller ersätta kreditkortsnummer, förfallodatum och CVV information.
 
-> Contoso Webstore, användaren är automatiskt som den **Edna** användaren för att testa funktionerna i en distribuerad miljö.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - uppskattade priser
 
 Den här grundläggande arkitektur och exempel webbprogrammet har en månatlig avgift struktur och en användning kostnad per timme som måste beaktas vid bedömning av lösningen. Dessa kostnader kan beräknas med hjälp av den [Azure kostnadskrävande Kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Från och med September 2017 månatliga uppskattade kostnaden för den här lösningen är ~ $2500 Detta omfattar en $ 1 000/månad användning kostnad för ASE v2. Dessa kostnader varierar beroende på hur användning och kan ändras. Har skyldighet att kunden beräkna de uppskattade kostnaderna för månatliga vid tidpunkten för distributionen för en mer tillförlitlig uppskattning. 
@@ -121,8 +119,8 @@ Den här lösningen används följande Azure-tjänster. Information om arkitektu
 
 >- Application Gateway
 >- Azure Active Directory
->- Apptjänst-miljö v2
->- OMS logganalys
+>- App Service Environment v2
+>- OMS Log Analytics
 >- Azure Key Vault
 >- Nätverkssäkerhetsgrupper
 >- Azure SQL-databas
@@ -151,7 +149,7 @@ I följande avsnitt beskrivs element för utveckling och implementering.
 
 Grundläggande arkitektur minskar risken för säkerhetsproblem med hjälp av en Programgateway med Brandvägg för webbaserade program (Brandvägg) och OWASP RuleSet-metod aktiverad. Ytterligare funktioner är:
 
-- [Slutpunkt till slutpunkt SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Aktivera [SSL-avlastning](/azure/application-gateway/application-gateway-ssl-portal)
 - Inaktivera [TLS version 1.0 och v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Brandvägg för webbaserade program](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (Brandvägg läge)
@@ -207,8 +205,8 @@ Azure SQL Database-instans använder följande säkerhetsåtgärder för databas
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) kan ge Contoso Webstore utförlig loggning för alla system- och användaraktivitet får innehålla Kortinnehavarens dataloggning. Ändringar kan granskas och verifiera noggrannhet. 
 
-- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.
-- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs. Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
+- **Aktivitetsloggar:**[aktivitetsloggar](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger kunskaper om de åtgärder som utfördes på resurser i din prenumeration.  
+- **Diagnostikloggar:**[diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som orsakat av varje resurs.   Loggarna finns system händelseloggarna i Windows Azure Blob storage, tabeller och kön loggar.
 - **Brandväggen loggarna:** Programgatewayen ger fullständig diagnostik och komma åt loggar. Brandväggsloggar är tillgängliga för Programgateway resurser som har en Brandvägg är aktiverad.
 - **Loggen arkivering:** alla diagnostikloggar är konfigurerade för att skriva till en central och krypterad Azure storage-konto för arkivering med en definierad period (2 dagar). Loggarna är nu ansluten till Azure Log Analytics för bearbetning, lagring och dashboarding. [Logga Analytics](https://azure.microsoft.com/services/log-analytics) är en OMS-tjänst som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
 
@@ -357,7 +355,7 @@ Du rekommenderas att en ren installation av PowerShell används för att distrib
     
 ## <a name="threat-model"></a>Hotmodell
 
-En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore [betalning bearbetning utkast Hotmodell](https://aka.ms/pciblueprintthreatmodel).
+En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore [modell Hotmodell](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 

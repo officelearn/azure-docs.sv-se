@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster på Windows med X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan olika noder för din fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till klustret med hjälp av X.509-certifikat. Autentisering säkerställer att endast auktoriserade användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret skapas.  
@@ -48,6 +48,12 @@ Börja med, [hämta Service Fabric för Windows Server](service-fabric-cluster-c
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Börja med, [hämta Service Fabric för Windows Server](service-fabric-cluster-c
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Börja med, [hämta Service Fabric för Windows Server](service-fabric-cluster-c
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ I följande tabell visas de certifikat som du behöver på din konfiguration:
 | --- | --- |
 | ClusterCertificate |Vi rekommenderar för en testmiljö. Detta certifikat krävs för att skydda kommunikationen mellan noder i ett kluster. Du kan använda två olika certifikat, en primär och en sekundär för uppgradering. Ange tumavtrycket för certifikatet för primär i avsnittet tumavtrycket och som sekundär i ThumbprintSecondary variabler. |
 | ClusterCertificateCommonNames |Vi rekommenderar för en produktionsmiljö. Detta certifikat krävs för att skydda kommunikationen mellan noder i ett kluster. Du kan använda en eller två certifikat vanliga klusternamn. CertificateIssuerThumbprint motsvarar tumavtrycket för den här certifikatutfärdaren. Du kan ange flera utfärdaren tumavtryck om fler än ett certifikat med samma allmänna namn används.|
+| ClusterCertificateIssuerStores |Vi rekommenderar för en produktionsmiljö. Det här certifikatet motsvarar kluster-certifikatets utfärdare. Du kan ange utfärdaren eget namn och motsvarande store-namn under det här avsnittet i stället för att ange utfärdaren tumavtrycket under ClusterCertificateCommonNames.  Detta gör det enkelt att förnya certifikaten för klustret. Flera certifikatutfärdare kan anges om mer än ett kluster certifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande lagrar anges under X509StoreNames.|
 | ServerCertificate |Vi rekommenderar för en testmiljö. Det här certifikatet visas till klienten när den försöker ansluta till det här klustret. Du kan välja att använda samma certifikat för ClusterCertificate och ServerCertificate för enkelhetens skull. Du kan använda två olika servercertifikat, en primär och en sekundär för uppgradering. Ange tumavtrycket för certifikatet för primär i avsnittet tumavtrycket och som sekundär i ThumbprintSecondary variabler. |
 | ServerCertificateCommonNames |Vi rekommenderar för en produktionsmiljö. Det här certifikatet visas till klienten när den försöker ansluta till det här klustret. CertificateIssuerThumbprint motsvarar tumavtrycket för den här certifikatutfärdaren. Du kan ange flera utfärdaren tumavtryck om fler än ett certifikat med samma allmänna namn används. Du kan välja att använda samma certifikat för ClusterCertificateCommonNames och ServerCertificateCommonNames för enkelhetens skull. Du kan använda en eller två vanliga namn servercertifikat. |
+| ServerCertificateIssuerStores |Vi rekommenderar för en produktionsmiljö. Det här certifikatet motsvarar utfärdaren av servercertifikatet. Du kan ange utfärdaren eget namn och motsvarande store-namn under det här avsnittet i stället för att ange utfärdaren tumavtrycket under ServerCertificateCommonNames.  Detta gör det enkelt att förnya certifikaten för server. Flera certifikatutfärdare kan vara angivna om mer än ett servercertifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande lagrar anges under X509StoreNames.|
 | ClientCertificateThumbprints |Installera den här uppsättningen av certifikat på de autentiserade klienterna. Du kan ha ett antal olika klientcertifikat som är installerad på de datorer som du vill tillåta åtkomst till klustret. Ange varje certifikatets tumavtryck i variabeln CertificateThumbprint. Om du anger IsAdmin *SANT*, kan klienten med det här certifikatet installeras på den göra administratören hanteringsaktiviteter på klustret. Om IsAdmin *FALSKT*, klienten med det här certifikatet kan utföra åtgärder endast tillåtet för användaråtkomst rättigheter, normalt skrivskyddade. Mer information om roller finns [rollbaserad åtkomstkontroll (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Ange namnet på det första klientcertifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för den här certifikatutfärdaren. Läs mer om vanliga namn och utfärdaren i [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Vi rekommenderar för en produktionsmiljö. Det här certifikatet motsvarar utfärdaren av klientcertifikatet (både admin och icke-administratörer roller). Du kan ange utfärdaren eget namn och motsvarande store-namn under det här avsnittet i stället för att ange utfärdaren tumavtrycket under ClientCertificateCommonNames.  Detta gör det enkelt att förnyade certifikaten för klienten. Flera certifikatutfärdare kan vara angivna om mer än ett klientcertifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande lagrar anges under X509StoreNames.|
 | ReverseProxyCertificate |Vi rekommenderar för en testmiljö. Den här valfria certifikat kan vara anges om du vill skydda din [omvänd proxy](service-fabric-reverseproxy.md). Kontrollera att reverseProxyEndpointPort har angetts i nodetypes får om du använder det här certifikatet. |
 | ReverseProxyCertificateCommonNames |Vi rekommenderar för en produktionsmiljö. Den här valfria certifikat kan vara anges om du vill skydda din [omvänd proxy](service-fabric-reverseproxy.md). Kontrollera att reverseProxyEndpointPort har angetts i nodetypes får om du använder det här certifikatet. |
 
@@ -123,7 +144,7 @@ Här är ett exempel klusterkonfigurationen där klustret, server och klientcert
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Här är ett exempel klusterkonfigurationen där klustret, server och klientcert
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Här är ett exempel klusterkonfigurationen där klustret, server och klientcert
 
 ## <a name="certificate-rollover"></a>Förnya certifikatet
 När du använder ett eget namn för certifikatet i stället för ett tumavtryck kräver inte konfiguration av klusteruppgradering förnya certifikatet. Kontrollera att listan tumavtrycket skär med den gamla listan för utfärdaren tumavtrycket uppgraderingar. Du behöver först en config-uppgradering med nya utfärdaren tumavtryck och sedan installera de nya certifikaten (kluster/servercertifikat och certifikat) i arkivet. Behåll det gamla utfärdarcertifikatet i certifikatarkivet för minst två timmar efter att du installerar det nya utfärdarcertifikatet.
+Om du använder utfärdaren lagrar sedan måste ingen config-uppgradering utföras förnya certifikatet för utfärdare. Installera det nya utfärdarcertifikatet med en senare upphör att gälla i motsvarande certifikatarkiv och ta bort det gamla utfärdarcertifikatet efter några timmar.
 
 ## <a name="acquire-the-x509-certificates"></a>Hämta X.509-certifikat
 För säker kommunikation inom klustret, behöver du först skaffa X.509-certifikat för klusternoderna. Dessutom för att begränsa anslutning till detta kluster till auktoriserade datorer och användare måste hämta och installera certifikat för klientdatorer.

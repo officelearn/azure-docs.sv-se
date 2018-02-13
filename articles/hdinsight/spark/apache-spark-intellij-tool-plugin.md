@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 077805cedb7895c8c59b650b3ec691244168a9f5
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -36,7 +36,7 @@ Skapa projektet genom att visa den [skapa Spark-program med Azure Toolkit för I
 > Du kan använda plugin-modulen för att skapa och skicka program bara för ett HDInsight Spark-kluster på Linux.
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Apache Spark-kluster i HDInsight Linux. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 - Oracle Java Development Kit. Du kan installera det från den [Oracle webbplats](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -69,6 +69,27 @@ Installationsanvisningar finns i [installera Azure Toolkit för IntelliJ](https:
    
     ![En expanderad klusternamnet nod](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Länka ett kluster
+Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka ett säkerhet hadoop-kluster med hjälp av användarnamn (exempel: user1@contoso.com). 
+1. Klicka på **länka ett kluster** från **Azure Explorer**.
+
+   ![länken klustrets snabbmenyn](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Ange **klusternamnet**, **Lagringskonto**, **Lagringsnyckel**, välj sedan en behållare från **lagringsbehållaren**, minst, ange användarnamn och lösenord. Du måste kontrollera användarnamn och lösenord om hämta autentisering misslyckades.
+   
+   ![länka klustret dialog](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster. 
+   
+3. Du kan se ett länkade kluster i **HDInsight** nod om informationen om indata är rätt. Nu kan du skicka ett program till den här länkade klustret.
+
+   ![länkade kluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Du kan också Avlänka ett kluster från **Azure Explorer**.
+   
+   ![Olänkade kluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
+
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Kör en Spark Scala på ett HDInsight Spark-kluster
 
 1. Starta IntelliJ IDEA och sedan skapa ett projekt. I den **nytt projekt** dialogrutan Gör följande: 
@@ -82,7 +103,7 @@ Installationsanvisningar finns i [installera Azure Toolkit för IntelliJ](https:
 
     ![Dialogrutan Nytt projekt](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. Välj **nästa**.
+2. Välj **Nästa**.
 
 3. Guiden Skapa projekt Scala identifierar automatiskt om du har installerat Scala plugin-programmet. Välj **installera**.
 
@@ -164,12 +185,14 @@ Installationsanvisningar finns i [installera Azure Toolkit för IntelliJ](https:
 
    c. Den **Spark skicka** fliken längst ned i fönstret ska börja visas förloppet. Du kan också avbryta programmet genom att välja knappen red i den **Spark skicka** fönster.
       
-      ![Fönstret Spark överföring](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+     ![Fönstret Spark överföring](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
       Information om hur du kommer åt jobbutdata finns i ”åtkomst och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ” senare i den här artikeln.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Felsöka Spark-program lokalt eller via fjärranslutning på ett HDInsight-kluster 
-Vi rekommenderar också ett annat sätt att skicka Spark-program i klustret. Du kan göra också genom att ange parametrarna i den **kör/Debug konfigurationer** IDE. Mer information finns i [felsöka Spark-program lokalt eller via fjärranslutning på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Vi rekommenderar också ett annat sätt att skicka Spark-program i klustret. Du kan göra det genom att ange parametrarna i den **kör/Debug konfigurationer** IDE. Mer information finns i [felsöka Spark-program lokalt eller via fjärranslutning på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Komma åt och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ
 Du kan utföra olika åtgärder med hjälp av Azure Toolkit för IntelliJ.
@@ -182,6 +205,8 @@ Du kan utföra olika åtgärder med hjälp av Azure Toolkit för IntelliJ.
 2. I den högra rutan i **Spark jobbet vyn** visar alla program som kördes på klustret. Välj namnet på programmet som du vill se mer information.
 
     ![Programinformation](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
+    >Obs!
+    >
 
 3. Hovra över jobb diagrammet om du vill visa grundläggande jobbinformation om körs. Välj en nod på jobbet diagrammet om du vill visa steg diagram och information som genereras av varje jobb.
 
@@ -256,7 +281,7 @@ Dessa fel inträffa eftersom heap-storlek inte är tillräckligt stor för Spark
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 För att skicka ett program till Azure Data Lake Store, Välj **interaktiv** läge under processen för Azure-inloggning. Om du väljer **automatisk** läge, du får ett felmeddelande.
 
-![Interaktiv inloggning](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Nu ska löste vi problemet. Du kan välja ett Azure Data Lake-kluster att skicka ditt program med valfri metod för inloggning.
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla logganalys-agenten för Windows och Linux
 
-Du kan behöva konfigurera om agenten beroende på situation eller ta bort den från datorn om du har nått pensionering stadium i livscykeln efter första distributionen av Windows eller Linux-agenten för Log Analytics.  Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automation, vilket minskar både åtgärdsfel och kostnader.
+Du kan behöva konfigurera om agenten eller ta bort den från datorn om du har nått pensionering stadium i livscykeln efter första distributionen av Windows eller Linux-agenten för Log Analytics.  Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automation, vilket minskar både åtgärdsfel och kostnader.
 
 ## <a name="adding-or-removing-a-workspace"></a>Lägga till eller ta bort en arbetsyta 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux-agent
-Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserver eller OMS Gateway till logganalys.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Den *proxyhost* egenskapen accepterar ett fullständigt domännamn eller IP-adressen för proxyservern.
+Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserver eller OMS Gateway till logganalys.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.
 
 1. Redigera filen `/etc/opt/microsoft/omsagent/proxy.conf` genom att köra följande kommandon och ändra värdena enligt dina specifika inställningar.
 
@@ -148,12 +148,9 @@ Den hämta filen för agenten är ett fristående installationsprogram som skapa
 3. I Kommandotolken skriver du `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux-agent
-Utför följande steg för att ta bort agenten.
+Kör följande kommando för att ta bort agenten på Linux-datorn.  Den *--Rensa* argumentet helt tar bort agenten och dess konfiguration.
 
-1. Ladda ned Linux-agenten [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) till datorn.
-2. Kör paketets SH-fil med argumentet *--purge* på datorn, som fullständigt tar bort agenten och dess konfiguration.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Konfigurera agent ska rapportera till en Operations Manager-hanteringsgrupp
 
@@ -174,9 +171,9 @@ Utför följande steg om du vill konfigurera OMS-Agent för Windows att rapporte
 ### <a name="linux-agent"></a>Linux-agent
 Utför följande steg för att konfigurera OMS-Agent för Linux rapportera till en System Center Operations Manager-hanteringsgrupp. 
 
-1. Redigera filen`/etc/opt/omi/conf/omiserver.conf`
-2. Se till att den rad som början med `httpsport=` definierar port 1270. Exempelvis:`httpsport=1270`
-3. Starta om OMI-servern:`sudo /opt/omi/bin/service_control restart`
+1. Redigera filen `/etc/opt/omi/conf/omiserver.conf`
+2. Se till att den rad som början med `httpsport=` definierar port 1270. Exempelvis: `httpsport=1270`
+3. Starta om OMI-servern: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Nästa steg
 

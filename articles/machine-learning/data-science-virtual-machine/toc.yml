@@ -1,4 +1,5 @@
 - name: Dokumentation om virtuella datorer för datavetenskap
+  href: index.yml
   items: null
 - name: Översikt
   expanded: true

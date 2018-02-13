@@ -10,10 +10,10 @@ ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>I Azure till Azure-replikeringsarkitektur
 
@@ -46,8 +46,8 @@ När du aktiverar Azure VM-replikering skapas i följande resurser automatiskt i
 
 **Resurs** | **Detaljer**
 --- | ---
-**Målresursgruppen** | Resursgruppen som tillhör replikerade virtuella datorer efter redundans.
-**Mål virtuellt nätverk** | Det virtuella nätverket som replikerade virtuella datorer finns efter växling vid fel. En nätverksmappning skapas mellan käll- och virtuella nätverk och vice versa.
+Målresursgruppen | Resursgruppen som tillhör replikerade virtuella datorer efter redundans.
+Mål virtuellt nätverk | Det virtuella nätverket som replikerade virtuella datorer finns efter växling vid fel. En nätverksmappning skapas mellan käll- och virtuella nätverk och vice versa.
 **Cache-lagringskonton** | De är spåras och skickas till cache-lagringskonto i källplats innan ändringar av datakällan VM replikeras till en mål-lagringskontot. Det här steget säkerställer minimal inverkan på produktionsprogram som körs på den virtuella datorn.
 **Mål-lagringskonton**  | Storage-konton på målplatsen data replikeras.
 **Mål-tillgänglighetsuppsättningar**  | Tillgänglighetsuppsättningar i som de replikerade virtuella datorerna är placerade efter växling vid fel.

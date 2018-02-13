@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dc11ac2ce92fe2b7d3cb51bf60c6b4bd9a5be18d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,14 +269,14 @@ SQL Data Warehouse PolyBase stöd direkt för Azure Blob och Azure Data Lake Sto
 
 Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factory och faller automatiskt tillbaka till BULKINSERT mekanism för flytt av data.
 
-1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore**.
+1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore** med huvudsakliga autentiseringen av tjänsten.
 2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStoreFile**, och skriv `type` egenskaper är **OrcFormat** , **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
-   1. `rowDelimiter`måste vara  **\n** .
-   2. `nullValue`anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
-   3. `encodingName`anges till **utf-8**, vilket är **standard** värde.
+   1. `rowDelimiter` måste vara  **\n** .
+   2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
+   3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
-   5. `compression`kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
     ```json
     "typeProperties": {

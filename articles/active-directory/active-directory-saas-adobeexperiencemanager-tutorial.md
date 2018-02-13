@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a4fccc4210fd6cf0ddbe99089c84a1fd38d5b09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c366e314b77cd3344a90826b22b96a45e35b0b4e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Självstudier: Azure Active Directory-integrering med Adobe upplevelse Manager
 
@@ -27,12 +27,12 @@ I kursen får lära du att integrera Adobe upplevelse Manager med Azure Active D
 Integrera Adobe upplevelse Manager med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Adobe upplevelse Manager.
-- Du kan aktivera användarna att automatiskt hämta inloggade till Adobe upplevelse Manager (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att få loggas in automatiskt till Adobe upplevelse Manager med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats--Azure-portalen.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Adobe upplevelse Manager behöver du följande:
 
@@ -40,12 +40,12 @@ Om du vill konfigurera Azure AD-integrering med Adobe upplevelse Manager behöve
 - En Adobe upplevelse Manager enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Vi rekommenderar inte använda en produktionsmiljö för att testa stegen i den här självstudiekursen.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Följ dessa rekommendationer för att testa stegen i den här självstudiekursen:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö [skaffa en kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -53,12 +53,12 @@ I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario s
 1. Lägger till Adobe upplevelse Manager från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-adobe-experience-manager-from-the-gallery"></a>Lägger till Adobe upplevelse Manager från galleriet
+## <a name="add-adobe-experience-manager-from-the-gallery"></a>Lägg till Adobe upplevelse Manager från galleriet
 Du måste lägga till Adobe upplevelse Manager från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Adobe upplevelse Manager i Azure AD.
 
-**Utför följande steg för att lägga till Adobe upplevelse Manager från galleriet:**
+**Vidta följande steg för att lägga till Adobe upplevelse Manager från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan, Välj den **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -66,11 +66,11 @@ Du måste lägga till Adobe upplevelse Manager från galleriet i listan över ha
 
     ![Bladet Enterprise program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Om du vill lägga till ett nytt program, Välj den **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Adobe upplevelse Manager**väljer **Adobe upplevelse Manager** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Adobe upplevelse Manager**. Välj **Adobe upplevelse Manager** resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
 
     ![Adobe upplevelse Manager i resultatlistan](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
 
@@ -78,129 +78,129 @@ Du måste lägga till Adobe upplevelse Manager från galleriet i listan över ha
 
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Adobe upplevelse Manager baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i Adobe upplevelse Manager till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk mellan en Azure AD-användare och relaterade användaren i Adobe upplevelse Manager upprättas.
+För enkel inloggning ska fungera, måste Azure AD att veta vilka motsvarande användaren i Adobe upplevelse Manager är en användare i Azure AD. Med andra ord måste du skapa en länk mellan en Azure AD-användare och relaterade användaren i Adobe upplevelse Manager.
 
-Adobe upplevelse Manager tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+Adobe upplevelse Manager ger värde **användarnamn** samma värde i **användarnamn** i Azure AD. Du har nu skapat länken mellan de två användarna. 
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Adobe upplevelse Manager, måste du utföra följande byggblock:
+Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med Adobe upplevelse Manager:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Adobe upplevelse Manager](#create-an-adobe-experience-manager-test-user)**  – du har en motsvarighet för Britta Simon i Adobe upplevelse Manager som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) att användarna ska kunna använda den här funktionen.
+2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+3. [Skapa en testanvändare Adobe upplevelse Manager](#create-an-adobe-experience-manager-test-user) har en motsvarighet för Britta Simon i Adobe upplevelse Manager som är kopplad till Azure AD-representation av användaren.
+4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Adobe upplevelse Manager-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Adobe upplevelse Manager:**
+**För att konfigurera Azure AD enkel inloggning med Adobe upplevelse Manager, gör du följande:**
 
-1. I Azure-portalen på den **Adobe upplevelse Manager** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Adobe upplevelse Manager** programmet integration anger **enkel inloggning**.
 
     ![Konfigurera enkel inloggning länk][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. Aktivera enkel inloggning, i den **enkel inloggning** i dialogrutan den **läge** nedrullningsbara menyn och väljer **SAML-baserade inloggning**.
  
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
 
-3. På den **Adobe upplevelse Manager-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera app i **IdP** läge:
+3. I den **Adobe upplevelse Manager-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera app i **IdP** läge:
 
     ![URL: er och Adobe upplevelse Manager-domän med enkel inloggning information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
 
-    a. I den **identifierare** textruta Skriv ett unikt värde som du definierar serverns AEM. 
+    a. I den **identifierare** Skriv ett unikt värde som du definierar serverns AEM. 
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<AEM Server Url>/saml_login`
+    b. I den **Reply URL** Skriv en URL med följande mönster: `https://<AEM Server Url>/saml_login`.
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Adobe upplevelse Manager supportteamet](https://helpx.adobe.com/support/experience-manager.html) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och reply URL. För att få dessa värden kan kontakta den [Adobe upplevelse Manager supportteamet](https://helpx.adobe.com/support/experience-manager.html).
  
-4. Kontrollera att visa avancerade inställningar för URL: en och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+4. Kontrollera **visa avancerade inställningar för URL: en**. Sedan gör följande om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Adobe upplevelse Manager-domän med enkel inloggning information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
 
-    I den **logga URL** textruta skriver Adobe upplevelse Manager-Serveradress. 
+    I den **logga URL** Skriv din Adobe upplevelse Manager server-URL. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+5. I den **SAML-signeringscertifikat** väljer **certifikat (Base64)**. Spara certifikatfilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
 
-6. Klicka på Konfigurera Adobe upplevelse Manager så att konfigurera inloggning fönstret konfigurationsavsnittet Adobe upplevelse Manager. Kopiera den **SAML Sign-On-tjänstens URL**, **SAML enhets-ID** och **Sign-Out ID** från avsnittet Snabbreferens.
+6. För att öppna konfigurationsfönstret inloggning i konfigurationsavsnittet Adobe upplevelse Manager, Välj **Konfigurera Adobe upplevelse Manager**. Kopiera den **SAML Sign-On-tjänstens URL**, **SAML enhets-ID**, och **Sign-Out ID** från avsnittet Snabbreferens.
 
     ![Avsnittet konfigurationslänken](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
 
-7. Klicka på **spara** knappen.
+7. Välj **Spara**.
 
-    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara knappen](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_general_400.png)
 
-8. Öppna **Adobe upplevelse Manager** administrationsportalen i ett nytt webbläsarfönster.
+8. Öppna i ett nytt webbläsarfönster i **Adobe upplevelse Manager** administrationsportalen.
 
-9. Välj **inställningar** -> **säkerhet** -> **användare**.
+9. Välj **inställningar** > **säkerhet** > **användare**.
 
-    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Konfigurera den enkel inloggning spara knappen](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 10. Välj **administratör** och andra relevanta användare.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-11. Välj **kontoinställningar** -> **skapa/hantera TrustStore**.
+11. Välj **kontoinställningar** > **hantera TrustStore**.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. Klicka på **Välj certifikatfilen** från **Lägg till certifikat från CER-filen** knappen. Bläddra och välj certifikatfilen, som du har hämtat från Azure-portalen.
+12. Under **Lägg till certifikat från CER-filen**, klickar du på **Välj certifikatfilen**. Bläddra till och markera den certifikatfil som du redan har hämtat från Azure-portalen.
 
-    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Konfigurera enkel inloggning spara knappen](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 13. Certifikatet har lagts till TrustStore. Observera alias för certifikatet.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
-14. På **användare** väljer **-Autentiseringstjänsten**.
+14. På den **användare** väljer **-Autentiseringstjänsten**.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
-15. Välj **kontoinställningar** -> **skapa/hantera KeyStore**. Skapa KeyStore genom att ange ett lösenord.
+15. Välj **kontoinställningar** > **skapa/hantera KeyStore**. Skapa KeyStore genom att ange ett lösenord.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
-16. Gå tillbaka till admin skärmen och välj **inställningar** -> **Operations** -> **webbkonsolen**.
+16. Gå tillbaka till skärmen admin. Välj sedan **inställningar** > **Operations** > **webbkonsolen**.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
-17. Detta öppnar konfigurationssidan.
+    Detta öppnar konfigurationssidan.
 
-    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
+    ![Konfigurera den enkel inloggning spara knappen](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
-18. Hitta **Adobe Granit SAML 2.0-autentisering hanteraren** och klicka på **Lägg till** ikon.
+17. Hitta **Adobe Granit SAML 2.0-autentisering hanteraren**. Välj sedan den **Lägg till** ikon.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
-19. Utför följande åtgärder på den här sidan.
+19. Vidta följande åtgärder på den här sidan.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. I den **sökväg** textruta ange  **/** .
+    a. I den **sökväg** ange  **/** .
 
-    b. I **IDP URL** textruta anger du värdet för **SAML Sign-On-tjänstens URL**, som du har kopierat från Azure-portalen.
+    b. I den **IDP URL** anger du den **SAML Sign-On-tjänstens URL** värde som du kopierade från Azure-portalen.
 
-    c. I **IDP certifikat Alias** textruta anger du värdet för **certifikat Alias**, som du har lagt till i TrustStore.
+    c. I den **IDP certifikat Alias** anger du den **certifikat Alias** värde som du lade till i TrustStore.
 
-    d. I **säkerhet tillhandahålls enhets-ID** textruta anger du värdet för unika **SAML enhets-ID**, som du har konfigurerat i Azure Portal.
+    d. I den **säkerhet tillhandahålls enhets-ID** ange den unika **SAML enhets-ID** värdet som du konfigurerade i Azure-portalen.
 
-    e. I **Assertion konsument-tjänstens URL** textruta anger du värdet för **Reply URL**, som du har konfigurerat i Azure Portal.
+    e. I den **Assertion konsument-tjänstens URL** anger du den **Reply URL** värdet som du konfigurerade i Azure-portalen.
 
-    f. I **Lösenordsarkiv av nyckeln** textruta, ange den **lösenord**, som du har angett i KeyStore.
+    f. I den **Lösenordsarkiv av nyckeln** anger du den **lösenord** som du anger i KeyStore.
 
-    g. I **användar-ID för attributet** textruta ange **namn-ID** eller andra användar-ID som är relevant för ditt ärende.
+    g. I den **användar-ID för attributet** anger du den **namn-ID** eller ett annat användar-ID som är relevant för ditt ärende.
 
-    h. Välj **CRX skapa användare.**
+    h. Välj **skapa CRX användare**.
 
-    Jag. I **logga ut URL** textruta anger du värdet för unika **Sign-Out URL** som du har från Azure-portalen.
+    i. I den **logga ut URL** ange den unika **Sign-Out URL** värde som du har fått från Azure-portalen.
 
-    j. Klicka på **spara**
+    j. Välj **Spara**.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) medan du installerar appen. När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken. Komma åt inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentation på [Azure AD inbäddade dokumentationen]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -208,21 +208,21 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
    ![Skapa en testanvändare i Azure AD][100]
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+**Om du vill skapa en testanvändare i Azure AD, gör du följande:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen i den vänstra rutan, Välj den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
 
     ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användare** dialogrutan överst i den **alla användare** dialogrutan **Lägg till**.
 
     ![Knappen Lägg till](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+4. I den **användaren** dialogrutan rutan, gör du följande:
 
     ![Dialogrutan användare](./media/active-directory-saas-adobeexperiencemanager-tutorial/create_aaduser_04.png)
 
@@ -230,25 +230,25 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenordet** kryssrutan. Anteckna det värde som visas i den **lösenord** rutan.
 
-    d. Klicka på **Skapa**.
+    d. Välj **Skapa**.
   
 ### <a name="create-an-adobe-experience-manager-test-user"></a>Skapa en testanvändare Adobe upplevelse Manager
 
-I det här avsnittet kan du skapa en användare som kallas Britta Simon i Adobe upplevelse Manager. Om du har valt **skapa CRX användare** alternativet användare skapas automatiskt efter en lyckad autentisering. 
+I det här avsnittet kan du skapa en användare som kallas Britta Simon i Adobe upplevelse Manager. Om du har valt den **skapa CRX användare** alternativet användare skapas automatiskt efter en lyckad autentisering. 
 
-Om du vill skapa användare manuellt kan arbeta med [Adobe upplevelse Manager supportteamet](https://helpx.adobe.com/support/experience-manager.html) att lägga till användare i Adobe upplevelse Manager-plattformen. 
+Om du vill skapa användare manuellt kan arbeta med den [Adobe upplevelse Manager supportteamet](https://helpx.adobe.com/support/experience-manager.html) att lägga till användare i Adobe upplevelse Manager-plattformen. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Adobe upplevelse Manager.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att ge dem åtkomst till Adobe upplevelse Manager.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Britta Simon till Adobe upplevelse Manager, utför du följande steg:**
+**Om du vill tilldela Britta Simon till Adobe upplevelse Manager, gör du följande:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna program i Azure-portalen. Gå sedan till vyn directory väljer **företagsprogram**, och välj sedan **alla program**.
 
     ![Tilldela användare][201] 
 
@@ -256,25 +256,26 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
     ![Adobe upplevelse Manager länken i listan med program](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. Välj på menyn till vänster **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Välj den **Lägg till** knappen. I den **Lägg uppdrag** dialogrutan **användare och grupper**.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. I den **användare och grupper** dialogrutan **Britta Simon** på användarlistan.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. I den **Lägg uppdrag** dialogrutan markerar du den **tilldela** knappen.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet testa du Azure AD enkel inloggning konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Adobe upplevelse Manager på åtkomstpanelen du bör få automatiskt loggat in på ditt Adobe upplevelse Manager-program.
+När du väljer Adobe upplevelse Manager-panelen i åtkomstpanelen ska hämta loggas du automatiskt till Adobe upplevelse Manager-program.
+
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

@@ -3,7 +3,7 @@ title: "Optimera SQL Server-miljön med Azure Log Analytics | Microsoft Docs"
 description: "Du kan använda SQL Health Check-lösning med Azure logganalys bedöma risker och hälsotillståndet för dina miljöer regelbundna intervall."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71caf0e1d58107376888ae454713703d845101eb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera SQL-miljön med SQL Server Health Check-lösningen i logganalys
 
@@ -43,7 +43,7 @@ När du har lagt till lösningen och en bedömning är slutförd, Sammanfattning
 
 * SQL Health Check-lösning kräver en version som stöds av .NET Framework 4 installeras på varje dator som har den Microsoft Monitoring Agent (MMA) installerad.  MMA agent används av System Center 2016 - Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten.  
 * Lösningen har stöd för SQL Server version 2012, 2014 och 2016.
-* En logganalys-arbetsytan att lägga till SQL Health Check-lösning från Azure marketplace i Azure-portalen.  Du måste vara administratör eller deltagare i Azure-prenumeration för att kunna installera lösningen. 
+* En logganalys-arbetsytan att lägga till SQL Health Check-lösning från Azure marketplace i Azure-portalen.  Du måste vara administratör eller deltagare i Azure-prenumeration för att kunna installera lösningen.
 
   > [!NOTE]
   > När du har lagt till lösningen läggs filen AdvisorAssessment.exe till servrar med agenter. Konfigurationsdata läsa och sedan skickas till Log Analytics-tjänsten i molnet för bearbetning. Molntjänsten innehåller data att logik tillämpas för mottagna data.
@@ -61,12 +61,12 @@ Agenten på SQL Server att en Operations Manager-hanteringsgrupp samlar in data,
 Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operations Manager kör som-konto. Se [Operations Manager kör som-konton för Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) nedan för mer information.
 
 ## <a name="sql-health-check-data-collection-details"></a>SQL Health Check samling information
-SQL Health Check samlar in data från följande källor med agenten som du har aktiverat: 
+SQL Health Check samlar in data från följande källor med agenten som du har aktiverat:
 
-* Windows Management Instrumentation (WMI) 
-* Register 
+* Windows Management Instrumentation (WMI)
+* Register
 * Prestandaräknare
-* SQL Server hantering av dynamiska visa resultat 
+* SQL Server hantering av dynamiska visa resultat
 
 Data samlas in på SQL Server och vidarebefordras till logganalys var sjunde dag.
 
@@ -144,7 +144,7 @@ Värde för varje rekommendation uttrycks i procent av den sammanlagda poängen 
 
 **Tillgänglighet och affärskontinuitet** -fokus visas här rekommendationer för tjänstetillgänglighet, återhämtning för din infrastruktur och business-skydd.
 
-**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastrukturbehov.
+**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastruktur behov.
 
 **Uppgradera migrering och distribution** -fokus visas här rekommendationer när du uppgraderar, migrera och distribuera SQL Server till den befintliga infrastrukturen.
 
@@ -163,10 +163,10 @@ Innan du kan använda en lösning i logganalys, måste du ha lösningen installe
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **översikt** panelen.  
-4. På den **översikt** klickar du på den **SQL Health Check** panelen. 
+4. På den **översikt** klickar du på den **SQL Health Check** panelen.
 5. På den **Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
 6. På någon av sidorna fokus område, kan du visa prioriterad rekommendationer för din miljö. Klicka på en rekommendation enligt **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av SQL Health Check rekommendationer](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Du kan vidta åtgärder i **föreslagna åtgärder**. När objektet har behandlats registrerar senare bedömningar den rekommenderade åtgärder som utförts och kompatibilitet poängen ökar. Korrigerade objekt visas som **skickades objekt**.

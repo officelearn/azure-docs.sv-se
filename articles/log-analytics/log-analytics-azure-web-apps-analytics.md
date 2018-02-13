@@ -3,7 +3,7 @@ title: Visa analytiska data i Azure Web Apps | Microsoft Docs
 description: "Du kan använda Azure Web Apps Analytics-lösning och få insikter om dina Azure-webbprogram genom att samla in olika mått för alla webbprogram i Azure-resurser."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: 6662fee875d44f88781be51443d48e86c1bf2d46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
@@ -95,14 +95,14 @@ Klicka på den **Azure Web Apps Analytics** öppna den **Azure Web Apps Analytic
 | Kolumn | Beskrivning |
 | --- | --- |
 | Azure Webapps |   |
-| Trender för Web Apps begäran | Visar ett linjediagram för Web Apps begäran trend för intervallet som du har valt och visar en lista över de översta tio webbegäranden. Klicka på linjediagram om du vill köra en logg sökning efter<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Klicka på en webbserver begärandeobjekt om du vill köra en logg-sökning för web begäran mått trender som begär. |
-| Svarstid för Web Apps | Visar ett linjediagram för Web Apps svarstiden för intervallet som du har valt. Dessutom visas en lista över en lista över de tio Web Apps svar gånger. Klicka på diagrammet om du vill köra en logg sökning efter<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Klicka på ett webbprogram för att köra en logg sökning returnerar svarstider för webbprogrammet. |
-| Web Apps Traffic | Visar ett linjediagram för Web Apps trafik i MB och visar upp Web Apps trafik. Klicka på diagrammet om du vill köra en logg sökning efter<code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett webbprogram för att köra en logg sökning visar antal byte som tagits emot och skickats för webbprogrammet. |
+| Trender för Web Apps begäran | Visar ett linjediagram för Web Apps begäran trend för intervallet som du har valt och visar en lista över de översta tio webbegäranden. Klicka på linjediagram om du vill köra en logg sökning efter <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Klicka på en webbserver begärandeobjekt om du vill köra en logg-sökning för web begäran mått trender som begär. |
+| Svarstid för Web Apps | Visar ett linjediagram för Web Apps svarstiden för intervallet som du har valt. Dessutom visas en lista över en lista över de tio Web Apps svar gånger. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Klicka på ett webbprogram för att köra en logg sökning returnerar svarstider för webbprogrammet. |
+| Web Apps Traffic | Visar ett linjediagram för Web Apps trafik i MB och visar upp Web Apps trafik. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett webbprogram för att köra en logg sökning visar antal byte som tagits emot och skickats för webbprogrammet. |
 | Azure App Service-planer |   |
-| App Service-planer med CPU-användning &gt; 80% | Visar det totala antalet Apptjänstplaner som har mer än 80% CPU-användning och visar en lista över de översta 10 Apptjänstplaner per CPU-användning. Klicka på området totala om du vill köra en logg sökning efter<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras Genomsnittlig CPU-belastning. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga processoranvändningen. |
-| App Service-planer med minnesanvändning &gt; 80% | Visar det totala antalet Apptjänstplaner som minnesanvändningen är större än 80% och visar en lista över de översta 10 Apptjänstplaner av minnesanvändning. Klicka på området totala om du vill köra en logg sökning efter<code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras genomsnittliga minnesanvändningen. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga minnesanvändningen. |
+| App Service-planer med CPU-användning &gt; 80% | Visar det totala antalet Apptjänstplaner som har mer än 80% CPU-användning och visar en lista över de översta 10 Apptjänstplaner per CPU-användning. Klicka på området totala om du vill köra en logg sökning efter <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras Genomsnittlig CPU-belastning. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga processoranvändningen. |
+| App Service-planer med minnesanvändning &gt; 80% | Visar det totala antalet Apptjänstplaner som minnesanvändningen är större än 80% och visar en lista över de översta 10 Apptjänstplaner av minnesanvändning. Klicka på området totala om du vill köra en logg sökning efter <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Den visar en lista med din App Service-planer och deras genomsnittliga minnesanvändningen. Klicka på en Apptjänstplan för att köra en logg sökning visar den genomsnittliga minnesanvändningen. |
 | Azure Web Apps aktivitetsloggar |   |
-| Azure Web Apps aktivitet granskning | Visar det totala antalet Web Apps med [aktivitetsloggar](log-analytics-activity.md) och visar de översta 10 aktivitet log-funktioner. Klicka på området totala om du vill köra en logg sökning efter<code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> En lista över åtgärder för aktiviteten loggen visas. Klicka på en aktivitet log-åtgärd för att köra en sökning i loggen som visar en lista över poster för åtgärden. |
+| Azure Web Apps aktivitet granskning | Visar det totala antalet Web Apps med [aktivitetsloggar](log-analytics-activity.md) och visar de översta 10 aktivitet log-funktioner. Klicka på området totala om du vill köra en logg sökning efter <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> En lista över åtgärder för aktiviteten loggen visas. Klicka på en aktivitet log-åtgärd för att köra en sökning i loggen som visar en lista över poster för åtgärden. |
 
 
 

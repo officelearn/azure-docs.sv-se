@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för bättre prestanda med hjälp av Service Bus-meddelanden
 
@@ -111,7 +111,12 @@ Batchbearbetning påverkar inte antalet fakturerbar asynkrona åtgärder och är
 
 ## <a name="batching-store-access"></a>Batchbearbetning store-åtkomst
 
-Om du vill öka genomflödet av kön, ämnet och prenumerationen batchar Service Bus flera meddelanden vid skrivning till interna arkivet. Om aktiverad på en kö eller ett ämne, kommer det att batchar att skriva meddelanden till arkivet. Om aktiverat på en kö eller en prenumeration, kommer det att batchar att ta bort meddelanden från store. Om gruppbaserad store-åtkomst är aktiverat för en entitet, fördröjningar Service Bus store skrivning om entiteten med upp till 20 MS. Ytterligare store-åtgärder som inträffar under det här intervallet har lagts till i gruppen. Batchar store åtkomst endast påverkar **skicka** och **Slutför** verksamhet, ta emot påverkas inte. Batch store-åtkomst är en egenskap för en entitet. Batchbearbetning sker över alla enheter som möjliggör gruppbaserad store-åtkomst.
+Om du vill öka genomflödet av kön, ämnet och prenumerationen batchar Service Bus flera meddelanden vid skrivning till interna arkivet. Om aktiverad på en kö eller ett ämne, kommer det att batchar att skriva meddelanden till arkivet. Om aktiverat på en kö eller en prenumeration, kommer det att batchar att ta bort meddelanden från store. Om gruppbaserad store-åtkomst är aktiverat för en entitet, fördröjningar Service Bus store skrivning om entiteten med upp till 20 MS. 
+
+> [!NOTE]
+> Det finns ingen risk för att förlora meddelanden med batchbearbetning, även om det finns ett Service Bus-fel i slutet av ett 20ms batching intervall. 
+
+Ytterligare store-åtgärder som inträffar under det här intervallet har lagts till i gruppen. Batchar store åtkomst endast påverkar **skicka** och **Slutför** verksamhet, ta emot påverkas inte. Batch store-åtkomst är en egenskap för en entitet. Batchbearbetning sker över alla enheter som möjliggör gruppbaserad store-åtkomst.
 
 När du skapar en ny kö, ämne eller en prenumeration kan är batch store-åtkomst aktiverat som standard. Om du vill inaktivera batch store-åtkomst, ange den [EnableBatchedOperations] [ EnableBatchedOperations] egenskapen **FALSKT** innan du skapar entiteten. Exempel:
 

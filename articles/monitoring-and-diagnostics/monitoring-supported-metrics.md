@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: bc25f58070d8871a92df249a2d48f27de0bc9498
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 97dca282bd7bbf00ce1d03899f6de0444a41163a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline.
@@ -861,7 +861,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|QueryDuration|Frågan varaktighet|Antal|Medel|DAX-frågor varaktighet i det sista intervallet|Inga dimensioner|
+|QueryDuration|Frågan varaktighet|Millisekunder|Medel|DAX-frågor varaktighet i det sista intervallet|Inga dimensioner|
 |QueryPoolJobQueueLength|Trådar: Kölängd frågan poolen jobb|Antal|Medel|Antal jobb i kö i trådpoolen för frågan.|Inga dimensioner|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces

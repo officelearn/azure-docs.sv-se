@@ -3,7 +3,7 @@ title: "Azure SQL Analytics lösning i Log Analytics | Microsoft Docs"
 description: "Azure SQL Analytics lösningen hjälper dig att hantera dina Azure SQL-databaser."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 2a363f663677eb7078b7ae06fde374cdbe083fd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: magoedte
+ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -31,7 +31,7 @@ Den här preview-lösningen stöder för närvarande, upp till 150 000 Azure SQL
 Azure SQL Analytics-lösningen, precis som andra tillgängliga för Log Analytics hjälper dig att övervaka och ta emot meddelanden om hälsotillståndet för dina Azure-resurser – i det här fallet, Azure SQL Database. Microsoft Azure SQL Database är en skalbar relationsdatabas-tjänst som tillhandahåller välbekanta SQL-Server-liknande funktioner till program som körs i Azure-molnet. Logganalys hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
 
 För en praktisk översikt om hur du använder Azure SQL Analytics lösning och vanliga Användningsscenarier finns inbäddad video:
-          
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
@@ -63,11 +63,11 @@ Utför följande steg för att lägga till Azure SQL Analytics lösningen till d
 2. I Azure-portalen klickar du på **ny** (den symbolen +), Välj i listan över resurser, **övervakning + Management**.  
     ![Övervakning och hantering](./media/log-analytics-azure-sql/monitoring-management.png)
 3. I den **övervakning + Management** lista Klicka **se alla**.
-4. I den **rekommenderas** klickar du på **mer** , och sedan i den nya listan **Azure SQL Analytics (förhandsgranskning)** och markera den.  
+4. I den **rekommenderas** klickar du på **mer**, och sedan i den nya listan **Azure SQL Analytics (förhandsgranskning)** och markera den.  
     ![Azure SQL Analytics-lösning](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. I den **Azure SQL Analytics (förhandsgranskning)** bladet, klickar du på **skapa**.  
+5. I den **Azure SQL Analytics (förhandsgranskning)** området klickar du på **skapa**.  
     ![Skapa](./media/log-analytics-azure-sql/portal-create.png)
-6. I den **Skapa ny lösning** bladet, väljer arbetsytan som du vill lägga till lösningen på och klicka sedan på **skapa**.  
+6. I den **Skapa ny lösning** området, Välj arbetsytan som du vill lägga till lösningen på och klicka sedan på **skapa**.  
     ![Lägg till arbetsytan](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -97,15 +97,15 @@ När du lägger till lösningen till din arbetsyta Azure SQL Analytics panel har
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Visa analysdata för Azure SQL
 
-Klicka på den **Azure SQL Analytics** öppna Azure SQL Analytics-instrumentpanelen. Instrumentpanelen innehåller en översikt över alla databaser som övervakas via olika perspektiv. För olika perspektiv ska fungera måste du aktivera rätt mått eller loggarna på SQL-resurser strömmas till Azure logganalys-arbetsyta. 
+Klicka på den **Azure SQL Analytics** öppna Azure SQL Analytics-instrumentpanelen. Instrumentpanelen innehåller en översikt över alla databaser som övervakas via olika perspektiv. För olika perspektiv ska fungera måste du aktivera rätt mått eller loggarna på SQL-resurser strömmas till Azure logganalys-arbetsyta.
 
 ![Översikt över Azure SQL-Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Att välja någon av panelerna, öppnas en detaljerad rapport i specifika perspektiv. När perspektiv väljs, har ökad detaljnivå med rapporten öppnats.
+Att välja någon av panelerna, öppnas en detaljerad rapport i specifika perspektiv. När perspektiv är markerad har nedåt rapporten öppnats.
 
 ![Azure SQL Analytics tidsgränser](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
-Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elastisk pool och databasnivå. Dessutom visar varje perspektiv perspektiv rapport till höger. Att välja prenumeration, server, pool eller databasen i listan, fortsätter detaljerade ned.
+Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elastisk pool och databasnivå. Dessutom kan varje perspektiv visas ett perspektiv för rapporten till höger. Att välja prenumeration, server, pool eller databasen i listan fortsätter nedrullningen.
 
 | Perspektiv | Beskrivning |
 | --- | --- |
@@ -134,7 +134,7 @@ Både elastiska pooler och databaser har sina egna specifika rapporter som visar
 
 ### <a name="query-reports"></a>Frågan rapporter
 
-Via frågan varaktighet och perspektiv för fråga väntar korrelera du prestanda för alla frågor via frågan rapporten. Den här rapporten jämför frågeprestandan mellan olika databaser och gör det enkelt att identifiera databaser som utför den valda frågan väl jämfört med de som tar lång tid.
+Genom att fråga varaktighet och perspektiv för fråga väntar korrelera du prestanda för alla frågor via frågan rapporten. Den här rapporten jämför frågeprestandan mellan olika databaser och gör det enkelt att identifiera databaser som utför den valda frågan väl jämfört med de som tar lång tid.
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
@@ -168,7 +168,7 @@ Du kan använda dessa avisering-baserade frågor för att Avisera om specifika t
 5. I loggen sökning, klickar du på **avisering**.  
 ![Skapa en avisering i sökningen](./media/log-analytics-azure-sql/create-alert01.png)
 6. På den **lägga till Varningsregeln** konfigurerar lämpliga egenskaper och specifika tröskelvärden som du vill använda och klicka sedan på **spara**.  
-![lägga till varningsregel](./media/log-analytics-azure-sql/create-alert02.png)
+![Lägga till varningsregel](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

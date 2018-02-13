@@ -3,7 +3,7 @@ title: "Optimera din miljö för System Center Operations Manager med Azure Log 
 description: "Du kan använda System Center Operations Manager Health Check-lösning för att bedöma risken och hälsotillståndet för dina miljöer regelbundna intervall."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5709de72032de9e3f7342be43260d3468b9cee66
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager Health Check (förhandsgranskning)-lösning
 
@@ -60,7 +60,7 @@ Använd följande information för att installera och konfigurera lösningen.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager assessment data samling information
 
-System Center Operations Manager-bedömning samlar in data från följande källor: 
+System Center Operations Manager-bedömning samlar in data från följande källor:
 
 * Register
 * Windows Management Instrumentation (WMI)
@@ -72,7 +72,7 @@ Data samlas in på hanteringsservern och vidarebefordras till logganalys var sju
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Operations Manager kör som-konton för logganalys
 
-Log Analytics bygger på hanteringspaket för arbetsbelastningar att ge mervärde tjänster. Varje arbetsbelastning kräver belastningsspecifikt behörighet att köra hanteringspaket i en annan säkerhetskontext, till exempel ett domänanvändarkonto. Konfigurera en Operations Manager kör som-konto med autentiseringsuppgifter. För ytterligare information, se [hur du skapar ett kör som-konto](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) i Operations Manager-dokumentationen. 
+Log Analytics bygger på hanteringspaket för arbetsbelastningar att ge mervärde tjänster. Varje arbetsbelastning kräver belastningsspecifikt behörighet att köra hanteringspaket i en annan säkerhetskontext, till exempel ett domänanvändarkonto. Konfigurera en Operations Manager kör som-konto med autentiseringsuppgifter. För ytterligare information, se [hur du skapar ett kör som-konto](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) i Operations Manager-dokumentationen.
 
 Använd följande information för att ange Operations Manager kör som-kontot för System Center Operations Manager Health Check.
 
@@ -82,13 +82,13 @@ Kör som-kontot måste uppfylla följande krav innan du fortsätter:
 
 * Ett domänanvändarkonto som är medlem i gruppen lokala administratörer på alla servrar som stöder någon roll för Operations Manager - hanteringsservern, SQL Server som värd för den operativa, datalagret och ACS-databasen, rapportering, Web console och Gateway-servern.
 * Åtgärden Managers administratörsroll för hanteringsgruppen som ska utvärderas
-* Om kontot inte har sysadmin-rättigheter för SQL kör du den [skriptet](#sql-script-to-grant-granular-permissions-to-the-run-as-account) att ge detaljerade behörigheter till kontot på varje SQL Server-instans som är värd för en eller alla av Operations Manager-databaserna. 
+* Om kontot inte har sysadmin-rättigheter för SQL kör du den [skriptet](#sql-script-to-grant-granular-permissions-to-the-run-as-account) att ge detaljerade behörigheter till kontot på varje SQL Server-instans som är värd för en eller alla av Operations Manager-databaserna.
 
 1. I Operations Manager-konsolen väljer du den **Administration** navigeringsknapp.
 2. Under **kör som-konfiguration**, klickar du på **konton**.
 3. I den **skapa kör som-konto** guiden klickar du på den **introduktion** klickar **nästa**.
 4. På den **allmänna egenskaper** väljer **Windows** i den **kör som-kontotypen:** lista.
-5. Skriv ett namn i den **visningsnamn** text och eventuellt en beskrivning i den **beskrivning** rutan och klicka på **nästa**. 
+5. Skriv ett namn i den **visningsnamn** text och eventuellt en beskrivning i den **beskrivning** rutan och klicka på **nästa**.
 6. På den **Distributionssäkerhet** väljer **säkrare**.
 7. Klicka på **Skapa**.  
 
@@ -96,7 +96,7 @@ Nu när kör som-kontot har skapats måste mål-hanteringsservrar i hanteringsgr
 
 1. Under **kör som-konfiguration**, **konton**, dubbelklicka på det konto som du skapade tidigare i resultatfönstret.
 2. På den **Distribution** klickar du på **Lägg till** för den **valda datorer** och ange om du vill distribuera kontot på hanteringsservern.  Klicka på **OK** två gånger för att spara ändringarna.
-3. Under **kör som-konfiguration**, klickar du på **profiler**. 
+3. Under **kör som-konfiguration**, klickar du på **profiler**.
 4. Sök efter den *SCOM Assessment profil*.
 5. Namnet på profilen bör vara: *Microsoft System Center Advisor SCOM Assessment kör som-profilen*.
 6. Högerklicka på och uppdatera dess egenskaper och lägga till nyligen har skapat kör som-kontot du skapade tidigare.
@@ -197,7 +197,7 @@ Värde för varje rekommendation uttrycks i procent av den sammanlagda poängen 
 
 **Tillgänglighet och affärskontinuitet** -fokus visas här rekommendationer för tjänstetillgänglighet, återhämtning för din infrastruktur och business-skydd.
 
-**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastrukturbehov.
+**Prestanda och skalbarhet** -fokus visas här rekommendationer som hjälper din organisations IT-infrastruktur växer, se till att din IT-miljö uppfyller aktuella prestandakrav och kan svara på förändrade infrastruktur behov.
 
 **Uppgradering och migrering distribution** -fokus visas här rekommendationer när du uppgraderar, migrera och distribuera SQL Server till den befintliga infrastrukturen.
 
@@ -216,7 +216,7 @@ Innan du kan använda en lösning för kontroll av hälsotillstånd i logganalys
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
 4. På den **översikt** klickar du på den **System Center Operations Manager Health Check** panelen.

@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -186,7 +186,7 @@ Du kan använda en standard (guidebaserad) eller avancerade konfigurationsaltern
 
     ![Fönstret Ange användargrupper](./media/nps-extension-vpn/image7.png)
 
-9. Välj **nästa**.
+9. Välj **Nästa**.
 
 10. I den **ange IP-filter** väljer **nästa**.
 
@@ -376,7 +376,7 @@ Om du vill använda skriptet ger tillägget dina administrativa autentiseringsup
 
 1. Kör Windows PowerShell som administratör.
 
-2. I Kommandotolken PowerShell ange **cd c:\Program Files\Microsoft\AzureMfa\Config**, och välj sedan RETUR.
+2. I Kommandotolken PowerShell ange **cd ”c:\Program Files\Microsoft\AzureMfa\Config”**, och välj sedan RETUR.
 
 3. I nästa kommandotolk, ange **.\AzureMfsNpsExtnConfigSetup.ps1**, och välj sedan RETUR. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installeras skriptet modulen.
  
@@ -398,7 +398,7 @@ Om du vill använda skriptet ger tillägget dina administrativa autentiseringsup
 
 6. Starta om servern.
 
-### <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
+### <a name="verify-the-configuration"></a>Verifiera konfigurationen
 Om du vill verifiera konfigurationen måste du upprätta en ny VPN-anslutning med VPN-servern. När du har angett dina autentiseringsuppgifter för primär autentisering, väntar VPN-anslutningen på den sekundära autentiseringen ska lyckas innan anslutningen har upprättats, enligt nedan. 
 
 ![Fönstret VPN för Windows-inställningar](./media/nps-extension-vpn/image42.png)
@@ -458,5 +458,5 @@ Mer information finns i [integrera din befintliga infrastruktur för NPS med Azu
 
 [Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
-[Integrera dina lokala kataloger med Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
+[Integrerar dina lokala kataloger med Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
 

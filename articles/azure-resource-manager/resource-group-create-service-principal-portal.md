@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 504fbc20f11243ccd825eb69171cd0893782e611
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som har åtkomst till resurser
 
@@ -29,7 +29,7 @@ När du har ett program som behöver komma åt eller ändra resurser måste du k
 
 Den här artikeln visar hur du utför dessa åtgärder via portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Du använder vanligtvis stöd för en innehavare program för line-of-business-program som körs i din organisation.
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela program till en roll i din Azure-prenumeration. Vi behöver kontrollera att du har rätt behörighet för att utföra dessa steg.
 
@@ -191,7 +191,7 @@ Programmet har konfigurerats i Azure Active Directory. Du har ett ID och nyckel 
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](/javascript/azure/node-sdk-azure-authenticate-principal?view=azure-node-latest)
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 

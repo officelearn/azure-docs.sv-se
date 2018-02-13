@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -101,6 +101,26 @@ Innan du kan skicka skript till HDInsight-kluster från VS-kod, måste du anslut
     - Skicka interaktiva PySpark-frågor
     - Skicka PySpark kommandoskript
     - Set-konfigurationer
+
+**Länka ett kluster**
+
+Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka ett säkerhet hadoop-kluster med hjälp av användarnamn (exempel: user1@contoso.com).
+1. Öppna paletten kommandot genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
+
+   ![länken cluster kommando](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Ange HDInsight kluster-URL -> indata Username -> lösenordet -> Välj typ av kluster -> den visar lyckad info om verifiering skickades.
+   
+   ![länka klustret dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Vi använder länkade användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster. 
+   
+3. Du kan se ett länkade kluster med hjälp av kommandot **listan kluster**. Nu kan du skicka ett skript för att den här länkade klustret.
+
+   ![länkade kluster](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Du kan också Avlänka ett kluster av inputing **HDInsight: Avlänka ett kluster** kommandot paletten.
 
 ## <a name="list-hdinsight-clusters"></a>Visa en lista med HDInsight-kluster
 
@@ -258,6 +278,9 @@ HDInsight-verktyg för VS-kod kan du skicka den interaktiva PySpark frågor till
 När du skickar en Python-jobb skicka loggarna visas i den **utdata** fönster i VS-kod. Den **Spark UI URL** och **Yarn UI URL** visas också. Du kan öppna URL: en i en webbläsare för att spåra jobbstatus.
 
 
+   
+
+
 ## <a name="additional-features"></a>Ytterligare funktioner
 
 HDInsight VS-kod har stöd för följande funktioner:
@@ -288,7 +311,7 @@ HDInsight VS-kod har stöd för följande funktioner:
 * [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Konfigurera PySpark interaktiv miljö för Visual Studio Code](set-up-pyspark-interactive-environment.md)
-* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
+* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)

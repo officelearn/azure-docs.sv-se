@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7e5b42e2244b52b06c55e7a6ca30ba1657b1a532
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Meddelande sessioner: först in, först ut (FIFO) 
 
@@ -72,6 +72,8 @@ Funktionen session tillstånd kan programdefinierade anteckningen sessionens med
 Från Service Bus-perspektiv är meddelandet sessionens tillstånd ett täckande binära objekt som kan innehålla data av storleken på ett meddelande som är 256 KB för Service Bus Standard och 1 MB för Service Bus Premium. Bearbetningstillstånd i förhållande till en session kan lagras i sessionens tillstånd eller sessionens tillstånd kan leda till vissa lagringsplats eller databaspost som innehåller sådan information.
 
 API: er för att hantera sessionens tillstånd [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) och [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), kan hittas på den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt i både C# och Java API: er. En session som hade tidigare inga sessionstillstånd ange returnerar en **null** referera för **GetState**. Rensar tidigare inställd sessionens tillstånd är klar med [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Observera att sessionstillstånd förblir så länge inte rensas (returnerar **null**), även om alla meddelanden i en session förbrukas.
 
 Alla befintliga sessioner i en kö eller en prenumeration kan räknas med i **SessionBrowser** metod i Java-API och med [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) på den [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) och [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) i .NET-klienten.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 03aeb4fd190ec83a61875168116157404c1d730d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory (beta)
 
@@ -51,12 +51,17 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten.
 | projektet | Projekt-ID för BigQuery standardprojektet vid frågor mot.  | Ja |
 | additionalProjects | En kommaavgränsad lista över projekt-ID: N av offentliga BigQuery projekt till åtkomst.  | Nej |
 | requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Google Drive åtkomst aktiverar stöd för externa tabeller som kombinerar BigQuery data med data från Google Drive. Standardvärdet är **FALSKT**.  | Nej |
-| AuthenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas enbart på Self-hosted integrering Runtime. <br/>Tillåtna värden är **ServiceAuthentication** och **UserAuthentication**. | Ja |
-| refreshToken | Den uppdateringstoken som hämtats från Google som används för att auktorisera åtkomst till BigQuery för UserAuthentication. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| e-post | Service-kontot e-ID som används för ServiceAuthentication. Den kan användas enbart på Self-hosted integrering Runtime.  | Nej |
-| keyFilePath | Den fullständiga sökvägen till .p12-nyckelfil som används för att autentisera tjänsten kontos e-postadress. Den kan användas enbart på Self-hosted integrering Runtime.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på Self-hosted integrering Runtime. Standardvärdet är filen cacerts.pem installerades med integration körningsmiljön.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-filen. Standardvärdet är **FALSKT**.  | Nej |
+| AuthenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan användas enbart på Self-hosted integrering Runtime. <br/>Tillåtna värden är **UserAuthentication** och **ServiceAuthentication**. Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
+
+### <a name="using-user-authentication"></a>Med hjälp av autentisering av användare
+
+Egenskapen ”authenticationType” **UserAuthentication**, och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| clientId | ID för program som används för att generera uppdateringstoken för. | Nej |
+| clientSecret | Hemligheten för program som används för att generera uppdateringstoken för. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| refreshToken | Den uppdateringstoken som hämtats från Google som används för att auktorisera åtkomst till BigQuery. Lär dig hur du hämtar en från [hämta OAuth 2.0-åtkomsttoken](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
 **Exempel:**
 
@@ -70,6 +75,11 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten.
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten.
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Med hjälp av autentiseringsuppgifter
+
+Egenskapen ”authenticationType” **ServiceAuthentication**, och ange följande egenskaper tillsammans med allmänna egenskaper som beskrivs i föregående avsnitt. Den här autentiseringstypen kan användas enbart på Self-hosted integrering Runtime.
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| e-post | Service-kontot e-ID som används för ServiceAuthentication. Den kan användas enbart på Self-hosted integrering Runtime.  | Nej |
+| keyFilePath | Den fullständiga sökvägen till .p12-nyckelfil som används för att autentisera tjänsten kontos e-postadress. | Nej |
+| trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan anges endast när du använder SSL på Self-hosted integrering Runtime. Standardvärdet är filen cacerts.pem installerades med integration körningsmiljön.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-filen. Standardvärdet är **FALSKT**.  | Nej |
+
+**Exempel:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd

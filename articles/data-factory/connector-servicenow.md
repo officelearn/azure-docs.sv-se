@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 68a19bd20cd068a1388c806d30c1bdb2d7575682
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiera data från ServiceNow med hjälp av Azure Data Factory (Beta)
 
@@ -51,7 +51,7 @@ Följande egenskaper stöds för ServiceNow länkade tjänsten:
 | slutpunkt | Slutpunkten för ServiceNow-server (`http://ServiceNowData.com`).  | Ja |
 | AuthenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **grundläggande**, **OAuth2** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till ServiceNow-server för grundläggande och OAuth2-autentisering.  | Nej |
-| lösenord | Det lösenord som motsvarar användarnamn för Basic och OAuth2-autentisering. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| lösenord | Det lösenord som motsvarar användarnamn för Basic och OAuth2-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | clientId | Klient-ID för OAuth2-autentisering.  | Nej |
 | clientSecret | Klienthemlighet för OAuth2-autentisering. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är true.  | Nej |
@@ -103,14 +103,22 @@ Ange typegenskapen för dataset för att kopiera data från ServiceNow, **Servic
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av ServiceNow-källa.
 
-### <a name="servicenowsource-as-source"></a>ServiceNowSource som källa
+### <a name="servicenow-as-source"></a>ServiceNow som källa
 
 Om du vill kopiera data från ServiceNow, anger du källa i kopieringsaktiviteten för **ServiceNowSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **ServiceNowSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM alm.asset"`. | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Actual.alm_asset"`. | Ja |
+
+Observera följande när du anger schemat och kolumnen för ServiceNow i frågan:
+
+- **Schema:** frågan ServiceNow behovet av att ange scheman som `Actual` eller `Display` som du kan se det som parameter för `sysparm_display_value` som SANT eller FALSKT när du anropar [ServiceNow restful-API:](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumn:** kolumnnamn för faktiska värden är `[columne name]_value` när värdet är för visa `[columne name]_display_value`.
+
+**Exempelfråga:** 
+ `SELECT distinct col_value, col_display_value FROM Actual.alm_asset` eller `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
 
 **Exempel:**
 
@@ -134,7 +142,7 @@ Om du vill kopiera data från ServiceNow, anger du källa i kopieringsaktivitete
         "typeProperties": {
             "source": {
                 "type": "ServiceNowSource",
-                "query": "SELECT * FROM alm.asset"
+                "query": "SELECT * FROM Actual.alm_asset"
             },
             "sink": {
                 "type": "<sink type>"

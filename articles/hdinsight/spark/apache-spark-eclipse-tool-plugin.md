@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för Eclipse för att skapa Spark-program för ett HDInsight-kluster
 
@@ -69,6 +69,26 @@ När du öppnar Eclipse identifierar HDInsight verktyget automatiskt om du har i
    
    ![Expandera en klusternamnet finns resurser](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Länka ett kluster
+Du kan länka en normal kluster med Ambari hanteras användarnamn, även länka ett säkerhet hadoop-kluster med hjälp av användarnamn (exempel: user1@contoso.com).
+1. Klicka på **länka ett kluster** från **Azure Explorer**.
+
+   ![länken klustrets snabbmenyn](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Ange **klusternamnet**, **Lagringskonto**, **Lagringsnyckel**, välj sedan en behållare från **lagringsbehållaren**, minst, ange användarnamn och lösenord. Klicka på OK för att länka klustret.
+   
+   ![länka klustret dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Vi använder länkade lagringsnyckel, användarnamn och lösenord om klustret både inloggad i Azure-prenumeration och länka ett kluster.
+
+3. Du kan se ett länkade kluster i **HDInsight** nod när du klickar på OK-knappen, om den inkommande informationen är rätt. Nu kan du skicka ett program till den här länkade klustret.
+
+   ![länkade kluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Du kan också Avlänka ett kluster från **Azure Explorer**.
+   
+   ![Olänkade kluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Ställ in ett Spark Scala-projekt för ett HDInsight Spark-kluster
@@ -130,6 +150,7 @@ När du öppnar Eclipse identifierar HDInsight verktyget automatiskt om du har i
 6. Den **Spark skicka** fliken ska börja visas förloppet. Du kan stoppa programmet genom att välja knappen red i den **Spark skicka** fönster. Du kan också visa loggarna för specifika programmet kör genom att välja ikonen (betecknas med den blå rutan i bilden).
       
    ![Skicka Spark-fönster](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Komma åt och hantera HDInsight Spark-kluster med hjälp av HDInsight-verktyg i Azure Toolkit för Eclipse
 Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtkomst till jobbutdata.

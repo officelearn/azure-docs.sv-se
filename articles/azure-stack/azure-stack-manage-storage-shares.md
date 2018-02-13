@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure-stacken
 
@@ -130,7 +130,7 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
 - Om du saknar behörighet till en resursgrupp och det går inte att använda PowerShell för att efterfråga ytterligare volymer för spill data kan du arbeta med ägaren av dessa resursgrupper och behållare att förstå den totala storleken på data att migrera innan du migrerar data.  
 
 > [!IMPORTANT]
-> Migrering av BLOB för en behållare är en offline-åtgärd som kräver att PowerShell. Tills migreringen är klar alla BLOB för den behållare som du migrerar vara offline och kan inte användas.
+> Migrering av BLOB för en behållare är en offline-åtgärd som kräver att PowerShell. Tills migreringen är klar alla BLOB för den behållare som du migrerar vara offline och kan inte användas. Du bör undvika att uppgradera Azure Stack tills alla pågående migreringen är klar.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Att migrera behållare med hjälp av PowerShell
 1. Bekräfta att du har [Azure PowerShell installeras och konfigureras](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).

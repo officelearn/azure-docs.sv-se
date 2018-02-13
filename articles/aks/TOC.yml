@@ -37,6 +37,8 @@
   items:
     - name: Klusteråtgärder
       items:
+        - name: Skapa ett AKS-kluster
+          href: create-cluster.md
         - name: Skala ett AKS-kluster
           href: scale-cluster.md
         - name: Uppgradera ett AKS-kluster
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Konfigurera datavolymer
       items:
-        - name: Azure-diskar – permanent volym
+        - name: Azure-diskar
           href: azure-disks-dynamic-pv.md
-        - name: Azure Files – permanent volym
+        - name: Azure Files
           href: azure-files-dynamic-pv.md
+    - name: Konfigurera nätverk
+      items:
+        - name: Statisk IP-adress
+          href: static-ip.md
     - name: Säkerhet och autentisering
       items:
         - name: Skapa tjänstens huvudnamn

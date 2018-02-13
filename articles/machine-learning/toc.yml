@@ -1,8 +1,6 @@
-- name: Funktioner i förhandsversionen av Machine Learning
+- name: Azure Machine Learning-tjänster (förhandsgranskning)
   href: preview/index.yml
-- name: Machine Learning Studio
-  href: studio/index.md
+- name: Azure Machine Learning Studio
+  href: studio/index.yml
 - name: Virtuell dator för datavetenskap
-  href: data-science-virtual-machine/overview.md
-- name: TDSP (Team Data Science Process)
-  href: team-data-science-process/overview.md
+  href: data-science-virtual-machine/index.yml

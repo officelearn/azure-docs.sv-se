@@ -54,35 +54,37 @@
         - name: Migrera AWS-instanser till Azure
           href: tutorial-migrate-aws-to-azure.md
         - name: Migrera virtuella Azure-datorer till en annan region
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Begrepp
   items:
-    - name: Arkitektur för Azure till Azure
-      href: concepts-azure-to-azure-architecture.md
-    - name: Arkitektur för VMware till Azure
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Arkitektur för Hyper-V till Azure
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Arkitektur för fysisk till Azure
-      href: concepts-physical-to-azure-architecture.md
-    - name: Arkitektur för Hyper-V till sekundär
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Stödmatris för Azure till Azure
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Supportmatris för VMware till Azure
-      href: support-matrix-vmware-to-azure.md
-    - name: Hyper-V-till-Azure-supportmatris
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Stödmatris för lokal till Azure
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Stödmatris för lokal till sekundär plats
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: Typer av återställning efter fel
-      href: concepts-types-of-failback.md
-    - name: Haveriberedskap för arbetsbelastningar
-      href: site-recovery-workload.md
-    - name: Migrering till Azure
-      href: site-recovery-migrate-to-azure.md
+    - name: Arkitektur
+      items:
+        - name: Arkitektur för Azure till Azure
+          href: azure-to-azure-architecture.md
+        - name: Arkitektur för VMware till Azure
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Arkitektur för Hyper-V till Azure
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Arkitektur för fysisk till Azure
+          href: concepts-physical-to-azure-architecture.md
+        - name: Arkitektur för Hyper-V till sekundär
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Stödmatris för krav
+      items:
+        - name: Stödmatris för Azure till Azure
+          href: azure-to-azure-support-matrix.md
+        - name: Supportmatris för VMware till Azure
+          href: support-matrix-vmware-to-azure.md
+        - name: Hyper-V-till-Azure-supportmatris
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Stödmatris för lokal till Azure
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Stödmatris för lokal till sekundär plats
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: Haveriberedskap för arbetsbelastningar
+          href: site-recovery-workload.md
+        - name: Migrering till Azure
+          href: site-recovery-migrate-to-azure.md
     - name: Rollbaserade åtkomstbehörigheter
       href: site-recovery-role-based-linked-access-control.md
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -92,9 +94,9 @@
     - name: Nätverk
       items:
         - name: Konfigurera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
         - name: Kvarhålla IP för haveriberedskap för virtuella Azure-datorer (förhandsversion)
           href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
@@ -108,7 +110,7 @@
     - name: Haveriberedskap
       items:
         - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Haveriberedskap för fysiska servrar till Azure
           href: tutorial-physical-to-azure.md
         - name: Replikera virtuella Hyper-V-datorer till en sekundär plats
@@ -142,7 +144,7 @@
         - name: Skydda datorer igen efter en redundansväxling
           items:
             - name: Skydda datorer igen från en sekundär Azure-region till en primär
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Skydda datorer igen från Azure till lokalt
               href: site-recovery-how-to-reprotect.md
         - name: Redundansväxla från Azure
@@ -153,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Migrera
+      items:
+        - name: Om migrering
+          href: site-recovery-migrate-to-azure.md
+        - name: Replikera virtuella Azure-datorer efter migrering till en annan region
+          href: azure-to-azure-replicate-after-migration.md
     - name: Kapacitet och skalning
       items:
         - name: Planera kapacitet för VMware-replikering till Azure
@@ -210,7 +218,7 @@
         - name: Aktivera replikering
           items:
             - name: Aktivera Azure till Azure-replikering
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: Aktivera VMware till Azure-replikering
               href: site-recovery-replicate-vmware-to-azure.md
         - name: Distribuera mobilitetstjänsten för VMware
@@ -272,7 +280,7 @@
     - name: Övervaka och felsöka
       items:
         - name: Replikeringsproblem med Azure till Azure
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Replikeringsproblem med lokalt till Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Problem med mobilitetstjänsten

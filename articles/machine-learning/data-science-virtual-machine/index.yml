@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Dokumentation om virtuella Azure-datorer för datavetenskap"
+metadata:
+  title: "Dokumentation om virtuella Azure-datorer för datavetenskap"
+  description: "Läs mer om virtuella datorer för datavetenskap."
+  services: machine-learning
+  author: bradsev
+  manager: cgronlun
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: bradsev
+  ms.openlocfilehash: 291d38522adfa780629892ea6d7f7a17a82a0e39
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "Virtuella datorer för datavetenskap och djupinlärning är anpassade VM-avbildningar i Azure med verktyg för datavetenskap som används för att skapa intelligenta program för avancerade analyser."
+sections:
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du konfigurerar en Windows- eller Linux-baserad virtuell dator för datavetenskap:"
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="provision-vm.md">Windows</a>
+    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig mer om att etablera och använda virtuella datorer för datavetenskap:"
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="provision-vm">Etablera en Windows DSVM</a>
+    - html: "<a href=\"vm-do-ten-thing\">Använda en Windows DSVM</a>"
+    - html: <a href:"linux-dsvm-intro"> Etablera en Linux CentOS DSVM</a>
+    - html: <a href="dsvm-ubuntu-intro">Etablera en Linux Ubuntu DSVM</a>
+    - html: "<a href=\"linux-dsvm-walkthrough\">Använda en Linux DSVM</a>"
+- title: Fler Azure Machine Learning-tekniker
+  items:
+  - type: paragraph
+    text: "Andra tekniker som är tillgängliga i Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: "Azure Machine Learning-tjänster (förhandsgranskning)"
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image:
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/

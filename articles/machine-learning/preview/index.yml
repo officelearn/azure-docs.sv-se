@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Dokumentation om Azure Machine Learning (förhandsversion)"
+title: "Dokumentation för Azure Machine Learning-tjänster (förhandsgranskning)"
 metadata:
-  title: "Dokumentation om Azure Machine Learning (förhandsversion)"
-  meta.description: Learn how to use Azure Machine Learning public preview features.
+  title: "Dokumentation för Azure Machine Learning-tjänster (förhandsgranskning)"
+  meta.description: Learn how to use Azure Machine Learning services (preview).
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -11,27 +11,24 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/06/2017
+  ms.date: 01/18/2018
   ms.author: garye
-  ms.openlocfilehash: 98d106418472f66b8e5fe5d887eb8e75f5ce4a1b
-  ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+  ms.openlocfilehash: b5f55848e81b6faf2c8e2ab21ea32ee134e730bf
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/23/2018
+  ms.lasthandoff: 02/13/2018
 abstract:
-  description: "Lär dig hur du förbereder data, bygger och distribuerar modeller med våra snabbstarter och självstudier. Med funktionerna för förhandsgranskning i Azure Machine Learning kan du skapa, distribuera och hantera maskininlärnings- och AI-modeller med alla Python-verktyg och bibliotek. Du kan använda en mängd olika data och beräkna tjänster i Azure för att lagra och bearbeta dina data."
+  description: "Med Azure Machine Learning-tjänster (förhandsgranskning) kan du skapa, distribuera och hantera maskininlärnings- och AI-modeller med alla Python-verktyg och -bibliotek. Du kan använda en mängd olika data- och beräkningstjänster i Azure för att lagra och bearbeta dina data."
 sections:
 - title: "Snabbstarter på 5 minuter"
   items:
   - type: paragraph
     text: "Skapa ditt första Machine Learning-projekt"
   - type: list
-    style: icon48
+    style: unordered
     items:
-    - image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      text: Installera och skapa
-      href: quickstart-installation
+    - html: <a href="quickstart-installation.md">Installera och skapa</a>
 - title: "Steg för steg-självstudier"
   items:
   - type: paragraph
@@ -39,10 +36,28 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-classifying-iris-part-1\">Gå igenom grunderna i Machine Learning-tjänsterna (förhandsvisning)</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-1\">Gå igenom grunderna i Machine Learning-tjänsterna (förhandsgranskning)</a>"
     - html: "<a href=\"tutorial-classifying-iris-part-2\">Använd Machine Learning Workbench för att skapa en modell med irisdatamängden</a>"
     - html: "<a href=\"tutorial-classifying-iris-part-3\">Lär dig att distribuera en Machine Learning-modell</a>"
     - html: "<a href=\"tutorial-bikeshare-dataprep\">Använd Azure Machine Learning Workbench för avancerad dataförberedning</a>"
+- title: Fler Azure Machine Learning-tekniker
+  items:
+  - type: paragraph
+    text: "Andra tekniker som är tillgängliga i Azure Machine Learning:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Machine Learning Studio
+      href: /azure/machine-learning/studio/
+      image:
+        src: media/index/machine-learning-studio.svg
+        href: /azure/machine-learning/studio/
+    - title: "Virtuell dator för datavetenskap"
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image:
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
 - title: Referens
   items:
   - type: list

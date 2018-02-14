@@ -4,9 +4,7 @@
 
 * N-serien virtuella datorer kan bara distribueras i Resource Manager-distributionsmodellen.
 
-* När du skapar en N-serien virtuell dator med hjälp av Azure portal på den **grunderna** bladet väljer en **VM disktyp** av **Hårddisk**. Välj en tillgänglig N-serien storlek på att den **storlek** bladet, klickar du på **visa alla**.
-
-* NC och NV virtuella datorer stöder inte Virtuella diskar som backas upp av Azure Premium-lagring.
+* N-serien virtuella datorer skiljer sig i typ av Azure Storage som de har stöd för deras diskar. NC och NV virtuella datorer stöder bara Virtuella diskar som backas upp av Standard Disk lagring (HDD). NCv2 och ND NCv3 förhandsgranskning () virtuella datorer bara stöd för Virtuella diskar som backas upp av Premium Disk lagring (SSD).
 
 * Om du vill distribuera flera virtuella datorer N-serien du en prenumeration med användningsbaserad betalning eller andra köpalternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 

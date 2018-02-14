@@ -1,9 +1,9 @@
 ---
 title: Ansluta datorer till OMS med OMS-gatewayen | Microsoft Docs
-description: "Ansluta din OMS-hanterade enheter och datorer som övervakas av Operations Manager till OMS-Gateway för att skicka data till OMS-tjänsten när de inte har tillgång till Internet."
+description: "Ansluta dina enheter och datorer som övervakas av Operations Manager till OMS-Gateway för att skicka data till Azure Automation och Log Analytics-tjänsten när de inte har tillgång till Internet."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/10/2018
+ms.author: magoedte
+ms.openlocfilehash: 7ada626adc33e2689a3ba807aabb16ba56194243
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Ansluta datorer utan Internetanslutning till OMS med OMS-Gateway
 
-Det här dokumentet beskriver hur din OMS-hanterad och System Center Operations Manager övervakade datorer kan skicka data till OMS-tjänsten när de inte har tillgång till Internet. OMS-gatewayen, som är en vanlig HTTP-proxy som stöder HTTP-tunnel använder kommandot HTTP ansluta kan samla in data och skicka den till OMS-tjänsten för deras räkning.  
+Det här dokumentet beskriver hur hanteras med agent-system och System Center Operations Manager övervakade datorer kan skicka data till OMS-tjänsten när de inte har tillgång till Internet. OMS-gatewayen, som är en vanlig HTTP-proxy som stöder HTTP-tunnel använder kommandot HTTP ansluta kan samla in data och skicka den till OMS-tjänsten för deras räkning.  
 
 OMS-gatewayen stöder:
 
 * Azure Automation Hybrid Runbook Worker  
-* Windows-datorer med Microsoft Monitoring Agent direkt ansluten till en OMS-arbetsyta
-* Linux-datorer med OMS-Agent för Linux anslutna direkt till en OMS-arbetsyta  
-* System Center Operations Manager 2012 SP1 med UR7, Operations Manager 2012 R2 UR3 eller Operations Manager 2016 hanteringsgruppen integrerad med OMS.  
+* Windows-datorer med Microsoft Monitoring Agent direkt ansluten till logganalys-arbetsytan
+* Linux-datorer med OMS-Agent för Linux direkt ansluten till logganalys-arbetsytan  
+* System Center Operations Manager 2012 SP1 med UR7, Operations Manager 2012 R2 UR3, Operations Manager 2016 och hanteringsgruppen för Operations Manager version 1801 integrerad med OMS.  
 
 Om din IT-säkerhetsprinciper tillåter inte datorer i nätverket för att ansluta till Internet, till exempel försäljning (POS) enheter eller servrar som stöder IT-tjänster, men du behöver ansluta dem till OMS att hantera och övervaka dem, kan de konfigureras för att kommunicera direkt med OMS-Gateway för att ta emot konfigurationen och vidarebefordra data åt.  Om dessa datorer är konfigurerade med OMS-agent för att ansluta direkt till en OMS-arbetsyta, alla datorer i stället att kommunicera med OMS-Gateway.  Gatewayen överför data från agenter till OMS direkt, analyserar data under överföring inte.
 
@@ -49,14 +49,14 @@ Följande diagram visar dataflöde från en hanteringsgrupp för Operations Mana
 
 ![Operations Manager-kommunikation med OMS-diagram](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 När du ställer in en dator för att köra OMS-Gateway, måste datorn ha följande:
 
 * Windows 10, Windows 8.1, Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
-* .NET framework 4.5
-* Minst en 4 kärnor och 8 GB minne 
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
+* .Net Framework 4.5
+* Minst en 4 kärnor och 8 GB minne
 
 ### <a name="language-availability"></a>Tillgängliga språk
 
@@ -64,12 +64,12 @@ OMS-gatewayen är tillgänglig på följande språk:
 
 - Kinesiska (förenklad)
 - Kinesiska (traditionell)
-- Tjeckiska
+- tjeckiska
 - Nederländska
 - Svenska
 - Franska
 - Tyska
-- Ungerska
+- ungerska
 - Italienska
 - Japanska
 - Koreanska
@@ -81,6 +81,14 @@ OMS-gatewayen är tillgänglig på följande språk:
 
 ### <a name="supported-encryption-protocols"></a>Krypteringsprotokoll som stöds
 OMS-Gateway har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det stöder inte Secure Sockets Layer (SSL).
+
+### <a name="supported-number-of-agent-connections"></a>Stöds antalet anslutningar som agenten
+I följande tabell visar de stöds antalet agenter som kommunicerar med en gateway-server.  Det här stödet baseras på agenter och överför ~ 200KB data var 6: e sekund. Datavolym per agent testas är cirka 2.7GB per dag.
+
+|Gateway |Ungefärligt antal agenter som stöds|  
+|--------|----------------------------------|  
+|-CPU: Intel XEON CPU E5 2660 v3 @ 2.6GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverksbandbredd: 1 Gbit/s| 600|  
+|-CPU: Intel XEON CPU E5 2660 v3 @ 2.6GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverksbandbredd: 1 Gbit/s| 1000|  
 
 ## <a name="download-the-oms-gateway"></a>Hämta OMS-Gateway
 
@@ -104,7 +112,7 @@ Det finns tre sätt att få den senaste versionen av filen OMS Gateway Setup.
 Utför följande steg för att installera en gateway.  Om du har installerat en tidigare version kallades *Log Analytics vidarebefordrare*, kommer att uppgraderas till den här versionen.  
 
 1. Dubbelklicka på målmappen, **OMS Gateway.msi**.
-2. På sidan **Välkommen** klickar du på **Nästa**.<br><br> ![Installationsguiden för gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. På sidan **Välkommen** klickar du på **Nästa**.<br><br> ![Installationsguiden för gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
 3. På den **licensavtalet** väljer **jag accepterar villkoren i licensavtalet** du godkänner LICENSAVTALET och klicka sedan på **nästa**.
 4. På den **Port och proxy adress** sidan:
    1. Ange TCP-portnummer som ska användas för gatewayen. Installationsprogrammet konfigurerar en inkommande regel med det här portnumret på Windows-brandväggen.  Standardvärdet är 8080.
@@ -116,20 +124,20 @@ Utför följande steg för att installera en gateway.  Om du har installerat en 
 7. På den **redo att installera** klickar du på **installera**. User Account Control visas begärande behörighet att installera. I så fall, klickar du på **Ja**.
 8. När installationen är klar klickar du på **Slutför**. Du kan kontrollera att tjänsten körs genom att öppna snapin-modulen services.msc och kontrollera att **OMS Gateway** visas i listan över tjänster och status är **kör**.<br><br> ![Tjänster – OMS-Gateway](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>Konfigurera Utjämning av nätverksbelastning 
+## <a name="configure-network-load-balancing"></a>Konfigurera Utjämning av nätverksbelastning
 Du kan konfigurera en gateway för hög tillgänglighet med hjälp av Utjämning av nätverksbelastning (NLB) med hjälp av antingen Microsoft NLB (Utjämning av nätverksbelastning) eller maskinvarubaserad belastningsutjämnare.  Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningar från OMS-Agent eller Operations Manager-hanteringsservrar över dess noder. Om en Gateway-servern kraschar, hämtar trafiken dirigeras till andra noder.
 
 Om du vill lära dig mer om att skapa och distribuera en Windows Server 2016 Utjämning av nätverksbelastning kluster, se [Utjämning av nätverksbelastning](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Följande steg beskriver hur du konfigurerar en Microsoft Utjämning av nätverksbelastning kluster.  
 
 1.  Logga in på Windows server som är medlem i NLB-kluster med ett administratörskonto.  
 2.  Öppna Hanteraren för Utjämning av nätverksbelastning i Serverhanteraren, klicka på **verktyg**, och klicka sedan på **hanteraren**.
-3. Högerklicka på klustrets IP-adress för att ansluta en OMS-Gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värd i klustret**.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Ange IP-adressen för gateway-servern som du vill ansluta till.<br><br> ![Utjämning av nätverksbelastning – Lägg till värd i klustret: ansluta](./media/log-analytics-oms-gateway/nlb03.png) 
-    
+3. Högerklicka på klustrets IP-adress för att ansluta en OMS-Gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värd i klustret**.<br><br> ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/log-analytics-oms-gateway/nlb02.png)<br>
+4. Ange IP-adressen för gateway-servern som du vill ansluta till.<br><br> ![Utjämning av nätverksbelastning – Lägg till värd i klustret: ansluta](./media/log-analytics-oms-gateway/nlb03.png)
+
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Konfigurera OMS-agent och Operations Manager-hanteringsgruppen
 Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna OMS agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Workers med OMS-Gateway för att kommunicera med OMS.  
 
-Information om krav och anvisningar om hur du installerar OMS-agent på Windows-datorer ansluta direkt till OMS finns [ansluta Windows-datorer till OMS](log-analytics-windows-agent.md) eller Linux-datorer finns i [ansluta Linux-datorer till OMS](log-analytics-linux-agents.md). 
+Information om krav och anvisningar om hur du installerar OMS-agent på Windows-datorer ansluta direkt till OMS finns [ansluta Windows-datorer till OMS](log-analytics-windows-agents.md) eller Linux-datorer finns i [ansluta Linux-datorer till OMS](log-analytics-linux-agents.md).
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Konfigurera OMS-agent och Operations Manager om du vill använda OMS-Gateway som en proxyserver
 
@@ -148,33 +156,33 @@ Om du vill använda en Gateway för att stödja Operations Manager, måste du ha
 > Om du inte anger ett värde för gatewayen pushas tomma värden till alla agenter.
 
 
-1. Öppna Operations Manager-konsolen och under **Operations Management Suite**, klickar du på **anslutning** och klicka sedan på **konfigurera proxyservern**.<br><br> ![Operations Manager – Konfigurera proxyserver](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och ange IP-adressen för OMS Gateway-servern eller den virtuella IP-adressen i NLB-klustret. Se till att du börjar med den `http://` prefix.<br><br> ![Operations Manager – proxyserveradress](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. Öppna Operations Manager-konsolen och under **Operations Management Suite**, klickar du på **anslutning** och klicka sedan på **konfigurera proxyservern**.<br><br> ![Operations Manager – Konfigurera proxyserver](./media/log-analytics-oms-gateway/scom01.png)<br>
+2. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och ange IP-adressen för OMS Gateway-servern eller den virtuella IP-adressen i NLB-klustret. Se till att du börjar med den `http://` prefix.<br><br> ![Operations Manager – proxyserveradress](./media/log-analytics-oms-gateway/scom02.png)<br>
 3. Klicka på **Slutför**. Operations Manager-servern är ansluten till din OMS-arbetsyta.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Konfigurera Operations Manager - specifik agenter använder för proxyserver
 För stora eller komplexa miljöer, kan du bara vill specifika servrar (eller grupper) att använda OMS Gateway-servern.  Du kan inte uppdatera Operations Manager-agenten för dessa servrar direkt när det här värdet skrivs över av det globala värdet för hanteringsgruppen.  I stället måste du åsidosätta den regel som används för att skicka dessa värden.
 
-> [!NOTE] 
+> [!NOTE]
 > Samma konfiguration teknik kan användas för att tillåta användning av flera OMS Gateway-servrar i din miljö.  Du kan till exempel kräva specifika OMS Gateway-servrar som anges på grundval av per region.
 
 1. Öppna Operations Manager-konsolen och välj den **redigering** arbetsytan.  
-2. I arbetsytan redigering väljer **regler** och klicka på den **omfång** i Operations Manager-verktygsfältet. Om den här knappen inte är tillgänglig, kontrollera att du har ett objekt och inte en mapp markerad i övervakningsfönstret. Den **omfång för Hanteringspaketsobjekt** dialogrutan visar en lista med vanliga riktade klasser, grupper eller objekt. 
+2. I arbetsytan redigering väljer **regler** och klicka på den **omfång** i Operations Manager-verktygsfältet. Om den här knappen inte är tillgänglig, kontrollera att du har ett objekt och inte en mapp markerad i övervakningsfönstret. Den **omfång för Hanteringspaketsobjekt** dialogrutan visar en lista med vanliga riktade klasser, grupper eller objekt.
 3. Typen **Hälsotjänsten** i den **leta efter** fältet och markera den i listan.  Klicka på **OK**.  
 4. Sök efter regeln **Advisor Proxy inställningen regeln** och klicka på i verktygsfältet Operations-konsolen **åsidosätter** och peka sedan på **åsidosätta Rule\For ett specifikt objekt i klassen: Hälsotjänsten** och välj ett specifikt objekt i listan.  Du kan också kan du skapa en anpassad grupp som innehåller hälsotillstånd serviceobjektet av de servrar som du vill tillämpa den här åsidosättningen och tillämpa sedan åsidosättningen till gruppen.
 5. I den **egenskaper för åsidosättning** dialogrutan, klicka om du vill markera i den **åsidosätta** bredvid den **WebProxyAddress** parameter.  I den **åsidosättningsvärde** anger du URL: en OMS-Gateway-server för att du startar med den `http://` prefix.
    >[!NOTE]
    > Du behöver inte aktivera regeln eftersom den redan hanteras automatiskt med en åsidosättning finns i Microsoft System Center Advisor säker referens Override management pack målobjekt för Microsoft System Center Advisor övervakning servergruppen.
-   > 
-6. Välj antingen ett management pack från den **väljer målhanteringspaket** listan eller skapa ett nytt oförseglat hanteringspaket genom att klicka på **ny**. 
-7. När du är klar med ändringarna klickar du på **OK**. 
+   >
+6. Välj antingen ett management pack från den **väljer målhanteringspaket** listan eller skapa ett nytt oförseglat hanteringspaket genom att klicka på **ny**.
+7. När du är klar med ändringarna klickar du på **OK**.
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Konfigurera för automation-hybrider
 Om du har Automation Hybrid Runbook Worker-arbeten i din miljö, ange följande manuella, tillfälligt lösningar för att konfigurera gatewayen för att stödja dem.
 
 Du behöver veta Azure-regionen där Automation-kontot finns i följande steg. Att hitta platsen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj Azure Automation-tjänsten.
 3. Välj lämplig Azure Automation-kontot.
 4. Visa dess region under **plats**.<br><br> ![Azure-portalen – platsen för Automation-konto](./media/log-analytics-oms-gateway/location.png)  
@@ -183,9 +191,9 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 
 **Jobbet runtime data service-URL: er**
 
-| **Plats** | **URL: EN** |
+| **Plats** | **URL** |
 | --- | --- |
-| Norra centrala USA |ncus jobruntimedata-produktprenumeration-su1.azure-automation.net |
+| Norra centrala USA |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net |
 | Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Östra USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
@@ -198,23 +206,23 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 
 **URL: er till Agent**
 
-| **Plats** | **URL: EN** |
+| **Plats** | **URL** |
 | --- | --- |
-| Norra centrala USA |ncus agentservice-produktprenumeration-1.azure-automation.net |
-| Västra Europa |Vi-agentservice-produktprenumeration-1.azure-automation.net |
-| Södra centrala USA |scus agentservice-produktprenumeration-1.azure-automation.net |
-| Östra USA 2 |eus2 agentservice-produktprenumeration-1.azure-automation.net |
-| Kanada central |CC-agentservice-produktprenumeration-1.azure-automation.net |
-| Norra Europa |ne agentservice-produktprenumeration-1.azure-automation.net |
-| Sydostasien |SEA-agentservice-produktprenumeration-1.azure-automation.net |
-| Indien, centrala |CID agentservice-produktprenumeration-1.azure-automation.net |
-| Japan |jpe agentservice-produktprenumeration-1.azure-automation.net |
-| Australien |ase agentservice-produktprenumeration-1.azure-automation.net |
+| Norra centrala USA |ncus-agentservice-prod-1.azure-automation.net |
+| Västra Europa |we-agentservice-prod-1.azure-automation.net |
+| Södra centrala USA |scus-agentservice-prod-1.azure-automation.net |
+| Östra USA 2 |eus2-agentservice-prod-1.azure-automation.net |
+| Kanada central |cc-agentservice-prod-1.azure-automation.net |
+| Norra Europa |ne-agentservice-prod-1.azure-automation.net |
+| Sydostasien |sea-agentservice-prod-1.azure-automation.net |
+| Indien, centrala |cid-agentservice-prod-1.azure-automation.net |
+| Japan |jpe-agentservice-prod-1.azure-automation.net |
+| Australien |ase-agentservice-prod-1.azure-automation.net |
 
 Om datorn är registrerad som en Hybrid Runbook Worker automatiskt för korrigering med lösningen för hantering av uppdateringar, gör du följande:
 
 1. Lägga till jobbet Körningsdata service-URL: er i listan med tillåtna värden på OMS-Gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. Starta om tjänsten OMS-Gateway med hjälp av följande PowerShell-cmdlet:`Restart-Service OMSGatewayService`
+2. Starta om tjänsten OMS-Gateway med hjälp av följande PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
 Om datorn är publicerat till Azure Automation med hjälp av cmdleten Hybrid Runbook Worker-registrering, gör du följande:
 
@@ -228,8 +236,8 @@ Cmdlets kan hjälpa dig att utföra uppgifter som behövs för att uppdatera kon
 
 1. Installera OMS-Gateway (MSI).
 2. Öppna ett PowerShell-konsolfönster.
-3. Ange följande kommando för att importera modulen:`Import-Module OMSGateway`
-4. Om inga fel uppstod i föregående steg, modulen har importerats och cmdlets kan användas. Typ`Get-Module OMSGateway`
+3. Ange följande kommando för att importera modulen: `Import-Module OMSGateway`
+4. Om inga fel uppstod i föregående steg, modulen har importerats och cmdlets kan användas. Typ `Get-Module OMSGateway`
 5. När du gör ändringar med hjälp av cmdlets, se till att du startar om tjänsten Gateway.
 
 Om du får ett fel i steg 3 kan importera inte modulen. Felet kan uppstå när PowerShell är det går inte att hitta modulen. Du hittar i en Gateway-installationssökvägen: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
@@ -239,8 +247,8 @@ Om du får ett fel i steg 3 kan importera inte modulen. Felet kan uppstå när P
 | `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Nyckel (krävs) <br> Värde |Ändringar av konfigurationen för tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen till proxy för vidarebefordran (överordnad) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1. Ange en relay-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en relay-proxy som inte kräver autentisering:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Avmarkera relay proxyinställning:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Hämtar för närvarande tillåtna värden (endast lokalt konfigurerade tillåtna värden inte inkluderas automatiskt hämtade tillåtna värdar) |`Get-OMSGatewayAllowedHost` | 
+| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1. Ange en relay-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en relay-proxy som inte kräver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Avmarkera relay proxyinställning:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |Hämtar för närvarande tillåtna värden (endast lokalt konfigurerade tillåtna värden inte inkluderas automatiskt hämtade tillåtna värdar) |`Get-OMSGatewayAllowedHost` |
 | `Add-OMSGatewayAllowedHost` |Värd (krävs) |Lägger till värden i listan över tillåtna |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Värd (krävs) |Tar bort värden från listan över tillåtna |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Ämne (krävs) |Lägger till klientcertifikatet för listan över tillåtna |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
@@ -289,7 +297,5 @@ Begära hjälp, klicka på symbolen frågetecken i det övre högra hörnet av p
 
 ![Ny supportbegäran](./media/log-analytics-oms-gateway/support.png)
 
-Du kan också lämna feedback om OMS eller logganalys på den [Microsoft Azure Feedbackforum](https://feedback.azure.com/forums/267889).
-
 ## <a name="next-steps"></a>Nästa steg
-* [Lägg till datakällor](log-analytics-data-sources.md) samla in data från den anslutna källor i logganalys-arbetsytan och lagra den i logganalys-databasen.
+[Lägg till datakällor](log-analytics-data-sources.md) samla in data från dina anslutna källor och lagra den i logganalys-arbetsytan.

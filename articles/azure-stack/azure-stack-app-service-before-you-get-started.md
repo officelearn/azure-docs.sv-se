@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 18a671fe49b57dda3df33b58a464b300e574376f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdeec60b4935fda58e2657a215826d8355c81664
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -156,22 +156,22 @@ Azure-stacken Development Kit distributioner kan du använda den [exempel Azure 
 När du använder Azure Resource Manager-mall kan användarna redan har skapats.
 
 1. Kör följande kommandon för att skapa FileShareOwner och FileShareUser konton. Ersätt `<password>` med egna värden.
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+    ``` DOS
+    net user FileShareOwner <password> /add /expires:never /passwordchg:no
+    net user FileShareUser <password> /add /expires:never /passwordchg:no
+    ```
 2. Ange lösenorden för kontona aldrig upphör att gälla genom att köra följande WMIC-kommandon:
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+    ``` DOS
+    WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+    WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+    ```
 3. Skapa de lokala grupperna FileShareUsers och FileShareOwners och lägga till konton i det första steget i dem:
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+    ``` DOS
+    net localgroup FileShareUsers /add
+    net localgroup FileShareUsers FileShareUser /add
+    net localgroup FileShareOwners /add
+    net localgroup FileShareOwners FileShareOwner /add
+    ```
 
 ### <a name="provision-the-content-share"></a>Etablera innehållsdelen
 

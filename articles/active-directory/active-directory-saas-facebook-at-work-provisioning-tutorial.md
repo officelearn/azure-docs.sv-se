@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 70686a48585d83ca5de78fdded99ae46e90cc20c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2fc2b07189994206c8465ed24374489eefd45966
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering
 
 De här självstudierna visar steg som krävs för att automatiskt etablera och avinstallation etablera användarkonton från Azure Active Directory (AD Azure) till arbetsplatsen med Facebook.
+
+>[!NOTE]
+>Den här självstudiekursen beskriver en koppling som bygger på Etableringstjänsten Azure AD-användare. Viktig information på den här tjänsten har, hur det fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -39,8 +39,10 @@ Du kan använda SQL database auditing till:
 
 Konfigurera granskning för olika typer av kategorier, enligt beskrivningen i den [ställa in granskning för databasen](#subheading-2) avsnitt.
 
-Granskningsloggar skrivs till Azure Blob storage på din Azure-prenumeration.
-
+> [!IMPORTANT]
+> Granskningsloggar skrivs till **Tilläggsblobbar** i ett Azure Blob storage på din Azure-prenumeration.
+>
+> **Lagring i VNet** är för närvarande **stöds inte**.
 
 ## <a id="subheading-8"></a>Definiera servernivå kontra databasnivå granskningsprincip
 
@@ -80,7 +82,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure-portalen.
    >Använd samma lagringskonto för alla granskad databaser för att få mest av granskning rapporter mallarna.
 
     <a id="storage-screenshot"></a>![Navigeringsfönstret][4]
-6. Om du vill anpassa granskade händelser kan du göra detta via PowerShell eller REST API. 
+6. Om du vill anpassa granskade händelser kan du göra detta via PowerShell eller REST API.
 7. När du har konfigurerat inställningarna för granskning, kan du aktivera funktionen för identifiering av nya hot och konfigurera e-postmeddelanden för att ta emot säkerhetsaviseringar. När du använder hotidentifiering får proaktiva varningar på avvikande databasaktiviteter som kan indikera potentiella hot mot säkerheten. Mer information finns i [komma igång med hotidentifiering](sql-database-threat-detection-get-started.md).
 8. Klicka på **Spara**.
 

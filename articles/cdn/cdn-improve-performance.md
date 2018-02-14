@@ -1,6 +1,6 @@
 ---
 title: "Förbättra prestanda genom att komprimera filerna i Azure CDN | Microsoft Docs"
-description: "Lär dig att förbättra hastighet för överföring av filen och ökar belastningen prestanda genom att komprimera filerna i Azure CDN."
+description: "Lär dig att förbättra hastighet för överföring av filen och öka sidinläsning prestanda genom att komprimera filerna i Azure CDN."
 services: cdn
 documentationcenter: 
 author: dksimpson
@@ -12,29 +12,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 02/09/2018
 ms.author: mazha
-ms.openlocfilehash: 77d889f5d56ed839665588cf359b73e0f9ad28b5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 743d1db803cdb58ae8fa37430ccffa10ca003f93
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filerna i Azure CDN
-Komprimering är ett enkelt och effektivt sätt att förbättra hastighet för överföring av filen och öka belastningen prestanda genom att minska filstorleken innan den skickas från servern. Det minskar kostnader för bandbredd och ger en mer effektiv upplevelse för användarna.
+Komprimering är ett enkelt och effektivt sätt att filen överföringen snabbare och öka sidinläsning prestanda genom att minska storleken på en fil innan den skickas från servern. Komprimering kan minska kostnader för bandbredd och tillhandahålla snabbare för dina användare.
 
 Det finns två sätt att aktivera komprimering:
 
-* Aktivera komprimering på ursprungsservern. I det här fallet CDN passerar komprimerade filer och skickar dem till klienter som begär dem.
-* Aktivera komprimering direkt på CDN edge-servrar. I det här fallet CDN komprimerar filerna och fungerar till slutanvändare, även om de inte komprimeras i den ursprungliga servern.
+- Aktivera komprimering på ursprungsservern. I det här fallet CDN skickar med komprimerade filer och skickar dem till klienter som begär dem.
+- Aktivera komprimering direkt på CDN edge-servrar. I det här fallet CDN komprimerar filerna och fungerar till slutanvändare, även om de inte komprimeras i den ursprungliga servern.
 
 > [!IMPORTANT]
-> CDN-konfigurationsändringar kan ta lite tid att spridas via nätverket. För <b>Azure CDN från Akamai</b> profiler, spridningen vanligtvis har slutförts under en minut.  För <b>Azure CDN från Verizon</b> profiler, spridningen vanligtvis har slutförts inom 90 minuter. Om du ställer in komprimering för första gången för CDN-slutpunkten, Överväg att vänta 1 till 2 timmar innan du felsöka för att säkerställa komprimeringsinställningarna har spridits till POP.
+> CDN-konfigurationsändringar kan ta lite tid att spridas via nätverket. För **Azure CDN från Akamai** profiler, spridningen vanligtvis har slutförts under en minut.  För **Azure CDN från Verizon** profiler, spridningen vanligtvis har slutförts inom 90 minuter. Om du ställer in komprimering för första gången för CDN-slutpunkten, Överväg att vänta 1 till 2 timmar innan du felsöka för att säkerställa komprimeringsinställningarna har spridits till POP.
 > 
 > 
 
 ## <a name="enabling-compression"></a>Aktivera komprimering
-Standard- och Premium CDN nivåerna ge samma funktioner för komprimering, men användargränssnittet skiljer sig åt. Mer information om skillnaderna mellan Standard och Premium CDN nivåer finns [översikt över Azure CDN](cdn-overview.md).
+CDN-nivåerna standard och premium ger samma komprimering funktioner, men användargränssnittet skiljer sig åt. Mer information om skillnaderna mellan standard och premium CDN nivåer finns [översikt över Azure CDN](cdn-overview.md).
 
 ### <a name="standard-tier"></a>Standard-nivå
 > [!NOTE]
@@ -49,13 +49,13 @@ Standard- och Premium CDN nivåerna ge samma funktioner för komprimering, men a
     CDN-slutpunkten sidan öppnas.
 2. Välj **komprimering**.
 
-    ![CDN-profil-slutpunkter](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Val av CDN-komprimering](./media/cdn-file-compression/cdn-compress-select-std.png)
    
     Sidan komprimering öppnas.
 3. Välj **på** aktivera komprimering.
    
-    ![CDN-komprimeringsalternativ](./media/cdn-file-compression/cdn-compress-standard.png)
-4. Använd standardtyperna format eller ändra listan genom att lägga till eller ta bort formattyper.
+    ![Komprimeringsalternativ för CDN-fil](./media/cdn-file-compression/cdn-compress-standard.png)
+4. Använd standard-MIME-typer eller ändra listan genom att lägga till eller ta bort MIME-typer.
    
    > [!TIP]
    > Det rekommenderas inte att tillämpa komprimering i komprimerat format även om det är möjligt. Till exempel ZIP, MP3, MP4- eller JPG.
@@ -67,20 +67,19 @@ Standard- och Premium CDN nivåerna ge samma funktioner för komprimering, men a
 > [!NOTE]
 > Det här avsnittet gäller enbart för **Azure CDN Premium från Verizon** profiler.
 > 
-> 
 
 1. Välj sidan CDN-profil **hantera**.
    
-    ![CDN-profilen hantera knappen](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN hantera markering](./media/cdn-file-compression/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
 2. Hovra över den **HTTP stora** och klicka sedan hovra över den **cacheinställningarna** utfällbar. Välj **komprimering**.
 
-    ![Komprimering filval](./media/cdn-file-compression/cdn-compress-select.png)
+    ![Val av CDN-komprimering](./media/cdn-file-compression/cdn-compress-select.png)
    
     Komprimeringsalternativ visas.
    
-    ![Alternativ för komprimering](./media/cdn-file-compression/cdn-compress-files.png)
+    ![Komprimeringsalternativ för CDN-fil](./media/cdn-file-compression/cdn-compress-files.png)
 3. Aktivera komprimering genom att välja **komprimering aktiverat**. Ange MIME-typer som du vill komprimera som en kommaavgränsad lista (inga blanksteg) i den **filtyper** rutan.
    
    > [!TIP]
@@ -91,31 +90,37 @@ Standard- och Premium CDN nivåerna ge samma funktioner för komprimering, men a
 
 ## <a name="compression-rules"></a>Regler för komprimering
 
-### <a name="azure-cdn-from-verizon-profiles-both-standard-and-premium"></a>Azure CDN från Verizon profiler (standard och premium)
+### <a name="azure-cdn-from-verizon-profiles-both-standard-and-premium-tiers"></a>Azure CDN från Verizon profiler (både standard- och premium-nivåer)
 
 För **Azure CDN från Verizon** profiler, endast filer komprimeras. En fil måste vara uppfyllda för komprimering:
-- Är större än 128 byte.
-- Vara mindre än 1 MB.
+- Är större än 128 byte
+- Vara mindre än 1 MB
  
-Stöd för de här profilerna **gzip** (GNU zip) **deflate**, **bzip2**, eller **br** kodning (Brotli). Om begäran har stöd för fler än en typ av komprimering, åsidosätter de komprimeringstyperna Brotli komprimering.
+Dessa profiler har stöd för följande komprimering kodningar:
+- gzip (GNU zip)
+- DEFLATE
+- bzip2
+- brotli 
+ 
+Om begäran har stöd för fler än en typ av komprimering, åsidosätter de komprimeringstyperna brotli komprimering.
 
-När en begäran för en tillgång anger Brotli kodning (innehåller HTTP-huvudet `Accept-Encoding: br`) och begäran resulterar i en cache-miss Azure CDN utför Brotli komprimering av tillgången på den ursprungliga servern. Därefter hämtas den komprimerade filen direkt från cachen.
+När en begäran för en tillgång anger brotli komprimering (`Accept-Encoding: br` HTTP-huvudet) och begäran resulterar i en cache-miss Azure CDN utför brotli komprimering av tillgången på den ursprungliga servern. Därefter hämtas den komprimerade filen direkt från cachen.
 
 ### <a name="azure-cdn-from-akamai-profiles"></a>Azure CDN från Akamai profiler
 
 För **Azure CDN från Akamai** profiler, alla filer är tillgängliga för komprimering. Men en fil måste vara av en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).
 
-De här profilerna stöder bara **gzip** kodning. När en profil slutpunkten begäranden **gzip** kodade filer, de alltid begärs från ursprung, oavsett klientbegäran. 
+De här profilerna stöder gzip komprimering endast kodning. När en profil slutpunkt begär en gzip-kodad fil, begäran alltid från ursprung, oavsett klientbegäran. 
 
 ## <a name="compression-behavior-tables"></a>Komprimering beteende tabeller
 I följande tabeller beskrivs Azure CDN komprimering beteendet för varje scenario:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Komprimering är inaktiverat eller filen är inte tillgänglig för komprimering
-| Klienten begärde format (kopplingshuvud Accept-Encoding) | Cachelagrade filformat | CDN-svar till klienten | Anteckningar |
+| Klienten begärde format (kopplingshuvud Accept-Encoding) | Cachelagrade filformat | CDN-svar till klienten | Anteckningar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade | |
 | Komprimerade |Okomprimerad |Okomprimerad | |
-| Komprimerade |Inte cachelagras |Komprimerad eller okomprimerad |Beror på ursprung svar |
+| Komprimerade |Inte cachelagras |Komprimerad eller okomprimerad |Ursprung svaret avgör om CDN utför en komprimering. |
 | Okomprimerad |Komprimerade |Okomprimerad | |
 | Okomprimerad |Okomprimerad |Okomprimerad | |
 | Okomprimerad |Inte cachelagras |Okomprimerad | |
@@ -123,10 +128,10 @@ I följande tabeller beskrivs Azure CDN komprimering beteendet för varje scenar
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Komprimering är aktiverat och filen är berättigade för komprimering
 | Klienten begärde format (kopplingshuvud Accept-Encoding) | Cachelagrade filformat | CDN-svar till klienten | Anteckningar |
 | --- | --- | --- | --- |
-| Komprimerade |Komprimerade |Komprimerade |CDN-transcodes mellan de format som stöds |
-| Komprimerade |Okomprimerad |Komprimerade |CDN utför komprimering |
-| Komprimerade |Inte cachelagras |Komprimerade |CDN utför komprimering om ursprung returnerar en okomprimerad fil. **Azure CDN från Verizon** skickar okomprimerad fil på den första begäranden och sedan komprimeras och cachelagrar filen för efterföljande förfrågningar. Filer med Cache-Control: no-cache-huvudet komprimeras aldrig. |
-| Okomprimerad |Komprimerade |Okomprimerad |CDN utför dekomprimering |
+| Komprimerade |Komprimerade |Komprimerade |CDN transcodes mellan de format som stöds. |
+| Komprimerade |Okomprimerad |Komprimerade |CDN utför en komprimering. |
+| Komprimerade |Inte cachelagras |Komprimerade |CDN utför en komprimering om ursprung returnerar en okomprimerad fil. <br/>**Azure CDN från Verizon** skickar okomprimerad fil på den första begäranden och sedan komprimeras och cachelagrar filen för efterföljande förfrågningar. <br/>Filer med Cache-Control: no-cache-huvudet komprimeras aldrig. |
+| Okomprimerad |Komprimerade |Okomprimerad |CDN utför en dekomprimering. |
 | Okomprimerad |Okomprimerad |Okomprimerad | |
 | Okomprimerad |Inte cachelagras |Okomprimerad | |
 
@@ -135,9 +140,7 @@ Komprimering är aktiverat som standard för följande MIME-typer för slutpunkt
 - application/vnd.ms-sstr+xml 
 - program/dash + xml
 - application/vnd.apple.mpegurl
-- application/f4m+xml. 
-
-Du kan inte aktivera eller inaktivera komprimering för dessa MIME-typer med hjälp av Azure portal.  
+- application/f4m+xml 
 
 ## <a name="see-also"></a>Se också
 * [Felsöka CDN-filkomprimering](cdn-troubleshoot-compression.md)    

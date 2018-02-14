@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -88,7 +88,7 @@ System-kontot måste ha följande behörigheter:
 
     - En enda certifikatfil finns i DependencyFilesLocalPath.
     
-    - Filnamnet får inte innehålla specialtecken.
+    - Filnamnet får inte innehålla några specialtecken eller blanksteg.
 
 
 5. Öppna en **nya** utökade (administratör) PowerShell-konsolen. Ändra till katalogen där du extraherade filerna. Använd ett nytt fönster för att undvika problem som kan uppstå från felaktig PowerShell-moduler som har redan lästs in i systemet.
@@ -174,7 +174,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |
 | **RetryDuration** | Timeoutintervall mellan försök i sekunder. | 120 |
 | **Avinstallera** | Tar bort resursprovidern och alla associerade resurser (se nedan). | Nej |
-| **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej |
+| DebugMode | Förhindrar automatisk rensning vid fel. | Nej |
 | **AcceptLicense** | Hoppar över frågan om du vill acceptera licensvillkoren GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -337,7 +337,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |
 | **RetryDuration** | Timeoutintervall mellan försök i sekunder. | 120 |
 | **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan). | Nej |
-| **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej |
+| DebugMode | Förhindrar automatisk rensning vid fel. | Nej |
 | **AcceptLicense** | Hoppar över frågan om du vill acceptera licensvillkoren GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Ta bort MySQL resource provider-kort

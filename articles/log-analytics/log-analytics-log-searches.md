@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Hitta data med hjälp av loggen sökningar i logganalys
 
@@ -39,7 +39,7 @@ Vi börjar med enkla, praktiska exempel och bygga på dem så att du kan få en 
 När du är bekant med sökmetoder kan du läsa den [logganalys logga Sök referens](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Grundläggande filter
-Det första du behöver veta är att den första delen av en sökning fråga innan någon ”|” lodräta vertikalstrecket är alltid en *filter*. Du kan se den som en WHERE-sats i TSQL--den avgör *vad* delmängd av data och hämtar utanför og Analytics-arbetsyta. Söka i datalagret är i stort sett information om hur du anger egenskaperna för de data som du vill extrahera, så är det naturligt att en fråga börjar med WHERE-satsen.
+Det första du behöver veta är att den första delen av en sökning fråga innan någon ”|” lodräta vertikalstrecket är alltid en *filter*. Du kan se den som en WHERE-sats i TSQL--den avgör *vad* delmängd av data och hämtar utanför logganalys-arbetsytan. Söka i datalagret är i stort sett information om hur du anger egenskaperna för de data som du vill extrahera, så är det naturligt att en fråga börjar med WHERE-satsen.
 
 De mest grundläggande filter som du kan använda *nyckelord*, till exempel 'fel' eller 'timeout- eller ett datornamn. Dessa typer av enkla frågor returnerar vanligtvis olika former av data i samma resultatmängden. Detta beror på att Log Analytics har olika *typer* av data i systemet.
 
@@ -62,13 +62,13 @@ I så fall om typen = Perf poster har ett fält med namnet 'CounterName, och du 
 Detta ger dig endast prestandadata där prestandaräknarnamnet är ”% processortid”.
 
 ### <a name="to-search-for-processor-time-performance-data"></a>Sök efter processor tid prestandadata
-* Skriv i fältet Sök fråga`Type=Perf CounterName="% Processor Time"`
+* Skriv i fältet Sök fråga `Type=Perf CounterName="% Processor Time"`
 
 Du kan också vara mer specifik och använda **InstanceName = _ ”totalt'** i frågan, vilket är en Windows-prestandaräknare. Du kan också välja en begränsningsaspekt och en annan **fältvärdet:**. Filtret läggs automatiskt till ditt filter i frågan-fältet. Du kan se dessa i följande bild. Den visar var du ska klicka för att lägga till **instansnamn: ”_Total”** i frågan utan att ange något.
 
 ![Sök aspekten](./media/log-analytics-log-searches/oms-search-facet.png)
 
-Frågan blir nu`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+Frågan blir nu `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 I det här exemplet du inte behöver ange **typ = Perf** till resultatet för den här. Eftersom det finns endast fälten CounterName och instansnamn för poster av typen = Perf, frågan är det specifikt nog för att returnera samma resultat som längre, tidigare:
 
@@ -82,7 +82,7 @@ Till exempel fråga `Type=Event EventLog="Windows PowerShell"` är identisk med 
 
 Du kan enkelt ångra operatorn implicit och genom att använda en inte explicit. Exempel:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`eller motsvarande `Type=Event EventLog!="Windows PowerShell"` returnera alla händelser från andra loggar som inte är Windows PowerShell-loggen.
+`Type:Event NOT(EventLog:"Windows PowerShell")` eller motsvarande `Type=Event EventLog!="Windows PowerShell"` returnera alla händelser från andra loggar som inte är Windows PowerShell-loggen.
 
 Du kan också använda andra booleska operatorn som 'Eller'. Följande fråga returnerar poster där händelseloggen är antingen program eller System.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Att sökningen med booleska operatorer
-* Skriv i fältet Sök fråga`EventLog=System TimeGenerated>NOW-24HOURS`  
+* Skriv i fältet Sök fråga `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![söka med booleskt värde](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Även om du kan styra tidsintervallet grafiskt och de flesta gånger kanske du vill göra det, har fördelar inklusive ett tidsfilter direkt i frågan. T.ex, detta passar utmärkt instrumentpaneler där du kan åsidosätta tid för varje bricka oberoende av den *globala* tid val på instrumentpanelssidan. Mer information finns i [tid frågor i instrumentpanelen](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Att söka med överst
-* Skriv i fältet Sök fråga`Type=Event EventID=600 | Top 1`   
+* Skriv i fältet Sök fråga `Type=Event EventID=600 | Top 1`   
     ![Sök upp](./media/log-analytics-log-searches/oms-search-top.png)
 
 I bilden ovan finns 358 tusen poster med händelse-ID = 600. Fält, facets och filter till vänster alltid visar information om resultaten *av filter-del* av frågan som är en del innan alla vertikalstrecket. Den **resultat** fönstret returnerar endast det senaste resultatet 1, eftersom detta kommando Formats och omvandlas resultaten.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Så här söker du använder mått Antal
-* Skriv i fältet Sök fråga`Type=Event | Measure count() by EventID`
+* Skriv i fältet Sök fråga `Type=Event | Measure count() by EventID`
 * Lägg till `| Select EventID` till slutet av frågan.
 * Lägg slutligen till `| Sort EventID asc` till slutet av frågan.
 

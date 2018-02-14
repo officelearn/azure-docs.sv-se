@@ -1,6 +1,6 @@
 ---
-title: "Översikt över funktioner i Azure SQL Database | Microsoft Docs"
-description: "Den här sidan innehåller en översikt över Azure SQL Database logiska servrar och databaser och innehåller en matris över funktionsstöds med länkar för varje listad funktion."
+title: "Azure SQL Database-funktionsjämförelse | Microsoft Docs"
+description: "Den här artikeln jämförs funktionerna i SQL Server och Azure SQL Database och visar dessa skillnader."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 23474539fd7db113ec4d857269056fb5061becca
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: dc9a7fa0a7fa0e029f71510cc516496ed12a6274
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-sql-database-features"></a>Azure SQL Database-funktioner
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database och SQL Server 
 
 Azure SQL Database delar en gemensam kodbas med SQL Server och på nivån databasen stöder de flesta av samma funktioner. Större funktion skillnaderna mellan Azure SQL Database och SQL Server finns på instansnivå. 
 
@@ -75,7 +75,7 @@ I följande tabell visar de viktigaste funktionerna i SQL Server och innehåller
 | [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Finns inte - [aviseringar](sql-database-insights-alerts-portal.md) |
 | [Uttryck](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Ja |
 | [Utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa - Se [utökade händelser i SQL-databas](sql-database-xevent-db-diff-from-svr.md) |
-| [Utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej |
+| [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nej |
 | [Filer och filgrupper](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Endast primära filgruppen |
 | [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nej |
 | [Fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | Tredjeparts-funnits stöds inte |

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -50,13 +50,13 @@ Med Azure Functions-proxyservrar, kan du ändra till och -svar från serverdelen
 
 Som standard initieras backend-begäran som en kopia av den ursprungliga begäranden. Utöver att ställa in backend-URL: en kan du ändra till HTTP-metoden, rubriker och fråga string-parametrar. Ändrade värden kan referera [programinställningar] och [parametrar från den ursprungliga klientbegäran].
 
-Det finns för närvarande inga portaler för att ändra backend-begäranden. Information om hur du kan använda den här funktionen från *proxies.json*, se [definiera ett requestOverrides objekt].
+Backend-begäranden kan ändras i portalen av expading den *begära åsidosättning* avsnitt i den här sidan proxy. 
 
 ### <a name="modify-response"></a>Ändra svaret
 
 Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra svaret statuskod, orsaksfrasen, rubriker och brödtext. Ändrade värden kan referera [programinställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
 
-Det finns för närvarande inga portaler för att ändra svar. Information om hur du kan använda den här funktionen från *proxies.json*, se [definiera ett responseOverrides objekt].
+Backend-begäranden kan ändras i portalen av expading den *svar åsidosättning* avsnitt i den här sidan proxy. 
 
 ## <a name="using-variables"></a>Använda variabler
 
@@ -65,7 +65,11 @@ Konfigurationen för en proxy behöver inte vara statisk. Du kan villkor och anv
 ### <a name="reference-localhost"></a>Referens för lokala funktioner
 Du kan använda `localhost` att referera till en funktion i appen med samma funktion direkt, utan en proxy tur och RETUR-begäran.
 
-`"backendurl": "localhost/api/httptriggerC#1"`kommer att referera till en lokal HTTP utlöses funktion på vägen`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` kommer att referera till en lokal HTTP utlöses funktion på vägen `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>Om din funktion använder *funktion, admin eller sys* åtkomstnivåer, behöver du ange koden och clientId, enligt den ursprungliga URL: en för funktionen. I det här fallet ser referensen ut som: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Parametrarna som referens
 
@@ -114,7 +118,7 @@ Inaktivera spårningar helt och hållet genom att lägga till `"debug":false` ti
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-Proxyservrar som du konfigurerar lagras i en *proxies.json* fil som finns i roten av en funktion programkatalogen. Du kan manuellt redigera den här filen och distribuera det som en del av din app när du använder någon av de [distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöder funktioner. Funktionen Azure Functions proxyservrar måste vara [aktiverat](#enable) för filen som ska bearbetas. 
+Proxyservrar som du konfigurerar lagras i en *proxies.json* fil som finns i roten av en funktion programkatalogen. Du kan manuellt redigera den här filen och distribuera det som en del av din app när du använder någon av de [distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöder funktioner. 
 
 > [!TIP] 
 > Om du inte har angett något av metoder för distribution, du kan också fungera med den *proxies.json* filen i portalen. Gå till funktionen appen, Välj **plattformsfunktioner**, och välj sedan **App Service Editor**. På så sätt, kan du visa hela filen strukturen för din funktionsapp och göra ändringar.
@@ -229,16 +233,6 @@ En exempelkonfiguration kan se ut ungefär så här:
 ```
 > [!NOTE] 
 > I det här exemplet svarstexten anges direkt, så ingen `backendUri` egenskapen krävs. Exemplet visar hur du kan använda Azure Functions proxyservrar för mocking API: er.
-
-## <a name="enable"></a>Aktivera Azure Functions proxyservrar
-
-Proxyservrar är aktiverad som standard! Om du använder en äldre version av förhandsversionen av proxyservrar och inaktiverat proxyservrar, behöver du aktivera manuellt proxyservrar en gång i ordning för proxyservrar för att köra.
-
-1. Öppna den [Azure-portalen], och gå sedan till din funktionsapp.
-2. Välj **fungerar appinställningar**.
-3. Växeln **aktivera Azure Functions proxyservrar (förhandsgranskning)** till **på**.
-
-Du kan också returnera här om du vill uppdatera proxy runtime när nya funktioner blir tillgängliga.
 
 [Azure-portalen]: https://portal.azure.com
 [http-utlösare]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

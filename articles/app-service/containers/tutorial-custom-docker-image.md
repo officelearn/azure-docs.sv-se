@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 5f60dde981465709c16a9813ca24335c67252585
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7f05f02249f86e6bee7f89c6ecf8016ede9c4fb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
@@ -48,7 +48,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-I terminalfönstret kör du följande kommando för att klona exempelappens lagringsplats till din lokala dator och ändra sedan till katalogen som innehåller exempelkoden.
+Öppna terminalfönstret och kör följande kommando för att klona exempelappens lagringsplats till din lokala dator. Ändra sedan till katalogen som innehåller exempelkoden.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
@@ -201,7 +201,7 @@ Du kan vara värd för ursprungliga Linux-program i molnet med Azure Web Apps. O
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppServicePlan`App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _<appname>_ med ett unikt appnamn och _\<docker-ID>_ med ditt Docker-ID.
+Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _<appname>_ med ett unikt appnamn och _\<docker-ID>_ med ditt Docker-ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -237,7 +237,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry, such as Azure Container Registry. Select the appropriate tab for your scenario below: -->
 
 > [!NOTE]
-> Distribuerar du från et privat Docker-register? Det finns fler instruktioner i informationen om att [konfigurera Web App för att använda Docker-behållare från ett privat register](#configure-web-app-to-use-docker-container-from-a-private-registry-optional).
+> Distribuerar du från et privat Docker-register? Se de valfria instruktionerna för att [använda en Docker-avbildning från ett privat register](#use-a-docker-image-from-any-private-registry-optional).
 
 <!-- # [Docker Hub](#tab/docker-hub)-->
 

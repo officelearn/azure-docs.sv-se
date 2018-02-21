@@ -262,7 +262,7 @@ Vidarebefordra trafik från servern till en gateway på intranätet, genom att a
 </TelemetryChannel>
 ```
 
-Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443-v2-sviten
+Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443/v2/sviten
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra webbtester för tillgänglighet på en server för intranät?
 

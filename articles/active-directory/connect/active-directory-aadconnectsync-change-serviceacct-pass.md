@@ -42,7 +42,7 @@ Du måste först ändra lösenordet under Windows Service Control Manager.  Till
 Andra kan vissa villkor kan om lösenordet uppdateras synkroniseringstjänsten inte längre hämta krypteringsnyckeln via DPAPI. Synkroniseringstjänsten kan inte dekryptera lösenord krävs för att synkronisera till och från lokala AD och Azure AD utan krypteringsnyckeln.
 Du ser fel som:
 
-- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”** Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn. Mer information finns i händelseloggen System. Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden **-21451857952 *** ”.
+- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”**Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn. Mer information finns i händelseloggen System. Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden **-21451857952****.”
 - Under Windows Loggboken i programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”**krypteringsnyckeln server kan inte nås.**”*
 
 För att säkerställa att du inte får dessa fel, följer du procedurerna i [överges krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) när du ändrar lösenordet.

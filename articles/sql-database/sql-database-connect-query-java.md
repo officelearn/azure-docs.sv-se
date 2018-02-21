@@ -15,17 +15,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ddf0f0be0acd86f3a2c3e241cbf8ebc81301bc21
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Java
 
 Den här snabbstarten visar hur du använder [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att köra frågor mot data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att kunna slutföra den här snabbstartskursen behöver du följande:
 
@@ -37,7 +37,7 @@ För att kunna slutföra den här snabbstartskursen behöver du följande:
 
     - **MacOS**: Installera Homebrew och Java och installera sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **Ubuntu**: Installera Java Development Kit och Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
-    - **Windows**: Installera Java Development Kit och Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
+    - **Windows**: Installera Java Development Kit och Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
@@ -57,7 +57,7 @@ För att kunna slutföra den här snabbstartskursen behöver du följande:
    <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
-       <version>6.2.1.jre8</version>
+       <version>6.2.2.jre8</version>
    </dependency>
    ```
 
@@ -72,7 +72,7 @@ För att kunna slutföra den här snabbstartskursen behöver du följande:
 
 5. Spara och stäng ***pom.xml***.
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL Database
+## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
 
 1. Du bör redan ha en fil med namnet ***App.java*** i ditt Maven-projekt som finns i: ...\sqltest\src\main\java\com\sqlsamples\App.Java
 

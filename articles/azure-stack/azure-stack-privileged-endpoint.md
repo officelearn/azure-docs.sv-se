@@ -74,7 +74,7 @@ Vi rekommenderar att du ansluter till detta program bara från maskinvara livscy
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet ** &lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
     
 3.  När du har anslutit uppmaningen ändras till **[*IP-adress eller ERCS VM*]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön. Härifrån kan köra `Get-Command` att visa listan över tillgängliga cmdlets.
@@ -143,7 +143,7 @@ Om du vill importera program sessionen på den lokala datorn, gör du följande 
       ```` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet ** &lt; *Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenordet**: Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-session till din lokala dator
@@ -161,7 +161,7 @@ Att stänga sessionen slutpunkt:
 
 1. Skapa en extern resurs som kan nås av detta program. Du kan bara skapa en filresurs på development kit värden i en utvecklingsmiljö av kit.
 2. Kör den `Close-PrivilegedEndpoint` cmdlet. 
-3. Du uppmanas att ange en sökväg som ska lagra loggfil betyg. Ange den filresurs som du skapade tidigare, i formatet & #92; & #92; *servername*& #92;* resursnamn*. Om du inte anger en sökväg cmdlet misslyckas och förblir sessionen öppen. 
+3. Du uppmanas att ange en sökväg som ska lagra loggfil betyg. Ange den filresurs som du skapade tidigare, i formatet &#92;&#92;*servername*&#92;*resursnamn*. Om du inte anger en sökväg cmdlet misslyckas och förblir sessionen öppen. 
 
     ![Stäng PrivilegedEndpoint cmdlet utdata som visas anger du målsökväg betyg](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

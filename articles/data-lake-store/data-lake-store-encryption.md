@@ -1,9 +1,9 @@
 ---
 title: Kryptering i Azure Data Lake Store | Microsoft Docs
-description: "Så här fungerar kryptering och nyckelrotation i Azure Data Lake Store"
+description: "Du kan skydda dina data, implementera säkerhetsprinciper och uppfylla efterlevnadskrav med hjälp av kryptering i Azure Data Lake Store. Den här artikeln innehåller en översikt över designen och beskriver några av de tekniska aspekterna av genomförandet."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Kryptera data i Azure Data Lake Store
 
@@ -83,7 +83,7 @@ Det finns tre typer av nycklar som används i utformningen av datakryptering. I 
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Store-konto | Key Vault                              | Asymmetrisk | Det kan hanteras av Data Lake Store eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Store-konto | Beständig lagring – hanteras av Data Lake Store-tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Ingen                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inget                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 
@@ -112,7 +112,7 @@ Följande diagram illustrerar dessa begrepp:
 
 När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Store-konto med kundhanterade nycklar finns på sidan [Komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 När du konfigurerar Data Lake Store-kontot har du valt att använda dina egna nycklar. Det här alternativet kan inte ändras efter att kontot har skapats. I anvisningarna nedan antas att du använder kundhanterade nycklar (att du valt egna nycklar från ditt nyckelvalv).
 
@@ -120,7 +120,7 @@ Observera att om du använder standardalternativen för kryptering krypteras dat
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Så här roterar du MEK i Data Lake Store
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Navigera till det nyckelvalv där de nycklar som är kopplade till ditt Data Lake Store-konto lagras. Välj **Nycklar**.
 
     ![Skärmbild av Key Vault](./media/data-lake-store-encryption/keyvault.png)

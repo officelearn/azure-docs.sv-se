@@ -41,7 +41,7 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 
 | Parameter |  Kommentar |
 | --- | --- | --- |
-| `aud` | Målgrupp: Bör vara  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
+| `aud` | Målgrupp: Bör vara **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Förfallodatum: det datum då token upphör att gälla. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
 | `iss` | Utgivare: bör vara client_id (program-Id för klient-tjänst) |
 | `jti` | GUID: JWT ID |

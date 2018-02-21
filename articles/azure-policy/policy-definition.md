@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -21,7 +21,7 @@ Resursdefinitionen princip som används av principen i Azure kan du etablera kon
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
-* Läge
+* läge
 * parameters
 * Visningsnamn
 * description
@@ -262,6 +262,7 @@ Du kan använda egenskapen alias för att få åtkomst till specifika egenskaper
 | Microsoft.Compute/virtualMachines/imageVersion | Ange versionen av plattformsavbildning eller marketplace-avbildning som används för att skapa den virtuella datorn. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Ange vhd-URI. |
 | Microsoft.Compute/virtualMachines/sku.name | Ange storleken på den virtuella datorn. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Anger tillgänglighetsuppsättning-id för den virtuella datorn. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -332,6 +333,7 @@ Du kan använda egenskapen alias för att få åtkomst till specifika egenskaper
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Ange om tjänsten krypterar data som lagras i tjänsten file storage. |
 | Microsoft.Storage/storageAccounts/sku.name | Ange namnet på SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Ange för att tillåta endast https-trafik till storage-tjänst. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Kontrollera om tjänstslutpunkten för virtuella nätverk har aktiverats. |
 
 ## <a name="initiatives"></a>Initiativ
 

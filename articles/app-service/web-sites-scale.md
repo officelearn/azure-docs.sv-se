@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Skala upp en app i Azure
 
 > [!NOTE]
-> Den nya **PremiumV2** nivå ger snabbare processorer, SSD-lagringen, och dubbla kärnor till minne förhållandet än de befintliga priser nivåer. Att skala upp till **PremiumV2** tjänstnivån, se [konfigurera PremiumV2 nivån för Apptjänst](app-service-configure-premium-tier.md).
+> Den nya **PremiumV2** nivå ger snabbare processorer, SSD-lagringen och fördubblar kärnor till minne förhållandet mellan befintliga prisnivåer. Du kan spara pengar genom att köra dina appar på färre instanser med fördelen prestanda. Att skala upp till **PremiumV2** tjänstnivån, se [konfigurera PremiumV2 nivån för Apptjänst](app-service-configure-premium-tier.md).
 >
 
 Den här artikeln visar hur du skala ditt program i Azure App Service. Det finns två arbetsflöden för skalning, skala upp och skala ut och den här artikeln förklarar skala in arbetsflöde.
 
 * [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): hämta mer CPU, minne, diskutrymme och extra funktioner såsom dedikerade virtuella datorer (VM), anpassade domäner och certifikat, mellanlagringsplatser kortplatser, autoskalning med mera. Du skalar upp genom att ändra prisnivå för App Service-plan som tillhör din app.
 * [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet VM-instanser som appen körs.
-  Du kan skala ut till upp till 20 instanser, beroende på din prisnivå. [Apptjänstmiljöer](environment/intro.md) i **isolerad** ytterligare nivå ökar din skalbara antalet till 100 instanser. Mer information om att skala ut finns [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md). Det ta reda på hur du använder autoskalning, vilket är att skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
+  Du kan skala ut till upp till 20 instanser, beroende på din prisnivå. [Apptjänstmiljöer](environment/intro.md) i **isolerad** ytterligare nivå ökar din skalbara antalet till 100 instanser. Mer information om att skala ut finns [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md). Det, ta reda på hur du använder autoskalning, vilket är att skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
 
 Skalinställningarna Tar bara några sekunder tillämpas och påverkar alla program i din [programtjänstplanen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-De kräver inte att ändra koden eller omdistribuera ditt program.
+De behöver du ändra koden och omdistribuera ditt program.
 
 Information om priser och funktioner i enskilda App Service-planer finns [App Service-prisinformation](https://azure.microsoft.com/pricing/details/web-sites/).  
 
@@ -57,7 +57,7 @@ Information om priser och funktioner i enskilda App Service-planer finns [App Se
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Skala relaterade resurser
-Om din app är beroende av andra tjänster, till exempel Azure SQL Database eller Azure Storage kan du skala upp resurserna separat. Dessa resurser som inte hanteras av App Service-plan.
+Om din app är beroende av andra tjänster, till exempel Azure SQL Database eller Azure Storage kan du skala upp resurserna separat. Dessa resurser hanteras inte av App Service-plan.
 
 1. I **Essentials**, klicka på den **resursgruppen** länk.
    
@@ -81,11 +81,6 @@ Om din app är beroende av andra tjänster, till exempel Azure SQL Database elle
 ## <a name="compare-pricing-tiers"></a>Jämför prisnivåer
 Detaljerad information, till exempel VM-storlekar för varje prisnivå finns [App Service-prisinformation](https://azure.microsoft.com/pricing/details/web-sites/).
 En tabell med tjänsten gränser, kvoter och begränsningar och funktioner som stöds i varje nivå finns [gränser för Apptjänst](../azure-subscription-service-limits.md#app-service-limits).
-
-> [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto går du till [prova App Service](https://azure.microsoft.com/try/app-service/) där du direkt kan skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs och gör inga åtaganden.
-> 
-> 
 
 <a name="Next Steps"></a>
 

@@ -17,8 +17,9 @@
 ### [Tekniska funktioner för säkerhet](azure-security-technical-capabilities.md)
 ### [Styrning i Azure](governance-in-azure.md)
 ### [Datakryptering i vila](azure-security-encryption-atrest.md)
-### Arkitekturritningar
-#### [Efterlevnad – PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Skisser för säkerhet och efterlevnad i Azure
+#### PCI DSS
+##### [Betalningsbearbetning för PCI DSS-kompatibla miljöer](./blueprints/payment-processing-blueprint.md)
 ##### [Översikt över krav](./blueprints/pci-dss-requirements-overview.md)
 ##### [Krav 1 – brandväggar](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Krav 2 – lösenord](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Krav 10 – övervakning](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Krav 11 – testning](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Krav 12 – princip](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Efterlevnad – FedRAMP ](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Automatisering av webbprogram](./blueprints/fedramp.md)
 ##### [Översikt över säkerhetskontroller](./blueprints/fedramp-controls-overview.md)
 ##### [Åtkomstkontroll](./blueprints/fedramp-access-controls.md)
 ##### [Granskning och ansvar](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [System- och kommunikationsskydd](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [System och informationsintegritet](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [System- och tjänstförvärv](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Efterlevnad – UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automatisering av webbprogram med tre nivåer](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Översikt](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Översikt över principer](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Efterlevnad – Ekonomiska tjänster
+#### Ekonomiska tjänster
 ##### [Ekonomiska tjänster för reglerade arbetsbelastningar](./blueprints/financial-services-regulated-workloads.md)
 
 # Kom igång

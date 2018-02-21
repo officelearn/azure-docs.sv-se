@@ -2,7 +2,6 @@
 # [Dokumentation om Batch](index.yml)
 
 # Översikt
-
 ## [Vad är Azure Batch?](batch-technical-overview.md)
 
 # Snabbstarter
@@ -44,6 +43,7 @@
 ## Skapa och hantera pooler
 ### [Automatisk skalning för beräkningsnoder](batch-automatic-scaling.md)
 ### [Beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
+### [Konfigurera åtkomst till beräkningsnoder](pool-endpoint-configuration.md)
 ### [Skapa en pool med en anpassad bild](batch-custom-images.md)
 ### [Skapa en pool i ett virtuellt nätverk](batch-virtual-network.md)
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)

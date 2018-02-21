@@ -1,6 +1,6 @@
 - name: Container Instances
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Container Instances
       href: container-instances-overview.md
@@ -33,14 +33,22 @@
   items:
     - name: Distribuera grupper med flera behållare
       href: container-instances-multi-container-group.md
-    - name: Spara data med Azure Files
-      href: container-instances-mounting-azure-files-volume.md
     - name: Distribuera från Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Köra behållarbaserade uppgifter
       href: container-instances-restart-policy.md
     - name: Felsöka distributioner
       href: container-instances-troubleshooting.md
+    - name: Konfigurera datavolymer
+      items:
+        - name: Azure Files
+          href: container-instances-volume-azure-files.md
+        - name: emptyDir
+          href: container-instances-volume-emptydir.md
+        - name: gitRepo
+          href: container-instances-volume-gitrepo.md
+        - name: hemlighet
+          href: container-instances-volume-secret.md
 - name: Referens
   items:
     - name: Azure CLI

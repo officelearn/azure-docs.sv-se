@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Justera prestanda i Azure SQL Database
 
@@ -34,7 +34,7 @@ Dessa är manuella metoder eftersom du behöver avgöra vad [tjänstnivåer](sql
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Öka prestandanivån för din databas
 
-Azure SQL Database erbjuder fyra [tjänstnivåer](sql-database-service-tiers.md) som du kan välja mellan: Basic, Standard, Premium och Premium-RS (prestanda mäts i dataöverföringsenheter, eller [dtu: er](sql-database-what-is-a-dtu.md). Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
+Azure SQL Database erbjuder fyra [tjänstnivåer](sql-database-service-tiers.md) som du kan välja mellan: Basic, Standard och Premium (prestanda mäts i dataöverföringsenheter, eller [dtu: er](sql-database-what-is-a-dtu.md). Varje tjänstnivå isolerar strikt resurser att din SQL-databas kan använda och garanterar förutsägbar prestanda för den servicenivån. Vi erbjuder vägledning som hjälper dig att välja tjänstnivån för ditt program i den här artikeln. Dessutom diskuterar vi sätt att du kan finjustera ditt program för att få ut mesta möjliga av Azure SQL Database.
 
 > [!NOTE]
 > Den här artikeln fokuserar på prestanda vägledning för enskilda databaser i Azure SQL Database. Anvisningar prestanda rör elastiska pooler finns [pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). Observera dock att du kan tillämpa många av rekommendationerna i den här artikeln prestandajustering för databaser i en elastisk pool och få liknande prestandafördelarna.
@@ -49,7 +49,6 @@ Azure SQL Database erbjuder fyra [tjänstnivåer](sql-database-service-tiers.md)
   * **Hög belastning**. Ett program som kräver betydande CPU, minne eller indata/utdata (I/O) att slutföra dessa åtgärder kräver en dedikerad, högpresterande nivå. Till exempel är en databasåtgärd känt att använda flera processorkärnor en längre tid en kandidat för premiumnivån.
   * **Många samtidiga förfrågningar**. Vissa databasprogram tjänst många samtidiga förfrågningar, exempelvis när du hanterar en webbplats som har en hög trafik. Basic och Standard tjänstnivåer begränsa antalet samtidiga förfrågningar per databas. Program som kräver fler anslutningar måste du välja en lämplig Reservationsstorleken att hantera det maximala antalet begäranden som behövs.
   * **Låg latens**. Vissa program behöver garantera ett svar från databasen i minimal tid. Om en specifik lagrad procedur anropas som en del av en bredare kund-åtgärd, kanske ett krav för att ha en returtyp från anropet i fler än 20 millisekunder 99 procent av tiden. Den här typen av program fördelar från premiumnivån, se till att nödvändiga datorkraft är tillgänglig.
-* **Premium-RS**: I Premium-RS nivå har utformats för i/o-intensiva arbetsbelastningar som inte kräver garanterar att högst tillgänglighet. Exempel innefattar testning högpresterande arbetsbelastningar eller en analytiska arbetsbelastningar där databasen inte är av posten.
 
 Servicenivåer som du behöver för SQL-databasen beror på belastningskraven belastning för varje resursdimension. Vissa program använder en trivial mängd en enskild resurs, men har betydande krav för andra resurser.
 

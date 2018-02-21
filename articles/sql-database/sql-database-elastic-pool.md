@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -171,7 +170,7 @@ SQL Database-tjänsten utvärderar användningshistorik och rekommenderar en ell
 
 Pool-rekommendationerna omfattar:
 
-- En prisnivå för poolen (Basic, Standard, Premium eller Premium RS)
+- En prisnivå för poolen (Basic, Standard eller Premium)
 - Lämpliga **POOL-eDTU:er** (kallas även Max eDTU:er per pool)
 - **eDTU MAX** och **eDTU Min** per databas
 - Listan över rekommenderade databaser för poolen
@@ -201,7 +200,7 @@ Följande bild visar ett exempel elastisk pool. Vyn innehåller:
 
 Du kan gå till en viss pool för att se dess resursutnyttjande. Som standard konfigureras poolen om du vill visa lagrings- och eDTU-användning för den senaste timmen. Diagrammet kan konfigureras för att visa olika mätvärden via olika tidsfönster. Klicka på den **resursutnyttjande** diagram **elastisk pool övervakning** att visa en detaljerad vy av de angivna mätvärdena via den angivna tidsperioden.
 
-![Övervakning av elastisk pool](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Övervakning av elastiska pooler](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Mått sida](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ På den **redigera diagram** formuläret, du kan välja ett tidsintervall (efter
 
 Enskilda databaser kan också övervakas för potentiella problem. Under **elastisk databas övervakning**, det finns ett diagram som visar mått för fem databaser. Som standard i diagrammet visas de översta 5 databaserna i poolen efter genomsnittlig eDTU-användning under den senaste timmen. 
 
-![Övervakning av elastisk pool](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Övervakning av elastiska pooler](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Klicka på den **eDTU-användning för databaser för den senaste timmen** under **elastisk databas övervakning**. Då öppnas **databasen resursutnyttjande** och ger en detaljerad vy av databasanvändningen i poolen. Med rutnätet i den nedre delen av sidan kan välja du alla databaser i poolen för att visa dess användning i diagrammet (upp till 5 databaser). Du kan också anpassa fönstret mått och tid som visas i diagrammet genom att klicka på **redigera diagram**.
 
@@ -274,7 +273,7 @@ Du kan lägga till eller ta bort databaser från en befintlig adresspool. Databa
 
 ![Klicka på Lägg till pool](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-![Välj databaser att lägga till](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+![Välj databaser som ska läggas till](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
 ![Väntande pool-tillägg](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -302,15 +301,15 @@ Använd följande PowerShell-cmdlets för att skapa och hantera SQL-databas elas
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[Ny AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk databaspool på en logisk SQLServer.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk databaspool på en logisk SQLServer.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hämtar elastiska pooler och deras värden på en logisk SQLServer.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Ändrar egenskaper för en elastisk databaspool på en logisk SQLServer. Till exempel använda den **StorageMB** egenskapen att ändra maximal lagringskapacitet för en elastisk pool.|
-|[Ta bort AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk databaspool på en logisk SQLServer.|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk databaspool på en logisk SQLServer.|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool på en logisk SQLServer.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en ny databas i en befintlig adresspool eller som en enskild databas. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas i, slut på eller mellan elastiska pooler.|
-|[Ta bort-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas.|
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas.|
 
 
 > [!TIP]
@@ -345,7 +344,7 @@ Skapa och flytta databaser i befintliga elastiska pooler eller att returnera inf
 | Kommando | Beskrivning |
 | --- | --- |
 |[Skapa databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas i en befintlig adresspool eller som en enskild databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Flytta en databas i, slut på eller mellan elastiska pooler.|
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Flytta en databas i, slut på eller mellan elastiska pooler.|
 |[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar resurs användningsstatistik för elastiska databaspooler i en logisk server. För varje elastisk databaspool att det finns en rad för varje 15 sekunder reporting fönstret (fyra rader per minut). Detta inkluderar CPU, IO, Log, användningen av lagringsutrymme och samtidiga begäran-session användning av alla databaser i poolen.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivån), tjänstmålet (prisnivån) och namn på elastisk pool, för en Azure SQL-databas eller ett Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. För Azure SQL Data Warehouse, måste du vara ansluten till master-databasen.|

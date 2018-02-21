@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java spårningsloggar i Application Insights
 Om du använder Logback eller Log4J (version 1.2 eller v2.0) för spårning, kan du ha spårloggarna skickas automatiskt till Application Insights där du kan utforska och söka i dem.
 
 ## <a name="install-the-java-sdk"></a>Installera Java SDK
 
-Installera [Application Insights SDK för Java][java], om du inte redan har gjort som.
-
-(Om du inte vill spåra HTTP-begäranden, kan du utelämna de flesta av XML-konfigurationsfil, men du måste inkludera minst den `InstrumentationKey` element. Du bör också kontakta `new TelemetryClient()` initieras SDK.)
-
+Följ instruktionerna för att installera [Application Insights SDK för Java][java], om du inte redan har gjort som.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Lägg till loggning bibliotek i projektet
 *Välj lämplig metod för ditt projekt.*
@@ -101,13 +98,14 @@ Uppdatera sedan projektberoenden för att få binärfiler som hämtats.
 ```
 
 #### <a name="otherwise-"></a>Eller …
-Ladda ned och extrahera lämpliga loggbilaga och lägger till biblioteket i projektet:
+Följ riktlinjerna för att manuellt installera Application Insights SDK för Java, ladda ned jar (efter ariving Maven Central sida klickar du på 'jar-länk i avsnittet download) för lämplig loggbilaga och Lägg till hämtade loggbilaga jar i projektet.
 
-| Loggaren | Ladda ned | Bibliotek |
+| Logger | Ladda ned | Bibliotek |
 | --- | --- | --- |
-| Logback |[SDK med Logback loggbilaga](https://aka.ms/xt62a4) |logback-applicationinsights-loggning |
-| Log4J v2.0 |[SDK Log4J v2 loggbilaga](https://aka.ms/qypznq) |log4j2-applicationinsights-loggning |
-| Log4j version 1.2 |[SDK Log4J version 1.2 loggbilaga](https://aka.ms/ky9cbo) |log4j1_2-applicationinsights-loggning |
+| Logback |[Logback loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Log4J v2 loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j version 1.2 |[Log4J version 1.2 loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Lägg till loggbilaga i din loggningsramverk
 Om du vill börja få spårningar, sammanfoga det relevanta kodavsnittet till konfigurationsfilen Log4J eller Logback: 
@@ -128,7 +126,7 @@ Om du vill börja få spårningar, sammanfoga det relevanta kodavsnittet till ko
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -157,6 +155,8 @@ Application Insights appenders kan refereras genom att alla angivna loggaren och
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Utforska dina spår i Application Insights-portalen
 Nu när du har konfigurerat ditt projekt för att skicka spårningar till Application Insights kan du visa och söka efter dessa spåren i Application Insights-portalen i den [Sök] [ diagnostic] bladet.
+
+Undantag skickat via loggare visas på portalen som Undantagstelemetri.
 
 ![Öppna Sök i Application Insights-portalen](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

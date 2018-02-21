@@ -1,6 +1,6 @@
 - name: Azure Time Series Insights
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Time Series Insights
       href: time-series-insights-overview.md
@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Minimera begränsningar
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Förstå datakvarhållning
+      href: time-series-insights-concepts-retention.md
     - name: Diagnostisera och felsöka
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Utveckla
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Ansluta till IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Konfigurera datakvarhållning
+      href: time-series-insights-how-to-configure-retention.md
     - name: Skapa en referensdatauppsättning
       href: time-series-insights-add-reference-data-set.md
     - name: Skicka händelser

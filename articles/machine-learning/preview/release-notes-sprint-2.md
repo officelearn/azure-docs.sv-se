@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="sprint-2---december-2017"></a>Skriv ut 2 - December 2017 
+# <a name="sprint-2---december-2017"></a>Sprint 2 – december 2017 
 
 #### <a name="version-number-01171115263"></a>Versionsnummer: 0.1.1711.15263
 
->Här är hur du kan [hittar du versionsnumret](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Här är hur du kan [hittar du versionsnumret](known-issues-and-troubleshooting-guide.md).
 
 Välkommen till den tredje uppdateringen Azure Machine Learning-arbetsstationen. Den här uppdateringen innehåller förbättringar i appen arbetsstationen, kommandoradsgränssnittet (CLI) och backend-tjänster. Tack för att skicka leenden och frowns. Många av följande uppdateringar görs direkt resultatet av din feedback. 
 
 ## <a name="notable-new-features"></a>Viktiga nya funktioner
-- [Stöd för SQL Server och SQL Azure DB som en datakälla](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Stöd för SQL Server och SQL Azure DB som en datakälla](data-prep-appendix2-supported-data-sources.md#types) 
 - [Djupgående inlärning på Spark med GPU stöd med MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Alla AML behållare är kompatibla med Azure IoT-gränsenheterna när distribuerade (inga ytterligare åtgärder krävs)](http://aka.ms/aml-iot-edge-blog)
 - Registrerad modell lista och detaljer vyer tillgängliga Azure-portalen
@@ -56,7 +56,7 @@ Nedan följer en lista över detaljerade uppdateringar under varje komponent i A
 
 - Prestandaförbättringar vid rekommenderar edge fall att granska i omvandling-härledd kolumn efter exempel'
 
-- [Stöd för SQL Server och SQL Azure DB som en datakälla](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Stöd för SQL Server och SQL Azure DB som en datakälla](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Bild av hur du skapar en ny SQL server-datakälla](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Du kan nu skapa och få åtkomst till remotedocker eller kluster typen Beräknin
 
 - Du kan förbereda det här målet för beräkning och använda den för körning och Azure ML-arbetsstationen använder denna nyckel för autentisering.  
 
-Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machine Learning experiment Service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)
+Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machine Learning experiment Service](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools för AI
 - Tillagt stöd för [Visual Studio Tools för AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
@@ -115,5 +115,5 @@ Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machi
 ## <a name="breaking-changes"></a>GÖR ÄNDRINGAR
 - Upphöja den `--type` växla i `az ml computetarget attach` till en underordnad. 
 
-    - `az ml computetarget attach --type remotedocker`är nu`az ml computetarget attach remotedocker`
-    - `az ml computetarget attach --type cluster`är nu`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker` är nu `az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster` är nu `az ml computetarget attach cluster`

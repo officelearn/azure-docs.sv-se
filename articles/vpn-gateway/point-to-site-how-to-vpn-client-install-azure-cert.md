@@ -1,10 +1,10 @@
 ---
 title: "Installera ett certifikat för P2S | Azure"
-description: "Den här artikeln hjälper dig att installera en klient certifikat för P2S certifikatautentisering."
+description: "Installera en Mac- eller Windows client-certifikat för P2S certifikatautentisering."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Installera ett klientcertifikat för autentisering anslutningar för punkt-till-plats Azure certifikat
 
@@ -47,6 +47,6 @@ Mac-VPN-klienter stöds endast distributionsmodell hanteraren för filserverresu
 
 Fortsätt med konfigurationssteg punkt-till-plats.
 
-* [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)

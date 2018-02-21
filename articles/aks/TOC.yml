@@ -67,8 +67,10 @@
           href: kubernetes-helm.md
         - name: Utveckla program med Draft
           href: kubernetes-draft.md
-        - name: Integrera med Azure med OSBA
+        - name: Open Service Broker for Azure
           href: integrate-azure.md
+        - name: Kontinuerlig Jenkins-distribution
+          href: jenkins-continuous-deployment.md
     - name: Grundläggande om Kubernetes
       items:
         - name: Använda Kubernetes-instrumentpanelen

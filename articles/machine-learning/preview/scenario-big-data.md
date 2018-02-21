@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -51,7 +51,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 * Windows 10 (instruktionerna i det här exemplet är vanligtvis samma för macOS system).
 * En Data vetenskap virtuell dator (DSVM) för Linux (Ubuntu), helst i östra USA region där data söker efter. Du kan etablera ett Ubuntu DSVM genom att följa [instruktionerna](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du kan också se [denna Snabbstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 32 GB minne. 
 
-Följ den [instruktion](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) att aktivera lösenord mindre sudoer åtkomst på den virtuella datorn för AML arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML arbetsstationen](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord att komma åt den virtuella datorn.  Spara i följande tabell med DSVM information senare stegen:
+Följ den [instruktion](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) att aktivera lösenord mindre sudoer åtkomst på den virtuella datorn för AML arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML arbetsstationen](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord att komma åt den virtuella datorn.  Spara i följande tabell med DSVM information senare stegen:
 
  Fältnamn| Värde |  
  |------------|------|
@@ -104,19 +104,19 @@ Kolumnnumret | Fältnamn| Typ | Beskrivning |
 1  | `SessionStart` | DateTime |    Starttid för session
 2  |`SessionEnd`    | DateTime | Sluttid för session
 3 |`ConcurrentConnectionCounts` | Integer | Antalet samtidiga anslutningar
-4 | `MbytesTransferred` | dubbla | Normaliserade data som överförs i megabyte
+4 | `MbytesTransferred` | Dubbel | Normaliserade data som överförs i megabyte
 5 | `ServiceGrade` | Integer |  Service-klass för session
 6 | `HTTP1` | Integer|  Sessionen använder HTTP1 eller HTTP2
 7 |`ServerType` | Integer   |Servertyp
-8 |`SubService_1_Load` | dubbla |   Läs in subservice 1
-9 | `SubService_2_Load` | dubbla |  Läs in subservice 2
-10 | `SubService_3_Load` | dubbla |     Läs in subservice 3
-11 |`SubService_4_Load` | dubbla |  Läs in subservice 4
-12 | `SubService_5_Load`| dubbla |      Läs in subservice 5
-13 |`SecureBytes_Load`  | dubbla | Läsa in säker byte
-14 |`TotalLoad` | dubbla | Totalt antal belastningen på servern
+8 |`SubService_1_Load` | Dubbel |   Läs in subservice 1
+9 | `SubService_2_Load` | Dubbel |  Läs in subservice 2
+10 | `SubService_3_Load` | Dubbel |     Läs in subservice 3
+11 |`SubService_4_Load` | Dubbel |  Läs in subservice 4
+12 | `SubService_5_Load`| Dubbel |      Läs in subservice 5
+13 |`SecureBytes_Load`  | Dubbel | Läsa in säker byte
+14 |`TotalLoad` | Dubbel | Totalt antal belastningen på servern
 15 |`ClientIP` | Sträng|    Klientens IP-adress
-16 |`ServerIP` | Sträng|    Serverns IP-adress
+16 |`ServerIP` | Sträng|    Server IP address
 
 
 
@@ -164,7 +164,7 @@ Du bör använda en behållare för experimentering på datamängden som en mån
 | stringIndexModel | Parkettgolv | Strängen indexeraren modellen för icke-numeriska funktioner.|
 | oneHotEncoderModel|Parkettgolv | En hot kodare modell för kategoriska funktioner. |
 | mlModel | Parkettgolv | Utbildade maskininlärningsmodell. |
-| Info| Python pickle-fil | Information om omvandlade data, inklusive utbildning start, utbildning slut, varaktighet, tidstämpel för train-test delning och kolumner för indexering och en hot kodning.
+| info| Python pickle-fil | Information om omvandlade data, inklusive utbildning start, utbildning slut, varaktighet, tidstämpel för train-test delning och kolumner för indexering och en hot kodning.
 
 Alla filer och blobbar i föregående tabell används för operationalization.
 
@@ -186,7 +186,7 @@ Det första argumentet, `configFilename`, är en lokal konfigurationsfil där du
 
 | Fält | Typ | Beskrivning |
 |-----------|------|-------------|
-| StorageAccount | Sträng | Azure Storage-kontonamn |
+| storageAccount | Sträng | Azure Storage-kontonamn |
 | storageContainer | Sträng | Behållaren i Azure Storage-konto för att lagra mellanresultat |
 | storageKey | Sträng |Azure åtkomstnyckeln för Lagringskontot |
 | DataFile|Sträng | Datakällfilerna  |
@@ -225,7 +225,7 @@ Förbereda projektmiljön genom att köra:
 ```az ml experiment prepare -c dockerdsvm```
 
 
-Med `PrepareEnvironment` inställd på Sant Machine Learning arbetsstationen skapar körningsmiljön när du skickar ett jobb. `Config/conda_dependencies.yml`och `Config/dsvm_spark_dependencies.yml` innehåller anpassning av körningsmiljön. Du kan alltid ändra Conda beroenden, Spark-konfigurationen och Spark beroenden genom att redigera dessa två YMAL-filer. I det här exemplet vi har lagt till `azure-storage` och `azure-ml-api-sdk` som extra Python-paket i `Config/conda_dependencies.yml`. Vi har även lagt till `spark.default.parallelism`, `spark.executor.instances`, och `spark.executor.cores` i `Config/dsvm_spark_dependencies.yml`. 
+Med `PrepareEnvironment` inställd på Sant Machine Learning arbetsstationen skapar körningsmiljön när du skickar ett jobb. `Config/conda_dependencies.yml` och `Config/dsvm_spark_dependencies.yml` innehåller anpassning av körningsmiljön. Du kan alltid ändra Conda beroenden, Spark-konfigurationen och Spark beroenden genom att redigera dessa två YMAL-filer. I det här exemplet vi har lagt till `azure-storage` och `azure-ml-api-sdk` som extra Python-paket i `Config/conda_dependencies.yml`. Vi har även lagt till `spark.default.parallelism`, `spark.executor.instances`, och `spark.executor.cores` i `Config/dsvm_spark_dependencies.yml`. 
 
 #####  <a name="2-data-preparation-and-feature-engineering-on-dsvm-docker"></a>2. Förberedelse av data och funktionen tekniker på DSVM Docker
 
@@ -330,7 +330,7 @@ På rätt sidopanelen i arbetsstationen, bläddrar du till **körs** att visa k�
 
 I det här avsnittet operationalisera modell som du skapade i föregående steg som en webbtjänst. Du också lära dig hur du använder webbtjänsten för att förutsäga arbetsbelastning. Använd datorn språk operationalization kommandoradsverktyget gränssnitt (CLIs) att paketera koden och beroenden som Docker-bilder och för att publicera modellen som en av webbtjänst.
 
-Du kan använda i Kommandotolken i Machine Learning-arbetsstationen för att köra CLIs.  Du kan också köra CLIs på Ubuntu Linux genom att följa den [installationsguiden](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+Du kan använda i Kommandotolken i Machine Learning-arbetsstationen för att köra CLIs.  Du kan också köra CLIs på Ubuntu Linux genom att följa den [installationsguiden](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Ersätt alla argumentet variabler med det faktiska värdet i alla följande kommandon. Det tar ungefär 40 minuter för att slutföra det här avsnittet.
@@ -416,7 +416,7 @@ Välj en unik sträng som miljön för operationalization. Här kan använda vi 
 
 8. Skala webbtjänsten. 
 
-   Mer information finns i [så här skalar operationalization i Azure Container Service-kluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Mer information finns i [så här skalar operationalization i Azure Container Service-kluster](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Nästa steg

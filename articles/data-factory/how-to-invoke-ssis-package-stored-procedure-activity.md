@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktiviteten lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropa ett SSIS-paket från ett Azure Data Factory-pipelinen genom att använda en lagrad procedur-aktivitet. 
@@ -76,7 +76,7 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
 1. Klicka på sidan komma igång **skapa pipeline**: 
 
     ![Sidan Kom igång](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. I den **aktiviteter** verktygslådan Expandera **SQL-databas**, och musen **lagrade proceduren** aktiviteten till designytan pipeline. 
+2. I den **aktiviteter** verktygslådan Expandera **allmänna**, och musen **lagrade proceduren** aktiviteten till designytan pipeline. 
 
     ![Dra och släpp lagrade proceduren aktivitet](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. I egenskapsfönstret för aktiviteten lagrad procedur växla till den **konto för SQL** och på **+ ny**. Skapa en anslutning till Azure SQL-databas som är värd för SSIS-katalogen (SSIDB-databasen). 
@@ -95,11 +95,12 @@ I det här steget kan använda du Data Factory-Användargränssnittet för att s
         ![Länkad Azure SQL Database-tjänst](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Växla till i egenskapsfönstret för den **lagrade proceduren** fliken från den **konto för SQL** fliken och gör följande: 
 
-    1. För den **lagrat procedurnamn** fältet Ange `sp_executesql`. 
-    2. Klicka på **+ ny** i den **lagrade procedurparametrar** avsnitt. 
-    3. För **namn** för parametern, ange **infogandekolumner**. 
-    4. För **typen** för parametern, ange **sträng**. 
-    5. För **värdet** för parametern, ange följande SQL-fråga:
+    1. Välj **Redigera**. 
+    2. För den **lagrat procedurnamn** fältet Ange `sp_executesql`. 
+    3. Klicka på **+ ny** i den **lagrade procedurparametrar** avsnitt. 
+    4. För **namn** för parametern, ange **infogandekolumner**. 
+    5. För **typen** för parametern, ange **sträng**. 
+    6. För **värdet** för parametern, ange följande SQL-fråga:
 
         I SQL-frågan anger rätt värden för den **mappnamn**, **projekt_namn**, och **paketnamn** parametrar. 
 
@@ -121,7 +122,8 @@ I det här avsnittet utlösa en pipeline-körning och övervaka den.
 1. Klicka på för att utlösa en pipeline som kör **utlösaren** i verktygsfältet och på **aktivera nu**. 
 
     ![Utlös nu](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Växla till fliken **Övervaka** till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
+2. I den **Pipeline kör** väljer **Slutför**. 
+3. Växla till fliken **Övervaka** till vänster. Du ser pipeline kör och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
 
     ![Pipelinekörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara en aktivitet som körs som pipelinen har endast en aktivitet (lagrade proceduren aktivitet).

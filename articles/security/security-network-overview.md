@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Översikt över säkerheten i Azure-nätverk
 Microsoft Azure innehåller en stabil nätverksinfrastruktur för att stödja dina program och tjänsten anslutningskrav. Nätverksanslutningen är möjlig mellan resurser i Azure, mellan lokala och Azure värdbaserade resurser, och till och från Internet och Azure.
@@ -37,7 +37,7 @@ Syftet med den här artikeln är att göra det enklare för dig att förstå vad
 
 
 ## <a name="azure-networking"></a>Azure-nätverk
-Virtuella datorer måste nätverksanslutningen. För att uppfylla detta krav, kräver Azure virtuella datorer måste vara ansluten till ett Azure Virtual Network. Ett virtuellt Azure-nätverk är en logisk konstruktion som bygger på fysisk Azure nätverksinfrastruktur. Varje logiskt virtuella Azure-nätverk är isolerat från alla andra virtuella Azure-nätverk. På så sätt kan du se till att nätverkstrafik i din distribution inte är tillgänglig för andra Microsoft Azure-kunder.
+Virtuella datorer måste nätverksanslutningen. För att uppfylla detta krav, kräver Azure virtuella datorer måste vara ansluten till ett Azure Virtual Network. Ett virtuellt Azure-nätverk är en logisk konstruktion som bygger på fysisk Azure nätverksinfrastruktur. Varje logiskt virtuella Azure-nätverk är isolerat från alla andra virtuella Azure-nätverk. Detta säkerställer att nätverkstrafik i din distribution inte är tillgänglig för andra Microsoft Azure-kunder.
 
 Läs mer:
 
@@ -233,7 +233,7 @@ Azure tillhandahåller du hög tillgänglighet och performant externa DNS-lösni
 
 Läs mer:
 
-* [Översikt över Azure DNS](../dns/dns-overview.md)
+* [Azure DNS Overview](../dns/dns-overview.md)
 
 ## <a name="dmz-architecture"></a>DMZ-arkitektur
 Många företag använda DMZs för att segmentera sina nätverk för att skapa en buffert zon mellan Internet och sina tjänster. DMZ del av nätverket anses vara en zon med låg säkerhet och inga värdefulla tillgångar placeras i det nätverkssegmentet. Du ser vanligtvis säkerhet nätverksenheter som har ett nätverksgränssnitt på DMZ segmentet och ett annat nätverksgränssnitt som är ansluten till ett nätverk som har virtuella datorer och tjänster som accepterar inkommande anslutningar från Internet.
@@ -249,7 +249,7 @@ Läs mer:
 
 Azure tillhandahåller funktioner som hjälper dig i den här nyckeln området med tidig upptäckt, övervakning och möjligheten att samla in och granska nätverkstrafik.
 
-### <a name="azure-network-watcher"></a>Azure Nätverksbevakaren
+### <a name="azure-network-watcher"></a>Azure Network Watcher
 Azure Nätverksbevakaren innehåller ett stort antal funktioner som hjälp med felsökning samt ger en helt ny uppsättning av verktyg för att hjälpa till med identifiering av säkerhetsproblem.
 
 [Säkerhetsgrupp visa ](/network-watcher/network-watcher-security-group-view-overview.md) hjälper till med gransknings- och kompatibilitet för virtuella datorer och kan användas för att utföra programmässiga granskningar jämföra baslinjer-principer som definierats av organisationen för att effektivt regler för var och en av dina virtuella datorer. Detta kan hjälpa dig att identifiera eventuella konfigurationsavvikelser.

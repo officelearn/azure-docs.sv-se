@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 Log Analytics innehåller information om hur mycket data som samlas in, vilka system som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
@@ -36,7 +36,9 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 - Erbjudanden
     - Insikts- och analysnoder
     - Automatiserings- och styrningsnoder
-    - Säkerhetsnoder
+    - Säkerhetsnoder  
+- Prestanda
+    - Hur lång tid det tar att samla in och indexera data  
 - Lista med frågor
 
 ![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Klicka på **Visa alla...**  för att visa en fullständig lista över datorer s
 
 Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Kontrollera om det finns någon datainmatningssvarstid
-Med Log Analytics finns det en förväntad svarstid med datainmatningen av insamlade data.  Den absoluta tiden mellan indexering av data och när den är tillgänglig för sökning kan vara oförutsägbar. Tidigare inkluderade vi ett prestandadiagram på instrumentpanelen som visade hur lång tid det tar att samla in och indexera data, och med introduktionen av det nya frågespråket har vi tillfälligt tagit bort diagrammet.  Som en tillfällig lösning tills vi släpper uppdaterade mått för datainmatningssvarstider kan följande fråga användas för att uppskatta svarstiden för varje datatyp.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> Inmatningen av svarstidsfrågan visar inte historiska svarstider och är begränsad till att endast returnera resultat för den aktuella tiden.  Värdet för *TimeGenerated* fylls i hos agenten för gemensamma schemaloggningar och fylls i vid samlingens slutpunkt för anpassade loggar.  
->
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](log-analytics-log-searches.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.

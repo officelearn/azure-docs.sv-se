@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs bindningar för Azure Functions
 
@@ -49,7 +49,7 @@ När din funktion aktiveras först, finns det endast 1 instans av funktionen. Vi
 
 * **Lägga till 1 mer funktionen instans** -Azure Functions skalning logik bestämmer att Function_0 har fler meddelanden än den kan bearbeta så skapas en ny instans Function_1,. Händelsehubbar identifierar att en ny instans av EPH som försöker läsa meddelanden. Händelsehubbar startar belastningsutjämning partitionerna över EPH instanser, t.ex. partitioner 0-4 tilldelas Function_0 och partitioner 5 – 9 tilldelas Function_1. 
 
-* **Lägg till N fungerar fler instanser** -Azure Functions skalning logik anger att både Function_0 och Function_1 har fler meddelanden än de kan bearbeta. Det kommer skala igen för Function_2... N, där N är större än Event Hub-paritions. Läser in Händelsehubbar Utjämna partitionerna över Function_0... 9 instanser.
+* **Lägg till N fungerar fler instanser** -Azure Functions skalning logik anger att både Function_0 och Function_1 har fler meddelanden än de kan bearbeta. Det kommer skala igen för Function_2... N, där N är större än Event Hub-partitioner. Läser in Händelsehubbar Utjämna partitionerna över Function_0... 9 instanser.
 
 Unikt till Azure Functions aktuella skalning logik är att N är större än antalet partitioner. Detta görs för att säkerställa att det alltid är instanser av EPH är tillgänglig för att snabbt få ett lås på den partitionen/partitionerna när de blir tillgängliga från andra instanser. Användare endast debiteras för de resurser som används när funktionen-instansen körs och debiteras inte för den här överbelasta.
 
@@ -219,12 +219,12 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Typ** | Saknas | måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar händelsen i funktionskoden. | 
-|**sökväg** |**EventHubName** | Namnet på händelsehubben. | 
+|**Sökväg** |**EventHubName** | Namnet på händelsehubben. | 
 |**consumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den *namnområde*, inte händelsehubben sig själv. Den här anslutningssträngen måste ha minst läsbehörighet utlösaren ska aktiveras.|
+|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den *namnområde*, inte händelsehubben sig själv. Den här anslutningssträngen måste ha minst läsbehörighet utlösaren ska aktiveras.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -392,11 +392,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till ”eventHub”. |
-|**riktning** | Saknas | Måste anges till ”out”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Typ** | Saknas | Måste anges till ”eventHub”. |
+|**Riktning** | Saknas | Måste anges till ”out”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. | 
-|**sökväg** |**EventHubName** | Namnet på händelsehubben. | 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den *namnområde*, inte händelsehubben sig själv. Den här anslutningssträngen måste ha skicka behörighet att skicka meddelandet till händelseströmmen.|
+|**Sökväg** |**EventHubName** | Namnet på händelsehubben. | 
+|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till den event hub-namnområdet. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformationen** knappen för den *namnområde*, inte händelsehubben sig själv. Den här anslutningssträngen måste ha skicka behörighet att skicka meddelandet till händelseströmmen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -404,7 +404,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 I C# och C#-skript kan skicka meddelanden med hjälp av en metodparameter som `out string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Om du vill skriva flera meddelanden, kan du använda `ICollector<string>` eller `IAsyncCollector<string>` i stället för `out string`.
 
-Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.bindings.<name>`. `<name>`är värdet som angetts i den `name` -egenskapen för *function.json*.
+Få åtkomst till händelsen utdata i JavaScript, med hjälp av `context.bindings.<name>`. `<name>` är värdet som angetts i den `name` -egenskapen för *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management-åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Principer för begränsning av åtkomst  
+##  <a name="AccessRestrictionPolicies"></a> Principer för begränsning av åtkomst  
   
 -   [Kontrollera HTTP-huvudet](api-management-access-restriction-policies.md#CheckHTTPHeader) -tillämpar existens och/eller värdet för ett HTTP-huvud.  
 -   [Gränsen anropet frekvensen av prenumerationen](api-management-access-restriction-policies.md#LimitCallRate) -förhindrar API användning ger spikar i diagrammet genom att begränsa anropet frekvensen på grundval av per prenumeration.  
@@ -33,7 +33,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   [Kvot för uppsättningen av nyckeln](#SetUsageQuotaByKey) -du kan tillämpa en förnyas eller livstid anropet volym och/eller bandbredd kvoten på grundval av per nyckel.  
 -   [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) -tillämpar förekomst och giltigheten för en JWT extraheras från ett angivna HTTP-sidhuvud eller en angiven frågeparameter.  
   
-##  <a name="CheckHTTPHeader"></a>Kontrollera HTTP-huvud  
+##  <a name="CheckHTTPHeader"></a> Kontrollera HTTP-huvud  
  Använd den `check-header` princip för att genomdriva att en begäran har en angivna HTTP-huvudet. Du kan du kan också kontrollera om sidhuvudet har ett specifikt värde eller Sök efter en tillåtna värdeintervallet. Om den inte principen avslutar bearbeta begäran och returnerar det HTTP-kod och fel statusmeddelande som anges i principen.  
   
 ### <a name="policy-statement"></a>Principframställning  
@@ -76,7 +76,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 -   **Princip för scope:** globala, produkt, API, åtgärden  
   
-##  <a name="LimitCallRate"></a>Gränsen anropet frekvensen av prenumerationen  
+##  <a name="LimitCallRate"></a> Gränsen anropet frekvensen av prenumerationen  
  Den `rate-limit` princip förhindrar API användningstoppar på grundval av per prenumeration genom att begränsa anropet frekvensen till ett angivet antal per angiven tidsperiod. När den här principen utlöses anroparen tar emot en `429 Too Many Requests` Svarets statuskod.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 -   **Princip för scope:** produkt  
   
-##  <a name="LimitCallRateByKey"></a>Gränsen anropet frekvensen av nyckel  
+##  <a name="LimitCallRateByKey"></a> Gränsen anropet frekvensen av nyckel  
  Den `rate-limit-by-key` princip förhindrar API användningstoppar på grundval av per nyckel genom att begränsa anropet frekvensen till ett angivet antal per angiven tidsperiod. Nyckeln kan ha ett godtyckligt värde och anges vanligtvis med ett principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas till gränsen. När den här principen utlöses anroparen tar emot en `429 Too Many Requests` Svarets statuskod.  
   
  Mer information och exempel på den här principen finns [avancerade begäran begränsning med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 -   **Princip för scope:** globala, produkt, API, åtgärden  
   
-##  <a name="RestrictCallerIPs"></a>Begränsa anroparen IP-adresser  
+##  <a name="RestrictCallerIPs"></a> Begränsa anroparen IP-adresser  
  Den `ip-filter` princip filtrerar (tillåter/nekar)-anrop från särskilda IP-adresser och/eller -adressintervall.  
   
 ### <a name="policy-statement"></a>Principframställning  
@@ -231,7 +231,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Avsnitt i princip:** inkommande  
 -   **Princip för scope:** globala, produkt, API, åtgärden  
   
-##  <a name="SetUsageQuota"></a>Ange kvot för prenumeration  
+##  <a name="SetUsageQuota"></a> Ange kvot för prenumeration  
  Den `quota` princip tillämpar förnyas eller livstid anropet volym och/eller bandbredd kvoten på grundval av per prenumeration.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Avsnitt i princip:** inkommande  
 -   **Princip för scope:** produkt  
   
-##  <a name="SetUsageQuotaByKey"></a>Kvot för uppsättningen av nyckel  
+##  <a name="SetUsageQuotaByKey"></a> Kvot för uppsättningen av nyckel  
  Den `quota-by-key` princip tillämpar förnyas eller livstid anropet volym och/eller bandbredd kvoten på grundval av per nyckel. Nyckeln kan ha ett godtyckligt värde och anges vanligtvis med ett principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot kvoten.  
   
  Mer information och exempel på den här principen finns [avancerade begäran begränsning med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Avsnitt i princip:** inkommande  
 -   **Princip för scope:** globala, produkt, API, åtgärden  
   
-##  <a name="ValidateJWT"></a>Validera JWT  
+##  <a name="ValidateJWT"></a> Validera JWT  
  Den `validate-jwt` princip tillämpar existens och giltigheten för en JWT extraheras från antingen angivna HTTP-huvudet eller angivna frågeparameter.  
   
 > [!IMPORTANT]
->  Den `validate-jwt` principen kräver att den `exp` registrerade anspråk är som ingår i JWT-token om `require-expiration-time` attribut anges och värdet `false`.  
+>  Den `validate-jwt` principen kräver att den `exp` registrerade anspråk ingår i JWT-token om `require-expiration-time` attribut anges och värdet `false`.  
 > Den `validate-jwt` stöder HS256 och RS256 signering algoritmer. Nyckeln måste anges infogad i princip i base64-kodade formatet för för HS256. RS256 har nyckeln att tillhandahålla via en öppen ID configuration slutpunkt.  
   
 ### <a name="policy-statement"></a>Principframställning  
@@ -502,7 +502,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |failed-validation-httpcode|HTTP-statuskoden ska returneras om JWT inte valideras.|Nej|401|  
 |header-name|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
 |id|Den `id` attributet för den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckel ska användas för signaturverifiering.|Nej|Gäller inte|  
-|Matcha|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all`-värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any`-minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
+|Matcha|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all` -värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any` -minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
 |query-paremeter-name|Namnet på den Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
 |require-expiration-time|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|sant|
 |kräver schema|Namnet på token schemat, t.ex. "Bearer". När det här attributet anges säkerställer principen för det angivna schemat finns i huvudvärde auktorisering.|Nej|Gäller inte|

@@ -9,21 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 01/18/2018
-ms.openlocfilehash: 1738fdd85391135357d34fefa878538866f21b91
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.date: 02/12/2018
+ms.openlocfilehash: 77254d91bcfa7cbd6070e3baeb98fd7cc5ad44cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure-databas för MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med hjälp av lämplig Azure CLI-kommandona, kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för MySQL brandväggar, se [Azure-databas för MySQL serverbrandväggsreglerna](./concepts-firewall-rules.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* Installera Azure Python SDK för PostgreSQL och MySQL-tjänster.
-* Installera Azure CLI-komponenten för PostgreSQL och MySQL-tjänster.
-* Skapa en Azure-databas för MySQL-servern.
+* En [Azure-databas för MySQL-servern och databasen](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Brandväggen regeln kommandon:
 Den **az mysql-brandväggsregel** kommandot används från Azure CLI för att skapa, ta bort, lista, visa och uppdatera brandväggsreglerna.
@@ -62,27 +60,27 @@ Detta kommando en kod som ska användas i nästa steg.
    Observera namnattributet i listan som du måste ange MySQL-servern att fungera på. Om det behövs, bekräfta informationen för servern och använder attributet för att kontrollera att den är korrekt. Använd den [az mysql server visa](/cli/azure/mysql/server#az_mysql_server_show) kommando.
 
    ```azurecli-interactive
-   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   az mysql server show --resource-group myResourceGroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Lista brandväggsregler på Azure-databas för MySQL-Server 
 Med hjälp av namnet på servern och resursgruppens namn, lista över befintliga serverbrandväggsreglerna på servern. Använd den [az mysql-brandväggen i listan över](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_list) kommando.  Observera att server name-attribut har angetts i den **--server** växla och inte i den **--namnet** växla. 
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mysqlserver4demo
+az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver
 ```
 Utdata innehåller reglerna, om sådant finns, i JSON-format (som standard). Du kan använda den **--utdatatabell** växla till skriver resultatet i ett mer lättläst tabellformat.
 ```azurecli-interactive
-az mysql server firewall-rule list --resource-group myResourceGroup --server-name mysqlserver4demo --output table
+az mysql server firewall-rule list --resource-group myResourceGroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mysql-server"></a>Skapa en brandväggsregel på Azure-databas för MySQL-Server
 Skapa en ny brandväggsregel på servern med namnet på Azure MySQL-servern och resursgruppens namn. Använd den [az mysql serverbrandvägg skapa](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) kommando. Ange ett namn för regeln som start-IP och sluta IP (för att ge åtkomst till ett intervall med IP-adresser) för regeln.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
 Ange samma IP-adress som den första IP- och slut-IP som i följande exempel för att tillåta åtkomst för en enda IP-adress.
 ```azurecli-interactive
-az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+az mysql server firewall-rule create --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
 
 Ange IP-adress 0.0.0.0 som den första IP- och slut-IP som i följande exempel för att tillåta program från Azure IP-adresser att ansluta till din Azure-databas för MySQL-servern.
@@ -100,7 +98,7 @@ När lyckades skapa varje kommando utdata visas information om brandväggsregeln
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Uppdatera en brandväggsregel på Azure-databas för MySQL-server 
 Med Azure MySQL-servernamnet och resursgruppens namn kan uppdatera en befintlig brandväggsregel på servern. Använd den [az mysql server brandväggen uppdateringen](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) kommando. Ange namnet på befintlig brandväggsregel som indata, samt starta IP- och IP-attribut som ska uppdateras.
 ```azurecli-interactive
-az mysql server firewall-rule update --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+az mysql server firewall-rule update --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har uppdaterat i JSON-format (som standard). Om det finns ett fel, visar utdata text för felmeddelande i stället.
 
@@ -110,14 +108,14 @@ Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har u
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Visa brandväggen regeldetaljer på Azure-databas för MySQL-servern
 Använda Azure MySQL-servernamnet och resursgruppens namn, visa befintliga brandväggen Regelinformation från servern. Använd den [az mysql server brandväggen visa](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_show) kommando. Ange namnet på befintlig brandväggsregel som indata.
 ```azurecli-interactive
-az mysql server firewall-rule show --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1
+az mysql server firewall-rule show --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
 ```
 Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har angett i JSON-format (som standard). Om det finns ett fel, visar utdata text för felmeddelande i stället.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mysql-server"></a>Ta bort en brandväggsregel på Azure-databas för MySQL-Server
 Använda Azure MySQL-servernamnet och resursgruppens namn, ta bort en befintlig brandväggsregel från servern. Använd den [az mysql serverbrandvägg ta bort](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_delete) kommando. Ange namnet på befintlig brandväggsregel.
 ```azurecli-interactive
-az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1
+az mysql server firewall-rule delete --resource-group myResourceGroup --server-name mydemoserver --name FirewallRule1
 ```
 Det är klart, inga utdata. Text för felmeddelande visas vid ett fel.
 

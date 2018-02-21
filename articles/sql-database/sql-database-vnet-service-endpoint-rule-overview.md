@@ -4,7 +4,7 @@ description: "Markera ett undernät som ett virtuellt nätverk tjänstslutpunkte
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -144,6 +144,12 @@ För Azure SQL Database har funktionen virtuellt nätverk regler följande begr�
     - [Plats-till-plats (S2S) virtuellt privat nätverk (VPN)][vpn-gateway-indexmd-608y]
     - Lokalt [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Att tänka på när du använder Tjänsteslutpunkter
+Granska följande när du använder Tjänsteslutpunkter för Azure SQL Database:
+
+- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: Nätverkssäkerhetsgrupper (NSG: er) måste öppnas för Azure SQL Database IP-adresser som tillåter anslutningar. Du kan göra detta med hjälp av NSG [Service taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
+- **Azure-databas för PostgreSQL och MySQL stöds inte**: Tjänsteslutpunkter stöds inte för Azure-databas för PostgreSQL eller MySQL. Aktivera Tjänsteslutpunkter till SQL Database bryts anslutningen till dessa tjänster. Vi har en minskning. Kontakta  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Om nätverket är anslutet till Azure-nätverk med hjälp av [ExpressRoute][expressroute-indexmd-744v], varje kretsen har konfigurerats med två offentliga IP-adresser i Microsoft Edge. Två IP-adresser används för att ansluta till Microsoft Services, som till Azure Storage med hjälp av Azure offentlig Peering.
@@ -171,6 +177,8 @@ Azure SQL Database Query Editor distribueras på virtuella datorer i Azure. Dess
 #### <a name="table-auditing"></a>Granskning av tabell
 Det finns två sätt att aktivera granskning på SQL-databasen för närvarande. Det går inte att granskning av tabellen när du har aktiverat Tjänsteslutpunkter i Azure SQL Server. Här lösning är att flytta till blobbgranskning.
 
+#### <a name="impact-on-data-sync"></a>Påverkan på datasynkronisering
+Azure SQLDB har funktionen datasynkronisering som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder Tjänsteslutpunkter, det är troligt att du stänger av **Tillåt alla Azure-tjänster** åtkomst till din logiska server. Funktionen datasynkronisering bryts.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda slutpunkter för virtuellt nätverk med Azure storage
 
@@ -178,7 +186,7 @@ Azure Storage har implementerat samma funktion som låter dig begränsa anslutni
 Om du väljer att använda den här funktionen med ett lagringskonto som används av en Azure SQL Server stöter du på problem. Nästa är en lista och en beskrivning av Azure SQLDB funktioner som påverkas av detta.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot.
+PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot. Det finns en lösning. Kontakta  *dmalik@microsoft.com*  för mer information.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
 Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen för slutpunkter VÄNDNING tjänsten bryts anslutningen från Azure SQLDB till lagringskontot.

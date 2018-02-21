@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Verkligt scenario med förutsägande underhåll.
 
-Effekten av utrustning oplanerade driftstopp kan vara skadliga för alla företag. Det är viktigt därför håll fältet utrustning kör för att maximera användningen och prestanda och minimerar kostsamma, oplanerade driftstopp. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
+Effekten av utrustning oplanerade driftstopp kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning som körs för att maximera användningen och prestanda och minimerar kostsamma felaktig driftstopp. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
 
 Det här scenariot utforskar en relativt [storskaliga simulerade datauppsättning](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) funktion om du vill gå igenom ett förutsägande Underhåll datavetenskap projekt från datapåfyllning, ingenjörer och modellskapandet modellen operationalization och distribution. Koden för hela processen är skriven i Jupyter-anteckningsböcker med hjälp av PySpark Azure ML-arbetsstationen. Den slutliga modellen distribueras med hjälp av en Azure Machine Learning modellen Management realtid utrustning fel förutsägelser.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
 
-Följande är en länk till den offentliga GitHub-lagringsplatsen: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Följande är en länk till offentliga GitHub-lagringsplatsen för problemet rapporter och bidrag: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Använd case-översikt
@@ -40,9 +40,9 @@ Problem i verksamheten för den här simulerade data är att förutsäga problem
 
 * En [Azure-konto](https://azure.microsoft.com/en-us/free/) (gratisutvärderingar finns).
 * En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [quickstart installationsguiden](./quickstart-installation.md) att installera programmet och skapa en arbetsyta.
-* Azure Machine Learning Operationalization kräver en lokal distributionsmiljö och en [modell hanteringskontot](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization kräver en lokal distributionsmiljö och en [modell hanteringskontot](model-management-overview.md)
 
-Det här exemplet kan köras på alla AML arbetsstationen beräknings-kontext. Men det rekommenderas att köra den med minst 16 GB minne. Det här scenariot har skapats och testat på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [datavetenskap virtuell dator för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Det här exemplet kan köras på valfri AML arbetsstationen beräknings-kontext. Men det rekommenderas att köra den med minst 16 GB minne. Det här scenariot har skapats och testat på en Windows 10-dator som kör en fjärransluten DS4_V2 standard [datavetenskap virtuell dator för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Modellen operationalization gjordes med version 0.1.0a22 av Azure ML CLI.
 
@@ -52,8 +52,8 @@ Skapa ett nytt projekt med det här exemplet som mall:
 1.  Öppna Azure Machine Learning-arbetsstationen
 2.  På den **projekt** klickar du på den  **+**  och markera **nytt projekt**
 3.  I den **Skapa nytt projekt** rutan, fyller du i informationen för det nya projektet
-4.  I den **Sök projektmallar** sökrutan, Skriv ”förutsägande underhåll” och välj mallen
-5.  Klicka på **Skapa**
+4.  I den **Sök projektmallar** sökrutan, Skriv ”förutsägande underhåll” och välj den **förutsägande Underhåll** mall
+5.  Klicka på den **skapa** knappen
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Förbereda anteckningsboken server beräkning mål
 
@@ -113,9 +113,9 @@ Den [viktigt](https://github.com/Azure/MachineLearningSamples-PredictiveMaintena
 
 [`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Med den senaste modellen sparas till disk för lokala (Jupyter-anteckningsbok kernel), anteckningsboken bygger komponenter för att distribuera modellen till en Azure-webbtjänst. Fullständig operativa tillgångar komprimerad till den `o16n.zip` filen lagras i en annan Azure blob-behållare. Den komprimerade filen innehåller:
 
-* `service_schema.json`Definitionsfilen schemat för distributionen. 
-* `pdmscore.py`Funktionerna init() och run() krävs av Azure webbtjänsten
-* `pdmrfull.model`Katalogen model definition.
+* `service_schema.json` Definitionsfilen schemat för distributionen. 
+* `pdmscore.py` Funktionerna init() och run() krävs av Azure webbtjänsten
+* `pdmrfull.model` Katalogen model definition.
     
  Anteckningsboken testar funktioner med modelldefinitionen av innan du paketerar operationalization tillgångar för distribution. Instruktioner för distribution ingår i slutet av den bärbara datorn.
 
@@ -125,13 +125,15 @@ Det här scenariot ger läsaren en översikt över hur du skapar en slutpunkt ti
 
 ## <a name="references"></a>Referenser
 
-Den här användningsfall har utvecklats tidigare på flera plattformar:
+Det finns andra förutsägande Underhåll Använd case-exempel på en mängd olika plattformar:
 
 * [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Förutsägande Underhåll Modeling Guide med SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Djup learning för förebyggande underhåll](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Nästa steg
 

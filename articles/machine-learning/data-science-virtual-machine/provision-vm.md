@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows datavetenskap virtuell dator på Azure
 Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (VM) för Windows Azure före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. Verktygen är:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) arbetsstationen
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
-* Anaconda Python-distribution
+* [Azure Machine Learning](../preview/index.yml) arbetsstationen
+* [Microsoft Server för Maskininlärning](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
+* Anaconda Python distribution
 * Jupyter-anteckningsbok (med R, Python, PySpark kärnor)
 * Visual Studio Community Edition
 * Power BI desktop
@@ -35,12 +35,12 @@ Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (V
   * Djupgående Learning ramverk: en omfattande uppsättning AI ramverk, till exempel [Microsoft kognitiva Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [klientprocess](https://chainer.org/), mxNet Keras ingår i den virtuella datorn.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): snabb machine learning-system som har stöd för tekniker som online, hash, allreduce, minskning, learning2search, aktiv, och interaktiva learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): ett verktyg som ger snabb och exakt ökat trädet implementering.
-  * [Rattle](http://rattle.togaware.com/) (den R analytiska verktyget att lära dig enkelt): ett verktyg som gör att komma igång med dataanalys och machine learning i R enkelt med GUI-baserade datagranskning och modellering med automatisk kodgenerering för R.
+  * [Rattle](http://rattle.togaware.com/) (den R analytiska verktyget att lära dig enkelt): ett verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt. Det innehåller GUI-baserade datagranskning och modellering med automatisk kodgenerering för R.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : ett visual datautvinning och maskininlärning programvara i Java.
   * [Apache ökad](https://drill.apache.org/): en schemafria SQL frågemotor för Hadoop, NoSQL och lagringsutrymmet i molnet.  Stöder ODBC och JDBC-gränssnitt för att aktivera frågor NoSQL och filer från standard BI-verktyg som PowerBI, Excel, Tableau.
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Git inklusive Git Bash att arbeta med källkodslager inklusive GitHub, Visual Studio Team Services
-* Windows-portar för flera populära Linux kommandoradsverktyg (inklusive awk, sed, perl, grep, hitta, wget, curl osv) tillgängligt via Kommandotolken. 
+* Windows-portar för flera populära Linux kommandoradsverktyg (inklusive awk, sed, perl, grep, hitta, wget, curl, etc.) tillgängligt via Kommandotolken. 
 
 Gör datavetenskap omfattar iteration av en serie uppgifter:
 
@@ -64,7 +64,7 @@ Innan du kan skapa en Microsoft datavetenskap virtuell dator, måste du ha följ
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Skapa din Microsoft Data vetenskap virtuell dator
-Här följer stegen för att skapa en instans av Microsoft datavetenskap Virtual Machine:
+Följ dessa steg om du vill skapa en instans av Microsoft datavetenskap Virtual Machine:
 
 1. Navigera till den virtuella datorn visas i en lista på [Azure-portalen](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Välj den **skapa** längst ned till tas med i en guide.![ Konfigurera-data-vetenskap-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -82,9 +82,9 @@ Här följer stegen för att skapa en instans av Microsoft datavetenskap Virtual
    2. **Storlek**: Välj något av de servertyper som uppfyller dina krav på funktionsnivå och kostnaden begränsningar. Du får fler alternativ för VM-storlekar genom att välja ”Visa alla”.
    3. **Inställningar för**:
       
-      1. **Använda hanterade diskar**: Välj hanteras om du vill att Azure för att hantera diskar för den virtuella datorn.  Annars måste ange ett nytt eller exitsting storage-konto. 
-      2. **Andra parametrar**: Använd vanligtvis bara standardvärdena. Hovra över informationsmeddelande länken Hjälp om specifika fält om du vill att överväga användning av icke-standardvärden.
-   4. **Sammanfattning**: Kontrollera att all information du angett är korrekt och klicka på **skapa**. **Obs**: den virtuella datorns har inte några ytterligare kostnader utöver beräkning för server-storlek som du har valt i den **storlek** steg. 
+      1. **Använda hanterade diskar**: Välj hanteras om du vill att Azure för att hantera diskar för den virtuella datorn.  Du måste annars ange ett nytt eller befintligt lagringskonto. 
+      2. **Andra parametrar**: Använd vanligtvis bara standardvärdena. Om du vill överväga att använda icke-standardvärden hovra över informationsmeddelande länken Hjälp om specifika fält.
+    a. **Sammanfattning**: Kontrollera att all information du angett är korrekt och klicka på **skapa**. **Obs**: den virtuella datorns har inte några ytterligare kostnader utöver beräkning för server-storlek som du har valt i den **storlek** steg. 
 
 > [!NOTE]
 > Etableringen bör ta ungefär 10 20 minuter. Status för etablering av visas på Azure-portalen.
@@ -101,7 +101,7 @@ När den virtuella datorn skapas och etableras, är du redo att börja använda 
 
 ### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning arbetsstationen är ett skrivbordsprogram och kommandoradsgränssnitt. Arbetsstationen har förberedelse av inbyggda data som lär sig förberedelsesteg dina data som du utför dem. Det ger också projekthantering kör historik och anteckningsboken integrering med bättra på produktiviteten. Du kan dra nytta av de bästa ramverk för öppen källkod, inklusive TensorFlow, kognitiva Toolkit, Spark ML och scikit – Lär dig att utveckla modeller. På DSVM ger vi en skrivbordsikon (InstallAMLFromLocal) att extrahera lokalt Azure Machine Learning-arbetsstation till katalogen för varje användares % LOCALAPPDATA %. Varje användare som behöver använda arbetsstationen måste göra en tid åtgärden Dubbelklicka på ikonen InstallAMLFromLocal skrivbord för att installera deras förekomst av arbetsstationen. Azure Machine Learning också skapar och använder en användarspecifik Python-miljö som ska extraheras i % LOCALAPPDATA%\amlworkbench\python.
+Azure Machine Learning arbetsstationen är ett skrivbordsprogram och kommandoradsgränssnitt. Arbetsstationen har förberedelse av inbyggda data som lär sig förberedelsesteg dina data som du utför dem. Det ger också projekthantering kör historik och anteckningsboken integrering med bättra på produktiviteten. Du kan dra nytta av de bästa ramverk för öppen källkod, inklusive TensorFlow, kognitiva Toolkit, Spark ML och scikit – Lär dig att utveckla modeller. På DSVM ger vi en skrivbordsikon (InstallAMLFromLocal) att extrahera lokalt Azure Machine Learning-arbetsstation till katalogen för varje användares % LOCALAPPDATA %. Varje användare som behöver använda arbetsstationen måste göra en tid åtgärden att dubbelklicka på ikonen InstallAMLFromLocal skrivbord för att installera deras förekomst av arbetsstationen. Azure Machine Learning också skapar och använder en användarspecifik Python-miljö som ska extraheras i % LOCALAPPDATA%\amlworkbench\python.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Om du vill använda Microsoft enterprise-bibliotek för skalbara R eller Python för din analys av har den virtuella datorn Microsoft ML Server Developer edition (tidigare känt som Microsoft R Server) installerat. Microsoft ML-servern är en brett distribuerbara företagsklass analytics platform för både R och Python och skalbar, kommersiellt stöds och säkra. Stöder en mängd olika stordata statistik, förutsägelsemodellering och maskininlärning funktioner ML-Server har stöd för en fullständig uppsättning analytics – undersökning, analys, visualisering och modellering. Genom att använda och utöka öppen källkod R och Python, Microsoft ML Server är helt kompatibel med R / Python-skript, funktioner och CRAN / pip / skala Conda paket att analysera data på företaget. Minnesbegränsningarna för öppen källa R åtgärdas även genom att lägga till parallella och chunked bearbetning av data. På så sätt kan du göra analyser på data som är mycket större än vad som passar i huvudminnet.  Visual Studio Community Edition tas med på den virtuella datorn innehåller R-verktyg för Visual Studio och Python tools för Visual Studio-tillägg som ger en fullständig IDE för att arbeta med R eller Python. Vi erbjuder även andra IDEs samt som [RStudio](http://www.rstudio.com) och [PyCharm Community edition](https://www.jetbrains.com/pycharm/) på den virtuella datorn. 
@@ -114,7 +114,7 @@ För utveckling med hjälp av Python, har distribution av Anaconda Python 2.7 oc
 > 
 > 
 
-Anaconda Python 2.7 installeras under C:\Anaconda och Anaconda Python 3.5 är installerat under c:\Anaconda\envs\py35. Se [dokumentationen till PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) detaljerade anvisningar. 
+Anaconda Python 2.7 installeras under C:\Anaconda och Anaconda Python 3.5 är installerat under c:\Anaconda\envs\py35. Se [dokumentationen till PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) detaljerade anvisningar. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. En Jupyter-anteckningsbok server har redan konfigurerats med Python 2.7, Python 3.5, PySpark, Julia och R kärnor. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta Jupyter-servern och starta om webbläsaren för att komma åt servern bärbar dator. 
@@ -181,9 +181,9 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 | Andra exempel |c:\dsvm\samples |
 | Anaconda (standard: Python 2.7) |c:\Anaconda |
 | Anaconda Python 3.5 miljö |c:\Anaconda\envs\py35 |
-| Microsoft ML Server fristående Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
+| Microsoft ML Server Standalone Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | R standardinstansen (ML Server fristående) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| SQL ML Services i databasen instans directory |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
+| SQL ML Services i databasen instans directory |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
 | Azure Machine Learning arbetsstationen (per användare) | %localappdata%\amlworkbench | 
 | Diverse verktyg |c:\dsvm\tools |
 
@@ -196,9 +196,9 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 Här följer några nästa steg för att fortsätta din inlärning och undersökning. 
 
 * Utforska datavetenskap verktyg på datavetenskap VM genom att klicka på start-menyn och checka ut verktyg som visas på menyn.
-* Lär dig mer om Azure Machine Learning-tjänster och arbetsstationen genom att besöka produkten [sidan Snabbstart och självstudier](https://docs.microsoft.com/azure/machine-learning/preview/). 
+* Lär dig mer om Azure Machine Learning-tjänster och arbetsstationen genom att besöka produkten [sidan Snabbstart och självstudier](../preview/index.yml). 
 * Gå till **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** för exempel som använder RevoScaleR biblioteket i R som har stöd för dataanalys på företagsnivå.  
 * Läs artikeln: [10 saker du kan göra på datavetenskap virtuell dator](http://aka.ms/dsvmtenthings)
-* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team datavetenskap Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team datavetenskap Process](../team-data-science-process/index.yml).
 * Besök den [Azure AI-galleriet](http://gallery.cortanaintelligence.com) tjänster i Azure machine learning och analytics exempel som använder Azure Machine learning och relaterade data. Vi har också tillhandahålls en ikon på den **starta** menyn och på skrivbordet för den virtuella datorn till det här galleriet.
 

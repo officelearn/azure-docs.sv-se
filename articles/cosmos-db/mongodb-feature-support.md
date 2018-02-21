@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-stöd för MongoDB-funktioner och syntax
 
-Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tjänsten. Du kan kommunicera med databasens MongoDB API genom någon av klienten för öppen källkod MongoDB [drivrutiner](https://docs.mongodb.org/ecosystem/drivers). MongoDB-API som möjliggör användning av befintliga klientdrivrutiner genom att följa MongoDB [tråd protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med databasens MongoDB API genom någon av klienten för öppen källkod MongoDB [drivrutiner](https://docs.mongodb.org/ecosystem/drivers). MongoDB-API som möjliggör användning av befintliga klientdrivrutiner genom att följa MongoDB [tråd protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Med hjälp av Azure Cosmos DB MongoDB API kan du få fördelarna med MongoDB-APIs du ofta, med alla funktioner som Azure Cosmos DB enterprise: [global distributionsplatsen](distribute-data-globally.md), [automatisk delning](partition-data.md), tillgänglighet och svarstid garantier, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
@@ -58,8 +58,8 @@ Azure Cosmos-DB stöder följande kommandon för databasen på alla MongoDB-API-
 - createIndexes
 - listIndexes
 - dropIndexes
-- ConnectionStatus
-- Indexera
+- connectionStatus
+- reIndex
 
 ### <a name="diagnostics-commands"></a>Diagnostik-kommandon
 - buildInfo
@@ -237,6 +237,33 @@ Vänster förankrad uttryck kan indexsökning i $regex frågor. Dock med ”i”
 När det är nödvändigt att innehålla '$' eller ' |', är det bäst att skapa två (eller fler) regex-frågor. Till exempel få följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})```, den måste ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 Den första delen använder indexet för att begränsa sökningen till dessa dokument från och med ^ abc och den andra delen matchar exakt samma värden. I fältet operator ' |' fungerar som en ”eller” funktion - frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokument-whin vilket fält 'x' har ett värde som börjar med ”abc” eller ”def”. Om du vill använda indexet rekommenderar vi för att dela frågan i två olika frågor ansluten av $eller operatör: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Uppdatera operatorer
+
+#### <a name="field-update-operators"></a>Fältet uppdatering operatorer
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- ta bort $
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Matrisen update operatorer
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Obs: $pull med villkor stöds inte)
+- $pushAll
+- $push
+- $varje
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Uppdatering av binär operator
+- $bit
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
 
@@ -262,7 +289,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Stöds inte. Använd $regex i stället 
+$text |  | Stöds ej. Använd $regex i stället 
 
 ### <a name="methods"></a>Metoder
 
@@ -272,7 +299,7 @@ Följande metoder stöds:
 
 Metod | Exempel | Anteckningar 
 --- | --- | --- |
-Cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel inte returneras
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel inte returneras
 
 ## <a name="unique-indexes"></a>Unika index
 

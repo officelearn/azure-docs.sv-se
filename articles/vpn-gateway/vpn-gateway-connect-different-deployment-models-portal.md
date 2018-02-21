@@ -1,10 +1,10 @@
 ---
 title: "Ansluta klassiska virtuella nätverk till Azure Resource Manager VNets: Portal | Microsoft Docs"
-description: "Lär dig hur du skapar en VPN-anslutning mellan klassiska Vnet och Resource Manager VNets med hjälp av VPN-Gateway och -portalen"
+description: "Skapa en VPN-anslutning mellan klassiska Vnet och Resource Manager VNets med hjälp av VPN-Gateway och -portalen"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ansluta virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du ansluter klassiska Vnet till Resource Manager VNe
 
 Ansluta ett klassiskt virtuellt nätverk till ett VNet Resource Manager liknar ansluta ett virtuellt nätverk till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Du kan skapa en anslutning mellan Vnet som finns i olika prenumerationer och i olika regioner. Du kan också ansluta Vnet som redan har anslutningar till lokalt nätverk, så länge som de har konfigurerats med gatewayen är dynamisk eller ruttbaserad. Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln. 
 
-Om ditt Vnet i samma region, kanske du vill i stället bör överväga att ansluta dem med hjälp av VNet-Peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md). 
+Om du inte redan har en virtuell nätverksgateway och inte vill skapa ett kanske du vill i stället bör överväga att ansluta ditt Vnet med hjälp av VNet-Peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Innan du börjar
 
@@ -95,7 +95,7 @@ Om du inte har ett klassiskt virtuellt nätverk och kör de här stegen som Övn
 
 Om du redan har ett VNet med en VPN-gateway, måste du kontrollera att gatewayen är dynamiska. Om den är statisk, måste du först radera VPN-gateway innan du går vidare till [konfigurera den lokala platsen](#local).
 
-1. Öppna den [Azure-portalen](https://ms.portal.azure.com) och logga in med ditt Azure-konto.
+1. Öppna [Azure Portal](https://ms.portal.azure.com) och logga in med ditt Azure-konto.
 2. Klicka på **+ skapa en resurs** att öppna sidan 'New'.
 3. Skriv ”virtuella nätverk” i fältet 'Search marketplace'. Om du i stället väljer nätverk -> virtuella nätverk, får du inte alternativet för att skapa ett klassiskt virtuellt nätverk.
 4. Leta upp ”virtuella nätverk” returnerade listan och klicka om du vill öppna sidan virtuellt nätverk. 
@@ -196,16 +196,16 @@ I det här avsnittet kan du ersätta platshållaren IP-adressen som du använde 
 2. På sidan för det virtuella nätverket **översikt**.
 3. I den **VPN-anslutningar** klickar du på namnet på den lokala platsen i bilden.
 
-    ![VPN-anslutningar](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-anslutningar")
+  ![VPN-anslutningar](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-anslutningar")
 4. På den **plats-till-plats VPN-anslutningar** klickar du på namnet på platsen.
 
-    ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "lokala platsnamn")
+  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "lokala platsnamn")
 5. På sidan för den lokala platsen klickar du på namnet på den lokala platsen att öppna den **lokal plats** sidan.
 
-    ![Öppna lokal plats](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "öppna lokala platsen")
+  ![Öppna lokal plats](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "öppna lokala platsen")
 6. På den **lokal plats** sidan ersätter den **IP-adressen för VPN-gateway** med IP-adressen för Resource Manager-gateway.
 
-    ![Gateway-ip-adress](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP-adress")
+  ![Gateway-ip-adress](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway IP-adress")
 7. Klicka på **OK** att uppdatera IP-adressen.
 
 ## <a name="RMtoclassic"></a>Avsnittet 4 – skapa Resource Manager till klassiska anslutning
@@ -223,34 +223,46 @@ I följande steg ska konfigurera du anslutningen från hanteraren för filserver
 9. Skapa en **delad nyckel**. Den här nyckeln används också i anslutningen som du skapar från den klassiska VNet till Resource Manager-VNet. Du kan skapa nycklar eller utgör en. Vi använder 'abc123' i vårt exempel, men du kan (och bör) använder något mer komplicerad.
 10. Klicka på **OK** att skapa anslutningen.
 
-##<a name="classictoRM"></a>Avsnittet 5 – Skapa klassisk till Resource Manager-anslutning
+## <a name="classictoRM"></a>Avsnittet 5 – Skapa klassisk till Resource Manager-anslutning
 
 I följande steg ska konfigurera du anslutningen från den klassiska VNet till Resource Manager-VNet. Dessa steg kräver PowerShell. Du kan inte skapa den här anslutningen i portalen. Kontrollera att du har hämtat och installerat både klassiska (SM) och Resource Manager (RM) PowerShell-cmdlets.
 
 ### <a name="1-connect-to-your-azure-account"></a>1. Anslut till ditt Azure-konto
 
-Öppna PowerShell-konsol med utökade behörigheter och logga in på ditt Azure-konto. Följande cmdlet efterfrågar autentiseringsuppgifter för inloggning för ditt Azure-konto. När du loggar in laddas inställningarna för ditt konto så att de blir tillgängliga för Azure PowerShell.
+Öppna PowerShell-konsol med utökade behörigheter och logga in på ditt Azure-konto. När du loggar in laddas inställningarna för ditt konto så att de blir tillgängliga för Azure PowerShell. Följande cmdlet efterfrågar autentiseringsuppgifter för inloggning för ditt Azure-konto för Resource Manager-distributionsmodellen:
 
 ```powershell
 Login-AzureRmAccount
 ```
-   
-Hämta en lista över dina Azure-prenumerationer om du har mer än en prenumeration.
+
+Hämta en lista över dina Azure-prenumerationer.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Ange den prenumeration som du vill använda. 
+Om du har mer än en prenumeration kan du ange den prenumeration som du vill använda.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-Lägg till ditt Azure-konto om du vill använda det klassiska PowerShell-cmdlet (SM). Om du vill göra det måste använda du följande kommando:
+Sedan logga in med klassiska PowerShell-cmdletar (Service Management). Använd följande kommando för att lägga till ditt Azure-konto för den klassiska distributionsmodellen:
 
 ```powershell
 Add-AzureAccount
+```
+
+Hämta en lista över dina prenumerationer. Det här steget kan vara nödvändigt när du lägger till Service Management-cmdlets, beroende på din Azure-modulen installera.
+
+```powershell
+Get-AzureSubscription
+```
+
+Om du har mer än en prenumeration kan du ange den prenumeration som du vill använda.
+
+```powershell
+Select-AzureSubscription -SubscriptionName "Name of subscription"
 ```
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visa filen konfigurationsvärden nätverk

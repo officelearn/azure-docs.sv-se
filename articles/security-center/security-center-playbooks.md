@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Säkerhetsspelbok i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda strategiböcker för säkerhet i Azure Security Center för att svara på säkerhetsrelaterade problem.
@@ -35,7 +35,7 @@ Gör så här för att skapa en ny säkerhetsspelbok från Security Center:
 1.  Öppna instrumentpanelen **Security Center**.
 2.  Under **Automation & Orchestration** (Automatisering och orkestrering) i den vänstra rutan klickar du på **Playbooks (Preview)** (Strategiböcker (förhandsversion)).
 
-    ![Logikapp](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![Logikapp](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. På sidan **Security Center – Playbooks (Preview)** (Security Center – Strategiböcker (förhandsversion)) klickar du på knappen för att **lägga till**.
 

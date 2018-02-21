@@ -17,6 +17,7 @@
 #### [Behörigheter på azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Genomgång av lösning för fjärrövervakning](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Anslut Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Ansluta MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Använd C
 ###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Ansluten fabrik
 ### [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 ### [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
-### [Använda OPC-utgivaren för ansluten fabrik](iot-suite-connected-factory-publisher.md)
+### [Använda OPC-utgivaren för ansluten fabrik](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Konfigurera ansluten fabrik](iot-suite-connected-factory-configure.md)
 ## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
 

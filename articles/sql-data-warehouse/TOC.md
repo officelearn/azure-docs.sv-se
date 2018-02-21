@@ -1,6 +1,5 @@
 # Översikt
 
-
 ## [Om SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Översiktsblad](cheat-sheet.md)
 
@@ -118,12 +117,11 @@
 ### [Analysera din arbetsbelastning](analyze-your-workload.md)
 
 ## Skala ut
-### [Hantera beräkning – REST API](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatisera beräkningsnivåer](manage-compute-with-azure-functions.md)
 
 
 # Referens
-
 
 ## T-SQL
 ### [Fullständig referens](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -131,6 +129,7 @@
 ### [Instruktioner för SQL DW](sql-data-warehouse-reference-tsql-statements.md)
 ## [Systemvyer](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell-cmdletar](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST API:er](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=databases)

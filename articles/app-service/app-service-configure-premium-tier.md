@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2 nivå för Azure App Service
 
-Den nya **PremiumV2** prisnivån ger [Dv2-serien VMs](../virtual-machines/windows/sizes-general.md#dv2-series) med snabba processorer, SSD-lagringen och dubbla kärnor till minne jämfört med **Standard** nivå. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** tjänstnivån eller skala upp en app på **PremiumV2** nivå.
+Den nya **PremiumV2** prisnivån ger dig snabbare processorer, SSD-lagring och dubbleras minne till core förhållandet mellan befintliga prisnivåer. Du kan spara pengar genom att köra dina appar på färre instanser med fördelen prestanda. I den här artikeln får du lära dig hur du skapar en app i **PremiumV2** tjänstnivån eller skala upp en app på **PremiumV2** nivå.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Att skala upp en webbapp till **PremiumV2**, måste du ha en Webbapp i Azure App Service som körs i en prisnivå som är lägre än **PremiumV2**.
 
@@ -56,7 +56,7 @@ Välj något av de **PremiumV2** alternativ och klickar på **Välj**.
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, antingen **PremiumV2** är inte tillgänglig i din region väljer, eller så är Konfigurera en Linux App Service-plan som inte stöder **PremiumV2**.
+> Om du inte ser **P1V2**, **P2V2**, och **P3V2** som alternativ, antingen **PremiumV2** är inte tillgängligt i din region väljer, eller om du är Konfigurera en Linux App Service-plan som inte stöder **PremiumV2**.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Skala upp en befintlig app PremiumV2-nivån
 
@@ -88,7 +88,7 @@ Skapa en _Windows_ App Service-plan i gruppen samma region och resurs som din be
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Välj App Service-plan som du nyss skapade.
+Välj App Service-plan som du skapade.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,14 +98,14 @@ När ändringen har slutförts, kör din app **PremiumV2** nivå.
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Skala upp från ett område som stöds inte
 
-Om din app körs i en region där **PremiumV2** är ännu inte tillgänglig, kan du flytta din app till en annan region dra nytta av **PremiumV2**. Du kan välja mellan två alternativ:
+Om din app körs i en region där **PremiumV2** är inte tillgänglig ännu, kan du flytta din app till en annan region dra nytta av **PremiumV2**. Du kan välja mellan två alternativ:
 
 - Skapa en app i en ny **PremiumV2** planera och distribuera din programkod. Följ stegen i [skapa en app i PremiumV2 nivå](#create) ska anges till **PremiumV2** nivå. Om du vill använda samma skalbara konfiguration som din befintliga programtjänstplan (antal instanser, Autoskala och så vidare).
 - Om din app körs redan i en befintlig **Premium** nivån, och sedan kan du klona en app med alla appinställningar anslutningssträngar och distributionskonfiguration.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    I den **klona app** kan du skapa en ny programtjänstplan i den region som du vill ha och ange inställningar som du vill klona.
+    I den **klona app** kan du skapa en apptjänstplan i den region som du vill ha och ange inställningar som du vill klona.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

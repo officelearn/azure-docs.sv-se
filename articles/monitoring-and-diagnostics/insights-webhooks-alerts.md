@@ -1,6 +1,6 @@
 ---
 title: "Konfigurera webhooks på Azure mått aviseringar | Microsoft Docs"
-description: "Ändra Azure aviseringar till andra Azure-system."
+description: "Lär dig mer om att ändra Azure aviseringar till andra system än Azure."
 author: johnkemnetz
 manager: carmonm
 editor: 
@@ -14,29 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurera en webhook på en Azure mått avisering
-Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skicka SMS, logga programfel, meddela ett team via chatt/meddelandetjänster eller göra en mängd olika andra åtgärder. Den här artikeln beskriver hur du ställer in en webhook på en Azure mått avisering och hur nyttolasten för HTTP POST till en webhook ser ut. Mer information om installation och schemat för en Azure-aktivitetsloggen varning (varning på händelser) [se den här sidan i stället](insights-auditlog-to-webhook-email.md).
+Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden att logga buggar, för att meddela ett team via chatt eller -tjänster eller för olika åtgärder. 
 
-Azure-aviseringar HTTP POST avisering innehållet i JSON-format, schemat som definieras nedan, till en webhook URI som du anger när du skapar en avisering. Den här URI måste vara en giltig HTTP eller HTTPS-slutpunkt. Azure skickar en post per begäran när en avisering aktiveras.
+Den här artikeln beskriver hur du ställer in en webhook på en Azure mått avisering. Där visas också hur nyttolasten för HTTP POST till en webhook ser ut. Information om installation och schemat för en Azure aktivitet finns i loggen avisering (varning på händelser) [anropa en webhook för ett Azure log varning](insights-auditlog-to-webhook-email.md).
 
-## <a name="configuring-webhooks-via-the-portal"></a>Hur du konfigurerar webhooks via portalen
-Du kan lägga till eller uppdatera webhook URI på skärmen skapa/uppdatera aviseringar i den [portal](https://portal.azure.com/).
+Azure-aviseringar använder HTTP POST för att skicka aviseringen innehållet i JSON-format till en webhook URI som du anger när du skapar en avisering. Schemat har definierats i den här artikeln. URI: N måste vara en giltig HTTP eller HTTPS-slutpunkt. Azure skickar en post per begäran när en avisering aktiveras.
 
-![Lägg till en varningsregel](./media/insights-webhooks-alerts/Alertwebhook.png)
+## <a name="configure-webhooks-via-the-azure-portal"></a>Konfigurera webhooks via Azure portal
+Lägga till eller uppdatera webhook URI, i den [Azure-portalen](https://portal.azure.com/), gå till **skapa/uppdatera aviseringar**.
 
-Du kan också konfigurera en avisering för att skicka till en webhook URI med hjälp av den [Azure PowerShell-Cmdlets](insights-powershell-samples.md#create-metric-alerts), [plattformsoberoende CLI](insights-cli-samples.md#work-with-alerts), eller [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+![Lägg till en varningsregel ruta](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-## <a name="authenticating-the-webhook"></a>Autentisera webhooken
-Webhooken kan autentisera med hjälp av tokenbaserad auktorisering. Webhooken URI sparas med ett token ID, t.ex. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Du kan också konfigurera en avisering för att skicka till en webhook URI med hjälp av [Azure PowerShell-cmdlets](insights-powershell-samples.md#create-metric-alerts), [plattformsoberoende CLI](insights-cli-samples.md#work-with-alerts), eller [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+
+## <a name="authenticate-the-webhook"></a>Autentisera webhooken
+Webhooken kan autentisera med hjälp av tokenbaserad auktorisering. Webhooken URI sparas med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Nyttolasten i schemat
-POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla mått-baserade aviseringar.
+POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla mått-baserade aviseringar:
 
 ```JSON
 {
@@ -77,38 +79,38 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla mått
 
 | Fält | Obligatorisk | Fast uppsättning värden | Anteckningar |
 |:--- |:--- |:--- |:--- |
-| status |Y |”Aktiverad”, ”löst” |Status för aviseringen som är baserad på villkor som du har angett. |
+| status |Y |Aktiverat, löst |Status för aviseringen baserat på villkor du anger. |
 | Kontexten |Y | |Kontexten. |
 | tidsstämpel |Y | |Den tid då aviseringen utlöstes. |
-| id |Y | |Varje regel för varning har ett unikt id. |
+| id |Y | |Varje regel för varning har ett unikt ID. |
 | namn |Y | |Aviseringsnamn. |
-| description |Y | |Beskrivning av aviseringen. |
-| conditionType |Y |”Mått”, ”Event” |Två typer av aviseringar stöds. En baserat på ett mått villkor och den andra baserat på en händelse i aktivitetsloggen. Använd det här värdet för att kontrollera om aviseringen är baserad på mått eller händelse. |
-| tillstånd |Y | |Att söka efter specifika fält baserat på conditionType. |
-| metricName |för mått aviseringar | |Namnet på måttet som definierar vad regeln övervakar. |
-| metricUnit |för mått aviseringar |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |Den enhet som tillåts i måttet. [Tillåtna värden i den här listan](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
-| metricValue |för mått aviseringar | |Det faktiska värdet för det mått som orsakade aviseringen. |
-| Tröskelvärde |för mått aviseringar | |Tröskelvärdet som aviseringen har aktiverats. |
-| Fönsterstorlek |för mått aviseringar | |Tidsperioden som används för att övervaka avisering baserat på tröskelvärdet. Måste vara mellan 5 minuter och 1 dag. Varaktighet i ISO 8601-format. |
-| timeAggregation |för mått aviseringar |”Medel”, ”senaste”, ”högsta”, ”Minimum” och ”None”, ”totalt” |Hur ska de data som samlas in kombineras med tiden. Standardvärdet är medelvärde. [Tillåtna värden i den här listan](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| Operatorn |för mått aviseringar | |Operatorn som används för att jämföra aktuella mått data till angiven tröskel. |
+| description |Y | |En beskrivning av aviseringen. |
+| conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått och händelser. Mått aviseringar baseras på ett mått villkor. Aviseringar är baserade på en händelse i aktivitetsloggen. Använd det här värdet för att kontrollera om aviseringen är baserat på ett mått eller en händelse. |
+| tillstånd |Y | |Specifika fält att söka baserat på de **conditionType** värde. |
+| metricName |För mått aviseringar | |Namnet på måttet som definierar vad regeln övervakar. |
+| metricUnit |För mått aviseringar |Byte, BytesPerSecond, Count, CountPerSecond, procent, sekunder |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricValue |För mått aviseringar | |Det faktiska värdet för det mått som orsakade aviseringen. |
+| Tröskelvärde |För mått aviseringar | |Tröskelvärdet som aviseringen har aktiverats. |
+| Fönsterstorlek |För mått aviseringar | |Tidsperioden som används för att övervaka avisering baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i formatet för ISO 8601-varaktighet. |
+| timeAggregation |För mått aviseringar |Genomsnittlig, senaste, högsta, Minimum, None, totalt |Hur ska de data som samlas in kombineras med tiden. Standardvärdet är medelvärde. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| Operatorn |För mått aviseringar | |Den operator som används för att jämföra den aktuella mått data med angiven tröskel. |
 | subscriptionId |Y | |Azure prenumerations-ID. |
-| resourceGroupName |Y | |Namnet på resursgruppen för resursen påverkas. |
-| resourceName |Y | |Resursnamn för resursen påverkas. |
-| resourceType |Y | |Resurstypen för resursen påverkas. |
-| resourceId |Y | |Resurs-ID för resursen påverkas. |
-| resourceRegion |Y | |Region eller platsen för resursen påverkas. |
-| portalLink |Y | |Direktlänk till portalen resurs sammanfattningssidan. |
-| properties |N |Valfri |En uppsättning `<Key, Value>` par (d.v.s. `Dictionary<String, String>`) som innehåller information om händelsen. För egenskapsfältet är valfritt. Användare kan ett anpassat användargränssnitt eller logik app-baserat arbetsflöde ange nyckel/värden som kan skickas via nyttolasten. Alternativa sätt att skicka anpassade egenskaper till webhooken är webhook uri sig själv (som frågeparametrar) |
+| resourceGroupName |Y | |Namnet på resursgruppen för resursen som påverkas. |
+| resourceName |Y | |Resursnamn för resursen som påverkas. |
+| resourceType |Y | |Resurstypen för resursen som påverkas. |
+| resourceId |Y | |Resurs-ID för resursen som påverkas. |
+| resourceRegion |Y | |Region eller platsen för resursen som påverkas. |
+| portalLink |Y | |En direktlänk till portalen resurs sammanfattningssidan. |
+| properties |N |Valfri |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. För egenskapsfältet är valfritt. I ett anpassat gränssnitt eller logik app-baserat arbetsflöde kan ange användarna nyckel/värde-par som kan skickas via nyttolasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook URI (som frågeparametrar). |
 
 > [!NOTE]
-> Egenskapsfältet kan endast anges med hjälp av den [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Du kan ange den **egenskaper** fältet genom att använda [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om Azure-aviseringar och webhooks i videon [integrera Azure aviseringar med PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
-* [Köra Azure Automation-skript (Runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Använd Logikapp för att skicka ett SMS via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-* [Använda Logikapp för att skicka en Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-* [Använd Logikapp för att skicka ett meddelande till en Azure-kö i en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+* Läs mer om Azure-aviseringar och webhooks i videon [integrera Azure aviseringar med PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
+* Lär dig hur du [köra Azure Automation-skript (runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Lär dig hur du [använder en logikapp för att skicka ett SMS-meddelande via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
+* Lär dig hur du [använder en logikapp för att skicka meddelandet Slack från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
+* Lär dig hur du [använder en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

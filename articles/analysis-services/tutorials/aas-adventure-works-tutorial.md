@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Självstudiekurs för Adventure Works
 
@@ -45,12 +45,12 @@ Om du inte har använt Analysis Services eller tabellmodellering tidigare är de
   
 -   Hur du distribuerar en tabellmodell till en **Azure Analysis Services**-server eller en lokal SQL Server 2017 Analysis Services-server.  
   
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Nödvändiga komponenter  
 För att slutföra den här kursen behöver du:  
   
 -   En Analysis Services-server i Azure. Registrera dig för en kostnadsfri [utvärderingsversion av Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) och [skapa en server](../analysis-services-create-server.md). 
 
--   Ett [Azure SQL Server Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) med **AdventureWorksDW-exempeldatabasen** eller ett SQL Server Data Warehouse med [Adventure Works-exempeldatabasen](http://go.microsoft.com/fwlink/?LinkID=335807).
+-   Ett [Azure SQL Server Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) med **AdventureWorksDW-exempeldatabasen** eller ett SQL Server Data Warehouse med [Adventure Works-exempeldatabasen](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
     **Viktigt:** Om du installerar exempeldatabasen på ett lokalt SQL Server Data Warehouse och distribuerar din modell till en Azure Analysis Services-server så krävs en [lokal datagateway](../analysis-services-gateway.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Anropa en webhook i Azure-aktivitetsloggen aviseringar | Microsoft Docs
-description: "Vidarebefordra aktivitet logghändelser till andra tjänster för anpassade åtgärder. Till exempel skicka SMS, logga programfel eller meddela ett team via chatt/meddelandetjänst."
+title: "Anropa en webhook för ett Azure log varning | Microsoft Docs"
+description: "Lär dig mer om att skicka aktiviteten logghändelser till andra tjänster för anpassade åtgärder. Du kan exempelvis skicka SMS-meddelanden, loggar buggar eller meddela ett team via en chatt eller meddelandetjänst."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Anropa en webhook i Azure-aktivitetsloggen aviseringar
-Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skicka SMS, logga programfel, meddela ett team via chatt/meddelandetjänster eller göra en mängd olika andra åtgärder. Den här artikeln beskriver hur du ställer in en webhook anropas när en varning utlöses Azure-aktivitetsloggen. Den visar även hur nyttolasten för HTTP POST till en webhook ser ut. Mer information om installation och schemat för en Azure mått avisering [se den här sidan i stället](insights-webhooks-alerts.md). Du kan också ställa in en avisering i aktivitetsloggen att skicka e-post när aktiverad.
+# <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Anropa en webhook för ett Azure log varning
+Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efter bearbetning eller för anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden att logga buggar, för att meddela ett team via chatt eller -tjänster eller för olika åtgärder. Du kan också ställa in en varning för loggen att skicka e-post när en avisering aktiveras.
+
+Den här artikeln beskriver hur du ställer in en webhook anropas när aviseringen utlöses av en Azure aktivitet loggen. Den visar även hur nyttolasten för HTTP POST till en webhook ser ut. Information om installation och schemat för en Azure mått avisering finns [konfigurera en webhook på en Azure mått avisering](insights-webhooks-alerts.md). 
 
 > [!NOTE]
-> Den här funktionen är för närvarande under förhandsgranskning och tas bort vid en viss tidpunkt i framtiden.
+> Funktionen som stödjer anropar en webhook på ett Azure log varning är för närvarande under förhandsgranskning.
 >
 >
 
-Du kan ställa in en aktivitetsloggen avisering med hjälp av den [Azure PowerShell-Cmdlets](insights-powershell-samples.md#create-metric-alerts), [plattformsoberoende CLI](insights-cli-samples.md#work-with-alerts), eller [REST-API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). För närvarande kan du ange ett in med Azure-portalen.
+Du kan ställa in en varning för loggfilen genom att använda [Azure PowerShell-cmdlets](insights-powershell-samples.md#create-metric-alerts), [plattformsoberoende CLI](insights-cli-samples.md#work-with-alerts), eller [Azure övervakaren REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx). För närvarande kan använda du inte Azure-portalen för att ställa in en varning för loggen.
 
-## <a name="authenticating-the-webhook"></a>Autentisera webhooken
+## <a name="authenticate-the-webhook"></a>Autentisera webhooken
 Webhooken kan autentisera med någon av följande metoder:
 
-1. **Tokenbaserad auktorisering** -webhooken URI sparas med ett token ID, t.ex.`https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Grundläggande auktorisering** -URI sparas med ett användarnamn och lösenord, till exempel webhooken`https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+* **Tokenbaserad auktorisering**. Webhooken URI sparas med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+* **Grundläggande auktorisering**. Webhooken URI sparas med ett användarnamn och lösenord. Exempel: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Nyttolasten i schemat
-POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktivitetsloggen-baserade aviseringar. Det här schemat liknar den som används av måttet-baserade aviseringar.
+POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktivitet log-aviseringar. Det här schemat liknar den som används för måttet-baserade aviseringar.
 
 ```json
 {
@@ -104,36 +106,36 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktiv
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| status |Används för mått aviseringar. Alltid inställt på ”Aktivera” för aktivitetsloggen aviseringar. |
+| status |Används för mått aviseringar. För aktiviteten Logga varningar alltid inställd på aktiverad.|
 | Kontexten |Kontexten för händelsen. |
 | activityLog | Loggegenskaperna för händelsen.|
-| Auktorisering |RBAC-egenskaperna för händelsen. Dessa omfattar vanligtvis ”åtgärd”, ”roll” och ”omfattningen”. |
-| åtgärd | Åtgärd som avbildas av aviseringen. |
-| Omfång | Omfånget för aviseringen (dvs resurs).|
-| kanaler | Åtgärd |
-| Anspråk | En samling information som finns på relaterar till anspråk. |
-| uppringare |GUID eller användarnamnet för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
-| correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis delar en correlationId. |
-| description |Aviseringsbeskrivningen som angetts under skapandet av aviseringen. |
-| eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
-| eventTimestamp |Tid som händelsen inträffade. |
+| Auktorisering |Rollbaserad åtkomstkontroll (RBAC)-egenskaperna för händelsen. Dessa egenskaper innehåller vanligtvis **åtgärd**, **rollen**, och **omfång**. |
+| åtgärd | Den åtgärd som avbildas av aviseringen. |
+| Omfång | Omfattningen för aviseringen (resurs).|
+| kanaler | Åtgärden. |
+| Anspråk | En samling information som relaterar till anspråk. |
+| uppringare |GUID eller användarnamnet för användaren som utförde åtgärden eller UPN-anspråket SPN-anspråk baserat på tillgänglighet. Kan vara ett null-värde för vissa system-anrop. |
+| correlationId |Vanligtvis ett GUID i strängformat. Händelser med **correlationId** tillhör samma större åtgärd. De har samma vanligtvis **correlationId** värde. |
+| description |Aviseringsbeskrivningen som angavs när aviseringen skapades. |
+| eventSource |Namnet på Azure-tjänst eller infrastruktur som genererade händelsen. |
+| eventTimestamp |Den tid som händelsen inträffade. |
 | eventDataId |Unik identifierare för händelsen. |
-| nivå |Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig”. |
+| nivå |Ett av följande värden: kritisk, fel, varning, information eller utförlig. |
 | operationName |Namnet på åtgärden. |
-| operationId |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
-| resourceId |Resurs-ID för resursen påverkas. |
-| resourceGroupName |Namnet på resursgruppen för resursen som påverkas |
-| resourceProviderName |Resursprovidern för resursen påverkas. |
-| status |Sträng. Status för åtgärden. Vanliga värden är: ”starta”, ”pågående”, ”Succeeded”, ”misslyckades”, ”aktiv”, ”löst”. |
-| subStatus |Normalt innehåller HTTP-statuskod för motsvarande REST-anrop. Det kan även innehålla andra strängar som beskriver en sådan. Vanliga understatus värden är: OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409), internt serverfel (HTTP-statuskod: 500), tjänsten är inte tillgänglig (HTTP-statuskod: 503), Gateway-Timeout (HTTP-statuskod: 504) |
+| operationId |Vanligtvis ett GUID som delas mellan händelser. GUID som motsvarar vanligtvis en enda åtgärd. |
+| resourceId |Resurs-ID för resursen som påverkas. |
+| resourceGroupName |Namnet på resursgruppen för resursen som påverkas. |
+| resourceProviderName |Resursprovidern för resursen som påverkas. |
+| status |Ett strängvärde som anger status för åtgärden. Vanliga värden är igång, pågår, slutfört, misslyckades, aktiv och löst. |
+| subStatus |Normalt innehåller HTTP-statuskod för motsvarande REST-anrop. Det kan även innehålla andra strängar som beskriver en sådan. Vanliga understatus värden är OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), det gick inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409 ), Internt serverfel (HTTP-statuskod: 500), tjänsten inte tillgänglig (HTTP-statuskod: 503), och Gateway-Timeout (HTTP-statuskod: 504). |
 | subscriptionId |Azure prenumerations-ID. |
-| submissionTimestamp |Tid då händelsen skapades av Azure-tjänsten som bearbetade förfrågan. |
+| submissionTimestamp |Den tid då händelsen skapades av Azure-tjänsten som bearbetade förfrågan. |
 | resourceType | Typ av resurs som genererade händelsen.|
-| properties |En uppsättning `<Key, Value>` par (d.v.s. `Dictionary<String, String>`) som innehåller information om händelsen. |
+| properties |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Mer information om aktivitetsloggen](monitoring-overview-activity-logs.md)
-* [Köra Azure Automation-skript (Runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Använd Logikapp för att skicka ett SMS via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått aviseringar, men kan ändras för att fungera med en aktivitetsloggen avisering.
-* [Använda Logikapp för att skicka en Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått aviseringar, men kan ändras för att fungera med en aktivitetsloggen avisering.
-* [Använd Logikapp för att skicka ett meddelande till en Azure-kö i en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått aviseringar, men kan ändras för att fungera med en aktivitetsloggen avisering.
+* Lär dig mer om den [aktivitetsloggen](monitoring-overview-activity-logs.md).
+* Lär dig hur du [köra Azure Automation-skript (runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Lär dig hur du [använder en logikapp för att skicka ett SMS-meddelande via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått aviseringar, men du kan ändra den fungerar med en varning för loggen.
+* Lär dig hur du [använder en logikapp för att skicka meddelandet Slack från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått aviseringar, men du kan ändra den fungerar med en varning för loggen.
+* Lär dig hur du [använder en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått aviseringar, men du kan ändra den fungerar med en varning för loggen.

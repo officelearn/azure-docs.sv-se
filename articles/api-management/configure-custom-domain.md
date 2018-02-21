@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
 När du skapar en instans för API Management (APIM) Azure tilldelar den en underdomän till azure-api.net (till exempel `apim-service-name.azure-api.net`). Du kan dock exponera dina APIM slutpunkter med hjälp av ditt eget domännamn, till exempel **contoso.com**. Den här kursen visar hur du mappar en befintlig anpassad DNS-namn till slutpunkter som exponeras av en Azure API Management-instans.
+
+> [!WARNING]
+> Kunder som vill använda certifikat fästning för att förbättra säkerheten i sina program måste använda ett anpassat domännamn > och certifikat som de hanterar inte standardcertifikatet. Kunder som fästa standardcertifikatet i stället blir > tar ett fast beroende på egenskaperna för det certifikat som de inte har kontroll över, vilket inte är en rekommendation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

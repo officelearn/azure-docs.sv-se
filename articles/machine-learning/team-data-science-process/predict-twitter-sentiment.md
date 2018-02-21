@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data
 
@@ -131,7 +131,7 @@ Det sista steget är distributionen av utbildade sentiment förutsägelse modell
 
 ![Kubernetes instrumentpanelen](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Sammanfattning
 
@@ -140,11 +140,11 @@ I den här artikeln beskrivs hur du tränar en modell för inbäddning av word m
 
 ## <a name="references"></a>Referenser
 
-* [Team av vetenskapliga data](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
+* [TDSP](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Hur du använder Team Data vetenskap processen (TDSP) i Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [TDSP projektmallar för Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning-arbetsstationen](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [USA intäkter datauppsättning från UCI ML-databasen](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedicinska entitet recognition med hjälp av TDSP mallar](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Biomedicinska entitet recognition med hjälp av TDSP mallar](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov Tomas, m.fl. ”Distribuerade representationer av ord och fraser och deras Compositionality. Avancerar i neural bearbeta system information ”. 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang Duyu, m.fl. ”Utbildning Sentiment-specifika ord inbäddning av klassificering för Twitter-Sentiment”. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

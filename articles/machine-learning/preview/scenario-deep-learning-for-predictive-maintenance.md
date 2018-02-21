@@ -2,49 +2,51 @@
 title: "Djupgående utbildning för förutsägande Underhåll verkliga scenarier - Azure | Microsoft Docs"
 description: "Lär dig mer om att replikera kursen djup inlärning för förebyggande underhåll med Azure Machine Learning-arbetsstationen."
 services: machine-learning
-author: FrancescaLazzeri
-ms.author: Lazzeri
+author: ehrlinger
+ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
+ms.custom: mvc
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 7d4fe98b5c45767fb06391218e80789fc0c96a3b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Djupgående utbildning för förutsägande Underhåll verkliga scenarier
+# <a name="deep-learning-for-predictive-maintenance-real-world-scenario"></a>Djup learning för förutsägande Underhåll verkligt scenario.
 
-Djupgående learning är en av de mest populära trenderna i machine learning. Djupgående learning används i många fält och program, inklusive protokollmekanismer utan drivrutiner bilar, tal-och image, robotics och ekonomi. Djupgående inlärning är en uppsättning algoritmer som inspirerat av form hjärna (biologiska neurala nätverk) och maskininlärning. Kognitiva forskare avser vanligtvis djup learning som artificiell neurala nätverk (ANNs).
+Djupgående learning är en av de mest populära trenderna i machine learning med program på många områden, inklusive:
+- protokollmekanismer utan drivrutiner bilar och robotics
+- tal-och
+- finansiella prognoser.
 
-Förutsägande Underhåll är också populära. I förutsägande Underhåll är många olika tekniker utformade för att avgöra tillståndet för utrustning och att förutsäga när Underhåll ska utföras. Några vanliga användningsområden för förutsägande Underhåll är felförutsägelse, fel diagnos (analys av grundorsaken), felidentifiering, fel typ klassificering och rekommendation av minskning eller underhåll åtgärder efter fel.
+Även känd som djupa Neurala nätverk (DNN), är dessa metoder inspirerat av enskilda neurons inom hjärna (biologiska neurala nätverk).
 
-I scenarier med förutsägande Underhåll samlas data över tid för att övervaka status för utrustning. Målet är att hitta mönster som hjälper dig att förutsäga och slutligen förhindra fel. Med hjälp av [lång kort sikt minne (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) nätverk är en djup learning metod som är särskilt tilltalande i förutsägande underhåll. Det är bra på att lära sekvenser LSTM nätverk. Tid series-data kan användas för att gå tillbaka till längre tid att upptäcka fel mönster.
+Effekten av utrustning oplanerade driftstopp kan vara skadliga för alla företag. Det är viktigt att behålla fältet utrustning som körs för att maximera användning och prestanda och minimera kostsamma, oplanerade driftavbrott. Tidig identifiering av problem kan hjälpa allokera begränsad Underhåll resurser på ett kostnadseffektivt sätt och förbättra kvaliteten och ange kedjan processer. 
 
-I den här självstudiekursen kommer vi bygga en LSTM nätverk för datauppsättningen och scenario som beskrivs i [förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Vi kan använda nätverket för att förutsäga flygplan motorer återstående livslängd. Mallen använder simulerade flygplan sensor värden för att förutsäga när ett flygplan motorn misslyckas i framtiden. Med den här förutsägelse kan Underhåll planeras i förväg för att förhindra fel.
+En strategi för förutsägande Underhåll (em) använder machine learning metoder för att avgöra tillståndet för utrustning förebyggande syfte Underhåll ska utföras för att undvika negativa datorn prestanda. Data som samlas in med tiden för att övervaka status för datorn är i PM, analyser för att hitta mönster som kan användas för att förutsäga fel. [Lång kort sikt minne (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) nätverk är bra för den här inställningen, eftersom de har utformats för att lära sig från sekvenser av data.
 
-Den här kursen använder den [Keras](https://keras.io/) djup bibliotek och Microsoft kognitiva Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) som en serverdel.
+## <a name="link-to-the-gallery-github-repository"></a>Länka till galleriet GitHub-lagringsplatsen
 
-Offentliga GitHub-lagret med exemplen i den här självstudien är på [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
+Följande är en länk till offentliga GitHub-lagringsplatsen för problemet rapporter och bidrag: [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) 
 
 ## <a name="use-case-overview"></a>Använd case-översikt
 
-Den här kursen används ett exempel på simulerade flygplan motorn kör-till-felhändelser för att demonstrera förutsägande Underhåll modellera processen. 
+Den här kursen används ett exempel på simulerade flygplan motorn kör-till-felhändelser för att demonstrera förutsägande Underhåll modellera processen. Scenariot beskrivs i [förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3)
 
-Det underförstådda antagandet om modellering data som beskrivs här är att tillgången har ett progressing omvandlings-mönster. Mönstret avspeglas i tillgångens sensor mått. Genom att undersöka sensor resursvärden över tid Läs maskininlärningsalgoritmen relationen mellan sensor-värden, ändringar i sensor värden och historiska fel. Den här relationen används för att förutsäga fel i framtiden. 
+Den huvudsakliga antaganden i den här inställningen är motorn progressivt försämras under sin livslängd. Nedbrytning kan identifieras i motorn sensor mått. PM försöker modellen relationen mellan ändringarna i värdena sensor och historiska fel. Modellen kan sedan förutsäga när och motorn fungerar inte i framtiden baserat på aktuell status för sensor mått.
 
-Vi rekommenderar att du undersöker dataformatet och slutföra alla tre stegen för mallen innan du ersätta exempeldata med din egen datum.
+Det här scenariot skapar ett LSTM nätverk för att förutsäga återstående livslängd (RUL) av flygplan motorer med historiska sensor värden. Med hjälp av [Keras](https://keras.io/) med [Tensorflow](https://www.tensorflow.org/) djup learning framework som en beräkningsmotor scenariot tränar LSTM med en uppsättning motorer och testa nätverk på en uppsättning överblivna motorn.
 
 ## <a name="prerequisites"></a>Förutsättningar
-
 - En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 - Azure Machine Learning arbetsstation med en arbetsyta skapas.
-- För modellen operationalization: Azure Machine Learning Operationalization, med en lokal distributionsmiljö ställer in, och en [konto i Azure Machine Learning modellen Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+- För modellen operationalization: Azure Machine Learning Operationalization, med en lokal distributionsmiljö ställer in, och en [konto i Azure Machine Learning modellen Management](model-management-overview.md).
 
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
 
@@ -53,38 +55,53 @@ Skapa ett nytt projekt genom att använda det här exemplet som en mall:
 1. Öppna Machine Learning arbetsstationen.
 2. På den **projekt** väljer  **+** , och välj sedan **nytt projekt**.
 3. I den **Skapa nytt projekt** rutan Ange information för det nya projektet.
-4. I den **Sök projektmallar** sökrutan, ange **förutsägande Underhåll**, och välj sedan mallen.
-5. Välj **Skapa**.
+4. I den **Sök projektmallar** sökrutan, Skriv ”förutsägande underhåll” och välj den **djup Learning för scenariot med förutsägande Underhåll** mall.
+5. Klicka på den **skapa** knappen
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Förbereda anteckningsboken server beräkning mål
 
-På den lokala datorn på Machine Learning-arbetsstationen **filen** -menyn väljer du antingen **öppnar du kommandotolken** eller **öppna PowerShell**. I kommandotolksfönstret alternativet som du väljer att köra följande kommandon:
+Att köra på den lokala datorn från AML arbetsstationen `File` -menyn väljer du antingen den `Open Command Prompt` eller `Open PowerShell CLI`. Gränssnittet CLI får du åtkomst till Azure-tjänster med hjälp av den `az` kommandon. Först och logga in på ditt Azure-konto med kommandot:
 
-`az ml experiment prepare --target docker --run-configuration docker`
+```
+az login
+``` 
 
-Vi rekommenderar att du kör anteckningsboken-server på en standard som DS4_V2 [Data vetenskap virtuell dator (DSVM) för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu). Efter DSVM konfigureras, kör följande kommandon för att förbereda Docker-avbildningar:
+Det här kommandot ger en autentiseringsnyckel som ska användas med den `https:\\aka.ms\devicelogin` URL. CLI väntar tills enheten inloggningen åtgärden returnerar och ger vissa anslutningsinformationen. Nästa, om du har en lokal [docker](https://www.docker.com/get-docker) installera, förbereder lokala beräknings-miljön med följande kommandon:
 
-`az ml computetarget attach remotedocker --name [connection_name] --address [VM_IP_address] --username [VM_username] --password [VM_password]`
+```
+az ml experiment prepare --target docker --run-configuration docker
+```
 
-`az ml experiment prepare --target [connection_name] --run-configuration [connection_name]`
+Det är bättre att köra på en [datavetenskap virtuell dator för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) för minne och diskutrymme. När du har konfigurerat DSVM Förbered fjärr docker-miljö med följande två kommandon:
 
-Öppna servern Jupyter-anteckningsbok med Docker-bilder är förberedd. Om du vill öppna Jupyter-anteckningsbok server antingen gå till Machine Learning-arbetsstationen **anteckningsböcker** fliken eller starta en webbläsare-baserad server:`az ml notebook start`
+```
+az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
+```
 
-Anteckningsböcker som lagras i katalogen koden i Jupyter-miljö. Kör dessa anteckningsböcker sekventiellt som numrerade, från och med Code\1_data_ingestion_and_preparation.ipynb.
+När du är ansluten till den fjärranslutna dockerbehållare förbereda DSVM docker beräkning miljö med: 
 
-Välj kernel för att matcha dina [projekt_namn] _Template [connection_name] och välj sedan **ange Kernel**.
+```
+az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
+```
+
+Med docker compute-miljö har förberetts, öppna Jupyter-anteckningsbok server antingen inom fliken AML arbetsstationen bärbara datorer eller starta en webbläsarbaserad server med: 
+```
+az ml notebook start
+```
+
+Exempel-anteckningsböcker som lagras i den `Code` directory. De bärbara datorerna är konfigurerade att köras efter varandra startar på först (`Code\1_data_ingestion.ipynb`) bärbar dator. När du öppnar varje bärbar dator uppmanas att välja kernel för beräkning. Välj den `[Project_Name]_Template [Connection_Name]` kernel ska köras på den tidigare konfigurerade DSVM.
 
 ## <a name="data-description"></a>Beskrivning av data
 
-Mallen använder tre datauppsättningar som indata i filerna PM_train.txt och PM_test.txt PM_truth.txt.
+Mallen använder tre datauppsättningar som indata i filer **PM_train.txt**, **PM_test.txt**, och **PM_truth.txt**. 
 
 -  **Träna data**: flygplan motorn kör till fel data. Train-data (PM_train.txt) består av flera multivariate tidsserier med *växla* som tidsenheten. Den omfattar 21 sensoravläsningar för varje cykel. 
 
-    Varje tidsserier antas kan genereras från en annan modul av samma typ. Varje motor förutsätts för att starta med olika typer av inledande förslitning och produktion variation. Den här informationen är okänd för användaren. 
+    - Varje tidsserier genereras från en annan modul av samma typ. Varje motor börjar med olika grader av inledande förslitning och en unik tillverkning variant. Den här informationen är okänd för användaren. 
 
-    I den här simulerade data antas motorn fungerar normalt i början av varje tidsserier. Den börjar försämras vid något tillfälle under drift cykler serie. Nedbrytning fortskrider och växer i storlek. 
+    - I den här simulerade data antas motorn fungerar normalt i början av varje tidsserier. Den börjar försämras vid något tillfälle under drift cykler serie. Nedbrytning fortskrider och växer i storlek. 
 
-    När en fördefinierad tröskelvärde uppnås betraktas motorn som osäkra för ytterligare åtgärd. Den sista cykeln i varje tidsserier kan ses felpunkt motsvarande motorns.
+    - När en fördefinierad tröskelvärde uppnås betraktas motorn som osäkra för ytterligare åtgärd. Den sista cykeln av varje tidsserier är felpunkt för som motorn.
 
 -   **Testa data**: flygplan motorn driftuppgifter, utan felhändelser som registreras. Testdata (PM_test.txt) har samma dataschemat som utbildning-data. Den enda skillnaden är att data inte anger när felet inträffar (senaste tidsperiod har *inte* representerar felpunkt). Det är inte känt hur många fler cykler den här motorn kan gälla innan det misslyckas.
 
@@ -92,44 +109,49 @@ Mallen använder tre datauppsättningar som indata i filerna PM_train.txt och PM
 
 ## <a name="scenario-structure"></a>Scenario-struktur
 
-Innehållet i scenariot är tillgängligt på [GitHub-lagringsplatsen] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance). 
-
-I databasen beskrivs en [viktigt] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/blob/master/README.md)-fil processer från förbereder data bygger upp och operationalizing modellen. Tre Jupyter-anteckningsböcker är tillgängliga i mappen [Code] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/tree/master/Code) i databasen. 
-
-Därefter beskriver vi steg för steg-scenariot arbetsflödet.
+Arbetsflöde för scenariot är uppdelat i tre steg, var de körs i en Jupyter-anteckningsböcker. Varje anteckningsbok ger dataartifakter sparas lokalt för användning i följande datorer: 
 
 ### <a name="task-1-data-ingestion-and-preparation"></a>Uppgift 1: Datapåfyllning och förberedelse
 
-Data införandet Jupyter Notebook i Code/1_data_ingestion_and_preparation.ipnyb läser in tre inkommande datauppsättningar i Pandas dataframe format. Sedan den förbereder data för modellering och har några inledande datavisualisering. Data sedan omvandlas till PySpark-format och lagras i ett Azure Blob storage-behållare i Azure-prenumerationen för användning i nästa modellering uppgift.
+Data införandet Jupyter Notebook i `Code/1_data_ingestion_and_preparation.ipnyb` läser in tre inkommande datauppsättningar i Pandas dataformat ram. Därefter förbereder data för modellering och har vissa preliminär datavisualisering. De uppgifter som lagras lokala beräknings-kontexten för användning i modellen byggnad anteckningsboken.
 
 ### <a name="task-2-model-building-and-evaluation"></a>Uppgift 2: Modellskapandet och utvärdering
 
-Modellen byggnad Jupyter Notebook i Code/2_model_building_and_evaluation.ipnyb läser PySpark träna och testa datauppsättningar från Blob storage. Sedan bygger ett LSTM nätverk med datauppsättningar utbildning. Modell-prestanda mäts på test-uppsättningen. Den resulterande modellen serialiseras och lagras i den lokala beräkning kontexten för användning i aktiviteten operationalization.
+Modellen byggnad Jupyter Notebook i `Code/2_model_building_and_evaluation.ipnyb` läser datauppsättningar tåg och testa från disk och skapar ett LSTM nätverk datauppsättning för träning. Modell-prestanda mäts på test-uppsättningen. Den resulterande modellen serialiseras och lagras i den lokala beräkning kontexten för användning i aktiviteten operationalization.
 
 ### <a name="task-3-operationalization"></a>Uppgift 3: Operationalization
 
-Operationalization Jupyter Notebook i Code/3_operationalization.ipnyb använder lagrade modellen för att skapa funktioner och schema som krävs för att anropa modellen på en Azure-baserad webbtjänst. Anteckningsboken testar funktionerna och sänds (komprimerar) operationalization tillgångar i en .zip-fil.
+Operationalization Jupyter Notebook i `Code/3_operationalization.ipnyb` använder lagrade modellen för att skapa funktioner och schema för att anropa modellen på en Azure-baserad webbtjänst. Anteckningsboken testar funktionerna och komprimerar tillgångar i den `LSTM_o16n.zip` fil som har lästs in på ditt Azure storage-behållare för distribution.
 
-Den komprimerade filen innehåller följande filer:
+Den `LSTM_o16n.zip` distributionsfilen innehåller följande artefakter:
 
-- **modellstm.JSON**: definitionsfilen schemat för distributionen. 
-- **lstmscore.PY**: den **init()** och **run()** funktioner som krävs av Azure webbtjänsten.
-- **lstm.Model**: katalogen model definition.
+- `webservices_conda.yaml` definierar python-paket som krävs för att köra LSTM modellen på distributionsmålet.  
+- `service_schema.json` definierar dataschemat förväntades av LSTM modellen.     
+- `lstmscore.py` definierar de funktioner som distributionsmålet körs att poängsätta nya data.    
+- `modellstm.json` definierar LSTM arkitektur. Funktionerna lstmscore.py läsa arkitektur och vikter till initiera modellen.
+- `modellstm.h5` definierar vikterna modellen.
+- `test_service.py` Ett testskript som anropar slutpunkten distribution med test dataposter. 
+- `PM_test_files.pkl` Den `test_service.py` skriptet läser motorn för historiska data från den `PM_test_files.pkl` filen och skickar webservice tillräckligt med cykler för LSTM att returnera en sannolikheten för fel motorn.
 
-Anteckningsboken testar funktionerna med hjälp av modelldefinitionen innan det paket operationalization tillgångar för distribution. Instruktioner för distribution ingår i slutet av den bärbara datorn.
-
+Anteckningsboken testar funktioner med hjälp av modelldefinitionen innan det paket operationalization tillgångar för distribution. Instruktioner för att installera och testa webbtjänsten som ingår i slutet av den `Code/3_operationalization.ipnyb` bärbar dator.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Den här kursen används ett enkelt scenario i vilken endast en källa (sensor värden) som används för att göra förutsägelser. För mer avancerade scenarier med förutsägande underhåll som den [förutsägande Underhåll Modeling guiden R anteckningsboken](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), flera datakällor kan användas. Andra datakällor kan innehålla historiska Underhåll poster, felloggarna och datorn och operatorn funktioner. Ytterligare datakällor kan kräva olika typer av behandling som ska användas i djup learning nätverk. Det är också viktigt att justera modeller för rätt parametrar, t.ex. för fönsterstorlek. 
-
-Du kan redigera relevanta delar av det här scenariot och Använd olika problem scenarier som som beskrivs i den [förutsägande Underhåll Modeling guiden](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1), vilket innebär att flera andra datakällor.
+Den här kursen används ett enkelt scenario som använder sensor värden för att göra förutsägelser. Mer avancerade scenarier för förutsägande underhåll, som den [förutsägande Underhåll Modeling guiden R anteckningsboken](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), kan använda flera datakällor, till exempel historiska Underhåll poster, felloggar, och datorn funktioner. Ytterligare datakällor kan kräva olika behandling som ska användas med djup learning.
 
 
 ## <a name="references"></a>Referenser
 
-- [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
-- [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
-- [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
-- [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+Det finns andra förutsägande Underhåll Använd case-exempel på en mängd olika plattformar:
 
+* [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
+* [Förutsägande Underhåll Modeling Guide med SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
+* [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
+* [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+
+* [Verkligt scenario med förutsägande Underhåll](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
+
+## <a name="next-steps"></a>Nästa steg
+
+Det finns många andra exempelscenarier Azure Machine Learning-arbetsstationen som visar ytterligare funktioner i produkten. 

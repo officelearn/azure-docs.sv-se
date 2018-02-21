@@ -1,10 +1,10 @@
 ---
 title: "Skapa och installera P2S VPN-klientkonfigurationsfiler för Azure certifikatautentisering: PowerShell: Azure | Microsoft Docs"
-description: "Den här artikeln hjälper dig att skapa och installera VPN-klientkonfigurationsfiler för punkt-till-plats-anslutningar som använder autentisering med datorcertifikat."
+description: "Skapa och installera Windows och Mac OS X VPN-klientkonfigurationsfiler för P2S certifikatautentisering."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för interna Azure certifikat autentisering P2S-konfigurationer
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Skapa och installera VPN klientkonfigurationsfiler för interna Azure certifikat autentisering punkt-till-plats-konfigurationer
 
 Konfigurationsfiler för VPN-klienten finns i en zip-fil. Konfigurationsfiler ange inställningar som krävs för en ursprunglig Windows eller Mac IKEv2 VPN-klient att ansluta till ett virtuellt nätverk via punkt-till-plats-anslutningar som använder interna Azure certifikatautentisering.
 
@@ -91,7 +91,7 @@ Klicka på **Lägg till** att importera.
     >[!NOTE]
     >Dubbelklicka på certifikatet kan inte visa den **Lägg till** dialogrutan, men certifikatet har installerats i rätt lager. Du kan söka efter certifikatet i nyckelringen inloggningen under kategorin certifikat.
   
-2. Kontrollera att du har installerat ett klientcertifikat som har utfärdats av rotcertifikatet som du har överfört till Azure när du konfigurerade P2S inställningar. Detta skiljer sig från VPNServerRoot som du installerade i föregående steg. Klientcertifikatet används för autentisering och krävs. Mer information om hur du genererar certifikat finns [generera certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klientcertifikat finns [installera ett klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
+2. Kontrollera att du har installerat ett klientcertifikat som har utfärdats av rotcertifikatet som du överfört till Azure när du konfigurerade P2S inställningar. Detta skiljer sig från VPNServerRoot som du installerade i föregående steg. Klientcertifikatet används för autentisering och krävs. Mer information om hur du genererar certifikat finns [generera certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klientcertifikat finns [installera ett klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Öppna den **nätverk** dialogrutan under **nätverksinställningar** och på **”+”** att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure VNet.
 
   Den **gränssnittet** värdet är 'VPN- och **VPN-typ** värdet är 'IKEv2'. Ange ett namn för profilen i den **tjänstnamnet** fältet och klicka sedan på **skapa** att skapa VPN-anslutningsprofilen för klienten.
@@ -117,3 +117,5 @@ Klicka på **Lägg till** att importera.
 ## <a name="next-steps"></a>Nästa steg
 
 Gå tillbaka till artikeln [Slutför konfigurationen P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+P2S felsökningsinformation [felsöka Azure punkt-till-plats-anslutningar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

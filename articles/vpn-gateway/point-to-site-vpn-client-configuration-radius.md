@@ -1,10 +1,10 @@
 ---
 title: "Skapa och installera VPN-klientkonfigurationsfiler för RADIUS-P2S-anslutningar: PowerShell: Azure | Microsoft Docs"
-description: "Den här artikeln hjälper dig att skapa VPN-klientkonfigurationsfil för punkt-till-plats-anslutningar som använder RADIUS-autentisering."
+description: "Skapa Windows-, Mac OS X- och Linux VPN-klienten konfigurationsfiler för anslutningar som använder RADIUS-autentisering."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
-Om du vill ansluta till ett virtuellt nätverk via punkt-till-plats, måste du konfigurera klientenheten där du ska kunna ansluta. RADIUS-servern tillhandahåller flera autentiseringsalternativ: autentisering med användarnamn/lösenord, certifikat, samt andra typer av autentisering. Konfigurationen för VPN-klienten är olika för varje typ av autentisering. Om du vill konfigurera VPN-klienten, kan du använda klientkonfigurationsfiler som innehåller inställningarna som krävs. Den här artikeln hjälper dig att skapa och installera VPN-klientkonfiguration för RADIUS-autentisering-typ som du vill använda.
+Om du vill ansluta till ett virtuellt nätverk via punkt-till-plats, måste du konfigurera klientenheten där du ska kunna ansluta. Du kan skapa P2S VPN-anslutningar från Windows-, Mac OS x- och Linux-klientenheter. När du använder RADIUS-autentisering, det finns flera alternativ för Webbplatsautentisering: autentisering med användarnamn/lösenord, certifikat, samt andra typer av autentisering. Konfigurationen för VPN-klienten är olika för varje typ av autentisering. Om du vill konfigurera VPN-klienten, kan du använda klientkonfigurationsfiler som innehåller inställningarna som krävs. Den här artikeln hjälper dig att skapa och installera VPN-klientkonfiguration för RADIUS-autentisering-typ som du vill använda.
 
-### <a name="workflow"></a>Arbetsflöde
+Konfiguration av arbetsflödet för P2S RADIUS-autentisering är följande:
 
 1. [Konfigurera Azure VPN-gateway för P2S-anslutning](point-to-site-how-to-radius-ps.md).
 2. [Konfigurera RADIUS-servern för autentisering](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Om du vill ansluta till ett virtuellt nätverk via punkt-till-plats, måste du k
 >Om det finns ändringar i punkt-till-plats VPN-konfiguration när du skapar VPN-klienten konfigurationsprofilen, till exempel den VPN-protokollet eller autentiseringstyp, måste du skapa och installera en ny konfiguration för VPN-klienten på dina användarenheter.
 >
 >
+
+Om du vill använda avsnitten i den här artikeln först bestämma vilken typ av autentisering som du vill använda: användarnamn/lösenord, certifikat eller andra typer av autentisering. I varje avsnitt finns anvisningar för Windows, Mac OS X och Linux (begränsad steg som är tillgängliga just nu).
 
 ## <a name="adeap"></a>Autentisering med användarnamn/lösenord
 
@@ -121,7 +123,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
 
 Följande instruktioner har skapats med strongSwan 5.5.1 på Ubuntu 17.0.4. Faktiska skärmar kan vara olika beroende på din version av Linux- och strongSwan.
 
-1. Öppna den **Terminal** installera **strongSwan** och dess Nätverkshanteraren genom att köra följande kommando. Om du får ett fel som rör den ”libcharon-extra-plugin-program” kan ersätta det med ”strongswan-plugin-eap-mschapv2”.
+1. Öppna den **Terminal** installera **strongSwan** och dess Nätverkshanteraren genom att köra kommandot i exemplet. Om du får ett fel som rör den ”libcharon-extra-plugin-program” kan ersätta det med ”strongswan-plugin-eap-mschapv2”.
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Att använda en annan autentiseringstyp (till exempel OTP) och inte användarnam
 ## <a name="next-steps"></a>Nästa steg
 
 Gå tillbaka till artikeln [Slutför konfigurationen P2S](point-to-site-how-to-radius-ps.md).
+
+P2S felsökningsinformation [felsöka Azure punkt-till-plats-anslutningar](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

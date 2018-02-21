@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e33ff3fdc38b5aca6bbaef2c1ac6888217797541
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Distribuera en Azure Machine Learning-modell till en Azure IoT-enhet
 
 Alla Azure Machine Learning-modeller av som Docker-baserade webbtjänster kan också köra på Azure IoT-gränsenheterna. Ytterligare skript och instruktioner finns i den [AI Toolkit för Azure IoT kant](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Operationalisera modellen
-Driftsätta modellen genom att följa instruktionerna i [Azure Machine Learning modellen Management Web Service-distributionen](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) att skapa en Docker-avbildning med din modell.
+Driftsätta modellen genom att följa instruktionerna i [Azure Machine Learning modellen Management Web Service-distributionen](model-management-service-deploy.md) att skapa en Docker-avbildning med din modell.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Distribuera till Azure IoT kant
 Azure IoT-Edge flyttar molnet analyser och anpassad affärslogik till enheter. Alla Machine Learning-modeller kan köras på IoT Edge-enheter. Dokumentation för att ställa in en IoT-enhet och skapa en distribution finns på [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).

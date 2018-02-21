@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -53,7 +53,7 @@ Hur lång tid processen att skala upp tar beror på databasens storlek och tjän
 
 * Om du uppgraderar till en högre nivå eller prestanda servicenivå ökar den maximala databasstorleken inte om du inte uttryckligen anger en större (maxsize).
 * Databasutrymme används måste vara mindre än den största tillåtna storleken för mål-tjänstnivå och prestandanivå servicenivån för att nedgradera en databas. 
-* När nedgradering från **Premium** eller **Premium RS** till den **Standard** nivå, en extra lagringskostnaden gäller om båda (1) den maximala storleken på databasen stöds i målet prestanda och (2) max storlek överskrider lagringsmängden prestandanivå mål med. Till exempel om en P1 databas med en maximal storlek på 500 GB downsized till S3, gäller en extra lagringskostnaden eftersom S3 stöder en maximal storlek på 500 GB och dess inkluderade lagringsutrymmet är bara 250 GB. Det extra lagringsutrymmet är därför, 500 GB – 250 GB = 250 GB. Priser för extra lagring finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden diskutrymme som används är mindre än den inkluderade lagringsmängden, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. 
+* När nedgradering från **Premium** till den **Standard** nivå, en extra lagringskostnaden gäller om både (1) den maximala storleken på databasen stöds i målet prestandanivå och (2) den maximala storleken överskrider den inkluderade lagringsmängden prestandanivå mål. Till exempel om en P1 databas med en maximal storlek på 500 GB downsized till S3, gäller en extra lagringskostnaden eftersom S3 stöder en maximal storlek på 500 GB och dess inkluderade lagringsutrymmet är bara 250 GB. Det extra lagringsutrymmet är därför, 500 GB – 250 GB = 250 GB. Priser för extra lagring finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden diskutrymme som används är mindre än den inkluderade lagringsmängden, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. 
 * När du uppgraderar en databas med [georeplikering](sql-database-geo-replication-portal.md) aktiverad uppgraderar de sekundära databaserna till önskade prestandanivå innan du uppgraderar den primära databasen (allmän vägledning). När du uppgraderar till en annan, krävs uppgradera den sekundära databasen först.
 * När nedgradera en databas med [georeplikering](sql-database-geo-replication-portal.md) aktiverad, nedgradera primära databaserna till den önskade prestandanivån innan du nedgraderar den sekundära databasen (allmän vägledning). När Nedgradera till en annan utgåva, krävs nedgradera den primära databasen först.
 * Erbjudandena för återställningstjänsterna är olika för de olika tjänstnivåerna. Om du Nedgradera till den **grundläggande** nivån finns på en lägre säkerhetskopiering kvarhållningsperiod - Se [Azure SQL Database-säkerhetskopiering](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ Du kan öka eller minska resurserna som är tillgängliga för en elastisk pool 
 - I allmänhet varaktighet ändra min edtu: er per databas eller max edtu: er per databas är fem minuter eller mindre.
 - När downsizing pool-edtu: er måste poolutrymmet används vara mindre än den största tillåtna storleken för den mål service nivå och pool-edtu: er.
 - När rescaling pool-edtu: er, gäller en extra lagringskostnaden om (1) den maximala lagringsstorleken för poolen stöds av målpoolen och (2) den maximala lagringsstorleken överskrider inkluderade lagring målpoolen. Till exempel om en 100 eDTU Standardpool med en maximal storlek på 100 GB downsized till en 50 eDTU Standardpool, gäller en extra lagringskostnaden eftersom målpool stöder en maximal storlek på 100 GB och dess inkluderade lagringsutrymmet är bara 50 GB. Därför är det extra lagringsutrymmet 100 GB – 50 GB = 50 GB. Priser för extra lagring finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden diskutrymme som används är mindre än den inkluderade lagringsmängden, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Vad är det maximala antalet servrar och databaser?
+
+Det maximala antalet servrar per prenumeration per region är 21. Det maximala antalet databaser per server är 5 000. Dessa är mjuka gränser etablerade experimentellt baserat på nyttolast analys, logiska master telemetri samling analys och några andra aspekter. Du kan begära överskrider gränserna, under förutsättning att du håller dig inom DTU-kvot. Antal databaser och servrar blir stor kan är det problem som du kommer till stats resurssamling i logiska master och konkurrens på hanteringsåtgärder. Dessa problem är inte allvarligt; de ökar svarstiden.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Vad händer när databasen och gränserna för elastiska poolen nås?
 

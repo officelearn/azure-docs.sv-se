@@ -1,6 +1,6 @@
 - name: Dokumentation om Service Fabric
   href: /azure/service-fabric
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Vad är Service Fabric?
       href: service-fabric-overview.md
@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Livscykel för replik och instans
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Reliable Services-livscykel – C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services-livscykel – Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Tillgänglighet för tjänster
           href: service-fabric-availability-services.md
-        - name: Livscykel för replik och instans
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Omkonfiguration
           href: service-fabric-concepts-reconfiguration.md
         - name: Tjänstkommunikation

@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Maximalt lagringsutrymme per databas (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Gränser för elastiska Premium RS-pooler
-
-| eDTU:er per pool | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Ingår lagringsutrymme per pool (GB) | 250 | 500 | 750 | 750 |
-| Maximalt antal lagringsalternativ per pool (GB) * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | 1 | 2 | 4 | 10 |
-| Maximalt antal databaser per pool | 50 | 100 | 100 | 100 |
-| Maximalt antal samtidiga arbetare (begäranden) per pool | 200 | 400 | 800 | 1600 |
-| Maximalt antal samtidiga inloggningar per pool | 200 | 400 | 800 | 1600 |
-| Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 |
-| Alternativ för min edtu: er per databas | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Alternativ för max edtu: er per databas | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Maximalt lagringsutrymme per databas (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, Kanada Central, Kanada Öst, Frankrike Central, Tyskland centrala östra Japan, centrala Korea södra centrala USA, södra Östasien, USA East2 , USA, västra USA Gov Virginia och västra Europa. 
+> \* Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, Kanada Central, Kanada Öst, Frankrike Central, Tyskland centrala östra Japan, centrala Korea södra centrala USA, södra Östasien, USA East2 , USA, västra USA Gov Virginia och västra Europa. 
 >
->\*\*Min/max edtu: er per databas startar 200 edtu: er och högre **Standard** pooler finns i förhandsgranskningen.
+>\*\* Min/max edtu: er per databas startar 200 edtu: er och högre **Standard** pooler finns i förhandsgranskningen.
 >

@@ -14,31 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d04752c92218d17b4e90bb03a2ed2ac5a0a11b93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
-Azure Storage Service kryptering (SSE) för Data i vila hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Med den här funktionen Azure Storage krypterar dina data innan beständighet till lagring och automatiskt dekrypterar före hämtning. Kryptering, dekryptering och hantering av nycklar är helt transparent för användarna.
+Azure Storage Service kryptering (SSE) för Data i vila hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Med den här funktionen krypterar Azure Storage automatiskt dina data för beständig lagring och dekrypterar dem före hämtning. Användarna har fullständig insyn i kryptering, dekryptering och nyckelhantering.
 
 Följande avsnitt innehåller detaljerad information om hur du använder funktionerna Lagringstjänstens kryptering samt scenarier som stöds och användaren inträffar.
 
 ## <a name="overview"></a>Översikt
 Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som tillsammans ger utvecklare möjligheten att skapa säkra program. Data kan skyddas vid överföring mellan en program- och Azure med hjälp av [Client Side Encryption](../storage-client-side-encryption.md), HTTPs- eller SMB 3.0. Lagringstjänstens kryptering tillhandahåller kryptering i vila, hantering av kryptering, dekryptering och hantering av nycklar på ett helt transparent sätt. Krypteras alla data med hjälp av 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blocket chiffer tillgängliga.
 
-SSE fungerar genom att kryptera data när de skrivs till Azure Storage och kan användas för Azure Blob Storage och File Storage. Det fungerar för följande:
+SSE fungerar genom att kryptera data när de skrivs till Azure Storage och kan användas för Azure Blob-, fil-, tabell- och Queue Storage. Det fungerar för följande:
 
-* Standardlagring: Allmänna lagringskonton för BLOB- och lagrings- och Blob storage-konton
+* Standardlagring: Allmänna lagringskonton för BLOB storage för fil-, tabell- och kön och Blob storage-konton
 * Premium Storage 
+* Aktiverad som standard för klassisk och ARM Storage-konton 
 * Alla redundans nivåer (LRS, ZRS, GRS och RA-GRS)
 * Azure Resource Manager lagringskonton (men inte klassiska) 
 * Alla regioner.
 
 Mer information finns i vanliga frågor och svar.
 
-Om du vill aktivera eller inaktivera Storage Service-kryptering för ett lagringskonto, logga in på den [Azure-portalen](https://portal.azure.com) och välj ett lagringskonto. Sök efter avsnittet Blob-tjänsten som visas i den här skärmbilden och klicka på kryptering på bladet inställningar.
+Om du vill visa inställningarna för Storage Service-kryptering för ett lagringskonto, logga in på den [Azure-portalen](https://portal.azure.com) och välj ett lagringskonto. Sök efter avsnittet Blob-tjänsten som visas i den här skärmbilden och klicka på kryptering på bladet inställningar.
 
 ![Skärmbild som visar Portal krypteringsalternativet](./media/storage-service-encryption/image1.png)
 <br/>*Bild 1: Aktivera SSE för Blob-tjänsten (steg 1)*
@@ -52,30 +53,27 @@ När du har klickat på inställningen kryptering kan du aktivera eller inaktive
 <br/>*Bild 3: Aktivera SSE för Blob och Filtjänst (steg 2)*
 
 ## <a name="encryption-scenarios"></a>Scenarier för kryptering
-Lagringstjänstens kryptering kan aktiveras på en nivå för storage-konto. När du har aktiverat, kommer kunderna välja vilka tjänster att kryptera. Den stöder följande kundscenarier:
+Lagringstjänstens kryptering är aktiverat på en nivå för storage-konto. Den är aktiverad för alla tjänster som standard. Den stöder följande kundscenarier:
 
-* Kryptering av Blob Storage och File Storage i Resource Manager-konton.
-* Kryptering av Blob och tjänsten File i klassiska lagringskonton när migreras till Resource Manager storage-konton.
+* Kryptering av Blob-, fil-, tabell- och Queue Storage för både klassiska och Resource Manager-konton.
 
 SSE har följande begränsningar:
 
-* Kryptering av klassiska lagringskonton stöds inte.
 * Befintliga Data - SSE krypterar endast nyskapade data efter kryptering har aktiverats. Om till exempel du skapar ett nytt lagringskonto för Resource Manager men inte aktiverar kryptering, och sedan ladda upp blobbar eller arkiverade virtuella hårddiskar till att lagringskontot och sedan aktivera SSE, krypteras inte de blobbar om de om eller kopieras.
 * Stöd för Marketplace - Aktivera kryptering av virtuella datorer skapas från Marketplace med hjälp av den [Azure-portalen](https://portal.azure.com), PowerShell och Azure CLI. Grundläggande VHD-avbildningen kommer att vara okrypterad; alla skrivningar utföras när den virtuella datorn har kommer att krypteras.
-* Tabellen och köer data krypteras inte.
 
 ## <a name="getting-started"></a>Komma igång
 ### <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Steg 1: [skapa ett nytt lagringskonto](../storage-create-storage-account.md).
-### <a name="step-2-enable-encryption"></a>Steg 2: Aktivera kryptering.
-Du kan aktivera kryptering med hjälp av den [Azure-portalen](https://portal.azure.com).
+### <a name="step-2-verify-encryption"></a>Steg 2: Kontrollera kryptering.
+Du kan kontrollera kryptering använder den [Azure-portalen](https://portal.azure.com).
 
 > [!NOTE]
-> Om du vill programmässigt, aktivera eller inaktivera Storage Service-kryptering på ett lagringskonto kan du använda den [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx), [Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), [Azure PowerShell](/powershell/azureps-cmdlets-docs), eller [Azure CLI](../storage-azure-cli.md).
+> Om du vill kontrollera programmatiskt Lagringstjänstens kryptering på ett lagringskonto kan du använda den [Azure Storage Resource Provider REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx), [Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx) , [Azure PowerShell](/powershell/azureps-cmdlets-docs), eller [Azure CLI](../storage-azure-cli.md).
 > 
 > 
 
 ### <a name="step-3-copy-data-to-storage-account"></a>Steg 3: Kopiera data till storage-konto
-Om du aktiverar SSE för Blob-tjänsten kommer att krypteras alla blobbar som skrivs till detta lagringskonto. Alla blobbar som redan finns i detta lagringskonto krypteras inte förrän de på nytt. Du kan kopiera data från ett lagringskonto till en med SSE krypterade eller även aktivera SSE och kopierar blobar från en behållare till en annan säker tidigare data som är krypterade. Du kan använda någon av följande verktyg för att åstadkomma detta. Det här är samma beteende för lagring av filer samt.
+När SSE har aktiverats för ett lagringskonto måste krypteras alla data som skrivs till detta lagringskonto. Alla data som redan finns i detta lagringskonto krypteras inte förrän de på nytt. Du kan kopiera data från en behållare till en annan så att tidigare data krypteras. Du kan använda någon av följande verktyg för att åstadkomma detta. Det här är samma beteende för fil-, tabell- och Queue Storage samt.
 
 #### <a name="using-azcopy"></a>Med hjälp av AzCopy
 AzCopy är en Windows-kommandoradsverktyg för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon med optimal prestanda. Du kan använda den för att kopiera BLOB eller filer från ett lagringskonto till en annan som har SSE aktiverad. 
@@ -104,7 +102,7 @@ Under tiden kan du anropa [hämta kontoegenskaperna](https://msdn.microsoft.com/
 ## <a name="encryption-and-decryption-workflow"></a>Kryptering och dekryptering arbetsflöde
 Här är en kort beskrivning av arbetsflödet för kryptering/dekryptering:
 
-* Kunden aktiverar kryptering på lagringskontot.
+* Kryptering är aktiverat för ett lagringskonto.
 * När kunden skriver data (PLACERA Blob, PLACERA Block, PLACERA sidan, PLACERA filen o.s.v.) för lagring av Blob- eller fil. varje skrivning har krypterats med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blocket chiffer tillgängliga.
 * När kunden behöver åtkomst till data (hämta Blob, etc.), dekrypteras data automatiskt innan det returneras till användaren.
 * Om kryptering har inaktiverats kan nya skrivningar krypteras inte längre och befintliga krypterade data förblir krypterade tills skrivas om av användaren. Även om kryptering har aktiverats, krypteras skrivningar till Blob- eller fillagring. Tillståndet för data ändras inte med användaren växla mellan aktivering/inaktivering av kryptering för lagringskontot.
@@ -113,33 +111,35 @@ Här är en kort beskrivning av arbetsflödet för kryptering/dekryptering:
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Vanliga frågor om Storage Service-kryptering för Data i vila
 **F: Jag har ett befintligt klassiska lagringskonto. Kan jag aktivera SSE på den?**
 
-S: inte stöds SSE bara på Resource Manager storage-konton.
+S: SSE är aktiverad som standard för alla lagringskonton (klassiskt och Resource Manager storage-konton).
 
 **F: hur kan jag för att kryptera data i mitt klassiska storage-konto?**
 
-S: du kan skapa ett nytt lagringskonto för hanteraren för filserverresurser och kopiera dina data med hjälp av [AzCopy](storage-use-azcopy.md) från ditt befintliga klassiska storage-konto till ditt nya lagringskonto för hanteraren för filserverresurser. 
+S: med kryptering aktiverat som standard, krypteras automatiskt nya data med storage-tjänst. 
 
-Om du migrerar klassiska storage-konto till ett lagringskonto för hanteraren för filserverresurser åtgärden är omedelbar, ändrar typ av ditt konto, men påverkas inte befintliga data. Alla nya data skrivs krypteras endast efter att aktivera kryptering. Mer information finns i [plattform stöd för migrering av IaaS-resurser från klassiska till Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Observera att detta stöds endast för Blob- och -tjänster.
+Du kan också skapa ett nytt lagringskonto för hanteraren för filserverresurser och kopiera alla data med [AzCopy](storage-use-azcopy.md) från ditt befintliga klassiska storage-konto till ditt nya lagringskonto för hanteraren för filserverresurser. 
+
+Du kan också välja att migrera klassiska storage-konto till ett lagringskonto för hanteraren för filserverresurser. Den här åtgärden är omedelbar, det ändrar typ av ditt konto men påverkar inte befintliga data. Alla nya data skrivs krypteras endast efter att aktivera kryptering. Mer information finns i [plattform stöd för migrering av IaaS-resurser från klassiska till Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Observera att detta stöds endast för Blob- och -tjänster.
 
 **F: Jag har ett befintligt lagringskonto i hanteraren för filserverresurser. Kan jag aktivera SSE på den?**
 
-S: Ja, men endast nyligen skrivs data att krypteras. Det inte gå tillbaka och kryptera data som redan finns. Detta stöds inte ännu för förhandsgranskning för lagring av filer.
+S: SSE är aktiverat som standard på alla befintliga Resource Manager-lagringskonton. Detta stöds för Blobbar, tabeller, fil och Queue storage. 
 
 **F: Jag vill att kryptera den aktuella informationen i ett befintligt lagringskonto i Resource Manager?**
 
-S: du kan aktivera SSE när som helst i ett lagringskonto för hanteraren för filserverresurser. Data som redan fanns kommer inte krypteras. För att kryptera befintliga data, kan du kopiera dem till ett annat namn eller en annan behållare och tar bort okrypterad versioner.
+S: med SSE aktiverad som standard för alla lagringskonton - klassisk och Resource Manager storage-konton. Data som redan fanns kommer inte krypteras. För att kryptera befintliga data, kan du kopiera dem till ett annat namn eller en annan behållare och tar bort okrypterad versioner. 
 
 **F: Jag använder Premium-lagring. kan jag använda SSE?**
 
 S: Ja stöds SSE både standardlagring och Premium-lagring.  Premium-lagring stöds inte för tjänsten.
 
-**F: om jag skapa ett nytt lagringskonto och aktivera SSE och sedan skapa en ny virtuell dator med hjälp av detta lagringskonto, betyder det den virtuella datorn är krypterad?**
+**F: om jag skapar ett nytt lagringskonto med SSE aktiverats, skapar du en ny virtuell dator med hjälp av att lagringskontot, betyder att den virtuella datorn är krypterad?**
 
 S: Ja. Alla diskar som skapats med det nya lagringskontot krypteras, förutsatt att de skapas efter SSE har aktiverats. Om den virtuella datorn har skapats med hjälp av Azure-marknadsplatsen, VHD-basavbildning kommer att vara okrypterad; alla skrivningar utföras när den virtuella datorn har kommer att krypteras.
 
 **F: kan jag skapa ny storage-konton med SSE aktiverad med Azure PowerShell och Azure CLI?**
 
-S: Ja.
+S: SSE aktiveras som standard vid tidpunkten för att skapa någon lagringskonto (klassiskt och Resource Manager-konton). Du kan kontrollera egenskaper med både Azure PowerShell och Azure CLI.
 
 **F: hur mycket kostar Azure Storage om SSE aktiveras?**
 
@@ -159,32 +159,31 @@ S: inte vid detta tillfälle. nycklarna är fullständigt hanteras av Microsoft.
 
 **F: är SSE aktiverad som standard när jag skapar ett nytt lagringskonto?**
 
-S: Azure Storage-teamet håller på att aktivera kryptering som standard med hjälp av Microsoft-hanterade nycklar för alla data som skrivs till Azure Storage (Blob, fil-, tabell- och kön lagring) och för alla lagringskonton (Azure Resource Manager och klassisk lagring konton), både nya och befintliga.
+S: Ja är SSE med Microsoft Managed nycklar aktiverad som standard för alla lagringskonton - Azure Resource Manager och klassiska lagringskonton. Det är aktiverat för alla tjänster samt - Blob-, tabell, kö och fillagring.
 
 **F: hur skiljer detta sig från Azure Disk Encryption?**
 
 S: funktionen används för att kryptera data i Azure Blob storage. Azure Disk Encryption används för att kryptera Operativsystemet och datadiskarna i IaaS-VM. Mer information finns våra [säkerhetsguiden för lagring](../storage-security-guide.md).
 
-**F: Vad händer om jag aktivera SSE, och sedan gå in i och aktivera Azure Disk Encryption på diskarna?**
+**F: Vad händer om SSE aktiveras och sedan jag aktivera Azure Disk Encryption på diskarna?**
 
 S: Detta fungerar sömlöst. Data krypteras med båda metoderna.
 
-**F: mitt lagringskonto har konfigurerats som ska replikeras geo-redundant. Om jag aktiverar SSE min redundant kopia även krypteras?**
+**F: mitt lagringskonto har konfigurerats som ska replikeras geo-redundant. Om SSE aktiveras min redundant kopia även krypteras?**
 
 S: Ja, krypteras alla kopior av lagringskontot och alla redundansalternativ för – lokalt Redundant lagring (LRS), zon-Redundant lagring (ZRS), Geo-Redundant lagring (GRS) och Geo-Redundant lagring med läsbehörighet (RA-GRS) – stöds.
 
-**F: Jag kan inte aktivera kryptering på mitt lagringskonto.**
+**Fråga: Det går inte att inaktivera kryptering för storage-konto.**
 
-S: är det en Resource Manager storage-konto? Klassiska lagringskonton stöds inte. 
+S: kryptering är aktiverat som standard och skall inte att inaktivera kryptering för ditt lagringskonto. 
 
 **F: SSE tillåts endast i vissa regioner?**
 
-S: SSE är tillgänglig i alla regioner för Blob storage. Mer information finns i avsnittet för tillgänglighet för lagring av filer. 
+S: SSE är tillgänglig i alla regioner för alla tjänster. 
 
 **F: hur kan jag få någon om jag har problem eller vill ge feedback?**
 
-S: Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem som rör Storage Service-kryptering.
+A: Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem som rör Storage Service-kryptering.
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner som tillsammans ger utvecklare möjligheten att skapa säkra program. Mer information finns i [säkerhetsguiden för lagring](../storage-security-guide.md).
-
+Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner för, vilket tillsammans ger utvecklare möjligheten att skapa säkra program. Mer information finns i [säkerhetsguiden för lagring](../storage-security-guide.md).

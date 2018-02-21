@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskap aktiviteter: utforskning, modellering och distribution
 
@@ -25,10 +25,10 @@ Vanliga vetenskap aktiviteter inkluderar datagranskning, modellering och distrib
 
 - [Azure Machine Learning](../preview/index.yml)
 - [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Microsoft Machine Learning-Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Undersökning 
+## 1. <a name='DataQualityReportUtility-1'></a> Undersökning 
 
 En data-forskare kan utföra undersökning och rapportering i en mängd olika sätt: genom att använda bibliotek och paket som är tillgängliga för Python (matplotlib till exempel) eller med R (ggplot eller gitter till exempel). Datavetare kan anpassa sådan kod så att de passar bäst för datagranskning för specifika scenarier. Behov för att hantera strukturerade data är olika för Ostrukturerade data, till exempel text och bilder. 
 
@@ -43,7 +43,7 @@ Denna R markdown-baserade eller Python anteckningsboken-baserat verktyg ger ett 
 För tillfället fungerar verktyget bara på dataramar i minnet. En YAML-fil behövs för att ange parametrarna för de data som ska undersökas. Mer information finns i [IDEAR i TDSP datavetenskap verktyg](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modeling
+## 2. <a name='ModelingUtility-2'></a> Modeling
 
 Det finns flera verktyg och paket för utbildning-modeller i en mängd olika språk. Datavetare bör passa på att använda som ever som de är nöjd med, så länge prestandaöverväganden om noggrannhet och svarstid uppfylls för relevanta företag använder fall och produktion scenarier.
 
@@ -78,9 +78,9 @@ När flera modeller har skapats, måste vanligtvis du ha ett system för att reg
 1. [Azure Machine Learning - modellen management-tjänsten](../preview/index.yml)
 2. [ModelDB från MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver som ett system för hantering av modellen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Distribution
+## 3. <a name='Deployment-3'></a> Distribution
 
 Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för affärsbeslut.
 
@@ -88,9 +88,9 @@ Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv 
 Det finns olika strategier och plattformar för att placera modeller i produktionen. Här följer några alternativ:
 
 
-- [Distribution av modellen i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Distribution av modellen i Azure Machine Learning](../preview/model-management-overview.md)
 - [Distribution av en modell i SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning-Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introduktion till Azure Cosmos DB: API för MongoDB
 
@@ -43,7 +43,10 @@ Azure DB Cosmos-databaser kan användas som datalager för appar som skrivits f�
 
 | Azure Cosmos DB standardnivå för konsekvenskontroll |   Mongo-API (3.4) |
 |---|---|
-|Session| Eventuell |
+|Eventuell| Eventuell |
+|Konsekvent prefix| Eventuell konsekvent ordning |
+|Session| Eventuell konsekvent ordning |
+|Begränsad föråldring| Stark |
 | Stark | Stark |
 
 **Automatisk indexering**: som standard, Azure Cosmos DB indexerar automatiskt alla egenskaper i dokument i din MongoDB-databas och inte förväntar sig eller kräver något schema eller att sekundärindex. Kapacitet för unikt index möjliggör dessutom en unikhetsbegränsningen på dokumentfält som redan är auto-indexerat i Azure Cosmos-databasen.

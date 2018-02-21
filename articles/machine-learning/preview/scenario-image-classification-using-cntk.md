@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -54,7 +54,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 4. En dedikerad GPU krävs inte att köra SVM utbildning del 1, men det är nödvändigt för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU vill träna på flera GPU-kort eller har inte en Windows-dator, bör du använda Azures djup Learning virtuell dator med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. Distribution kan ansluta till den virtuella datorn via en anslutning till fjärrskrivbord, installera arbetsstationen det och kör kod lokalt från den virtuella datorn.
 5. Olika Python-bibliotek, till exempel OpenCV behöver installeras. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`När du har hämtat OpenCV hjul från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` När du har hämtat OpenCV hjul från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,7 +81,7 @@ Utför dessa åtgärder skapar projektstrukturen som visas nedan. Projektkatalog
 
   Mapp| Beskrivning
   ---|---
-  aml_config /|                           Katalogen som innehåller konfigurationsfiler Azure Machine Learning arbetsstationen
+  aml_config/|                           Katalogen som innehåller konfigurationsfiler Azure Machine Learning arbetsstationen
   bibliotek /|                              Katalogen som innehåller alla Python och Jupyter hjälpfunktioner
   bärbara datorer /|                              Katalogen som innehåller alla bärbara datorer
   resurser /|                              Katalogen som innehåller alla resurser (till exempel url sätt bilder)
@@ -193,7 +193,7 @@ Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igeno
 ### <a name="step-6-deployment"></a>Steg 6: distribution
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”lokal PROJEKTNAMN”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) för distribution av mer relaterad information.
+Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”lokal PROJEKTNAMN”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](tutorial-classifying-iris-part-3.md) för distribution av mer relaterad information.
 
 När har distribuerats, webbtjänsten kan anropas med skriptet `6_callWebservice.py`. Observera att IP-adressen (lokalt eller i molnet) för webbtjänsten måste anges först i skriptet. Anteckningsboken `deploy.ipynb` förklarar hur du hittar den här IP-adress.
 
@@ -228,7 +228,7 @@ Kan ses i området nedan är noggrannhet med DNN förfining för den angivna dat
 
 ### <a name="run-history-tracking"></a>Kör spårning av logg
 
-Azure Machine Learning arbetsstationen butiker historiken för var och en körs på Azure att jämförelse av två eller flera kör som är även veckor från varandra. Detta beskrivs i detalj i den [Iris kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Illustreras också i följande skärmbilderna där vi jämföra två körningar av skriptet `5_evaluate.py`, med hjälp av antingen DNN förfining som är `classifier = "dnn"`(kör tal 148) eller SVM utbildning som är `classifier = "svm"` (kör tal 150).
+Azure Machine Learning arbetsstationen butiker historiken för var och en körs på Azure att jämförelse av två eller flera kör som är även veckor från varandra. Detta beskrivs i detalj i den [Iris kursen](tutorial-classifying-iris-part-2.md). Illustreras också i följande skärmbilderna där vi jämföra två körningar av skriptet `5_evaluate.py`, med hjälp av antingen DNN förfining som är `classifier = "dnn"`(kör tal 148) eller SVM utbildning som är `classifier = "svm"` (kör tal 150).
 
 I den första skärmbilden leder DNN förfining till att bättre noggrannhet än SVM utbildning för alla klasser. Andra skärmbilden visar alla mått som spåras, inklusive klassificeraren har. Den här spårning görs i skriptet `5_evaluate.py` genom att anropa loggaren Azure Machine Learning-arbetsstationen. Dessutom skriptet också sparar ROC-kurvan och förvirring matris till den *matar ut* mapp. Detta *matar ut* mappen är speciellt i att innehållet också spåras av funktionen tidigare arbetsstationen och därför utdatafilerna kan nås när som helst, oavsett om det har skrivits över lokala kopior.
 

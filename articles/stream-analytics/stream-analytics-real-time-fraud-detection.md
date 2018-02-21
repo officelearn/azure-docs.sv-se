@@ -1,3 +1,26 @@
+---
+title: "Stream Analytics: Att upptäcka bedrägerier realtid | Microsoft Docs"
+description: "Lär dig hur du skapar en lösning för identifiering av realtidsskyddet bedrägeri med Stream Analytics. Använd en händelsehubb för händelsebearbetning i realtid."
+keywords: "Identifiering av avvikelse, att upptäcka bedrägerier, realtid avvikelseidentifiering"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: att upptäcka bedrägerier i realtid
 
 Den här självstudiekursen innehåller en slutpunkt till slutpunkt illustration av hur du använder Azure Stream Analytics. Lär dig att: 
@@ -14,7 +37,7 @@ I den här självstudiekursen använda vi exemplet med baserat på telefonsamtal
 
 Ett telekommunikation företag har stora mängder data för inkommande samtal. Företaget vill identifiera bedrägliga anrop i realtid så att de kan meddela kunder eller stänga av tjänsten för ett visst tal. En typ av SIM bedrägeri innebär att flera anrop från samma identitet vid ungefär samma tidpunkt men sig på geografiskt skilda platser. För att identifiera den här typen av bedrägerier, måste företaget att granska inkommande phone poster och leta efter specifika mönster – i det här fallet för anrop som görs vid ungefär samma tidpunkt i olika länder. Alla telefonen poster som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudiekursen kommer du simulera telefonsamtal data med hjälp av ett klientprogram som genererar exempel telefonsamtal metadata. Vissa av posterna som ger appen ser ut som bedrägliga anrop. 
 
@@ -26,11 +49,11 @@ Innan du börjar bör du kontrollera att du har följande:
     >[!NOTE]
     >Windows kan blockera hämtade ZIP-filen. Om du går inte att packa upp den, högerklicka på filen och välj **egenskaper**. Om meddelandet ”den här filen kommer från en annan dator och kan ha blockerats för att skydda den här datorn”, väljer du den **avblockera** alternativ och klickar sedan på **tillämpa**.
 
-Om du vill granska resultatet av Streaming Analytics-jobbet måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio, kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Lagringsutforskaren](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Om du vill granska resultatet av Streaming Analytics-jobbet måste du också ett verktyg för att visa innehållet i en Azure Blob Storage-behållare. Om du använder Visual Studio, kan du använda [Azure Tools för Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) eller [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Du kan också installera fristående verktyg som [Azure Lagringsutforskaren](http://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Skapa ett Azure event hubs för att mata in händelser
 
-Att analysera en dataström du *infognings-* till Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), där du kan mata in miljontals händelser per sekund och sedan bearbeta och lagra händelseinformationen om. För den här självstudiekursen skapar en händelsehubb och har appen anropet händelse generator skicka anropsdata till den event hub. Mer information om händelsehubbar finns i [Azure Service Bus-dokumentationen](https://docs.microsoft.com/en-us/azure/service-bus/).
+Att analysera en dataström du *infognings-* till Azure. Ett vanligt sätt att mata in data är att använda [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), där du kan mata in miljontals händelser per sekund och sedan bearbeta och lagra händelseinformationen om. För den här självstudiekursen skapar en händelsehubb och har appen anropet händelse generator skicka anropsdata till den event hub. Mer information om händelsehubbar finns i [Azure Service Bus-dokumentationen](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >En mer detaljerad version av den här proceduren finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). 
@@ -126,7 +149,7 @@ Innan du börjar TelcoGenerator app måste konfigurera du den så att den ska sk
 
 Vissa viktiga fält som du ska använda i realtid bedrägeri identifiering programmet är följande:
 
-|**Post**|**Definition**|
+|**Post**|Definition|
 |----------|--------------|
 |`CallrecTime`|Tidsstämpel för anropet starttid. |
 |`SwitchNum`|Telefonväxeln används för att ansluta anropet. I det här exemplet är växlarna strängar som representerar landet där ursprung (USA Kina, Storbritannien, Tyskland eller Australien). |

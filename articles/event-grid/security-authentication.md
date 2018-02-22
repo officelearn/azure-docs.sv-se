@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
@@ -59,6 +59,11 @@ För att bevisa endpoint ägarskap echo tillbaka i egenskapen validationResponse
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Säkerhet med händelser leverans
+
+Du kan skydda webhook-slutpunkten genom att lägga till frågeparametrar Webhooksadressen när du skapar en händelse-prenumeration. Ange en av parametrarna fråga ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från händelsen rutnät med giltig behörighet. Händelsen rutnätet tas dessa Frågeparametrar i varje händelse leverans till webhooken.
+
+När du redigerar händelseprenumerationen frågeparametrar inte ska visas eller returneras om den [--inkluderar-full-slutpunkt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter används i Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Slutligen är det viktigt att Observera att Azure händelse rutnätet endast stöder HTTPS webhook-slutpunkter.
 
@@ -68,15 +73,15 @@ Om du vill prenumerera på en händelse, måste du ha den **Microsoft.EventGrid/
 
 ### <a name="system-topics-azure-service-publishers"></a>System avsnitt (utgivare Azure-tjänst)
 
-För system ämnen behöver du behörighet att skriva en ny händelseprenumeration på omfattningen av resurspublicerings händelsen. Formatet för resursen är:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+För system ämnen behöver du behörighet att skriva en ny händelseprenumeration på omfattningen av resurspublicerings händelsen. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Till exempel att prenumerera på en händelse på ett lagringskonto med namnet **MITTKONTO**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Till exempel att prenumerera på en händelse på ett lagringskonto med namnet **MITTKONTO**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Anpassade avsnitt
 
-För anpassade avsnitt behöver behörighet att skriva en ny händelseprenumeration på omfattningen av händelse rutnätet ämnet. Formatet för resursen är:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+För anpassade avsnitt behöver behörighet att skriva en ny händelseprenumeration på omfattningen av händelse rutnätet ämnet. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Om du till exempel att prenumerera på en anpassad avsnittet namnet **mytopic**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Om du till exempel att prenumerera på en anpassad avsnittet namnet **mytopic**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Avsnittet publicering
 
@@ -86,7 +91,7 @@ Du kan inkludera autentiseringsvärdet för i HTTP-huvudet. Använd för SAS, **
 
 ### <a name="key-authentication"></a>Autentisering med nyckel
 
-Nyckelautentisering är den enklaste formen av autentisering. Använd formatet:`aeg-sas-key: <your key>`
+Nyckelautentisering är den enklaste formen av autentisering. Använd formatet: `aeg-sas-key: <your key>`
 
 Exempelvis kan du ange en nyckel med:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 SAS-token för händelsen rutnätet är resursen, en förfallotid och en signatur. Formatet på SAS-token är: `r={resource}&e={expiration}&s={signature}`.
 
-Resursen är sökvägen till avsnittet som du skickar händelser. Till exempel är en giltig resurs-sökväg:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Resursen är sökvägen till avsnittet som du skickar händelser. Till exempel är en giltig resurs-sökväg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Du kan skapa signaturen från en nyckel.
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modul från Azure portal till en windowsenhet - förhandsgranskning
 
@@ -21,7 +21,7 @@ I den här snabbstarten att använda Azure IoT kant molnet gränssnittet för at
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa en [kostnadsfritt konto] [ lnk-account] innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Windows för att simulera en Sakernas Internet-enhet. Om du kör Windows på en virtuell dator, aktivera [kapslade virtualisering] [ lnk-nested] och tilldela minst 2 GB minne. 
 
@@ -32,7 +32,7 @@ Den här kursen förutsätter att du använder en dator eller virtuell dator som
 3. Installera [Python 2.7 på Windows] [ lnk-python] och kontrollera att du kan använda kommandot pip.
 4. Kör följande kommando för att hämta skriptet IoT kant kontroll.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Den här kursen förutsätter att du använder en dator eller virtuell dator som
 >    * Windows IoT Core (skapa 16299) på en enhet med x64
 >
 > För Windows IoT Core, följer du instruktionerna i [installera runtime IoT kanten på Windows IoT Core][lnk-install-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers], och du kan också kontrollera dina krav med följande powershell-kommando:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av tv�
 
 Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Starta körningen.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Kontrollera Docker för att se att IoT kant-agenten körs som en modul.
 
-```
+```cmd
 docker ps
 ```
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -37,7 +37,7 @@ Mätvärden och diagnostikfunktionerna loggning är inte aktiverad som standard.
 - Azure Portal
 - PowerShell
 - Azure CLI
-- Azure-Monitor REST API 
+- Azure Monitor REST API 
 - Azure Resource Manager-mall
 
 Du måste ange Azure-resurs där valda data samlas in när du aktiverar mått och diagnostikloggning. Alternativen är:
@@ -157,7 +157,7 @@ Om du vill aktivera mätvärden och diagnostikfunktionerna loggning med hjälp a
 
 Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Läs mer om hur du [ändra diagnostikinställningarna med hjälp av REST API för Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
@@ -180,11 +180,11 @@ SQL-databas mätvärden och diagnostikfunktionerna loggar kan strömmas till Log
 
 ### <a name="create-a-log-analytics-resource"></a>Skapa en resurs för logganalys
 
-1. Välj **ny** på menyn till vänster.
+1. Välj **skapar du en resurs** på menyn till vänster.
 
 2. Välj **övervakning + Management**.
 
-3. Välj **logga Analytics**.
+3. Välj **Log Analytics**.
 
 4. Fyll i formuläret logganalys med ytterligare information som krävs: arbetsytans namn, prenumeration, resursgrupp, plats och prisnivån.
 
@@ -273,7 +273,7 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
@@ -318,20 +318,20 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 |query_id_d|ID för frågan i Frågearkivet.|
 |plan_id_d|ID för planen i Query Store.|
 
-Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Query Store vänta statistik
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics|
 |OperationName|Namnet på åtgärden. Alltid: QueryStoreWaitStatisticsEvent|
-|Resurs|Namn på resursen|
+|Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -356,20 +356,20 @@ Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.c
 |query_id_d|ID för frågan i Frågearkivet.|
 |plan_id_d|ID för planen i Query Store.|
 
-Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Fel dataset
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: fel|
 |OperationName|Namnet på åtgärden. Alltid: ErrorEvent|
-|Resurs|Namn på resursen|
+|Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -391,14 +391,14 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/en-us/l
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics|
-|OperationName|Namnet på åtgärden. Alltid: DatabaseWaitStatisticsEvent|
-|Resurs|Namn på resursen|
+|OperationName|Namnet på åtgärden. Always: DatabaseWaitStatisticsEvent|
+|Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -414,20 +414,20 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/en-us/l
 |delta_wait_time_ms_d|Totalt antal väntetiden under perioden.|
 |delta_waiting_tasks_count_d|Antal väntande aktiviteter.|
 
-Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Timeout dataset
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: timeout|
 |OperationName|Namnet på åtgärden. Alltid: TimeoutEvent|
-|Resurs|Namn på resursen|
+|Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -443,14 +443,14 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/en-us/sq
 
 |Egenskap|Beskrivning|
 |---|---|
-|Klient-ID|Klient-ID.|
+|TenantId|Klient-ID.|
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades.|
 |Typ|Alltid: AzureDiagnostics|
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: block|
 |OperationName|Namnet på åtgärden. Alltid: BlockEvent|
-|Resurs|Namn på resursen|
+|Resurs|Namnet på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|

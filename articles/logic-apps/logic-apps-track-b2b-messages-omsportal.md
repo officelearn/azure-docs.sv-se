@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Spåra B2B-kommunikation i Microsoft Operations Management Suite (OMS)
 
@@ -47,7 +47,7 @@ När du har skapat B2B-kommunikation mellan två kör affärsprocesser eller pro
 
 Om du vill att OMS spåra B2B-meddelanden för din logikapp, måste du lägga till den **Logic Apps B2B** lösning till OMS-portalen. Lär dig mer om [att lägga till lösningar till OMS](../log-analytics/log-analytics-get-started.md).
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
+1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
    ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -149,7 +149,7 @@ Här är Egenskapsbeskrivningar för varje AS2-meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett AS2-avtal |
+| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett AS2-avtal |
 | Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett AS2-avtal |
 | Logikapp | Logikappen där AS2-åtgärder ställa in |
 | Status | Status för AS2-meddelande <br>Lyckade = mottagna eller skickade ett ogiltigt AS2-meddelande. Ingen MDN har ställts in. <br>Lyckade = mottagna eller skickade ett ogiltigt AS2-meddelande. MDN ställa in och tas emot eller MDN skickas. <br>Det gick inte = tagits emot ett ogiltigt AS2-meddelande. Ingen MDN har ställts in. <br>Väntande = mottagna eller skickade ett ogiltigt AS2-meddelande. MDN ställs in och MDN förväntas. |
@@ -180,7 +180,7 @@ Här följer Egenskapsbeskrivningar för varje X12 meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett X12 avtal |
+| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett X12 avtal |
 | Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett X12 avtal |
 | Logikapp | Logikappen där X12 åtgärder ställs in |
 | Status | Den X12 meddelandet status <br>Lyckade = mottagna eller skickas en giltig X12 meddelande. Inga funktionella ack har ställts in. <br>Lyckade = mottagna eller skickas en giltig X12 meddelande. Funktionella ack ställa in och tas emot eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt X12 meddelande. <br>Väntande = mottagna eller skickas en giltig X12 meddelande. Funktionella ack har konfigurerats och en fungerande ack förväntas. |
@@ -213,7 +213,7 @@ Här är Egenskapsbeskrivningar för varje EDIFACT-meddelande.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Avsändare | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
+| Avsändaren | Gäst-partner som anges i **tar emot inställningar**, eller värden partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
 | Mottagaren | Värd-partner som anges i **tar emot inställningar**, eller gäst-partner som anges i **skicka inställningar** för ett EDIFACT-avtal |
 | Logikapp | Logikappen där EDIFACT-åtgärder ställa in |
 | Status | Status för EDIFACT-meddelande <br>Lyckade = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Inga funktionella ack har ställts in. <br>Lyckade = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Funktionella ack ställa in och tas emot eller en funktionell ack skickas. <br>Det gick inte = mottagna eller skickade ett ogiltigt EDIFACT-meddelande <br>Väntande = mottagna eller skickade ett ogiltigt EDIFACT-meddelande. Funktionella ack har konfigurerats och en fungerande ack förväntas. |

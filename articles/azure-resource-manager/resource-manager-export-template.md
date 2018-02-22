@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Exportera en Azure Resource Manager-mall från befintliga resurser
 I den här artikeln får du lära dig hur du exporterar en Resource Manager-mall från befintliga resurser i din prenumeration. Du kan använda mallen som genereras för att få en bättre förståelse av mallens syntax.
@@ -33,7 +33,7 @@ I det här avsnittet visas båda metoderna via portalen.
 ## <a name="deploy-resources"></a>Distribuera resurser
 Låt oss börja med att distribuera resurser till Azure som du kan använda för att exportera som en mall. Om du redan har en resursgrupp i den prenumeration som du vill exportera till en mall kan du hoppa över det här avsnittet. I resterande del av artikeln förutsätter vi att du har distribuerat webbappen och SQL-databaslösningen som visas i det här avsnittet. Om du använder en annan lösning kan din upplevelse bli lite annorlunda, men stegen för att exportera en mall är desamma. 
 
-1. Välj **Ny** i [Azure Portal](https://portal.azure.com).
+1. I den [Azure-portalen](https://portal.azure.com)väljer **skapar du en resurs**.
    
       ![Välj ny](./media/resource-manager-export-template/new.png)
 2. Sök efter **webbapp + SQL** och välj det bland de tillgängliga alternativen.

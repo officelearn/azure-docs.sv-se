@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Skapa Power BI Embedded kapacitet i Azure-portalen
 
@@ -41,7 +41,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **+ (ny)** > **Data + analys**.
+2. Välj **skapar du en resurs** > **Data + analys**.
 
 3. I sökrutan söker du efter *Power BI Embedded*.
 
@@ -62,7 +62,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 6. Välj **Skapa**.
 
-Skapa tar vanligtvis under en minut; ofta bara några sekunder. Om du har valt **fäst på instrumentpanelen**, gå till instrumentpanelen för att se din nya kapacitet. Eller navigera till **fler tjänster** > **Power BI Embedded** att se om din kapacitet är klar.
+Skapa tar vanligtvis under en minut; ofta bara några sekunder. Om du har valt **fäst på instrumentpanelen**, gå till instrumentpanelen för att se din nya kapacitet. Eller navigera till **alla tjänster** > **Power BI Embedded** att se om din kapacitet är klar.
 
 ![Azure portal instrumentpanel med Power BI Embedded kapacitet](media/create-capacity/azure-portal-dashboard.png)
 

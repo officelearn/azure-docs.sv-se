@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Data användarhandboken för förberedelser 
 Azure Machine Learning Data förberedelser upplevelsen ger mycket omfattande funktioner. Den här artikeln dokumenteras djupaste delarna i miljön.
@@ -89,7 +89,7 @@ Att duplicera:
 4. Efter **villkor**väljer **skapa dataflöde som innehåller filtreras ut rader** att duplicera-visa resultatet i ett nytt dataflöde.
 
 
-Den här övningen används ofta för att skilja ut en uppsättning data som kräver ytterligare förberedelser. När du wrangle andelen vridvuxna datamängden är det vanligt att sammanfoga data med resultatuppsättningen i det ursprungliga dataflödet. För dokument (omvänt en förgrening åtgärd), använder du någon av följande åtgärder:
+Den här övningen används ofta för att skilja ut en uppsättning data som kräver ytterligare förberedelser. När du har förberett andelen vridvuxna datamängden är det vanligt att sammanfoga data med resultatuppsättningen i det ursprungliga dataflödet. För dokument (omvänt en förgrening åtgärd), använder du någon av följande åtgärder:
 
 - **Lägg till rader**. Sammanfoga två eller flera dataflöden lodrätt (bindning efter rader). 
 - **Lägg till kolumner**. Sammanfoga två eller flera dataflöden vågrätt (Kolumnvis).

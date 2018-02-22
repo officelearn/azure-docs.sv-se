@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Windows-operativsystemet i Service Fabric-kluster
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 Korrigering av orchestration-programmet är ett Azure Service Fabric som automatiserar operativsystemet korrigering på ett Service Fabric-kluster utan driftavbrott.
 
-Korrigering orchestration appen innehåller följande:
+Korrigering orchestration appen tillhandahåller följande funktioner:
 
 - **Automatisk uppdatering operativsysteminstallation**. Uppdateringar av operativsystemet hämtas och installeras automatiskt. Noder i klustret startas om vid behov utan klusterdriftstopp.
 
@@ -50,7 +56,7 @@ Korrigering orchestration appen består av följande delkomponenter:
 > [!NOTE]
 > Korrigering orchestration appen använder tjänsten Service Fabric reparera manager system för att inaktivera eller aktivera noden och utföra hälsokontroller. Reparationsuppgiften som skapats av korrigering orchestration appen spårar förloppet för Windows Update för varje nod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Aktivera tjänsten reparera manager (om det inte redan körs)
 
@@ -61,15 +67,15 @@ Korrigering orchestration appen kräver tjänsten reparera manager system måste
 Azure-kluster i silver hållbarhetsnivån har tjänsten reparera manager aktiverad som standard. Azure-kluster i guld hållbarhetsnivån kanske eller kanske inte reparera manager-tjänsten aktiverad, beroende på när dessa kluster skapades. Azure-kluster i Brons hållbarhetsnivån som standard har inte reparera manager-tjänsten aktiverad. Om den redan är aktiverad, visas den i avsnittet system tjänster i Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Azure Portal
-Du kan aktivera reparera manager från Azure-portalen när du konfigurerar i klustret. Välj **inkluderar reparera Manager** alternativ **Lägg till funktioner** vid tidpunkten för klusterkonfigurationen.
+Du kan aktivera reparera manager från Azure-portalen när du konfigurerar i klustret. Välj **inkluderar reparera Manager** alternativ **tilläggsfunktioner** vid tidpunkten för klusterkonfigurationen.
 ![Bild för att aktivera reparera Manager från Azure-portalen](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Du kan också använda den [Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) att reparera manager-tjänsten på nya och befintliga Service Fabric-kluster. Hämta mallen för det kluster som du vill distribuera. Du kan använda exempelmallarna, eller så kan du skapa en anpassad mall för hanteraren för filserverresurser. 
+##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager-distributionsmodellen
+Du kan också använda den [Azure Resource Manager-distributionsmodellen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) att reparera manager-tjänsten på nya och befintliga Service Fabric-kluster. Hämta mallen för det kluster som du vill distribuera. Du kan använda exempelmallarna, eller så kan du skapa en anpassad mall för Azure Resource Manager distribution modellen. 
 
-Så här aktiverar du reparera manager service med [Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Så här aktiverar du reparera manager service med [Azure Resource Manager modellen Distributionsmall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Kontrollera först att den `apiversion` är inställd på `2017-07-01-preview` för den `Microsoft.ServiceFabric/clusters` resurs, enligt följande kodavsnitt. Om det är olika, så måste du uppdatera den `apiVersion` till värdet `2017-07-01-preview`:
+1. Kontrollera först att den `apiversion` är inställd på `2017-07-01-preview` för den `Microsoft.ServiceFabric/clusters` resurs. Om det är olika, så måste du uppdatera den `apiVersion` till värdet `2017-07-01-preview` eller senare:
 
     ```json
     {
@@ -136,18 +142,18 @@ Hämta programmet från den [Hämta länk](https://go.microsoft.com/fwlink/P/?li
 
 Korrigering av orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att passera i parametern program under skapa program eller uppdatering. Parametrar för program kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdlets.
 
-|**Parametern**        |**Typ**                          | **Detaljer**|
+|**Parameter**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal Windows Update-resultat, som ska cachelagras. <br>Standardvärdet är 3000 under förutsättning att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som händer på en nod per månad är fem. <br> -Antalet resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en domän i taget. (Max, alla noder som tillhör en domän kan gå för Windows Update.)
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för korrigering orchestration app loggar i MB, vilket kan sparas lokalt på noder.
-| WUQuery               | Sträng<br>(Standard ”: IsInstalled = 0”)                | Frågan att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | bool <br> (standard: True)                 | Den här flaggan kan uppdateringar av Windows-operativsystemet installeras.            |
-| WUOperationTimeOutInMinutes | int <br>(Standard: 90).                   | Anger timeout för någon Windows Update-åtgärd (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tidsgränsen, avbryts.       |
-| WURescheduleCount     | int <br> (Standard: 5).                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemaläggs automatiskt på nytt i Windows.          |
-| WURescheduleTimeInMinutes | int <br>(Standard: 30). | Intervallet då tjänsten schemaläggs automatiskt på nytt Windows update om felet kvarstår. |
-| WUFrequency           | Kommaavgränsad sträng (standard: ”vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows Update. Format och möjliga värden är: <br>-: Som mm: ss varje månad, DD, till exempel varje månad, 5, 12: 22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel dagligen, 12:22:32.  <br> -Ingen anger att Windows Update inte utföras.  <br><br> Observera att hela tiden i UTC.|
-| AcceptWindowsUpdateEula | bool <br>(Standard: true) | Genom att ange den här flaggan accepterar programmet slutanvändarens licensavtal för Windows Update för ägare för datorn.              |
+| WUQuery               | sträng<br>(Default: "IsInstalled=0")                | Frågan att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: True)                 | Den här flaggan kan uppdateringar av Windows-operativsystemet installeras.            |
+| WUOperationTimeOutInMinutes | Int <br>(Standard: 90).                   | Anger timeout för någon Windows Update-åtgärd (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tidsgränsen, avbryts.       |
+| WURescheduleCount     | Int <br> (Standard: 5).                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemaläggs automatiskt på nytt i Windows.          |
+| WURescheduleTimeInMinutes | Int <br>(Standard: 30). | Intervallet då tjänsten schemaläggs automatiskt på nytt Windows update om felet kvarstår. |
+| WUFrequency           | Kommaavgränsad sträng (standard: ”vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows Update. Format och möjliga värden är: <br>-: Som mm: ss varje månad, DD, till exempel varje månad, 5, 12: 22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel dagligen, 12:22:32.  <br> -Ingen anger att Windows Update inte utföras.  <br><br> Observera att gånger i UTC.|
+| AcceptWindowsUpdateEula | Boolesk <br>(Standard: true) | Genom att ange den här flaggan accepterar programmet slutanvändarens licensavtal för Windows Update för ägare för datorn.              |
 
 > [!TIP]
 > Om du vill att Windows Update sker omedelbart anger `WUFrequency` i förhållande till tidpunkten för distribution av programmet. Anta att du har ett testkluster med fem noder och planerar att distribuera appen vid cirka 17:00:00 UTC. Om du anta att programmet uppgraderingen eller distributionen tar 30 minuter Max, anger du WUFrequency som ”varje dag, 17:30:00”.
@@ -218,8 +224,8 @@ Fält | Värden | Information
 -- | -- | --
 OperationResult | 0 - lyckades<br> 1 - slutförd med fel<br> 2 - misslyckades<br> 3 - avbröts<br> 4 - avbröts med tidsgräns | Visar resultatet av övergripande (vanligtvis som innefattar installationen av en eller flera uppdateringar).
 ResultCode | Samma som OperationResult | Fältet visar resultatet av installationen för en enskild uppdatering.
-Åtgärdstyp | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
-WindowsUpdateQuery | Standardvärdet är ”IsInstalled = 0” |Windows uppdaterar frågan som användes för att söka efter uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+OperationType | 1 - installation<br> 0 - sökning och hämtning.| Installationen är den enda OperationType som visas i resultaten som standard.
+WindowsUpdateQuery | Standardvärdet är ”IsInstalled = 0” |Windows update-fråga som användes för att söka efter uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger om omstart krävs för att slutföra installationen av uppdateringar.
 
 Om ingen uppdatering har schemalagts ännu är resultatet JSON tom.
@@ -246,7 +252,7 @@ För att aktivera omvänd proxy i klustret, följer du stegen i [omvänd proxy i
 
 Korrigering av orchestration app loggarna har samlats in som en del av Service Fabric runtime loggar.
 
-Om du vill samla in loggar via diagnostiska verktyg/pipeline önskat. Korrigering orchestration programmet använder nedan fast providern ID för att logga händelser via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Om du vill samla in loggar via diagnostiska verktyg/pipeline önskat. Korrigering orchestration programmet använder nedan fast providern ID: N för att logga händelser via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -300,14 +306,14 @@ FRÅGOR. **Varför korrigering genom datorkluster tar så lång tid för att kö
 A. Den tid som krävs av korrigering orchestration appen beror oftast på följande faktorer:
 
 - Principen för Coordinator-tjänsten. 
-  - Standardprincipen, `NodeWise`, resulterar i korrigering endast en nod i taget. Särskilt när större kluster rekommenderar vi att du använder den `UpgradeDomainWise` att uppnå snabbare korrigering genom datorkluster.
+  - Standardprincipen, `NodeWise`, resulterar i korrigering endast en nod i taget. Särskilt om det finns ett större kluster, rekommenderar vi att du använder den `UpgradeDomainWise` att uppnå snabbare korrigering genom datorkluster.
 - Antalet uppdateringar som är tillgängliga för hämtning och installation. 
 - Genomsnittlig tid det behövs för att ladda ned och installera en uppdatering som får inte överstiga några timmar.
 - Prestanda för den virtuella dator och nätverket bandbredden.
 
 FRÅGOR. **Varför ser vissa uppdateringar i Windows Update resultaten via REST-API, men inte under Windows Update-historiken på datorn?**
 
-A. Vissa produktuppdateringar måste checkas in deras respektive uppdatering/korrigering historik. Till exempel visas uppdateringar för Windows Defender inte i Windows Update-historiken på Windows Server 2016.
+A. Vissa produktuppdateringar visas endast i sina respektive uppdatering/korrigering historiken. Till exempel visas uppdateringar för Windows Defender inte i Windows Update-historiken på Windows Server 2016.
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
@@ -355,7 +361,7 @@ En administratör måste ingripa och fastställa varför programmet eller kluste
 ### <a name="version-111"></a>Version 1.1.1
 - Fast ett programfel i SetupEntryPoint av NodeAgentService som förhindrade installationen av NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Version 1.2.0 (senaste)
+### <a name="version-120-latest"></a>Version 1.2.0 (Latest)
 
 - Felkorrigeringar runt system starta om arbetsflödet.
 - Buggfix för att skapa RM uppgifter på grund av vilka hälsotillstånd Kontrollera under förberedelserna reparera uppgifter inte händer som förväntat.

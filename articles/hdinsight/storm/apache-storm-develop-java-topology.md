@@ -14,28 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
 Lär dig hur du skapar en Java-baserad topologi för Apache Storm. Du skapar en Storm-topologi som implementerar ett ordräkning program. Du kan använda Maven för att bygga och paket i projektet. Sedan får du lära dig hur du definierar topologin med hjälp av som framework.
-
-> [!NOTE]
-> Ramverket som är tillgängliga i Storm 0.10.0 eller senare. Storm 0.10.0 är tillgänglig med HDInsight 3.3 och 3.4.
 
 När du har slutfört stegen i det här dokumentet kan du distribuera topologin till Apache Storm på HDInsight.
 
 > [!NOTE]
 > En fullständig version av Storm-topologi exempel som skapats i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -47,7 +44,7 @@ När du har slutfört stegen i det här dokumentet kan du distribuera topologin 
 
 Följande miljövariabler kan anges när du installerar Java och JDK. Dock bör du kontrollera att de finns och att de innehåller rätt värden för ditt system.
 
-* **JAVA_HOME** -måste peka på den katalog där med Java runtime environment (JRE) har installerats. Till exempel en Unix- eller Linux-distribution, den inte innehålla ett värde som liknar `/usr/lib/jvm/java-8-oracle`. I Windows, skulle det ha ett värde som liknar`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -måste peka på den katalog där med Java runtime environment (JRE) har installerats. Till exempel en Unix- eller Linux-distribution, den inte innehålla ett värde som liknar `/usr/lib/jvm/java-8-oracle`. I Windows, skulle det ha ett värde som liknar `c:\Program Files (x86)\Java\jre1.8`
 
 * **SÖKVÄGEN** -bör innehålla följande sökvägar:
 
@@ -80,8 +77,8 @@ Det här kommandot skapar en katalog med namnet `WordCount` på den aktuella pla
 
 Ta bort det genererade testet- och programfilerna:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Lägg till Maven-databaser
 

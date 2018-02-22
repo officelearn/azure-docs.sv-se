@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d8c22d20151fa70ba33ef017ab24c787f71fe6e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e71480910432c6475ca97d20853a72b864195faa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program för Azure AD-galleriet
 
@@ -42,15 +42,15 @@ Så här konfigurerar du ett program från Azure AD-galleriet som du behöver:
 
 Följ stegen nedan om du vill lägga till ett program från galleriet Azure AD:
 
-1.  Öppna den [Azure Portal](https://portal.azure.com) och logga in som en **Global administratör** eller **medadministratör**
+1.  Öppna den [Azure-portalen](https://portal.azure.com) och logga in som en **Global administratör** eller **medadministratör**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på den **Lägg till** knappen i det övre högra hörnet på de **företagsprogram** bladet.
+5.  Klicka på den **Lägg till** knappen i det övre högra hörnet på de **företagsprogram** fönstret.
 
 6.  I den **anger du ett namn** textruta från den **Lägg till från galleriet** avsnittet, skriver du namnet på programmet.
 
@@ -60,33 +60,33 @@ Följ stegen nedan om du vill lägga till ett program från galleriet Azure AD:
 
 9.  Klicka på **Lägg till** för att lägga till programmet.
 
-Efter en kort tidsperiod kunna du se programmets konfiguration bladet.
+Efter en kort tidsperiod kunna du se programmets konfiguration fönstret.
 
 ## <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Konfigurera enkel inloggning för ett program från Azure AD-galleriet
 
 Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Välj **SAML-baserade inloggning** från den **läge** listrutan.
 
 9.  Ange obligatoriska värden i **domän och URL: er.** Du bör få värdena från leverantören av tillämpningsprogrammet.
 
-   1. Det är ett obligatoriskt värde för att konfigurera programmet som SP-initierad SSO URL: en inloggning. Identifieraren är också ett obligatoriskt värde för vissa program.
+   1. Det är ett obligatoriskt värde för att konfigurera programmet som SP-initierad SSO-inloggning med URL: en. Identifieraren är också ett obligatoriskt värde för vissa program.
 
    2. Det är ett obligatoriskt värde för att konfigurera programmet som IdP-initierad SSO Reply-URL. Identifieraren är också ett obligatoriskt värde för vissa program.
 
@@ -94,7 +94,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
 11. I den **användarattribut**, Välj den unika identifieraren för användarna i den **användar-ID** listrutan.
 
-12. **Valfritt:** klickar du på **visa och redigera andra användarattribut** Redigera attribut som ska skickas till programmet i SAML-token när användaren loggar in.
+12. **Valfritt:** klickar du på **visa och redigera andra användarattribut** Redigera attribut som ska skickas till programmet i SAML-token när användare loggar in.
 
   Lägg till ett attribut:
    
@@ -112,21 +112,21 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
 Följ stegen nedan om du vill markera användar-ID eller lägga till användarattribut:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du har konfigurerat för enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Under den **användarattribut** väljer du den unika identifieraren för användarna i den **användar-ID** listrutan. Det valda alternativet måste matcha det förväntade värdet i programmet för att autentisera användaren.
 
@@ -135,7 +135,7 @@ Följ stegen nedan om du vill markera användar-ID eller lägga till användarat
   >
   >
 
-9.  Lägg till användarattribut, klicka på **visa och redigera andra användarattribut** Redigera attribut som ska skickas till programmet i SAML-token när användaren loggar in.
+9.  Lägg till användarattribut, klicka på **visa och redigera andra användarattribut** Redigera attribut som ska skickas till programmet i SAML-token när användare loggar in.
 
    Lägg till ett attribut:
   
@@ -147,13 +147,13 @@ Följ stegen nedan om du vill markera användar-ID eller lägga till användarat
 
 Följ stegen nedan för att ladda ned programmetadata eller certifikat från Azure AD:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
@@ -161,7 +161,7 @@ Följ stegen nedan för att ladda ned programmetadata eller certifikat från Azu
 
 6.  Välj det program som du har konfigurerat för enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Gå till **SAML-signeringscertifikat** avsnittet och klicka sedan på **hämta** värde i kolumnen. Beroende på vilka programmet kräver att konfigurera enkel inloggning, finns antingen alternativet för att hämta Metadata XML eller certifikatet.
 
@@ -171,25 +171,25 @@ Azure AD Ange inte en URL för att hämta metadata. Metadata kan endast hämtas 
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet läses in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på **användare och grupper** från programmenyn vänstra navigeringsfönstret.
 
-8.  Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** att öppna den **Lägg uppdrag** bladet.
+8.  Klickar du på den **Lägg till** knappen ovanpå det **användare och grupper** att öppna den **Lägg uppdrag** fönstret.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** bladet.
+9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** fönstret.
 
 10. Ange den **fullständigt namn** eller **e-postadress** för den användare som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 
@@ -199,7 +199,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som tilldelas till programmet.
 
-14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** bladet Välj en roll att tilldela användare som du har valt.
+14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** ruta för att välja en roll för att tilldela användare som du har valt.
 
 15. Klicka på den **tilldela** för att tilldela program till de valda användarna.
 

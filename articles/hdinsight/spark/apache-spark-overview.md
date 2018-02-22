@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d2b2e33de25fc5b76b1df4a42fd25e4e0b374439
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introduktion till Spark i HDInsight
 
@@ -92,7 +92,6 @@ Apache Spark i HDInsight lagrar data i Azure Storage eller Azure Data Lake Store
 Med Apache Spark medföljer Machine Learning-biblioteket [MLlib](http://spark.apache.org/mllib/) som är byggt på Spark som du kan använda från ett Spark-kluster i HDInsight. Spark-kluster i HDInsight innehåller Anaconda, en Python-distribution med en rad olika paket för Machine Learning. Ihop med det inbyggda stödet för Jupyter- och Zeppelin-anteckningsböcker ger det en förstklassig miljö att skapa Machine Learning-program i.
 
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Spark-strömning och dataanalys i realtid
-[Titta på en genomgång](apache-spark-eventhub-streaming.md)
 
 Spark-kluster i HDInsight innehåller omfattande stöd för att skapa lösningar för realtidsanalys. Spark har anslutningsappar för att föra in data från ett flertal källor som Kafka, Flume, Twitter, ZeroMQ och TCP-socket. Med Spark i HDInsight får du dessutom förstklassig stöd för att föra in data från Azure Event Hubs. Event Hubs är den vanligast använda kötjänsten på Azure. Det inbyggda stödet för Event Hubs gör Spark-kluster i HDInsight till en perfekt plattform för att skapa en pipeline för realtidsanalyser.
 
@@ -115,7 +114,6 @@ Börja med att skapa ett Spark-kluster i HDInsight. Se [Snabbstart: skapa ett Sp
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

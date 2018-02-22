@@ -4,7 +4,7 @@ description: "Konfigurera tillgänglighet Tillgänglighetsgruppslyssnarnas på A
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera alltid på tillgänglighet tillgänglighetsgruppslyssnarnas - Resource Manager
 Det här avsnittet beskrivs hur du:
@@ -28,13 +28,13 @@ Det här avsnittet beskrivs hur du:
 
 En tillgänglighetsgruppslyssnare är ett namn på virtuella nätverk som klienterna ansluter till för åtkomst till databasen. På Azure virtual machines innehåller en belastningsutjämnare IP-adressen för lyssnaren. Belastningsutjämnaren dirigerar trafik till instansen av SQL Server som lyssnar på porten för avsökningen. En tillgänglighetsgrupp använder vanligtvis en intern belastningsutjämnare. En Azure intern belastningsutjämnare kan vara värd för en eller flera IP-adresser. Varje IP-adress använder en specifik avsökningsport. Det här dokumentet beskrivs hur du använder PowerShell för att skapa en belastningsutjämnare eller Lägg till IP-adresser i en befintlig belastningsutjämnare för SQL Server-Tillgänglighetsgrupper. 
 
-Möjligheten att tilldela flera IP-adresser till en intern belastningsutjämnare är ny till Azure och är endast tillgängligt i Resource Manager-modellen. Du måste ha en SQL Server-tillgänglighetsgrupp som distribueras på virtuella Azure-datorer i Resource Manager-modellen för att slutföra den här uppgiften. Både SQL Server-datorer måste tillhöra samma tillgänglighetsuppsättning. Du kan använda den [Microsoft mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) att automatiskt skapa tillgänglighetsgruppen i Azure Resource Manager. Den här mallen skapar automatiskt tillgänglighetsgruppen, inklusive den interna belastningsutjämnaren för dig. Om du vill kan du [manuellt konfigurera en Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Möjligheten att tilldela flera IP-adresser till en intern belastningsutjämnare är ny till Azure och är endast tillgängligt i Resource Manager-modellen. Du måste ha en SQL Server-tillgänglighetsgrupp som distribueras på virtuella Azure-datorer i Resource Manager-modellen för att slutföra den här uppgiften. Både SQL Server-datorer måste tillhöra samma tillgänglighetsuppsättning. Du kan använda den [Microsoft mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) att automatiskt skapa tillgänglighetsgruppen i Azure Resource Manager. Den här mallen skapar automatiskt tillgänglighetsgruppen, inklusive den interna belastningsutjämnaren för dig. Om du vill kan du [manuellt konfigurera en Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Det här avsnittet kräver att din Tillgänglighetsgrupper har redan konfigurerats.  
 
 Närliggande ämnen innefattar:
 
-* [Konfigurera AlwaysOn-Tillgänglighetsgrupper på Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurera AlwaysOn-Tillgänglighetsgrupper på Azure VM (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Exempelskript: lägga till en IP-adress i en befintlig belastningsutjämnare med PowerShell
+## <a name="Add-IP"></a> Exempelskript: lägga till en IP-adress i en befintlig belastningsutjämnare med PowerShell
 Lägg till ytterligare en IP-adress till belastningsutjämnaren om du vill använda mer än en tillgänglighetsgrupp. Varje IP-adress kräver sin egen belastningsutjämning regeln, avsökningsport och främre port.
 
 Frontend porten är den port som används av program för att ansluta till SQL Server-instansen. IP-adresser för olika Tillgänglighetsgrupper kan använda samma frontend-port.
@@ -196,7 +196,7 @@ Observera följande riktlinjer för tillgänglighetsgruppens lyssnare i Azure me
 
 
 ## <a name="for-more-information"></a>Mer information
-Mer information finns i [konfigurera alltid på tillgänglighetsgruppen i Azure VM manuellt](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Mer information finns i [konfigurera alltid på tillgänglighetsgruppen i Azure VM manuellt](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
 Använd följande PowerShell-cmdlets för att skapa en intern belastningsutjämnare för virtuella Azure-datorer.

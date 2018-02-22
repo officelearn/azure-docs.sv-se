@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: a3b52bb8db0bcd46badb15d4bc65b85977faaadc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f7c9be115b27d6033429c1224fa15fd7b844c1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Konfigurera inställningar för Azure Marketplace-avbildning i Azure DevTest Labs
 DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-bilder beroende på hur du har konfigurerat Azure Marketplace-bilder som ska användas i labbet. Den här artikeln visar hur du anger som eventuellt Azure Marketplace-bilder kan vara används när du skapar virtuella datorer i ett labb. Detta säkerställer att din grupp endast har åtkomst till Marketplace-avbildningar som de behöver. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Välj vilka Azure Marketplace-bilder tillåts när du skapar en virtuell dator
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet. 
 4. På den testmiljön bladet välj **konfiguration och principer**.
 5. På lab's **konfiguration och principer** bladet under **virtuella Datorbaser**väljer **Marketplace-bilder**.

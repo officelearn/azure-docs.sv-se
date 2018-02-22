@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Så kör du ett Java-program på en virtuell dator skapad med den klassiska distributionsmodellen
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Slutfört installationen resulterar i Tomcat som körs på en virtuell dator.
 
 ## <a name="to-create-a-virtual-machine"></a>Skapa en virtuell dator
 1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. Klicka på **ny**, klickar du på **Compute**, klicka på **se alla** i den **aktuella appar**.
+2. Klicka på **skapar du en resurs**, klickar du på **Compute**, klicka på **se alla** i den **aktuella appar**.
 3. Klicka på **JDK**, klickar du på **JDK 8** i den **JDK** fönstret.  
    Virtuella bilder som stöder **JDK 6** och **JDK 7** är tillgängliga om du har äldre program som inte är redo att köras i JDK 8.
 4. Välj i rutan JDK 8 **klassiska**, klicka på **skapa**.
@@ -121,7 +121,7 @@ Om du vill se Tomcat körs från externa datorer, måste du skapa en slutpunkt o
 10. På den **namn** skärmen, ange ett namn för regeln, exempelvis **HttpIn** (Regelnamnet inte är obligatoriskt att matcha namnet på slutpunkten men), och klicka sedan på **Slutför**.  
     ![Namn på ny inkommande regel][NewRuleName]
 
-Tomcat webbplatsen ska nu visas på en extern webbläsare. I adressfältet i webbläsaren, skriver du en URL i formatet  **http://*din\_DNS\_namn*. cloudapp.net**, där ***din\_DNS\_namn*** är DNS-namnet som du angav när du skapade den virtuella datorn.
+Tomcat webbplatsen ska nu visas på en extern webbläsare. I adressfältet i webbläsaren, skriver du en URL i formatet **http://*din\_DNS\_namn*. cloudapp.net**, där ***din\_DNS\_namn*** är DNS-namnet som du angav när du skapade den virtuella datorn.
 
 ## <a name="application-lifecycle-considerations"></a>Programmet livscykel överväganden
 * Du kan skapa egna exempelwebbappens Arkiv (WAR) och lägger till den i den **webbappar** mapp. Till exempel skapa ett grundläggande Service (Java JSP sidan) dynamiskt webbprojekt och exportera det som en WAR-fil. Kopiera WAR till Apache Tomcat **webbappar** mapp på den virtuella datorn som kör det i en webbläsare.

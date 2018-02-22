@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight 
 
@@ -33,7 +33,7 @@ HDInsight Spark-kluster tillhandahåller kernlar som du kan använda med Jupyter
 
 Lär dig hur du använder dessa kärnor och fördelarna med att använda dem i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -83,13 +83,13 @@ Här är några fördelar med att använda de nya kärnor med Jupyter notebook i
    | Magiskt tal | Exempel | Beskrivning |
    | --- | --- | --- |
    | hjälp |`%%help` |Genererar en tabell med alla tillgängliga användbara med exempel och beskrivning |
-   | Info |`%%info` |Utdata sessionsinformation för den aktuella Livius slutpunkten |
+   | info |`%%info` |Utdata sessionsinformation för den aktuella Livius slutpunkten |
    | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Flaggan force (-f) om en session redan har skapats, vilket garanterar att sessionen släppas och återskapas. Titta på [Liviuss POST /sessions brödtext i begäran](https://github.com/cloudera/livy#request-body) en lista över giltiga parametrar. Parametrar måste överföras i som en JSON-sträng och måste vara på nästa rad efter magic, som visas i Exempelkolumnen. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den %% lokala Python kontext som en [Pandas](http://pandas.pydata.org/) dataframe. |
-   | lokala |`%%local`<br>`a=1` |Alla koden i efterföljande rader körs lokalt. Koden måste vara giltig Python2 kod även oavsett kernel som du använder. Så även om du har valt **PySpark3** eller **Spark** kärnor när du skapar den bärbara datorn om du använder den `%%local` magiskt i en cell, cellen får bara ha giltig Python2 kod... |
+   | lokal |`%%local`<br>`a=1` |Alla koden i efterföljande rader körs lokalt. Koden måste vara giltig Python2 kod även oavsett kernel som du använder. Så även om du har valt **PySpark3** eller **Spark** kärnor när du skapar den bärbara datorn om du använder den `%%local` magiskt i en cell, cellen får bara ha giltig Python2 kod... |
    | loggar |`%%logs` |Utdata loggar för den aktuella Livius-sessionen. |
-   | radera |`%%delete -f -s <session number>` |Tar bort en viss session på den aktuella Livius slutpunkten. Observera att du inte kan ta bort sessionen som initieras för kernel sig själv. |
-   | Rensa |`%%cleanup -f` |Tar bort alla sessioner för aktuella Livius slutpunkten, inklusive anteckningsbokens session. Tvingad flaggan -f. är obligatoriskt. |
+   | radera |`%%delete -f -s <session number>` |Tar bort en viss session på den aktuella Livius slutpunkten. Du kan inte ta bort sessionen som initieras för kernel sig själv. |
+   | cleanup |`%%cleanup -f` |Tar bort alla sessioner för aktuella Livius slutpunkten, inklusive anteckningsbokens session. Tvingad flaggan -f. är obligatoriskt. |
 
    > [!NOTE]
    > Förutom de användbara som lagts till av PySpark-kerneln, du kan också använda den [inbyggda IPython användbara](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inklusive `%%sh`. Du kan använda den `%%sh` Magiskt tal för att köra skript och kodblock på klustret headnode.
@@ -160,7 +160,6 @@ Nya kärnor i utvecklingen av steg och kommer mogna över tid. Detta kan också 
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

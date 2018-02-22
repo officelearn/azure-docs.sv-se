@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Skapa en Azure Analysis Services-server i Azure-portalen
 Den här artikeln vägleder dig genom att skapa en resurs för Analysis Services-server i din Azure-prenumeration.
@@ -50,7 +50,7 @@ Följande krävs för att slutföra den här snabbstarten:
    * **Prisnivån**: Välj en prisnivå. Tabular-modeller upp till 400 GB stöds. Läs mer i [priser för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Klicka på **Skapa**.
 
-Skapa tar vanligtvis under en minut; ofta bara några sekunder. Om du har valt **lägga till till portalen**, gå till portalen för att se den nya servern. Eller navigera till **fler tjänster** > **Analysis Services** att se om din server är klar.
+Skapa tar vanligtvis under en minut; ofta bara några sekunder. Om du har valt **lägga till till portalen**, gå till portalen för att se den nya servern. Eller navigera till **alla tjänster** > **Analysis Services** att se om din server är klar.
 
  ![Instrumentpanel](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

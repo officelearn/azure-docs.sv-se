@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Så här skapar du en Apptjänst miljö v1 
 
@@ -42,13 +42,13 @@ Det är viktigt att vara medveten om saker som du inte kan ändra. Dessa aspekte
 När du väljer ett virtuellt nätverk och ange ett undernät, se till att är det tillräckligt stor för att hantera eventuell tillväxt. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Skapa en App Service miljö v1
-Så här skapar du en Apptjänst-miljö v1 behöver söka på Azure Marketplace för ***Apptjänstmiljö v1***, eller genom att gå via Ny -> webb + mobil -> Apptjänst-miljö. Så här skapar du en ASEv1:
+Om du vill skapa en Apptjänst-miljö v1, kan du söka på Azure Marketplace för ***Apptjänstmiljö v1***, eller gå igenom **skapar du en resurs** -> **webb + mobilt**  ->  **Apptjänstmiljö**. Så här skapar du en ASEv1:
 
-1. Ange namnet på din ASE. Det namn som har angetts för ASE ska användas för appar som har skapats i ASE. Om namnet på ASE är appsvcenvdemo skulle underdomännamnet vara. *appsvcenvdemo.p.azurewebsites.net*. Om du har därför skapat en app med namnet *mytestapp* sedan det vore adresserbara på *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blanksteg i din ASE. Om du använder tecken med versaler i namnet, blir domännamnet den totala gemena versionen med det namnet. Om du använder en ILB sedan ASE-namnet används inte i din underdomän men i stället anges uttryckligen under skapande av ASE
+1. Ange namnet på din ASE. Namnet du anger för ASE ska användas för appar som har skapats i ASE. Namnet på ASE appsvcenvdemo underdomännamnet kan är: *appsvcenvdemo.p.azurewebsites.net*. Om du har därför skapat en app med namnet *mytestapp*, det skulle vara adresserbara på *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Du kan inte använda blanksteg i din ASE. Om du använder versaler tecken i namnet, blir domännamnet den totala gemena versionen med det namnet. Om du använder en ILB ASE-namnet används inte i din underdomän men i stället anges uttryckligen under skapande av ASE.
    
     ![][1]
-2. Välj din prenumeration. Prenumerationen används för att din ASE är också det som alla program i den ASE kommer att skapas med. Du kan inte placera din ASE i ett virtuellt nätverk som tillhör en annan prenumeration
-3. Välj eller ange en ny resursgrupp. Resursgruppens namn används för din ASE måste vara samma som används för din VNet. Om du väljer en befintlig VNet kommer resursgruppsurvalet för din ASE att uppdateras för att återspegla som ditt VNet.
+2. Välj din prenumeration. Den prenumeration som du använder för din ASE gäller även för alla appar som du skapar i den ASE. Du kan inte placera din ASE i ett virtuellt nätverk som tillhör en annan prenumeration.
+3. Välj eller ange en ny resursgrupp. Resursgruppens namn används för din ASE måste vara samma som används för din VNet. Om du väljer en befintlig VNet uppdateras resursgruppsurvalet för din ASE för att återspegla som ditt VNet.
    
     ![][2]
 4. Gör dina val för virtuellt nätverk och plats. Du kan välja att skapa ett nytt virtuellt nätverk eller välj ett befintligt virtuellt nätverk. Om du väljer ett nytt virtuellt nätverk sedan kan du ange ett namn och plats. Det nya VNet har adressintervallet 192.168.250.0/23 och ett undernät med namnet **standard** som har definierats som 192.168.250.0/24. Du också välja en befintlig klassiska eller Resource Manager VNet. VIP-datatyp avgör om din ASE kan nås direkt från internet (externa) eller om den använder en intern belastning belastningsutjämnare (ILB). Mer information om dem läsa [med en Apptjänst-miljö med en intern belastningsutjämnare][ILBASE]. Om du väljer en VIP-typ av externa kan du välja hur många externa IP-adresser i systemet skapas med för IPSSL ändamål. Om du väljer internt måste du ange underdomänen som din ASE ska använda. ASEs kan distribueras till virtuella nätverk som använder *antingen* offentligt adressintervall *eller* RFC1918 adressutrymmen (d.v.s. privata adresser). För att använda ett virtuellt nätverk med ett offentligt adressintervall, behöver du skapa VNet i förväg. När du väljer en befintlig VNet behöver du skapa ett nytt undernät under skapande av ASE. **Du kan inte använda ett befintligt undernät i portalen. Du kan skapa en ASE med en befintlig undernät om du skapar din ASE med hjälp av en resource manager-mall.** Att skapa en ASE från en mall används informationen här, [att skapa en Apptjänst-miljö från mallen] [ ILBAseTemplate] och här, [skapar en ILB Apptjänst-miljö från mall][ASEfromTemplate].

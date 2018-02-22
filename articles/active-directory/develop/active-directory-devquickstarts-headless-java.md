@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2330ccf734944a8a563f9031a9d51902255c30d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Använder appen för Java-kommandoraden för att komma åt ett API med Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Om du vill aktivera din app för att autentisera användare, behöver du först 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på den översta raden på ditt konto och under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
+3. Klicka på **alla tjänster** i den vänstra nav och välj **Azure Active Directory**.
 4. Klicka på **App registreringar** och välj **Lägg till**.
 5. Följ anvisningarna och skapa en ny **webbprogram och/eller WebAPI**.
   * Den **namn** av programmet beskriva programmet till slutanvändare

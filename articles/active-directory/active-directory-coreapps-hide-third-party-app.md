@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Dölj ett program från användarens upplevelse i Azure Active Directory
 
@@ -38,7 +38,7 @@ Du kan använda stegen nedan, beroende på din situation för att dölja program
 Använd följande steg för att dölja ett program från en användares åtkomstpanelen och Office 365 app startprogram.
 
 1.  Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2.  Välj **fler tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
+2.  Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
 3.  På den **Azure Active Directory - *directoryname***  skärmen (det vill säga Azure AD skärmen för den katalog som du hanterar), Välj **företagsprogram**.
 ![Företagsappar](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  På den **företagsprogram** väljer **alla program**. Du kan se en lista över appar som du kan hantera.
@@ -54,7 +54,7 @@ Använd följande steg för att dölja ett program från en användares åtkomst
 Använd följande steg för att dölja alla Office 365-program från åtkomstpanelen. Dessa appar visas i Office 365-portalen
 
 1.  Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2.  Välj **fler tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
+2.  Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
 3.  På den **Azure Active Directory - *directoryname***  skärmen (det vill säga Azure AD skärmen för den katalog som du hanterar), Välj **användarinställningar**.
 4.  På den **användarinställningar** skärmen under **företagsprogram** Välj **Ja** för **användare kan bara visa Office 365-appar i Office 365-portalen**.
 

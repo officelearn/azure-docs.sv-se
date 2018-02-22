@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhet SDK för C
 
@@ -27,6 +27,10 @@ Den **Azure IoT-enhet SDK** är en uppsättning bibliotek som har utformats för
 Azure IoT-enhet SDK för C sparas i ANSI C (C99) för att maximera portability. Den här funktionen gör biblioteken väl lämpade för fungerar på flera plattformar och enheter, särskilt om minimera disk och minneskrav är en prioritet.
 
 Det finns en mängd olika plattformar som SDK har testats (finns i [Azure certifierad för IoT-enhet katalogen](https://catalog.azureiotsuite.com/) information). Även om den här artikeln innehåller genomgångar av exempelkod som körs på Windows-plattformen, är koden som beskrivs i den här artikeln identiska mellan olika plattformar som stöds.
+
+Följande videoklipp visar en översikt över Azure IoT-SDK för C:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 Den här artikeln ger en introduktion till Azure IoT-enhet SDK-arkitektur för C. Den visar hur du starta enheten biblioteket, skicka data till IoT-hubb och ta emot meddelanden från den. Informationen i den här artikeln bör vara tillräckligt för att komma igång med SDK, men innehåller också länkar till ytterligare information om bibliotek.
 

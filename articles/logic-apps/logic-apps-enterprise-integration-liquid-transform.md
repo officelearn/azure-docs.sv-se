@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Utföra avancerade JSON-transformationer med en flytande mall
 
@@ -110,7 +110,46 @@ I den här artikeln lär du dig hur du använder en flytande kartan eller en mal
 
 Bokför JSON-indata till logikappen från [Postman](https://www.getpostman.com/postman) eller ett liknande verktyg. Den omvandlade JSON-utdatan från din logikapp ser ut så det här exemplet:
   
-![Exempel på utdata](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Exempel på utdata](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Fler exempel på flytande åtgärd
+Flytande är inte begränsat till JSON-omformningar. Här följer andra tillgängliga omvandling åtgärder som använder flytande.
+
+* Transformera JSON till text
+  
+  Här är flytande mallen som används för det här exemplet:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Här är Exempelindata och utdata:
+  
+   ![Exempel på utdata JSON till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Transformera XML till JSON
+  
+  Här är flytande mallen som används för det här exemplet:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Här är Exempelindata och utdata:
+
+   ![Exempel på utdata XML till JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Transformera XML till text
+  
+  Här är flytande mallen som används för det här exemplet:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Här är Exempelindata och utdata:
+
+   ![Exempel på utdata XML till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

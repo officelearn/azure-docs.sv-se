@@ -1,19 +1,21 @@
-1. Logga in på [Azure Portal].
-2. Klicka på **+NY** > **Webb + Mobil** > **Mobilapp** och ange sedan ett namn för din serverdel för mobilappen.
-3. För **Resursgrupp** väljer du en befintlig resursgrupp, eller skapar en ny (med samma namn som din app). 
+1. Logga in på den [Azure-portalen].
+2. Välj **+ ny** > **webb + mobilt** > **Mobilapp**, och ange sedan ett namn för Mobile Apps serverdel.
+3. För **resursgruppen**, Välj en befintlig resursgrupp eller skapa en ny (med samma namn som din app). 
+4. För **programtjänstplanen**, standardplanen (i det [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) är markerad. Du kan också välja en annan plan eller [skapa en ny](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
+
+   App Service-planens inställningar avgör den [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som är associerade med din app. Mer information om App Service planer och hur du skapar en ny plan i en annan prisnivå på datanivå och på din önskade plats finns [Azure App Service-planer djupgående översikt över](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
-    Du kan antingen välja en annan App Service-plan eller skapa en ny. Mer information om App Service-planer och hur du skapar en ny plan i en annan prisnivå på din önskade plats finns i [Djupgående översikt över Azure App Service-planer](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. För **App Service-plan** är standardplanen (i [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) vald. Du kan också välja en annan plan eller [skapa en ny](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service-planens inställningar avgör [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som associeras med din app. 
+5. Välj **Skapa**. Det här steget skapar Mobile Apps-serverdel. 
+6. I den **inställningar** för nya Mobile Apps serverdel väljer **Snabbstart** > din klientapplattform > **ansluta en databas**. 
    
-    Efter att du har valt planen klickar du på **Skapa**. Serverdelen för mobilappen skapas. 
-5. På **Inställningar**-bladet för den nya mobilappen klickar du på **Snabbstart** > din klientapplattform > **Anslut en databas**. 
+   ![Alternativ för att ansluta en databas](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
+7. I den **Lägg till dataanslutning** väljer **SQL-databas** > **skapa en ny databas**. Ange namnet på databasen, väljer en prisnivå och välj sedan **Server**. Du kan återanvända den nya databasen. Om du redan har en databas på samma plats kan du istället välja **Använd en befintlig databas**. Vi rekommenderar inte att använda en databas på en annan plats på grund av bandbreddskostnader och högre latens.
    
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-6. På **Lägg till dataanslutning**-bladet klickar du på **SQL Database** > **Skapa en ny databas**, anger **Namn** på databasen, väljer en prisnivå och klickar sedan på **Server**.  Du kan återanvända den nya databasen. Om du redan har en databas på samma plats kan du istället välja **Använd en befintlig databas**. Det rekommenderas inte att använda en databas på en annan plats, på grund av bandbreddskostnader och högre latens.
-   
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-7. På **Ny server**-bladet anger du ett unikt servernamn i fältet **Servernamn**, anger ett inloggningsnamn och lösenord, markerar **Ge Azure-tjänster åtkomst till servern** och klickar på **OK**. Den nya databasen skapas.
-8. Tillbaka på **Lägg till dataanslutning**-bladet klickar du på **Anslutningssträng**, anger inloggningsnamn och lösenord för din databas och klickar på **OK**. Vänta några minuter på att databasen distribueras innan du fortsätter.
+   ![Att välja en databas](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
+8. I den **ny server** rutan Ange ett unikt servernamn i den **servernamn** anger ett inloggningsnamn och lösenord, Välj **Tillåt Azure-tjänster åtkomst till servern**, och välj  **OK**. Det här steget skapar den nya databasen.
+9. I den **Lägg till dataanslutning** väljer **anslutningssträngen**, ange värden för inloggningsnamn och lösenord för databasen och välj **OK**. 
+
+   Vänta några minuter för databasen distribueras innan du fortsätter.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/

@@ -1,10 +1,10 @@
-I det här avsnittet uppdatera koden i Mobile Apps serverdel projektet att skicka ett push-meddelande varje gång en ny artikel har lagts till. Detta drivs av den [mallen](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, aktivera push-meddelanden för flera plattformar. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får åtkomst till alla klientplattformar.
+I det här avsnittet uppdatera koden i Mobile Apps serverdel projektet att skicka ett push-meddelande varje gång en ny artikel har lagts till. Den här processen drivs av den [mallen](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, vilket gör att flera plattformar push-meddelanden. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får åtkomst till alla klientplattformar.
 
 Välj något av följande procedurer som matchar din serverdel projekttypen&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
 
 ### <a name="dotnet"></a>.NET backend-projekt
-1. Högerklicka på serverprojekt i Visual Studio och klicka på **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och klicka sedan på **installera**. Detta installerar Notification Hubs-biblioteket för att skicka meddelanden från din serverdel.
-2. Öppna i project server **domänkontrollanter** > **TodoItemController.cs**, och Lägg till följande using-instruktioner:
+1. Högerklicka på server-projekt i Visual Studio. Välj sedan **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och välj sedan **installera**. Den här processen installerar Notification Hubs-biblioteket för att skicka meddelanden från serverdelen.
+2. Öppna i project server **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande using-instruktioner:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
@@ -16,7 +16,7 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get the Notification Hubs credentials for the mobile app.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -25,8 +25,8 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Sending the message so that all template registrations that contain "messageParam"
-        // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+        // Send the message so that all template registrations that contain "messageParam"
+        // receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
         Dictionary<string,string> templateParams = new Dictionary<string,string>();
         templateParams["messageParam"] = item.Text + " was added to the list.";
 
@@ -45,12 +45,12 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Detta skickar ett meddelande i mallen som innehåller objektet. Text när ett nytt objekt infogas.
+    Den här processen skickar ett meddelande i mallen som innehåller objektet. Text när ett nytt objekt infogas.
 4. Publicera om serverprojektet.
 
 ### <a name="nodejs"></a>Node.js backend-projekt
 1. Om du inte redan gjort det, [hämta backend-snabbstartsprojekt](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), eller annan användning av [online redigeraren i Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Ersätt den befintliga koden i todoitem.js med följande:
+2. Ersätt den befintliga koden i todoitem.js med följande kod:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -60,17 +60,17 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
 
         table.insert(function (context) {
         // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
+        // see http://aka.ms/nodejshubs.
         logger.info('Running TodoItem.insert');
 
         // Define the template payload.
         var payload = '{"messageParam": "' + context.item.text + '" }';  
 
-        // Execute the insert.  The insert returns the results as a Promise,
+        // Execute the insert. The insert returns the results as a promise.
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do the push if configured.
                 if (context.push) {
                     // Send a template notification.
                     context.push.send(null, payload, function (error) {
@@ -81,7 +81,7 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget to return the results from the context.execute().
                 return results;
             })
             .catch(function (error) {
@@ -91,5 +91,5 @@ Välj något av följande procedurer som matchar din serverdel projekttypen&mdas
 
         module.exports = table;  
 
-    Detta skickar ett meddelande i mallen som innehåller item.text när ett nytt objekt infogas.
+    Den här processen skickar ett meddelande i mallen som innehåller item.text när ett nytt objekt infogas.
 3. Publicera om serverprojektet när du redigerar filen på den lokala datorn.

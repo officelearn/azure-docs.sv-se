@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Visa åtkomst-tilldelningar för användare och grupper i Azure-portalen
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Mer information om hur du [använda rolltilldelningar för att hantera åtkomst 
 ## <a name="view-access-assignments"></a>Visa åtkomst tilldelningar
 Om du vill leta upp access-tilldelningar för en enskild användare eller grupp som startar i Azure Active Directory i den [Azure-portalen](http://portal.azure.com).
 
-1. Välj **Azure Active Directory**. Om det här alternativet inte visas i listan navigering väljer **fler tjänster** och rulla sedan hitta **Azure Active Directory**.
+1. Välj **Azure Active Directory**. Om det här alternativet inte visas i listan navigering väljer **alla tjänster** och rulla sedan hitta **Azure Active Directory**.
 2. Välj **användare och grupper**, och sedan antingen **alla användare** eller **alla grupper**. I det här exemplet fokuserar vi på enskilda användare.
     ![Hantera användare och grupper i Azure Active Directory – skärmbild](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Sök efter användare efter namn eller användarnamn.

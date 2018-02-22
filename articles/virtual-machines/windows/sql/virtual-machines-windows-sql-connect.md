@@ -4,7 +4,7 @@ description: "Lär dig hur du ansluter till SQL Server som körs på en virtuell
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
@@ -40,9 +40,9 @@ Alternativen för anslutning är:
 
 | Alternativ | Beskrivning |
 |---|---|
-| **Offentliga** | Ansluta till SQL Server via internet |
-| **Privata** | Ansluta till SQL Server i samma virtuella nätverk |
-| **Lokala** | Ansluta till SQL Server lokalt på samma virtuella dator | 
+| **Public** | Ansluta till SQL Server via internet |
+| **privata** | Ansluta till SQL Server i samma virtuella nätverk |
+| **lokala** | Ansluta till SQL Server lokalt på samma virtuella dator | 
 
 I följande avsnitt beskrivs de **offentliga** och **privata** alternativ i detalj.
 
@@ -80,7 +80,7 @@ När du väljer **privata** för den **SQL-anslutning** typ i Azure-portalen kon
 > [!IMPORTANT]
 > Avbildningar av virtuella datorer för SQL Server Developer och Express-versioner aktiverar inte automatiskt TCP/IP-protokollet. För utvecklare och Express-versioner måste du använda SQL Server Configuration Manager till [manuellt Aktivera TCP/IP-protokollet](#manualtcp) när du har skapat den virtuella datorn.
 
-Privata anslutningen används ofta tillsammans med [virtuellt nätverk](../../../virtual-network/virtual-networks-overview.md), vilket gör att flera scenarier. Du kan ansluta virtuella datorer i samma virtuella nätverk, även om dessa virtuella datorer finns i olika resursgrupper. Och med en [plats-till-plats VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), kan du skapa en hybrid-arkitektur som ansluter virtuella datorer med lokala nätverk och datorer.
+Privata anslutningen används ofta tillsammans med [virtuellt nätverk](../../../virtual-network/virtual-networks-overview.md), vilket gör att flera scenarier. Du kan ansluta virtuella datorer i samma virtuella nätverk, även om dessa virtuella datorer finns i olika resursgrupper. Och med en [plats-till-plats VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), kan du skapa en hybrid-arkitektur som ansluter virtuella datorer med lokala nätverk och datorer.
 
 Virtuella nätverk kan du ansluta din virtuella Azure-datorer till en domän. Detta är det enda sättet att använda Windows-autentisering till SQL Server. De andra scenarierna kräver SQL-autentisering med användarnamn och lösenord.
 
@@ -90,7 +90,7 @@ Förutsatt att du har konfigurerat DNS i ditt virtuella nätverk kan ansluta du 
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>Ändra inställningar för SQL-anslutning
+## <a id="change"></a> Ändra inställningar för SQL-anslutning
 
 Du kan ändra anslutningsinställningarna för din virtuella dator i SQL Server i Azure-portalen.
 
@@ -108,7 +108,7 @@ Du kan ändra anslutningsinställningarna för din virtuella dator i SQL Server 
 
    ![SQL-VM uppdateringsmeddelande](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>Aktivera TCP/IP för utvecklare och Express-versioner
+## <a id="manualtcp"></a> Aktivera TCP/IP för utvecklare och Express-versioner
 
 När du ändrar inställningarna för SQL Server-anslutningen, aktiverar Azure automatiskt inte TCP/IP-protokollet för SQL Server Developer och Express Edition. I anvisningarna nedan förklaras hur du aktiverar TCP/IP manuellt så att du kan fjärransluta via IP-adress.
 
@@ -126,7 +126,7 @@ Följande steg visar hur du skapar en valfri DNS-etikett för din virtuella Azur
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>Manuell konfiguration och felsökning
+## <a id="manual"></a> Manuell konfiguration och felsökning
 
 Även om portalen innehåller alternativ för att automatiskt konfigurera anslutningen, är det bra att veta hur du konfigurerar anslutningen manuellt. Förstå kraven kan också underlätta felsökningen.
 

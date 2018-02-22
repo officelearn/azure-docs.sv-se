@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ebbbcd7a1d61ba0eac13a184aa48cacb800524e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft kognitiva Toolkit djup Lär modell med Azure HDInsight Spark-kluster
 
@@ -98,7 +98,6 @@ Om du vill använda Microsoft kognitiva Toolkit med Azure HDInsight Spark-kluste
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight-telemetridataanalys i HDInsight](apache-spark-analyze-application-insight-logs.md)
 

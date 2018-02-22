@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -163,7 +163,7 @@ Se till att alla dina resurser har ställts in för diagnostikinställningar. G�
 
 ![Den diagnostiska loggar bladet i portal](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Du kanske måste klicka på ”fler tjänster” efter avsnittet övervakaren.
+Du kanske måste klicka på ”alla tjänster” efter avsnittet övervakaren.
 
 Här kan du visa och filtrera alla resurser som stöder diagnostikinställningar för att se om de har aktiverat diagnostik. Du kan också öka detaljnivån till se om flera inställningar som är inställt på en resurs och kontrollera vilka storage-konto, Händelsehubbar namnområde och/eller logganalys-arbetsytan som data flödar till.
 

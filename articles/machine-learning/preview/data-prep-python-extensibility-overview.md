@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -101,7 +101,7 @@ Om du vill installera dina paket i ett beräknings-mål som du behöver ändra f
 ### <a name="windows"></a>Windows 
 Hitta app-specifik installation av Python och dess skriptkatalogen för att hitta en plats i Windows. Standardplatsen är:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Kör något av följande kommandon: 
 
@@ -114,7 +114,7 @@ eller
 ### <a name="mac"></a>Mac 
 Hitta app-specifik installation av Python och dess skriptkatalogen för att hitta platsen på en Mac. Standardplatsen är: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Kör något av följande kommandon: 
 

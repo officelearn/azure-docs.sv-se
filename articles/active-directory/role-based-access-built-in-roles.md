@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -61,9 +61,8 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Övervaka läsare](#monitoring-reader) |Kan läsa övervakningsdata för alla |
 | [Övervakning av deltagare](#monitoring-contributor) |Kan läsa övervakningsdata och redigera inställningarna för övervakning |
 | [Nätverksdeltagare](#network-contributor) |Kan hantera alla nätverksresurser |
-| [Nya Relic APM konto deltagare](#new-relic-apm-account-contributor) |Kan hantera nya Relic prestanda programhantering konton och program |
 | [Ägare](#owner) |Kan hantera allt, inklusive åtkomst |
-| [Läsare](#reader) |Kan visa allt, men det går inte att göra ändringar |
+| [Reader](#reader) |Kan visa allt, men det går inte att göra ändringar |
 | [Redis-Cache deltagare](#redis-cache-contributor) |Kan hantera Redis-cache |
 | [Schemaläggaren jobbet samlingar deltagare](#scheduler-job-collections-contributor) |Kan hantera scheduler-jobbsamlingar |
 | [Sök Service deltagare](#search-service-contributor) |Kan hantera search-tjänster |
@@ -299,7 +298,7 @@ Kan hantera ClearDB MySQL-databaser
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
-| successbricks.cleardb/Databases/* |Skapa och hantera ClearDB MySQL-databaser |
+| successbricks.cleardb/databases/* |Skapa och hantera ClearDB MySQL-databaser |
 
 ### <a name="contributor"></a>Deltagare
 Kan hantera allt utom åtkomst
@@ -308,7 +307,7 @@ Kan hantera allt utom åtkomst
 | --- | --- |
 | * |Skapa och hantera resurser av alla typer av |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Det går inte att ta bort roller och rolltilldelningar |
 | Microsoft.Authorization/*/Write |Det går inte att skapa roller och rolltilldelningar |
@@ -364,7 +363,7 @@ Hantera DNS-zoner och poster.
 
 | **Åtgärder** |  |
 | --- | --- |
-| Microsoft.Authorization/ \* /läsa |Läs roller och rolltilldelningar |
+| Microsoft.Authorization/\*/read |Läs roller och rolltilldelningar |
 | Microsoft.Insights/alertRules/\* |Skapa och hantera aviseringsregler |
 | Microsoft.Network/dnsZones/\* |Skapa och hantera DNS-zoner och poster |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Läsa hälsotillståndet för resurser |
@@ -404,7 +403,7 @@ Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med 
 | **Åtgärder** |  |
 | --- | --- |
 | * / läsa |Läsa resurser av alla typer utom hemligheter. |
-| Microsoft.OperationalInsights/workspaces/search/action |Sök logganalys data |
+| Microsoft.OperationalInsights/workspaces/search/action |Search Log Analytics data |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
 ### <a name="monitoring-contributor"></a>Övervaka deltagare
@@ -440,19 +439,6 @@ Kan hantera alla nätverksresurser
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
-
-### <a name="new-relic-apm-account-contributor"></a>New Relic APM-kontodeltagare
-Kan hantera nya Relic prestanda programhantering konton och program
-
-| **Åtgärder** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Läs roller och rollen tilldelningar |
-| Microsoft.Insights/alertRules/* |Skapa och hantera aviseringsregler |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Läs hälsotillståndet för resurser |
-| Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
-| Microsoft.Support/* |Skapa och hantera supportärenden |
-| NewRelic.APM/accounts/* |Skapa och hantera New Relic programmet prestanda management konton |
 
 ### <a name="owner"></a>Ägare
 Kan hantera allt, inklusive åtkomst
@@ -517,7 +503,7 @@ I Security Center endast: Visa säkerhetsprinciper, visa säkerhetsstatus, redig
 | Microsoft.Authorization/policySetDefinitions/* | Skapa och hantera principen anger |
 | Microsoft.Authorization/policyDefinitions/* | Skapa och hantera principdefinitioner |
 | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
@@ -546,7 +532,7 @@ I Security Center endast: Visa rekommendationer och aviseringar, visa säkerhets
 | --- | --- |
 | Microsoft.Authorization/*/read |Läs roller och rolltilldelningar |
 | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-| Microsoft.operationalInsights/workspaces/*/read | Visa logganalys data |
+| Microsoft.operationalInsights/workspaces/*/read | View Log Analytics data |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
@@ -691,7 +677,7 @@ Kan hantera SQL-databaser, men inte deras säkerhetsrelaterade principer
 | Microsoft.Sql/servers/read |Läsa SQL-servrar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Det går inte att redigera granskningsprinciper |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Det går inte att redigera granskningsinställningar |
@@ -741,7 +727,7 @@ Kan hantera SQL-servrar och databaser, men inte deras säkerhetsrelaterade princ
 | Microsoft.Sql/servers/* |Skapa och hantera SQL-servrar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Det går inte att redigera SQL server-granskningsprinciper |
 | Microsoft.Sql/servers/auditingSettings/* |Det går inte att redigera SQL server-granskningsinställningar |

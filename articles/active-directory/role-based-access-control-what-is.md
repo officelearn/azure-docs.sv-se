@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Kom igång med rollbaserad åtkomstkontroll i Azure-portalen
 Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure.
@@ -58,7 +58,7 @@ Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Til
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC kontra klassiska prenumerationsadministratörer
 [Klassiska prenumerationsadministratörer och medadministratörer](../billing/billing-add-change-azure-subscription-administrator.md) har fullständig åtkomst till Azure-prenumerationen. De kan hantera resurser med hjälp av den [Azure-portalen](https://portal.azure.com), Azure Resource Manager API: er och den klassiska distributionsmodellen API: er. I RBAC-modellen tilldelas klassiska administratörer rollen som ägare i omfånget för prenumerationen.
 
-Azure portal och nya Azure Resource Manager API: erna stöder Azure RBAC. Användare och program som tilldelats RBAC-roller kan inte använda den Azure klassiska distributionsmodellen API: er.
+Azure portal och nya Azure Resource Manager API: erna stöder Azure RBAC. Användare och program som tilldelats RBAC-roller kan inte använda Azure klassiska distributionsmodellen API: er.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Tillstånd för hantering jämfört med dataåtgärder
 Azure RBAC stöder endast hanteringsåtgärder Azure-resurser i Azure-portalen och Azure Resource Manager API: er. Det går inte att tillåta alla data på åtgärder för Azure-resurser. Du kan till exempel auktorisera någon att hantera Storage-konton, men inte till blobbar eller tabeller i ett Lagringskonto. På samma sätt kan kan en SQL-databas hanteras, men inte tabellerna i den.

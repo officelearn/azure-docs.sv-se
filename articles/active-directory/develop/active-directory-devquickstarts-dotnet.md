@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 91efb85d17bd6ba57b1dc14253257f3f20e37c92
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET skrivbordet (WPF) komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -47,7 +47,7 @@ Om du vill aktivera din app att hämta token måste du måste först registrera 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på den översta raden på ditt konto och under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
+3. Klicka på **alla tjänster** i den vänstra nav och välj **Azure Active Directory**.
 4. Klicka på **App registreringar** och välj **Lägg till**.
 5. Följ anvisningarna och skapa en ny **internt klientprogram**.
   * Den **namn** av programmet beskriva programmet till slutanvändare
@@ -131,7 +131,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 }
 ```
 
-* Om användaren inte klicka på knappen ”Logga ut”, kommer du vill behålla användarens session för nästa gång de kör DirectorySearcher.  Du kan kontrollera ADAL'S token-cache för en befintlig token och uppdateras Användargränssnittet när appen startar.  I den `CheckForCachedToken()` metod, gör ett annat anrop till `AcquireTokenAsync(...)`, nu skicka i den `PromptBehavior.Never` parameter.  `PromptBehavior.Never`ADAL anger att användaren inte ska uppmanas att logga in och ADAL i stället utlösa ett undantag om det inte går att returnera en token.
+* Om användaren inte klicka på knappen ”Logga ut”, kommer du vill behålla användarens session för nästa gång de kör DirectorySearcher.  Du kan kontrollera ADAL'S token-cache för en befintlig token och uppdateras Användargränssnittet när appen startar.  I den `CheckForCachedToken()` metod, gör ett annat anrop till `AcquireTokenAsync(...)`, nu skicka i den `PromptBehavior.Never` parameter.  `PromptBehavior.Never` ADAL anger att användaren inte ska uppmanas att logga in och ADAL i stället utlösa ett undantag om det inte går att returnera en token.
 
 ```csharp
 public async void CheckForCachedToken() 

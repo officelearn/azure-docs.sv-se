@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8ca735f04334557f40ddbe3119f7110dbcdde2a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d9885fc286e31100e14a5c8a1001df079829dcbe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Hur du utför en åtkomst-granskning i Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft online services som Office 365 eller Microsoft Intune.  
@@ -31,9 +31,9 @@ Om du är en administratör av Privilegierade roller som är intresserade av åt
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
 Du kan använda Azure AD Privileged Identity Management (PIM)-program i den [Azure-portalen](https://portal.azure.com/) att utföra din granskning.  Om du inte har programmet Azure AD Privileged Identity Management på portalen, följer du dessa steg för att komma igång.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj ditt användarnamn i det övre högra hörnet i Azure-portalen och välj den katalog där du kommer du att driva.
-3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
+3. Välj **alla tjänster** och använda Filter-textrutan för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Programmet Privileged Identity Management öppnas.
 
 ## <a name="approve-or-deny-access"></a>Godkänna eller neka åtkomst

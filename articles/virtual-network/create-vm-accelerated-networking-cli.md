@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -48,8 +48,8 @@ Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella d
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 * **Ubuntu 16.04**: 4.11.0-1013 eller större kernel-version
 * **SLES SP3**: 4.4.92-6.18 eller större kernel-version
-* **RHEL**: 7.4.2017120423 eller större kernel-version
-* **CentOS**: 7.4.20171206 eller större kernel-version
+* **RHEL 7.4**: 7.4.2017120423 eller större kernel-version
+* **CentOS 7.4**: 7.4.20171206 eller större kernel-version
 
 ## <a name="supported-vm-instances"></a>VM-instanser som stöds
 Snabbare nätverksfunktioner stöds på mest generella och beräknings-optimerad instans storlekar med 4 eller fler vCPUs. På instanser, till exempel D/DSv3 eller E/ESv3 som stöder hypertrådar stöds snabbare nätverk för VM-instanser med 8 eller flera vCPUs.  Stöds serien är: D/DSv2, D/DSv3, E/ESv3, Fsv2-F/Fs och Ms-/ Mms. 

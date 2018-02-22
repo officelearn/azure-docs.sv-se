@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure-Webbappar
 
@@ -30,10 +30,10 @@ Den här artikeln är Azure App Service (Web Apps, API Apps, Mobilappar, Logic A
 
 För att slutföra den här kursen behöver du:
 
-* [Skapa en Apptjänst-app](/azure/app-service/), eller använda en app som du skapade för en annan kursen.
+* [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 * [Ta bort utgiftsgränsen för din prenumeration](../billing/billing-spending-limit.md#remove). Du kan inte köpa Apptjänst domäner med ledigt prenumerationskrediter.
 
-## <a name="prepare-the-app"></a>Förbered appen
+## <a name="prepare-the-app"></a>Förbereda appen
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -41,44 +41,44 @@ Att använda anpassade domäner i Azure Web Apps ditt webbprograms [programtjän
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Öppna den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto.
+Öppna [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigera till appen i Azure-portalen
+### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigera till appen i Azure Portal
 
-I den vänstra menyn, Välj **Apptjänster**, och välj sedan namnet på appen.
+Välj **Apptjänster** på menyn till vänster och välj sedan appens namn.
 
-![Portalen navigering till Azure-app](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Du ser sidan för hantering av Apptjänst-app.  
+Du ser hanteringssidan för App Service-appen.  
 
 ### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
-I det vänstra navigeringsfönstret på appsidan, bläddra till den **inställningar** avsnittet och väljer **skala upp (apptjänstplan)**.
+I det vänstra navigeringsfältet på appsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)**.
 
-![Skala-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+![Skala upp-menyn](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är i den **lediga** nivå. Anpassad DNS stöds inte i den **lediga** nivå. 
+Appens aktuell nivå markeras med en blå kantlinje. Kontrollera att appen inte är på den **kostnadsfria** nivån. Anpassad DNS stöds inte på den **kostnadsfria** nivån. 
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Om App Service-plan inte **lediga**Stäng den **Välj din prisnivå** sidan och gå vidare till [köpa domänen](#buy-the-domain).
 
-### <a name="scale-up-the-app-service-plan"></a>Skala upp App Service-plan
+### <a name="scale-up-the-app-service-plan"></a>Skala upp App Service-planen
 
-Välj någon av de icke kostnadsfria nivåerna (**delade**, **grundläggande**, **Standard**, eller **Premium**). 
+Välj en nivå som inte är kostnadsfri (**Delad**, **Basic**, **Standard** eller **Premium**). 
 
 Klicka på **Välj**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-När du ser följande meddelande har åtgärden slutförts.
+När du ser följande meddelande har skalningsåtgärden slutförts.
 
-![Skala åtgärd-bekräftelse](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Bekräftelse av skalningsåtgärd](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Köpa domänen
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
-Öppna den [Azure-portalen](https://portal.azure.com/) och logga in med ditt Azure-konto.
+Öppna [Azure Portal](https://portal.azure.com/) och logga in med ditt Azure-konto.
 
 ### <a name="launch-buy-domains"></a>Starta köp domäner
 I den **Web Apps** klickar du på namnet på ditt webbprogram, Välj **inställningar**, och välj sedan **anpassade domäner**
@@ -114,7 +114,7 @@ Välj därefter önskade alternativ för din domän. Se följande tabell förkla
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |Sekretesskydd | Aktivera | Välja att ”sekretesskydd”, som ingår i inköpspriset _gratis_. Vissa toppnivådomäner hanteras av registratorer som inte stöder sekretesskydd och de visas på den **sekretesskydd** sidan. |
-| Tilldela standard värdnamn | **www** och**@** | Välj önskad värdnamnsbindningar om så önskas. När domänen köp åtgärden är slutförd måste kan ditt webbprogram nås på den valda värdnamnen. Om webbappen bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), visas alternativet att tilldela rotdomänen (@), eftersom Traffic Manager har inte stöd för A-poster. Du kan ändra värdnamnet tilldelningar efter domän köpet har slutförts. |
+| Tilldela standard värdnamn | **www** och **@** | Välj önskad värdnamnsbindningar om så önskas. När domänen köp åtgärden är slutförd måste kan ditt webbprogram nås på den valda värdnamnen. Om webbappen bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), visas alternativet att tilldela rotdomänen (@), eftersom Traffic Manager har inte stöd för A-poster. Du kan ändra värdnamnet tilldelningar efter domän köpet har slutförts. |
 
 ### <a name="accept-terms-and-purchase"></a>Acceptera villkoren och köpa
 
@@ -166,7 +166,7 @@ Kontrollera att dina köpta domän visas i den **App Service domäner** avsnitte
 >
 >
 
-Välj **lägga till värdnamnet**.
+Välj **Lägg till värddatornamn**.
 
 ### <a name="configure-hostname"></a>Konfigurera värdnamnet
 I den **lägga till värdnamnet** dialogrutan Skriv fullständigt kvalificerade domännamnet för din App Service-domän eller en underdomän. Exempel:
@@ -177,7 +177,7 @@ I den **lägga till värdnamnet** dialogrutan Skriv fullständigt kvalificerade 
 
 När du är klar väljer **verifiera**. Hostname-posttypen väljs automatiskt för dig.
 
-Välj **lägga till värdnamnet**.
+Välj **Lägg till värddatornamn**.
 
 När åtgärden är klar, kan du se ett fungerande meddelande för tilldelade värdnamnet.  
 
@@ -220,7 +220,7 @@ I Azure, DNS-poster för en tillämpningsdomän Service hanteras med hjälp av [
 
 ### <a name="open-app-service-domain"></a>Öppna App Service-domän
 
-Välj i Azure-portalen från den vänstra menyn **fler tjänster** > **App Service domäner**.
+Välj i Azure-portalen från den vänstra menyn **alla tjänster** > **App Service domäner**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ När du har köpt tjänsten tillämpningsdomänen har fem dagar att häva köpet
 
 ### <a name="open-app-service-domain"></a>Öppna App Service-domän
 
-Välj i Azure-portalen från den vänstra menyn **fler tjänster** > **App Service domäner**.
+Välj i Azure-portalen från den vänstra menyn **alla tjänster** > **App Service domäner**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -270,9 +270,9 @@ Bekräfta åtgärden genom att markera **Ja**.
 
 När åtgärden är klar, är domänen utgivna från prenumerationen och är tillgängliga för alla att köpa igen. 
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Direkt standard-URL till en anpassad katalog
+## <a name="direct-default-url-to-a-custom-directory"></a>Dirigera standard-URL:en till en anpassad katalog
 
-Som standard gör Apptjänst webbegäranden till rotkatalogen för din Appkod. Att dirigera dem till en underkatalog som `public`, se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
+Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. Att dirigera dem till en underkatalog som `public`, se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
 
 ## <a name="more-resources"></a>Fler resurser
 

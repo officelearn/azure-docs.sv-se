@@ -4,7 +4,7 @@ description: "Det här avsnittet innehåller allmänna riktlinjer för att skydd
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2017
 ms.author: jroth
-ms.openlocfilehash: 4ad9156e481eac0bae32bca35a2b126363e5d8b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa6568d33e86c055c12eb748eb67c8a2e7cc0f93
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 
@@ -48,7 +48,7 @@ För bästa säkerhet mest restriktiva välja för ditt scenario. Till exempel o
 
 De valda alternativen i portalen använder inkommande säkerhetsregler på de virtuella datorerna [Nätverkssäkerhetsgruppen](../../../virtual-network/virtual-networks-nsg.md) (NSG) för att tillåta eller neka trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server-porten (standard 1433). Du kan också ange specifika IP-adresser som ska kunna kommunicera via den här porten.
 
-![Regler för nätverkssäkerhetsgrupper](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
+![Regler för nätverkssäkerhetsgrupp](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 
 Förutom NSG-regler för att begränsa nätverkstrafik, kan du också använda Windows-brandväggen på den virtuella datorn.
 

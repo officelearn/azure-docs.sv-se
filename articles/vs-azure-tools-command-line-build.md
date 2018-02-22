@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Skapa Azure-projekt från kommandoraden
 Med Microsoft skapa Engine (MSBuild) kan skapa du produkter i build-labbmiljöer där Visual Studio inte har installerats. MSBuild använder ett XML-format för projektfiler som extensible och stöds fullt ut av Microsoft. Använder formatet MSBuild, kan du beskriva vad objekt måste vara inbyggda för en eller flera plattformar och konfigurationer.
@@ -36,5 +36,4 @@ Som standard innehåller en service-konfigurationsfilen för lokala (felsökning
 Om du vill använda en alternativ katalog för lagrade paket- och konfigurationsfiler, ställa in sökvägen med hjälp av den `/p:PublishDir=Directory\` alternativ, inklusive avslutande omvänt avgränsare.
 
 ## <a name="next-steps"></a>Nästa steg
-När paketet har skapats kan du distribuera den till Azure. En genomgång som visar hur du automatiserar processen, se [kontinuerlig leverans för molntjänster i Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+När paketet har skapats kan du distribuera den till Azure.

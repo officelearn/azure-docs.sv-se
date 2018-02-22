@@ -16,22 +16,22 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: fd933ee33212007a58903b607055f437cc9206fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bcde742690e57d9195725fba524ee64cc691b30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visa alla enterprise-appar som jag kan hantera i Azure Active Directory
-Du kan hantera dina företagsprogram i Azure Active Directory (AD Azure). Detta inkluderar att visa de appar som du kan hantera, tilldela användare eller grupper i en app underhålla egenskaper för appen, till exempel program namn/logotyp och även om du inaktiverar ett program så att inga användare kan logga in på den.
+Du kan hantera dina företagsprogram i Azure Active Directory (AD Azure). Du kan visa de appar som du kan hantera, tilldela användare eller grupper i en app, underhålla egenskaper för appen, till exempel program namn/logotyp och även inaktivera ett program så att inga användare kan logga in på den.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Hur visar jag Mina appar?
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **fler tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
-3. På den **Azure Active Directory -** ***directoryname*** bladet (det vill säga Azure AD bladet för den katalog som du hanterar), Välj **företagsprogram**.
+2. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
+3. På den **Azure Active Directory -** ***directoryname*** (det vill säga den Azure AD rutan för den katalog som du hanterar) väljer du **företagsprogram**.
 
     ![Öppna företagsappar](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
-4. På den **företagsprogram** bladet väljer **alla program**. Ändra kolumnerna från det här bladet som du kan välja appar att hantera eller filtrera listan för att hitta den app som du vill använda (till exempel visa endast inaktiverade appar).
+4. På den **företagsprogram** väljer **alla program**. Du kan välja appar för att hantera, ändra kolumner eller filtrera listan för att hitta den app som du vill använda (till exempel visa endast inaktiverade appar) från det här fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Tilldela en användare eller grupp till en enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT fjärrövervaknings och meddelanden med Azure Logikappar ansluta din IoT-hubb och postlåda
 
@@ -50,7 +50,7 @@ Du lär dig hur du skapar en logikapp som ansluter din IoT-hubb och postlådan f
 
 ### <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för service bus
 
-1. På den [Azure-portalen](https://portal.azure.com/), klickar du på **ny** > **Enterprise Integration** > **Service Bus**.
+1. På den [Azure-portalen](https://portal.azure.com/), klickar du på **skapar du en resurs** > **Enterprise Integration** > **Service Bus**.
 1. Ange följande information:
 
    **Namnet**: namnet på service bus.
@@ -111,7 +111,7 @@ Du lär dig hur du skapar en logikapp som ansluter din IoT-hubb och postlådan f
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
 
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **ny** > **Enterprise Integration** > **Logikapp**.
+1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **skapar du en resurs** > **Enterprise Integration** > **Logikapp**.
 1. Ange följande information:
 
    **Namnet**: namnet på logikappen.

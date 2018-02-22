@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Skapa ett data analytics-jobb för bearbetning för Stream Analytics
 Resursen på den översta nivån i Azure Stream Analytics är en Stream Analytics-jobbet.  Det består av en eller flera inkommande datakällor, en fråga uttrycka data transformation och ett eller flera mål för utdata som resultat har skrivits till. Tillsammans gör dessa att användaren kan utföra dataanalys bearbetning för strömmande datascenarier.
 
 Om du vill börja använda Stream Analytics, börjar du med att skapa ett nytt Stream Analytics-jobb.  Observera att den här åtgärden har ingen fakturering effekter tills jobbet har startats.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **ny** > **Data + analys** > **Stream Analytics-jobbet**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj **skapar du en resurs** > **Data + analys** > **Stream Analytics-jobbet**.
 3. Välj **Skapa**.
    
 3. Ange önskad konfiguration för Stream Analytics-jobbet.

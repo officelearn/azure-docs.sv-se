@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Vanliga frågor och svar om Azure-behållaren (AKS)
 
 Den här artikeln adresser vanliga frågor om Azure-behållaren (AKS).
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>Vilka regioner som Azure kommer att ha Azure Container Service (AKS)? 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Vilka regioner som Azure tillhandahåller Azure Container Service (AKS) idag?
 
 - Centrala Kanada 
 - Östra Kanada 
@@ -32,13 +32,17 @@ Den här artikeln adresser vanliga frågor om Azure-behållaren (AKS).
 
 Ytterligare regioner läggs till som ökar.
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>Tillämpas säkerhetsuppdateringar AKS noder? 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Tillämpas säkerhetsuppdateringar AKS agent noder? 
 
-OS-säkerhetskorrigeringar som tillämpas på noderna i klustret enligt ett schema som automatiskt varje natt, men en omstart inte utförs. Om det behövs kan noder startas via portalen eller Azure CLI. När du uppgraderar ett kluster, senaste Ubuntu avbildningen används och alla säkerhetskorrigeringar tillämpas (med en omstart).
+Azure tillämpas automatiskt säkerhetskorrigeringar på noderna i klustret enligt ett schema som automatiskt varje natt. Men du är ansvarig för att säkerställa att noderna startas om efter behov. Du har flera alternativ för att utföra omstarter av noden:
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>Rekommenderar du kunder Använd ACS eller AKSs? 
+- Manuellt via Azure-portalen eller Azure CLI. 
+- Genom att uppgradera AKS klustret. Klustret uppgraderingar automatiskt [cordon och tömmer noder](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), anpassa dem igen med senaste Ubuntu avbildningen. Du kan uppdatera OS-avbildningen på noderna utan att ändra Kubernetes versioner genom att ange den aktuella versionen för klustret i `az aks upgrade`.
+- Med hjälp av [Kured](https://github.com/weaveworks/kured), en öppen källkod omstart daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Den samordnar sedan dessa omstarter i klustret, följa samma cordon och tömning process som beskrivs ovan.
 
-Med tanke på att Azure Container Service (AKS) kommer GA vid ett senare tillfälle, rekommenderar vi att du skapar Pocs utvecklings- och -kluster i AKS men produktions-kluster i ACS-Kubernetes.  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>Rekommenderar du kunder Använd ACS eller AKS? 
+
+Även om AKS finns kvar i preview, rekommenderar vi skapar produktion kluster med hjälp av ACS-Kubernetes eller [acs-motorn](https://github.com/azure/acs-engine). Du kan använda AKS för proof of concept distributioner och miljöer för utveckling och testning.
 
 ## <a name="when-will-acs-be-deprecated"></a>När kommer ACS inaktuell? 
 
@@ -48,21 +52,27 @@ ACS att bli inaktuell vid ungefär samma tidpunkt som AKS blir GA. Har du 12 må
 
 Noden autoskalning stöds inte men på Översikt. Du kanske vill titta på den här öppen källkod [autoskalning implementering][auto-scaler].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS? 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Stöder AKS Kubernetes rollbaserad åtkomstkontroll (RBAC)?
 
-Varje Azure Container Service (AKS)-kluster finns i två resursgrupper. Först skapas av dig och innehåller AKS resursen. Andra resursgruppen automatiskt skapas under distributionen och innehåller alla infrastrukturella klusterresurser, till exempel virtuella datorer, nätverk och lagringsresurser. Den här resursgruppen skapas för rensning av enkelt resurs. 
+Nej, RBAC stöds inte för närvarande i AKS men blir snart tillgänglig.   
 
-Automatiskt skapade resursgruppen har ett namn som liknar:
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS i Mina befintliga virtuella nätverk?
 
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
-
-När du lägger till Azure-resurser som ska användas med Kubernetes klustret, till exempel storage-konton eller reserverade offentliga IP-adress, måste dessa resurser skapas i den automatiskt skapade resursgruppen.   
+Nej, detta är inte tillgänglig ännu men blir snart tillgänglig.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault är integrerad med AKS? 
 
 Nej, det är inte men den här integreringen planeras. Under tiden kan du prova följande lösningar från [Hexadite][hexadite]. 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan jag köra Windows Server-behållare på AKS?
+
+Nej, AKS inte för närvarande tillhandahåller Windows Server-baserad agent noder, så att du kan köra Windows Server-behållare. Om du behöver köra Windows Server-behållare på Kubernetes i Azure finns i [dokumentationen för acs-motorn](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS? 
+
+Varje AKS distribution omfattar två resursgrupper. Först skapas av dig och innehåller AKS resursen. Resursprovidern AKS skapar automatiskt det andra under distributionen med namnet *MC_myResourceGRoup_myAKSCluster_eastus*. Andra resursgruppen som innehåller alla infrastrukturresurser som är associerade med klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resursen. 
+
+Om du skapar resurser som ska användas med AKS klustret, till exempel storage-konton eller reserverade offentliga IP-adressen bör du placera dem i den automatiskt genererade resursgruppen.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduktion till Apache Cassandra API för Azure Cosmos DB
 
@@ -64,7 +64,7 @@ Cassandra-API kan du samverka med data som lagras i Azure Cosmos-databasen med C
 
 Om du redan har en Azure-prenumeration kan du registrera dig att delta i programmet för Cassandra API (förhandsgranskning) den [Azure-portalen](https://aka.ms/cosmosdb-cassandra-signup).  Om du har använt Azure registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månader gratis tillgång till Azure Cosmos DB. Utför följande steg för att begära åtkomst till programmet Cassandra API (förhandsversion).
 
-1. I den [Azure-portalen](https://portal.azure.com), klickar du på **ny** > **databaser** > **Azure Cosmos DB**. 
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs** > **databaser** > **Azure Cosmos DB**. 
 
 2. Välj sidan nytt konto **Cassandra** i rutan API. 
 

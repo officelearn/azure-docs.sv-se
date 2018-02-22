@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 52c74feacb8cf2e7005f6b284d7b55078449dc79
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -36,15 +36,15 @@ Azure Analysis Services-cmdlets som ingår i den [AzureRM.AnalysisServices](http
 
 |Cmdlet|Beskrivning| 
 |------------|-----------------| 
-|[Lägg till AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Lägger till en autentiserad konto som används för Azure Analysis Services serverbegäranden cmdlet.| 
+|[Add-AzureAnalysisServicesAccount](/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Lägger till en autentiserad konto som används för Azure Analysis Services serverbegäranden cmdlet.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Hämtar information om en server-instans.|  
-|[Ny AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Skapar en server-instans.|   
-|[Ta bort AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Tar bort en server-instans.|  
-|[Starta om AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Startar om en instans av Analysis Services-server i miljön är inloggad för tillfället. angetts i kommandot Lägg till AzureAnalysisServicesAccount.|  
-|[Återuppta AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Återupptar en server-instans.|  
-|[Pausa AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Pausar ett server-instansen.| 
-|[Ange AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Ändrar en server-instans.|   
-|[Testa AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testar förekomsten av en server-instans.| 
+|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Skapar en server-instans.|   
+|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Tar bort en server-instans.|  
+|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Startar om en instans av Analysis Services-server i miljön är inloggad för tillfället. angetts i kommandot Lägg till AzureAnalysisServicesAccount.|  
+|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Återupptar en server-instans.|  
+|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Pausar ett server-instansen.| 
+|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Ändrar en server-instans.|   
+|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testar förekomsten av en server-instans.| 
 
 ## <a name="database-operations"></a>Databasåtgärder
 
@@ -55,13 +55,13 @@ SqlServer-modulen innehåller cmdlet: ar uppgiftsspecifika databasen samt allmä
   
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
-|[Lägg till RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
-|[Säkerhetskopiering ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Säkerhetskopiera databas för Analysis Services.|  
-|[Ta bort RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
-|[Anropa ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
-|[Anropa ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Bearbeta en databas.|  
-|[Anropa ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Bearbeta en partition.| 
-|[Anropa ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Bearbeta en tabell.|  
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Säkerhetskopiera databas för Analysis Services.|  
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
+|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Bearbeta en databas.|  
+|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Bearbeta en partition.| 
+|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Bearbeta en tabell.|  
 |[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Koppla en partition.|  
 |[Återställ ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Återställa en Analysis Services-databas.| 
   

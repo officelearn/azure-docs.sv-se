@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ Förutsätter vi att att du registrerar TODO REST-API som refererar till tidigar
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto på den översta raden. I den **Directory** Välj Azure AD-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
+3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
 4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
 5. Ange ett eget namn för programmet (till exempel **TodoListService**), Välj **webbprogram och/eller webb-API**, och klicka på **nästa**.
 6. Ange den grundläggande Webbadressen för för URL-inloggning. Detta är som standard `https://localhost:8080`.
@@ -70,7 +70,7 @@ Förutsätter vi att att du registrera exempelprogrammet refererar till tidigare
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto på den översta raden. I den **Directory** Välj Azure AD-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
+3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
 4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
 5. Ange ett eget namn för programmet (till exempel **TodoListClient Android**), Välj **internt klientprogram**, och klicka på **nästa**.
 6. Omdirigerings-URI, ange `http://TodoListClient`. Klicka på **Slutför**.
@@ -85,9 +85,9 @@ Du kan använda pom.xml på den översta nivån för att skapa med Maven:
 2. Följ stegen i den [krav för att konfigurera din Maven-miljö för Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Ställ in emulatorn med SDK-19.
 4. Gå till roten i mappen där du klona lagringsplatsen.
-5. Kör det här kommandot:`mvn clean install`
-6. Ändra katalogen till exempel Snabbstart:`cd samples\hello`
-7. Kör det här kommandot:`mvn android:deploy android:run`
+5. Kör det här kommandot: `mvn clean install`
+6. Ändra katalogen till exempel Snabbstart: `cd samples\hello`
+7. Kör det här kommandot: `mvn android:deploy android:run`
 
    Du bör se app startar.
 8. Ange test autentiseringsuppgifter för försök.
@@ -235,7 +235,7 @@ Du bör ha vad du behöver kunna integrera med Azure Active Directory med hjälp
 ### <a name="customization"></a>Anpassning
 Programresurser kan skriva över biblioteksresurser för projektet. Detta händer när din app skapas. Därför kan du anpassa autentisering aktivitet layout som du vill. Se till att hålla ID för kontrollerna som använder ADAL (Webbvy).
 
-### <a name="broker"></a>Service Broker
+### <a name="broker"></a>Broker
 Microsoft Intune-företagsportalappen ger broker-komponent. Kontot har skapats i AccountManager. Kontotypen är ”com.microsoft.workaccount”. AccountManager kan bara ett enda SSO-konto. Den skapar en SSO-cookie för användaren när du har slutfört enheten utmaning för en av apparna.
 
 ADAL använder kontot broker om ett användarkonto skapas på denna autentiserare och du inte väljer att hoppa över den. Du kan hoppa över broker användare med:
@@ -375,7 +375,7 @@ ADAL-biblioteket innehåller engelska strängar för ProgressDialog meddelanden.
 ### <a name="ntlm-dialog-box"></a>Dialogrutan för NTLM
 ADAL version 1.1.0 stöder en dialogruta för NTLM som bearbetas via händelsen onReceivedHttpAuthRequest från WebViewClient. Du kan anpassa layout och strängar för dialogrutan.
 
-### <a name="cross-app-sso"></a>Enkel inloggning mellan appar
+### <a name="cross-app-sso"></a>Cross-app SSO
 Läs [aktivera enkel inloggning mellan appar på Android med hjälp av ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

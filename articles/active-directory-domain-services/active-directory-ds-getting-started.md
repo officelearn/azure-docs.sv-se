@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 16b206b97f71eeffbb4fddb9e447649034998672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure-portalen
 Den här artikeln visar hur du aktiverar Azure Active Directory Domain Services (Azure AD DS) med Azure-portalen.
@@ -26,7 +26,7 @@ Den här artikeln visar hur du aktiverar Azure Active Directory Domain Services 
 Att starta den **aktivera Azure AD Domain Services** guiden gör du följande:
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. I den vänstra rutan klickar du på **ny**.
+2. I den vänstra rutan klickar du på **skapar du en resurs**.
 3. I den **ny** anger **Domain Services** i sökfältet.
 
     ![Sök efter domäntjänster](./media/getting-started/search-domain-services.png)

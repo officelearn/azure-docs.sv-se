@@ -4,7 +4,7 @@ description: "Den här artikeln förklaras hur du skapar SQL Server Redundansklu
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL Server-instans för redundanskluster på virtuella Azure-datorer
 
@@ -117,7 +117,7 @@ Med dessa krav är på plats, kan du fortsätta med att skapa klustret för väx
       >[!IMPORTANT]
       >Du kan inte ange eller ändra tillgänglighetsuppsättning när en virtuell dator har skapats.
 
-   Välj en bild från Azure Marketplace. Du kan använda en marknadsplats avbildningen med som omfattar Windows Server och SQL Server eller bara Windows-Server. Mer information finns i [översikt över SQL Server på Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Välj en bild från Azure Marketplace. Du kan använda en marknadsplats avbildningen med som omfattar Windows Server och SQL Server eller bara Windows-Server. Mer information finns i [översikt över SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
 
    De officiella SQL Server-avbildningarna i Azure-galleriet är en installerade SQL Server-instans, plus installationsprogrammet för SQL Server och nödvändig nyckel.
 
@@ -128,7 +128,7 @@ Med dessa krav är på plats, kan du fortsätta med att skapa klustret för väx
       - **SQL Server 2016 Standard på Windows Server Datacenter 2016**
       - **SQL Server 2016 utvecklare i Windows Server Datacenter 2016**
 
-   - **Bring-your-äger-licens (BYOL)**
+   - **Bring-your-own-license (BYOL)**
 
       - **{BYOL} SQL Server 2016 Enterprise på Windows Server Datacenter 2016**
       - **{BYOL} SQL Server 2016 Standard på Windows Server Datacenter 2016**
@@ -352,7 +352,7 @@ Skapa belastningsutjämnaren:
    - **Virtuellt nätverk**: I samma nätverk som de virtuella datorerna.
    - **Undernät**: samma undernät som de virtuella datorerna.
    - **Privata IP-adressen**: samma IP-adress som du tilldelade till SQL Server FCI-klusterresursen för nätverket.
-   - **prenumerationen**: din Azure-prenumeration.
+   - **Prenumerationen**: din Azure-prenumeration.
    - **Resursgruppen**: använda samma resursgrupp som de virtuella datorerna.
    - **Plats**: använda samma Azure-plats som de virtuella datorerna.
    Se följande bild:

@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurera domänanslutna HDInsight begränsat läge
 
-Lär dig hur du ställer in ett Azure HDInsight-kluster med fristående Active Directory och [Apache Ranger](http://hortonworks.com/apache/ranger/) och dra nytta av stark autentisering och omfattande rollbaserad åtkomst principer för åtkomstkontroll (RBAC). Mer information finns i [införa domänanslutna HDInsight-kluster](apache-domain-joined-introduction.md).
+Lär dig hur du ställer in ett Azure HDInsight-kluster med fristående Active Directory och [Apache Ranger](http://hortonworks.com/apache/ranger/) och dra nytta av stark autentisering och omfattande rollbaserad åtkomst principer för åtkomstkontroll (RBAC). Mer information finns i [införa domänanslutna HDInsight-kluster](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Som standard kan den här konfigurera endast användas med Azure Storage-konton. Synkronisera Active Directory till en ny Azure Active Directory om du vill använda med Azure Data Lake Store.
 
 Utan domänanslutna HDInsight-kluster, kan varje kluster bara ha ett konto för Hadoop HTTP-användare och en SSH-användarkontot.  Autentisering av flera användare kan uppnås med hjälp av:
 
@@ -40,6 +43,7 @@ Använder en fristående Active Directory ingår körs på Azure IaaS i den här
     - Skapa HDInsight-kluster
 
 > [!IMPORTANT]
+> 
 > Oozie har inte aktiverats på domänanslutna HDInsight.
 
 ## <a name="prerequisite"></a>Krav

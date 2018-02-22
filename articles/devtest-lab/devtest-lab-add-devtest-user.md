@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ I följande tabell visas de åtgärder som kan utföras av användare i dessa ro
 Följande steg hjälper dig att lägga till en ägare eller användare i ett labb i Azure DevTest Labs:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **Fler tjänster** och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet.
 4. På den testmiljön bladet välj **Configuration**. 
 5. På den **Configuration** bladet väljer **användare**.
@@ -118,7 +118,7 @@ Du kan lägga till ytterligare ägare till ett labb via den testmiljön bladet i
 Följ dessa steg för att lägga till en ägare till en Azure-prenumeration:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **prenumerationer** från listan.
+2. Välj **alla tjänster**, och välj sedan **prenumerationer** från listan.
 3. Välj den önskade prenumerationen.
 4. Välj **åtkomst** ikon. 
    

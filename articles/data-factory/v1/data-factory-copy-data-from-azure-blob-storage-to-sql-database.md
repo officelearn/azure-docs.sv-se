@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL-databas med hjälp av Data Factory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 Du behöver kontonamnet och kontonyckel av Azure storage-konto för att göra den här kursen. Notera **kontonamn** och **kontonyckel** för Azure storage-konto.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **fler tjänster** på den vänstra menyn och välj **Lagringskonton**.
+2. Klicka på **alla tjänster** på den vänstra menyn och välj **Lagringskonton**.
 
     ![Bläddra - Storage-konton](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. I den **Lagringskonton** bladet väljer den **Azure storage-konto** som du vill använda i den här självstudiekursen.
@@ -70,7 +70,7 @@ Du behöver kontonamnet och kontonyckel av Azure storage-konto för att göra de
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQLServer, databas, användarnamn
 Du måste namnen på Azure SQL server-databasen och användaren att göra den här kursen. Skriv ner namnen på **server**, **databasen**, och **användaren** för din Azure SQL-databas.
 
-1. I den **Azure-portalen**, klickar du på **fler tjänster** till vänster och välj **SQL-databaser**.
+1. I den **Azure-portalen**, klickar du på **alla tjänster** till vänster och välj **SQL-databaser**.
 2. I den **SQL-databaser bladet**, Välj den **databasen** som du vill använda i den här självstudiekursen. Notera den **databasnamnet**.  
 3. I den **SQL-databas** bladet, klickar du på **egenskaper** under **inställningar**.
 4. Skriv ner värdena för **servernamn** och **inloggning för SERVERADMINISTRATÖR**.
@@ -79,7 +79,7 @@ Du måste namnen på Azure SQL server-databasen och användaren att göra den h�
 ## <a name="allow-azure-services-to-access-sql-server"></a>Ge Azure-tjänster åtkomst till SQLServer
 Se till att **Tillåt åtkomst till Azure-tjänster** inställningen aktiverade **på** för Azure SQL-servern så att Data Factory-tjänsten har åtkomst till Azure SQL-servern. Gör så här för att kontrollera och aktivera den här inställningen:
 
-1. Klicka på hubben **Fler tjänster** till vänster och klicka på **SQL-servrar**.
+1. Klicka på **alla tjänster** hubb till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
 3. På bladet **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
 4. Stäng alla blad genom att klicka på **X**.

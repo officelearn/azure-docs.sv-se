@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med automatisk databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) och [säkerhetskopieringar i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -34,7 +34,7 @@ SQL-databas finns följande alternativ för databas återställning med hjälp a
 
 En återställd databas har en extra lagring kostnad under följande förhållanden: 
 - Återställning av P11 – P15 S12 S4 förpackningen eller P1 – P6 om den maximala databasstorleken är större än 500 GB.
-- Återställning av P1 – P6 eller PRS1 – PRS6 till S12 S4 förpackningen om den maximala databasstorleken är större än 250 GB.
+- Återställning av P1 – P6 till S12 S4 förpackningen om den maximala databasstorleken är större än 250 GB.
 
 Extra kostnaden är eftersom maxstorleken på den återställda databasen är större än mängden lagringsutrymme som ingår för prestandanivå och eventuella extra lagring som etablerats över inkluderade mängden debiteras extra.  Prisinformation extra lagringsutrymme, finns det [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).  Om den faktiska mängden diskutrymme som används är mindre än mängden lagringsutrymme som ingår, kan sedan detta extra kostnad undvikas genom att minska den maximala databasstorleken så ingår. Mer information om databasen lagringsstorlekar och ändra den maximala databasstorleken finns [enkel gränserna för databasen](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

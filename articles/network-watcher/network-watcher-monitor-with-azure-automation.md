@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Övervaka VPN-gatewayer Nätverksbevakaren felsökning
 
@@ -51,7 +51,7 @@ Innan du startar det här scenariot måste du ha följande krav:
 
 ### <a name="create-the-runbook"></a>Skapa en runbook
 
-Det första steget att konfigurera exemplet är att skapa runbook. Det här exemplet används en Kör som-konto. Läs om Kör som-konton [autentisera Runbooks med Azure kör som-konto](../automation/automation-sec-configure-azure-runas-account.md)
+Det första steget att konfigurera exemplet är att skapa runbook. Det här exemplet används en Kör som-konto. Läs om Kör som-konton [autentisera Runbooks med Azure kör som-konto](../automation/automation-create-runas-account.md)
 
 ### <a name="step-1"></a>Steg 1
 

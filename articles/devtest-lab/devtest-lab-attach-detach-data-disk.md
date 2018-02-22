@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ansluta eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
 [Azure-hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterar storage-konton som är kopplade till virtuella hårddiskar. En användare bifogar nya data disken till en virtuell dator Anger typ och storlek på disken som behövs, och Azure skapar och hanterar disken automatiskt. Datadisken kan sedan kopplas från den virtuella datorn och antingen anbringas på nytt senare till samma virtuella dator, eller till en annan virtuell dator som hör till samma användare.
@@ -35,7 +35,7 @@ Innan du ansluta en datadisk till en virtuell dator granskar du de här tipsen:
 Följ dessa steg för att skapa och koppla en ny datadisk hanterade till en virtuell dator i Azure DevTest Labs.
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 1. Lista över labs, Välj önskade labbet. 
 1. I listan över **Mina virtuella datorer**, Välj en aktiv virtuell dator.
 1. Välj på menyn till vänster **diskar**.

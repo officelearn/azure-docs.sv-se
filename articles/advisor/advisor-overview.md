@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
 Lär dig mer om de viktigaste funktionerna i Azure Advisor och få svar på vanliga frågor och svar.
 
 ## <a name="what-is-advisor"></a>Vad är Advisor?
-Advisor är en anpassad cloud konsult som hjälper dig att följa de bästa metoderna för att optimera din Azure-distributioner. Den analyserar dina resurskonfigurationen och telemetri och rekommenderar lösningar som hjälper dig att förbättra kostnadseffektivitet, prestanda, hög tillgänglighet och säkerhet för dina Azure-resurser.
+Advisor är en anpassad cloud konsult som hjälper dig att följa de bästa metoderna för att optimera din Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
 Med Advisor kan du:
 * Hämta proaktiv, tillförlitlig och anpassade rekommendationer och metodtips. 
 * Förbättra prestanda, säkerhet och hög tillgänglighet för dina resurser, som du identifiera möjligheter att minska den totala Azure tillbringar.
 * Få rekommendationer med infogad föreslagna åtgärder.
 
-Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashboard). Logga in på den [portal](https://portal.azure.com), leta upp **Advisor** i navigeringsmenyn eller Sök efter den i den **fler tjänster** menyn.
+Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashboard). Logga in på den [portal](https://portal.azure.com), leta upp **Advisor** i navigeringsmenyn eller Sök efter den i den **alla tjänster** menyn.
 
 Advisor-instrumentpanelen innehåller anpassad rekommendationer för alla prenumerationer.  Du kan använda filter för att visa rekommendationer för specifika prenumerationer och resurstyper.  Rekommendationerna delas in i fyra kategorier: 
 
@@ -57,7 +57,7 @@ Om du inte tänker vidta omedelbara åtgärder på en rekommendation du viloläg
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="how-do-i-access-advisor"></a>Hur kommer jag åt Advisor?
-Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashboard). Logga in på den [portal](https://portal.azure.com), leta upp **Advisor** i navigeringsmenyn eller Sök efter den i den **fler tjänster** menyn.
+Du kan komma åt Advisor i den [Azure-portalen](https://aka.ms/azureadvisordashboard). Logga in på den [portal](https://portal.azure.com), leta upp **Advisor** i navigeringsmenyn eller Sök efter den i den **alla tjänster** menyn.
 
 Du kan också visa Advisor-rekommendationer via gränssnittet virtuella resursen. Välj en virtuell dator och bläddrar sedan till Advisor-rekommendationer i menyn. 
 

@@ -23,28 +23,28 @@ Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om d
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du kan skriva kod för enheten måste du etablera din förkonfigurerade lösning för fjärrövervakning och etablera en ny anpassad enhet i lösningen.
+Innan du skriva kod för enheten Distribuera fjärråtkomst övervakning förkonfigurerade lösningar och lägger till en ny fysisk enhet i lösningen.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Etablera din förkonfigurerade lösning för fjärrövervakning
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningar
 
 Den **kylaggregat** enhet som du skapar i den här självstudiekursen skickar data till en instans av den [fjärrövervaknings](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) förkonfigurerade lösningen. Om du inte redan har etablerats fjärråtkomst övervakning förkonfigurerade lösningen i ditt Azure-konto, se [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-När etableringen av fjärrövervakningslösningen är klar klickar du på **Starta** för att öppna lösningens instrumentpanel i webbläsaren.
+När distributionsprocessen för fjärranslutna övervakningslösning är klar klickar du på **starta** att öppna lösningen instrumentpanelen i webbläsaren.
 
 ![Infopanelen lösning](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Etablera enheten i fjärrövervakningslösningen
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägg till din enhet i fjärranslutna övervakningslösning
 
 > [!NOTE]
-> Om du redan har etablerat en enhet i din lösning kan du hoppa över det här steget. Du måste anslutningssträngen enhet som du kan hämta från Azure-portalen när du skapar klientprogrammet.
+> Om du redan har lagt till en enhet i din lösning kan du hoppa över det här steget. Nästa steg kräver dock anslutningssträngen enhet. Du kan hämta anslutningssträngen för en enhet från den [Azure-portalen](https://portal.azure.com) eller med hjälp av den [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
 
-För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller autentiseringsuppgifterna när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
+För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara anslutningssträngen för enheten som innehåller dessa autentiseringsuppgifter när du lägger till enheten lösningen. Du inkludera enheten anslutningssträngen i ditt klientprogram senare i den här kursen.
 
 Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför följande steg på den **enheter** sida i lösningen:
 
 1. Välj **+ ny enhet**, och välj sedan **fysiska** som den **enhetstyp**:
 
-    ![Etablera en fysisk enhet](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Lägg till en fysisk enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Ange **fysiska kylaggregat** som enhets-ID. Välj den **symmetrisk nyckel** och **automatiskt generera nycklar** alternativ:
 
@@ -54,9 +54,7 @@ Lägg till en enhet i din lösning för fjärråtkomst övervakning, utför föl
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
-Gå till Azure-portalen i webbläsaren för att hitta de autentiseringsuppgifter som din enhet måste använda för att ansluta till den förkonfigurerade lösningen. Logga in till din prenumeration.
-
-Du har nu etablerats en fysisk enhet för fjärranslutna övervakningen förkonfigurerade lösningen. I följande avsnitt kan du implementera klientprogram som använder enheten autentiseringsuppgifterna för att ansluta till din lösning.
+Du har nu lagt till en fysisk enhet till fjärråtkomst övervakning förkonfigurerade lösningen och anges sin enhet anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enheten anslutningssträngen för att ansluta till din lösning.
 
 Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En förkonfigurerade lösningen enhetsmodell anger följande om en enhet:
 

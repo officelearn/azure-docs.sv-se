@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använda Azure AD Graph API
 
@@ -45,7 +45,7 @@ När du har en B2C-klient, måste du registrera ditt program via den [Azure Port
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj din Azure AD B2C-klient genom att välja kontot i det övre högra hörnet på sidan.
-3. I det vänstra navigeringsfönstret väljer **fler tjänster**, klickar du på **App registreringar**, och klicka på **Lägg till**.
+3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **App registreringar**, och klicka på **Lägg till**.
 4. Följ anvisningarna och skapa ett nytt program. 
     1. Välj **Webbapp / API** typen av program.    
     2. Ange **någon omdirigerings-URI** (t.ex. https://B2CGraphAPI) eftersom den inte är relevanta för det här exemplet.  
@@ -128,7 +128,7 @@ Om du vill använda B2CGraphClient, öppna en `cmd` Windows kommandot fråga och
 Då visas en kort beskrivning av varje kommando. Varje gång du anropar någon av dessa kommandon `B2CGraphClient` gör en begäran till Azure AD Graph API.
 
 ### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
-Alla förfrågningar för Graph API kräver en åtkomst-token för autentisering. `B2CGraphClient`använder den öppen källkod Active Directory Authentication Library (ADAL) för att få åtkomst-token. ADAL underlättar token förvärv genom att tillhandahålla ett enkelt API och tar hand om vissa viktig information, till exempel cachelagring åtkomsttoken. Du inte använder ADAL för att hämta token, men. Du kan också hämta token genom att utforma HTTP-begäranden.
+Alla förfrågningar för Graph API kräver en åtkomst-token för autentisering. `B2CGraphClient` använder den öppen källkod Active Directory Authentication Library (ADAL) för att få åtkomst-token. ADAL underlättar token förvärv genom att tillhandahålla ett enkelt API och tar hand om vissa viktig information, till exempel cachelagring åtkomsttoken. Du inte använder ADAL för att hämta token, men. Du kan också hämta token genom att utforma HTTP-begäranden.
 
 > [!NOTE]
 > Det här kodexemplet använder ADAL v2 för att kunna kommunicera med Graph API.  Du måste använda ADAL version 2 eller 3 för att få åtkomst-token som kan användas med Azure AD Graph API.
@@ -357,7 +357,7 @@ Du kan använda det fullständiga namnet som `extension_55dc0861f9a44eb999e0a8a8
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Med hjälp av `B2CGraphClient`, du har ett tjänstprogram som kan hantera B2C-klient användarna programmässigt. `B2CGraphClient`använder en egen programidentitet för att autentisera till Azure AD Graph API. Token får också med hjälp av en klienthemlighet. Kom ihåg några viktiga punkter för B2C-appar som du använda den här funktionaliteten i ditt program:
+Med hjälp av `B2CGraphClient`, du har ett tjänstprogram som kan hantera B2C-klient användarna programmässigt. `B2CGraphClient` använder en egen programidentitet för att autentisera till Azure AD Graph API. Token får också med hjälp av en klienthemlighet. Kom ihåg några viktiga punkter för B2C-appar som du använda den här funktionaliteten i ditt program:
 
 * Du måste ge rätt behörighet i klienten för programmet.
 * Du måste använda ADAL (inte MSAL) för att få åtkomst-token för tillfället. (Du kan också skicka protokollmeddelanden direkt, utan att använda ett bibliotek.)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -55,7 +55,7 @@ Innan du börjar den här genomgången måste du ha följande krav:
 I det här steget kan du använda Azure-portalen för att skapa en Azure Data Factory-instans med namnet **ADFTutorialOnPremDF**.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **+ ny**, klickar du på **Intelligence + analys**, och klicka på **Data Factory**.
+2. Klicka på **skapar du en resurs**, klickar du på **Intelligence + analys**, och klicka på **Data Factory**.
 
    ![Nytt->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. I den **nya datafabriken** anger **ADFTutorialOnPremDF** för namnet.
@@ -131,7 +131,7 @@ I det här steget kan du använda Azure-portalen för att skapa en Azure Data Fa
    * **Schemalägga uppdateringar** installeras vid en viss tid på dagen.
    * Visa när gatewayen **senast uppdaterad**.
    * Ange tiden då en uppdatering till gateway kan installeras.
-8. Växla till den **inställningar** fliken. Certifikatet som anges i den **certifikat** avsnitt används för att kryptera/dekryptera autentiseringsuppgifterna för lokal datalagret som du anger på portalen. (valfritt) Klicka på **ändra** använda ditt eget certifikat i stället. Som standard använder det certifikat som genereras automatiskt av tjänsten Data Factory i gatewayen.
+8. Växla till fliken **Settings** (Inställningar). Certifikatet som anges i den **certifikat** avsnitt används för att kryptera/dekryptera autentiseringsuppgifterna för lokal datalagret som du anger på portalen. (valfritt) Klicka på **ändra** använda ditt eget certifikat i stället. Som standard använder det certifikat som genereras automatiskt av tjänsten Data Factory i gatewayen.
 
     ![Gateway-konfiguration för certifikat](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 

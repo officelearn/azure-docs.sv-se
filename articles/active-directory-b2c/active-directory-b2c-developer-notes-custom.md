@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Viktig information för en förhandsversion av Azure Active Directory B2C anpassad princip
 Funktionsuppsättningen anpassad princip är nu tillgänglig för utvärdering under förhandsversion för alla Azure Active Directory B2C (Azure AD B2C) kunder. Den här funktionsuppsättningen är inriktad på avancerade identitet utvecklare som bygger mest komplexa identitetslösningar.  
@@ -60,7 +60,7 @@ Om du vill utnyttja alla fördelar som förhandsversion, föreslår vi att utvec
 ## <a name="features-by-stage-and-known-issues"></a>Funktioner med steg och kända problem
 Anpassad princip/identitet upplevelse Framework funktioner är under konstant och snabb utveckling.  Den här tabellen är ett index över funktioner/komponenttillgänglighet.
 
-Ställa frågor i stackspill på [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Ställa frågor i stackspill på [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Identitet Providers, token-protokoll

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Tjänsten fjärrkommunikation med Reliable Services
 För tjänster som inte är knutna till en viss kommunikationsprotokoll eller stacken, till exempel WebAPI, Windows Communication Foundation (WCF) eller andra, gör Reliable Services framework fjärrkommunikation snabbt och enkelt konfigurera fjärrproceduranrop för tjänster.
@@ -30,7 +30,7 @@ Ställa in fjärrstyrning för en tjänst görs i två enkla steg:
 2. Använd en lyssnare för fjärrkommunikation i din tjänst. RemotingListener är en `ICommunicationListener` implementering som tillhandahåller funktioner för fjärrkommunikation. Den `Microsoft.ServiceFabric.Services.Remoting.Runtime` namnområde innehåller en metod,`CreateServiceRemotingListener` för både tillståndslösa och tillståndskänsliga tjänster som kan användas för att skapa en lyssnare för fjärrkommunikation med transportprotokollet standard fjärrkommunikation.
 
 >[!NOTE]
->Den `Remoting` namnområdet är tillgängligt som ett separat NuGet-paket som kallas`Microsoft.ServiceFabric.Services.Remoting`
+>Den `Remoting` namnområdet är tillgängligt som ett separat NuGet-paket som kallas `Microsoft.ServiceFabric.Services.Remoting`
 
 Till exempel exponerar följande tillståndslösa tjänsten en metod för att få ”Hello World” över ett fjärranrop.
 
@@ -59,7 +59,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context =>            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -84,7 +84,7 @@ Fjärr-framework sprider undantag från tjänsten till klienten. Som ett resulta
 ## <a name="service-proxy-lifetime"></a>Tjänsten Proxylivslängden
 ServiceProxy skapas en enkel åtgärd, så att användarna kan skapa så många som de behöver. Tjänstproxy instanser kan återanvändas som användarna behöver den. Om ett fjärranrop genererar ett undantag, kan användarna fortfarande återanvända samma instans som proxy. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden via kabel. Vid anrop fjärranrop Kontrollera vi internt om kommunikation klienten är giltig. Baserat på resultatet återskapa vi kommunikation klienten om det behövs. Därför om ett undantag inträffar kan användarna inte behöver återskapa `ServiceProxy` eftersom det är gjort transparent.
 
-### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livslängd
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar instanser av proxy för olika fjärrkommunikation gränssnitt. Om du använder API: et `ServiceProxy.Create` för att skapa proxy ramen skapar sedan en singleton ServiceProxy.
 Det är praktiskt att skapa ett manuellt när du måste åsidosätta [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) egenskaper.
 Generering av är en kostsam åtgärd. ServiceProxyFactory upprätthåller en interna cachelagringen av klienten för kommunikation.
@@ -146,7 +146,7 @@ Här följer stegen för att följa.
   </Resources>
   ```
 
-2. Använd [fjärrkommunikation V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Standardnamn som tjänsten Endpoint-resursen används måste definieras i Service Manifest är ”ServiceEndpointV2”.
+2. Använd [fjärrkommunikation V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet). Standardnamn som tjänsten Endpoint-resursen används måste definieras i Service Manifest är ”ServiceEndpointV2”.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

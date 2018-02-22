@@ -16,27 +16,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med starttjänsten
 
 Ibland kan vill du konfigurera konfigurationsfiler, bland annat:
 
 * clusterIdentity.xml
-* Core-site.xml
-* gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-plats
+* mapred-site
 * oozie-site.xml
-* oozie env.xml
+* oozie-env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml
@@ -86,7 +86,7 @@ En fullständig fungerande PowerShell-skript finns i [bilaga](#appendix-powershe
 **Så här kontrollerar du ändringen:**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I den vänstra menyn klickar du på **HDInsight-kluster**. Om du inte ser det klickar du på **fler tjänster** första.
+2. I den vänstra menyn klickar du på **HDInsight-kluster**. Om du inte ser det klickar du på **alla tjänster** första.
 3. Klicka på det kluster som du just har skapat med hjälp av PowerShell-skript.
 4. Klicka på **instrumentpanelen** högst upp på bladet för att öppna Ambari UI.
 5. Klicka på **Hive** i den vänstra menyn.

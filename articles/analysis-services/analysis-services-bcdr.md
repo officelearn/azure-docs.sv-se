@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 554c5e6e3e3cfa2742ef27a3c1510176184b6bd0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ed2bb2fe159db146ee520fc600c8b11f2dd4f761
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analysis-services-high-availability"></a>Hög tillgänglighet för Analysis Services
 Den här artikeln beskriver garantera hög tillgänglighet för Azure Analysis Services-servrar. 
@@ -29,13 +29,14 @@ När det är sällsynt, kan ett Azure-Datacenter ha ett avbrott. När ett avbrot
 
 * Distribuera modeller till redundanta servrar i andra regioner. Den här metoden kräver databearbetning på både primära servern och redundanta servrar i parallellt, så alla servrar är synkroniserad.
 
-* Säkerhetskopiera databaser från den primära servern och återställning på redundanta servrar. Du kan till exempel automatisera säkerhetskopieringar till Azure-lagring och återställa till andra redundant servrar i andra regioner. 
+* [Säkerhetskopiering](analysis-services-backup.md) databaser från den primära servern och återställning på redundanta servrar. Du kan till exempel automatisera säkerhetskopieringar till Azure-lagring och återställa till andra redundant servrar i andra regioner. 
 
 Om den primära servern skulle få ett avbrott i båda fallen måste du ändra anslutningssträngar i reporting klienter att ansluta till servern i ett annat regionala datacenter. Den här ändringen ska betraktas som en sista utväg och endast om ett oåterkalleligt regionala data center avbrott inträffar. Det är troligt att en data center avbrott som värd för den primära servern skulle komma online igen innan du kan uppdatera anslutningar på alla klienter. 
 
-
+Om du vill undvika att behöva ändra anslutningssträngar på reporting klienter, kan du skapa en server [alias](analysis-services-server-alias.md) för den primära servern. Om den primära servern kraschar, kan du ändra alias att peka till en redundant server i en annan region. Du kan automatisera alias namn genom att skriva en slutpunkt hälsokontroll på den primära servern. Om hälsokontrollen misslyckas, kan samma slutpunkten direkt till en redundant server i en annan region. 
 
 ## <a name="related-information"></a>Relaterad information
 [Säkerhetskopiering och återställning](analysis-services-backup.md)   
-[Hantera Azure Analysis Services](analysis-services-manage.md) 
+[Hantera Azure Analysis Services](analysis-services-manage.md)   
+[Alias servernamn](analysis-services-server-alias.md) 
 

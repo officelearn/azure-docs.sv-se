@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: c59a32e1b2d460e04c4c6f5d1be2dd655abbef27
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utför en åtgärd med en Automation-Runbook från ett sökresultat för logganalys-logg
 
@@ -32,17 +32,18 @@ Loggen sökningen i Azure Log Analytics, du kan nu välja **åtgärda** att kör
 
 Om du vill vidta åtgärder för en händelse och startar en runbook i sökresultaten loggen, börja med att skapa en logg-sökning och du kan anropa en runbook på begäran från resultaten.  Du kan göra detta från loggen sökfunktionen i den [Azure-portalen](../log-analytics/log-analytics-log-search-new.md).  I det här exemplet söka vi loggen från Azure-portalen med en enkel demonstration av den här funktionen.
 
-1. I Azure-portalen på navmenyn klickar du på **fler tjänster** och välj **logganalys**.  
-2. I bladet logganalys väljer logganalys-arbetsytan och i bladet arbetsytan väljer **loggen Sök**.  
-3. I bladet loggen Search söka loggen.  
-4. I sökresultaten logg klickar du på ellipsen till vänster om något av fälten och på snabbmenyn, väljer **vidta åtgärder för**.<br><br> ![Välj Ta åtgärd sökresultat](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
-5. Välj bladet vidta åtgärden **köra en runbook**, och på den **köra en runbook** bladet kan du välja en runbook ska köras.  Du kan välja valfri runbook i Automation-kontot som är kopplad till logganalys-arbetsytan.  Observera följande:
+1. I Azure-portalen klickar du på **alla tjänster** och välj **logganalys**.  
+2. Välj logganalys-arbetsytan.
+3. På arbetsytan, Välj **loggen Sök**.  
+4. På sidan Logga Search söka loggen.  
+5. I sökresultaten logg klickar du på ellipsen till vänster om något av fälten och på snabbmenyn, väljer **vidta åtgärder för**.<br><br> ![Välj Ta åtgärd sökresultat](./media/log-analytics-log-search-takeaction/log-search-takeaction-menuoption.png) 
+6. Välj **köra en runbook** och välj en runbook ska köras.  Du kan välja valfri runbook i Automation-kontot som är kopplad till logganalys-arbetsytan.  Observera följande:
 
     * Runbooks är ordnade efter taggar
     * Runbook Indataparametern värden kan väljas direkt från fälten i sökresultatet.  En listrutan visas alla tillgängliga fält från resultatet att välja från.  
     * Du kan välja att köra runbook en [runbook worker-hybrid](../automation/automation-hybrid-runbook-worker.md) att du har installerat på den dator som har problemet om du har en motsvarande Hybrid Runbook Worker-grupp som endast innehåller den här datorn som en medlem.  Om namnet på Hybrid Worker-grupp matchar namnet på den dator som är i sökresultatet loggen, väljs gruppen automatiskt.    
 
-6. När du klickar på **kör**, öppnas bladet för runbook-jobb så att du kan granska status för jobbet.   
+6. När du klickar på **kör**, öppnas sidan runbook-jobbet så att du kan granska status för jobbet.   
 
 Om du väljer en runbook som har konfigurerats för att vara [anropas från en avisering om logganalys](../automation/automation-invoke-runbook-from-omsla-alert.md), den har en indataparameter kallas **WebhookData** som **objekt** typen.  Om parametern är obligatorisk, måste du skicka sökresultaten till runbook så att den kan konvertera JSON-formaterad sträng till en objekttyp som gör att du kan filtrera efter specifika objekt som du sedan hänvisar till i runbook-aktiviteter.  Det gör du genom att välja **sökresultatet (objekt)** från den nedrullningsbara listan.<br><br> ![Välj Webhook-dataobjekt för runbook-parameter](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     

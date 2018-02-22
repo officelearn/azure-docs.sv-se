@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 02/15/2018
 ms.author: danis
-ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-Operations Management Suite (OMS) ger funktioner för övervakning, aviseringar, och reparationen i molnet och lokala resurser. Tillägget för virtuell dator OMS-Agent för Linux publiceras och stöds av Microsoft. Tillägget OMS-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig OMS-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för OMS-tillägget för virtuell dator för Linux.
+Log Analytics tillhandahåller funktioner för övervakning, aviseringar, och reparationen i molnet och lokala resurser. Tillägget för virtuell dator OMS-Agent för Linux publiceras och stöds av Microsoft. Tillägget OMS-agent installeras på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig logganalys-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för OMS-tillägget för virtuell dator för Linux.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -42,9 +42,19 @@ Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 och 12 |
 
+Följande tabell innehåller en mappning av versionen av OMS-VM-tillägget och OMS-Agent paket för varje version. En länk till viktig information om OMS paket agentversionen ingår.  
+
+| Version för OMS Linux VM-tillägg | OMS-Agent paket version | 
+|--------------------------------|--------------------------|
+| 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
+| 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
+| 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
+| 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
+| 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
+
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center automatiskt etablerar OMS-agenten och kopplar den till standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör det skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
+Azure Security Center automatiskt etablerar OMS-agenten och ansluter till en standard logganalys-arbetsytan som skapats av ASC i din Azure-prenumeration. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör detta skriver över den konfigurerade arbetsytan och bryter anslutningen med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -52,7 +62,7 @@ Tillägget OMS-Agent för Linux kräver att den virtuella måldatorn är anslute
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbetsyte-ID och arbetsytenyckel från OMS målarbetsytan; Dessa värden finns i OMS-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbetsyte-ID och arbetsytenyckel från målet logganalys-arbetsytan; Dessa värden kan vara [hittades i logganalys-arbetsytan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) i Azure-portalen. Eftersom arbetsytans ska behandlas som känsliga data, bör det lagras i en Inställningskonfiguration för skyddade. Azure för VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
 
 ```json
 {
@@ -82,20 +92,20 @@ Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbet
 | Namn | Värdet / exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Publisher | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | typ | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
-| workspaceId (t.ex.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
-| workspaceKey (t.ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ == |
+| workspaceId (t.ex.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (t.ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver post distributionskonfiguration, till exempel onboarding till OMS. En Resource Manager-mall som innehåller OMS-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver post distributionskonfiguration, till exempel onboarding till logganalys. En Resource Manager-mall som innehåller OMS-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 JSON-konfiguration för ett tillägg för virtuell dator kan kapslas i den virtuella datorresursen eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet av resursens namn och typen. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-I följande exempel förutsätter OMS-tillägget är kapslad i den virtuella datorresursen. När kapsla resursen tillägget JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätter VM-tillägget är kapslad i den virtuella datorresursen. När kapsla resursen tillägget JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
 ```json
 {
@@ -147,7 +157,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera OMS-agenten VM-tillägget till en befintlig virtuell dator. Ersätt OMS-nyckel och OMS-ID med de från din OMS-arbetsyta. 
+Azure CLI kan användas för att distribuera OMS-agenten VM-tillägget till en befintlig virtuell dator. Ersätt den *workspaceId* och *workspaceKey* med de från logganalys-arbetsytan. 
 
 ```azurecli
 az vm extension set \
@@ -179,14 +189,14 @@ Tillägget utförande-utdatan loggas till följande fil:
 
 | Felkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
-| 10 | VM är redan ansluten till en OMS-arbetsyta | Ange stopOnMultipleConnections till false i inställningar för offentliga för att ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägg, eller ta bort den här egenskapen. Den här virtuella datorn hämtar debiteras när för varje arbetsyta som den är ansluten till. |
+| 10 | VM är redan ansluten till logganalys-arbetsytan | Ange stopOnMultipleConnections till false i inställningar för offentliga för att ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägg, eller ta bort den här egenskapen. Den här virtuella datorn hämtar debiteras när för varje arbetsyta som den är ansluten till. |
 | 11 | Ogiltig konfiguration för tillägget | Följ föregående exempel om du vill ange värden för alla krävs för distributionen. |
 | 12 | Dpkg package manager är låst | Kontrollera att alla dpkg uppdateringsåtgärder på datorn är klar och försök igen. |
 | 20 | Aktivera kallas för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
 | 55 | Det går inte att ansluta till tjänsten Microsoft Operations Management Suite | Kontrollera att systemet antingen har Internetåtkomst eller att en giltig HTTP-proxy har tillhandahållits. Dessutom kan kontrollera är korrekt arbetsyte-ID. |
 
-Mer information om felsökning finns på den [OMS-Agent för Linux felsökningsguide](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
+Mer information om felsökning finns på den [OMS-Agent för Linux felsökningsguide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Support
 

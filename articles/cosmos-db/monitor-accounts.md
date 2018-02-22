@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Övervaka Azure Cosmos DB
 Du kan övervaka dina Azure DB som Cosmos-konton i den [Azure-portalen](https://portal.azure.com/). För varje Azure DB som Cosmos-konto är en fullständig uppsättning mått som kan övervakas dataflöde, lagring, tillgänglighet, svarstid och konsekvens.
@@ -26,7 +26,7 @@ Du kan övervaka dina Azure DB som Cosmos-konton i den [Azure-portalen](https://
 Mått kan granskas på sidan konto sidan Ny mått eller i Azure-Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Visa prestandamått på sidan mått
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **fler tjänster**, bläddra till **databaser**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure Cosmos DB-konto som du vill visa prestandamått.
+1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **alla tjänster**, bläddra till **databaser**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure Cosmos DB-konto som du vill visa prestandamått.
 2. När den nya sidan läses in i menyn resurs under **övervakning**, klickar du på **mått**.
 3. När mätvärdena som öppnar, välja en samling ska granska från den **samling(ar)** listrutan.
 
@@ -42,7 +42,7 @@ Mått kan granskas på sidan konto sidan Ny mått eller i Azure-Monitor.
 5. I listan över **tillgängliga mått**, välja mått att visa. Använd knappen CTRL du kan markera. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Visa prestandamått på kontosidan
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **fler tjänster**, bläddra till **databaser**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure Cosmos DB-konto som du vill visa prestandamått.
+1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **alla tjänster**, bläddra till **databaser**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure Cosmos DB-konto som du vill visa prestandamått.
 2. Den **övervakning** lins visar följande rubriker som standard:
    
    * Totalt antal begäranden för den aktuella dagen.
@@ -53,7 +53,7 @@ Mått kan granskas på sidan konto sidan Ny mått eller i Azure-Monitor.
 4. Den **mått** visar information om förfrågningarna. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Ställa in aviseringar på portalen
-1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **fler tjänster**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure DB som Cosmos-konto som du vill ställa in prestanda mått aviseringar.
+1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **alla tjänster**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på Azure DB som Cosmos-konto som du vill ställa in prestanda mått aviseringar.
 2. Resurs-menyn klickar du på **Varningsregler** att öppna sidan Varningsregler.  
    ![Skärmbild som visar aviseringen regler del markerad](./media/monitor-accounts/madocdb10.5.png)
 3. I den **Varna regler** klickar du på **Lägg till avisering**.  

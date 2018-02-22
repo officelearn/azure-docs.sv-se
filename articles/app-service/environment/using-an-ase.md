@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Använd en Apptjänst-miljö #
 
@@ -48,7 +48,7 @@ Om du inte har en ASE, kan du skapa en genom att följa instruktionerna i [skapa
 
 Skapa en webbapp i en ASE:
 
-1. Välj **nya** > **webb + mobilt** > **Webbapp**.
+1. Välj **skapar du en resurs** > **webb + mobilt** > **Web App**.
 
 2. Ange ett namn för webbappen. Om du redan har valt en apptjänstplan i en ASE visar domännamnet för ASE domännamnet för appen.
 
@@ -102,15 +102,15 @@ Frontend resurser är HTTP/HTTPS-slutpunkt för ASE. Minnesanvändningen per kli
 
 I en extern ASE skiljer den domän som används när du skapar appar sig från multitenant Apptjänst. Den innehåller namnet på ASE. Läs mer om hur du skapar en extern ASE [skapa en Apptjänst-miljö][MakeExternalASE]. Domännamnet i en extern ASE ser ut som *.&lt; asename&gt;. p.azurewebsites.net*. Om din ASE heter exempelvis _externa ase_ och du är värd för en app som kallas _contoso_ i att ASE, du når den på följande webbadresser:
 
-- Contoso.external ase.p.azurewebsites.net
-- Contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 URL: en contoso.scm.external-ase.p.azurewebsites.net används för att få åtkomst till Kudu-konsolen eller för att publicera en app med hjälp av web distribuera. Information om Kudu-konsolen finns [Kudu-konsol för Azure App Service][Kudu]. Kudu-konsolen ger dig en webbgränssnittet för felsökning, överför filer, redigera filer och mycket mer.
 
 I en ILB ASE bestämma domänen vid tidpunkten för distribution. Läs mer om hur du skapar en ILB ASE [skapa och använda en ILB ASE][MakeILBASE]. Om du anger domännamnet _ilb ase.info_, appar i den ASE använda denna domän under skapande av app. För program med namnet _contoso_, URL: er är:
 
-- Contoso.ilb ase.info
-- Contoso.SCM.ilb ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Publicering ##
 
@@ -126,9 +126,9 @@ Med en extern ASE fungerar alternativen publishing alla på samma sätt. Mer inf
 
 Den största skillnaden med publicering är med avseende på en ILB ASE. Med en ILB ASE publishing slutpunkter alla bara är tillgängliga via ILB. ILB finns på en privat IP-adress i ASE undernät i det virtuella nätverket. Om du inte har åtkomst till ILB kan du publicera alla appar på den ASE. Enligt beskrivningen i [skapa och använda en ILB ASE][MakeILBASE], måste du konfigurera DNS för program i systemet. Som innehåller SCM-slutpunkten. Om de inte är rätt definierad, kan du publicera. Din IDEs måste också ha tillgång till ILB nätverk för att publicera till den.
 
-Internet-baserade CI system, t.ex GitHub och Visual Studio Team Services fungerar inte med en ILB ASE eftersom publishing slutpunkt inte är tillgänglig Internet. Du måste i stället använda ett CI-system som använder en pull-modell, till exempel Dropbox.
+Internet-baserade CI system, t.ex GitHub och Visual Studio Team Services fungerar inte med en ILB ASE eftersom publishing slutpunkt inte är tillgänglig Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
 
-Publishing slutpunkterna för appar i en ASE ILB använder ILB ASE skapades med domänen. Du kan se den i appens publiceringsprofilen och appens portalbladet (i **översikt** > **Essentials** och även i **egenskaper**). 
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publiceringsprofilen och appens portalbladet (i **översikt** > **Essentials** och även i **egenskaper**). 
 
 ## <a name="pricing"></a>Prissättning ##
 

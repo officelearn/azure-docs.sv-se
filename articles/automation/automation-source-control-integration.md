@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 Källkontrollintegrering kan du associera runbooks i ditt Automation-konto till en GitHub-källkontroll. Källkontrollen kan du enkelt samarbeta med din grupp, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontrollen du synkronisera olika filialer i källkontrollen till din utvecklings-, test- eller produktion Automation-konton, vilket gör det enkelt att befordra kod som har testats i din utvecklingsmiljö produktionsmiljön Automation-konto.
@@ -36,12 +36,11 @@ Det finns två enkla steg som krävs för att konfigurera källkontroll för Aut
 Om du redan har en GitHub-konto och en databas som du vill länka till Azure Automation sedan logga in på ditt befintliga konto och starta från steg 2 nedan. Annars navigerar du till [GitHub](https://github.com/), registrera dig för ett nytt konto och [skapar en ny lagringsplats](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>Steg 2 – konfigurera källkontroll i Azure Automation
-1. Sidan Automation-konto i Azure-portalen klickar du på **Ange källkontroll.** 
+1. Från Automation-kontot sidan i Azure-portalen under **kontoinställningar**, klickar du på **källkontroll.** 
    
-    ![Konfigurera källkontroll](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
-2. Den **källkontrollen** öppnas, där du kan konfigurera din kontoinformation för GitHub. Nedan visas en lista över de parametrar som du kan konfigurera:  
+1. Den **källkontrollen** öppnas, där du kan konfigurera din kontoinformation för GitHub. Nedan visas en lista över de parametrar som du kan konfigurera:  
    
-   | **Parametern** | **Beskrivning** |
+   | **Parameter** | **Beskrivning** |
    |:--- |:--- |
    | Välj källa |Välj källa. För närvarande endast **GitHub** stöds. |
    | Auktorisering |Klicka på den **auktorisera** för att bevilja Azure Automation-åtkomst till dina GitHub-lagringsplatsen. Om du redan är inloggad på ditt GitHub-konto i ett annat fönster som autentiseringsuppgifterna för kontot används. När tillståndet är klar visas sidan GitHub-användarnamn under **auktorisering egenskapen**. |
@@ -50,7 +49,7 @@ Om du redan har en GitHub-konto och en databas som du vill länka till Azure Aut
    | Runbook-sökvägen för mappen |Sökvägen till runbook anger sökvägen i GitHub-databas som du vill push och pull-koden. Det måste anges i formatet **/mappnamn/undermappsnamn**. Endast runbookar i sökvägen till runbook-mappen kommer att synkroniseras till ditt Automation-konto. Runbooks i undermappar i sökvägen till runbook-mappen kommer **inte** synkroniseras. Använd  **/**  att synkronisera alla runbooks under databasen. |
 3. Till exempel om du har en databas med namnet **PowerShellScripts** som innehåller en mapp med namnet **RootFolder så**, som innehåller en mapp med namnet **undermapp**. Du kan använda följande strängar för att synkronisera varje mappnivå:
    
-   1. Att synkronisera runbooks från **databasen**, mappsökväg för runbook*/*
+   1. Att synkronisera runbooks från **databasen**, mappsökväg för runbook */*
    2. Att synkronisera runbooks från **RootFolder så**, runbook mappsökväg */RootFolder*
    3. Att synkronisera runbooks från **undermapp**, runbook mappsökväg */RootFolder så/undermapp*.
 4. När du har konfigurerat parametrarna som de visas på den **ange källkontrollen** sidan.  
@@ -64,7 +63,7 @@ Om du redan har en GitHub-konto och en databas som du vill länka till Azure Aut
    
    * Variabeln **Microsoft.Azure.Automation.SourceControl.Connection** innehåller värdena i anslutningssträngen, enligt nedan.  
      
-     | **Parametern** | **Värde** |
+     | **Parameter** | **Värde** |
      |:--- |:--- |
      | Namn |Microsoft.Azure.Automation.SourceControl.Connection |
      | Typ |Sträng |
@@ -72,7 +71,7 @@ Om du redan har en GitHub-konto och en databas som du vill länka till Azure Aut
 
     * Variabeln **Microsoft.Azure.Automation.SourceControl.OAuthToken**, innehåller säker krypterade värdet för din OAuthToken.  
 
-    |**Parametern**            |**Värde** |
+    |**Parameter**            |**Värde** |
     |:---|:---|
     | Namn  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Typ | Unknown(Encrypted) |

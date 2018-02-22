@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cd452ff46f8a87fd04eaca037b6bc0120ca86e4d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-analysis-services"></a>Hantera Analysis Services
+# <a name="manage-analysis-services"></a>Manage Analysis Services
 När du har skapat en Analysis Services-server i Azure kan finnas det vissa administrations- och uppgifter som du behöver utföra direkt eller senare ned väg. Till exempel bearbetning för att uppdatera data, styra vem som kan komma åt modeller på servern eller övervaka ditt Servertillstånd. Vissa hanteringsuppgifter kan endast utföras i Azure-portalen andra i SQL Server Management Studio (SSMS), och vissa aktiviteter kan göras antingen i.
 
 ## <a name="azure-portal"></a>Azure Portal

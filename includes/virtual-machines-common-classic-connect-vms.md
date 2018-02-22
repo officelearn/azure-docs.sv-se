@@ -12,11 +12,11 @@ Virtuella nätverk är det rekommenderade sättet att ansluta virtuella datorer 
 Att ansluta virtuella datorer i ett virtuellt nätverk:
 
 1. Skapa virtuella nätverk i den [Azure-portalen](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) och ange 'klassisk distribution ”.
-2. Skapa en uppsättning molntjänster för distributionen för att avspegla din design för tillgänglighetsuppsättningar och belastningsutjämning. I Azure-portalen klickar du på **New > Compute > molntjänst** för varje tjänst i molnet.
+2. Skapa en uppsättning molntjänster för distributionen för att avspegla din design för tillgänglighetsuppsättningar och belastningsutjämning. I Azure-portalen klickar du på **skapar du en resurs > Compute > molntjänst** för varje tjänst i molnet.
 
   När du fyller i molnet tjänstinformation Välj samma _resursgruppen_ användas med det virtuella nätverket.
 
-3. Klicka för att skapa varje ny virtuell dator **New > Compute**, Välj lämplig VM-avbildning från den **aktuella appar**.
+3. Klicka för att skapa varje ny virtuell dator **skapar du en resurs > Compute**, Välj lämplig VM-avbildning från den **aktuella appar**.
 
   I Virtuellt **grunderna** bladet Välj samma _resursgruppen_ användas med det virtuella nätverket.
 

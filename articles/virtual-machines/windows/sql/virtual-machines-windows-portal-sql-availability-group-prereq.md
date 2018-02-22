@@ -4,7 +4,7 @@ description: "Den här kursen visar hur du konfigurerar kraven för att skapa en
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Uppfylla förutsättningar för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -41,7 +41,7 @@ Den här kursen förutsätter att du har en grundläggande förståelse för SQL
 Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure-portalen](http://portal.azure.com).
 2. Klicka på  **+**  att skapa ett nytt objekt i portalen.
 
    ![Nytt objekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -124,12 +124,12 @@ I följande tabell sammanfattas inställningarna för nätverk:
 | --- | --- |
 | **Namn** |**autoHAVNET** |
 | **Adressutrymme** |Detta värde beror på tillgängliga adressutrymmen i din prenumeration. Ett vanligt värde är 10.0.0.0/16. |
-| **Namn på undernät** |**Admin** |
+| **Namn på undernät** |**admin** |
 | **Adressintervall för undernätet** |Detta värde beror på tillgängliga adressintervallen i din prenumeration. Ett vanligt värde är 10.0.0.0/24. |
 | **Namn på undernät** |**sqlsubnet** |
 | **Adressintervall för undernätet** |Detta värde beror på tillgängliga adressintervallen i din prenumeration. Ett vanligt värde är 10.0.1.0/24. |
 | **Prenumeration** |Ange den prenumeration som du tänker använda. |
-| **Resursgrupp** |**SQL-HÖG TILLGÄNGLIGHET-RG** |
+| **Resursgrupp** |**SQL-HA-RG** |
 | **Plats** |Ange samma plats som du valde för resursgruppen. |
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
@@ -145,7 +145,7 @@ Konfigurera två tillgänglighetsuppsättningar enligt parametrarna i följande 
 | **Fält** | Domain controller tillgänglighetsuppsättning | Tillgänglighetsuppsättningen för SQL Server |
 | --- | --- | --- |
 | **Namn** |adavailabilityset |sqlavailabilityset |
-| **Resursgrupp** |SQL-HÖG TILLGÄNGLIGHET-RG |SQL-HÖG TILLGÄNGLIGHET-RG |
+| **Resursgrupp** |SQL-HA-RG |SQL-HA-RG |
 | **Feldomäner** |3 |3 |
 | **Uppdatera domäner** |5 |3 |
 
@@ -164,7 +164,7 @@ Om du vill skapa och konfigurera domänkontrollanterna kan återgå till den **S
 Upprepa föregående steg för att skapa två virtuella datorer. Namn på två virtuella datorer:
 
 * AD-primära-dc
-* AD-sekundär-dc
+* ad-secondary-dc
 
   > [!NOTE]
   > Den **ad-sekundär-dc** virtuella datorn är valfritt att tillhandahålla hög tillgänglighet för Active Directory Domain Services.
@@ -178,14 +178,14 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Namn** |Första domänkontrollant: *ad primär domänkontrollant*.</br>Andra domänkontrollanten *ad-sekundär-dc*. |
 | **Typ av virtuell datordisk** |SSD |
 | **Användarnamn** |DomainAdmin |
-| **Lösenord** |Contoso! 0000 |
+| **Lösenord** |Contoso!0000 |
 | **Prenumeration** |*Din prenumeration* |
-| **Resursgrupp** |SQL-HÖG TILLGÄNGLIGHET-RG |
+| **Resursgrupp** |SQL-HA-RG |
 | **Plats** |*Din plats* |
 | **Storlek** |DS1_V2 |
 | **Storage** | **Använda hanterade diskar** - **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
-| **Undernät** |Admin |
+| **Undernät** |administratör |
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
 | **Nätverkssäkerhetsgrupp** |*Samma namn som den virtuella datorn* |
 | **Tillgänglighetsuppsättning** |adavailabilityset </br>**Fault domäner**: 2</br>**Uppdatera domäner**: 2|
@@ -307,13 +307,13 @@ Starta om servern när servern har slutförts ändringar i konfigurationen.
 
 Ändra DNS-servern med IP-adressen för den sekundära domänkontrollanten i Azure-portalen under virtuellt nätverk. Detta gör att DNS-tjänsten redundans.
 
-### <a name=DomainAccounts></a>Konfigurera domänkontona
+### <a name=DomainAccounts></a> Konfigurera domänkontona
 
 I nästa steg ska konfigurera du Active Directory-konton. I följande tabell visas kontona:
 
-| |Kontot för installation<br/> |SQLServer-0 <br/>Konto för SQL Server och SQL Agent-tjänsten |SQLServer-1<br/>Konto för SQL Server och SQL Agent-tjänsten
+| |Kontot för installation<br/> |sqlserver-0 <br/>Konto för SQL Server och SQL Agent-tjänsten |sqlserver-1<br/>Konto för SQL Server och SQL Agent-tjänsten
 | --- | --- | --- | ---
-|**Förnamn** |Installera |SQLSvc1 | SQLSvc2
+|Förnamn |Installera |SQLSvc1 | SQLSvc2
 |**Användare SamAccountName** |Installera |SQLSvc1 | SQLSvc2
 
 Använd följande steg för att skapa varje konto.
@@ -462,7 +462,7 @@ Om du vill lägga till funktioner för redundanskluster, gör du följande på b
 
 Upprepa steg på den andra SQL Server-VM.
 
-## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall">Konfigurera brandväggen på varje virtuell dator med SQL Server
+## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Konfigurera brandväggen på varje virtuell dator med SQL Server
 
 Lösningen kräver följande TCP-portar vara öppna i brandväggen:
 

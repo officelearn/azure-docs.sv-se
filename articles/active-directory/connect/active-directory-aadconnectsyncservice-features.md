@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -28,7 +28,7 @@ Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
 
 Det här avsnittet beskrivs hur följande funktioner i den **Azure AD Connect-synkroniseringstjänsten** fungerar och hur du kan konfigurera dem med hjälp av Windows PowerShell.
 
-De här inställningarna är konfigurerade med den [Azure Active Directory-modulen för Windows PowerShell](http://aka.ms/aadposh). Hämta och installera det separat från Azure AD Connect. De cmdlets som beskrivs i det här avsnittet har introducerats i den [2016 mars-versionen (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Om du inte har de cmdlets som beskrivs i det här avsnittet eller om de inte ger samma resultat, se till att du kör den senaste versionen.
+De här inställningarna är konfigurerade med den [Azure Active Directory-modulen för Windows PowerShell](https://aka.ms/aadposh). Hämta och installera det separat från Azure AD Connect. De cmdlets som beskrivs i det här avsnittet har introducerats i den [2016 mars-versionen (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Om du inte har de cmdlets som beskrivs i det här avsnittet eller om de inte ger samma resultat, se till att du kör den senaste versionen.
 
 Om du vill se konfigurationen i Azure AD-katalogen kör `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures resultat](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

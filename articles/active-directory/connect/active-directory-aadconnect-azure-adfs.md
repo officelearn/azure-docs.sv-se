@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e83eece09d9802792b87b89fd334ea67df14dc9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
@@ -354,7 +354,7 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 * [Internetuppkopplad belastningsutjämnare](https://aka.ms/Azure/ILB/Internet)
 * [Lagringskonton](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
-* [AD FS och WAP-länkar (webbprogramproxy)](http://aka.ms/ADFSLinks) 
+* [AD FS och WAP-länkar (webbprogramproxy)](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)

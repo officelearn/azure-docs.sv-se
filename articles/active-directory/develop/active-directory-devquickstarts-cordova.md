@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ Azure AD utfärdar tokens till bara kända program. Innan du kan använda Azure 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto på den översta raden. I den **Directory** Välj Azure AD-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
+3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
 4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
 5. Följ anvisningarna och skapa en **internt klientprogram**. (Men Cordova-appar är HTML-baserad, vi skapar en här native client-program. Den **internt klientprogram** alternativet måste väljas eller programmet fungerar inte.)
   * **Namnet** beskriver ditt program till användare.
@@ -121,8 +121,8 @@ Det finns flera sätt att skapa Cordova-program. I den här kursen använder vi 
 
 3. Kopiera innehållet i projektet starter i undermappen www med hjälp av en Filhanteraren eller följande kommando i gränssnittet:
 
-  * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * Mac:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. Lägg till godkända plugin-programmet. Detta är nödvändigt för att anropa Graph API.
 
@@ -244,9 +244,9 @@ Efterföljande körningar utför sökningen utan att visa prompten tack vare fö
 Konkret stegen för att köra appen varierar beroende på plattform.
 
 ### <a name="windows-10"></a>Windows 10
-   Surfplattors:`cordova run windows --archs=x64 -- --appx=uap`
+   Surfplattors: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobile (kräver en Windows 10 Mobile-enhet som är ansluten till en dator):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobile (kräver en Windows 10 Mobile-enhet som är ansluten till en dator): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
    > Under den första körningen kan du bli ombedd att logga in för utvecklarlicens. Mer information finns i [Developer licens](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
@@ -258,25 +258,25 @@ Konkret stegen för att köra appen varierar beroende på plattform.
    > Under den första körningen kan du bli ombedd att logga in för utvecklarlicens. Mer information finns i [Developer licens](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   Att köra på en ansluten enhet:`cordova run windows --device -- --phone`
+   Att köra på en ansluten enhet: `cordova run windows --device -- --phone`
 
-   Att köra på standard-emulatorn:`cordova emulate windows -- --phone`
+   Att köra på standard-emulatorn: `cordova emulate windows -- --phone`
 
    Använd `cordova run windows --list -- --phone` att se alla tillgängliga mål och `cordova run windows --target=<target_name> -- --phone` att köra programmet på en viss enhet eller emulator (till exempel `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   Att köra på en ansluten enhet:`cordova run android --device`
+   Att köra på en ansluten enhet: `cordova run android --device`
 
-   Att köra på standard-emulatorn:`cordova emulate android`
+   Att köra på standard-emulatorn: `cordova emulate android`
 
    Kontrollera att du har skapat en instans av emulatorn med AVD Manager, enligt beskrivningen tidigare i avsnittet ”förutsättningar”.
 
    Använd `cordova run android --list` att se alla tillgängliga mål och `cordova run android --target=<target_name>` att köra programmet på en viss enhet eller emulator (till exempel `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   Att köra på en ansluten enhet:`cordova run ios --device`
+   Att köra på en ansluten enhet: `cordova run ios --device`
 
-   Att köra på standard-emulatorn:`cordova emulate ios`
+   Att köra på standard-emulatorn: `cordova emulate ios`
 
    > [!NOTE]
    > Kontrollera att du har den `ios-sim` paketet installeras för att köras på emulatorn. Mer information finns i avsnittet ”förutsättningar”.

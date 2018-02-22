@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Frågan Hive genom JDBC driver i HDInsight
 
@@ -102,9 +102,9 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
         3. När du är ansluten, kopiera följande filer från sessionen för fjärrskrivbord på din lokala dator. Placera dem i en lokal katalog med namnet `hivedriver`.
 
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-JDBC-0.14.0.2.2.9.1-7-standalone.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-Common-2.6.0.2.2.9.1-7.JAR
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.JAR
+            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
+            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
             > Versionsnummer som ingår i sökvägar och filnamn kan vara olika för klustret.
@@ -122,7 +122,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 4. Lägg till följande information i dialogrutan Lägg till drivrutin:
 
     * **Namnet**: Hive
-    * **Exempel-URL**:`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **Exempel-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Extra klassökvägen**: Använd knappen Lägg till för att lägga till jar-filer tidigare
     * **Klassnamn**: org.apache.hive.jdbc.HiveDriver
 
@@ -140,7 +140,7 @@ SQuirreL SQL är en JDBC-klient som kan användas för att köra Hive-frågor vi
 
     * **Drivrutinen**: Använd listrutan för att välja den **Hive** drivrutin
 
-    * **URL: EN**:`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
+    * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Hantera personliga data i Microsoft Azure
 
@@ -59,23 +59,23 @@ Du måste logga in med ett konto som är en global administratör för katalogen
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 
-2. Välj **fler tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
+2. Välj **alla tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
 
-    ![Media/image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. På den **användare och grupper** bladet väljer **användare**.
 
-    ![Media/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. På den **användare och grupper – användare** bladet Välj en användare i listan och i bladet för den valda användaren kan markera **profil** visa profilinformation för användare som behöver rättas eller uppdateras.
 
-    ![Media/image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Korrigera eller uppdatera informationen och markera i kommandofältet **spara.**
 
 6.  På bladet för den valda användaren väljer **fungerar Info** att visa användarinformation för arbete som behöver rättas eller uppdateras.
 
-    ![Media/image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Korrigera eller uppdatera användarinformation för arbete och markera i kommandofältet **spara.**
 
@@ -83,17 +83,17 @@ Du måste logga in med ett konto som är en global administratör för katalogen
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 
-2. Välj **fler tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
+2. Välj **alla tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. På den **användare och grupper** bladet väljer **användare**.
 
-    ![Media/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. På bladet **Användare och grupper – användare** väljer du en användare i listan.
 
-    ![Media/image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. På bladet för den valda användaren väljer **översikt**, och välj sedan i kommandofältet **ta bort**.
 

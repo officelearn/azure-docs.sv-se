@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 8259a97d28effa7bfa9cfb9d7cd9cd2a14c9d906
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5d8b20d5da442aa1f37eb7e2b2cb8049031e7a24
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en logganalys-arbetsyta i Azure-portalen
 I Azure-portalen kan du ställa in en logganalys-arbetsyta som är en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -36,21 +36,21 @@ Andra källor, till exempel virtuella Azure-datorer och Windows- eller Linux-dat
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure-portal"></a>Logga in på Azure-portalen
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
+## <a name="log-in-to-azure-portal"></a>Logga in på Azure Portal
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-1. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-2. Klicka på **skapa**, och välj sedan alternativ för följande objekt:
+1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
   * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
   * För **resursgruppen**, väljer att använda en befintlig resurs grupp redan installationen eller skapa en ny.  
-  * Välj ett tillgängligt **plats**.  Mer information finns i som [regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/).
-  * Du kan välja mellan tre olika **prisnivåer** i logganalys, men för denna Snabbstart som du ska välja den **ledigt** nivå.  Mer information om de specifika nivåerna finns [Log Analytics-prisinformation](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Välj ett tillgängligt **plats**.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
+  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
-3. När du har angett informationen som krävs på den **OMS-arbetsytan** rutan klickar du på **OK**.  
+3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 

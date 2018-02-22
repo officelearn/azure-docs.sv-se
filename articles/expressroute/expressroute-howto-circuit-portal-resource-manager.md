@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp
 > 
 > 
 
-1. Du kan skapa en ExpressRoute-krets genom att välja alternativet för att skapa en ny resurs. Klicka på **ny** > **nätverk** > **ExpressRoute**, enligt följande bild:
+1. Du kan skapa en ExpressRoute-krets genom att välja alternativet för att skapa en ny resurs. Klicka på **skapar du en resurs** > **nätverk** > **ExpressRoute**, enligt följande bild:
 
   ![Skapa en ExpressRoute-krets](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. När du klickar på **ExpressRoute**, ser du den **skapa ExpressRoute-krets** sidan. När du fyller i värden på den här sidan kan du kontrollera att du anger rätt SKU-nivån (Standard eller Premium) och data avläsning faktureringsmodell som tillämpas (obegränsat eller Metered).

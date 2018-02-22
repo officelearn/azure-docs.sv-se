@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: v-craic
-ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 95fc017e64ac5c8a31be93790f53eb7fefa8f69a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Skapa din första virtuella datorn i ett labb i Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Den här självstudiekursen vägleder dig genom att använda Azure portal för a
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Steg för att lägga till den första virtuella datorn i ett labb i Azure DevTest Labs
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 1. Välj labbet där du vill skapa den virtuella datorn från listan över övningar.  
 1. På testmiljön **översikt** bladet väljer **+ Lägg till**.  
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -28,7 +28,7 @@ Lär dig att komma åt Advisor via Azure portal, få rekommendationer och implem
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. I den vänstra rutan klickar du på **Advisor**.  Om du inte ser Advisor i den vänstra rutan klickar du på **fler tjänster**.  I fönstret service menyn under **övervakning och hantering av**, klickar du på **Advisor**.
+2. I den vänstra rutan klickar du på **Advisor**.  Om du inte ser Advisor i den vänstra rutan klickar du på **alla tjänster**.  I fönstret service menyn under **övervakning och hantering av**, klickar du på **Advisor**.
  Advisor-instrumentpanelen visas.
 
    ![Klassificering av åtkomst till Azure med Azure-portalen](./media/advisor-get-started/advisor-portal-menu.png) 

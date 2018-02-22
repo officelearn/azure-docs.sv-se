@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,7 +33,7 @@ Lär dig mer om att hantera Azure Data Lake Analytics-konton, konto datakällor,
 ### <a name="create-an-account"></a>Skapa ett konto
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **Nytt** > **Intelligence + analytics** > **Data Lake Analysis**.
+2. Klicka på **skapar du en resurs** > **Intelligence + analys** > **Datasjöanalys**.
 3. Välj värden för följande objekt: 
    1. **Namnet**: namnet på Data Lake Analytics-konto.
    2. **Prenumerationen**: Azure-prenumeration som används för kontot.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Använd en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Key Vault 
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI på en befintlig virtuell dator.
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på den **skapar du en resurs** knapp hittades i det övre vänstra hörnet i Azure-portalen.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentliga SSH-nyckeln** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
 
@@ -77,7 +77,7 @@ Med hjälp av MSI hämta koden åtkomsttoken att autentisera till resurser som s
 
 Vi behöver först skapa ett Nyckelvalv och ge våra VM identitet åtkomst till Nyckelvalvet.   
 
-1. Längst upp i det vänstra navigeringsfältet Välj **+ ny** sedan **säkerhet + identitet** sedan **Nyckelvalvet**.  
+1. Längst upp i det vänstra navigeringsfältet, Välj **skapar du en resurs** > **säkerhet + identitet** > **Nyckelvalvet**.  
 2. Ange en **namn** för nya Nyckelvalvet. 
 3. Leta upp Nyckelvalvet i gruppen samma prenumeration och resurs som den virtuella datorn som du skapade tidigare. 
 4. Välj **åtkomstprinciper** och på **Lägg till ny**. 

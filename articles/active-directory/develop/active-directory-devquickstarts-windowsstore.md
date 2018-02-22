@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b8bfbfca8daf506df083555d3046433b63e6bffe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows Universal-plattformen (UWP/XAML) komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -48,7 +48,7 @@ Om du vill aktivera app att hämta token, måste du först registrera det i Azur
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto på den översta raden. Sedan, under den **Directory** väljer du Active Directory-klient som du vill registrera appen.
-3. Klicka på **fler tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
+3. Klicka på **alla tjänster** i det vänstra fönstret och välj sedan **Azure Active Directory**.
 4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
 5. Följ anvisningarna för att skapa en **internt klientprogram**.
   * **Namnet** beskriver app till användare.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Hur du skapar och distribuerar en tjänst i molnet
 Azure portal tillhandahåller två sätt att skapa och distribuera en tjänst i molnet: *Snabbregistrering* och *skapa anpassade*.
@@ -30,10 +30,10 @@ Den här artikeln förklarar hur du använder metoden Snabbregistrering för att
 >
 >
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 Tre komponenter krävs för att distribuera ett program som en tjänst i molnet i Azure:
 
-* **Tjänstdefinitionen**  
+* **Service Definition**  
   Molnet tjänstdefinitionsfilen (.csdef) definierar tjänstmodellen, inklusive antalet roller.
 * **Tjänstkonfiguration**  
   Molnet tjänstekonfigurationsfilen (.cscfg) innehåller konfigurationsinställningarna för molnet tjänsten och enskilda roller, inklusive antalet rollinstanser.
@@ -59,25 +59,25 @@ Om du vill skapa en molntjänst med distributioner av webbroller eller arbetsrol
 
 ## <a name="create-and-deploy"></a>Skapa och distribuera
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **New > Compute**, och bläddra till och klickar på **Molntjänsten**.
+2. Klicka på **skapar du en resurs > Compute**, och bläddra till och klickar på **Molntjänsten**.
 
     ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. I den nya **Molntjänsten** bladet, ange ett värde för den **DNS-namnet**.
+3. I den nya **Molntjänsten** rutan Ange ett värde för den **DNS-namnet**.
 4. Skapa en ny **resursgruppen** eller välj en befintlig.
 5. Välj en **Plats**.
-6. Klicka på **paketet**. Då öppnas den **överföra ett paket** bladet. Fyll i de obligatoriska fälten. Om någon av dina roller innehåller en enda instans, kontrollerar du **distribuera även om en eller flera roller innehåller en enda instans** är markerad.
+6. Klicka på **paketet**. Då öppnas den **överföra ett paket** fönstret. Fyll i de obligatoriska fälten. Om någon av dina roller innehåller en enda instans, kontrollerar du **distribuera även om en eller flera roller innehåller en enda instans** är markerad.
 7. Se till att **starta distribution** är markerad.
-8. Klicka på **OK** som stänger den **överföra ett paket** bladet.
+8. Klicka på **OK** som stänger den **överföra ett paket** fönstret.
 9. Om du inte har några certifikat att lägga till klickar du på **skapa**.
 
     ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-## <a name="upload-a-certificate"></a>Överföra ett certifikat
+## <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 Om din distributionspaketet [konfigurerats för att använda certifikat](cloud-services-configure-ssl-certificate-portal.md#modify), du kan ladda upp certifikatet nu.
 
-1. Välj **certifikat**, och på den **lägga till certifikat** bladet välj SSL-certifikat PFX-fil och ange sedan den **lösenord** för certifikatet
-2. Klicka på **bifoga certifikat**, och klicka sedan på **OK** på den **lägga till certifikat** bladet.
-3. Klicka på **skapa** på den **Molntjänsten** bladet. När distributionen har uppnått den **klar** status, kan du fortsätta till nästa steg.
+1. Välj **certifikat**, och på den **lägga till certifikat** fönstret Välj SSL-certifikat PFX-fil och ange sedan den **lösenord** för certifikatet
+2. Klicka på **bifoga certifikat**, och klicka sedan på **OK** på den **lägga till certifikat** fönstret.
+3. Klicka på **skapa** på den **Molntjänsten** fönstret. När distributionen har uppnått den **klar** status, kan du fortsätta till nästa steg.
 
     ![Publicera din molntjänst](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

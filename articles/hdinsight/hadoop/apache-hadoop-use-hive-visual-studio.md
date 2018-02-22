@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Köra Hive-frågor med hjälp av Data Lake-verktyg för Visual Studio
 
@@ -43,7 +43,7 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga A
 
 * HDInsight tools för Visual Studio eller Azure Data Lake-verktyg för Visual Studio. Se [komma igång med Visual Studio Hadoop-verktygen för HDInsight](apache-hadoop-visual-studio-tools-get-started.md) för information om hur du installerar och konfigurerar verktygen.
 
-## <a id="run"></a>Köra Hive-frågor med Visual Studio
+## <a id="run"></a> Köra Hive-frågor med Visual Studio
 
 1. Öppna **Visual Studio** och välj **ny** > **projekt** > **Azure Data Lake** > **HIVE** > **Hive-program**. Ange ett namn för det här projektet.
 
@@ -75,7 +75,7 @@ Lär dig hur du använder Data Lake-verktyg för Visual Studio för att fråga A
 
    * `SELECT`: Välj en uppräkning av alla rader där kolumnen `t4` innehåller värdet `[ERROR]`. Den här instruktionen returnerar ett värde för `3` eftersom det finns tre rader som innehåller det här värdet.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Talar om Hive vi bör endast returnera data från filer som slutar på. log. Den här satsen begränsar sökningen till sample.log-fil som innehåller data.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Talar om Hive vi bör endast returnera data från filer som slutar på. log. Den här satsen begränsar sökningen till sample.log-fil som innehåller data.
 
 3. I verktygsfältet väljer du den **HDInsight-kluster** som du vill använda för den här frågan. Välj **skicka** att köra instruktionerna som Hive-jobb.
 

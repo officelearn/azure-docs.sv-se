@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 250e84550fdf3253f28d682e85fe4bf855e40a4d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f24daaf5690eb1d9a0ab3b27a3626d03e6021d99
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare av medlemskap i Azure Active Directory
 
@@ -31,42 +31,42 @@ I det här exemplet innehåller klienten en säkerhetsgrupp med namnet **persona
 > [!NOTE]
 > Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en användare kan tilldelas en licens, måste administratören ange egenskapen Usage plats på användaren.
 
-> För gruppen licenstilldelning ärver alla användare utan en användningsplats anges platsen för katalogen. Om du har användare på flera platser rekommenderar vi att du alltid anger användningsplats som en del av din användare skapa flödet i Azure AD (t.ex. via AAD Connect-konfiguration) – som innebär att resultatet av licenstilldelning alltid är korrekt inte och användarna får tjänster på platser som inte tillåts.
+> För gruppen licenstilldelning ärver alla användare utan en användningsplats anges platsen för katalogen. Om du har användare på flera platser rekommenderar vi att du alltid anger användningsplats som en del av din användare skapa flödet i Azure AD (t.ex. via AAD Connect-konfiguration) – som säkerställer att resultatet av licenstilldelning alltid är korrekt inte och användarna får tjänster på platser som inte tillåts.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Steg 1: Tilldela licenser som krävs
 
 1. Logga in på den [ **Azure-portalen** ](https://portal.azure.com) med ett administratörskonto. Kontot måste vara en global administratör roll eller användargrupp kontoadministratör om du vill hantera licenser.
 
-2. Välj **fler tjänster** i det vänstra navigeringsfönstret och välj sedan **Azure Active Directory**. Du kan lägga till det här bladet Favoriter eller Fäst på portalens instrumentpanel.
+2. Välj **alla tjänster** i det vänstra navigeringsfönstret och välj sedan **Azure Active Directory**. Du kan lägga till det här fönstret Favoriter eller Fäst på portalens instrumentpanel.
 
-3. På den **Azure Active Directory** bladet väljer **licenser**. Då öppnas ett blad där du kan se och hantera alla licensierbart produkter i klienten.
+3. På den **Azure Active Directory** väljer **licenser** att öppna ett fönster där du kan se och hantera alla licensierbart produkter i klienten.
 
-4. Under **alla produkter**, Välj Office 365 Enterprise E3 och Enterprise Mobility + Security genom att välja produktnamn. Om du vill starta tilldelningen, Välj **tilldela** längst upp på bladet.
+4. Under **alla produkter**, Välj Office 365 Enterprise E3 och Enterprise Mobility + Security genom att välja produktnamn. Om du vill starta tilldelningen, Välj **tilldela** längst upp i fönstret.
 
    ![Alla produkter, tilldela en licens](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. På den **tilldela licens** bladet, klickar du på **användare och grupper** att öppna den **användare och grupper** bladet. Sök efter namnet på *personalavdelningen*gruppen och välj sedan måste du kontrollera genom att klicka på **Välj** längst ned på bladet.
+5. På den **tilldela licens** rutan klickar du på **användare och grupper** att öppna den **användare och grupper** fönstret. Sök efter namnet på *personalavdelningen*gruppen och välj sedan måste du kontrollera genom att klicka på **Välj** längst ned i fönstret.
 
    ![Välj en grupp](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. På den **tilldela licens** bladet, klickar du på **tilldelning alternativ (valfritt)**, som visar alla serviceplaner som ingår i de här två produkterna som vi valt tidigare. Hitta **Yammer Enterprise** och stänga den **av** att inaktivera tjänsten från produktlicensen. Bekräfta genom att klicka på **OK** längst ned i **tilldelning alternativ**.
+6. På den **tilldela licens** rutan klickar du på **tilldelning alternativ (valfritt)**, som visar alla serviceplaner som ingår i de här två produkterna som vi valt tidigare. Hitta **Yammer Enterprise** och stänga den **av** att inaktivera tjänsten från produktlicensen. Bekräfta genom att klicka på **OK** längst ned i **tilldelning alternativ**.
 
-   ![Alternativ för tilldelning](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
+   ![Tilldelningsalternativ](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Att slutföra en aktivitet, på den **tilldela licens** bladet, klickar du på **tilldela** längst ned på bladet.
+7. Att slutföra tilldelningen och den **tilldela licens** rutan klickar du på **tilldela** längst ned i fönstret.
 
 8. Ett meddelande visas i det övre högra hörnet som visar status och resultatet av processen. Om tilldelning till gruppen inte gick att slutföra (t.ex, på grund av befintliga licenser i gruppen), klickar du på meddelandet för att visa information om felet.
 
-Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Azure AD har startats för att bearbeta alla befintliga medlemmar i gruppen. Inledande åtgärden kan ta en stund, beroende på den aktuella storleken i gruppen. I nästa steg ska vi beskrivs hur du kontrollerar att processen är klar och avgöra om ytterligare åtgärder krävs för att lösa problem.
+Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Azure AD har startats för att bearbeta alla befintliga medlemmar i gruppen. Inledande åtgärden kan ta en stund, beroende på den aktuella storleken i gruppen. Nästa steg beskriver hur du kontrollerar att processen är klar och avgöra om ytterligare åtgärder krävs för att lösa problem.
 
 > [!NOTE]
-> Du kan starta samma tilldelning från en annan plats: **användare och grupper** i Azure AD. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**. Hitta gruppen markerar du den och gå till den **licenser** fliken. Den **tilldela** knappen ovanpå bladet öppnar bladet licens tilldelning.
+> Du kan starta samma tilldelning från en annan plats: **användare och grupper** i Azure AD. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**. Hitta gruppen markerar du den och gå till den **licenser** fliken. Den **tilldela** knappen ovanpå fönstret öppnas fönstret licens tilldelning.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Steg 2: Verifiera att den ursprungliga tilldelningen är klar
 
 1. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**. Leta reda på den **personalavdelningen** grupp som har tilldelats licenser.
 
-2. På den **personalavdelningen** grupp bladet väljer **licenser**. På så sätt kan du snabbt bekräfta om licenser fullständigt har tilldelats till användare och om det finns några fel som du behöver titta i. Följande information är tillgänglig:
+2. På den **personalavdelningen** grupp fönstret, Välj **licenser**. På så sätt kan du snabbt bekräfta om licenser fullständigt har tilldelats till användare och om det finns några fel som du behöver titta i. Följande information är tillgänglig:
 
    - Lista över produktlicenser som för närvarande har tilldelats gruppen. Markera en post för att visa tjänsterna som har aktiverats och göra ändringar.
 
@@ -74,7 +74,7 @@ Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Az
 
    - Information om användare som är i ett feltillstånd eftersom inte gick att tilldela licenser till dem.
 
-   ![Alternativ för tilldelning](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
+   ![Tilldelningsalternativ](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
 
 3. Se mer detaljerad information om licens bearbetning under **Azure Active Directory** > **användare och grupper** > *gruppnamn*  >  **Granskningsloggar**. Observera följande aktiviteter:
 
@@ -87,12 +87,12 @@ Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Az
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Kontrollera problem med licensen och löser dem.
 
 1. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**, och Sök efter den **personalavdelningen** grupp som har tilldelats licenser.
-2. På den **personalavdelningen** grupp bladet väljer **licenser**. Meddelandet ovanpå bladet visar att det finns 10 användare inte gick att tilldela licenser till. Om du klickar på den öppnas en lista över alla användare i en licensiering feltillstånd för den här gruppen.
+2. På den **personalavdelningen** grupp fönstret, Välj **licenser**. Meddelandet ovanpå fönstret visar att det finns 10 användare inte gick att tilldela licenser till. Om du klickar på den öppnas en lista över alla användare i en licensiering feltillstånd för den här gruppen.
 3. Den **misslyckades tilldelningar** kolumnen talar om för oss att båda produktlicenser inte gick att koppla till användarna. Den **de främsta orsaken till felet** kolumnen innehåller orsaken till felet. I det här fallet har **i konflikt serviceplaner**.
 
    ![Misslyckade tilldelningar](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Välj en användare att öppna den **licenser** bladet. Det här bladet visar alla licenser som för närvarande tilldelats användaren. I det här exemplet användaren har den licens som Office 365 Enterprise E1 som har ärvts från det **helskärmsläge användare** grupp. Detta står i konflikt med E3-licens som ett försök gjordes att tillämpa från den **personalavdelningen** grupp. Därför kan har inga licenser från gruppen tilldelats användaren.
+4. Välj en användare att öppna den **licenser** fönstret. Det här fönstret visas alla licenser som för närvarande tilldelats användaren. I det här exemplet användaren har den licens som Office 365 Enterprise E1 som har ärvts från det **helskärmsläge användare** grupp. Detta står i konflikt med E3-licens som ett försök gjordes att tillämpa från den **personalavdelningen** grupp. Därför kan har inga licenser från gruppen tilldelats användaren.
 
    ![Visa licenser för en användare](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 

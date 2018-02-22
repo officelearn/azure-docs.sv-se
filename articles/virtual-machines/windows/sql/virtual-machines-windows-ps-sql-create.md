@@ -1,10 +1,10 @@
 ---
-title: "Så här skapar du virtuella SQL Server-datorer med Azure PowerShell | Microsoft Docs"
+title: "Etablering av guide för SQL Server-datorer med Azure PowerShell | Microsoft Docs"
 description: "Innehåller steg och PowerShell-kommandon för att skapa en virtuell Azure-dator med SQL Server virtuella galleriavbildningar."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/29/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Hur du skapar SQL Server-datorer med Azure PowerShell
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Hur du etablerar SQL Server-datorer med Azure PowerShell
 
 Den här guiden förklarar alternativen för att skapa Windows SQL Server-datorer med Azure PowerShell. En effektiv Azure PowerShell-exempel med flera standardvärden finns i [SQL VM Azure PowerShell quickstart](quickstart-sql-vm-create-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här artikeln kräver Azure PowerShell Modulversion 3,6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
@@ -399,7 +399,7 @@ När den virtuella datorn har skapats kan du:
 
 - Ansluta till den virtuella datorn med fjärrskrivbord (RDP).
 - Konfigurera SQL Server-inställningar i portalen för den virtuella datorn, inklusive:
-   - [Inställningar för lagring](virtual-machines-windows-sql-server-storage-configuration.md) 
+   - [inställningar för lagring](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Automatiserade hanteringsuppgifter](virtual-machines-windows-sql-server-agent-extension.md)
 - [Konfigurera anslutning](virtual-machines-windows-sql-connect.md).
 - Ansluta klienter och program till den nya SQL Server-instansen.

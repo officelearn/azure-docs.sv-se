@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Hanteringscertifikat för Azure-tjänst
 Certifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
@@ -38,7 +38,7 @@ Du kan också använda [Azure Active Directory](https://azure.microsoft.com/en-u
 När du har ett certifikat skapas, (.cer-fil med offentlig nyckel) kan du överföra den i portalen. När certifikatet är tillgängliga i portalen, alla med ett matchande certifikat (privat nyckel) ansluter via Management-API och komma åt resurser för den associera prenumerationen.
 
 1. Logga in på [Azure-portalen](http://portal.azure.com).
-2. Klicka på **fler tjänster** på listan längst ned i Azure-tjänsten, Välj **prenumerationer** i den _allmänna_ tjänstgruppen.
+2. Klicka på **alla tjänster** på listan längst ned i Azure-tjänsten, Välj **prenumerationer** i den _allmänna_ tjänstgruppen.
 
     ![Prenumerationen-menyn](./media/azure-api-management-certs/subscriptions_menu.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
 Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  Den här artikeln innehåller en översikt och ytterligare information för stegen i videon. Den här 24 minuter långa videon visar hur till:
@@ -46,7 +46,7 @@ I det här steget skapas en webb-API-serverdel med hjälp av Visual Studio 2013.
 
 ![Visual Studio][api-management-new-web-app]
 
-Klicka på **Web API** från den **markerar du en lista över** att skapa ett Web API-projekt. Konfigurera Azure Directory Authentication Klicka **ändra autentisering**.
+Klicka på **Web API** från den **markerar du en lista över** att skapa ett Web API-projekt. Om du vill konfigurera Azure Directory Authentication klickar du på **ändra autentisering**.
 
 ![Nytt projekt][api-management-new-project]
 
@@ -70,7 +70,7 @@ Du kan uppmanas att logga in på Azure och du kan sedan konfigurera webbprogramm
 
 ![Konfigurera][api-management-configure-web-app]
 
-I det här exemplet en ny **programtjänstplanen** med namnet **APIMAADDemo** har angetts.
+I det här exemplet, en ny **programtjänstplanen** med namnet **APIMAADDemo** har angetts.
 
 Klicka på **OK** att konfigurera webbprogrammet och skapa projektet.
 
@@ -192,7 +192,7 @@ API: er konfigureras från publisher-portalen API som öppnas via Azure Portal. 
 
 Åtgärder kan vara [lagts till API: er manuellt](api-management-howto-add-operations.md), eller kan importeras. I det här videoklippet importeras åtgärder i Swagger-format som börjar på 6:40.
 
-Skapa en fil med namnet `calcapi.json` med följande innehåll och spara den på datorn. Se till att den `host` attributet pekar till din Web API-serverdel. I det här exemplet används `"host": "apimaaddemo.azurewebsites.net"`.
+Skapa en fil med namnet `calcapi.json` med följande innehåll och spara den på datorn. Se till att den `host` attributet pekar till din Web API-serverdel. I det här exemplet `"host": "apimaaddemo.azurewebsites.net"` används.
 
 ```json
 {
@@ -387,7 +387,7 @@ Välj **Web application och/eller webb-API**, ange ett namn och klicka på pilen
 
 ![Nytt program][api-management-aad-new-application-devportal-1]
 
-För **inloggnings-URL** anger du URL för API Management-tjänsten och Lägg till `/signin`. I det här exemplet används `https://contoso5.portal.azure-api.net/signin`.
+För **inloggnings-URL** anger du URL för API Management-tjänsten och Lägg till `/signin`. I det här exemplet `https://contoso5.portal.azure-api.net/signin` används.
 
 För **App-Id-URL** anger du URL för API Management-tjänsten och lägga till vissa unika tecken. Det kan vara önskade tecken och i det här exemplet `https://contoso5.portal.azure-api.net/dp` används. När den önskade **appegenskaper** är konfigurerad, klicka på kryssmarkeringen för att skapa programmet.
 
@@ -410,7 +410,7 @@ Ange sedan **slutpunkts-URL-auktorisering** och **Token slutpunkts-URL**.
 
 ![auktorisering server][api-management-add-authorization-server-1a]
 
-Dessa värden kan hämtas från den **App slutpunkter** sidan i AAD-program som du skapade för developer-portalen. Åtkomst till slutpunkterna navigerar du till den **konfigurera** för AAD-program och klicka på **visa slutpunkter**.
+Dessa värden kan hämtas från den **App slutpunkter** sidan i AAD-program som du skapade för developer-portalen. Om du vill komma åt slutpunkterna, navigera till den **konfigurera** för AAD-program och klicka på **visa slutpunkter**.
 
 ![Program][api-management-aad-devportal-application]
 
@@ -495,7 +495,7 @@ Klicka på **skicka** och notera den **svarsstatusen** av **200 OK** och resulta
 I nästa procedur i videon börjar vid 16:30 och konfigurerar en enkel skrivbordsprogram att anropa API: et. Det första steget är att registrera programmet i Azure AD och ge det åtkomst till katalogen och serverdelstjänsten. Det finns en demonstration av skrivbordsprogram anropar en åtgärd på Kalkylatorn API vid 18:25.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Konfigurera en princip för verifiering av JWT för att godkänna begäranden före
-Den sista proceduren i videon börjar vid 20:48 och visar hur du använder den [Validera JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) princip för att auktorisera före begäranden genom att verifiera åtkomsttoken för varje inkommande begäran. Om begäran inte har verifierats av Validera JWT-principen, begäran har blockerats av API-hantering och skickas inte vidare till serverdelen.
+Den sista proceduren i videon börjar vid 20:48 och visar hur du använder den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att auktorisera före begäranden genom att verifiera åtkomsttoken för varje inkommande begäran. Om begäran inte har verifierats av Validera JWT-principen, begäran har blockerats av API-hantering och skickas inte vidare till serverdelen.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

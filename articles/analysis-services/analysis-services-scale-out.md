@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services skalbar
 
@@ -42,7 +42,7 @@ När bearbetningen är klar måste du utföra en synkronisering mellan bearbetni
 
 ## <a name="monitor-qpu-usage"></a>Övervakaren QPU användning
 
- Övervaka servern i Azure-portalen för att avgöra om skalbar för din server är nödvändigt, med hjälp av mått. Om din QPU maximerar regelbundet, innebär det antal frågor mot modeller överskrider gränsvärdet QPU för planen. Frågan poolen jobbet kön längd mått ökar även när antalet frågor i frågekön tråd poolen överskrider tillgänglig QPU. Läs mer i [övervaka serverstatistik](analysis-services-monitor.md).
+ Övervaka servern i Azure-portalen för att avgöra om skalbar för din server är nödvändigt, med hjälp av mått. Om din QPU maximerar regelbundet, innebär det antal frågor mot modeller överskrider gränsvärdet QPU för planen. Frågan poolen jobbet kön längd mått ökar även när antalet frågor i frågekön tråd poolen överskrider tillgänglig QPU. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information.
 
 ## <a name="configure-scale-out"></a>Konfigurera skalbar
 
@@ -69,7 +69,7 @@ I **översikt** > modellen > **synkronisera modellen**.
 
 ![Skalbar skjutreglaget](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 Använd den **sync** igen.
 
 #### <a name="synchronize-a-model"></a>Synkronisera en modell   
@@ -79,7 +79,7 @@ Använd den **sync** igen.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-För att kunna köra synkronisering från PowerShell [uppdatera till senast](https://github.com/Azure/azure-powershell/releases) 5.01 eller högre AzureRM-modulen. Använd [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+För att kunna köra synkronisering från PowerShell [uppdatera till senast](https://github.com/Azure/azure-powershell/releases) 5.01 eller högre AzureRM-modulen. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Anslutningar
 
@@ -94,5 +94,5 @@ SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktion appar och AMO, a
 ## <a name="related-information"></a>Relaterad information
 
 [Övervakaren serverstatistik](analysis-services-monitor.md)   
-[Hantera Azure Analysis Services](analysis-services-manage.md) 
+[Manage Azure Analysis Services](analysis-services-manage.md) 
 

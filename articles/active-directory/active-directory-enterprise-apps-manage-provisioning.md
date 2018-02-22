@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
-Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen kan hittas i den **fler tjänster** &gt; **företagsprogram** avsnitt i portalen. Enterprise-appar är appar som har distribuerats och används i din organisation.
+Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. Enterprise-appar är appar som har distribuerats och används i din organisation.
 
-![Företagsprogram bladet][0]
+![Fönstret företagsprogram][0]
 
-Att välja den **alla program** länken till vänster som visar en lista över alla appar som har konfigurerats, inklusive appar som har lagts till från galleriet. Markera en app laddas resursbladet för appen, där rapporter kan visas för appen och en rad olika inställningar som kan hanteras.
+Att välja den **alla program** länken till vänster som visar en lista över alla appar som har konfigurerats, inklusive appar som har lagts till från galleriet. Markera en app laddas fönstret resurs för appen, där rapporter kan visas för appen och en rad olika inställningar som kan hanteras.
 
 Användarkontot provisioning-inställningar kan hanteras genom att välja **etablering** till vänster.
 
-![Programmet resursbladet][1]
+![Programmet resurs fönstret][1]
 
 ## <a name="provisioning-modes"></a>Etablering lägen
-Den **etablering** bladet börjar med en **läge** menyn som visar vilka etablering lägen stöds för ett företagsprogram och gör att de kan konfigureras. Tillgängliga alternativ inkluderar:
+Den **etablering** rutan börjar med en **läge** menyn som visar vilka etablering lägen stöds för ett företagsprogram och gör att de kan konfigureras. Tillgängliga alternativ inkluderar:
 
 * **Automatisk** -det här alternativet visas om Azure AD stöder automatisk API-baserad etablering och/eller ta bort etableringen av användarkonton till det här programmet. Om du väljer det här läget visas ett gränssnitt som hjälper administratörer via konfigurerar Azure AD för att ansluta till programmets Användarhantering API, skapa mappningar av åtgärdskonto och arbetsflöden som definierar hur användarkonton ska flöda mellan Azure AD och appen och hantera Azure AD etableras.
 * **Manuell** -det här alternativet visas om Azure AD inte stöder automatisk etablering av användarkonton till det här programmet. Det här alternativet innebär att kontot användarposter lagras i programmet måste hanteras med hjälp av en extern process, baserat på användare hantering och etablering funktioner som tillhandahålls av programmet (som kan omfatta etablering av SAML-in).
@@ -54,7 +54,7 @@ Det är där administratörer kan visa och redigera vad användaren attribut fl�
 
 Det finns en förkonfigurerad uppsättning mappningar mellan användarobjekt i Azure AD och användarobjekt för varje SaaS-app. Vissa appar hantera andra typer av objekt, till exempel grupper eller kontakter. Att välja ett av dessa mappningar i tabellen visar redigeraren mappning till höger, där de kan visas och anpassat.
 
-![Programmet resursbladet][2]
+![Programmet resurs fönstret][2]
 
 Anpassningar som stöds är:
 
@@ -81,6 +81,6 @@ Länkar som den **etablering aktivitetsrapport**, som innehåller en logg över 
 Vi hoppas att du som din Azure AD-upplevelse. Skriv ned feedback kommer! Publicera din feedback och förslag på förbättringar i den **administrationsportalen** avsnitt i vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Vi få är taggade om hur du skapar nya nya produkter varje dag, och använda din vägledning för att formen och definiera vad vi bygga härnäst.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

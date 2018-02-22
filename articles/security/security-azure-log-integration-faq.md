@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Azure logganalys Integration vanliga frågor och svar
-Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Log-integrering. 
+
+Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Log-integrering.
+
+>[!IMPORTANT]
+>Den bästa metoden för att integrera Azure loggar är med hjälp av leverantören SIEM Azure-Monitor koppling och följande [instruktioner](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Men om din SIEM-leverantör inte ger en koppling till Azure-Monitor, du kan använda Azure Log-integrering som en tillfällig lösning (om din SIEM stöds av Azure Log-integrering) tills en sådan anslutning är tillgänglig.
 
 Azure Log-integrering är en tjänst för Windows operativsystem som du kan använda för att integrera loggarna från Azure-resurser i din lokala säkerhet information och händelse (SIEM) hanteringssystem. Den här integreringen ger en enhetlig instrumentpanel för alla dina tillgångar, lokalt eller i molnet. Du kan sedan sammanställa, korrelera, analysera och varna för säkerhetshändelser som är kopplade till dina program.
 
@@ -34,20 +38,20 @@ Ja. Det är gratis för programmet Azure Log-integrering.
 Det finns för närvarande i kommersiella Azure och Azure Government och är inte tillgänglig i Kina eller Tyskland.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Hur kan jag se storage-konton som Azure Log-integrering dra Azure VM loggar?
-Kör kommandot **azlog källistan**.
+Kör kommandot **AzLog källistan**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Hur vet vilken prenumeration som Azure Log-integrering loggarna är från?
 
 När det gäller granskningsloggar som placeras i den **AzureResourcemanagerJson** kataloger, prenumerations-ID är i loggfilens namn. Detta gäller även för loggar i den **AzureSecurityCenterJson** mapp. Exempel:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**JSON
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory-granskningsloggar innehåller klient-ID som en del av namnet.
 
 Diagnostikloggar som läses från en händelsehubb innehåller inte prenumerations-ID som en del av namnet. I stället inkluderar de det egna namnet som angetts som en del av skapandet av hubb händelsekälla. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Hur kan jag uppdatera proxykonfigurationen?
-Om proxyserverns inställningar inte tillåter åtkomst till Azure lagring direkt, öppna den **AZLOG. EXE. CONFIG** filen i **c:\Program Files\Microsoft Azure Log integrering**. Uppdatera filen för att inkludera den **defaultProxy** avsnitt med proxyadress i din organisation. När uppdateringen är klar, stoppa och starta tjänsten med hjälp av kommandona **net stop azlog** och **net start azlog**.
+Om proxyserverns inställningar inte tillåter åtkomst till Azure lagring direkt, öppna den **AZLOG. EXE. CONFIG** filen i **c:\Program Files\Microsoft Azure Log integrering**. Uppdatera filen för att inkludera den **defaultProxy** avsnitt med proxyadress i din organisation. När uppdateringen är klar, stoppa och starta tjänsten med hjälp av kommandona **net stop AzLog** och **net start AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -74,7 +78,7 @@ Händelsen XML har följande metadata, inklusive prenumerations-ID:
 ![Händelsen XML][1]
 
 ## <a name="error-messages"></a>Felmeddelanden
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>När jag kör kommandot **azlog createazureid**, varför visas följande fel?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>När jag kör kommandot ```AzLog createazureid```, varför visas följande fel?
 Fel:
 
   *Det gick inte att skapa program i AAD - klient 72f988bf-86f1-41af-91ab-2d7cd011db37-orsak = förbjuden - meddelandet = 'Har inte tillräcklig behörighet för att slutföra åtgärden ”.*

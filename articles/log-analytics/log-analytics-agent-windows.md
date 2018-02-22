@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -33,12 +33,12 @@ Agenten kan installeras på något av följande metoder. De flesta installatione
 * PowerShell-skript.
 * Resource Manager-mall för virtuella datorer som kör Windows på plats i Azure-stacken.  
 
-För att förstå kraven för Nätverks- och distribuera Windows-agenten ska granska [samla in data från din miljö med Azure logganalys](log-analytics-concept-hybrid.md#prerequisites).
+Information om nätverks- och systemkraven för att distribuera Windows-agenten finns i [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites) (Samla in data från din miljö med Azure Log Analytics).
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar Microsoft Monitoring Agent för Windows behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys korrekt.  
 
-1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj arbetsytan som du tänker på Konfigurera agenten rapporterar till i din lista över logganalys arbetsytor.
 3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.   
@@ -160,7 +160,7 @@ Från datorn i **Kontrollpanelen**, söka efter artikeln **Microsoft Monitoring 
 
 Du kan också utföra en enkel logg sökning i Azure-portalen.  
 
-1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
+1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
 2. På sidan logganalys-arbetsytan väljer målarbetsytan och välj sedan den **loggen Sök** panelen. 
 2. I fönstret loggen Sök i fälttypen fråga:  
 

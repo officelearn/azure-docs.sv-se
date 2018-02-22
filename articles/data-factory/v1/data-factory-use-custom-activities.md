@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Här är vad du behöver göra i det här avsnittet:
 
 ### <a name="step-1-create-the-data-factory"></a>Steg 1: Skapa datafabriken
 1. När du loggar in på Azure-portalen, gör du följande steg:
-   1. Klicka på **NYTT** i den vänstra menyn.
+   1. Klicka på **skapar du en resurs** på den vänstra menyn.
    2. Klicka på **Data + analys** i den **ny** bladet.
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
    
@@ -441,7 +441,7 @@ Här är vad du behöver göra i det här avsnittet:
 Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I det här steget kan länka du ditt Azure Storage-konto och Azure Batch-konto till din data factory.
 
 #### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
-1. Klicka på den **författare och distribuera** panelen på den **DATAFABRIKEN** bladet för **CustomActivityFactory**. Du kan se Data Factory-redigeraren.
+1. Klicka på den **författare och distribuera** panelen på den **DATAFABRIKEN** bladet för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **Nytt datalager** på kommandoraden och välj **Azure storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
     
     ![Nytt datalager - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)

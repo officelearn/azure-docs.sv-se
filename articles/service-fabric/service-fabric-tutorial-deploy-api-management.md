@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
 Den här självstudien är del fyra i en serie.  Att distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API Management är användbart när du vill publicera API: er med en omfattande uppsättning dirigeringsregler för dina Service Fabric-serverdelstjänster. Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara valfri tillståndslös tjänst för ingångstrafik, till exempel ett ASP.NET Core-program, Event Hubs, IoT Hub eller Azure API Management. 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig hur man:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
-> * [skala upp eller ned ett kluster](/service-fabric-tutorial-scale-cluster.md)
+> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Distribuera API Management med Service Fabric
 

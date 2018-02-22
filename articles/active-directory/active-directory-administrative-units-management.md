@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Hantering av administrativa enheter i Azure AD - förhandsversion
 Den här artikeln beskriver administrativa enheter – en ny Azure Active Directory-behållare för resurser som kan användas för att delegera administrativa behörigheter över delmängder av användare och tillämpa principer för att en del av användarna. I Azure Active Directory aktivera administrativa enheter centrala administratörer att delegera behörigheter till regionala administratörer eller skapa princip på en detaljerad nivå.
@@ -28,7 +28,7 @@ Den här artikeln beskriver administrativa enheter – en ny Azure Active Direct
 Detta är användbart i organisationer med oberoende avdelningar, till exempel en stor university som består av många autonoma skolorna (Business skola, ingenjörer skola och så vidare) som är oberoende av varandra. Sådana avdelningar har sina egna IT-administratörer som styr åtkomsten, hantera användare och ange principer för fördelningen. Central Administratörer vill kunna ge dessa dig administratörer behörigheter till användare i deras specifika avdelningar. Mer specifikt kan i det här exemplet administratör av en central, till exempel skapa en administrativ enhet för en viss skola (Business skolan) och fylla det med bara de skola företagsanvändarna. En central administratör kan lägga till företag skola IT-personal till en roll som omfattas, med andra ord ge IT-personal Business skola behörigheter endast med administrativa affärsenhet skola.
 
 > [!IMPORTANT]
-> Du kan tilldela administrativa enhet omfång administratörsroller endast om du aktiverar Azure Active Directory Premium. Mer information finns i [komma igång med Azure AD Premium](active-directory-get-started-premium.md).
+> Om du vill använda administrativa enheter kräver administrativa enhet omfång administratören att ha en licens för Azure Active Directory Premium och Azure Active Directory Basic licenser för alla användare i administrativa enhet. Mer information finns i [komma igång med Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 

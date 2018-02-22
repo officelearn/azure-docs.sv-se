@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installera och använda Solr på HDInsight Hadoop-kluster
 
@@ -45,9 +45,9 @@ Lär dig hur du installerar Solr på Azure HDInsight med hjälp av skriptåtgär
 
 Det här skriptet gör följande ändringar till HDInsight-klustret:
 
-* Installerar Solr 4.9 i`/usr/hdp/current/solr`
+* Installerar Solr 4.9 i `/usr/hdp/current/solr`
 * Skapar en användare **solrusr**, som används för att köra tjänsten Solr
-* Anger **solruser** som ägare till`/usr/hdp/current/solr`
+* Anger **solruser** som ägare till `/usr/hdp/current/solr`
 * Lägger till en [Upstart](http://upstart.ubuntu.com/) konfiguration som startar Solr automatiskt.
 
 ## <a name="install"></a>Installera Solr med hjälp av skriptåtgärder
@@ -61,7 +61,7 @@ Om du vill skapa ett kluster med installerat Solr, Följ stegen i den [skapa HDI
 1. Från den __klustret sammanfattning__ avsnitt, select__Advanced settings__, sedan __skript åtgärder__. Använd följande information för att fylla i formuläret:
 
    * **NAMNET**: Ange ett eget namn för skriptåtgärden.
-   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Markera det här alternativet
    * **WORKER**: Markera det här alternativet
    * **ZOOKEEPER**: Markera det här alternativet att installera på noden Zookeeper

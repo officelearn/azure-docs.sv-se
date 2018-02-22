@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validera XML med scheman för Logikappar i Azure och Enterprise-Integrationspaket
 
@@ -26,9 +26,9 @@ Scheman bekräfta att XML-dokument som du får är giltiga och har de förvänta
 
 ## <a name="add-a-schema"></a>Lägger till ett schema
 
-1. Välj i Azure-portalen **fler tjänster**.
+1. Välj i Azure-portalen **alla tjänster**.
 
-    ![Azure-portalen ”fler tjänster”](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Azure-portalen ”alla tjänster”](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
 2. Skriv i sökrutan filtrera **integrering**, och välj **Integrationskonton** från resultatlistan över.
 
@@ -46,7 +46,7 @@ Scheman bekräfta att XML-dokument som du får är giltiga och har de förvänta
 
 1. I den **scheman** bladet som öppnas (från föregående steg), väljer **Lägg till**.
 
-    ![Scheman bladet ”Lägg till”](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+    ![Schemas blade, "Add"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
 
 2. Ange ett namn för schemat. Överföra schemafilen genom att välja mappikonen bredvid den **schemat** rutan. När överföringen är klar väljer du **OK**.
 

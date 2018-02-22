@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Avbilda en virtuell Windows-dator skapad med den klassiska distributionsmodellen.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Avbilda en virtuell Azure Windows-dator skapad med den klassiska distributionsmodellen
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager modellinformation finns i [samla in en hanterad avbildning av en generaliserad virtuell dator i Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Innan du gör en avbildning av en virtuell Azure-dator, rekommenderas det att s�
 
    ![Kör Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep stängs den virtuella datorn, som ändrar status för den virtuella datorn i Azure portal och **stoppad**.
-6. I Azure-portalen klickar du på **virtuella datorer (klassisk)** och välj den virtuella dator som du vill samla in. Den **VM-avbildningar (klassisk)** grupp visas under **Compute** när du visar **fler tjänster**.
+6. I Azure-portalen klickar du på **virtuella datorer (klassisk)** och välj den virtuella dator som du vill samla in. Den **VM-avbildningar (klassisk)** grupp visas under **Compute** när du visar **alla tjänster**.
 
 7. Klicka på kommandofältet **avbilda**.
 
@@ -74,7 +74,7 @@ Innan du gör en avbildning av en virtuell Azure-dator, rekommenderas det att s�
     ![Avbildningen lyckades](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Bilden är redo att användas för att skapa virtuella datorer. Om du vill göra det, ska du skapa en virtuell dator genom att välja den **fler tjänster** menyalternativet längst ned i tjänster menyn och sedan **VM-avbildningar (klassisk)** i den **Compute** grupp. Instruktioner finns i [skapa en virtuell dator från en avbildning](createportal.md).
+Bilden är redo att användas för att skapa virtuella datorer. Om du vill göra det, ska du skapa en virtuell dator genom att välja den **alla tjänster** menyalternativet längst ned i tjänster menyn och sedan **VM-avbildningar (klassisk)** i den **Compute** grupp. Instruktioner finns i [skapa en virtuell dator från en avbildning](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

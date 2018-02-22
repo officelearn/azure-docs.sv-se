@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ccccdf58fbb84605bc5dff29d870b373134f1f97
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Så kör du en beräkningsintensiv uppgift i Java på en virtuell dator
 > [!IMPORTANT] 
@@ -52,7 +52,7 @@ Följande är ett exempel på Java-program krävande aktiviteten för övervakni
 
 ## <a name="to-create-a-virtual-machine"></a>Skapa en virtuell dator
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **ny**, klickar du på **Compute**, klickar du på **virtuella**, och klicka sedan på **från galleriet**.
+2. Klicka på **skapar du en resurs**, klickar du på **Compute**, klickar du på **virtuella**, och klicka sedan på **från galleriet**.
 3. I den **virtuella avbildning väljer** dialogrutan **JDK 7 Windows Server 2012**.
    Observera att **JDK 6 Windows Server 2012** är tillgänglig om du har äldre program som inte ännu är redo att köras i JDK 7.
 4. Klicka på **Nästa**.

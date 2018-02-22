@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logik app arbetsflöden från fördefinierade mallar
 
@@ -42,7 +42,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 1. Om du inte redan gjort logga in på den [Azure-portalen](https://portal.azure.com "Azure-portalen").
 
-2. Välj **Ny** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
+2. Azure Huvudmeny, Välj **skapar du en resurs** > **Enterprise Integration** > **Logikapp**.
 
    ![Azure Portal, Ny, Enterprise-integration, Logikapp](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 

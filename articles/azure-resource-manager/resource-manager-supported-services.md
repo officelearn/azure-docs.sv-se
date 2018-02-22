@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Resursproviders och typer
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna deltagare och ägare.
+Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna deltagare och ägare.
+Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Välj **resursproviders** och visa listan över tillgängliga resursproviders.
 
 ![Visa resursprovidrar](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna deltagare och ägare. Om du vill registrera en resursleverantör, Välj **registrera**.
+Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera manuellt vissa resursleverantörer. Om du vill registrera en resursleverantör, du måste ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Om du vill registrera en resursleverantör, Välj **registrera**.
 
 ![registerresursleverantören](./media/resource-manager-supported-services/register-provider.png)
 
 Du kan inte avregistrera en resursleverantör när du har fortfarande resurstyper från resursprovidern i din prenumeration.
 
-Om du vill se informationen för en viss resurs-provider väljer **fler tjänster**.
+Om du vill se informationen för en viss resurs-provider väljer **alla tjänster**.
 
-![Välj fler tjänster](./media/resource-manager-supported-services/more-services.png)
+![Markera alla tjänster](./media/resource-manager-supported-services/more-services.png)
 
 Sök efter **Resursläsaren** och välj bland de tillgängliga alternativen.
 

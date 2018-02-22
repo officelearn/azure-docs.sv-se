@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68d4f9cb5fc9c9f15a355d9fdade922889d2aa30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integrering mellan Programgateway och Azure Security Center
 
@@ -31,35 +31,35 @@ Programmet Gateway Brandvägg är en rekommendation i Security Center för att s
 
 ![integrering med security center][1]
 
-Klicka på några rekommendationer om Brandvägg för webbaserade program öppnas ett nytt blad som visar information om rekommendationen.
+Klicka på några rekommendationer om Brandvägg för webbaserade program öppnar en ny sida som visar information om rekommendationen.
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Lägg till en brandvägg för webbaserade program i en befintlig resurs
 
-Gå till **fler tjänster** > **säkerhet + identitet** > **Security Center** och på den **Security Center - översikt**  bladet, klickar du på **program**. På den **Security Center - program** bladet tabellen innehåller en lista över program som Security Center identifieras i din prenumeration.
+Gå till **alla tjänster** > **säkerhet + identitet** > **Security Center** på **Security Center - översikt**, klickar du på **program**. På **Security Center - program**, tabellen innehåller en lista över program som Security Center identifieras i din prenumeration.
 
 ![webbprogram][3]
 
-Genom att klicka på ett webbprogram med ett allvarligt problem kan du hämta den **programmet säkerhetshälsa** bladet. I bilden nedan, webbprogram som inte skyddas av en brandvägg för webbaserade program. 
+Genom att klicka på ett webbprogram med ett allvarligt problem kan du hämta den **programmet säkerhetshälsa** sidan. I bilden nedan, webbprogram som inte skyddas av en brandvägg för webbaserade program. 
 
 ![webbresurser som inte skyddas][2]
 
-Klicka på **lägga till en brandvägg för webbaserade program** under **rekommendationer** att öppna den **lägga till en brandvägg för webbaserade program** bladet.
+Klicka på **lägga till en brandvägg för webbaserade program** under **rekommendationer** att öppna den **lägga till en brandvägg för webbaserade program** sidan.
 
-Om du inte har en befintlig Gateway för programmet, eller om du vill skapa en ny, klickar du på **Skapa nytt** och på den **skapa en ny Brandvägg för webbaserade program** bladet och klickar på **Microsoft - program Gateway**. Detta tar dig igenom stegen för att skapa en Programgateway. Webbprogrammet har nu lagts till som en skyddad resurs, Security Center nu spårar att den här resursen skyddas av en brandvägg för webbaserade program. Detta lägger inte till den som en medlem för backend-poolen.
+Om du inte har en befintlig Gateway för programmet, eller om du vill skapa en ny, klickar du på **Skapa nytt** på **skapa en ny Brandvägg för webbaserade program**, och klicka på **Microsoft - Programgateway** . Detta tar dig igenom stegen för att skapa en Programgateway. Webbprogrammet har nu lagts till som en skyddad resurs, Security Center nu spårar att den här resursen skyddas av en brandvägg för webbaserade program. Detta lägger inte till den som en medlem för backend-poolen.
 
 Om du har en befintlig Programgateway, kan du välja den under **med befintliga lösning**
 
-![Brandvägg för webbaserade program lägger du till bladet][4]
+![Brandvägg för webbaserade program lägger du till sidan][4]
 
-Lägger till ett webbprogram till en Programgateway via Security Center inte lägger till resursen som medlem backend-adresspool, måste du göra det på gateway-programresurs direkt.
+Lägga till ett webbprogram till en Programgateway via Security Center lägger inte till resursen som medlem backend-adresspool. Detta måste göras på gateway-programresurs direkt.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Lägg till en resurs i en befintlig Brandvägg för webbaserade program
 
-Gå till **fler tjänster** > **säkerhet + identitet** > **Security Center** och på den **Security Center - översikt**  bladet, klickar du på **partnerlösningar**. Befintliga gateways för Security Center-medvetna programmet visas i den **partnerlösningar** bladet.
+Gå till **alla tjänster** > **säkerhet + identitet** > **Security Center** på **Security Center - översikt**, klickar du på **partnerlösningar**. Befintliga gateways för Security Center-medvetna programmet visas i den **partnerlösningar** sidan.
 
 ![partnerlösningar][7]
 
-Klicka på **Link app** att öppna den **länken program** bladet här du ges alternativ för befintliga program. Välj program att skydda och klicka på **OK**. Detta lägger inte till webbprogrammet till serverdelspoolen för programgatewayen. Anger resurserna som en skyddad resurs så kan spåra av Security Center. Om du vill lägga till resursen som medlem i serverdelen poolen detta måste göras på Programgateway från det aktuella bladet kan du klicka på **lösning konsolen** för att programmet gatewayresursen där du kan lägga till webbprogrammet till den serverdelspool.
+Klicka på **Link app** att öppna **länken program**, här får du alternativ för befintliga program. Välj program att skydda och klicka på **OK**. Detta lägger inte till webbprogrammet till serverdelspoolen för programgatewayen. Anger resurserna som en skyddad resurs så kan spåra av Security Center. Om du vill lägga till resursen som medlem i serverdelen poolen detta måste göras på Programgateway från den aktuella sidan som du kan klicka på **lösning konsolen** för att programmet gatewayresursen där du kan lägga till webbprogrammet till den serverdelspool.
 
 ![partner solutions program][6]
 
@@ -67,7 +67,7 @@ Klicka på **Link app** att öppna den **länken program** bladet här du ges al
 
 Security Center spårar program som har lagts till i en Programgateway som en skyddad resurs.  Den övervakar tillståndet för den här resursen och garanterar att den skyddas av en Programgateway. Nästa steg är att lägga till privata IP-, offentlig IP-adress eller nätverkskort på den virtuella datorn till serverdelspoolen för programgatewayen. Tills detta görs en ytterligare rekommendation av **Slutför programskydd** visas förrän resursen har lagts till.
 
-![Brandvägg för webbaserade program lägger du till bladet][5]
+![Brandvägg för webbaserade program lägger du till sidan][5]
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa den krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Det ger också information om scenarier som stöds, krav och felsökningssteg för fel.
@@ -48,7 +48,7 @@ Den här artikeln handlar om stegen för att säkerhetskopiera och återställa 
 Använd följande steg för att ange ett mål för säkerhetskopiering, definiera en princip, konfigurera objekt och utlösa en säkerhetskopia.
 
 ### <a name="configure-backup"></a>Konfigurera säkerhetskopiering
-1. Om du redan har ett Recovery Services-valv öppna vidare till nästa steg. Om du inte har ett Recovery Services-valv öppna men du befinner dig i Azure-portalen på den **hubb** väljer du **Bläddra**.
+1. Om du redan har ett Recovery Services-valv öppna vidare till nästa steg. Om du inte har ett Recovery Services-valv öppna men du befinner dig i Azure portal, Välj **alla tjänster**.
 
    a. I listan över resurser skriver du **Recovery Services**.
 
@@ -98,7 +98,7 @@ Om du har virtuella datorer redan säkerhetskopieras i Recovery Services-valvet 
 
 ## <a name="provide-permissions-to-backup"></a>Ger behörighet att säkerhetskopiera
 Använd följande steg för att ange relevant behörighet till Backup för att komma åt nyckelvalvet och utför säkerhetskopiering av krypterade virtuella datorer.
-1. Välj **fler tjänster**, och Sök efter **nyckeln valv**.
+1. Välj **alla tjänster**, och Sök efter **nyckeln valv**.
 
     ![Nyckelvalv](./media/backup-azure-vms-encryption/search-key-vault.png)
     

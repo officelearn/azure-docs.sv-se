@@ -3,7 +3,7 @@
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
 
-# [Kom igång](iot-hub-get-started.md)
+# [Komma igång](iot-hub-get-started.md)
 
 ## Konfigurera enheten
 ### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Kom igång med enhetstvillingar
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-python-twin-how-to-configure.md)
 ### Använda enhetsjobb för att uppdatera enhetens inbyggda programvara
 #### [Node-serverdel/Node-enhet](iot-hub-node-node-firmware-update.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-firmware-update.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-firmware-update.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-python-firmware-update.md)
 ### Schemalägga och sända jobb
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-schedule-jobs.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-python-schedule-jobs.md)
 
 ## Hantera
 ### Skapa en IoT Hub 

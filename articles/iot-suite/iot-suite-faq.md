@@ -1,7 +1,7 @@
 ---
 title: "Azure IoT Suite vanliga frågor och svar | Microsoft Docs"
 description: "Vanliga frågor och svar om IoT Suite"
-services: 
+services: iot-suite
 suite: iot-suite
 documentationcenter: 
 author: dominicbetts
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 432b4c080572c72dc131ee198a59c81631495415
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Vanliga frågor och svar om IoT Suite
 
-Se även anslutna factory-specifika [vanliga frågor och svar](iot-suite-faq-cf.md).
+Mer information hittar du i [anslutna factory-specifika vanliga frågor och svar](iot-suite-faq-cf.md) och [fjärråtkomst övervakning av specifika vanliga frågor och svar](iot-suite-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Var hittar källkoden för de förkonfigurerade lösningarna?
 
@@ -34,41 +34,26 @@ Källkoden lagras i följande GitHub-databaser:
 * [Förutsägande Underhåll förkonfigurerade lösningen](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Anslutna factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hur mycket kostar det för att etablera nya remote övervakningslösning?
-
-Den nya förkonfigurerade lösningen erbjuder två distributionsalternativ:
-
-* En *grundläggande* alternativ som har utformats för utvecklare som söker efter lägre kostnader för utveckling eller kunder som planerar för att skapa ett demo eller konceptbevis.
-* En *standard* alternativ som har utformats för företag som vill distribuera en infrastruktur för klar för produktion.
-
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Hur kan jag se till att jag Håll min nere kostnaderna när jag utveckla min lösning?
-
-Förutom att tillhandahålla två differentierade distributioner har nya remote övervakningslösning en inställning för att aktivera eller inaktivera simulerade enheterna på begäran. Inaktivera simuleringen minskar mängden data som inhämtas i lösningen och därmed den sammanlagda kostnaden.
-
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Är den nya arkitekturen i mikrotjänster tillgängligt för alla tre förkonfigurerade lösningar?
 
 För närvarande använder endast remote övervakningslösning arkitektur för mikrotjänster som det täcker de bredaste scenariot.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Vilka fördelar ger den nya öppen källkod mikrotjänster-baserad arkitekturen i den nya uppdateringen?
 
-Under de senaste två åren har molnarkitektur avsevärt utvecklats. Micro tjänster har vuxit fram som ett mönster som är bra att uppnå skalbarhet och flexibilitet, utan att kompromissa development hastighet. Den här arkitekturen mönster används internt i flera Microsoft-tjänster med bra tillförlitlighet och skalbarhet resultat. Vi håller på dessa learning i praktiken så att kunderna dra nytta av dem.
+Under de senaste två åren har molnarkitektur avsevärt utvecklats. Mikrotjänster har vuxit fram som ett mönster som är bra att uppnå skalbarhet och flexibilitet, utan att kompromissa development hastighet. Den här arkitekturen mönster används internt i flera Microsoft-tjänster med bra tillförlitlighet och skalbarhet resultat. Vi håller på dessa learning i praktiken så att kunderna dra nytta av dem.
 
 ### <a name="is-the-new-preconfigured-solution-available-in-the-same-geographic-region-as-the-existing-solution"></a>Är den nya förkonfigurerade lösningen i samma geografiska region som den befintliga lösningen?
 
 Ja, den nya fjärrövervaknings finns i samma geografiska regioner.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>Vad är skillnaden mellan basic och standard distributionsalternativ? Hur ska du välja mellan två distributionsalternativ?
-
-Varje distributionsalternativ svarar på olika behov. Den grundläggande distributionen är utformat för att komma igång och utveckla PoC och små piloter. Det ger en effektiv arkitektur med minsta nödvändiga resurser och en lägre kostnad. Standarddistributionen är utformat för att skapa och anpassa en produktionsklara lösning och ger en distribution med nödvändigt att Tänk på att. För tillförlitlighet och skala program mikrotjänster skapas som Docker-behållare och distribueras via en orchestrator (Kubernetes som standard). Orchestrator är ansvarig för distribution, skalning och hanteringen av programmet. Du bör välja ett alternativ baserat på din aktuella behov. Du kan använda en, den andra eller en kombination av båda beroende på din projektfasen.
-
-### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Kan jag fortsätta att använda min befintliga investeringar i Azure IoT Suite?
-
-Ja. Alla lösningar som finns idag fortsätter att fungera i din Azure-prenumeration och källkoden finns kvar i GitHub.
-
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Vad är skillnaden mellan att ta bort en resursgrupp på Azure-portalen och att klicka på Ta bort för en förkonfigurerad lösning på azureiotsuite.com?
 
 * Om du tar bort förkonfigurerade lösningen i [azureiotsuite.com](https://www.azureiotsuite.com/), du ta bort alla resurser som etablerades när du skapade den förkonfigurerade lösningen. Om du har lagt till fler resurser till resursgruppen raderas även dessa resurser.
 * Om du tar bort resursgrupp i den [Azure-portalen](https://portal.azure.com), bara ta bort resurserna i resursgruppen. Du måste också ta bort Azure Active Directory-programmet som är kopplade till den förkonfigurerade lösningen.
+
+### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-suite"></a>Kan jag fortsätta att använda min befintliga investeringar i Azure IoT Suite?
+
+Ja. Alla lösningar som finns idag fortsätter att fungera i din Azure-prenumeration och källkoden finns kvar i GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Hur många IoT Hub-instanser kan etablera i en prenumeration?
 
@@ -77,10 +62,6 @@ Som standard kan du etablera [10 IoT-hubbar per prenumeration](../azure-subscrip
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Hur många Azure DB som Cosmos-instanser kan etablera i en prenumeration?
 
 Femtio. Du kan skapa en [Azure supportärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att höja gränsen, men som standard kan du bara etablera 50 Cosmos DB instanser per prenumeration.
-
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Hur konfigurerar jag en dynamisk karta på instrumentpanelen?
-
-Mer information finns i [uppgradera kartan för att se enheter på en dynamisk karta](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hur många kostnadsfria Bing Maps-API:er kan jag etablera i en prenumeration?
 
@@ -105,6 +86,7 @@ Finns i blogginlägget Eric Golpe [genomgång av du tar bort en Azure AD-klient]
 
 Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
 
+* [Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-explore.md)
 * [Förutsägande Underhåll förkonfigurerade lösning: översikt](iot-suite-predictive-overview.md)
 * [Anslutna factory förkonfigurerade lösning: översikt](iot-suite-connected-factory-overview.md)
 * [IoT-säkerhet från grunden](securing-iot-ground-up.md)

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Skapa en virtuell Windows-dator i en zon för tillgänglighet med Azure-portalen
 
@@ -35,7 +35,7 @@ Logga in på Azure-portalen på https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **skapar du en resurs** i det övre vänstra hörnet i Azure-portalen.
 
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -32,7 +32,7 @@ Informationen i den här artikeln gäller bara för Windows-baserade HDInsight-k
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här artikeln måste du ha:
 
@@ -43,7 +43,7 @@ Innan du påbörjar den här artikeln måste du ha:
 1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. När du öppnar portalen kan du:
 
-   * Klicka på **ny** i den vänstra menyn för att skapa ett nytt kluster:
+   * Klicka på **skapar du en resurs** i den vänstra menyn för att skapa ett nytt kluster:
 
        ![ny knapp för HDInsight-kluster](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Klicka på **HDInsight-kluster** i den vänstra menyn.
@@ -352,7 +352,7 @@ Om du vill ansluta till klustret med hjälp av fjärrskrivbord och använda Hado
 1. Anslut till klustret med hjälp av fjärrskrivbord.
 2. Från skrivbordet, dubbelklickar du på **Hadoop kommandoraden**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Mer information om Hadoop-kommandon finns [Hadoop kommandon referens](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 

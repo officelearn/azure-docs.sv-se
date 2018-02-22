@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Identifiera, identifiera och klassificera personliga data i Microsoft Azure
 
@@ -59,22 +59,22 @@ Detta är särskilt användbart om du vill söka efter eller ändra personliga d
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 
-2. Välj **fler tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
+2. Välj **alla tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
 
    ![Hur gör hitta användarprofil och information om arbete](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. På den **användare och grupper** bladet väljer **användare**.
 
-  ![Öppna användare och grupper](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Öppna användare och grupper](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. På den **användare och grupper – användare** bladet Välj en användare i listan och i bladet för den valda användaren kan markera **profil** att visa användarens profilinformation som kan innehålla personuppgifter.
 
-  ![Välj användare](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![Välj användare](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Om du behöver lägga till eller ändra användarens profilinformation kan du göra det och markera i kommandofältet **spara.**
 6. På bladet för den valda användaren väljer **fungerar Info** att visa information om användaren arbete som kan innehålla personuppgifter.
 
- ![Visa arbetsinformation](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![Visa arbetsinformation](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Om du behöver lägga till eller ändra användarinformation arbete du göra det och markera i kommandofältet **spara.**
 

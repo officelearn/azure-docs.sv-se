@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -204,11 +204,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnitt. |
+|**Typ** | Saknas | måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
-|**sökväg** | **BlobPath** |Behållare för övervakning.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
-|**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Sökväg** | **BlobPath** |Behållare för övervakning.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
+|**Anslutning** | **Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -220,20 +220,29 @@ Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter 
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 
-Om texten blobbar förväntas, du kan binda till den `string` typen. Detta rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen.
+Om texten blobbar förväntas, du kan binda till den `string` typen. Detta rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) senare i den här artikeln.
 
 I JavaScript, åt inkommande blobbdata med hjälp av `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Utlösaren - mönster för blob-namn
 
-Du kan ange ett namn på mönster i blob i den `path` egenskap i *function.json* eller i den `BlobTrigger` Attributkonstruktorn. Namnmönstret kan vara en [filter eller bindande uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Du kan ange ett namn på mönster i blob i den `path` egenskap i *function.json* eller i den `BlobTrigger` Attributkonstruktorn. Namnmönstret kan vara en [filter eller bindande uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns). Följande avsnitt innehåller exempel.
+
+### <a name="get-file-name-and-extension"></a>Hämta filnamn och tillägg
+
+I följande exempel visas hur du binda till blob-filnamnet och filnamnstillägget separat:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Om blob heter *ursprungliga Blob1.txt*, värdet för den `blobname` och `blobextension` variabler i Funktionskoden är *ursprungliga Blob1* och *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrera efter blobbnamnet
 
@@ -262,15 +271,6 @@ Om du vill söka efter klammerparenteser i filnamn, escape-klammerparenteserna m
 ```
 
 Om blob heter *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskoden är *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Hämta filnamn och tillägg
-
-I följande exempel visas hur du binda till blob-filnamnet och filnamnstillägget separat:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Om blob heter *ursprungliga Blob1.txt*, värdet för den `blobname` och `blobextension` variabler i Funktionskoden är *ursprungliga Blob1* och *txt*.
 
 ## <a name="trigger---metadata"></a>Utlösaren - metadata
 
@@ -309,6 +309,14 @@ Om alla 5 försök misslyckas Azure Functions läggs ett meddelande till en kö 
 * ContainerName
 * BlobName
 * ETag (en blob versions-ID, till exempel: ”0x8D1DC6E70A277EF”)
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Utlösaren - samtidighet och minnesanvändning
+
+Blob-utlösaren använder en kö internt, så det maximala antalet samtidiga funktionsanrop styrs av den [köer konfigurationen i host.json](functions-host-json.md#queues). Standardinställningarna begränsa samtidighet till 24 anrop. Den här begränsningen gäller separat för varje funktion som använder en blob-utlösare.
+
+[Plan för förbrukning](functions-scale.md#how-the-consumption-plan-works) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje samtidigt köra funktionen och Functions-runtime sig själv. Om en funktion som utlöses av blob läser in hela blob i minnet, den maximala mängd minne som används av funktionen för blobbar är 24 * maximala blob-storlek. Till exempel en funktionsapp med tre blob-utlösta funktioner och standardinställningar skulle ha en maximal per VM samtidighet på 3 * 24 = 72 fungera anrop.
+
+JavaScript-funktioner läsa hela blob i minnet och C#-funktioner göra det om du binder till `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Utlösaren - avsökning för stora behållare
 
@@ -479,11 +487,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `blob`. |
-|**riktning** | Saknas | måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnitt. |
+|**Typ** | Saknas | måste anges till `blob`. |
+|**Riktning** | Saknas | måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
-|**sökväg** |**BlobPath** | Sökvägen till blob. | 
-|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Sökväg** |**BlobPath** | Sökvägen till blob. | 
+|**Anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läsning eller skrivning. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -498,10 +506,10 @@ I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metod
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 
@@ -690,11 +698,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `blob`. |
-|**riktning** | Saknas | Måste anges till `out` för en bindning för utdata. Undantag anges i den [användning](#output---usage) avsnitt. |
+|**Typ** | Saknas | måste anges till `blob`. |
+|**Riktning** | Saknas | Måste anges till `out` för en bindning för utdata. Undantag anges i den [användning](#output---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange till `$return` att referera till returvärde för funktion.|
-|**sökväg** |**BlobPath** | Sökvägen till blob. | 
-|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Sökväg** |**BlobPath** | Sökvägen till blob. | 
+|**Anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läsning eller skrivning. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -710,10 +718,10 @@ I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metod
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)
-* `CloudAppendBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
+* `CloudAppendBlob` (kräver ”inout” bindning riktning i *function.json*)
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 

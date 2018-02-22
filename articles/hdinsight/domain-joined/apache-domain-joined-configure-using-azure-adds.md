@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
 
@@ -36,9 +36,11 @@ I den här artikeln får du lära dig hur du konfigurerar en domänansluten HDIn
 Du måste skapa en Azure AD DS innan du kan skapa ett HDInsight-kluster. För att skapa ett Azure lägger till, se [aktivera Azure Active Directory Domain Services med Azure-portalen](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Endast innehavaradministratörer har behörighet att skapa domain services. Om du använder Azure Data Lake lagring (ADLS) som standardlagring för HDInsight, kontrollera standard Azure AD-klient för ADLS är samma som i domänen för HDInsight-klustret. 
+> Endast innehavaradministratörer har behörighet att skapa domain services. Om du använder Azure Data Lake lagring (ADLS) som standardlagring för HDInsight, kontrollera standard Azure AD-klient för ADLS är samma som i domänen för HDInsight-klustret. Multifaktorautentisering måste inaktiveras för användare som har åtkomst till klustret för att göra detta skapar för att arbeta med Azure Data Lake Store.
 
 När tjänsten domän har etablerats, måste du skapa ett tjänstkonto i den **Azure AD-DC-administratörer** gruppen för att skapa HDInsight-klustret. Kontot måste vara en global administratör för Azure AD.
+
+Du måste aktivera säker LDAP för Azure AD Domain Services-hanterad domän. För att aktivera säker LDAP, se [konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Skapa en domänansluten HDInsight-kluster
 

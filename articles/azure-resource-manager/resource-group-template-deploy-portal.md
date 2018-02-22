@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuera resurser med Resource Manager-mallar och Azure Portal
 
@@ -47,7 +47,7 @@ Det här avsnittet visar hur du använder den [Azure-portalen](https://portal.az
 
 När du har skapat en resursgrupp kan du distribuera resurser till den från Marketplace. Marketplace innehåller fördefinierade lösningar för vanliga scenarier.
 
-1. Om du vill starta en distribution väljer **ny**.
+1. Om du vill starta en distribution väljer **skapar du en resurs**.
 
    ![Ny resurs](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -73,13 +73,13 @@ När du har skapat en resursgrupp kan du distribuera resurser till den från Mar
 
 1. När du har distribuerat dina resurser, du kan lägga till fler resurser till resursgruppen genom att välja **Lägg till**.
 
-   ![Lägga till en resurs](./media/resource-group-template-deploy-portal/add-resource.png)
+   ![Lägg till resurs](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## <a name="deploy-resources-from-custom-template"></a>Distribuera resurser från anpassad mall
 
 Om du vill köra en distribution utan att använda någon av mallar i Marketplace, kan du skapa en anpassad mall som definierar infrastrukturen för lösningen. Läs om hur du skapar mallar i [förstå struktur och syntaxen för Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
-1. Om du vill distribuera en anpassad mall via portalen, Välj **ny**, och Sök efter **malldistribution** tills du kan välja bland alternativ.
+1. Om du vill distribuera en anpassad mall via portalen, Välj **skapar du en resurs**, och Sök efter **malldistribution** tills du kan välja bland alternativ.
 
    ![Sök malldistribution](./media/resource-group-template-deploy-portal/search-template.png)
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter-anteckningsbok på datorn och ansluta till Apache Spark i HDInsight
 
@@ -34,7 +34,7 @@ Det finns tre viktiga steg ingår i installera Jupyter och Spark-magic på dator
 
 Mer information om anpassade kärnor och Spark Magiskt tal för Jupyter-anteckningsböcker med HDInsight-kluster finns [kernlar som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 De förutsättningar som anges här är inte för att installera Jupyter. Det här är för att ansluta Jupyter-anteckningsbok till ett HDInsight-kluster när den bärbara datorn har installerats.
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -55,9 +55,9 @@ Du måste installera Python innan du kan installera Jupyter-anteckningsböcker. 
 
 Instruktioner om hur du installerar Spark magic PySpark och Spark kärnor, Följ installationsanvisningarna i den [sparkmagic dokumentationen](https://github.com/jupyter-incubator/sparkmagic#installation) på GitHub. Det första steget i Spark magiskt dokumentationen uppmanar dig att installera Spark Magiskt tal. Ersätt det första steget i länken med följande kommandon, beroende på vilken version av du ansluter till HDInsight-klustret. När, följer du stegen i magiskt Spark-dokumentationen. Om du vill installera olika kärnor, måste du utföra steg3 i avsnittet Spark magiskt installationen instruktioner.
 
-* Installera sparkmagic 0.2.3 för kluster v3.4 genom att köra`pip install sparkmagic==0.2.3`
+* Installera sparkmagic 0.2.3 för kluster v3.4 genom att köra `pip install sparkmagic==0.2.3`
 
-* För kluster v3.5 och v3.6, installera sparkmagic 0.11.2 genom att köra`pip install sparkmagic==0.11.2`
+* För kluster v3.5 och v3.6, installera sparkmagic 0.11.2 genom att köra `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Konfigurera Spark Magiskt tal för att ansluta till HDInsight Spark-kluster
 
@@ -150,7 +150,6 @@ Det kan finnas flera skäl till varför du kanske vill installera Jupyter på da
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
-Företagsprogram som SharePoint, Dynamics AX och SAP är beroende av Active Directory och DNS-infrastrukturen ska fungera korrekt. När du skapar en lösning för katastrofåterställning för program för att säkerställa rätt programfunktioner behöver du ofta återställa Active Directory och DNS innan du återställer andra programkomponenter.
 
-Du kan använda Azure Site Recovery för att skapa en komplett, automatiserad återställningsplan för Active Directory. När ett avbrott inträffar kan du påbörja en växling inom några sekunder från var som helst. Du kan ha Active Directory in och köra några minuter. Om du har distribuerat Active Directory för flera program på din primära plats, till exempel kanske SharePoint och SAP, du vill växla över fullständig webbplats. Du kan först växlar över Active Directory med hjälp av Site Recovery. Växla sedan över andra program med hjälp av programspecifika återställningsplaner.
+Företagsprogram som SharePoint, Dynamics AX och SAP är beroende av Active Directory och DNS-infrastrukturen ska fungera korrekt. När du ställer in katastrofåterställning för program kan behöver du ofta återställa Active Directory och DNS innan du återställer andra programkomponenter, för att säkerställa rätt programfunktionen.
 
-Den här artikeln förklarar hur du skapar en lösning för katastrofåterställning för Active Directory, hur du utför redundans med hjälp av en återställningsplan med ett klick och krav och konfigurationer som stöds. Du bör känna till Active Directory och Azure Site Recovery innan du börjar.
+Du kan använda [Site Recovery](site-recovery-overview.md) att skapa en plan för katastrofåterställning för Active Directory. När ett avbrott inträffar kan du påbörja en växling. Du kan ha Active Directory in och köra några minuter. Om du har distribuerat Active Directory för flera program på din primära plats, till exempel kanske SharePoint och SAP, du vill växla över fullständig webbplats. Först kan du växla över Active Directory med objekt återställning. Växla sedan över de andra programmen som med programspecifika återställningsplaner.
+
+Den här artikeln förklaras hur du skapar en lösning för katastrofåterställning för Active Directory. Den omfattar krav och anvisningar för växling vid fel. Du bör känna till Active Directory och Site Recovery innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Ett Azure Recovery Services-valv i en Microsoft Azure-prenumeration.
-* Om du replikerar till Azure, [förbereda](tutorial-prepare-azure.md) Azure-resurser. Resurserna som är en Azure-prenumeration, en instans av Azure-nätverk och ett Azure storage-konto.
-* Granska kraven för stöd för alla komponenter.
+
+* Om du replikerar till Azure, [förbereda Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett virtuellt Azure-nätverk, ett lagringskonto och Recovery Services-valvet.
+* Granska de [supportkrav](site-recovery-support-matrix-to-azure.md) för alla komponenter.
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 
-Du måste ställa in [Site Recovery replikering](#enable-protection-using-site-recovery) på minst en virtuell dator som är värd för en domänkontrollant eller DNS. Om du har [flera domänkontrollanter](#environment-with-multiple-domain-controllers) i din miljö måste du ställa en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
+Du måste ställa in [Site Recovery replikering](#enable-protection-using-site-recovery), på minst en virtuell dator som är värd för en domänkontrollant eller DNS. Om du har [flera domänkontrollanter](#environment-with-multiple-domain-controllers) i din miljö måste du ställa en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
 
-### <a name="single-domain-controller-environments"></a>Enskild domänkontrollant miljöer
+### <a name="single-domain-controller"></a>En domänkontrollant
 Om du har bara några program och en domänkontrollant, kanske du vill växla över hela webbplatsen tillsammans. I det här fallet bör du använda Site Recovery replikera domänkontrollanten till målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). Du kan använda samma replikerade domänkontrollant eller DNS-virtuell dator för [redundanstestningen](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Domänkontrollanter miljöer med flera domäner
+### <a name="multiple-domain-controllers"></a>Flera domänkontrollanter
 Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera domain controller virtuell dator med Site Recovery rekommenderar vi att du ställer in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstestningen](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Aktivera skydd med hjälp av Site Recovery
+## <a name="enable-protection-with-site-recovery"></a>Aktivera skydd med Site Recovery
 
 Du kan använda Site Recovery för att skydda den virtuella datorn som är värd för domänkontrollanten eller DNS.
 
-### <a name="protect-the-virtual-machine"></a>Skydda den virtuella datorn
+### <a name="protect-the-vm"></a>Skydda den virtuella datorn
 Den domänkontrollant som replikeras med hjälp av Site Recovery används för [redundanstestningen](#test-failover-considerations). Kontrollera att det uppfyller följande krav:
 
 1. Domänkontrollanten är en global katalogserver.
 2. Domänkontrollanten ska vara FSMO-rollägare för roller som krävs under ett redundanstest. Annars dessa roller måste vara [beslag](http://aka.ms/ad_seize_fsmo) efter växling vid fel.
 
-### <a name="configure-virtual-machine-network-settings"></a>Konfigurera inställningar för virtuell dator
+### <a name="configure-vm-network-settings"></a>Konfigurera nätverksinställningar för Virtuella datorer
 Konfigurera nätverksinställningar enligt för den virtuella datorn som är värd för domänkontrollanten eller DNS i Site Recovery på **beräknings- och nätverksinställningar** inställningarna för den replikerade virtuella datorn. Detta säkerställer att den virtuella datorn är ansluten till rätt nätverk efter redundansväxling.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Skydda Active Directory med Active Directory-replikering
+## <a name="protect-active-directory"></a>Skydda Active Directory
+
 ### <a name="site-to-site-protection"></a>Plats-till-plats-skydd
 Skapa en domänkontrollant på den sekundära platsen. När du befordrar servern till en domänkontrollant, ange namnet på samma domän som används på den primära platsen. Du kan använda den **Active Directory-platser och tjänster** snapin-modulen att konfigurera inställningar på platslänkobjekt som platserna ska läggas till. Du kan styra när replikeringen sker mellan två eller flera platser och hur ofta den inträffar genom att konfigurera inställningar på en länk. Mer information finns i [schemalägga replikering mellan platser](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ De flesta program kräver förekomsten av en domänkontrollant eller en DNS-serv
 
 ### <a name="test-failover-to-a-secondary-site"></a>Testa redundans till en sekundär plats
 
-1. Om du replikerar till en annan lokal plats och du använder DHCP, följ instruktionerna för att [konfigurera DNS och DHCP för att testa redundans](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Om du replikerar till en annan lokal plats och du använder DHCP, [konfigurera DNS och DHCP för att testa redundans](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Göra ett redundanstest av domain controller virtuell dator som körs i isolerat nätverk. Använd den senaste tillgängliga *programmet konsekvent* återställningspunkt domain controller virtuell dator om du vill testa redundans.
 3. Köra ett redundanstest för återställningsplanen innehåller virtuella datorer som programmet körs på.
 4. När testet är klart, *Rensa redundanstestet* på domain controller virtuella datorn. Det här steget tar bort den domänkontrollant som skapades för redundanstestningen.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och åtgärda fel togs emot från WebHCat på HDInsight
 
@@ -48,9 +48,9 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 
 | Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.maximum-program][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
 | [templeton.Exec.Max procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
-| [mapreduce.jobhistory.Max-ålder-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
 
 ## <a name="too-many-requests"></a>För många förfrågningar
 
@@ -86,7 +86,7 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 | --- | --- |
 | Internt skräpinsamling sker i WebHCat-processen |Vänta tills skräpinsamling avsluta eller starta om tjänsten WebHCat |
 | Tidsgränsen nåddes för väntar på svar från ResourceManager-tjänsten. Det här felet kan inträffa om antalet aktiva program går den konfigurerade maximalt (standard 10 000-tal) |Vänta tills pågående jobb för att slutföra eller öka gränsen för antal samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications`. Mer information finns i [ändra configuration](#modifying-configuration) avsnitt. |
-| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` har angetts till`*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information om jobb som endast är större än vissa jobb-id. Eller Använd inte`Fields` |
+| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` har angetts till `*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information om jobb som endast är större än vissa jobb-id. Eller Använd inte `Fields` |
 | WebHCat-tjänsten har stoppats under HeadNode växling vid fel |Vänta i två minuter och försök igen |
 | Det finns mer än 500 väntande jobb skicka via WebHCat |Vänta tills väntar jobben har slutförts innan du skickar flera jobb |
 

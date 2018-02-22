@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 11a9d03e62c674c4311c74f78e4cb2e709940941
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 596a38371925e9489a5d0dc0bd56a28ad97e80da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Överföra VHD-filen till labblagringskontot med hjälp av AzCopy
 
@@ -38,7 +38,7 @@ I följande steg beskriver hur du överför en VHD-fil till Azure DevTest Labs m
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **Fler tjänster** och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 
 1. Lista över labs, Välj önskade labbet.  
 

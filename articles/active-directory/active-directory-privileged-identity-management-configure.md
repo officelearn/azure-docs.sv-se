@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -54,7 +54,7 @@ Du kan börja använda Azure AD Privileged Identity Management i den [Azure-port
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för din katalog.
 2. Om din organisation har mer än en katalog väljer du ditt användarnamn längst upp till höger på Azure-portalen. Välj den katalog där du ska använda Azure AD Privileged Identity Management.
-3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
+3. Välj **alla tjänster** och använda Filter-textrutan för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
 Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog och du navigerar till Azure AD directory roller och du navigerar till Azure AD directory roller, en [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md) vägleder dig genom första tilldelningsupplevelse. Därefter blir du automatiskt först **säkerhetsadministratör** och **administratör av Privilegierade roller** av katalogen.

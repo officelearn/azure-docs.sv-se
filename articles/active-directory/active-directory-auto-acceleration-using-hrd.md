@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera inloggning auto-acceleration för ett program med hjälp av en princip för identifiering av startsfär
 
@@ -83,9 +83,9 @@ Det finns tre steg för att logga in automatiskt-acceleration på ett program:
 
 1. Skapa en princip för HRD för automatisk acceleration.
 
-2. Hitta tjänsten principen som du vill koppla principen.
+2. Söka efter tjänstens huvudnamn som du vill koppla principen.
 
-3. Koppla principen till tjänsten principen. Principer kan ha skapats i en klient, men de har inte någon effekt förrän de är kopplade till en entitet. 
+3. Koppla principen till tjänstens huvudnamn. Principer kan ha skapats i en klient, men de har inte någon effekt förrän de är kopplade till en entitet. 
 
 En HRD-princip kan kopplas till ett huvudnamn för tjänsten och endast en HRD-princip kan vara aktiv på en viss enhet åt gången.  
 
@@ -135,7 +135,7 @@ Vi använder Azure AD PowerShell-cmdlets för att gå igenom några scenarier, i
 
 - Visar en lista över program som är konfigurerad för en princip.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel du skapa, uppdatera, länkar och ta bort principer på programmet tjänstens huvudnamn i Azure AD.
 
 1.  Hämta den senaste Azure AD PowerShell-cmdlet förhandsversionen till att börja. 
@@ -170,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-Om du vill aktivera automatisk acceleration när du har en HRD-princip, kan tilldela flera principer för program-tjänsten.
+Om du vill aktivera automatisk acceleration när du har en princip för HRD, kan du tilldela den till flera program tjänstens huvudnamn.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: Hitta tjänsten som du vill tilldela principen  
 Du behöver den **ObjectID** av tjänsten-säkerhetsobjekt som du vill tilldela principen. Det finns flera sätt att hitta den **ObjectID** för tjänstens huvudnamn.    
 
-Du kan använda portalen eller fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan även gå till den [diagram Explorer verktyget](https://graphexplorer.cloudapp.net/) och logga in på Azure AD-kontot för att se din organisations tjänstens huvudnamn. Du kan använda cmdlet get-AzureADServicePrincipal för service-principer och deras ID. eftersom du använder PowerShell.
+Du kan använda portalen eller fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan även gå till den [diagram Explorer verktyget](https://graphexplorer.cloudapp.net/) och logga in på Azure AD-kontot för att se din organisations tjänstens huvudnamn. Du kan använda cmdlet get-AzureADServicePrincipal för att lista tjänstens huvudnamn och deras ID eftersom du använder PowerShell.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Steg 3: Tilldela principen till tjänstens huvudnamn  
 När du har den **ObjectID** av tjänstens huvudnamn för programmet som du vill konfigurera automatisk acceleration, kör du följande kommando. Det här kommandot associerar HRD-principen som du skapade i steg 1 med tjänstens huvudnamn som du letade upp i steg 2.

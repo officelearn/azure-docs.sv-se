@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 72e82b207a543a9020b38b2c4494717e9f648ab7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Lägga till taggar i ett labb i Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Varje tagg består av en **namn**/**värdet** par. Du kan till exempel skapa en 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Steg för att hantera taggar i en befintlig labb
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Om det behövs väljer **fler tjänster**, och välj sedan **DevTest Labs** från listan. Ditt labb kanske redan visas på instrumentpanelen under **alla resurser**.
+1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** från listan. Ditt labb kanske redan visas på instrumentpanelen under **alla resurser**.
 1. Välj labbet som du vill lägga till eller hantera taggar i listan över övningar.  
 1. På testmiljön **översikt** väljer **konfiguration och principer**.  
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [datavetenskap virtuella](http://aka.ms/dsvm) (DSVM) och [djup Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal djup learning ramverk för att bygga program styrs av datorn (AI) med förutsägelseanalyser och kognitiva funktioner som bilden och förstå språk. 
@@ -67,7 +67,7 @@ Här följer information på alla djup learning ramverk som är tillgängliga p�
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djupgående learning framework      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Caffe installeras i `/opt/caffe`.    |
 | Länkar till exempel      | Exempel som ingår i `/opt/caffe/examples`.      |
 | Relaterade verktyg på DSVM      | Caffe2      |
@@ -87,7 +87,7 @@ Ett nytt webbläsarfönster öppnas med exempel bärbara datorer.
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djupgående learning framework      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Caffe2 installeras i `/opt/caffe2`. Det är också tillgängligt för Python 2.7 (_rot_) conda miljö.     |
 | Länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår     |
 | Relaterade verktyg på DSVM      | Caffe      |
@@ -114,7 +114,7 @@ Aktivera Python-version som du vill använda i en terminal (_rot_ eller _py35_) 
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djupgående learning ramverk för H2O      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Djupgående vattenstämplar är installerat i `/dsvm/tools/deep_water`.   |
 | Länkar till exempel      | Exempel är tillgängliga via djup vattenstämplar-servern.      |
 | Relaterade verktyg på DSVM      | H2O mousserande vattenstämplar      |
@@ -145,7 +145,7 @@ Ansluta till den virtuella datorn med hjälp av X2Go. Starta servern djup vatten
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djup learning system från NVIDIA för att snabbt träna djup learning-modeller      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | SIFFROR är installerat i `/dsvm/tools/DIGITS` och är tillgänglig kallas för en tjänst _siffror_.   |
 ### <a name="how-to-use--run-it"></a>Hur du använder / kör den?  
 
@@ -173,7 +173,7 @@ Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och gå t
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djupgående learning framework      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Theano är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
 | Relaterade verktyg på DSVM      | Keras      |
 | Hur du använder / kör den?    | Aktivera Python-version du vill (rot eller py35), kör python och sedan importera theano i en terminal. Välj Python 2.7 eller 3.5 kernel i Jupyter, och sedan importera theano.  |
@@ -185,7 +185,42 @@ Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och gå t
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Djupgående learning framework      |
-| Stöds DSVM versioner      | Linux     |
+| Stöds DSVM versioner      | Ubuntu     |
 | Hur är det konfigurerade / installerad på DSVM?  | Torch installeras i `/dsvm/tools/torch`. PyTorch är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
 | Länkar till exempel      | Torch exempel finns i `/dsvm/samples/torch`. PyTorch exempel finns i `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Vad är det?   | Djupgående learning framework      |
+| Stöds DSVM versioner      | Linux     |
+| Hur är det konfigurerade / installerad på DSVM?  | PyTorch är installerat i Python 3.5 (_py35_) miljö.   |
+| Länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår och exempel finns i /dsvm/samples/pytorch.      |
+| Relaterade verktyg på DSVM      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Hur du använder / kör den?  
+
+Kör i en terminal _python_, importera torch. Välj Python 3.5 kernel i Jupyter, och sedan importera torch.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Vad är det?   | En server för att skapa HTTP-slutpunkter för MXNet och ONNX modeller      |
+| Stöds DSVM versioner      | Linux     |
+| Hur är det konfigurerade / installerad på DSVM?  | _mxnet-modell-server_ är tillgänglig på på terminalen.   |
+| Länkar till exempel      | Sök efter uppdaterade exempel den [MXNet modellserver-sidan](https://github.com/awslabs/mxnet-model-server).    |
+| Relaterade verktyg på DSVM      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow fungerar
+
+|    |           |
+| ------------- | ------------- |
+| Vad är det?   | En server för att köra inferencing på en TensorFlow modell      |
+| Stöds DSVM versioner      | Linux     |
+| Hur är det konfigurerade / installerad på DSVM?  | _tensorflow_model_server_ är tillgänglig på terminalen.   |
+| Länkar till exempel      | Exempel är tillgängliga [online](https://www.tensorflow.org/serving/).      |
+| Relaterade verktyg på DSVM      | TensorFlow      |

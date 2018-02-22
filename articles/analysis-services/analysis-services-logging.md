@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostikloggning
 
@@ -55,7 +55,7 @@ Att välja **motorn** loggar alla [xEvents](https://docs.microsoft.com/sql/analy
 |Lås    |  deadlock       |
 |Frågebearbetning     |   VertiPaq Frågecache Begin      |
 |Frågebearbetning     |   VertiPaq Frågecache slut      |
-|Frågebearbetning     |   VertiPaq Frågecache Cache-matchning      |
+|Frågebearbetning     |   VertiPaq SE Query Cache Match      |
 |Frågebearbetning     |   Direktfrågan Begin      |
 |Frågebearbetning     |  Direktfrågan slut       |
 
@@ -83,12 +83,12 @@ Kategorin mått loggar samma [serverstatistik](analysis-services-monitor.md#serv
 
     ![Aktivera diagnostikloggning för Azure Cosmos DB i Azure-portalen](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. I **diagnostikinställningar**, gör du följande: 
+2. I **diagnostikinställningar**, anger du följande alternativ: 
 
     * **Namn**. Ange ett namn för loggfilerna för att skapa.
 
-    * **Arkivet till ett lagringskonto**. Om du vill använda det här alternativet behöver du ett befintligt lagringskonto för att ansluta till. Se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md). Följ instruktionerna för att skapa en Resource Manager allmänna konto. Återgå sedan till den här sidan i portalen för att markera ditt lagringskonto. Det kan ta några minuter för nyskapade lagringskonton ska visas i den nedrullningsbara menyn.
-    * **Dataströmmen till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och händelsen hubb att ansluta till. Om du vill skapa ett namnområde för Händelsehubbar finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återgå sedan till den här sidan i portalen för att välja Event Hub namnområde och principen.
+    * **Arkivet till ett lagringskonto**. Om du vill använda det här alternativet behöver du ett befintligt lagringskonto för att ansluta till. Se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md). Följ instruktionerna för att skapa en Resource Manager allmänna konto, och välj sedan ditt lagringskonto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter för nyskapade lagringskonton ska visas i den nedrullningsbara menyn.
+    * **Dataströmmen till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och händelsen hubb att ansluta till. Läs mer i [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återgå sedan till den här sidan i portalen för att välja Event Hub namnområde och principen.
     * **Skicka till logganalys**. Om du vill använda det här alternativet Använd en befintlig arbetsyta eller skapa en ny logganalys-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar loggarna i logganalys finns [visa loggar i logganalys](#view-in-loganalytics).
 
     * **Motorn**. Välj det här alternativet för att logga xEvents. Om du arkivera till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
@@ -171,7 +171,7 @@ I **typen**, klickar du på **AzureDiagnostics**, och klicka sedan på **tilläm
 
 Klicka på **EventClass\_s** eller en händelsenamn och logganalys fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
 
-Se till att checka ut Operations Management Suite som ger en webbplats med aviseringar funktioner på logganalys data, dashboarding och förbättrad frågan.
+Se till att finns Operations Management Suite som ger en webbplats med förbättrad frågan, dashboarding och aviseringar funktioner på Log Analytics-data.
 
 ### <a name="queries"></a>Frågor
 

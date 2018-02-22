@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installera den lokala datagatewayen för Azure Logic Apps
 
@@ -35,7 +35,7 @@ Gatewayen stöder anslutningar till dessa datakällor lokalt:
 *   MySQL
 *   Oracle-databas
 *   PostgreSQL
-*   SAP-programserver 
+*   SAP Application Server 
 *   SAP Message Server
 *   SharePoint
 *   SQL Server
@@ -54,18 +54,18 @@ Information om hur du använder en gateway med andra tjänster finns i följande
 
 ## <a name="requirements"></a>Krav
 
-**Minsta**:
+**minsta**
 
-* 4.5 för .NET framework
+* .NET 4.5 Framework
 * 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
 
-**Rekommenderade**:
+Rekommenderas
 
 * 8 kärnor CPU
 * 8 GB minne
 * 64-bitarsversionen av Windows 2012 R2 (eller senare)
 
-**Tänk på följande**:
+**Viktiga överväganden**
 
 * Installera datagateway lokalt på en lokal dator.
 Du kan inte installera gatewayen på en domänkontrollant.
@@ -75,12 +75,12 @@ Du kan inte installera gatewayen på en domänkontrollant.
 
 * Installera inte gatewayen på en dator som stängs av, försätts i strömsparläge, eller inte ansluta till Internet eftersom gatewayen inte kan köras under dessa omständigheter. Gateway-prestanda kan dessutom lidande över ett nätverk.
 
-* Under installationen måste du logga in med en [arbets- eller skolkonto](https://docs.microsoft.com/azure/active-directory/sign-up-organization) som hanteras av Azure Active Directory (Azure AD), inte ett Microsoft-konto.
+* Under installationen kan du behöva logga in med en [arbets- eller skolkonto](https://docs.microsoft.com/azure/active-directory/sign-up-organization) som hanteras av Azure Active Directory (Azure AD), inte ett Microsoft-konto.
 
   > [!TIP]
   > Om du vill använda ett Microsoft-konto som har en Visual Studio med MSDN-prenumeration först [skapa en katalog (klient) i Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) med ditt Microsoft-konto eller Använd standardkatalogen. Lägga till en användare med ett lösenord i katalogen och ge den åtkomsten till din prenumeration. Du kan logga in under gatewayinstallationen av med det här användarnamnet och lösenordet.
 
-  Du måste använda samma arbets- eller skolkonto senare i Azure-portalen när du skapar och associerar en gateway-resurs med gatewayinstallationen. Du kan sedan välja den här gatewayresursen när du skapar anslutningen mellan din logikapp och lokala datakällan. [Varför måste använda en Azure AD-arbets eller skolkonto?](#why-azure-work-school-account)
+  Du måste använda samma arbets- eller skolkonto senare i Azure-portalen när du skapar och associerar en gateway-resurs med gatewayinstallationen. Du kan sedan välja den här gatewayresursen när du skapar anslutningen mellan din logikapp och lokala datakällan. [Varför måste jag använda en Azure AD-arbets- eller skolkonto?](#why-azure-work-school-account)
 
   > [!TIP]
   > Om du har registrerat dig för ett erbjudande för Office 365 och gick inte att få din faktiska arbetet i e-post, din adress för inloggningen kan se ut som jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ Du kan inte installera gatewayen på en domänkontrollant.
 
 ## <a name="install-the-data-gateway"></a>Installera datagateway
 
-1.  [Hämta och kör installationsprogrammet för gateway på en lokal dator](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Hämta och kör installationsprogrammet för gateway på en lokal dator](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Granska och Godkänn användningsvillkoren och sekretesspolicyn.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Om **TcpTestSucceeded** inte har angetts till **SANT**, du kan blockeras av en brandvägg. Om du vill ska vara omfattande ersätta den **ComputerName** och **Port** värden med de värden som anges [konfigurera portar](#configure-ports) i det här avsnittet.
+Om **TcpTestSucceeded** inte har angetts till **SANT**, du kan blockeras av en brandvägg. Om du vill ska vara omfattande ersätta den **ComputerName** och **Port** värden med de värden som anges [konfigurera portar](#configure-ports) i den här artikeln.
 
 Brandväggen kan också blockera anslutningar som Azure Service Bus gör att Azure-datacenter. Om det här scenariot inträffar kan godkänna (avblockera) alla IP-adresser för de datacenter i din region. För de IP-adresserna [hämta Azure IP-adresslistan här](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,25 +205,27 @@ Brandväggen kan också blockera anslutningar som Azure Service Bus gör att Azu
 
 Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) och kommunicerar på utgående portar: TCP 443 (standard), 5671, 5672, 9350 via 9354. Gatewayen kräver inte ingående portar. Lär dig mer om [Azure Service Bus och hybridlösningar](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| DOMÄNNAMN | UTGÅENDE PORTAR | BESKRIVNING |
-| --- | --- | --- |
-| *. analysis.windows.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
-| *. servicebus.windows.net | 5671-5672 | Avancerade Message Queuing-protokollet (AMQP) | 
-| *. servicebus.windows.net | 443, 9350-9354 | Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) | 
-| *. frontend.clouddatahub.net | 443 | HTTPS | 
-| *. core.windows.net | 443 | HTTPS | 
+| Domännamn | Utgående portar | Beskrivning |
+| ------------ | -------------- | ----------- |
+| *.analysis.windows.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Avancerade Message Queuing-protokollet (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
-| *. msftncsi.com | 443 | Används för att testa internet-anslutning när gatewayen inte kan nås av Power BI-tjänsten. | 
+| *.msftncsi.com | 443 | Används för att testa internet-anslutning när gatewayen inte kan nås av Power BI-tjänsten. | 
+||||
 
 Om du behöver godkänna IP-adresser i stället för domänerna som du kan hämta och använda den [Microsoft Azure Datacenter IP-intervall lista](https://www.microsoft.com/download/details.aspx?id=41653). I vissa fall kan görs Azure Service Bus-anslutningar med IP-adress i stället för fullständigt kvalificerade domännamn.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Hur fungerar datagateway?
 
 Datagatewayen underlättar snabb och säker kommunikation mellan din logikapp, gateway-Molntjänsten och lokala datakällan. 
 
-![diagram-for-on-premises-data-gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 När användaren i molnet som interagerar med ett element som är ansluten till din lokala datakälla:
 
@@ -240,6 +242,7 @@ När användaren i molnet som interagerar med ett element som är ansluten till 
 6. Resultatet skickas från datakällan, tillbaka till gatewayen och sedan till gateway-Molntjänsten. Gateway-Molntjänsten använder sedan resultaten.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="general"></a>Allmänt
@@ -252,7 +255,7 @@ När användaren i molnet som interagerar med ett element som är ansluten till 
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Varför måste jag använda en Azure arbets eller skolkonto för att logga in? <br/>
+**Q**: Varför måste jag använda en Azure arbets- eller skolkonto för att logga in? <br/>
 **En**: du kan bara använda en Azure arbets eller skolkonto när du installerar den lokala datagatewayen. Din inloggning konto lagras i en klient som hanteras av Azure Active Directory (AD Azure). Azure AD-kontot användarens huvudnamn (UPN) matchar vanligtvis e-postadress.
 
 **Q**: var lagras mina autentiseringsuppgifter? <br/>
@@ -289,7 +292,7 @@ Du kan använda verktyg från tredje part Azure hastighet testa appen för att m
 **En**: återställningsnyckeln är ett sätt att migrera eller återställa gatewayinställningarna efter en katastrof.
 
 **Q**: finns det några planer för att aktivera scenarier med hög tillgänglighet med gatewayen? <br/>
-**En**: dessa scenarier är översikt, men vi ännu inte har en tidslinje.
+**En**: vissa kopplingar stöder hög tillgänglighet scenarier, till exempel filsystem kopplingen och andra på sättet. Mer information finns i [kluster med hög tillgänglighet för lokala datagateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -301,13 +304,13 @@ Du kan använda verktyg från tredje part Azure hastighet testa appen för att m
 Du kan också titta på Verktyg som datakällan har för spårning frågor. Du kan till exempel använda Extended Events eller SQL Profiler för SQL Server och Analysis Services.
 
 **Q**: där är gateway-loggarna? <br/>
-**En**: Se verktyg senare i det här avsnittet.
+**En**: Se verktyg senare i den här artikeln.
 
 ### <a name="update-to-the-latest-version"></a>Uppdatera till den senaste versionen
 
 Många problem kan ansluta när gateway-versionen blir inaktuella. Kontrollera att du använder den senaste versionen som allmän bra. Om du inte har uppdaterat en gateway för en månad eller längre, kan du du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService användare)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService Performance Log Users)
 
 Du kan få detta fel om du försöker installera gatewayen på en domänkontrollant, vilket inte stöds. Se till att du distribuerar gatewayen på en dator som inte är en domänkontrollant.
 

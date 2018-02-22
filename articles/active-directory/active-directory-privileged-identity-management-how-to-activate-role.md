@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 8bd8a72653699df4f4953053d61c16e30a2a101d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Så här aktiverar eller inaktiverar roller i Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft online services som Office 365 eller Microsoft Intune.  
@@ -31,9 +31,9 @@ Den här artikeln är administratörer som behöver aktivera deras roll i Azure 
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
 Använda Azure AD Privileged Identity Management-programmet i den [Azure-portalen](https://portal.azure.com/) begära rollaktivering, även om du ska köras i en annan portal eller PowerShell. Om du inte har programmet Azure AD Privileged Identity Management på Azure-portalen, följer du dessa steg för att komma igång.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj ditt användarnamn i det övre högra hörnet i Azure-portalen och välj den katalog där du kommer du att driva.
-3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
+3. Välj **alla tjänster** och använda Filter-textrutan för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
 ## <a name="activate-a-role"></a>Aktivera en roll

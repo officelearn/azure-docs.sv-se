@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 656e0e16167a73ef3c3eab21d6896f5fc280e375
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Skapa en grupp och lägga till medlemmar i Azure Active Directory
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du skapar och fylla i en ny grupp i Azure Activ
 
 ## <a name="how-do-i-create-a-group"></a>Hur skapar jag en grupp?
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **fler tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
+2. Välj **alla tjänster**, ange **användare och grupper** i textrutan och välj sedan **RETUR**.
 
    ![Öppna användarhantering](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 3. På den **användare och grupper** bladet väljer **alla grupper**.

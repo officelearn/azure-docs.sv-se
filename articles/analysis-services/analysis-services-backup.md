@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: f96e72e4decd475e7859eb7f70046a277b718ac8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 52db3916392c3ff304311717b12a163213197717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -56,7 +56,7 @@ Innan du säkerhetskopierar, måste du konfigurera inställningarna för servern
 
     ![Spara inställningar för säkerhetskopiering](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>Säkerhetskopiera med hjälp av SSMS
 
@@ -112,4 +112,4 @@ Använd [återställning ASDatabase](https://docs.microsoft.com/sql/analysis-ser
 
 [Azure storage-konton](../storage/common/storage-create-storage-account.md)  
 [Hög tillgänglighet](analysis-services-bcdr.md)     
-[Hantera Azure Analysis Services](analysis-services-manage.md)
+[Manage Azure Analysis Services](analysis-services-manage.md)

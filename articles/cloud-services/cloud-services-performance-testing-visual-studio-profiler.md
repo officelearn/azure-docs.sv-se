@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda för en tjänst i molnet lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio-Profiler
 En mängd olika verktyg och tekniker som är tillgängliga för att testa prestanda för molntjänster.
@@ -44,31 +44,35 @@ Du kan använda dessa instruktioner med ett befintligt projekt eller med ett nyt
 
 Till exempel kan lägga till vissa kod projektet som tar mycket tid och visar vissa uppenbara prestandaproblem. Till exempel lägga till följande kod i en arbetsrollsprojektet:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Anropa den här koden från metoden RunAsync i worker-rollen RoleEntryPoint-härledd klass. (Ignorera varningen om metoden körs synkront.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Skapa och köra Molntjänsten lokalt utan felsökning (Ctrl + F5) med konfigurationsuppsättning för lösningen att **versionen**. Detta säkerställer att alla filer och mappar skapas för att köra programmet lokalt, och säkerställer att alla emulatorerna har startats. Kontrollera att arbetsrollen körs börja Compute Emulator UI från Aktivitetsfältet.
 
@@ -88,9 +92,11 @@ Om din projektmapp finns på en nätverksenhet, profileraren blir du ombedd att 
  Du kan också koppla till en webbroll genom att koppla till WaIISHost.exe.
 Om det finns flera arbetsprocesser roll i ditt program, måste du använder ett process-ID för att skilja dem. Du kan fråga processID via programmering genom att öppna processobjektet. Om du lägger till den här koden Run-metoden i klassen RoleEntryPoint-härledda i en roll kan tittar du till exempel på loggen i Compute Emulator UI veta vilken process för att ansluta till.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Om du vill visa loggen starta Compute Emulator UI.
 
@@ -126,16 +132,18 @@ Om du har lagt till sträng sammanfogning koden i den här artikeln bör du se e
 ## <a name="4-make-changes-and-compare-performance"></a>4: gör ändringar och jämföra prestanda
 Du kan också jämföra prestanda före och efter en kodändring.  Stoppa processen och redigera koden för att ersättningsåtgärden sträng sammanfogning med hjälp av StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Göra en annan prestanda kör och jämför prestanda. I Utforskaren prestanda om körs i samma session, du kan bara markera båda rapporterna, öppna snabbmenyn och välj **jämför Prestandarapporterna**. Om du vill jämföra med en körning i en annan prestanda session, öppna den **analysera** -menyn och välj **jämför Prestandarapporterna**. Ange båda filerna i dialogrutan som visas.
 

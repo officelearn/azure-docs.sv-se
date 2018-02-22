@@ -1,6 +1,6 @@
 ---
-title: Distribuera med Terraform med Bash i Azure-molnet Shell | Microsoft Docs
-description: Distribuera Azure-resurser med Terraform i Bash
+title: "Distribuera med Terraform från Bash i Azure-molnet Shell | Microsoft Docs"
+description: "Distribuera med Terraform från Bash i Azure-molnet Shell"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform och Bash i molnet Shell
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuera med Terraform från Bash i Azure-molnet Shell
 Den här artikeln vägleder dig genom att skapa en resursgrupp med det [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) är ett verktyg med öppen källkod som kodifieras API: er i deklarativ konfigurationsfiler som kan delas i gruppmedlemmarna kan redigeras, granska och en ny version. Microsoft AzureRM-providern används för att interagera med resurser som stöds av Azure Resource Manager via AzureRM APIs. 

@@ -16,20 +16,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem med Apache Spark-kluster i HDInsight
 
 Det här dokumentet håller reda på kända problem för HDInsight Spark public preview.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livius läcker interaktiva sessionen
-När Livius startas (från Ambari eller på grund av headnode 0 virtuella omstart) med en interaktiv session fortfarande lever läcka en interaktiv jobbet session. Därför nya jobb kan fastnat i tillståndet godkända och kan inte startas.
+När Livius startas (från Ambari eller på grund av headnode 0 virtuella omstart) med en interaktiv session fortfarande lever har en interaktiv jobbet session läckts. Därför nya jobb kan ha fastnat i tillståndet godkända och kan inte startas.
 
-**Lösning:**
+Lösning:
 
 Använd följande procedur för att lösa problemet:
 
@@ -39,24 +39,24 @@ Använd följande procedur för att lösa problemet:
    
         yarn application –list
    
-    Standard-jobbet namn kommer att Livius om jobb startades med en interaktiv session Livius med inga explicit namn anges för Livius session startas av Jupyter-anteckningsbok Jobbnamnet startar med remotesparkmagics_ *. 
+    Jobbet standardnamnen måste Livius om jobb startades med en interaktiv session Livius med inga explicit namn anges. Jobbnamnet börjar med remotesparkmagics_ * för Livius sessionen startas av Jupyter-anteckningsbok. 
 3. Kör följande kommando för att avsluta dessa jobb. 
    
         yarn application –kill <Application ID>
 
-Nya jobb ska börja köras. 
+Nya jobb startas. 
 
 ## <a name="spark-history-server-not-started"></a>Spark historik Server inte har startats
 Spark historik Server startas inte automatiskt efter ett kluster skapas.  
 
-**Lösning:** 
+Lösning: 
 
 Starta servern historik manuellt från Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problem i Spark loggkatalogen
 När hdiuser skickar ett jobb med spark-submit, det finns ett fel java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (behörighet nekas) och drivrutin loggfilerna skrivs inte. 
 
-**Lösning:**
+Lösning:
 
 1. Lägga till hdiuser i Hadoop-gruppen. 
 2. Ange 777 behörigheter på /var/log/spark när klustret skapas. 
@@ -67,28 +67,28 @@ När hdiuser skickar ett jobb med spark-submit, det finns ett fel java.io.FileNo
 
 Spark Phoenix anslutningen stöds för närvarande inte med ett HDInsight Spark-kluster.
 
-**Lösning:**
+Lösning:
 
-I stället måste du använda Spark-HBase-anslutningen. Instruktioner finns i [använda Spark HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+I stället måste du använda Spark-HBase-anslutningen. Instruktioner finns i avsnittet [använda Spark HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problem relaterade till Jupyter-anteckningsböcker
 Följande är några kända problem som rör Jupyter-anteckningsböcker.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Bärbara datorer med icke-ASCII-tecken i filnamn
-Jupyter-anteckningsböcker som kan användas i HDInsight Spark-kluster ska inte ha icke-ASCII-tecken i filnamn. Om du försöker överföra en fil genom den Jupyter UI som har ett icke-ASCII-filnamn kommer inte tyst (det vill säga Jupyter kan du inte överföra filen, men det kommer inte att utlösa visas fel antingen). 
+Jupyter-anteckningsböcker som kan användas i HDInsight Spark-kluster ska inte ha icke-ASCII-tecken i filnamn. Om du försöker överföra en fil med Jupyter UI, som har ett icke-ASCII-filnamn, misslyckas tyst (det vill säga Jupyter kan inte överföra filen, men felet visas inte utlösa antingen). 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av bärbara datorer av större storlek
 Ett fel kan uppstå  **`Error loading notebook`**  när du läser in anteckningsböcker som är större.  
 
-**Lösning:**
+Lösning:
 
 Om du får det här felet kan innebär det inte dina data är skadad eller förlorade.  Dina anteckningsböcker finns kvar på disken i `/var/lib/jupyter`, och du kan SSH i klustret för att komma åt dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-När du har anslutit till klustret med SSH, kan du kopiera dina anteckningsböcker från ditt kluster på den lokala datorn (med SCP eller WinSCP) som en säkerhetskopia för att förhindra förlust av viktiga data i den bärbara datorn. Du kan sedan SSH-tunnel i din headnode på port 8001 att komma åt Jupyter utan att gå via gatewayen.  Därifrån kan du rensa utdata från din bärbara dator och spara den för att minimera storleken på den bärbara datorn igen.
+När du har anslutit till klustret med SSH, kan du kopiera dina anteckningsböcker från ditt kluster på den lokala datorn (med SCP eller WinSCP) som en säkerhetskopia för att förhindra förlust av viktiga data i den bärbara datorn. Du kan sedan SSH-tunnel i din headnode på port 8001 att komma åt Jupyter utan att gå via gatewayen.  Därifrån kan du rensa utdata från din bärbara dator och spara det för att minimera storleken på den bärbara datorn.
 
 Du måste följa några metoder för att förhindra att det här felet inträffar i framtiden:
 
-* Det är viktigt att hålla anteckningsboken små. Alla utdata från Spark-jobb som skickas tillbaka till Jupyter sparas i den bärbara datorn.  Det är bäst med Jupyter i allmänhet att undvika `.collect()` på stora RDDS eller dataframes; om du vill granska en RDD innehållet i stället körs `.take()` eller `.sample()` så att dina utdata inte ger för stort.
+* Det är viktigt att hålla anteckningsboken små. Alla utdata från Spark-jobb som skickas tillbaka till Jupyter sparas i den bärbara datorn.  Det är bäst med Jupyter i allmänhet att undvika `.collect()` på stora RDDS eller dataframes; om du vill granska en RDD innehållet i stället körs `.take()` eller `.sample()` så att dina utdata inte blir för stor.
 * Dessutom när du sparar en bärbar dator, utdata avmarkera alla cellerna om du vill minska storleken.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Bärbar dator första start tar längre tid än väntat
@@ -99,7 +99,7 @@ Den första koden instruktionen i Jupyter-anteckningsbok med Spark magic kan ta 
 Detta beror på att när den första kodcellen körs. I bakgrunden detta startar sessionskonfigurationen och Spark, SQL och Hive sammanhang anges. När dessa sammanhang anges, den första satsen körs och det ger intryck som tog lång tid att slutföra i instruktionen.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter notebook timeout för att skapa sessionen
-När Spark-kluster har slut på resurser, kommer Spark och Pyspark-kernel i Jupyter-anteckningsbok Tidsgränsen nåddes vid försök att skapa sessionen. 
+När Spark-kluster har slut på resurser, kommer Spark och PySpark-kernel i Jupyter-anteckningsbok Tidsgränsen nåddes vid försök att skapa sessionen. 
 
 **Åtgärder:** 
 
@@ -109,14 +109,13 @@ När Spark-kluster har slut på resurser, kommer Spark och Pyspark-kernel i Jupy
    * Stoppa andra Spark-program från YARN.
 2. Starta om den bärbara datorn som du försöker starta. Tillräckligt med resurser ska vara tillgänglig för dig att skapa en session nu.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp komma igång
 Här kan vi använda Passport:
@@ -48,14 +48,14 @@ Det färdiga programmet har angetts i slutet av den här kursen samt.
 
 2. I menyn överst på sidan, Välj ditt konto. Under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
 
-3. Välj **fler tjänster** på menyn till vänster på skärmen och väljer sedan **Azure Active Directory**.
+3. Välj **alla tjänster** på menyn till vänster på skärmen och väljer sedan **Azure Active Directory**.
 
 4. Välj **App registreringar**, och välj sedan **Lägg till**.
 
 5. Följ anvisningarna för att skapa en **webbprogram** och/eller **WebAPI**.
   * Den **namn** beskriver ditt program till användare av programmet.
 
-  * Den **inloggnings-URL** är den grundläggande Webbadressen för din app.  Den stommen standardvärdet är ' http://localhost: 3000/auth/openid/returnera ''.
+  * Den **inloggnings-URL** är den grundläggande Webbadressen för din app.  Den stommen standardvärdet är `http://localhost:3000/auth/openid/return`.
 
 6. När du registrerar tilldelar Azure AD appen ett unikt-ID. Du behöver det här värdet i de följande avsnitten så kopiera den från appen på sidan.
 7. Från den **inställningar** -> **egenskaper** för programmet, uppdatera App-ID-URI. Den **App-ID URI** är en unik identifierare för programmet. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Steg 4: Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD
-Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect.  `passport-azure-ad`har tagit hand om alla detaljer om utforma autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Allt som återstår är ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
+Appen har nu konfigurerats korrekt för att kommunicera med slutpunkten med hjälp av autentiseringsprotokollet OpenID Connect.  `passport-azure-ad` har tagit hand om alla detaljer om utforma autentiseringsmeddelanden, verifiera token från Azure AD och upprätthålla användarsessioner. Allt som återstår är ge användarna ett sätt att logga in och logga ut och samla in ytterligare information om de inloggade användarna.
 
 1. Först ska vi lägga till den standard, logga in, konto och utloggningsmetoderna i vår `app.js` fil:
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsökning av problem med Application Proxy och felmeddelanden
 Om fel uppstår i att komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD Application Proxy fungerar:
@@ -68,7 +68,7 @@ Den här tabellen omfattar de vanliga fel som kommer från Kerberos-installation
 | 13016 - azure AD kan inte hämta en Kerberos-biljett för användarens räkning eftersom det finns inga UPN i kant-token eller åtkomst-cookie. | Det finns ett problem med STS-konfigurationen. Åtgärda Anspråkskonfiguration UPN i STS. |
 | 13019 - azure AD kan inte hämta en Kerberos-biljett för användarens räkning på grund av följande allmänna API-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och Domänkontrollantservern eller ett problem i konfigurationen för datum och tid på båda datorerna. Domänkontrollanten avvisade Kerberos-biljetten som skapats av Azure AD. Kontrollera att Azure AD och backend-Programserver är korrekt konfigurerade, särskilt SPN-konfigurationen. Kontrollera att Azure AD är anslutna till samma domän som domänkontrollanten för att se till att domänkontrollanten upprättar förtroende med Azure AD-domän. Kontrollera att tid och datum konfigurationen på Azure AD och domänkontrollanten ska synkroniseras. |
 | 13020 - azure AD kan inte hämta en Kerberos-biljett för användarens räkning eftersom SPN för backend-server inte har definierats. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och Domänkontrollantservern eller ett problem i konfigurationen för datum och tid på båda datorerna. Domänkontrollanten avvisade Kerberos-biljetten som skapats av Azure AD. Kontrollera att Azure AD och backend-Programserver är korrekt konfigurerade, särskilt SPN-konfigurationen. Kontrollera att Azure AD är anslutna till samma domän som domänkontrollanten för att se till att domänkontrollanten upprättar förtroende med Azure AD-domän. Kontrollera att tid och datum konfigurationen på Azure AD och domänkontrollanten ska synkroniseras. |
-| 13022 - azure AD kan autentisera användaren eftersom backend-servern svarar på Kerberos autentiseringsförsök med ett HTTP 401-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och backend-programserver eller ett problem i konfigurationen för datum och tid på båda datorerna. Backend-servern avvisade Kerberos-biljetten som skapats av Azure AD. Kontrollera att Azure AD och backend-Programserver är korrekt konfigurerade. Kontrollera att tid och datum konfigurationen på Azure AD och backend-Programserver är synkroniserade. |
+| 13022 - azure AD kan autentisera användaren eftersom backend-servern svarar på Kerberos autentiseringsförsök med ett HTTP 401-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och backend-programserver eller ett problem i konfigurationen för datum och tid på båda datorerna. Backend-servern avvisade Kerberos-biljetten som skapats av Azure AD. Kontrollera att Azure AD och backend-Programserver är korrekt konfigurerade. Kontrollera att tid och datum konfigurationen på Azure AD och backend-Programserver är synkroniserade. Mer information finns i [felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Slutanvändarens fel
 

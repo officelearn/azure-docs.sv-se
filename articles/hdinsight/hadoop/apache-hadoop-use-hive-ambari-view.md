@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Använda Ambari Hive-vyn med Hadoop i HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du kör Hive-frågor genom att använda Ambari Hive-vy. Ambari är ett hantering och övervakning verktyg som medföljer Linux-baserade HDInsight-kluster. En av de funktioner som tillhandahålls via Ambari är ett Webbgränssnitt som kan användas för att köra Hive-frågor.
-
-> [!NOTE]
-> Ambari har många funktioner som inte beskrivs i det här dokumentet. Mer information finns i [hantera HDInsight-kluster med Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md).
+Lär dig hur du kör Hive-frågor genom att använda Ambari Hive-vy. Hive-vy kan du redigera, optimera och köra Hive-frågor från webbläsaren.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Linux-baserat HDInsight-kluster. Information om hur du skapar kluster finns i [komma igång med Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* En Linux-baserade Hadoop på HDInsight-kluster av version 3.4 eller större.
 
-> [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett Azure HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används i HDInsight version 3.4 eller senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > [!IMPORTANT]
+  > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="open-the-hive-view"></a>Öppna Hive-vyn
+* En webbläsare
 
-Du kan öppna Ambari-vyer från Azure-portalen. Välj ditt HDInsight-kluster och välj sedan **Ambari Views** från den **snabblänkar** avsnitt.
+## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
-![Snabblänkar av portalen](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
-Välj i listan över vyer __Hive-vy__.
+2. Välj ditt HDInsight-kluster och välj sedan **Ambari Views** från den **snabblänkar** avsnitt.
 
-![Den valda Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Snabblänkar av portalen](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> När du försöker komma åt Ambari, uppmanas du att autentisera till platsen. Ange administratören (standard `admin`) konto och lösenord som du använde när du skapade klustret.
+    När du uppmanas att autentisera använder kluster inloggningen (standard `admin`) konto och lösenord som du angav när du skapade klustret.
 
-Du bör se en sida som liknar följande bild:
+3. Välj i listan över vyer __Hive-vy__.
 
-![Bild av frågan kalkylbladet för Hive-vy](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Den valda Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Köra en fråga
+    Sidan Visa Hive liknar följande bild:
 
-Använd följande steg från Hive-vyn för att köra en Hive-fråga.
+    ![Bild av frågan kalkylbladet för Hive-vy](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Från den __frågan__ och klistra in följande HiveQL-instruktioner i kalkylbladet:
+4. Från den __frågan__ och klistra in följande HiveQL-instruktioner i kalkylbladet:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     Dessa instruktioner utför följande åtgärder:
@@ -82,42 +87,20 @@ Använd följande steg från Hive-vyn för att köra en Hive-fråga.
 
    * `SELECT`: Väljer en uppräkning av alla rader där kolumnen t4 innehåller värdet [fel].
 
-     > [!NOTE]
-     > Använda externa tabeller när du förväntar dig underliggande data uppdateras av en extern källa, överföra, till exempel en automatiserad process eller en annan MapReduce-åtgärd. Släppa en extern tabell har *inte* ta bort data, endast tabelldefinitionen.
-
     > [!IMPORTANT]
     > Lämna den __databasen__ valet __standard__. Exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
 
-2. Starta frågan med de **Execute** nedan kalkylbladet. Knappen blir orange och ändras texten till **stoppa**.
+5. Starta frågan med de **Execute** nedan kalkylbladet. Knappen blir orange och ändras texten till **stoppa**.
 
-3. När frågan har slutförts måste den **resultat** visar resultatet av åtgärden. Följande är resultatet av frågan:
+6. När frågan har slutförts måste den **resultat** visar resultatet av åtgärden. Följande är resultatet av frågan:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     Du kan använda den **loggar** att visa loggningsinformation som skapats för jobbet.
 
    > [!TIP]
    > Hämta eller spara resultaten från den **spara resultaten** listrutan dialogrutan i övre vänstra hörnet i **Frågeprocessresultat** avsnitt.
-
-4. Välj de fyra första raderna i den här frågan och välj sedan **kör**. Observera att det finns inga resultat när jobbet har slutförts. Med hjälp av den **Execute** knappen när delen av frågan markeras körs bara de valda rapporterna. Markeringen är inte i det här fallet den sista instruktionen som hämtar rader från tabellen. Om du väljer bara den raden och använda **kör**, bör du se ett förväntat resultat.
-
-5. Om du vill lägga till ett kalkylblad, använder den **nytt kalkylblad** knappen längst ned i den **frågeredigeraren**. Ange följande HiveQL-instruktioner i det nya kalkylbladet:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  Dessa instruktioner utför följande åtgärder:
-
-   * **Skapa tabell om inte finns**: skapar en tabell om det inte redan finns. Eftersom den **externa** nyckelordet används inte, en intern tabell skapas. En intern tabell lagras i datalagret Hive och hanteras helt av Hive. Till skillnad från med externa tabeller kan släppa en intern tabell tar bort de underliggande data.
-
-   * **LAGRAS AS ORC**: lagrar data i optimerad raden kolumner (ORC)-format. ORC är ett mycket optimerad och effektiv format för att lagra data med Hive.
-
-   * **INFOGA ÖVER... Välj**: väljer rader från den **log4jLogs** tabellen som innehåller `[ERROR]`, och infogar data till den **errorLogs** tabell.
-
-Använd den **kör** för att köra den här frågan. Den **resultat** fliken innehåller inte någon information om frågan returnerar noll rader. Status ska visa **lyckades** när frågan har slutförts.
 
 ### <a name="visual-explain"></a>Visual förklarar
 
@@ -152,9 +135,14 @@ Från den **frågan** fliken kan du om du vill spara frågor. När du har sparat
 
 ![Bild av fliken sparade frågor](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Sparade frågor lagras i klusterlagringen standard. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som klartext `.hql` filer.
+>
+> Om du tar bort klustret, men behålla lagring, kan du använda ett verktyg som [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) eller Data Lake Lagringsutforskaren (från den [Azure Portal](https://portal.azure.com)) att hämta frågorna.
+
 ## <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-Du kan också utöka Hive via användardefinierade funktioner (UDF). Använda en UDF för att implementera funktioner eller som inte är enkelt modelleras i HiveQL.
+Du kan utöka Hive via användardefinierade funktioner (UDF). Använda en UDF för att implementera funktioner eller som inte är enkelt modelleras i HiveQL.
 
 Deklarera och spara en uppsättning UDF: er med hjälp av den **UDF** fliken överst i Hive-vy. Dessa UDF: er kan användas med den **frågeredigeraren**.
 

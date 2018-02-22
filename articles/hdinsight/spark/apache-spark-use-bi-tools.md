@@ -15,23 +15,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI med hjälp av verktyg för visualisering av data med Azure HDInsight
 
-Lär dig hur du använder [Microsoft Power BI](http://powerbi.microsoft.com) och [Tableau](http://www.tableau.com) visualisera data i Apache Spark-kluster i Azure HDInsight.
+Lär dig hur du använder [Microsoft Power BI](http://powerbi.microsoft.com) visualisera data i Apache Spark-kluster i Azure HDInsight.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Slutföra artikeln [köra interaktiva frågor i Spark-kluster i HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) och [Power BI-utvärderingsprenumeration](https://app.powerbi.com/signupredirect?pbi_source=web) (valfritt).
-* **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) och [Microsoft Spark ODBC-drivrutinen](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Kontrollera data
@@ -183,47 +182,49 @@ Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organisatio
 
 Din visuella är fäst på instrumentpanelen – du kan lägga till annan visuell information i rapporten och fästa dem på samma instrumentpanelen. Mer information om rapporter och instrumentpaneler finns [rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)och [instrumentpaneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Använda Tableau Desktop 
+<!--
+## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
-> Det här avsnittet gäller endast för Spark 1.5.2 kluster som skapas i Azure HDInsight.
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
 
-1. Installera [Tableau Desktop](http://www.tableau.com/products/desktop) på datorn där du kör den här kursen om Apache Spark BI.
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Kontrollera att datorn har även Microsoft Spark ODBC-drivrutinen ska installeras. Du kan installera drivrutinen från [här](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Starta Tableau skrivbordet. I den vänstra rutan i listan över server för att ansluta till, klickar du på **Spark SQL**. Om inte Spark SQL visas som standard i den vänstra rutan, du kan hitta den genom att klicka på **fler servrar**.
-2. I dialogrutan Spark SQL-anslutningen anger du värdena som visas i skärmbilden och klicka sedan på **OK**.
+1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
-    ![Anslut till ett kluster för Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Anslut till ett kluster för Apache Spark BI")
+    ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    Listrutorna autentisering **Microsoft Azure HDInsight-tjänst** som ett alternativ, bara om du har installerat den [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) på datorn.
-3. På nästa skärm från den **schemat** listrutan, klicka på den **hitta** ikonen och klickar sedan på **standard**.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
-    ![Hitta schema för Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "hitta schemat för Apache Spark BI")
-4. För den **tabell** klickar du på **hitta** ikonen igen till alla Hive-tabeller som finns i klustret. Du bör se den **hvac** tabellen som du skapat tidigare med den bärbara datorn.
+    ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
-    ![Hitta tabellen för Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "hitta tabellen för Apache Spark BI")
-5. Dra och släppa tabellen till den översta rutan till höger. Tableau importerar data och visar schemat som markerade med en röd ruta.
+    ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
-    ![Lägga till tabeller i Tableau för Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "lägga till tabeller i Tableau för Apache Spark BI")
-6. Klicka på den **Blad1** längst till vänster. Gör en visualisering som visar genomsnittlig mål- och faktiska temperaturer för alla byggnader för varje datum. Dra **datum** och **skapa ID** till **kolumner** och **faktiska Temp**/**mål Temp** att **rader**. Under **märken**väljer **område** att använda en mappning för område för Spark datavisualisering.
+    ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
-     ![Lägga till fält i Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "lägga till fält i Spark datavisualisering")
-7. Som standard temperatur fält visas som aggregat. Om du vill visa de genomsnittliga temperaturerna i stället kan du göra det från nedrullningsbara som visas i följande skärmbild:
+     ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
-    ![Ta medelvärde för temperaturen för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "ta medelvärde för temperaturen för Spark datavisualisering")
+    ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. Du kan också super-införa en temperatur karta över den andra sätt att få en bättre känsla av skillnaden mellan mål och faktiska temperaturer. Flytta musen till lägre området kartan hörn tills du ser formen referensen markerade med en röd cirkel. Dra kartan till andra kartan högst upp och släpper musknappen när du ser formen markerat i rött rektangel.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
-    ![Sammanfoga för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge mappar för Spark datavisualisering")
+    ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
-     Ändra din datavisualisering som visas i skärmbilden:
+     Your data visualization should change as shown in the screenshot:
 
-    ![Tableau utdata för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau utdata för Spark datavisualisering")
-9. Klicka på **spara** spara kalkylbladet. Du kan skapa instrumentpaneler och Lägg till en eller flera blad.
+    ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## <a name="next-steps"></a>Nästa steg
 

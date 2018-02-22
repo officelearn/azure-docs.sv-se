@@ -1,6 +1,6 @@
 ---
-title: "Använd Tjänstkarta lösningen i Operations Management Suite | Microsoft Docs"
-description: "Tjänstkarta är en Operations Management Suite-lösning som automatiskt identifierar programkomponenter på Windows- och Linux-system och mappar kommunikationen mellan tjänster. Den här artikeln innehåller information för att distribuera Tjänstkarta i din miljö och använda den i en mängd olika scenarier."
+title: "Med hjälp av en Tjänstkarta lösning i Azure | Microsoft Docs"
+description: "Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Tjänstkarta i din miljö och använda den i en mängd olika scenarier."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Använd Tjänstkarta lösningen i Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Med hjälp av en Tjänstkarta lösning i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
 
-Den här artikeln beskriver hur du använder Tjänstkartan. Information om hur du konfigurerar Tjänstkarta och onboarding agenter finns [konfigurera Tjänstkarta lösning i Operations Management Suite](operations-management-suite-service-map-configure.md).
+Den här artikeln beskriver hur du använder Tjänstkartan. Information om hur du konfigurerar Tjänstkarta och onboarding agenter finns [konfigurera Tjänstkarta lösning i Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Användningsfall: Se IT bearbetar beroende medveten
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du använder Tjänstkartan. Information om hur d
 Tjänstkarta skapar automatiskt en gemensam referens karta över beroenden mellan dina servrar, processer och tjänster från tredje part. Den identifieras och mappas alla TCP-beroenden, identifiera oväntat anslutningar, fjärrsystem du beroende från tredje part och beroenden till traditionella mörka delar av nätverket, till exempel Active Directory. Tjänstkarta identifierar misslyckade nätverksanslutningar som de hanterade systemen försöker göra kan hjälpa dig att identifiera potentiella server felkonfiguration och avbrott nätverksproblem.
 
 ### <a name="incident-management"></a>Hantering av incidenter
-Tjänstkarta hjälper till att eliminera överraskningar av problemet isolering genom att visa hur datorerna är anslutna och påverkar varandra. Förutom identifierar misslyckade anslutningar kan identifiera felkonfigurerad belastningsutjämnare, konstigt eller för stora belastningen på kritiska tjänster och obehöriga klienter som utvecklare datorer kommunicerar med olika system. Du kan också se om en Ändringshändelse på en backend-dator med hjälp av integrerad arbetsflöden med Operations Management Suite ändra spårning eller tjänsten förklarar orsaken till en incident.
+Tjänstkarta hjälper till att eliminera överraskningar av problemet isolering genom att visa hur datorerna är anslutna och påverkar varandra. Förutom identifierar misslyckade anslutningar kan identifiera felkonfigurerad belastningsutjämnare, konstigt eller för stora belastningen på kritiska tjänster och obehöriga klienter som utvecklare datorer kommunicerar med olika system. Du kan också se om en Ändringshändelse på en backend-dator med hjälp av integrerad arbetsflöden med ändra spårning eller tjänsten förklarar orsaken till en incident.
 
 ### <a name="migration-assurance"></a>Säkerhet för migrering
 Med hjälp av en Tjänstkarta kan du effektivt planera, påskynda och validera Azure migreringar som ser till att inget kvar och oväntat avbrott, sker inte. Du kan identifiera alla beroende av varandra system som behöver migreras tillsammans, utvärdera systemkonfiguration och kapacitet och identifiera om ett system som körs fortfarande används av användare eller är en kandidat för avställning av i stället för migrering. När övergången är klar kan kontrollera du på klientbelastningen och identitet för att kontrollera att testsystem och kunder ansluter. Om dina subnätsdefinitioner för planering och brandväggen har problem, peka misslyckade anslutningar i Tjänstkartan maps du vilka datorer som behöver ansluta.
@@ -41,7 +41,7 @@ Med hjälp av en Tjänstkarta kan du effektivt planera, påskynda och validera A
 Om du använder Azure Site Recovery och behöver hjälp definierar recovery sekvensen för din miljö för programmet, Tjänstkarta kan automatiskt visa hur system är beroende av varandra för att säkerställa att är din återställningsplan tillförlitlig. Genom att välja en kritisk server eller en grupp och visa dess klienter, kan du identifiera vilka frontend-system kan återskapa servern har återställts och är tillgänglig. Du kan däremot identifiera vilka system för att återställa innan dina fokus system har återställts genom att titta på kritiska servrar backend-beroenden.
 
 ### <a name="patch-management"></a>Uppdateringshantering
-Tjänstkarta förbättrar din användning av Operations Management Suite System Update Assessment genom att visa andra grupper och servrar beroende på din tjänst så att meddela dem i förväg innan du anteckna dina system för korrigering. Tjänstkarta förbättrar också uppdateringshantering i Operations Management Suite genom att visa om dina tjänster är tillgänglig och korrekt ansluten efter de korrigeras och startas om.
+Tjänstkarta förbättrar din användning av utvärdering av uppdateringar i systemet genom att visa andra grupper och servrar beroende på din tjänst så att meddela dem i förväg innan du anteckna dina system för korrigering. Tjänstkarta förbättrar också uppdateringshantering genom att visa om dina tjänster är tillgänglig och korrekt ansluten efter de korrigeras och startas om.
 
 
 ## <a name="mapping-overview"></a>Översikt över mappning
@@ -54,7 +54,7 @@ Datorer kan utökas i kartan för att visa körs bearbeta grupper och processer 
 Som standard visar Tjänstkarta maps de senaste 30 minuterna av beroendeinformation. Du kan fråga för historiska tidsintervall för upp till en timme att visa hur beroenden slås tidigare (till exempel vid en incident eller innan en ändring inträffat) med hjälp av kontroller längst upp till vänster. Tjänstkarta data lagras i 30 dagar i betald arbetsytor och 7 dagar i kostnadsfria arbetsytor.
 
 ## <a name="status-badges-and-border-coloring"></a>Status märken och kantlinje färgläggning
-Längst ned på varje server i kartan kan vara en lista över status Aktivitetsikoner förmedla statusinformation om servern. Aktivitetsikoner betyda att det finns vissa relevant information om servern från en Operations Management Suite-lösningen integreringar. Klicka på en Aktivitetsikon går du direkt till information om statusen i den högra rutan. Tillgängliga status Aktivitetsikoner inkluderar aviseringar, helpdesk, ändringar, säkerhet och uppdateringar.
+Längst ned på varje server i kartan kan vara en lista över status Aktivitetsikoner förmedla statusinformation om servern. Aktivitetsikoner betyda att det finns vissa relevant information om servern från en lösning integreringar. Klicka på en Aktivitetsikon går du direkt till information om statusen i den högra rutan. Tillgängliga status Aktivitetsikoner inkluderar aviseringar, helpdesk, ändringar, säkerhet och uppdateringar.
 
 Beroende på allvarlighetsgrad för status-Aktivitetsikoner datorn nod kantlinjer vara färgade röd (kritisk), gult (varning) eller blå (information). Färgen som representerar de svåraste status för alla status-Aktivitetsikoner. En grå kantlinje anger en nod som har inga indikatorer.
 
@@ -130,7 +130,7 @@ Vissa processer hantera specifika roller på datorer: servrar, programservrar, d
 | ![App-servern](media/oms-service-map/role-application-server.png) | Programserver |
 | ![Databasserver](media/oms-service-map/role-database.png) | Databasserver |
 | ![LDAP-servern](media/oms-service-map/role-ldap.png) | LDAP-servern |
-| ![SMB-servern](media/oms-service-map/role-smb.png) | SMB-servern |
+| ![SMB server](media/oms-service-map/role-smb.png) | SMB server |
 
 ![Rollikoner](media/oms-service-map/role-icons.png)
 
@@ -168,12 +168,12 @@ Klicka på **belastningen Server kartan** går du till en ny mappning med den va
 Klicka på **visa Self-Links** omritningar servernoden, inklusive sådana självlänkar som TCP-anslutningar som börjar och slutar på processer i servern. Om självlänkar visas, menykommandona till **dölja Self-Links**, så att du kan inaktivera dem.
 
 ## <a name="computer-summary"></a>Datorn sammanfattning
-Den **datorn sammanfattning** rutan innehåller en översikt över en server-operativsystem, beroende antal och data från andra Operations Management Suite-lösningar. Dessa data inkluderar prestandamått, supportavdelningen tjänstbiljetter, för spårning av ändringar, säkerhet och uppdateringar.
+Den **datorn sammanfattning** rutan innehåller en översikt över en server-operativsystem, beroende antal och data från andra lösningar. Dessa data inkluderar prestandamått, supportavdelningen tjänstbiljetter, för spårning av ändringar, säkerhet och uppdateringar.
 
 ![Datorn sammanfattningsfönstret](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Dator- och egenskaper
-Du kan välja datorer och processer för att få ytterligare kontext om deras egenskaper när du navigerar en Tjänstkarta karta. Datorer som innehåller information om DNS-namn, IPv4-adresser, CPU och minne kapacitet, VM-typ, operativsystem och version, senast omstart tid och ID: N för sina Operations Management Suite och Tjänstkarta agenter.
+Du kan välja datorer och processer för att få ytterligare kontext om deras egenskaper när du navigerar en Tjänstkarta karta. Datorer som innehåller information om DNS-namn, IPv4-adresser, CPU och minne kapacitet, VM-typ, operativsystem och version, senast omstart tid och ID: N för sina OMS och Tjänstkarta agenter.
 
 ![Egenskapsrutan för datorn](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Den **Processammanfattning** tillhandahåller ytterligare information om process
 
 ![Processen sammanfattningsfönstret](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Operations Management Suite aviseringar integrering
-Tjänstkarta integreras med Operations Management Suite aviseringar att visa Eldad aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och **datorn aviseringar** fönstret visas aviseringarna.
+## <a name="alerts-integration"></a>Aviseringar-integrering
+Tjänstkarta integreras med aviseringar i logganalys att visa Eldad aviseringar för den valda servern i det valda tidsintervallet. Servern visar en ikon om det finns aktuella aviseringar och **datorn aviseringar** fönstret visas aviseringarna.
 
 ![Datorn aviseringspanelen](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Skapa en aviseringsregel som utlöses för en specifik dator om du vill aktivera
 ![Aviseringskonfiguration](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite logga händelser integrering
+## <a name="log-events-integration"></a>Logga händelser integrering
 Tjänstkarta integreras med Log-sökning för att visa en uppräkning av alla tillgängliga logghändelser för den valda servern under det valda tidsintervallet. Du kan klicka på en rad i listan över händelse antal att hoppa till loggen Sök och se enskilda logghändelser.
 
 ![Datorn logghändelser fönstret](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Operations Management Suite-supporten integrering
-Tjänstkarta integrering med IT Service Management-anslutningstjänsten sker automatiskt när båda lösningarna är aktiverad och konfigurerad i Operations Management Suite-arbetsyta. Integrering i Tjänstkartan är märkt ”helpdesk”. Mer information finns i [centralt hantera ITSM arbetsobjekt med hjälp av IT Service Management-anslutningstjänsten](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Helpdesk integrering
+Tjänstkarta integrering med IT Service Management-anslutningstjänsten sker automatiskt när båda lösningarna har aktiverats och konfigurerats i logganalys-arbetsytan. Integrering i Tjänstkartan är märkt ”helpdesk”. Mer information finns i [centralt hantera ITSM arbetsobjekt med hjälp av IT Service Management-anslutningstjänsten](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 Den **datorn helpdesk** fönstret innehåller alla händelser som IT-tjänsthantering för den valda servern i det valda tidsintervallet. Servern visas en ikon om det aktuella objekt och datorn helpdesk-fönstret visas de.
 
@@ -214,8 +214,8 @@ Klicka för att öppna objektet i din lösning för anslutna ITSM **visa arbetso
 Om du vill visa information om objektet i loggen sökning, klickar du på **visas i loggen Sök**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Operations Management Suite ändringsspårning integrering
-Tjänstkarta integrering med ändringsspårning sker automatiskt när båda lösningarna är aktiverad och konfigurerad i Operations Management Suite-arbetsyta.
+## <a name="change-tracking-integration"></a>Ändra spårning integrering
+Tjänstkarta integrering med ändringsspårning sker automatiskt när båda lösningarna har aktiverats och konfigurerats i logganalys-arbetsytan.
 
 Den **datorn ändringsspårning** fönstret visar alla ändringar, med den senaste först, tillsammans med en länk till öka detaljnivån till loggen Sök efter ytterligare information.
 
@@ -226,7 +226,7 @@ Följande bild är en detaljerad vy av en ConfigurationChange händelse som kan 
 ![ConfigurationChange händelse](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite prestanda integrering
+## <a name="performance-integration"></a>Prestanda-integrering
 Den **prestanda på en dator** fönstret standard prestandastatistik för den valda servern. Mätvärdena inkludera CPU-användning, minnesanvändning, nätverks-byte skickas och tas emot och en lista över de översta processerna med nätverks-byte skickas och tas emot.
 
 ![Datorn prestanda fönstret](media/oms-service-map/machine-performance.png)
@@ -236,29 +236,29 @@ Om du vill visa prestandadata, du kan behöva [aktivera lämplig logganalys pres
 Windows:
 - Processor(*)\\% processortid
 - Minne\\% använda dedikerade byte
-- Nätverk Adapter(*)\\skickade byte/sek
+- Network Adapter(*)\\Bytes Sent/sec
 - Nätverk Adapter(*)\\mottagna byte/sek
 
 Linux:
 - Processor(*)\\% processortid
 - Memory(*)\\använt minne i procent
-- Nätverk Adapter(*)\\skickade byte/sek
+- Network Adapter(*)\\Bytes Sent/sec
 - Nätverk Adapter(*)\\mottagna byte/sek
 
-För att få prestandadata som nätverk, måste du också aktiverat överföring Data 2.0 lösningen i Operations Management Suite.
+För att få prestandadata som nätverk, måste du också ha aktiverat överföring Data 2.0-lösning i arbetsytan.
  
-## <a name="operations-management-suite-security-integration"></a>Integrering av Operations Management Suite-säkerhet
-Tjänstkarta integrering med säkerhet och granska sker automatiskt när båda lösningarna är aktiverad och konfigurerad i Operations Management Suite-arbetsyta.
+## <a name="security-integration"></a>Integrering av säkerhet
+Tjänstkarta integrering med säkerhet och granska sker automatiskt när båda lösningarna har aktiverats och konfigurerats i logganalys-arbetsytan.
 
-Den **säkerhet dator** visar data från Operations Management Suite säkerhet och granska lösningen för den valda servern. Fönstret visar en sammanfattning av alla utestående säkerhetsproblem för servern under det valda tidsintervallet. Klicka på någon av säkerhet problem flyttar ned till en logg sökning efter information om dem.
+Den **säkerhet dator** visar data från den säkerhet och granska lösningen för den valda servern. Fönstret visar en sammanfattning av alla utestående säkerhetsproblem för servern under det valda tidsintervallet. Klicka på någon av säkerhet problem flyttar ned till en logg sökning efter information om dem.
 
 ![Datorn säkerhet fönstret](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integrering av Operations Management Suite-uppdateringar
-Tjänstkarta integrering med uppdateringshantering sker automatiskt när båda lösningarna är aktiverad och konfigurerad i Operations Management Suite-arbetsyta.
+## <a name="updates-integration"></a>Integrering av uppdateringar
+Tjänstkarta integrering med uppdateringshantering sker automatiskt när båda lösningarna är aktiverad och konfigurerad i loggen Anlaytics-arbetsyta.
 
-Den **datorn uppdateringar** rutan visar data från Operations Management Suite uppdateringshantering lösningen för den valda servern. Fönstret visar en sammanfattning av uppdateringar som saknas för servern under det valda tidsintervallet.
+Den **datorn uppdateringar** rutan visar data från lösningen för hantering av uppdateringar för den valda servern. Fönstret visar en sammanfattning av uppdateringar som saknas för servern under det valda tidsintervallet.
 
 ![Datorn ändringsspårning fönstret](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ En post genereras per timme för varje unikt datornamn och process, förutom de 
 
 Det finns internt genererade egenskaper som kan användas för att identifiera unika processer och datorer:
 
-- Dator: Använd ResourceId eller ResourceName_s att unikt identifiera en dator inom en Operations Management Suite-arbetsyta.
-- Process: Använd ResourceId att unikt identifiera en process i en Operations Management Suite-arbetsyta. ResourceName_s är unikt inom ramen för den dator där processen körs (MachineResourceName_s) 
+- Dator: Använd ResourceId eller ResourceName_s att unikt identifiera en dator inom en logganalys-arbetsytan.
+- Process: Använd ResourceId att unikt identifiera en process i logganalys-arbetsytan. ResourceName_s är unikt inom ramen för den dator där processen körs (MachineResourceName_s) 
 
 Eftersom flera poster kan finnas för en angiven process och datorer i ett angivet tidsintervall kan frågor returnera flera poster för samma dator eller process. Lägg till om du vill inkludera endast den senaste posten ”| dedupliceringen ResourceId ”i frågan.
 

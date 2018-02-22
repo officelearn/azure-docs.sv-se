@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure-nätverk övervakning-översikt
 
@@ -46,7 +46,7 @@ Nätverksbevakaren har för närvarande följande funktioner:
 * **[Virtuella Nätverksgatewayen och anslutningen felsökning](network-watcher-troubleshoot-manage-rest.md)**  -ger dig möjlighet att felsöka virtuella Nätverksgatewayer och anslutningar.
 * **[Nätverk prenumerationsbegränsningar](#network-subscription-limits)**  -kan du visa nätverksresursanvändning mot gränser.
 * **[Konfigurera diagnostik loggen](#diagnostic-logs)**  – innehåller en om du vill aktivera eller inaktivera diagnostik loggar för nätverksresurser i en resursgrupp.
-* **[Anslutningen (förhandsgranskning)](network-watcher-connectivity-overview.md)**  -verifierar möjligheten att upprätta en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt.
+* **[Felsöka anslutning](network-watcher-connectivity-overview.md)**  -verifierar möjligheten att upprätta en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt utökat med Azure kontext.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rollbaserad åtkomstkontroll (RBAC) i Nätverksbevakaren
 
@@ -82,7 +82,7 @@ Nätverket prenumerationsbegränsningar ger dig information om användning av va
 
 Följande funktioner är tillgängliga för nivån Resursövervakning:
 
-### <a name="audit-log"></a>granskningslogg
+### <a name="audit-log"></a>Granskningslogg
 
 Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa loggar kan visas i Azure-portalen eller hämtas med hjälp av Microsoft-verktyg, till exempel Power BI eller verktyg från tredje part. Granskningsloggar är tillgängliga via portalen, PowerShell, CLI och Rest-API. Mer information om granskningsloggarna finns [granskningsåtgärder med Resource Manager](../resource-group-audit.md)
 

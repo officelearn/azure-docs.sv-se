@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 Azure Analysis Services-servrar som stöder anslutning till datakällor i molnet och lokalt i din organisation. Ytterligare datakällor läggs hela tiden. Kom tillbaka ofta. 
@@ -28,7 +28,7 @@ Följande datakällor stöds:
 
 | Molnet  |
 |---|
-| Azure Blob Storage *  |
+| Azure Blob Storage*  |
 | Azure SQL Database  |
 | Azure Data Warehouse |
 
@@ -38,12 +38,12 @@ Följande datakällor stöds:
 | Access-databas  | Mappen * | Oracle-databas  | Teradata-databas |
 | Active Directory *  | JSON-dokumentet *  | Postgre SQL-databasen *  |XML-tabellen * |
 | Analysis Services  | Rader från binary *  | SAP HANA *  |
-| Analytics Platform System  | MySQL-databas  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | OData-Feed *  | SharePoint *  |
+| Analytics Platform System  | MySQL-databas  | SAP Business Warehouse*  | |
+| Dynamics CRM*  | OData Feed*  | SharePoint*  |
 | Excel-arbetsbok  | ODBC-fråga  | SQL Database  |
-| Exchange *  | OLE DB  | Sybase-databas  |
+| Exchange*  | OLE DB  | Sybase-databas  |
 
-\*1400 tabellmodeller endast. 
+\* 1400 tabellmodeller endast. 
 
 > [!IMPORTANT]
 > Ansluter till lokala datakällor kräver en [lokala datagateway](analysis-services-gateway.md) installeras på en dator i din miljö.

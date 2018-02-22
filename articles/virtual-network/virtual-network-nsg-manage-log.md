@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Log Analytics för nätverkssäkerhetsgrupper (NSG:er)
 
@@ -46,7 +46,7 @@ Diagnostikloggning måste vara aktiverat för *varje* NSG som du vill samla in d
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Använda portalen för att aktivera loggning, logga in på den [portal](https://portal.azure.com). Klicka på **fler tjänster**, Skriv *nätverkssäkerhetsgrupper*. Välj NSG: N som du vill aktivera loggning för. Följ instruktionerna för icke-beräkningsresurser i den [aktivera diagnostikloggar i portalen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Välj **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, eller båda kategorier av loggar.
+Använda portalen för att aktivera loggning, logga in på den [portal](https://portal.azure.com). Klicka på **alla tjänster**, Skriv *nätverkssäkerhetsgrupper*. Välj NSG: N som du vill aktivera loggning för. Följ instruktionerna för icke-beräkningsresurser i den [aktivera diagnostikloggar i portalen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artikel. Välj **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, eller båda kategorier av loggar.
 
 ### <a name="powershell"></a>PowerShell
 

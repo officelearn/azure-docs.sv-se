@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera systemtillståndet för Windows i Resource Manager-distribution
 Den här artikeln förklarar hur du säkerhetskopierar systemtillståndet Windows Server till Azure. I den här självstudiekursen går vi igenom grunderna.
@@ -33,7 +33,7 @@ Om du vill säkerhetskopiera systemtillståndet Windows Server, måste du skapa 
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
-2. På navigeringsmenyn klickar du på **Fler tjänster** och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
+2. På navmenyn klickar du på **alla tjänster** och Skriv i listan över resurser, **återställningstjänster** och på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -132,7 +132,7 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 
     ![hämta autentiseringsuppgifter för valvet](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Autentiseringsuppgifterna för valvet hämtas till mappen Hämtningsbara filer. När autentiseringsuppgifterna för valvet har hämtats visas ett popup-fönster och du tillfrågas om du vill öppna eller spara autentiseringsuppgifterna. Klicka på **Save** (Spara). Om du råkar klicka på **Öppna** av misstag väntar du tills dialogrutan som försöker öppna autentiseringsuppgifterna för valvet misslyckas. Du kan inte öppna valvautentiseringsuppgifterna. Gå vidare till nästa steg. Valvautentiseringsuppgifterna finns i mappen Hämtade filer.   
+    Autentiseringsuppgifterna för valvet hämtas till mappen Hämtningsbara filer. När autentiseringsuppgifterna för valvet har hämtats visas ett popup-fönster och du tillfrågas om du vill öppna eller spara autentiseringsuppgifterna. Klicka på **Spara**. Om du råkar klicka på **Öppna** av misstag väntar du tills dialogrutan som försöker öppna autentiseringsuppgifterna för valvet misslyckas. Du kan inte öppna valvautentiseringsuppgifterna. Gå vidare till nästa steg. Valvautentiseringsuppgifterna finns i mappen Hämtade filer.   
 
     ![valvautentiseringsuppgifterna har hämtats](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]

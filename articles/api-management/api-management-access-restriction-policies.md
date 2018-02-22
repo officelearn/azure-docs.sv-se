@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management-åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -500,15 +500,15 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |clock-skew|Timespan. Använd för att ange maximal förväntade tidsskillnad mellan systemklockorna hos token utfärdaren och API Management-instans.|Nej|0 sekunder|  
 |failed-validation-error-message|Felmeddelande om att returnera i texten för HTTP-svar om JWT inte klarar valideringen. Det här meddelandet måste ha specialtecken (escaped) korrekt.|Nej|Standardfelmeddelandet beror på verifieringsfel, till exempel ”JWT finns inte”.|  
 |failed-validation-httpcode|HTTP-statuskoden ska returneras om JWT inte valideras.|Nej|401|  
-|header-name|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
+|header-name|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-parameter-name` måste vara anges, men inte båda.|Gäller inte|  
 |id|Den `id` attributet för den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckel ska användas för signaturverifiering.|Nej|Gäller inte|  
 |Matcha|Den `match` attributet för den `claim` element anger om varje anspråksvärde i principen måste finnas i token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all` -värde för alla anspråk i principen måste finnas i token för verifiering ska lyckas.<br /><br /> -                          `any` -minst en anspråksvärdet måste finnas i token för verifiering ska lyckas.|Nej|all|  
 |query-paremeter-name|Namnet på den Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
-|require-expiration-time|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|sant|
+|require-expiration-time|Booleskt värde. Anger om ett förfallodatum anspråk krävs i token.|Nej|true|
 |kräver schema|Namnet på token schemat, t.ex. "Bearer". När det här attributet anges säkerställer principen för det angivna schemat finns i huvudvärde auktorisering.|Nej|Gäller inte|
-|Kräv-signerad-token|Booleskt värde. Anger om det krävs en token som ska signeras.|Nej|sant|  
+|Kräv-signerad-token|Booleskt värde. Anger om det krävs en token som ska signeras.|Nej|true|  
 |avgränsare|Sträng. Anger avgränsare (t.ex. ””,) som ska användas för att extrahera en uppsättning värden från ett anspråk med flera värden.|Nej|Gäller inte| 
-|url|Öppna ID configuration slutpunkts-URL från där du kan hämta öppna ID configuration metadata. Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` ersätter din klient katalognamn, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
+|url|Öppna ID configuration slutpunkts-URL från där du kan hämta öppna ID configuration metadata. Svaret ska vara enligt specifikationerna som definierats på URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` ersätter din klient katalognamn, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

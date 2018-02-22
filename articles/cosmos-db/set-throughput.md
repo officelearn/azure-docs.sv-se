@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Ange dataflöde för Azure DB som Cosmos-behållare
 
@@ -49,7 +49,7 @@ I följande tabell visas genomströmning för behållare:
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Ange genomflödet med hjälp av Azure portal
 
 1. Öppna i ett nytt fönster i [Azure-portalen](https://portal.azure.com).
-2. Klicka på fältet till vänster **Azure Cosmos DB**, eller klicka på **fler tjänster** längst ned, bläddrar sedan till **databaser**, och klicka sedan på **Azure Cosmos DB**.
+2. Klicka på fältet till vänster **Azure Cosmos DB**, eller klicka på **alla tjänster** längst ned, bläddrar sedan till **databaser**, och klicka sedan på **Azure Cosmos DB**.
 3. Välj Cosmos-DB-konto.
 4. I det nya fönstret, klickar du på **Data Explorer** på navigeringsmenyn.
 5. Expandera din databas och en behållare i det nya fönstret, och klicka sedan på **skala & inställningar**.

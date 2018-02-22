@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 791761e33e0daa470668e268e5392a4b9361a1bd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 Azure SQL database auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
@@ -42,7 +42,8 @@ Konfigurera granskning för olika typer av kategorier, enligt beskrivningen i de
 > [!IMPORTANT]
 > Granskningsloggar skrivs till **Tilläggsblobbar** i ett Azure Blob storage på din Azure-prenumeration.
 >
-> **Lagring i VNet** är för närvarande **stöds inte**.
+> * **Premium-lagring** är för närvarande **stöds inte** av Tilläggsblobbar.
+> * **Lagring i VNet** är för närvarande **stöds inte**.
 
 ## <a id="subheading-8"></a>Definiera servernivå kontra databasnivå granskningsprincip
 

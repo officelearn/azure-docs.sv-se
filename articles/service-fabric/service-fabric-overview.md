@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i behållare.
@@ -49,7 +49,7 @@ Service Fabric kan köras överallt. Du kan skapa kluster för Service Fabric i 
 
 ![Service Fabric-plattform][Image1]
 
-För Windows-utveckling är Service Fabric .NET SDK integrerad med Visual Studio och Powershell. Se [Förbereda utvecklingsmiljön i Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md). För Linux-utveckling är Service Fabric Java SDK integrerad med Eclipse, och Yeoman används för att generera mallar för Java, .NET Core och behållarprogram. Se [Förbereda utvecklingsmiljön i Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)
+För Windows-utveckling är Service Fabric .NET SDK integrerad med Visual Studio och Powershell. Se [Förbereda utvecklingsmiljön i Windows](service-fabric-get-started.md). För Linux-utveckling är Service Fabric Java SDK integrerad med Eclipse, och Yeoman används för att generera mallar för Java, .NET Core och behållarprogram. Se [Förbereda utvecklingsmiljön i Linux](service-fabric-get-started.md)
 
 Mer information om att skapa kluster finns i [skapa ett kluster i Windows Server eller Linux](service-fabric-deploy-anywhere.md) eller för Azure att skapa kluster [via Azure Portal](service-fabric-cluster-creation-via-portal.md).
 

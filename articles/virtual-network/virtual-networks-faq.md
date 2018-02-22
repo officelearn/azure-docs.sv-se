@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (FAQ) virtuella Azure-nätverket
 
@@ -81,7 +81,7 @@ Ja. Du kan använda användaren definierat routning (UDR). Mer information om UD
 Nej. Vi stöder inte multicast eller broadcast.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Vilka protokoll inom Vnet kan jag använda?
-Du kan använda TCP och UDP ICMP TCP/IP-protokoll inom Vnet. Multicast, broadcast, kapslas in IP-i-IP-paket och allmänna Routing Encapsulation (GRE) paket blockeras inom Vnet. 
+Du kan använda TCP och UDP ICMP TCP/IP-protokoll inom Vnet. Unicast stöds inom Vnet, med undantag för dynamiska värden Configuration Protocol (DHCP) via Unicast (källport UDP/68 / mål port UDP/67). Multicast, broadcast, kapslas in IP-i-IP-paket och allmänna Routing Encapsulation (GRE) paket blockeras inom Vnet. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Kan jag Pinga standard-routrar inom ett VNet?
 Nej.
@@ -112,7 +112,7 @@ Ja. Du kan ansluta ett virtuellt nätverk till ett annat virtuellt nätverk med 
 - En Azure VPN-Gateway. Läs den [konfigurera VNet-till-VNet-anslutningen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artikeln för information. 
 - VNet-peering. Läs den [VNet-peering översikt](virtual-network-peering-overview.md) artikeln för information.
 
-## <a name="name-resolution-dns"></a>Namnmatchning (DNS)
+## <a name="name-resolution-dns"></a>Name Resolution (DNS)
 
 ### <a name="what-are-my-dns-options-for-vnets"></a>Vad är DNS-alternativ för Vnet?
 Använd tabellen beslut på den [namnmatchning för virtuella datorer och Rollinstanser](virtual-networks-name-resolution-for-vms-and-role-instances.md) att guida alla DNS-alternativen tillgängliga.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -63,7 +63,7 @@ Om du vill konfigurera din app att hämta token måste du först registrera det 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto på den översta raden. Under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i det vänstra navigeringsfönstret och välj sedan **Azure Active Directory**.
+3. Klicka på **alla tjänster** i det vänstra navigeringsfönstret och välj sedan **Azure Active Directory**.
 4. Klicka på **App registreringar**, och välj sedan **Lägg till**.
 5. Följ anvisningarna för att skapa en ny **internt klientprogram**.
   * Den **namn** beskriver ditt program för slutanvändare av programmet.

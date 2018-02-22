@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ Om du vill aktivera din app att hämta token måste du måste först registrera 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på den översta raden på ditt konto och under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
-3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
+3. Klicka på **alla tjänster** i den vänstra nav och välj **Azure Active Directory**.
 4. Klicka på **App registreringar** och välj **Lägg till**.
 5. Följ anvisningarna och skapa en ny **internt klientprogram**.
   * Den **namn** av programmet beskriva programmet till slutanvändare

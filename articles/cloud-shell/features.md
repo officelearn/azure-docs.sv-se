@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funktioner och verktyg för Bash i Azure Cloud Shell
 
@@ -37,7 +37,7 @@ Bash i molnet Shell autentiserar på ett säkert sätt och automatiskt kontoåtk
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH i virtuella Azure Linux-datorer
 
-Skapa en Linux VM från Azure CLI 2.0 kan skapa en standard SSH-nyckel och placera den i din `$Home` directory. Placera SSH-nycklar i `$Home` möjliggör direkt SSH-anslutningar till virtuella Azure Linux-datorer direkt från molnet Shell. Nycklar förvaras i acc_<user>.img i din filresurs använder bästa metoder när du använder eller dela åtkomst till filresursen eller nycklar.
+Skapa en Linux VM från Azure CLI 2.0 kan skapa en standard SSH-nyckel och placera den i din `$Home` directory. Placera SSH-nycklar i `$Home` möjliggör SSH-anslutningar till virtuella Azure Linux-datorer direkt från molnet Shell. Nycklar förvaras i acc_<user>.img i din filresurs använder bästa metoder när du använder eller dela åtkomst till filresursen eller nycklar.
 
 ### <a name="home-persistence-across-sessions"></a>$Home beständiga mellan sessioner
 
@@ -47,6 +47,10 @@ Dessutom i Bash i molnet Shell din `$Home` directory sparas som en .img i Azure-
 Filer utanför `$Home` och datorns tillstånd är inte beständiga mellan sessioner.
 
 [Läs mer om spara filer i Bash i molnet Shell.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Djupgående integrering med öppen källkod verktygsuppsättning
+
+Bash i molnet Shell innehåller förkonfigurerade autentisering för öppen källkod verktyg som Terraform och Ansible. Prova från exempel genomgång.
 
 ## <a name="tools"></a>Verktyg
 

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exempel på anpassade källan anslutningar (Python) 
 Innan du läser den här bilagan läsa [Python utökningsbarhet översikt](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ Du bör nu kunna importera data.world bibliotek.
 
 #### <a name="load-data-into-data-preparation"></a>Läs in data till förberedelse av data
 
-Skapa ett nytt skript-baserad dataflöde. Använd sedan följande skript för att läsa in data från data.world.
+Skapa en transformering transformera dataflöde (skript). Använd sedan följande skript för att läsa in data från data.world.
 
 ```python
 #paths = df['Path'].tolist()

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera filter för routning för Microsoft-peering: Azure-portalen
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Se en lista över BGP community-värden som du vill använda i filtret vägen. E
 En vägfilter kan ha endast en regel och regeln måste vara av typen ”Tillåt'. Den här regeln kan ha en lista över BGP community-värden som är kopplade till den.
 
 ### <a name="1-create-a-route-filter"></a>1. Skapa ett vägfilter
-Du kan skapa en vägfilter genom att välja alternativet för att skapa en ny resurs. Klicka på **ny** > **nätverk** > **RouteFilter**, enligt följande bild:
+Du kan skapa en vägfilter genom att välja alternativet för att skapa en ny resurs. Klicka på **skapar du en resurs** > **nätverk** > **RouteFilter**, enligt följande bild:
 
 ![Skapa ett vägfilter](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

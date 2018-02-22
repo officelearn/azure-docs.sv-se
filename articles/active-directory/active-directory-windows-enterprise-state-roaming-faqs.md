@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 Det här avsnittet besvarar några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
@@ -80,7 +80,7 @@ När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, m�
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Vad är alternativen centrala inställningar för befintliga Windows-datorprogram?
 Centrala fungerar bara för universella Windows-appar. Det finns två alternativ för att aktivera roaming på ett befintligt stationära Windows-program:
 
-* Den [Desktop Bridge](http://aka.ms/desktopbridge) hjälper dig att konfigurera dina befintliga Windows-program för universella Windows-plattformen. Från den här ska minimala kodändringar krävas för att dra nytta av Azure AD-appdata. Desktop-nätverksbrygga är dina appar med en app identitet, vilket krävs för att aktivera AppData för befintliga skrivbordsprogram.
+* Den [Desktop Bridge](https://aka.ms/desktopbridge) hjälper dig att konfigurera dina befintliga Windows-program för universella Windows-plattformen. Från den här ska minimala kodändringar krävas för att dra nytta av Azure AD-appdata. Desktop-nätverksbrygga är dina appar med en app identitet, vilket krävs för att aktivera AppData för befintliga skrivbordsprogram.
 * [Användarens upplevelse virtualisering (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) kan du skapa en mall för anpassade inställningar för befintliga Windows-program och aktivera växling för Win32-appar. Det här alternativet kräver inte apputvecklaren att ändra koden i appen. UE-V är begränsad till lokala Active Directory roaming för kunder som har köpt Microsoft Desktop Optimization Pack.
 
 Administratörer kan konfigurera UE-V för att flyttas Windows desktop AppData genom att ändra centrala inställningar för Windows-Operativsystemet och universell AppData via [grupprinciper för UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), inklusive:

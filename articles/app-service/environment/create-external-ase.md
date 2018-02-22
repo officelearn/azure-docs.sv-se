@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern Apptjänst-miljö #
 
@@ -59,7 +59,7 @@ Programtjänstplanen är en behållare för appar. När du skapar en app i App S
 
 Skapa en ASE när du skapar en apptjänstplan:
 
-1. I den [Azure-portalen](https://portal.azure.com/)väljer **ny** > **webb + mobilt** > **Web App**.
+1. I den [Azure-portalen](https://portal.azure.com/)väljer **skapar du en resurs** > **webb + mobilt** > **Web App**.
 
     ![Skapa en webbapp][1]
 
@@ -97,7 +97,7 @@ Skapa en ASE när du skapar en apptjänstplan:
 
 Om du skapar en ASE fristående har ingenting i den. En tom ASE ådrar fortfarande månadskostnaden för infrastrukturen. Följ dessa steg för att skapa en ASE med en ILB eller skapa en ASE i sin egen resursgruppen. När du har skapat din ASE kan du skapa appar i den med normala processer. Välj din nya ASE som platsen.
 
-1. Sök på Azure Marketplace för **Apptjänstmiljö**, eller välj **ny** > **Web Mobile** > **Apptjänstmiljö**. 
+1. Sök på Azure Marketplace för **Apptjänstmiljö**, eller välj **skapar du en resurs** > **Web Mobile** > **App Tjänsten miljö**. 
 
 2. Ange namnet på din ASE. Det här namnet används för appar som har skapats i ASE. Om namnet är *mynewdemoase*, underdomännamnet är *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemena versionen av namnet. Om du använder en ILB ASE-namnet används inte i din underdomänen men i stället anges uttryckligen när ASE skapades.
 

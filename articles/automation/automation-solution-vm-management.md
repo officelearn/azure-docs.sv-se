@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning (förhandsgranskning) i Azure Automation
 
@@ -75,7 +75,7 @@ Alla överordnade runbooks innehåller den *WhatIf* parameter. Om värdet är **
 |AutoStop_Disable | ingen | Inaktiverar AutoStop aviseringar och standardschemat.| 
 |AutoStop_StopVM_Child | WebHookData | Anropa bara från den överordnade runbooken. Varningsregler anropa denna runbook för att stoppa den virtuella datorn.|  
 |Bootstrap_Main | ingen | Används en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI, som normalt inte nås från Azure Resource Manager. Denna runbook tas bort automatiskt vid distributionen.|  
-|ScheduledStartStop_Child | VMName <br> Åtgärd: Stoppa och starta <br> resourceGroupName | Anropa bara från den överordnade runbooken. Kör för att stoppa schemalagda ska startas eller stoppas.|  
+|ScheduledStartStop_Child | VMName <br> Åtgärd: Stoppa och starta <br> ResourceGroupName | Anropa bara från den överordnade runbooken. Kör för att stoppa schemalagda ska startas eller stoppas.|  
 |ScheduledStartStop_Parent | Åtgärd: Stoppa och starta <br> WhatIf: True eller False | Detta påverkar alla virtuella datorer i prenumerationen. Redigera den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** ska köras endast på dessa mål resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln. *WhatIf* fungerar på samma sätt som andra runbooks.|  
 |SequencedStartStop_Parent | Åtgärd: Stoppa och starta <br> WhatIf: True eller False | Skapa taggar med namnet **SequenceStart** och **SequenceStop** på varje virtuell dator som du vill starta/stoppa sekvensaktivitet. Värdet för taggen ska vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. *WhatIf* fungerar på samma sätt som andra runbooks. <br> **Obs**: virtuella datorer måste vara inom resursgrupper som har definierats som External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler. De måste ha lämpliga taggar för åtgärder ska börja gälla.|
 
@@ -83,7 +83,7 @@ Alla överordnade runbooks innehåller den *WhatIf* parameter. Om värdet är **
 
 I följande tabell visas de variabler som skapats i ditt Automation-konto.  Du bör bara ändra variabler med prefixet **externa**. Ändra variabler med prefixet **internt** orsakar oönskade effekter.  
 
-|**Variabeln** | **Beskrivning**|
+|**variabeln** | **Beskrivning**|
 ---------|------------|
 |External_AutoStop_Condition | Villkorsstyrd operatör som behövs för att konfigurera villkoret innan en avisering. Giltiga värden är **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, och **LessThanOrEqual**.|  
 |External_AutoStop_Description | Aviseringen för att stoppa den virtuella datorn om CPU-procent överstiger tröskelvärdet.|  
@@ -115,13 +115,13 @@ I följande tabell visas varje standardscheman som skapats i ditt Automation-kon
 
 Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemaläggningsåtgärder. Det är bäst att avgöra vilka optimeringar som du vill utföra och ändra därefter.  Visa exempelscenarier i översiktsavsnittet ytterligare förklaring.   
 
-|**Namn på schema** | **Frekvens** | **Beskrivning**|
+|**namn på schema** | **Frekvens** | **Beskrivning**|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var åttonde timme | Kör AutoStop_CreateAlert_Parent runbook var åttonde timme, vilket i sin tur avbryter VM-baserad värdena i External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler.  Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av parametern VMList.|  
 |Scheduled_StopVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av *stoppa* varje dag vid den angivna tiden.  Stoppar automatiskt alla virtuella datorer som uppfyller de regler som definierats av tillgångsinformation variabler. Du bör aktivera relaterade schemat **schemalagda StartVM**.|  
 |Scheduled_StartVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av *starta* varje dag vid den angivna tiden.  Startar automatiskt alla virtuella datorer som uppfyller de regler som definierats av lämplig variabler.  Du bör aktivera relaterade schemat **schemalagda StopVM**.|
-|Sekvenserade StopVM | 1:00:00 (UTC) varje fredag | Kör Sequenced_Parent runbook med en parameter av *stoppa* varje fredag vid den angivna tidpunkten.  Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg av **SequenceStop** definieras av lämplig variabler.  Se avsnittet Runbooks för mer information om värden och variabler för tillgången.  Du bör aktivera relaterade schemat **Sequenced StartVM**.|
-|Sekvenserade StartVM | 1:00 PM (UTC) varje måndag | Kör Sequenced_Parent runbook med en parameter av *starta* varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) börjar alla virtuella datorer med en tagg av **SequenceStart** definieras av lämplig variabler.  Se avsnittet Runbooks för mer information om värden och variabler för tillgången.  Du bör aktivera relaterade schemat **Sequenced StopVM**.|
+|Sequenced-StopVM | 1:00:00 (UTC) varje fredag | Kör Sequenced_Parent runbook med en parameter av *stoppa* varje fredag vid den angivna tidpunkten.  Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg av **SequenceStop** definieras av lämplig variabler.  Se avsnittet Runbooks för mer information om värden och variabler för tillgången.  Du bör aktivera relaterade schemat **Sequenced StartVM**.|
+|Sequenced-StartVM | 1:00 PM (UTC) varje måndag | Kör Sequenced_Parent runbook med en parameter av *starta* varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) börjar alla virtuella datorer med en tagg av **SequenceStart** definieras av lämplig variabler.  Se avsnittet Runbooks för mer information om värden och variabler för tillgången.  Du bör aktivera relaterade schemat **Sequenced StopVM**.|
 
 <br>
 
@@ -129,7 +129,7 @@ Du bör inte aktivera alla scheman eftersom kan det skapa överlappande Schemal�
 
 Utför följande steg för att lägga till de virtuella datorerna Starta/Stoppa vid låg belastning på nätverket lösningen till ditt Automation-konto och sedan konfigurera variabler för att anpassa lösningen.
 
-1. Klicka på **Nytt** i Azure Portal.<br> ![Azure-portalen](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. I Azure-portalen klickar du på **skapar du en resurs**.<br> ![Azure-portalen](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. I fönstret Marketplace Skriv ett nyckelord som **starta** eller **Starta/Stoppa**. När du börjar skriva filtreras listan baserat på det du skriver. Alternativt kan du skriver i en eller flera nyckelord från det fullständiga namnet på lösningen och tryck sedan på RETUR.  Välj **Starta/Stoppa VMs kontorstid [förhandsgranskning]** i sökresultatet.  
 3. I den **Starta/Stoppa VMs kontorstid [förhandsgranskning]** för den valda lösningen Granska sammanfattningen och klickar sedan på **skapa**.  
 4. Den **Lägg till lösning** visas. Du uppmanas att konfigurera lösningen innan du kan importera till Automation-prenumeration.<br><br> ![Bladet VM-hantering, lägga till lösning](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>
@@ -296,8 +296,8 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 Fråga | Beskrivning|
 ----------|----------|
-Hitta jobb för runbook ScheduledStartStop_Parent har slutförts | söka efter kategori == ”JobLogs” &#124; där (RunbookName_s == ”ScheduledStartStop_Parent”) &#124; där (ResultType == ”slutfört”) &#124; Sammanfatta AggregatedValue = count() av ResultType, bin (TimeGenerated, 1h) &#124; Sortera efter TimeGenerated desc|
-Hitta jobb för runbook SequencedStartStop_Parent har slutförts | söka efter kategori == ”JobLogs” &#124; där (RunbookName_s == ”SequencedStartStop_Parent”) &#124; där (ResultType == ”slutfört”) &#124; Sammanfatta AggregatedValue = count() av ResultType, bin (TimeGenerated, 1h) &#124; Sortera efter TimeGenerated desc
+Hitta jobb för runbook ScheduledStartStop_Parent har slutförts | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
+Hitta jobb för runbook SequencedStartStop_Parent har slutförts | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## <a name="removing-the-solution"></a>Tar bort lösningen
 

@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -73,11 +73,11 @@ En princip för livslängd för token är en typ av grupprincipobjekt som inneh�
 | Egenskap | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
-| Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |14 dagar |10 minuter |90 dagar |
-| Enskild faktor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
-| Multi-Factor uppdatera Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
-| Enskild faktor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
-| Multi-Factor Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Tills återkallats |10 minuter |Tills återkallas<sup>1</sup> |
+| Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
+| Enskild faktor uppdatera Token maximal ålder |MaxAgeSingleFactor |Uppdatera token (för alla användare) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
+| Multi-Factor uppdatera Token maximal ålder |MaxAgeMultiFactor |Uppdatera token (för alla användare) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
+| Enskild faktor Session Token maximal ålder |MaxAgeSessionSingleFactor<sup>2</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
+| Multi-Factor Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Sessionen token (beständiga och Uppdateringsvärdet) |Until-revoked |10 minuter |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är maxlängden explicit som kan anges för dessa attribut.
 * <sup>2</sup>om **MaxAgeSessionSingleFactor** är inte ange det här värdet tar den **MaxAgeSingleFactor** värde. Om varken parametern anges tar egenskapen standardvärdet (förrän har återkallats).
@@ -88,7 +88,7 @@ En princip för livslängd för token är en typ av grupprincipobjekt som inneh�
 | --- | --- | --- |
 | Uppdatera Token Max Age (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |Uppdatera token (utfärdas för federerade användare har inte tillräckligt återkallningsinformation<sup>1</sup>) |12 timmar |
 | Uppdatera Token inaktiva Maxtid (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |90 dagar |
-| Uppdatera Token Max Age (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |Tills återkallats |
+| Uppdatera Token Max Age (utfärdats för konfidentiell klienter) |Uppdatera token (utfärdats för konfidentiell klienter) |Until-revoked |
 
 * <sup>1</sup>externa användare har inte tillräckligt återkallningsinformation innehåller alla användare som inte har attributet ”LastPasswordChangeTimestamp” synkroniseras. Dessa användare får den här korta Max Age eftersom AAD inte går att kontrollera när återkalla token som är knutna till gamla autentiseringsuppgifter (till exempel ett lösenord som har ändrats) och måste checka in mer ofta så att användare och associerade token är fortfarande i god position. För att förbättra upplevelsen innehavaradministratörer se till att de synkroniserar attributet ”LastPasswordChangeTimestamp” (Detta kan ställas in på användarobjekt med hjälp av Powershell eller via AADSync).
 
@@ -194,7 +194,7 @@ I exemplen, kan du lära dig hur du:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en princip för Avancerat
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel du skapa, uppdatera, länkar och ta bort principer för appar, tjänstens huvudnamn och din organisation. Om du har använt Azure AD, rekommenderar vi att du lär dig mer om [hur du hämtar en Azure AD-klient](active-directory-howto-tenant.md) innan du fortsätter med de här exemplen.  
 
 Utför följande steg för att komma igång:
@@ -355,7 +355,7 @@ I det här exemplet skapar du några principer för att lära dig hur systemets 
 
 Du kan använda följande cmdletar för att hantera principer.
 
-#### <a name="new-azureadpolicy"></a>Ny AzureADPolicy
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Skapar en ny princip.
 
@@ -369,7 +369,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Principnamnet textsträng. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Om värdet är true anger du principen som organisationens standardprincipen. Om värdet är FALSKT får ingen effekt. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typen av princip. Token livslängd alltid använda ”TokenLifetimePolicy”. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [Valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,7 +382,7 @@ Get-AzureADPolicy
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Valfritt] |**Objekt-ID (Id)** på den princip som du vill använda. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Valfritt] |**Objekt-ID (Id)** på den princip som du vill använda. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -399,7 +399,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 </br></br>
 
-#### <a name="set-azureadpolicy"></a>Ange AzureADPolicy
+#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Uppdaterar en befintlig princip.
 
 ```PowerShell
@@ -410,14 +410,14 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Objekt-ID (Id)** på den princip som du vill använda. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Principnamnet textsträng. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[Valfritt] |Matris med stringified JSON som innehåller alla principregler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[Valfritt] |Om värdet är true anger du principen som organisationens standardprincipen. Om värdet är FALSKT får ingen effekt. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[Valfritt] |Typen av princip. Token livslängd alltid använda ”TokenLifetimePolicy”. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[Valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [Valfritt] |Matris med stringified JSON som innehåller alla principregler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [Valfritt] |Om värdet är true anger du principen som organisationens standardprincipen. Om värdet är FALSKT får ingen effekt. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [Valfritt] |Typen av princip. Token livslängd alltid använda ”TokenLifetimePolicy”. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [Valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
-#### <a name="remove-azureadpolicy"></a>Ta bort AzureADPolicy
+#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Tar bort den angivna principen.
 
 ```PowerShell
@@ -433,7 +433,7 @@ Tar bort den angivna principen.
 ### <a name="application-policies"></a>Användningsprinciper
 Du kan använda följande cmdletar för principer för program.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Lägg till AzureADApplicationPolicy
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Länkar den angivna principen till ett program.
 
 ```PowerShell
@@ -460,7 +460,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 </br></br>
 
-#### <a name="remove-azureadapplicationpolicy"></a>Ta bort AzureADApplicationPolicy
+#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Tar bort en princip från ett program.
 
 ```PowerShell
@@ -477,7 +477,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 ### <a name="service-principal-policies"></a>Huvudprinciper för tjänst
 Du kan använda följande cmdletar för tjänstens huvudnamn principer.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Lägg till AzureADServicePrincipalPolicy
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Länkar den angivna principen till ett huvudnamn för tjänsten.
 
 ```PowerShell
@@ -504,7 +504,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 </br></br>
 
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Ta bort AzureADServicePrincipalPolicy
+#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Tar bort principen från den angivna tjänsten huvudnamn.
 
 ```PowerShell

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery stöd matrix för replikering från lokal till Azure
 
@@ -72,17 +72,17 @@ I följande tabell sammanfattas replikerade operativsystem i olika distributions
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server stöds inte.
+> \* Windows Server 2016 Nano Server stöds inte.
 >
 > På Linux-distributioner stöds bara lager kernlar som är en del av delversion versionen/uppdatering av distributionen.
 >
 > Uppgraderingar i större versioner av Linux-distribution på en Azure Site Recovery skyddad virtuell VMware-dator eller fysisk server stöds inte. Inaktivera replikering för datorn vid uppgradering av operativsystemet över viktiga versioner (till exempel CentOS 6.* till CentOS 7.*), uppgradera operativsystemet på datorn och sedan aktivera replikering igen.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu kernel-versioner som stöds för VMware/fysiska servrar
 
-**Versionen** | **Mobilitetstjänstversionen** | **Kernel-version** |
+**Versionen** | **Mobilitetstjänstversionen** | Kernel-version |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-128-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-91-generic |
@@ -134,7 +134,7 @@ Flera nätverkskort | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Det gick inte över Azure VM nätverkskonfigurationen
 
-**Azure-nätverk** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
+Azure-nätverk | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
 Express Route | Ja | Ja
 ILB | Ja | Ja
@@ -166,7 +166,7 @@ Multipath (MPIO)<br></br>Testats med: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC 
 VMDK | Ja | Gäller inte
 VHD/VHDX | Gäller inte | Ja
 Generation 2 VM | Gäller inte | Ja
-EFI/UEFI| Migrering till Azure för Windows Server 2012 och senare. </br></br> ** Se anmärkning i slutet av tabellen.  | Ja
+EFI/UEFI| Migrering till Azure för Windows Server 2012 och senare VMware endast virtuella datorer. </br></br> ** Se anmärkning i slutet av tabellen.  | Ja
 Delad klusterdisk | Nej | Nej
 Krypterade disk | Nej | Nej
 NFS | Nej | Gäller inte
@@ -182,10 +182,11 @@ Uteslut disk | Ja | Ja
 Multipath (MPIO) | Gäller inte | Ja
 
 > [!NOTE]
-> ** UEFI Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
+> ** UEFI Start VMware-datorer som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
 > - Endast migrering till Azure. Återställning till det lokala VMware-platsen stöds inte.
 > - Mer än 4-partitioner stöds på OS-disken på servern.
 > - Kräver Azure Site Recovery mobilitetstjänstversionen 9.13 eller senare.
+> - Stöds inte för fysiska servrar.
 
 **Azure Storage** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
@@ -214,9 +215,9 @@ Hanterade diskar | Ja | Ja<br/><br/>Återställning till det lokala från Azure 
 
 Du kan distribuera Site Recovery för att replikera virtuella datorer och fysiska servrar som kör ett operativsystem som stöds av Azure. Detta omfattar de flesta versioner av Windows och Linux. Lokala virtuella datorer som du vill replikera måste överensstämma med följande krav för Azure vid replikering till Azure.
 
-**Entitet** | **Krav** | **Detaljer**
+**Entitet** | Krav | **Detaljer**
 --- | --- | ---
-**Gästoperativsystemet** | Hyper-V till Azure-replikering: Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> För VMware och fysiska servrar replikering: Kontrollera Windows- och Linux [krav](site-recovery-vmware-to-azure-classic.md) | Kravkontrollen misslyckas om stöds inte.
+Gästoperativsystemet | Hyper-V till Azure-replikering: Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> För VMware och fysiska servrar replikering: Kontrollera Windows- och Linux [krav](site-recovery-vmware-to-azure-classic.md) | Kravkontrollen misslyckas om stöds inte.
 **Gästen operativsystemets arkitektur** | 64-bitars | Kravkontrollen misslyckas om stöds inte
 **Operativsystemdisken** | Upp till 2 048 GB om du replikerar **virtuella VMware-datorer eller fysiska servrar till Azure**.<br/><br/>Upp till 2048 GB för **Hyper-V Generation 1** virtuella datorer.<br/><br/>Upp till 300 GB för **Hyper-V Generation 2 virtuella datorer**.  | Kravkontrollen misslyckas om stöds inte
 **Operativsystemet disk antal** | 1 | Kravkontrollen misslyckas om stöds inte.
@@ -240,7 +241,7 @@ Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/
 
 ## <a name="support-for-provider-and-agent"></a>Stöd för providern och agenten
 
-**Namn** | **Beskrivning** | **Senaste versionen** | **Detaljer**
+**Namn** | **Beskrivning** | **senaste versionen** | **Detaljer**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Provider** | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Installerad på lokala Virtual Machine Manager-servrar eller på Hyper-V-servrar om det finns ingen Virtual Machine Manager-server | 5.1.2700.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 **Azure Site Recovery Unified installationsprogram (VMware till Azure)** | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på lokal VMware-servrar | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)

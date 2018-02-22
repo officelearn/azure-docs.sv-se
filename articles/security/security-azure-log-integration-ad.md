@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 08/08/2017
+ms.date: 02/16/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrera Azure Active Directory-granskningsloggar
 
 Granskningshändelser för Azure Active Directory (AD Azure) hjälper dig att identifiera Privilegierade åtgärder som har inträffat i Azure Active Directory. Du kan se vilka typer av händelser som du kan följa genom att granska [Azure Active Directory-granskningsrapporthändelser](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+
 > [!NOTE]
 > Innan du försöker stegen i den här artikeln, bör du granska den [Kom igång](security-azure-log-integration-get-started.md) artikel och slutför stegen.
 
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active directory-granskningsloggar
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Stegen för att integrera Azure Active Directory-granskningsloggar
 
 1. Öppna Kommandotolken och kör det här kommandot:
 
@@ -70,7 +71,5 @@ Mer information om Azure Log-integrering finns:
 
 * [Microsoft Azure Log-integrering för Azure loggar](https://www.microsoft.com/download/details.aspx?id=53324): den här Download Center sidan ger information, systemkrav och Installationsinstruktioner för Azure Log-integrering.
 * [Introduktion till Azure Log-integrering](security-azure-log-integration-overview.md): den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.
-* [Samarbeta konfigurationssteg](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): det här blogginlägget visar hur du konfigurerar Azure Log-integrering ska fungera med partnerlösningar Splunk, HP ArcSight och IBM QRadar.
 * [Azure Log Integration FAQ](security-azure-log-integration-faq.md): den här artikeln innehåller svar på frågor om Azure Log-integrering.
-* [Integrera Security Center-aviseringar med Azure Log-integrering](../security-center/security-center-integrating-alerts-with-log-integration.md): den här artikeln visar hur du synkroniserar varningsmeddelanden, tillsammans med virtuella säkerhetshändelser samlas in av Azure-diagnostik och Azure granska loggarna med logganalys eller SIEM-lösning.
 * [Nya funktioner för Azure-diagnostik och Azure-granskningsloggar](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): det här blogginlägget ger en introduktion till Azure-granskningsloggarna och andra funktioner som hjälper dig insyn i hur Azure-resurser.

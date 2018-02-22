@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -58,7 +58,7 @@ Om du inte ser några optimering rekommendation data, troligen har du konton som
 
 Aktivera ett konto:
 
-1.  I Cloudyn-portalen klickar du på **inställningar** i övre högra och välj **moln konton**.
+1.  Klicka på **Settings** (Inställningar) uppe till höger i Cloudyn-portalen och välj **Cloud Accounts** (Molnkonton).
 2.  Gå till Microsoft Azure-konton och leta efter konton som har en **inaktiverade** prenumeration.
 3.  Klicka till höger för ett konto som är inaktiverade i **redigera** symbol som liknar en penna.
 4.  Din klient-ID och hastighet identifieras automatiskt. Klicka på **Nästa**.
@@ -116,9 +116,9 @@ Om du vill lägga till ytterligare CSP-konton till en entitet, Välj **MSP åtko
 
 Du kan ha flera Azure-konton som använder olika valutor. Kostnadsrapporter i Cloudyn visa men inte mer än en valuta per rapport.
 
-Om du har flera prenumerationer med hjälp av olika valutor en överordnad enhet och dess underordnade entiteten valutor visas med den  **$**  symbolen. Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitet hierarki. Med andra ord alla dina prenumerationer som är ordnade i en entitet som ska använda samma valuta.
+Om du har flera prenumerationer med hjälp av olika valutor en överordnad enhet och dess underordnade entiteten valutor visas i USD  **$** . Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitet hierarki. Med andra ord alla dina prenumerationer som är ordnade i en entitet som ska använda samma valuta.
 
-Cloudyn identifierar din Enterprise-avtal prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn visas endast de  **$**  symbol för CSP och Azure web direct-konton.
+Cloudyn identifierar din Enterprise-avtal prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn bara visar USD  **$**  för CSP och Azure web direct-konton.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Vad är Cloudyn data Uppdatera tidslinjer?
 

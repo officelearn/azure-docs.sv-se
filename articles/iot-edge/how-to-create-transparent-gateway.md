@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Skapa en insticksenhet för IoT som fungerar som en transparent gateway - förhandsgranskning
 
@@ -63,7 +63,7 @@ Du kan använda exempel Powershell och Bash-skript som beskrivs i [hantera CA-ce
 
 1. Klona Microsoft Azure IoT-SDK: er och bibliotek för C från GitHub:
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ Du kan använda exempel Powershell och Bash-skript som beskrivs i [hantera CA-ce
 
 Skapa det nya enhetscertifikatet:
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Nya filer skapas:.\certs\new-edge-device.* innehåller den offentliga nyckeln oc
  
 I den `certs` directory, kör följande kommando för att få fullständig kedja av den offentliga nyckeln för enhet:
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>PowerShell
 
 Skapa det nya enhetscertifikatet: 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ Ger information för enheten och certifikat till IoT kant-körningsmiljön.
  
 I Linux, använder du Bash utdata:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ I Linux, använder du Bash utdata:
 
 I Windows, använder du PowerShell-utdata:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ I Windows, använder du PowerShell-utdata:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-Som standard ange skriptexemplen inte en lösenfras till den privata nyckeln för enheten. Om du anger en lösenfras, lägger du till följande parameter:
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+Som standard ange skriptexemplen inte en lösenfras till den privata nyckeln för enheten. Om du ställer in en lösenfras, lägger du till följande parameter: `--device-ca-passphrase {passphrase}`.
 
 Skriptet uppmanas du att ange en lösenfras för Edge agentcertifikatet. Starta om IoT kant runtime efter det här kommandot:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ Först en underordnad enhetsprogram ha förtroende den **IoT-hubb ägare CA** ce
 
 Till exempel .NET-program kan du lägga till följande fragment för att lita på ett certifikat i PEM-format som lagras i sökvägen `certPath`. Beroende på vilken version av skriptet som du använde sökvägen refererar till antingen `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) eller `RootCA.pem` (Powershell).
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

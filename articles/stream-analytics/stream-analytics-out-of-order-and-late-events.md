@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics händelse ordning överväganden
 
@@ -70,6 +70,9 @@ Händelser som anländer utanför ordning, men i fönstret set out ordning toler
 * **Bort**: ignoreras.
 
 När Stream Analytics sorterar om händelser som tas emot i fönstret out ordning tolerans, fördröjd utdata från frågan av fönstret tolerans för out-ordning.
+
+### <a name="early-events"></a>Tidig händelser
+Vid bearbetning av programmet tid händelser vars program är mer än 5 minuter före ankomsttid antingen bort eller justeras enligt konfigurationsalternativet som valts.
 
 ### <a name="example"></a>Exempel
 

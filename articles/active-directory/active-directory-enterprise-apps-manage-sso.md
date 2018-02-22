@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Hantera enkel inloggning för företagsappar i
 
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera enkel inloggning-inställningar för företagsprogram. Enterprise-appar är appar som har distribuerats och används i din organisation. Den här artikeln gäller särskilt för appar som har lagts till från den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
-Alla program som har ställts in för enkel inloggning kan visas och hanteras i Azure-portalen. Programmen kan hittas i den **fler tjänster** &gt; **företagsprogram** avsnitt i portalen. 
+Alla program som har ställts in för enkel inloggning kan visas och hanteras i Azure-portalen. Programmen kan hittas i den **alla tjänster** &gt; **företagsprogram** avsnitt i portalen. 
 
 ![Företagsprogram bladet][1]
 

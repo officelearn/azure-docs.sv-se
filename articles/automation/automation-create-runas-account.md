@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uppdatera autentiseringen av ditt Automation-konto med Kör som-konton 
 Du kan uppdatera ditt befintliga Automation-konto från Azure Portal eller med PowerShell om:
@@ -49,7 +49,7 @@ Om du väljer att [use PowerShell to create the Run As accounts](#create-run-as-
 
 Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skriptet, genom att göra följande:
 
-1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
+1. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
 2. På sidan Automation-konto väljer du ditt Automation-konto och sedan under **Kontoinställningar** väljer du **Egenskaper**.  
 3. Notera värdena på sidan **Egenskaper**.<br><br> ![Bladet Egenskaper för Automation-kontot](media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -65,7 +65,7 @@ Om du inte är medlem i prenumerationens Active Directory-instans innan du lägg
 I det här avsnittet utför du följande steg för att uppdatera ditt Azure Automation-konto i Azure Portal.  Du skapar kör som-konton och klassiska kör som-konton var för sig. Om du inte behöver hantera klassiska resurser kan du bara skapa Azure Kör som-kontot.  
 
 1. Logga in på Azure Portal med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
+2. I Azure-portalen klickar du på **alla tjänster**. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Automation-konton**.
 3. På sidan **Automation-konton** väljer du ditt Automation-konto i listan med Automation-konton.
 4. I vänster fönster väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.  
 5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**.  När du har gjort ditt val visas antingen fönstret **Lägg till Azures Kör som-konto** eller **Lägg till Azures klassiska Kör som-konto**. Efter att du läst översiktsinformationen klickar du på **Skapa** för att fortsätta att skapa Kör som-kontot.  

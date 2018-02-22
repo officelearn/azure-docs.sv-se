@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för molntjänster
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för Molntjänsten rollinstanser (webb- och arbetsroller). Det ger också överväganden vid distribution för att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priser för varje storlek är tillgängliga på den [Cloud Services priser](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.
@@ -60,9 +60,9 @@ Vi har skapat konceptet för den Azure Compute-enhet (ACU) att ge ett sätt för
 | --- | --- |
 | [ExtraSmall](#a-series) |50 |
 | [Liten Extrastora](#a-series) |100 |
-| [A5 7](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [En v2](#av2-series) |100 |
+| [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
@@ -97,8 +97,8 @@ Mer information och överväganden om hur du använder dessa storlekar finns [h�
 
 | Storlek            | Processorkärnor | Minne: GiB  | Lokal hårddisk: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8 *             |8          | 56           | 1817                 | 2 / hög |
-| A9 *             |16         | 112          | 1817                 | 4 / mycket hög |
+| A8*             |8          | 56           | 1817                 | 2 / hög |
+| A9*             |16         | 112          | 1817                 | 4 / mycket hög |
 | A10             |8          | 56           | 1817                 | 2 / hög |
 | A11             |16         | 112          | 1817                 | 4 / mycket hög |
 
@@ -147,23 +147,23 @@ Mer information och överväganden om hur du använder dessa storlekar finns [h�
 
 | Storlek            | Processorkärnor | Minne: GiB   | Lokal SSD: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2 / måttlig |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2 / hög |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4 / hög |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremt hög |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremt hög |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremt hög |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2 / måttlig |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2 / hög |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4 / hög |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremt hög |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremt hög |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremt hög |
 
 ## <a name="ev3-series"></a>Ev3-serien
 
 | Storlek            | Processorkärnor | Minne: GiB   | Lokal SSD: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2 / måttlig |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2 / hög |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4 / hög |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremt hög |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremt hög |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremt hög |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2 / måttlig |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2 / hög |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4 / hög |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremt hög |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremt hög |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremt hög |
 
 
 ## <a name="g-series"></a>G-serien

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Tillägg app
 
@@ -31,7 +31,7 @@ När en Azure AD B2C-katalog har skapats kan en app kallas `b2c-extensions-app. 
 
 Kontrollera att b2c-tillägg-appen är tillgänglig:
 
-1. Klicka på på i din Azure AD B2C-klient **fler tjänster** i den vänstra navigeringsmenyn.
+1. Klicka på på i din Azure AD B2C-klient **alla tjänster** i den vänstra navigeringsmenyn.
 1. Söka efter och öppna **App registreringar**.
 1. Leta efter en app som börjar med **b2c-tillägg-app**
 

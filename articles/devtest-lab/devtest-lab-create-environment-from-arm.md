@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa flera Virtuella miljöer och PaaS-resurser med Azure Resource Manager-mallar
 
@@ -65,7 +65,7 @@ Det finns några regler för att ordna dina Azure Resource Manager-mallar i en d
 Följande steg leder dig genom att lägga till en databas i ditt labb använder Azure portal. 
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 1. Lista över labs, Välj önskade labbet.   
 1. På testmiljön **översikt** väljer **konfiguration och principer**.
 
@@ -81,7 +81,7 @@ Följande steg leder dig genom att lägga till en databas i ditt labb använder 
     - **URL för Git-klon** -ange klon-URL: en för GIT HTTPS från GitHub eller Visual Studio Team Services.  
     - **Branch** – ange namnet gren att få åtkomst till Azure Resource Manager mallen definitionerna. 
     - **Personlig åtkomsttoken** -personlig åtkomst-token används säker åtkomst till databasen. För att få din token från Visual Studio Team Services, Välj  **&lt;dittnamn >> min profil > Säkerhet > offentlig åtkomst-token**. För att få din token från GitHub, Välj din avatar följt genom att välja **Inställningar > offentlig åtkomst-token**. 
-    - **Mappsökvägar** -med någon av de två inmatningsfält, ange sökvägen till mappen som börjar med ett snedstreck - / - och är i förhållande till din Git-klonen URI antingen dina artefaktdefinitioner (första inmatningsfältet) eller Azure Resource Manager mallen definitionerna.   
+    - **Mappsökvägar** -med någon av de två inmatningsfält, ange sökvägen till mappen som börjar med ett snedstreck - / - och är i förhållande till din Git-klonen URI antingen dina artefaktdefinitioner (första inmatningsfältet) eller Azure Resource Manager mallen definitionerna .   
     
         ![Offentliga lagringsplatsen](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
@@ -95,7 +95,7 @@ I nästa avsnitt får du hjälp med att skapa miljöer från en Azure Resource M
 När en mall för Azure Resource Manager-databasen har konfigurerats i labbet, kan lab-användare skapa en miljö med hjälp av Azure-portalen med följande steg:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 1. Lista över labs, Välj önskade labbet.   
 1. I den testmiljön rutan, Välj **Lägg till +**.
 1. Den **väljer du en bas** fönstret grundläggande avbildningar som du kan använda med Azure Resource Manager-mallar som visas först. Välj den önskade Azure Resource Manager-mallen.
@@ -112,7 +112,7 @@ När en mall för Azure Resource Manager-databasen har konfigurerats i labbet, k
     > - GEN UNIKT
     > - GEN - UNIKT-[N]
     > - GEN SSH-PUB-NYCKEL
-    > - GEN-LÖSENORD 
+    > - GEN-PASSWORD 
  
 1. Välj **Lägg till** att skapa miljön. Miljön startar etablering direkt med status visas i den **Mina virtuella datorer** lista. Labbet för att etablera alla resurser som definierats i mallen för Azure Resource Manager skapas automatiskt en ny resursgrupp.
 1. När miljön har skapats, Välj miljön i den **Mina virtuella datorer** listan för att öppna fönstret resurs grupp och bläddra alla resurser som har etablerats i miljön.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Uppgradera Service Fabric-programmet
 Ett program med Azure Service Fabric är en samling tjänster. Under en uppgradering, Service Fabric jämför de nya [programmanifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i kräver programuppdateringar. Service Fabric Jämför version siffror i tjänsten visar med versionsnummer i den tidigare versionen. Om en tjänst inte har ändrats, uppgraderas att tjänsten inte.
@@ -47,16 +47,16 @@ Det läge som vi rekommenderar för uppgradering av programmet är övervakat l�
 Oövervakade manuellt läge måste manuell åtgärd efter varje uppgradering på en update-domän, startar uppgraderingen på domänen nästa uppdatering. Ingen Service Fabric-hälsokontroller utförs. Administratören utför hälsa och status kontroller innan du startar uppgraderingen i domänen nästa uppdatering.
 
 ## <a name="upgrade-default-services"></a>Uppgradera standardtjänster
-Standardtjänster i Service Fabric-programmet kan uppgraderas under uppgraderingen av ett program. Standardtjänster definieras i den [programmanifestet](service-fabric-application-and-service-manifests.md). Standardregler för att uppgradera standardtjänster är:
+Vissa standardparametrar för tjänsten som definierats i den [programmanifestet](service-fabric-application-and-service-manifests.md) kan också uppgraderas som en del av en uppgradering av programmet. Endast tjänstparametrar som stöder ändras via [uppdatering ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) kan ändras som en del av en uppgradering. Beteende för justerbara standardtjänster under programuppdateringen är följande:
 
-1. Standard tjänster i den nya [programmanifestet](service-fabric-application-and-service-manifests.md) som inte finns i klustret har skapats.
+1. Standardtjänster i nya applikationsmanifestet som inte redan finns i klustret skapas.
+2. Standardtjänster som finns i båda tidigare och nya applikationsmanifest uppdateras. Parametrarna för standardtjänsten för nya programmanifestet över parametrarna för den befintliga tjänsten. Programmet uppgraderingen kommer återställningen automatiskt om det inte går att uppdatera en standardtjänst.
+3. Standardtjänster som inte finns i nya applikationsmanifestet tas bort om de finns i klustret. **Observera att om du tar bort en standardtjänst resulterar i att ta bort allt som tjänsten datorns tillstånd och går inte att ångra.**
+
+När en uppgradering av programmet återställs, återställs standardparametrar för tjänsten tillbaka till sina gamla värden innan uppgraderingen startas men borttagna services kan inte återskapas med det tidigare tillståndet.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) måste anges till true om du vill aktivera följande regler. Den här funktionen stöds från version 5.5.
-
-2. Standard tjänster finns i båda tidigare [programmanifestet](service-fabric-application-and-service-manifests.md) och ny version har uppdaterats. Beskrivningar av rolltjänster i den nya versionen skulle skriva över de redan i klustret. Uppgradering av programmet skulle återställning automatiskt vid uppdatering standard tjänstfel.
-3. Standard tjänster i den tidigare [programmanifestet](service-fabric-application-and-service-manifests.md) men inte i den nya versionen tas bort. **Observera att detta tar bort standardtjänster inte kan återställas.**
-
-Om ett program återställs uppgraderingen, standard services återställs till statusen innan uppgraderingen startas. Men aldrig borttagna tjänster kan skapas.
+> Den [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) Konfigurationsinställningen för klustret måste vara *SANT* att aktivera regler 2) och 3) ovan (standard service uppdatering och borttagning). Den här funktionen stöds från och med Service Fabric version 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Uppgradera flödesschema för programmet
 Flödesschemat följande stycke kan hjälpa dig att förstå uppgraderingen av ett Service Fabric-program. I synnerhet flödet beskrivs hur timeout, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, och *UpgradeHealthCheckInterval*, hjälper dig att kontrollera när uppgraderingen i en uppdateringsdomän betraktas som en lyckats eller misslyckats.

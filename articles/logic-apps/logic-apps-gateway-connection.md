@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från logikappar med lokala datagateway
 
@@ -35,7 +35,7 @@ Gatewayen stöder anslutningar till dessa datakällor lokalt:
 *   MySQL
 *   Oracle-databas
 *   PostgreSQL
-*   SAP-programserver 
+*   SAP Application Server 
 *   SAP Message Server
 *   SharePoint
 *   SQL Server
@@ -63,21 +63,19 @@ Information om hur du använder en gateway med andra tjänster finns i följande
   > [!NOTE]
   > Windows-tjänstkontot skiljer sig från det konto som används för att ansluta till lokala data källor, och från Azure arbets- eller skolkonto som används för att logga in till molntjänster.
 
-## <a name="set-up-the-data-gateway-connection"></a>Ställ in data gateway-anslutningen
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Installera den lokala datagatewayen
+## <a name="install-the-on-premises-data-gateway"></a>Installera den lokala datagatewayen
 
 Så om du inte redan gjort det [steg för att installera den lokala datagatewayen](logic-apps-gateway-install.md). Innan du fortsätter med andra steg, se till att du har installerat datagateway på en lokal dator.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Skapa en Azure-resurs för lokala datagateway
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Skapa en Azure-resurs för lokala datagateway
 
 När du har installerat gatewayen på en lokal dator måste du skapa din datagateway som en resurs i Azure. Det här steget associerar även din gateway-resurs med din Azure-prenumeration.
 
 1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). Se till att använda samma Azure arbetet eller skolan e-postadress används för att installera gatewayen.
 
-2. Välj på Azure Huvudmeny, **ny** > **Enterprise Integration** > **lokala datagateway** som visas här:
+2. Välj på Azure Huvudmeny, **skapar du en resurs** > **Enterprise Integration** > **lokala datagateway**:
 
    ![Sök efter ”lokala datagateway”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -115,7 +113,7 @@ När du har installerat gatewayen på en lokal dator måste du skapa din datagat
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Ansluta din logikapp till lokala datagateway
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Ansluta din logikapp till lokala datagateway
 
 Nu när du har skapat din data gateway-resurs och tillhörande din Azure-prenumeration med den här resursen, skapa en anslutning mellan din logikapp och datagateway.
 
@@ -157,6 +155,7 @@ När du har skapat en gateway-anslutningen för din logikapp kanske du vill uppd
    > Om uppdateringarna inte gälla försök [stoppa och starta om Windows-tjänst för gateway](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Växla eller ta bort dina lokala data gateway-resurs
 
 För att skapa en annan gateway-resurs, associera din gateway med en annan resurs eller ta bort gateway-resurs, kan du ta bort gatewayresursen utan att påverka gateway-installationen. 
@@ -166,6 +165,7 @@ För att skapa en annan gateway-resurs, associera din gateway med en annan resur
 3. Välj **lokala Data Gateway**, och välj verktygsfältet resurs **ta bort**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

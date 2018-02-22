@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8ac310b020cc21d96007574433d84a6fac5878ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga att ett program för Azure AD-galleriet som konfigurerats för federerad enkel inloggning
 
@@ -43,7 +43,7 @@ Användarens webbläsare kan vara för lösenordsbaserad enkel inloggning:
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du Access panelen webbläsartillägg
 
-Följ stegen nedan om du vill installera webbläsartillägget för åtkomst panelen:
+Följ dessa steg om du vill installera webbläsartillägget för åtkomst panelen:
 
 1.  Öppna den [åtkomstpanelen](https://myapps.microsoft.com) i en webbläsare som stöds och logga in som en **användaren** i din Azure AD.
 
@@ -93,17 +93,17 @@ Så här konfigurerar du ett program från Azure AD-galleriet som du behöver:
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Lägga till ett program från Azure AD-galleriet
 
-Följ stegen nedan om du vill lägga till ett program från galleriet Azure AD:
+Följ anvisningarna nedan om du vill lägga till ett program från Azure AD-galleriet
 
-1.  Öppna den [Azure Portal](https://portal.azure.com) och logga in som en **Global administratör** eller **medadministratör**
+1.  Öppna den [Azure-portalen](https://portal.azure.com) och logga in som en **Global administratör** eller **medadministratör**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på den **Lägg till** knappen i det övre högra hörnet på de **företagsprogram** bladet.
+5.  Klicka på den **Lägg till** knappen i det övre högra hörnet på de **företagsprogram** fönstret.
 
 6.  I den **anger du ett namn** textruta från den **Lägg till från galleriet** avsnittet, skriver du namnet på programmet.
 
@@ -113,27 +113,27 @@ Följ stegen nedan om du vill lägga till ett program från galleriet Azure AD:
 
 9.  Klicka på **Lägg till** för att lägga till programmet.
 
-Efter en kort period kunna du se programmets konfiguration bladet.
+Efter en kort period kunna du se programmets konfiguration fönstret.
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Konfigurera program för lösenord för enkel inloggning
 
-Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
+Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Välj läge **lösenordsbaserade inloggning.**
 
@@ -143,27 +143,27 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
 ### <a name="assign-users-to-the-application"></a>Tilldela användare till programmet
 
-Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
+Följ dessa steg om du vill tilldela en eller flera användare till ett program direkt:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet läses in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på **användare och grupper** från programmenyn vänstra navigeringsfönstret.
 
-8.  Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** att öppna den **Lägg uppdrag** bladet.
+8.  Klickar du på den **Lägg till** knappen ovanpå det **användare och grupper** att öppna den **Lägg uppdrag** fönstret.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** bladet.
+9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** fönstret.
 
 10. Ange den **fullständigt namn** eller **e-postadress** för den användare som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 
@@ -173,7 +173,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som tilldelas till programmet.
 
-14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** bladet Välj en roll att tilldela användare som du har valt.
+14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** ruta för att välja en roll för att tilldela användare som du har valt.
 
 15. Klicka på den **tilldela** för att tilldela program till de valda användarna.
 
@@ -186,7 +186,7 @@ Användare som du har valt att kunna starta programmen på åtkomstpanelen efter
 
 -   UPN (användarens e-postadress)
 
--   Klient-ID
+-   TenantID
 
 -   Typ av webbläsare
 

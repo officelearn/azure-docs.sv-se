@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bd86d4b13c8f61f278589e5c1d705ad91b3e3d4c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02236e7f7ec6be0df5082d2cde3d616e628c3927
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fel på sidan för ett program när du loggar in
 
-Azure AD har signerat användaren i i det här scenariot, men programmet visar ett fel som inte tillåter användaren att kunna slutföras inloggning flödet. I det här scenariot programmet inte kan ta emot svar problemet av Azure AD.
+Azure AD har signerat användaren i i det här scenariot, men programmet visar ett fel som inte tillåter användaren att kunna slutföras flödet inloggning. I det här scenariot programmet inte kan ta emot svar problemet av Azure AD.
 
 Det finns några möjliga orsaker till varför programmet accepterade svaret från Azure AD. Om fel i tillämpningsprogrammet inte är klar att veta vad som saknas i svaret, sedan:
 
@@ -33,25 +33,25 @@ Det finns några möjliga orsaker till varför programmet accepterade svaret fr�
 
 ## <a name="missing-attributes-in-the-saml-response"></a>Saknade attribut i SAML-svar
 
-Följ stegen nedan om du vill lägga till ett attribut i Azure AD-konfiguration som ska skickas i Azure AD-svaret:
+Följ dessa steg om du vill lägga till ett attribut i Azure AD-konfiguration som ska skickas i Azure AD-svaret:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
-8.  Klicka på **visa och redigera alla andra användare attribut under** den **användarattribut** avsnittet om du vill redigera attribut som ska skickas till programmet i SAML-token när användaren loggar in.
+8.  Klicka på **visa och redigera alla andra användare attribut under** den **användarattribut** avsnittet om du vill redigera attribut som ska skickas till programmet i SAML-token när användare loggar in.
 
    Lägg till ett attribut:
 
@@ -69,23 +69,23 @@ Logga in till programmet misslyckas eftersom SAML-svaret saknar attribut, till e
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Lägg till ett attribut i konfigurationen för Azure AD-program:
 
-Följ stegen nedan om du vill ändra värdet för användar-ID:
+Följ dessa steg om du vill ändra värdet för användar-ID:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Under den **användarattribut**, Välj den unika identifieraren för användarna i den **användar-ID** listrutan.
 
@@ -97,23 +97,23 @@ Azure AD-Välj format för attributet NameID (användar-ID) baserat på värdet 
 
 ## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>Programmet förväntar sig en annan signaturmetod för SAML-svar
 
-Du vill ändra vilka delar av SAML-token har signerats digitalt av Azure Active Directory. Följ stegen nedan:
+Du vill ändra vilka delar av SAML-token har signerats digitalt av Azure Active Directory. Följ de här stegen:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Klicka på **visa avancerade inställningar för signering av certifikat** under den **SAML-signeringscertifikat** avsnitt.
 
@@ -131,23 +131,23 @@ Nästa gång användaren loggar in på programmet, Azure AD logga en del av SAML
 
 Som standard loggar Azure AD med hjälp av de flesta algoritm SAML-token. Du bör inte ändra logga algoritmen till SHA-1 om det inte krävs av programmet.
 
-Följ stegen nedan om du vill ändra Signeringsalgoritm:
+Följ dessa steg om du vill ändra Signeringsalgoritm:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Klicka på **visa avancerade inställningar för signering av certifikat** under den **SAML-signeringscertifikat** avsnitt.
 

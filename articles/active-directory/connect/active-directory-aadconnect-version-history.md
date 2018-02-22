@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -35,6 +35,73 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Status: Publicerat för att välja kunder
+
+>[!NOTE]
+>När uppgraderingen till den här nya versionen är klar utlöser automatiskt en fullständig synkronisering och fullständig import för Azure AD-koppling och en fullständig synkronisering för AD-koppling. Detta kan ta en stund, beroende på storleken på din Azure AD Connect-miljö, kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om att uppgradera förrän du har hittat en lämplig tidpunkt gör.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Fast problem
+* Åtgärda tidsinställning fönster på bakgrunden uppgifter för Partition filtrering sidan när
+* Åtgärda tidsinställning fönster på bakgrundsaktiviteter för filtrering av Partition sida när du växlar till nästa sida.
+
+* Ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB fast
+
+* Fast ett programfel att återställa från timeout för SQL-anslutningen.
+
+* Fast ett programfel där certifikat med jokertecken SAN misslyckades kontrollen av förutsättningar
+
+* Fast ett programfel som orsakar miiserver.exe kraschar under en Azure AD connector export.
+
+* Fast ett programfel som felaktiga lösenord-försök loggas på domänkontrollanten när du kör Azure AD Connect-guiden för att ändra konfigurationen
+
+
+#### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+
+* Lägger till sekretessinställningar för datum skydd förordning (BNPR).  BNPR krävs vi för att ange vilka typer av kundinformation som delas med Microsoft (telemetri, hälsa, etc.), innehåller länkar till detaljerad onlinedokumentation och ger dig ett sätt för kunderna att ändra sina inställningar.  Den här incheckning lägger du till följande:
+
+
+    - Installera licensavtal sidan Datadelning och sekretessmeddelande på rensningen.
+    - Data delas och sekretess meddelande på sidan för uppgradering.
+    - En ny ytterligare uppgift ”sekretessinställningar” där användaren kan ändra sina inställningar.
+
+* programtelemetri - administratör kan växla data på/av i den här klassen när du vill
+
+* Azure AD Health-data – administratören måste besöka health-portalen för att styra inställningar för hälsotillstånd.
+   När tjänsten principen har ändrats, läser agenterna och använda den.
+
+* Enheten för tillbakaskrivning av konfigurationsåtgärder och en förloppsindikator för initiering av sidan
+
+* Förbättrad allmänna diagnostik med HTML-rapport och fullständig datainsamling i en ZIP-Text / HTML-rapport
+
+* Förbättrad tillförlitlighet av automatisk uppgradering och tillagda ytterligare telemetri för att kontrollera hälsotillståndet för servern som kan fastställas
+
+* Begränsa behörigheter som är tillgängliga för privilegierade konton på kontot för AD-koppling
+
+  * För nya installationer guiden begränsar de behörigheter som Privilegierade konton har på MSOL konto när du har skapat kontot MSOL.
+
+Ändringarna tar hand om följande:
+1. Express-installationer
+2. Anpassade installationer med automatiskt skapa konto
+
+* Installationsprogrammet har ändrats så inte behöver SA privilegiet ren installation av Azure AD Connect
+
+* Lägga till ett nytt verktyg för felsökning av synkroniseringsproblem med för ett specifikt objekt. Den är tillgänglig under ”felsöka objektet ' synkroniseringsalternativ av Azure AD Connect guiden Felsöka ytterligare uppgift. För närvarande kontrollerar verktyget följande:
+
+  * UserPrincipalName matchningsfel mellan synkroniserade användarobjektet och användarkontot i Azure AD-klient.
+  * Om objektet är filtrerad från synkronisering på grund av domän filtrering
+  * Om objektet är filtrerad från synkronisering på grund av organisationsenhet (OU) filtrering
+
+* Lägga till ett nytt verktyg för att synkronisera den aktuella lösenords-hash som lagras i Active Directory lokalt för ett specifikt användarkonto.
+
+Verktyget kräver inte en lösenordsändring. Den är tillgänglig under ”felsöka hash-synkronisering av lösenord' alternativet för Azure AD Connect guiden Felsöka ytterligare aktivitet.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Status: 12 December 2017
 
@@ -50,7 +117,7 @@ Förbättra har lagts till Azure AD Connect version 1.1.654.0 (och när) så att
 >[!NOTE]
 >Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. För befintliga installationer, eller i fall där du skapar kontot själv, bör du kontrollera att problemet inte finns.
 
-#### <a name="lock"></a>Låsa åtkomst till AD DS-konto
+#### <a name="lock"></a> Låsa åtkomst till AD DS-konto
 Lås åtkomst till AD DS-konto genom att implementera följande behörighetsändringar i lokalt AD:  
 
 *   Inaktivera arv på det angivna objektet
@@ -63,9 +130,9 @@ Tillåt    | SYSTEM                        | Fullständig behörighet         | 
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Domänadministratörer                 | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Administratörer                | Fullständig behörighet         | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
-Tillåt    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
+Tillåt    | Enterprise Domain Controllers | Lista innehåll        | Det här objektet  |
+Tillåt    | Enterprise Domain Controllers | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Enterprise Domain Controllers | Läsbehörighet     | Det här objektet  |
 Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läsbehörighet     | Det här objektet  |
@@ -419,7 +486,7 @@ CBool(
     * Användare: OnPremisesDistinguishedName
 
 * Skriptet ADSyncDomainJoinedComputerSync cmdlet har nu en ny valfri parameter med namnet AzureEnvironment. Parametern används för att ange vilken region som motsvarande Azure Active Directory-klienten finns i. Giltiga värden är:
-  * AzureCloud (standard)
+  * AzureCloud (default)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment
@@ -433,8 +500,8 @@ CBool(
 * Följande URL: er är nya WS-Federation-slutpunkter som introducerades av Azure AD för att förbättra återhämtning mot avbrott för autentisering och läggs till lokalt AD FS svarande part förtroende-konfigurationen:
   * https://ests.login.microsoftonline.com/login.srf
   * https://stamp2.login.microsoftonline.com/login.srf
-  * https://CCS.login.microsoftonline.com/login.srf
-  * https://CCS-SDF.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * Ett problem som orsakade AD FS kan generera felaktiga anspråksvärdet för IssuerID har åtgärdats. Problemet uppstår om det finns flera verifierade domäner i Azure AD-klient och domänsuffixet för attributet userPrincipalName som används för att generera IssuerID anspråk är minst 3 nivåer djupt (till exempel johndoe@us.contoso.com). Problemet löses genom att uppdatera regex som används av anspråksreglerna.
 

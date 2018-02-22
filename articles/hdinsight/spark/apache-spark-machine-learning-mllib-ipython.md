@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Spark MLlib att skapa machine learning-program och analysera en datamängd
 
@@ -79,9 +79,9 @@ I stegen nedan kan du utveckla en modell för att se vad som krävs för att lyc
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Skapa en inkommande dataframe
-Vi kan använda `sqlContext` att genomföra transformationer på strukturerade data. Den första uppgiften är att läsa in exempeldata ((**Food_Inspections1.csv**)) i en Spark SQL *dataframe*.
+Du kan använda `sqlContext` att genomföra transformationer på strukturerade data. Den första uppgiften är att läsa in exempeldata ((**Food_Inspections1.csv**)) i en Spark SQL *dataframe*.
 
-1. Eftersom rådata är CSV-format, behöver vi använda Spark-kontext och hämtar alla rader i filen i minnet som Ostrukturerade text. sedan kan du använda Python's CSV-bibliotek för att parsa varje rad individuellt.
+1. Eftersom rådata är CSV-format, måste du använda Spark-kontext och hämtar alla rader i filen i minnet som Ostrukturerade text. sedan kan du använda Python's CSV-bibliotek för att parsa varje rad individuellt.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Nu har vi CSV-filen som en RDD.  För att förstå schemat för data hämta vi en rad från RDD.
+1. Nu har du CSV-filen som en RDD.  För att förstå schemat för data, hämta en rad från RDD.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. Föregående utdata ger oss en uppfattning om schemat för indatafilen. Den innehåller namnet på varje genomförande, typen av etablering, adress, av data för kontrollerna och plats, bland annat. Välj vi några kolumner som är användbara för våra förutsägbar analys och grupperar resultaten som en dataframe som vi använder för att skapa en tillfällig tabell.
+1. Föregående utdata ger oss en uppfattning om schemat för indatafilen. Den innehåller namnet på varje genomförande, typen av etablering, adress, av data för kontrollerna och plats, bland annat. Välj vi några kolumner som är användbara för våra förutsägbar analys och grupperar resultaten som en dataframe där du sedan skapa en tillfällig tabell.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Nu har vi en *dataframe*, `df` som vi kan utföra vår analys. Vi har också en tillfällig tabell anropet **CountResults**. Innehåller fyra kolumner av intresse för dataframe: **id**, **namn**, **resultat**, och **överträdelser**.
+1. Nu har du en *dataframe*, `df` som du kan utföra vår analys. Du har också en tillfällig tabell anropet **CountResults**. Innehåller fyra kolumner av intresse för dataframe: **id**, **namn**, **resultat**, och **överträdelser**.
 
     Det är dags ett litet antal data:
 
@@ -172,7 +172,7 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. En snabb visualisering hjälper oss orsak om distribution av dessa resultat. Vi redan har data i en tillfällig tabell **CountResults**. Du kan köra följande SQL-fråga mot tabellen för att få en bättre förståelse för hur resultaten ska distribueras.
+1. En snabb visualisering hjälper oss orsak om distribution av dessa resultat. Du redan har data i en tillfällig tabell **CountResults**. Du kan köra följande SQL-fråga mot tabellen för att få en bättre förståelse för hur resultaten ska distribueras.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -203,12 +203,12 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
 
    * Företag som inte finns
    * Misslyckades
-   * Skicka
+   * Godkänd
    * PSS med villkor
    * Out-of-Business
 
-     Låt oss ta fram en modell som kan gissa resultatet av en mat inspektion angivna överträdelser. Eftersom logistic regression är en klassificeringsmetod i binär, är det praktiskt att gruppera våra data i två kategorier: **misslyckas** och **skicka**. En ”skicka med villkor” fortfarande är en Pass så när vi träna modellen Vi anser att de två resultaten motsvarande. Data med andra resultat (”företag kan inte hitta” eller ”Out-of-Business”) är inte användbar så vi ta bort dem från våra träningsmängden. Detta bör vara bra eftersom dessa två kategorier utgör en liten andel av resultaten ändå.
-1. Låt oss gå vidare och konvertera vår befintliga dataframe (`df`) till en ny dataframe där varje inspektion representeras som ett par etikett överträdelser. I det här fallet en etikett för `0.0` representerar ett fel, en etikett för `1.0` representerar en lyckad och en etikett för `-1.0` representerar vissa resultat utöver de två. Vi kan filtrera dessa andra resultat ut när den nya dataramen.
+     Låt oss ta fram en modell som kan gissa resultatet av en mat inspektion angivna överträdelser. Eftersom logistic regression är en klassificeringsmetod i binär, är det praktiskt att gruppera våra data i två kategorier: **misslyckas** och **skicka**. En ”skicka med villkor” är fortfarande ett steg, så när du träna modellen du överväga de två resultaten motsvarande. Data med andra resultat (”företag kan inte hitta” eller ”Out-of-Business”) är inte användbar så att du tar bort dem från våra träningsmängden. Detta bör vara bra eftersom dessa två kategorier utgör en liten andel av resultaten ändå.
+1. Låt oss gå vidare och konvertera vår befintliga dataframe (`df`) till en ny dataframe där varje inspektion representeras som ett par etikett överträdelser. I det här fallet en etikett för `0.0` representerar ett fel, en etikett för `1.0` representerar en lyckad och en etikett för `-1.0` representerar vissa resultat utöver de två. Du kan filtrera dessa andra resultat ut när den nya dataramen.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Vi kan använda `sqlContext` att genomföra transformationer på strukturerade d
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Skapa en logistic regressionsmodell från inkommande dataframe
-Vår sista steget är att omvandla märkta data till ett format som kan analyseras av logistic regression. Indata för en algoritmen logistic regression ska vara en uppsättning *etikett-funktionen vector par*, där ”funktionen vector” är en vektor med siffror som representerar indata. Så måste vi du konvertera kolumnen ”överträdelser”, som är halvstrukturerade och innehåller många kommentarer i fritext, till en matris med reellt tal som en dator lätt kan förstå.
+Vår sista steget är att omvandla märkta data till ett format som kan analyseras av logistic regression. Indata för en algoritmen logistic regression ska vara en uppsättning *etikett-funktionen vector par*, där ”funktionen vector” är en vektor med siffror som representerar indata. Därför måste du konvertera kolumnen ”överträdelser”, som är halvstrukturerade och innehåller många kommentarer i fritext, till en matris med reellt tal som en dator lätt kan förstå.
 
 En standard maskininlärning metod för behandling av naturligt språk är att tilldela varje distinkta ord ”index” och sedan skicka en vector till maskininlärningsalgoritmen så att varje indexvärde innehåller hur ofta ordet i textsträngen.
 
-MLlib ger ett enkelt sätt att utföra åtgärden. Först ”tokenize” varje överträdelser sträng för att hämta de enskilda orden i varje sträng. Använd sedan en `HashingTF` konvertera varje uppsättning token till en funktion vector som sedan kan skickas logistic regression-algoritmen för att skapa en modell. Vi genomför alla stegen i ordning med hjälp av en ”pipeline”.
+MLlib ger ett enkelt sätt att utföra åtgärden. Först ”tokenize” varje överträdelser sträng för att hämta de enskilda orden i varje sträng. Använd sedan en `HashingTF` konvertera varje uppsättning token till en funktion vector som sedan kan skickas logistic regression-algoritmen för att skapa en modell. Du kan utföra alla dessa steg i sekvensen med hjälp av en ”pipeline”.
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ MLlib ger ett enkelt sätt att utföra åtgärden. Först ”tokenize” varje �
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Utvärdera modellen på en separat testdata
-Vi kan använda den modell som vi skapade tidigare till *förutsäga* vad resultatet av nya kontroller kommer att baseras på överträdelser som observerades. Vi har tränat modellen för datamängden **Food_Inspections1.csv**. Låt oss använder en andra datauppsättningen **Food_Inspections2.csv**, *utvärdera* styrkan hos den här modellen på nya data. Den här andra datamängden (**Food_Inspections2.csv**) bör redan vara i standardbehållaren för lagring som är associerade med klustret.
+Du kan använda den modell som du skapade tidigare till *förutsäga* vad resultatet av nya kontroller kommer att baseras på överträdelser som observerades. Tränats av den här modellen för datamängden **Food_Inspections1.csv**. Låt oss använder en andra datauppsättningen **Food_Inspections2.csv**, *utvärdera* styrkan hos den här modellen på nya data. Den här andra datamängden (**Food_Inspections2.csv**) bör redan vara i standardbehållaren för lagring som är associerade med klustret.
 
 1. Följande kodutdrag skapar en ny dataframe **predictionsDf** som innehåller förutsägelser som genererats av modellen. Sammandraget skapar även en tillfällig tabell som kallas **förutsägelser** baserat på dataframe.
 
@@ -279,7 +279,7 @@ Vi kan använda den modell som vi skapade tidigare till *förutsäga* vad result
         predictionsDf.take(1)
 
    Det finns en förutsägelse för den första posten i datauppsättningen test.
-1. Den `model.transform()` metoden gäller samma omvandlingen för alla nya data med samma schema och kommer till en förutsägelse av hur du klassificerar data. Vi kan göra några enkla statistik för att få en uppfattning om hur exakt våra förutsägelser var:
+1. Den `model.transform()` metoden gäller samma omvandlingen för alla nya data med samma schema och kommer till en förutsägelse av hur du klassificerar data. Du kan göra några enkla statistik för att få en uppfattning om hur exakt våra förutsägelser var:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Vi kan använda den modell som vi skapade tidigare till *förutsäga* vad result
     Med Spark logistic regression ger oss en korrekt modell för förhållandet mellan överträdelser beskrivningar på engelska och om ett visst företag skulle lyckat eller misslyckat en mat-kontroll.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Skapa en bild av förutsägelser
-Vi kan nu skapa en slutlig visualisering som hjälper oss att orsak om resultatet av det här testet.
+Du kan nu skapa en slutlig visualisering som hjälper oss att orsak om resultatet av det här testet.
 
-1. Vi börjar med olika förutsägelser och resultaten från den **förutsägelser** tillfällig tabell skapade tidigare. Följande frågor separata utdata som *true_positive*, *false_positive*, *true_negative*, och *false_negative*. I frågorna nedan vi inaktivera visualisering med hjälp av `-q` och även spara utdata (med hjälp av `-o`) som dataframes som sedan kan användas med den `%%local` Magiskt tal.
+1. Du startar genom att extrahera olika förutsägelser och resultat från den **förutsägelser** tillfällig tabell skapade tidigare. Följande frågor separata utdata som *true_positive*, *false_positive*, *true_negative*, och *false_negative*. I frågorna nedan du inaktivera visualisering med hjälp av `-q` och även spara utdata (med hjälp av `-o`) som dataframes som sedan kan användas med den `%%local` Magiskt tal.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ När du har kört programmet bör du stänga ned anteckningsboken för att frig�
 ### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

@@ -1,9 +1,9 @@
 ---
-title: "Konfigurera nätverket Prestandaövervakaren för Azure ExpressRoute-kretsar (förhandsversion) | Microsoft Docs"
-description: "Konfigurera NPM för Azure ExpressRoute-kretsar. (Förhandsversion)"
+title: "Konfigurera nätverket Prestandaövervakaren för Azure ExpressRoute-kretsar | Microsoft Docs"
+description: "Konfigurera molnbaserade nätverksövervakning för Azure ExpressRoute-kretsar."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute
 
 Network Performance Monitor (NPM) är en molnbaserad nätverk övervakningslösning som övervakar anslutning mellan Azure-molndistributioner och lokala platser (avdelningskontor, etc.). NPM är en del av Microsoft Operations Management Suite (OMS). NPM erbjuder ett tillägg för ExpressRoute där du kan övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat Peering. När du konfigurerar NPM för ExpressRoute kan du identifiera problem för att identifiera och eliminera.
 
@@ -62,9 +62,15 @@ Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en 
 
 Om du redan använder Network Performance Monitor för att övervaka andra objekt eller tjänster och du redan har arbetsytan i något av regionerna som stöds, kan du hoppa över steg 1 och 2 och börjar din konfiguration med steg3.
 
-## <a name="configure"></a>Steg 1: Skapa en arbetsyta (i den prenumeration som har Vnet som är kopplad till ExpressRoute Circuit(s))
+## <a name="configure"></a>Steg 1: Skapa en arbetsyta
+
+Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circuit(s).
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj den prenumeration som har Vnet peerkoppla till ExpressRoute-krets. Sök i listan över tjänster i den **Marketplace** för 'Network Performance Monitor'. Återkommer, klicka för att öppna den **Network Performance Monitor** sidan.
+
+>[!NOTE]
+>Du kan skapa en ny arbetsyta eller Använd en befintlig arbetsyta.  Om du vill använda en befintlig arbetsyta måste du kontrollera att arbetsytan har migrerats till det nya språket i fråga. [Mer information...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Längst ned i huvudsakliga **Network Performance Monitor** klickar du på **skapa** att öppna **Network Performance Monitor - skapa nya lösningen** sidan. Klicka på **OMS-arbetsyta - Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan arbetsytan.
@@ -79,29 +85,25 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
   >[!NOTE]
   >ExpressRoute-kretsen kan finnas var som helst i världen och behöver inte finnas i samma region som arbetsytan.
   >
-
-
+  
   ![Arbetsytan](.\media\how-to-npm\4.png)<br><br>
 4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen validerar klickar du på **skapa** att distribuera på arbetsytan.
 5. Efter att arbetsytan har distribuerats, navigera till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **lösningen kräver ytterligare konfiguration**.
 
   ![ytterligare konfigurering](.\media\how-to-npm\5.png)
-6. På den **Välkommen till Network Performance Monitor** väljer **används TCP för syntetiska transaktioner**, klicka på **skicka**. TCP-transaktioner används bara för att se och bryta anslutningen. Inga data skickas över dessa TCP-anslutningar.
-
-  ![TCP för syntetiska transaktioner](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>Steg 2: Installera och konfigurera agenter
 
 ### <a name="download"></a>2.1: ladda ned installationsfilen agent
 
-1. På den **nätverk prestanda Monitor-konfiguration – TCP installationssidan** för din resurs i den **installera OMS-agenter** klickar du på agenten som motsvarar serverns processor och ladda ned den installationsfilen.
+1. Gå till den **gemensamma inställningar för** för den **nätverkskonfigurationen Performance Monitor** sidan för din resurs. Klicka på agenten som motsvarar serverns processor från den **installera OMS-agenter** avsnittet och hämta installationsfilen.
 
   >[!NOTE]
   >Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning av ExpressRoute-kretsar med hjälp av Windows Desktop OS- och Linux-operativsystem stöds inte. 
   >
   >
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
-3. I den **konfigurera agenter** avsnittet måste du ladda ned Powershell-skript. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
+3. Från den **konfigurera OMS-agenter för övervakning med hjälp av TCP-protokollet** avsnittet måste du ladda ned Powershell-skript. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
 
   ![PowerShell-skript](.\media\how-to-npm\7.png)
 
@@ -211,13 +213,13 @@ Sidan NPM innehåller en sida för ExpressRoute som visar en översikt över hä
 
   ![Instrumentpanel](.\media\how-to-npm\dashboard.png)
 
-### <a name="circuits"></a>Kretsar lista
+### <a name="circuits"></a>Lista över kretsar
 
 Om du vill se en lista över alla övervakade ExpressRoute-kretsar, klicka på den **ExpressRoute-kretsar** panelen. Du kan välja en krets och visa dess hälsotillstånd, trend diagram för paketförlust, bandbreddsanvändning och svarstid. Diagrammen är interaktiva. Du kan välja en anpassad tidsfönstret för att rita upp diagram. Du kan dra muspekaren över ett område på diagrammet för att zooma in och visa detaljerade datapunkter.
 
   ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Trend för dataförlust, svarstid och genomströmning
+#### <a name="trend"></a>Trend över förlust, svarstid och genomströmning
 
 Diagram för bandbredd, svarstid och dataförlust är interaktiva. Du kan zooma in en del av dessa diagram med hjälp av musen kontroller. Du kan också se bandbredd, svarstid och förlust av data för andra intervall genom att klicka på **tidsvärdet**, som finns under åtgärder-knappen längst upp till vänster.
 

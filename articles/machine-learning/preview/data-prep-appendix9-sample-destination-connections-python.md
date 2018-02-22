@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>Exempel på målanslutningar (Python) 
 Innan du läser den här bilagan läsa [Python utökningsbarhet översikt](data-prep-python-extensibility-overview.md).
@@ -25,11 +25,11 @@ Innan du läser den här bilagan läsa [Python utökningsbarhet översikt](data-
 ## <a name="write-to-excel"></a>Skriva till Excel 
 
 
-Skrivning till Excel kräver ett ytterligare bibliotek. Lägga till nya bibliotek dokumenteras i översikten utökningsbarhet. `openpyxl`är det bibliotek som du behöver lägga till.
+Skrivning till Excel kräver ett ytterligare bibliotek. Lägga till nya bibliotek dokumenteras i översikten utökningsbarhet. `openpyxl` är det bibliotek som du behöver lägga till.
 
 Innan du skriver till Excel, kan några andra ändringar behövas. Vissa av de data som används vid förberedelse av data stöds inte i vissa mål-format. Till exempel om ”Error” objekt finns de kommer inte att serialisera korrekt till Excel. Du måste därför en transformering ”ersätter felvärdena”, vilket tar bort fel från alla kolumner innan du försöker att skriva till Excel.
 
-Om allt arbete som tidigare har slutförts, skriver följande rad datatabellen till ett blad i Excel-dokument. Lägg till en transformering skriva dataflöde (skript). Ange följande kod i ett uttryck-avsnitt.
+Om allt arbete som tidigare har slutförts, skriver följande rad datatabellen till ett blad i Excel-dokument. Lägg till en transformering transformera dataflöde (skript). Ange följande kod i ett uttryck-avsnitt.
 
 
 ### <a name="on-windows"></a>På Windows 

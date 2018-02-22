@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -112,7 +112,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka sidan storlek med den [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
 
-    Du kan också ange sidan storlek med den den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Du kan också ange sidan storlek med den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Indexeringspolicy
  

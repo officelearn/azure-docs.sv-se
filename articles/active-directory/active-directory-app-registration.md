@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrera ditt program med Azure Active Directory-klient
 
@@ -27,7 +27,7 @@ Du kan använda Azure-portalen för att registrera ditt program med Azure Active
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj Azure AD-klienten genom att välja kontot i det övre högra hörnet på sidan.
-3. I det vänstra navigeringsfönstret väljer **fler tjänster**, klickar du på **App registreringar**, och klicka på **Lägg till**.
+3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **App registreringar**, och klicka på **Lägg till**.
 4. Följ anvisningarna och skapa ett nytt program. Om du vill att specifika exempel för webbprogram och interna program, Kolla in våra [Snabbstart](active-directory-developers-guide.md).
   * Webbprogram, ange den **inloggnings-URL**, vilket är den grundläggande Webbadressen för din app, där användarna kan logga in t.ex `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Du kan enkelt ändra ett befintligt program inställningar med hjälp av Azure-p
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj Azure AD-klienten genom att välja kontot i det övre högra hörnet på sidan.
-3. I det vänstra navigeringsfönstret väljer **fler tjänster**, klickar du på **App registreringar**, och välj ditt program i listan.
+3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **App registreringar**, och välj ditt program i listan.
 4. Klicka på **inställningar** Öppna inställningssidan för programmet.
   * Den **egenskaper** sida kan du ändra den allmänna informationen för programmet. Detta inkluderar programmets namn, URL för inloggning och logga ut URL-Adressen.
   * Den **Reply URL: er** sidan kan du lägga till en reply-URL som är där Azure AD skickar token svar.
@@ -54,7 +54,7 @@ Du kan använda redigeraren infogade manifest för att ändra vissa egenskaper s
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj Azure AD-klienten genom att välja kontot i det övre högra hörnet på sidan.
-3. I det vänstra navigeringsfönstret väljer **fler tjänster**, klickar du på **App registreringar**, och välj ditt program i listan.
+3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **App registreringar**, och välj ditt program i listan.
 4. Klicka på **Manifest** från sidan programmet att öppna redigeraren infogade manifestet.
 5. Direkt kan du göra ändringar i manifestet och spara den när du är klar. Alternativt kan du hämta manifestet för att öppna den i din favorit redigeraren och ladda upp det uppdaterade manifestet.
 

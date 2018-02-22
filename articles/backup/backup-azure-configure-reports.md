@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: e32e84eacee3a43b948b0a4b4177ab956b34ca3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azure Backup med Recovery Services-valvet och att få åtkomst till dessa rapporter med hjälp av Power BI. När du utför dessa steg måste gå du till Power BI att visa alla rapporter, anpassa och skapa rapporter direkt. 
@@ -31,14 +31,14 @@ Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azur
 4. Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporterna i Power BI, där case senaste data i kundlagringskontot används för att återge rapporter. 
 5. Azure Backup-rapporter stöds för närvarande inte i nationella moln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 1. Skapa en [Azure storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account) konfigureras för rapporter. Det här lagringskontot används för att lagra rapporter relaterade data.
 2. [Skapa en Power BI-konto](https://powerbi.microsoft.com/landing/signin/) för att visa, anpassa och skapa egna rapporter med Power BI-portalen.
 3. Registrera resursprovidern **Microsoft.insights** om inte registrerad redan, med prenumerationen för storage-konto och prenumeration på Recovery Services-valvet för att aktivera rapportering data kan flöda till lagring konto. Om du vill göra det, måste du gå till Azure-portalen > prenumeration > resursproviders och Sök efter den här providern att registrera den. 
 
 ## <a name="configure-storage-account-for-reports"></a>Konfigurera lagringskonto för rapporter
 Använd följande steg för att konfigurera lagringskonto för recovery services-ventilen med hjälp av Azure portal. Detta är en engångskonfiguration och när lagringskontot har konfigurerats kan du gå till Power BI direkt till Visa Innehållspaketet och utnyttja rapporter.
-1. Om du redan har ett Recovery Services-valv öppna vidare till nästa steg. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
+1. Om du redan har ett Recovery Services-valv öppna vidare till nästa steg. Om du inte behöver öppna en Recovery Services-valvet, men är i Azure-portalen, klickar du på **alla tjänster**.
 
    * I listan över resurser skriver du **Recovery Services**.
    * När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv** klickar du på det.
@@ -80,7 +80,7 @@ Använd följande steg för att konfigurera lagringskonto för recovery services
 ## <a name="view-reports-in-power-bi"></a>Visa rapporter i Power BI 
 När konfigurera lagringskonto för rapporter med hjälp av recovery services-ventilen, tar cirka 24 timmar för att rapportera data till börjar flöda. Använd följande steg för att visa rapporter i Power BI efter 24 timmar för att skapa lagringskonto:
 1. [Logga in](https://powerbi.microsoft.com/landing/signin/) till Powerbi.
-2. Klicka på **hämta Data** och klickar på Hämta under **Services** i innehållsbiblioteket Pack. Använd steg som nämns i [Power BI-dokumentationen till Innehållspaketet](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Klicka på **hämta Data** och på **hämta** under **Services** i innehållsbiblioteket Pack. Använd steg som nämns i [Power BI-dokumentationen till Innehållspaketet](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
 
      ![Importera Innehållspaketet](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Typen **Azure Backup** i sökfältet och klicka på **blir det nu**.
@@ -88,7 +88,7 @@ När konfigurera lagringskonto för rapporter med hjälp av recovery services-ve
       ![Hämta Innehållspaketet](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Ange namnet på lagringskontot konfigurerade i steg 5 ovan och klicka på **nästa** knappen.
 
-    ![Ange namnet på lagringskontot](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Ange ett lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
 5. Ange lagringskontonyckel för det här lagringskontot. Du kan [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account) genom att navigera till ditt lagringskonto i Azure-portalen. 
 
      ![Ange storage-konto](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -148,9 +148,9 @@ När konfigurera lagringskonto för rapporter med hjälp av recovery services-ve
    Ja, du kan konfigurera samma lagringskonto över olika valv att visa rapporter för cross-valvet. Du kan också konfigurera samma lagringskonto för valv över prenumerationer. Du kan sedan använda det här lagringskontot vid anslutning till Azure Backup-Innehållspaketet i Power BI för att visa rapporterna. Det lagringskonto som valts bör dock i samma region som recovery services-valvet.
    
 ## <a name="troubleshooting-errors"></a>Felsökning av fel
-| information om fel | Lösning |
+| Felinformation | Lösning |
 | --- | --- |
-| När du har skapat lagringskontot för säkerhetskopiering rapporter **Lagringskonto** visas fortfarande **inte konfigurerad**. | Om du har konfigurerat storage-konto, flödar reporting data i trots problemet. Lös problemet genom att gå till Azure-portalen > fler tjänster > diagnostikinställningar > RS valv > Redigera inställning. Ta bort den tidigare konfigurerade inställningen och skapa en ny inställning från samma bladet. Ändra fältet **namn** till **tjänsten**. Detta ska visa konfigurerade storage-konto. |
+| När du har skapat lagringskontot för säkerhetskopiering rapporter **Lagringskonto** visas fortfarande **inte konfigurerad**. | Om du har konfigurerat storage-konto, flödar reporting data i trots problemet. Lös problemet genom att gå till Azure-portalen > alla tjänster > diagnostikinställningar > RS valv > Redigera inställning. Ta bort den tidigare konfigurerade inställningen och skapa en ny inställning från samma bladet. Ändra fältet **namn** till **tjänsten**. Detta ska visa konfigurerade storage-konto. |
 |När du har importerat Azure Backup innehåll pack i Power BI, felet **404-behållaren finns inte** kommer. | Enligt förslaget i det här dokumentet, måste du vänta 24 timmar efter att konfigurera rapporter i Recovery Services-valvet se dem på rätt sätt i Power BI. Om du försöker komma åt rapporterna innan 24 timmar, får du felet eftersom fullständiga data inte kan finnas för att visa giltig rapporter. |
 
 ## <a name="next-steps"></a>Nästa steg

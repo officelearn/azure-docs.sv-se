@@ -13,61 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
 
-Det här avsnittet ger information om saker du bör känna till och vad det är bör du undvika detta när du konfigurerar principer för villkorlig åtkomst. Innan du läser det här avsnittet bör du bekanta dig med begrepp och termer som beskrivs i [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina molnappar. Den här artikeln innehåller information om:
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
+- Saker du bör känna till 
+- Vad bör du inte göra när du konfigurerar principer för villkorlig åtkomst. 
 
-### <a name="whats-required-to-make-a-policy-work"></a>Vad har krävs för att skapa en princip för att fungera?
+Den här artikeln förutsätter att du känner koncept och termer som beskrivs i [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+
+
+
+## <a name="whats-required-to-make-a-policy-work"></a>Vad har krävs för att skapa en princip för att fungera?
 
 När du skapar en ny princip, finns det inga användare, grupper, appar eller åtkomstkontroller som valts.
 
 ![Molnappar](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-Om du vill att din princip för att fungera, måste du konfigurera följande:
+Om du vill att din princip för att fungera, måste du konfigurera:
 
 
 |Vad           | Hur                                  | Varför|
 |:--            | :--                                  | :-- |
-|**Molnappar** |Du måste välja en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan finjustera hur behöriga användare kan komma åt dina appar.|
-| **Användare och grupper** | Du måste välja minst en användare eller grupp som har behörighet att få åtkomst till molnappar som du har valt. | En villkorlig åtkomstprincip som har ingen användare och grupper som har tilldelats, utlöses aldrig. |
-| **Åtkomstkontroll** | Du måste välja minst en åtkomstkontroll. | Princip för processorn behöver veta vad du gör om dina villkor är uppfyllda.|
+|**Molnappar** |Du måste välja en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan styra hur behöriga användare har åtkomst till molnappar.|
+| **Användare och grupper** | Du måste välja minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | En villkorlig åtkomstprincip som har ingen användare och grupper som har tilldelats, utlöses aldrig. |
+| **Åtkomstkontroll** | Du måste välja minst en åtkomstkontroll. | Om villkoren uppfylls måste princip processorn vet vad du gör.|
 
 
-Förutom de grundläggande kraven bör i många fall kan du också konfigurera ett villkor. När en princip fungerar också utan ett konfigurerat villkor, är villkor drivande faktor för att finjustera åtkomst till dina appar.
 
 
-![Molnappar](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Vad du bör känna till
 
 ### <a name="how-are-assignments-evaluated"></a>Hur utvärderas tilldelningar?
 
-Alla tilldelningar som är logiskt **and**. Om du har mer än en tilldelning som konfigurerats för att utlösa en princip, måste alla tilldelningar vara uppfyllda.  
+Alla tilldelningar som är logiskt **and**. Om du har mer än en tilldelning konfigurerats måste alla tilldelningar uppfyllas för att utlösa en princip.  
 
-Om du behöver konfigurera en plats-villkor som gäller för alla anslutningar från utanför företagets nätverk åstadkommer detta genom att:
+Om du behöver konfigurera en plats-villkor som gäller för alla anslutningar från utanför företagets nätverk:
 
-- Inklusive **alla platser**
-- Förutom **alla betrodda IP-adresser**
+- Inkludera **alla platser**
+- Undanta **alla betrodda IP-adresser**
+
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Vad du gör om du har låsts ute från Azure AD administrationsportal?
+
+Om du har låsts ute från Azure AD-portalen på grund av en felaktig inställning i en princip för villkorlig åtkomst:
+
+- Kontrollera om det finns andra administratörer i din organisation som inte är spärrade ännu. En administratör med åtkomst till Azure-portalen kan inaktivera den princip som viktig för inloggning. 
+
+- Om ingen av administratörer i din organisation kan uppdatera principen, måste du skicka en supportförfrågan. Microsoft support kan granska och uppdatera principer för villkorlig åtkomst som hindrar åtkomst.
+
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Vad händer om du har principer i den klassiska Azure-portalen och Azure-portalen konfigurerad?  
+
 Båda principerna tillämpas av Azure Active Directory och användaren får åtkomst till endast när alla krav är uppfyllda.
 
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Vad händer om du har principer i Intune Silverlight-portalen och Azure Portal?
+### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Vad händer om du har principer i Intune Silverlight-portalen och Azure portal?
+
 Båda principerna tillämpas av Azure Active Directory och användaren får åtkomst till endast när alla krav är uppfyllda.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Vad händer om jag har flera principer för samma användare konfigurerade?  
+
 För varje inloggning, Azure Active Directory utvärderar alla principer och garanterar att alla krav är uppfyllda innan du beviljar åtkomst till användaren.
 
 
@@ -76,9 +91,13 @@ För varje inloggning, Azure Active Directory utvärderar alla principer och gar
 Ja, du kan använda Exchange ActiveSync i en princip för villkorlig åtkomst.
 
 
+
+
+
+
 ## <a name="what-you-should-avoid-doing"></a>Vad du bör undvika att göra
 
-Villkorlig åtkomst framework ger dig en utmärkt konfigurationsflexibilitet. Stor flexibilitet innebär dock också att du noggrant läser varje princip för konfiguration innan du släpper den för att undvika oönskade resultat. I den här kontexten bör du vara särskilt uppmärksam på tilldelningar som påverkar fullständiga **alla användare / grupper / molnappar**.
+Villkorlig åtkomst framework ger dig en utmärkt konfigurationsflexibilitet. Stor flexibilitet innebär dock också bör du noggrant granska varje princip för konfiguration innan du släpper den för att undvika oönskade resultat. I den här kontexten bör du vara särskilt uppmärksam på tilldelningar som påverkar fullständiga **alla användare / grupper / molnappar**.
 
 I din miljö bör du undvika följande konfigurationer:
 
@@ -97,10 +116,27 @@ I din miljö bör du undvika följande konfigurationer:
 - **Blockera åtkomst** -den här konfigurationen blockerar hela organisationen, som definitivt inte är en bra idé.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>Hur ska du distribuera en ny princip?
+
+Som ett första steg bör du utvärdera principen med hjälp av den [vad händer om verktyget](active-directory-conditional-access-whatif.md).
+
+När du är redo att distribuera en ny princip i din miljö, bör du göra detta i faser:
+
+1. Tillämpa en princip till en liten uppsättning användare och kontrollera att den fungerar som förväntat. 
+
+2.  När du har expanderat en princip för att inkludera flera användare kan fortsätta att undanta alla administratörer från principen. Detta säkerställer att administratörer fortfarande ha åtkomst och kan uppdatera en princip om en ändring krävs.
+
+3. Tillämpa en princip för alla användare bara om det verkligen behövs. 
+
+Skapa ett användarkonto som är ett bra tips:
+
+- Dedikerad till administration av principer 
+- Exkluderad från alla dina principer
+
 
 ## <a name="policy-migration"></a>Migrering av princip
 
-Du bör migrera principer som du inte har skapat i Azure-portalen eftersom:
+Bör du migrera de principer som du inte har skapat i Azure-portalen eftersom:
 
 - Du kan nu hantera scenarier som du inte kan hantera innan.
 
@@ -108,7 +144,7 @@ Du bör migrera principer som du inte har skapat i Azure-portalen eftersom:
 
 - Du kan hantera alla dina principer för villkorlig åtkomst på en central plats.
 
-- Den klassiska Azure-portalen ska tas bort.   
+- Den klassiska Azure-portalen har tagits bort.   
 
 
 Mer information finns i [migrera klassiska principer i Azure portal](active-directory-conditional-access-migration.md).

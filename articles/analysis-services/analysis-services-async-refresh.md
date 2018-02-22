@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 Genom att använda alla programmeringsspråk som har stöd för REST-anrop kan utföra du datauppdatering asynkrona åtgärder på Azure Analysis Services-tabellmodeller. Detta inkluderar synkronisering av skrivskyddade repliker för frågan skalbar. 
@@ -166,7 +166,7 @@ Om du vill hämta en lista över historiska uppdateringsåtgärder för en model
 
 Om du vill avbryta en pågående uppdatering använder du ta bort verbet på Uppdatera-ID.
 
-## <a name="post-sync"></a>POST/Sync
+## <a name="post-sync"></a>POST /sync
 
 Utföra av uppdateringsåtgärder vara det nödvändigt att synkronisera nya data med repliker för frågan skalbar. Om du vill utföra en synkronisering för en modell, använder du verbet POST för/Sync-funktionen. Plats-huvudet i svaret innehåller sync åtgärds-ID.
 
@@ -208,7 +208,7 @@ Kodexemplet kan använda interaktiv inloggning, användarnamn/lösenord eller [t
 
 Den här typen av autentisering kräver ett Azure-program skapas med de behörigheter som krävs av API tilldelad. 
 
-1.  I Azure-portalen klickar du på **ny** > **Azure Active Directory** > **App registreringar** > **ny registrera programmet**.
+1.  I Azure-portalen klickar du på **skapar du en resurs** > **Azure Active Directory** > **App registreringar**  >   **Nya appregistrering**.
 
     ![Ny appregistrering](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

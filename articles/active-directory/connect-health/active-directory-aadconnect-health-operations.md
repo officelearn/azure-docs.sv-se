@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Åtgärder i Azure Active Directory Connect Health
 Det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (AD Azure) Connect Health.
@@ -42,6 +42,9 @@ Du kan konfigurera Azure AD Connect Health-tjänsten för att skicka e-postmedde
 
 ## <a name="delete-a-server-or-service-instance"></a>Ta bort en server eller service-instans
 
+>[!NOTE] 
+> Azure AD premium-licens krävs för steg som tas bort.
+
 I vissa fall kanske du vill ta bort en server från som övervakas. Det här är vad du behöver veta för att ta bort en server från Azure AD Connect Health-tjänsten.
 
 När du tar bort en server vara medveten om följande:
@@ -51,7 +54,11 @@ När du tar bort en server vara medveten om följande:
 * Den här åtgärden tar inte bort data som redan samlats in från den här servern. Data tas bort i enlighet med Azure databevarandeprincip.
 * När du utför den här åtgärden om du vill börja övervaka samma server måste igen och du avinstallera och återinstallera Hälsoagenten på den här servern.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Tar bort en server från Azure AD Connect Health-tjänsten
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Ta bort en server från Azure AD Connect Health-tjänsten
+
+>[!NOTE] 
+> Azure AD premium-licens krävs för steg som tas bort.
+
 Azure AD Connect Health för Active Directory Federation Services (AD FS) och Azure AD Connect (synkronisering):
 
 1. Öppna den **Server** bladet från den **serverlista** bladet genom att markera namnet på servern som ska tas bort.
@@ -133,7 +140,7 @@ Nu visas användare och grupper har åtkomst till, enligt deras tilldelade rolle
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Steg 3: Dela bladet plats med användare eller grupper
-1. När du tilldelar behörigheter för en användare har åtkomst till Azure AD Connect Health genom att gå [här](http://aka.ms/aadconnecthealth).
+1. När du tilldelar behörigheter för en användare har åtkomst till Azure AD Connect Health genom att gå [här](https://aka.ms/aadconnecthealth).
 2. I bladet kan Fäst användaren bladet eller olika delar av det, på instrumentpanelen. Klicka bara på den **fäst på instrumentpanelen** ikon.<br>
    ![Skärmbild av Azure AD Connect Health RBAC Fäst bladet, med fästikonen markerat](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

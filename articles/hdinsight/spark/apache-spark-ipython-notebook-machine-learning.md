@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Skapa Apache Spark machine learning-program på Azure HDInsight
 
@@ -28,9 +28,9 @@ Lär dig hur du skapar ett Apache Spark maskininlärning för program med hjälp
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) är Sparks skalbara machine learning-bibliotek med vanliga algoritmer och verktyg, inklusive klassificering, regression, kluster, samarbetsfunktioner filtrering, dimensionalitet minskning, samt underliggande optimering primitiver.
 
-**Krav:**
+## <a name="prerequisites"></a>Krav:
 
-Du måste ha följande:
+Du måste ha följande objekt:
 
 * Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ I det här programmet använder du en Spark [ML pipeline](https://spark.apache.o
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Från den första raden i förutsägelsen finns för ett HVAC-system med ID 20 och 25 år system ålder byggnaden kommer att varm (**förutsägelse = 1.0**). Det första värdet för DenseVector (0.49999) motsvarar förutsägelser 0,0 och det andra värdet (0.5001) motsvarar förutsägelser 1.0. I utdata, även om det andra värdet är bara marginellt högre visar modellen **förutsägelse = 1.0**.
-10. Stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
+   Från den första raden i förutsägelsen ser du att för en HVAC-system med ID 20 och 25 år system ålder byggnaden är varm (**förutsägelse = 1.0**). Det första värdet för DenseVector (0.49999) motsvarar förutsägelser 0,0 och det andra värdet (0.5001) motsvarar förutsägelser 1.0. I utdata, även om det andra värdet är bara marginellt högre visar modellen **förutsägelse = 1.0**.
+10. Stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Avslutas och stänga den bärbara datorn.
 
 ## <a name="anaconda"></a>Använd Anaconda scikit-Läs bibliotek för Spark machine learning
 Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Detta omfattar även den **scikit-Läs** bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogrammen direkt från en Jupyter-anteckningsbok. Exempel på med scikit-Läs biblioteket, se [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Detta omfattar 
 ### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

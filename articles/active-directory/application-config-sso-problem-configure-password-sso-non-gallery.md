@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Konfigurera lösenord enkel inloggning för ett icke-galleriet program problem
 
@@ -33,69 +33,69 @@ Det finns två sätt som du kan avbilda inloggning fält för dina anpassade pro
 
 -   Fältet för manuell inloggning avbildning
 
-**Fältet för automatisk inloggning avbilda** fungerar väl med de flesta HTML-aktiverade inloggningssidor, om de använder **välkända DIV-ID: N för användarnamn och lösenord Ange** fältet. Hur detta fungerar är genom skrapning HTML på sidan för att hitta DIV-ID som matchar vissa villkor och sedan spara att metadata för det här programmet så att vi kan spela upp lösenord till den senare.
+**Fältet för automatisk inloggning avbilda** fungerar väl med de flesta HTML-aktiverade inloggningssidor, om de använder **välkända DIV-ID: N för användarnamn och lösenord Ange** fältet. Hur detta fungerar är genom skrapning HTML på sidan för att hitta DIV-ID som matchar vissa villkor och sedan spara att metadata för det här programmet spela lösenord till den senare.
 
-**Fältet för manuell inloggning avbilda** kan användas i fall som programmet **leverantör inte etiketten** indatafält används för inloggning. Manuell inloggning fältet avbilda kan också användas i fallet när den **leverantör återgivningar flera fält** som inte kan identifieras automatiskt. Azure AD kan lagra data för så många fält som finns på inloggningssidan, så länge du berätta var dessa fält finns på sidan.
+**Fältet för manuell inloggning avbilda** kan användas i fall som programmet **leverantör inte etiketten** indatafält används för inloggning. Fältet för manuell inloggning avbilda kan också användas i fallet när den **leverantör återgivningar flera fält** som inte upptäcks automatiskt. Azure AD kan lagra data för så många fält som finns på inloggningssidan, så länge du berätta var dessa fält finns på sidan.
 
-I allmänhet **om automatisk inloggning fältet avbilda inte fungerar alltid föreslår vi försöker det manuella alternativet.**
+I allmänhet **om automatisk inloggning fältet avbilda inte fungerar försöker du med manuell.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Så här avbildar automatiskt inloggning fält för ett program
 
 Så här konfigurerar du **lösenordsbaserade enkel inloggning** för ett program som använder **fält för automatisk inloggning avbilda**, Följ stegen nedan:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Välj läge **lösenordsbaserade inloggning.**
 
-9.  Ange den **inloggnings-URL**. Detta är den URL där användarna anger sina användarnamn och lösenord för att logga in på. **Se till att logga in fält som är synliga på den URL som du anger**.
+9.  Ange den **inloggnings-URL**, där användarna anger sina användarnamn och lösenord för att logga in URL: en. **Kontrollera fälten inloggning är synliga på den URL som du anger**.
 
 10. Klicka på knappen **Spara**.
 
-11. När du gör det kan vi ska automatiskt skrapa URL: en för ett användarnamn och lösenord Inmatningsruta och du kan använda Azure AD för att säkert överföra lösenord för det aktuella programmet med hjälp av webbläsartillägget för åtkomst-panelen.
+11. När du gör det, som URL automatiskt skrapats för ett användarnamn och lösenord Inmatningsruta och du kan använda Azure AD för att säkert överföra lösenord för det aktuella programmet med hjälp av webbläsartillägget för åtkomst-panelen.
 
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Så här avbildar inloggning fält för ett program manuellt
 
-Om du vill samla in tecken i fälten manuellt, måste du först ha åtkomst panelen webbläsartillägget installerad och **inte körs i inPrivate incognito eller privat läge.** Om du vill installera webbläsartillägg för, följer du stegen i den [installera åtkomst panelen webbläsartillägget](#i-cannot-manually-detect-sign-in-fields-for-my-application) avsnitt.
+Om du vill samla in inloggning fält manuellt, måste du först ha åtkomst panelen webbläsartillägget installerad och **inte körs i inPrivate incognito eller privat läge.** Om du vill installera webbläsartillägg för, följer du stegen i den [installera åtkomst panelen webbläsartillägget](#i-cannot-manually-detect-sign-in-fields-for-my-application) avsnitt.
 
 Så här konfigurerar du **lösenordsbaserade enkel inloggning** för ett program som använder **manuell inloggning fältet avbilda**, Följ stegen nedan:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Co-administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory vänstra navigeringsmenyn.
+4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
 5.  Klicka på **alla program** att visa en lista över alla program.
 
-   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
 
 6.  Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet läses in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7.  När programmet läses in klickar du på den **enkel inloggning** från programmenyn vänstra navigeringsfönstret.
 
 8.  Välj läge **lösenordsbaserade inloggning.**
 
-9.  Ange den **inloggnings-URL**. Detta är den URL där användarna anger sina användarnamn och lösenord för att logga in på. **Se till att logga in fält som är synliga på den URL som du anger**.
+9.  Ange den **inloggnings-URL**, där användarna anger sina användarnamn och lösenord för att logga in URL: en. **Kontrollera fälten inloggning är synliga på den URL som du anger**.
 
 10. Klicka på knappen **Spara**.
 
-11. När du gör det kan vi ska automatiskt skrapa URL: en för ett användarnamn och lösenord Inmatningsruta och du kan använda Azure AD för att säkert överföra lösenord för det aktuella programmet med hjälp av webbläsartillägget för åtkomst-panelen. Om detta misslyckas kan du **Ändra läget för att använda manuell inloggning fältet avbilda** genom att fortsätta att steg 12.
+11. När du gör det, som URL automatiskt skrapats för ett användarnamn och lösenord Inmatningsruta och du kan använda Azure AD för att säkert överföra lösenord för det aktuella programmet med hjälp av webbläsartillägget för åtkomst-panelen. Vid fel, kan du **Ändra läget för att använda manuell inloggning fältet avbilda** genom att fortsätta att steg 12.
 
 12. Klicka på **konfigurera &lt;appname&gt; inställningar för lösenord enkel inloggning**.
 
@@ -113,11 +113,11 @@ Det här felet visas när automatisk identifiering av inloggning fält misslycka
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>”Det går inte att spara konfigurationen enkel inloggning” visas fel
 
-I vissa sällsynta fall, kan uppdatera konfigurationen för enkel inloggning misslyckas. Du kan lösa detta försök att spara enkel inloggning konfigurationen igen.
+I vissa sällsynta fall, kan uppdatera konfigurationen för enkel inloggning misslyckas. Försök för att lösa sparar enkel inloggning konfigurationen igen.
 
-Om problemet kvarstår misslyckas regelbundet, öppna ett supportärende och ange den information som samlats in i den [så visas detaljerad information om en portalmeddelandet](#i-cannot-manually-detect-sign-in-fields-for-my-application) och [få hjälp genom att skicka meddelandeinformation till en supportbegäran tekniker](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) avsnitt.
+Om det fortfarande misslyckas regelbundet, öppna ett supportärende och ange den information som samlats in i den [så visas detaljerad information om en portalmeddelandet](#i-cannot-manually-detect-sign-in-fields-for-my-application) och [få hjälp genom att skicka meddelandeinformation till en supportbegäran tekniker](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) avsnitt.
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Jag kan inte manuellt identifiera tecken i fälten för Mina program
+## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Jag kan inte identifiera inloggning fält manuellt för Mina program
 
 Några av de funktioner som kan uppstå när Manuell identifiering inte fungerar är:
 
@@ -139,9 +139,9 @@ Kontrollera följande om du stöter på något av följande problem:
 
 -   Försök manuella processen igen, säkerställt röda markörer är över rätt fält.
 
--   Om manuell insamlingen verkar låser sig eller inloggningssidan inte göra något (fall 3 ovan), försök manuella processen igen. Men nu när du har slutfört processen, tryck på den **F12** knappen för att öppna din webbläsare developer-konsolen. En gång, öppna den **konsolen** och skriv **window.location= ”&lt;ange tecken i url som du angav när du konfigurerar appen&gt;”** och tryck sedan på **RETUR**. Denna kraft en sida omdirigera som Avsluta processen och lagra de fält som har spelats in.
+-   Om manuell insamlingen verkar låser sig eller inloggningssida visas inte göra något (fall 3 ovan), försök manuella processen igen. Men nu när du har slutfört processen, tryck på den **F12** knappen för att öppna din webbläsare developer-konsolen. En gång, öppna den **konsolen** och skriv **window.location= ”&lt;ange inloggning url som du angav när du konfigurerar appen&gt;”** och tryck sedan på **RETUR** . Detta tvingar en sida-omdirigering som slutar insamlingen och lagrar de fält som har spelats in.
 
-Om inget av dessa sätt fungerar för dig kan vi hjälpa. Öppna ett supportärende med information om vad du försökte, samt information som samlats in i den [så visas detaljerad information om en portalmeddelandet](#i-cannot-manually-detect-sign-in-fields-for-my-application) och [få hjälp genom att skicka meddelandeinformation till en supporttekniker ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) avsnitten (om tillämpligt).
+Om inget av dessa sätt fungerar kan hjälpa support. Öppna ett supportärende med information om vad du försökte, samt information som samlats in i den [så visas detaljerad information om en portalmeddelandet](#i-cannot-manually-detect-sign-in-fields-for-my-application) och [få hjälp genom att skicka meddelandeinformation till en supporttekniker ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) avsnitten (om tillämpligt).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du Access panelen webbläsartillägg
 
@@ -171,7 +171,7 @@ Du kan också ladda ned tillägget för Chrome och Firefox från direkt med län
 
 Du kan se information om eventuella portalmeddelandet genom att följa stegen nedan:
 
-1.  Klicka på den **meddelanden** ikonen (sal) i övre högra hörnet i Azure Portal
+1.  Klicka på den **meddelanden** ikonen (sal) i övre högra hörnet i Azure-portalen
 
 2.  Markera alla meddelanden i en **fel** tillstånd (de med ett rött (!) bredvid dem).
 
@@ -179,9 +179,9 @@ Du kan se information om eventuella portalmeddelandet genom att följa stegen ne
   >
   >
 
-3.  Den här öppna den **detaljer** bladet.
+3.  Den **detaljer** fönstret öppnas.
 
-4.  Använd den här informationen dig att förstå mer information om problemet.
+4.  Använd informationen dig att förstå mer information om problemet.
 
 5.  Om du fortfarande behöver hjälp kan du också dela informationen med en supporttekniker eller produktgruppen för att få hjälp med problemet.
 
@@ -189,7 +189,7 @@ Du kan se information om eventuella portalmeddelandet genom att följa stegen ne
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Få hjälp genom att skicka meddelandeinformation till en supporttekniker
 
-Det är mycket viktigt att du dela **allt som anges nedan** med en supporttekniker om du behöver hjälp, så att de kan hjälpa dig snabbt. Du kan göra det enkelt av **tar en skärmbild** eller genom att klicka på den **kopiera felikonen**, hittade till höger om den **Kopieringsfel** textruta.
+Det är mycket viktigt att du dela **allt som anges nedan** med en supporttekniker om du behöver hjälp, så att de kan hjälpa dig snabbt. Du kan **ta en skärmbild** eller klicka på den **kopiera felikonen**, hittade till höger om den **Kopieringsfel** textruta.
 
 ## <a name="notification-details-explained"></a>Meddelandeinformation förklaras
 
@@ -205,11 +205,11 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **intern url har angett används redan av ett annat program**
 
--   **Meddelande-Id** – unikt id för meddelandet
+-   **Meddelande-ID** – unikt id för meddelandet
 
     -   Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Id för klientbegäran** – specifik begäran-id som din webbläsare
+-   **ID för klientbegäran** – specifik begäran-id som din webbläsare
 
     -   Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -217,19 +217,19 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel – **2017-03-23T19:50:43.7583681Z**
 
--   **Internt transaktions-Id** – internt ID vi kan använda för att söka av fel i vårt system
+-   **Internt transaktions-ID** – internt ID som används för att söka av fel i vårt system
 
     -   Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – användaren som utförde åtgärden
 
-    -   Exempel –**tperkins@f128.info**
+    -   Exempel – **tperkins@f128.info**
 
--   **Klient-Id** – unikt ID för den klient som användaren som utförde åtgärden var medlem av
+-   **Klient-ID** – unikt ID för den klient som användaren som utförde åtgärden var medlem av
 
     -   Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Användarobjektet Id** – unikt ID för den användare som utförde åtgärden
+-   **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
 
     -   Exempel – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -243,7 +243,7 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
     -   Exempel * – **misslyckades**
 
--   **Objekt-Id** – **(kan vara tom)** objekt-ID som åtgärden utfördes
+-   **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
 
     -   Exempel – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -253,7 +253,7 @@ Den nedan beskrivs mer vad varje av meddelandet objekt innebär och innehåller 
 
 -   **Kopiera fel** – klickar du på den **kopiera-ikonen** till höger om den **Kopieringsfel** textruta för att kopiera meddelande allt delar med en support eller produkt grupp tekniker
 
-    -   Exempel –```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    -   Exempel – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Nästa steg
 [Tillhandahålla enkel inloggning till dina appar med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)

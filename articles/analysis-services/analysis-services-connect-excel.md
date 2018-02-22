@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 7597792a525583497ec6a400e668eda2adc9a93e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f5f77b70874f10a29b4ea4dba307a67361c8e2bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-with-excel"></a>Anslut till Excel
 
@@ -43,7 +43,7 @@ Ansluter till en server i Excel stöds med hämta Data i Excel 2016. Det går in
     ![Ansluta från Excel väljer modellen](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Klientbibliotek](analysis-services-data-providers.md)   
 [Hantera servern](analysis-services-manage.md)     
 

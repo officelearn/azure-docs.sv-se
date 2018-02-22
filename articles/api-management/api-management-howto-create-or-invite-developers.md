@@ -11,71 +11,61 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f2fd5e4c1a51fe9d1652c9970bcd8d76b25ab60
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 501210c3fab2659deb9594e1bbd9aa51912187e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Hantera användarkonton i Azure API Management
 Utvecklare finns i API-hantering, användare av API: er som du exponera med hjälp av API-hantering. Den här guiden visar hur du skapar och bjuda in utvecklare att använda API: er och produkter som du gör tillgängliga för dem med din API Management-instans. Information om hur du hanterar användarkonton programmässigt finns i [användarentiteten](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentation i den [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) referens.
 
-## <a name="create-developer"></a>Skapa en ny utvecklare
-Klicka för att skapa en ny utvecklare **Publisher portal** i Azure Portal för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management. Om du inte har skapat en instans för API Management-tjänsten finns [skapa en instans för API Management-tjänsten][Create an API Management service instance].
+## <a name="prerequisites"></a>Förutsättningar
 
-![Utgivarportalen][api-management-management-console]
+Utföra åtgärder i den här artikeln: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
-Klicka på **användare** från den **API Management** menyn till vänster och klicka sedan på **lägga till användare**.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![Skapa utvecklare][api-management-create-developer]
+## <a name="create-developer"> </a>Skapa en ny utvecklare
 
-Ange den **e-post**, **lösenord**, och **namn** för nya utvecklare och klickar på **spara**.
+Följ stegen i det här avsnittet för att lägga till en ny användare:
 
-![Skapa utvecklare][api-management-add-new-user]
+1. Välj den **användare** fliken till vänster på skärmen.
+2. Tryck på **+ Lägg till**.
+3. Ange rätt information för användaren.
+4. Tryck på **Lägg till**.
 
-Nyligen skapade developer konton är som standard **Active**, och som är associerade med den **utvecklare** grupp.
+    ![Lägg till en ny användare](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-![Nya utvecklare][api-management-new-developer]
+Nyligen skapade developer konton är som standard **Active**, och som är associerade med den **utvecklare** grupp. Utvecklare konton som är i ett **active** tillstånd kan användas för att få tillgång till alla de API: er som de har prenumerationer. Om du vill associera den nyligen skapade utvecklaren med ytterligare grupper, se [hur du associerar grupper med utvecklare][How to associate groups with developers].
 
-Utvecklare konton som är i ett **active** tillstånd kan användas för att få tillgång till alla de API: er som de har prenumerationer. Om du vill associera den nyligen skapade utvecklaren med ytterligare grupper, se [hur du associerar grupper med utvecklare][How to associate groups with developers].
+## <a name="invite-developer"> </a>Bjud in en utvecklare
+Följ stegen i det här avsnittet för att bjuda in en utvecklare:
 
-## <a name="invite-developer"></a>Bjuda in en utvecklare
-Om du vill bjuda in en utvecklare, klickar du på **användare** från den **API Management** menyn till vänster och klicka sedan på **bjuda in användare**.
-
-![Bjud in utvecklare][api-management-invite-developer]
-
-Ange namn och e-postadress som utvecklare och på **bjuda in**.
-
-![Bjud in utvecklare][api-management-invite-developer-window]
+1. Välj den **användare** fliken till vänster på skärmen.
+2. Tryck på **+ bjuda in**.
 
 Ett meddelande visas, men nyligen inbjudna utvecklaren visas inte i listan förrän efter att de har accepterat inbjudan. 
-
-![Bjud in bekräftelse][api-management-invite-developer-confirmation]
 
 När du uppmanas att utvecklare skickas ett e-postmeddelande till utvecklaren. Den här e-post skapas med en mall och anpassas. Mer information finns i [Konfigurera e-postmallar][Configure email templates].
 
 När du har accepterat inbjudan blir kontot aktiv.
 
-## <a name="block-developer"></a> Inaktivera eller återaktivera ett utvecklarkonto
+## <a name="block-developer"> </a> Inaktivera eller återaktivera ett utvecklarkonto
+
 Som standard nyskapade eller inbjudna developer konton är **Active**. Om du vill inaktivera ett utvecklarkonto klickar du på **Block**. Om du vill återaktivera blockerade utvecklarkonto klickar du på **aktivera**. Blockerade utvecklarkonto kan inte komma åt developer-portalen eller anropa alla API: er. Om du vill ta bort ett användarkonto, klickar du på **ta bort**.
 
-![Block-utvecklare][api-management-new-developer]
+Följ anvisningarna nedan om du vill blockera en användare.
+
+1. Välj den **användare** fliken till vänster på skärmen.
+2. Klicka på den användare som du vill blockera.
+3. Tryck på **Block**.
 
 ## <a name="reset-a-user-password"></a>Återställa en användarlösenord
-Om du vill återställa lösenordet för ett användarkonto, klickar du på namnet på kontot.
-
-![Återställa lösenord][api-management-view-developer]
-
-Klicka på **Återställ lösenord** att skicka en länk till användaren att återställa sina lösenord.
-
-![Återställa lösenord][api-management-reset-password]
 
 Du kan via programmering med användarkonton, finns i [användarentiteten](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentation i den [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) referens. Om du vill återställa lösenordet för ett användarkonto till ett visst värde, kan du använda den [uppdatera en användare](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) igen och ange önskade lösenordet.
-
-## <a name="pending-verification"></a>Väntande verifiering
-![Väntande verifiering][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Nästa steg
 När ett utvecklarkonto har skapats kan du koppla den till roller och prenumerera på produkter och API: er. Mer information finns i [hur du skapar och använda grupper för][How to create and use groups].

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -40,7 +40,7 @@ Följande steg leder dig genom processen att skapa en formel från en anpassad a
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 
 3. Lista över labs, Välj önskade labbet.  
 
@@ -87,7 +87,7 @@ Följande steg leder dig genom processen att skapa en formel som baseras på en 
 > 
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet.  
 4. På testmiljön **översikt** bladet Välj den virtuella datorn från vilken du vill skapa formeln.
    
@@ -104,7 +104,7 @@ Följande steg leder dig genom processen att skapa en formel som baseras på en 
 Följ dessa steg om du vill ändra en formel:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet.  
 4. På den testmiljön bladet välj **formler (återanvändbara baser)**.
    
@@ -116,7 +116,7 @@ Följ dessa steg om du vill ändra en formel:
 Följ dessa steg om du vill ta bort en formel:
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+2. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 3. Lista över labs, Välj önskade labbet.  
 4. Om labbet **inställningar** bladet väljer **formler**.
    

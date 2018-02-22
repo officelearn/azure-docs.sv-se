@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Lagringsutforskaren felsökningsguiden
 
-Microsoft Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. Appen kan ansluta till lagringskonton finns i Azure, statliga moln och Azure-stacken.
+Microsoft Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. Appen kan ansluta till lagringskonton finns i Azure, National moln och Azure-stacken.
 
 Den här guiden beskrivs lösningar på vanliga problem som visas i Lagringsutforskaren.
 
@@ -59,7 +59,7 @@ När Lagringsutforskaren påträffar ett problem, kan den inte längre vet om de
 
 6. Öppna Lagringsutforskaren, klicka på **redigera** > **SSL-certifikat** > **Importera certifikat**, och sedan använda filväljaren för att söka efter och välj Öppna CER-filen som du skapade.
 
-Om du inte hittar någon självsignerade certifikat med hjälp av stegen ovan kan du kontakta oss genom verktyget feedback för mer hjälp.
+Om du inte hittar någon självsignerade certifikat med föregående steg, kontaktar du oss via verktyget feedback för mer hjälp.
 
 ### <a name="unable-to-retrieve-subscriptions"></a>Det gick inte att hämta prenumerationer
 
@@ -73,7 +73,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in, Följ de
 
 - Försök att ta bort och readding kontot.
 
-- Försök ta bort följande filer från rotkatalogen (det vill säga C:\Users\ContosoUser) och sedan lägga till kontot igen:
+- Försök ta bort följande filer från rotkatalogen (det vill säga C:\Users\ContosoUser) och readding kontot:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in, Följ de
 
 - Titta på utvecklingsverktygen konsolen (genom att trycka på F12) när du loggar in för eventuella felmeddelanden:
 
-![Utvecklingsverktyg](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![utvecklarverktyg](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visas på autentiseringssidan
 
@@ -116,7 +116,7 @@ Om det inte går att ta bort ett konto, eller om länken återautentisera inte g
     - ~/.config/StorageExplorer för Linux
 
 > [!NOTE]
->  Du måste ange dina autentiseringsuppgifter igen om du tar bort dessa filer.
+>  När du tar bort ovanstående filer, behöver du logga in på dina konton.
 
 ## <a name="proxy-issues"></a>Proxy-problem
 
@@ -173,13 +173,21 @@ Om du ansluter till en tjänst med hjälp av en SAS-URL och det här felet:
 
 - Om SAS-URL är baserat på en åtkomstprincip, kontrollerar du att åtkomstprincipen inte har återkallats.
 
-Om din av misstag kopplas en ogiltig SAS-URL och kunde inte koppla från, följer du dessa anvisningar:
+Följ dessa steg om du av misstag ansluten med en ogiltig SAS-URL och det går inte att koppla från:
 1.  När du kör Lagringsutforskaren trycker du på F12 för att öppna fönstret developer tools.
 2.  Klicka på fliken program och klicka sedan på lokal lagring > file:// i trädet till vänster.
-3.  Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, letar du efter nyckeln med namnet ”StorageExplorer_AddStorageServiceSAS_v1_blob”.
+3.  Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, leta efter den nyckel som heter `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  Värdet för nyckeln ska vara en JSON-matris. Hitta ett objekt som är associerade med den felaktiga URI och ta bort den.
 5.  Tryck på Ctrl + R för att läsa in Lagringsutforskaren.
 
+## <a name="linux-dependencies"></a>Linux-beroenden
+
+Du kan behöva installera manuellt vissa beroenden för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
+* libgconf-2-4
+* libsecret
+* Uppdaterade GCC
+
+Beroende på din distro kan det finnas andra paket som du behöver installera. Lagringsutforskaren [viktig information](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehåller särskilda åtgärder för vissa distributioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

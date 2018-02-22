@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: daveba
 ms.reviewer: luleon
-ms.openlocfilehash: 827d5c8669eb54630adbaba0306e73b5de6a7137
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
 Om du vill tilldela en användare eller grupp till en enterprise-app, du måste ha behörighet att hantera enterprise-appen och du måste vara global administratör för katalogen.
@@ -28,7 +28,7 @@ Om du vill tilldela en användare eller grupp till en enterprise-app, du måste 
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hur tilldelar åtkomst till en enterprise-app i Azure portal?
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **fler tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
+2. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
 3. På den **Azure Active Directory - *directoryname***  bladet (det vill säga Azure AD bladet för den katalog som du hanterar), Välj **företagsprogram**.
 
     ![Öppna företagsappar](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
@@ -94,7 +94,7 @@ Det här exemplet tilldelas användaren Britta Simon till den [Microsoft arbetsp
         
 3. Kör kommandot `$sp.AppRoles` ska visas rollerna som är tillgängliga för arbetsplats Analytics-programmet. I det här exemplet ska vi tilldelas Britta Simon rollen analytiker (begränsad åtkomst).
     
-    ![Arbetsplats Analytics roll](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
+    ![Workplace Analytics Role](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
 
 4. Tilldela rollnamn för den `$app_role_name` variabeln.
         

@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Exchange EDIFACT-meddelanden för enterprise-integrering med logic apps
 
@@ -42,12 +42,12 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
 
 ## <a name="create-an-edifact-agreement"></a>Skapa ett EDIFACT-avtal 
 
-1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). I den vänstra menyn, Välj **fler tjänster**.
+1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). I den vänstra menyn, Välj **alla tjänster**.
 
     > [!TIP]
-    > Om du inte ser **fler tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
+    > Om du inte ser **alla tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
 
-    ![På vänster-menyn väljer du ”fler tjänster”](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![På vänster-menyn väljer du ”alla tjänster”](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. I sökrutan skriver du ”integration” för filtret. Välj i resultatlistan **Integrationskonton**.
 
@@ -74,11 +74,11 @@ Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-
     | --- | --- |
     | Namn |Avtalets namn |
     | Avtalstyp | Ska vara EDIFACT |
-    | Värd-Partner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
-    | Värdidentiteten |En identifierare för värdpartnern som |
-    | Gästen Partner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
-    | Gästen identitet |En identifierare för gäst-partner |
-    | Ta emot inställningarna |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
+    | Värdpartner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
+    | Värd-identitet |En identifierare för värdpartnern som |
+    | Gästpartner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
+    | Gästidentitet |En identifierare för gäst-partner |
+    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
     | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal handtag mottagna meddelanden
@@ -100,10 +100,10 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| UNB6.1 (mottagande referens lösenord) |Ange ett alfanumeriskt värde mellan 1 och 14 tecken. |
-| UNB6.2 (mottagande referens kvalificerare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
+| UNB6.1 (referenslösenord för mottagare) |Ange ett alfanumeriskt värde mellan 1 och 14 tecken. |
+| UNB6.2 (referenskvalificerare för mottagare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
 
-### <a name="acknowledgments"></a>Bekräftelser
+### <a name="acknowledgments"></a>Acknowledgments
 
 | Egenskap | Beskrivning |
 | --- | --- |
@@ -120,18 +120,18 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 | UNH2.5 (ASSOCIERADE TILLDELADE KOD) |Ange den tilldelade koden. (Maximalt sex tecken. Måste vara alfanumeriskt). |
 | UNG2.1 (APP AVSÄNDAR-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. |
 | UNG2.2 (APP AVSÄNDAREN KOD KVALIFICERARE) |Ange ett alfanumeriskt värde med högst fyra tecken. |
-| SCHEMAT |Välj tidigare överförda schema som du vill använda från ditt konto med associerade integrering. |
+| SCHEMA |Välj tidigare överförda schema som du vill använda från ditt konto med associerade integrering. |
 
-### <a name="control-numbers"></a>Kontrollen siffror
+### <a name="control-numbers"></a>Kontrollnummer
 | Egenskap | Beskrivning |
 | --- | --- |
 | Tillåt inte Interchange kontrollen antal dubbletter |Välj den här egenskapen om du vill blockera dubbla externa utbyten. Om markerad kontrollerar EDIFACT avkoda åtgärden att den interchange kontrollen (UNB5) för mottagna datautbyte inte matchar några tidigare bearbetade interchange kontroll. Om en matchning hittas, bearbetas inte utbyte. |
 | Leta efter UNB5-dubletter varje (dagar) |Om du väljer att inte tillåta dubbla interchange kontrollen siffror, du kan ange antalet dagar när du ska kontrollera genom att ge rätt värde för den här inställningen. |
 | Tillåt inte dubletter av gruppkontrollnummer |Välj den här egenskapen om du vill blockera externa utbyten med dubbla grupp kontrollen siffror (UNG5). |
 | Tillåt inte dubletter av transaktionsuppsättningsnummer |Välj den här egenskapen om du vill blockera externa utbyten med dubbla transaktion set kontrollen siffror (UNH1). |
-| EDIFACT bekräftelse kontrollen tal |Ange ett värde för prefix, ett intervall av referensnummer och ett suffix om du vill ange transaktionen set referensnummer för användning i en bekräftelse. |
+| Kontrollnummer för EDIFACT-bekräftelse |Ange ett värde för prefix, ett intervall av referensnummer och ett suffix om du vill ange transaktionen set referensnummer för användning i en bekräftelse. |
 
-### <a name="validations"></a>Verifieringar
+### <a name="validations"></a>Valideringar
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
@@ -140,11 +140,11 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av schemat EDI egenskaper, längd, tom dataelement och avslutande avgränsare. |
 | Utökad validering |Om datatypen inte EDI, validering på kravet element tillåts och upprepning, uppräkningar och elementet längd dataverifiering (min/max). |
-| Tillåt inledande/efterföljande nollor |Behåll ytterligare inledande eller avslutande noll och utrymme tecken. Ta inte bort dessa tecken. |
-| Ta bort inledande/efterföljande nollor |Ta bort inledande eller efterföljande noll och blanksteg. |
-| Avslutande avgränsare princip |Generera avslutande avgränsare. <p>Välj **inte tillåtet** förhindra avslutande avgränsare och avgränsare i mottagna utbyte. Om utbyte har avslutande avgränsare och avgränsare, deklareras utbyte inte giltig. <p>Välj **valfritt** att acceptera externa utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatoriska** när mottagna interchange måste ha avslutande avgränsare och avgränsare. |
+| Tillåt ledande/avslutande nollor |Behåll ytterligare inledande eller avslutande noll och utrymme tecken. Ta inte bort dessa tecken. |
+| Trimma ledande/avslutande nollor |Ta bort inledande eller efterföljande noll och blanksteg. |
+| Princip för avslutande avgränsare |Generera avslutande avgränsare. <p>Välj **inte tillåtet** förhindra avslutande avgränsare och avgränsare i mottagna utbyte. Om utbyte har avslutande avgränsare och avgränsare, deklareras utbyte inte giltig. <p>Välj **valfritt** att acceptera externa utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatoriska** när mottagna interchange måste ha avslutande avgränsare och avgränsare. |
 
-### <a name="internal-settings"></a>Internt inställningar
+### <a name="internal-settings"></a>Interna inställningar
 
 | Egenskap | Beskrivning |
 | --- | --- |
@@ -176,11 +176,11 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | UNB1.2 (Syntax version) |Välj ett värde mellan **1** och **4**. |
 | UNB2.3 (omvänd routingadress för avsändare) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
 | UNB3.3 (omvänd routingadress för mottagare) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
-| UNB6.1 (mottagande referens lösenord) |Ange ett alfanumeriskt värde med minst en och högst 14 tecken. |
-| UNB6.2 (mottagande referens kvalificerare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
-| UNB7 (program referens-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken |
+| UNB6.1 (referenslösenord för mottagare) |Ange ett alfanumeriskt värde med minst en och högst 14 tecken. |
+| UNB6.2 (referenskvalificerare för mottagare) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
+| UNB7 (programreferens-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken |
 
-### <a name="acknowledgment"></a>Bekräftelse
+### <a name="acknowledgment"></a>Acknowledgment
 | Egenskap | Beskrivning |
 | --- | --- |
 | Inleverans av meddelande (CONTRL) |Markera kryssrutan om den värdbaserade partnern förväntar sig att ta emot en teknisk (CONTRL) bekräftelse. Den här inställningen anger att den värdbaserade partner som skickar meddelandet, begär en bekräftelse från gäst-partner. |
@@ -193,14 +193,14 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | UNH2.1 (TYP) |Välj en uppsättning transaktionstyp. |
 | UNH2.2 (VERSION) |Ange versionsnummer för meddelandet. |
 | UNH2.3 (VERSION) |Ange versionsnumret för meddelandet. |
-| SCHEMAT |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. För att komma åt dina scheman länka ditt integration konto till din logikapp. |
+| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt konto för integrering. För att komma åt dina scheman länka ditt integration konto till din logikapp. |
 
 ### <a name="envelopes"></a>Kuvert
 | Egenskap | Beskrivning |
 | --- | --- |
-| UNB8 (bearbetar prioritetskod) |Ange en alfabetisk värde som inte är mer än ett tecken lång. |
-| UNB10 (avtal för kommunikation) |Ange ett alfanumeriskt värde med minst ett tecken och högst 40 tecken. |
-| UNB11 (testa Indicator) |Markera kryssrutan för att indikera att interchange genereras är testdata |
+| UNB8 (prioritetskod för bearbetning) |Ange en alfabetisk värde som inte är mer än ett tecken lång. |
+| UNB10 (kommunikationsavtal) |Ange ett alfanumeriskt värde med minst ett tecken och högst 40 tecken. |
+| UNB11 (testindikator) |Markera kryssrutan för att indikera att interchange genereras är testdata |
 | Tillämpa UNA-segment (tjänststrängråd) |Markera kryssrutan för att generera ett UNA segment för datautbyte skickas. |
 | Tillämpa UNG-segment (funktionsgrupprubrik) |Markera kryssrutan för att skapa gruppering segment i funktionella grupphuvud i meddelanden som skickas till gäst-partner. Följande värden används för att skapa UNG segment: <p>För **UNG1**, ange ett alfanumeriskt värde med minst ett tecken och högst sex tecken. <p>För **UNG2.1**, ange ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **UNG2.2**, ange ett alfanumeriskt värde med högst fyra tecken. <p>För **UNG3.1**, ange ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. <p>För **UNG3.2**, ange ett alfanumeriskt värde med högst fyra tecken. <p>För **UNG6**, ange ett alfanumeriskt värde med minst en och högst tre tecken. <p>För **UNG7.1**, ange ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **UNG7.2**, ange ett alfanumeriskt värde med minst ett tecken och högst tre tecken. <p>För **UNG7.3**, ange ett alfanumeriskt värde med minst 1 tecken och högst 6 tecken. <p>För **UNG8**, ange ett alfanumeriskt värde med minst ett tecken och högst 14 tecken. |
 
@@ -210,22 +210,22 @@ Andra än teckenuppsättningen, kan du ange en annan uppsättning avgränsare so
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| UNB1.1 (System Identifier) |Välj EDIFACT-teckenuppsättningen som ska tillämpas på utgående utbyte. |
-| Schemat |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda, baserat på följande avgränsare beskrivningar för det aktuella schemat. |
-| Indatatypen |Välj en typ av inkommande från den nedrullningsbara listan. |
-| Komponenten avgränsare |Ange ett enskilt tecken för att avgränsa sammansatta dataelement. |
-| Data elementet avgränsare |Ange ett enskilt tecken för att avgränsa enkla dataelement i sammansatta dataelement. |
-| Segmentera Begränsare |Ange ett enskilt tecken för att visa slutet på ett EDI-segment. |
+| UNB1.1 (systemidentifierare) |Välj EDIFACT-teckenuppsättningen som ska tillämpas på utgående utbyte. |
+| Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda, baserat på följande avgränsare beskrivningar för det aktuella schemat. |
+| Indatatyp |Välj en typ av inkommande från den nedrullningsbara listan. |
+| Komponentavgränsare |Ange ett enskilt tecken för att avgränsa sammansatta dataelement. |
+| Dataelement-avgränsare |Ange ett enskilt tecken för att avgränsa enkla dataelement i sammansatta dataelement. |
+| Segmentsterminator |Ange ett enskilt tecken för att visa slutet på ett EDI-segment. |
 | Suffix |Välj det tecken som används med segment-ID. Om du har angett ett suffix kan dataelementet segment Begränsare vara tom. Om segment Begränsare lämnas tomt, måste du ange ett suffix. |
 
-### <a name="control-numbers"></a>Kontrollen siffror
+### <a name="control-numbers"></a>Kontrollnummer
 | Egenskap | Beskrivning |
 | --- | --- |
-| UNB5 (Interchange kontrollen tal) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera ett utgående utbyte. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollera numret ökas för varje nytt meddelande; prefixet och suffixet desamma. |
-| UNG5 (gruppen kontrollen tal) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera gruppnummer för kontrollen. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollnumret ökas för varje nytt meddelande tills det största värdet har nåtts. prefixet och suffixet desamma. |
-| UNH1 (meddelandenummer sidhuvud referens) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera referensnumret för meddelande-huvud. Prefixet och suffixet är valfria, medan referensnumret måste anges. Referensnumret ökas för varje nytt meddelande; prefixet och suffixet desamma. |
+| UNB5 (Interchange-kontrollnummer) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera ett utgående utbyte. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollera numret ökas för varje nytt meddelande; prefixet och suffixet desamma. |
+| UNG5 (gruppkontrollnummer) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera gruppnummer för kontrollen. Prefixet och suffixet är valfria, medan kontrollen tal krävs. Kontrollnumret ökas för varje nytt meddelande tills det största värdet har nåtts. prefixet och suffixet desamma. |
+| UNH1 (referensnummer för meddelanderubrik) |Ange ett prefix, ett intervall med värden för datautbyte kontrollen Antal och ett suffix. Dessa värden används för att generera referensnumret för meddelande-huvud. Prefixet och suffixet är valfria, medan referensnumret måste anges. Referensnumret ökas för varje nytt meddelande; prefixet och suffixet desamma. |
 
-### <a name="validations"></a>Verifieringar
+### <a name="validations"></a>Valideringar
 
 När du slutför varje validering rad läggs en annan automatiskt. Om du inte anger några regler använder verifieringen raden ”standard”.
 
@@ -234,9 +234,9 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 | Meddelandetyp |Välj typ för EDI-meddelande. |
 | EDI-validering |Validerar EDI-datatyper som definieras av EDI-egenskaperna för schemat, längd, tom dataelement och avslutande avgränsare. |
 | Utökad validering |Om datatypen inte EDI, validering på kravet element tillåts och upprepning, uppräkningar och elementet längd dataverifiering (min/max). |
-| Tillåt inledande/efterföljande nollor |Behåll ytterligare inledande eller avslutande noll och utrymme tecken. Ta inte bort dessa tecken. |
-| Ta bort inledande/efterföljande nollor |Ta bort inledande eller avslutande noll tecken. |
-| Avslutande avgränsare princip |Generera avslutande avgränsare. <p>Välj **inte tillåtet** förhindra avslutande avgränsare och avgränsare i skickade utbyte. Om utbyte har avslutande avgränsare och avgränsare, deklareras utbyte inte giltig. <p>Välj **valfritt** att skicka externa utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatoriska** om skickade interchange måste ha avslutande avgränsare och avgränsare. |
+| Tillåt ledande/avslutande nollor |Behåll ytterligare inledande eller avslutande noll och utrymme tecken. Ta inte bort dessa tecken. |
+| Trimma ledande/avslutande nollor |Ta bort inledande eller avslutande noll tecken. |
+| Princip för avslutande avgränsare |Generera avslutande avgränsare. <p>Välj **inte tillåtet** förhindra avslutande avgränsare och avgränsare i skickade utbyte. Om utbyte har avslutande avgränsare och avgränsare, deklareras utbyte inte giltig. <p>Välj **valfritt** att skicka externa utbyten med eller utan avslutande avgränsare och avgränsare. <p>Välj **obligatoriska** om skickade interchange måste ha avslutande avgränsare och avgränsare. |
 
 ## <a name="find-your-created-agreement"></a>Hitta din skapade avtal
 

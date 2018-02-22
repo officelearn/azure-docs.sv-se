@@ -1,30 +1,12 @@
----
-title: "Felkoder för SQL - Databasanslutningsfel | Microsoft Docs"
-description: "Mer information om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. "
-keywords: "SQL-felkod, åtkomst till sql, Databasanslutningsfel, sql-felkoder"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ ---
+Rubrik: SQL-felkoder - Databasanslutningsfel | Microsoft Docs beskrivning ”: Lär dig mer om SQL-felkoder för SQL-databas klientprogram, till exempel vanliga anslutningsfel i databasen och kopiera databasproblem Allmänt fel. ' nyckelord: sql-felkoden, åtkomst till sql-databas anslutningsfel, sql-felkoder services: sql-databasen dokumentationcenter: '' författare: stevestein manager: jhubbard editor: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
-Den här artikeln innehåller SQL-felkoder för SQL Database-klientprogram, inklusive anslutningsfel i databasen, tillfälligt fel (kallas även tillfälliga problem), resurs styrning fel, kopiera databasproblem, elastisk pool och andra fel. De flesta kategorier är specifika för Azure SQL Database och gäller inte för Microsoft SQL Server.
+Den här artikeln innehåller SQL-felkoder för SQL Database-klientprogram, inklusive anslutningsfel i databasen, tillfälligt fel (kallas även tillfälliga problem), resurs styrning fel, kopiera databasproblem, elastisk pool och andra fel. De flesta kategorier är specifika för Azure SQL Database och gäller inte för Microsoft SQL Server. Se även [system felmeddelanden](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Fel vid anslutning till databasen, tillfälligt fel och andra tillfälliga fel
 I följande tabell beskrivs felkoder för SQL för anslutningsfel går förlorade och andra tillfälliga fel som kan uppstå när programmet försöker få åtkomst till SQL-databas. Komma igång Självstudier om hur du ansluter till Azure SQL Database finns [ansluta till Azure SQL Database](sql-database-libraries.md).
@@ -37,7 +19,7 @@ Du rekommenderas att klientprogrammet har logik så att den kan återupprätta e
 Tillfälligt fel fel visas vanligtvis som en av följande felmeddelanden från ditt program för klienter:
 
 * Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;
-* Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;. (Microsoft SQL Server, fel: 40613)
+* Databasen &lt;%{db_name/&gt; på servern &lt;Azure_instance&gt; är inte tillgänglig. Försök ansluta igen senare. Om problemet kvarstår kontaktar du kundsupport och uppger sessions-ID för spårning av &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * En befintlig anslutning tvingades att stänga av fjärrvärden.
 * System.Data.Entity.Core.EntityCommandExecutionException: Ett fel uppstod när kommandodefinition. Se ursprungsundantag för detaljer. ---> System.Data.SqlClient.SqlException: ett fel uppstod när resultat skulle tas emot från servern. (providern: Session-providern, fel: 19 - fysiska anslutningen kan inte användas)
 * Ett anslutningsförsök till en sekundär databas misslyckades eftersom databasen håller på att reconfguration och den är upptagen med att tillämpa nya sidor i mitten av en aktiv transation på den primära databasen. 
@@ -90,7 +72,7 @@ Följande fel orsakas av överdriven användning av resurser när du arbetar med
 * Ett program förbrukar för mycket minne.
 * Ett program förbrukar för mycket `TempDb` utrymme.
 
-Närliggande ämnen:
+Relaterade ämnen:
 
 * Mer information finns här: [gränserna för Azure SQL Database](sql-database-service-tiers.md).
 
@@ -131,7 +113,7 @@ Följande fel relaterade till skapa och använda elastiska pooler:
 | 40891 |EX_USER |Minsta DTU per databas (%d) får inte överskrida max DTU per databas (%d). |Minsta DTU per databas. Max DTU per databas. |Försöker ange minsta DTU per databas som är högre än max DTU per databas. |Kontrollera minsta DTU per databaser inte överskrida max DTU per databas. |
 | TBD |EX_USER |Lagringsstorleken för en individuell databas i en elastisk pool får inte överskrida den maximala storleken som tillåts av ' %. * ls' service tier elastisk pool. |elastiska pooltjänstnivå |Maxstorlek för databasen överskrider den maximala storlek som tillåts av elastiska pooltjänstnivå. |Ange maximala storleken på databasen inom gränserna för den maximala storlek som tillåts av elastiska pooltjänstnivå. |
 
-Närliggande ämnen:
+Relaterade ämnen:
 
 * [Skapa en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
 * [Hantera en elastisk pool (C#)](sql-database-elastic-pool-manage-csharp.md). 

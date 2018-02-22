@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera claimable virtuella datorer i Azure DevTest Labs
 Du lägger till en claimable virtuell dator i ett labb på liknande sätt att hur du [lägga till en standard VM](devtest-lab-add-vm.md) – från en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formeln](devtest-lab-manage-formulas.md) , eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudiekursen vägleder dig genom att använda Azure portal för att lägga till en claimable virtuell dator i ett labb i DevTest Labs och visar processerna som en användare följer för att begära och unclaim den virtuella datorn.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Steg för att lägga till en claimable virtuell dator i ett labb i Azure DevTest Labs
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **fler tjänster**, och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 1. Välj från listan över labs labbet där du vill skapa claimable VM.  
 1. På testmiljön **översikt** väljer **+ Lägg till**.  
 

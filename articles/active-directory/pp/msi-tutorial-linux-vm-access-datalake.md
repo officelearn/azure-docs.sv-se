@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: dc3ebf3ba232241677dc7aace4f835cee0cf54a7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Använd en Linux VM hanterade tjänsten identitet (MSI) för att komma åt Azure Data Lake Store
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI på en befintlig virtuell dator.
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **skapar du en resurs** på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentliga SSH-nyckeln** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
 

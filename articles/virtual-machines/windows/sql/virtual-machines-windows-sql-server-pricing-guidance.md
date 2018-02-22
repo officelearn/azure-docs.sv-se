@@ -4,7 +4,7 @@ description: "Innehåller metodtips för att välja rätt SQL Server-virtuella p
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure virtuella datorer
 
@@ -46,7 +46,7 @@ Om du vill skapa en SQL Server 2017 virtuella Azure-datorn med någon av dessa a
 
 Om du har en icke-lightweight produktion arbetsbelastning kan använda något av följande SQL Server-versioner:
 
-| SQL Server-version | Arbetsbelastning |
+| SQL Server Edition | Arbetsbelastning |
 |-----|-----|
 | Webb | Liten webbplatser |
 | Standard | Små till medelstora arbetsbelastningar |
@@ -100,7 +100,7 @@ Om du vill använda BYOL med en SQL Server-VM, måste du ha en licens för SQL S
 Om du vill skapa en SQL Server 2016 virtuella Azure-datorn med någon av dessa bring-your-äger-licens avbildningar finns i de virtuella datorerna prefixet ”{BYOL}”:
 
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
-- [SQL Server 2016 Standard-Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
+- [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
 > [!IMPORTANT]
 > Berätta för oss inom 10 dagar hur många SQL Server-licenser som du ska använda i Azure. Länkar till föregående bilder har instruktioner om hur du gör detta.
@@ -112,16 +112,16 @@ Om du vill skapa en SQL Server 2016 virtuella Azure-datorn med någon av dessa b
 
 Välj en optimal virtuell datorstorlek för att undvika onödiga kostnader och Överväg återkommande avstängningar för icke-kontinuerliga arbetsbelastningar.
 
-### <a id="machinesize"></a>Storleken på rätt sätt den virtuella datorn
+### <a id="machinesize"></a> Storleken på rätt sätt den virtuella datorn
 
 Licensiering kostnaden för SQL Server är direkt relaterat till antal kärnor. Välj en VM-storlek som matchar dina förväntade behov av CPU, minne, lagring och i/o-bandbredd. En fullständig lista över storleksalternativ för datorer, se [Windows VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) och [Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Det finns nya storlekar för datorer som fungerar bra med vissa typer av SQL Server-arbetsbelastningar. Dessa datorer storlekar upprätthålla hög minne, lagring och i/o-bandbredd, men de har ett lägre antal virtualiserade kärnor. Tänk dig följande exempel:
 
-| Storlek på virtuell dator | vCPUs | Minne | Maximalt antal diskar | Högsta antal i/o-genomflöde | SQL-licensieringskostnaderna | Totalkostnader (beräkning + licensing) |
+| Storlek på virtuell dator | vCPU:er | Minne | Maximalt antal diskar | Högsta antal i/o-genomflöde | SQL-licensieringskostnaderna | Totalkostnader (beräkning + licensing) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51,200 IOPS eller 768 MB/s | | |
-| **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51,200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51,200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |
 
 > [!IMPORTANT]
 > Det här är ett exempel på tidpunkt. Senaste specifikationer finns datorn storlekar artiklar och priser för Azure [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

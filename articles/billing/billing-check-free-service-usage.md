@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av ledigt tjänster som ingår i din kostnadsfritt Azure-konto 
 
@@ -28,7 +28,7 @@ Du debiteras inte för tjänster som ingår kostnadsfritt i kostnadsfritt Azure-
 
 1.  Logga in på [Azure-portalen]( http://portal.azure.com).
 
-2.  Längst ned i navigeringen till vänster, Välj **fler tjänster**.
+2.  Vänstra navigeringsfönstret området, Välj **alla tjänster**.
 
 3.  Välj **prenumerationer**.
 
@@ -63,7 +63,7 @@ Du debiteras inte för tjänster som ingår kostnadsfritt i kostnadsfritt Azure-
 
 Användning-filen innehåller detaljerad information för din Azure-prenumeration. Du kan hämta din månatliga och daglig användning filen från Azure Kontocenter. Information om hur du hämtar filen användningen och förstå åtkomsten som krävs finns [hämta faktura och användning](billing-download-azure-invoice-daily-usage-date.md). Läs om kolumner i filen användning i [Förstå villkoren på din användning](billing-understand-your-usage.md). 
 
-Användning-filen innehåller användningsinformation för både gratis och betald tjänster. Kostnadsfria tjänsten mätare skulle ha **lediga** läggas till i slutet av namnet på mätaren. Att hitta ledigt mätare, öppna filen i excel och filter den **mätaren kategori kolumnen** för celler som innehåller text **- ledigt** (Textfilter &rarr; filtret innehåller)&nbsp;
+Användning-filen innehåller användningsinformation för både gratis och betald tjänster. Kostnadsfria tjänsten mätare skulle ha **lediga** läggas till i slutet av namnet på mätaren. Att hitta ledigt mätare, öppna filen i excel och filter den **mätaren kategori kolumnen** för celler som innehåller text **- ledigt** (Textfilter &rarr; filtret innehåller) &nbsp;
 
 ![Skärmbild som visar användningen av gratistjänster](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

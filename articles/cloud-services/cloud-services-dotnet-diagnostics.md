@@ -3,8 +3,8 @@ title: "Hur du använder Azure diagnostics (.NET) med molntjänster | Microsoft 
 description: "Med Azure-diagnostik för att samla in data från Azure-molntjänster för felsökning, mäta prestanda, övervakning, trafik analys och mer."
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: 
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: robb
-ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure-molntjänster
 Se [översikt över Azure Diagnostics](../azure-diagnostics.md) för en bakgrund på Azure-diagnostik.
@@ -26,7 +26,7 @@ Se [översikt över Azure Diagnostics](../azure-diagnostics.md) för en bakgrund
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Så här aktiverar du diagnostik i en Arbetsroll
 Här beskrivs hur du implementerar en Azure-arbetsroll som skickar telemetridata med hjälp av .NET EventSource-klassen. Azure-diagnostik för att samla in telemetridata och lagrar den i ett Azure storage-konto. När du skapar en arbetsroll kan Visual Studio automatiskt diagnostik 1.0 som en del av lösningen i Azure SDK för .NET 2.4 och tidigare. I följande anvisningar beskrivs processen för att skapa arbetsrollen inaktivera diagnostik 1.0 från lösningen, och distribuera diagnostik 1.2 eller 1.3 worker-rollen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har en Azure-prenumeration och använder Visual Studio med Azure SDK. Om du inte har en Azure-prenumeration kan du registrera dig för den [kostnadsfri utvärderingsversion][Free Trial]. Se till att [installera och konfigurera Azure PowerShell version 0.8.7 eller senare][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Steg 1: Skapa en Arbetsroll

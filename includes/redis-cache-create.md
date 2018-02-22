@@ -1,4 +1,4 @@
-Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://portal.azure.com) och klickar på **Ny** > **Databaser** > **Redis Cache**.
+Om du vill skapa ett cacheminne först logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **skapar du en resurs** > **databaser** > **Redis-Cache** .
 
 > [!NOTE]
 > Om du inte har något Azure-konto så kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) på bara några minuter.
@@ -16,12 +16,12 @@ Om du vill skapa ett cacheminne loggar du först in på [Azure Portal](https://p
 > 
 > 
 
-På **Nytt Redis-cache**-bladet, anger du önskad konfiguration för cacheminnet.
+I **nytt Redis-Cache**, anger du önskad konfiguration för cacheminnet.
 
 ![Skapa ett cacheminne](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * I **Dns-namn** anger du ett unikt cachenamn att använda för cache-slutpunkten. Cachenamnet måste vara en sträng mellan 1 och 63 tecken och får endast innehålla siffror, bokstäver och `-`-tecknet. Cachenamnet får inte inledas eller avslutas med `-`-tecknet eller ha flera `-`-tecken i följd.
-* Som **prenumeration** anger du den Azure-prenumeration som du vill använda för cacheminnet. Om ditt konto bara har en prenumeration, kommer den att väljas automatiskt och listrutan **Prenumeration** visas inte.
+* Som **prenumeration** anger du den Azure-prenumeration som du vill använda för cacheminnet. Om ditt konto bara har en prenumeration, den väljs automatiskt och **prenumeration** inte visas i listrutan.
 * I **Resursgrupp** väljer eller skapar du en resursgrupp för ditt cacheminne. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../articles/azure-resource-manager/resource-group-overview.md). 
 * Använd **Plats** för att ange den geografiska plats där du vill ha ditt cacheminne. För bästa prestanda rekommenderar Microsoft att du skapar cacheminnet i samma region som cacheklientprogrammet.
 * Använd **Prisnivå** för att välja önskad cachestorlek och funktioner.

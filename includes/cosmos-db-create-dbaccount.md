@@ -1,5 +1,5 @@
 1. Ett nytt fönster i webbläsaren, logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **nya** > **databaser** > **Cosmos Azure DB**.
+2. Klicka på **skapar du en resurs** > **databaser** > **Azure Cosmos DB**.
    
    ![Azure Portal-databasfönstret](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 

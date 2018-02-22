@@ -3,8 +3,8 @@ title: "Azure Marketplace-objekt för Azure-stacken | Microsoft Docs"
 description: "Dessa Azure Marketplace-objekt kan användas i Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -30,14 +31,14 @@ Du rekommenderas att ladda ned dessa när det finns uppdateringar för VM-tillä
 
 |  | Objektnamnet | Beskrivning | Utgivare | OS-typ |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-tillägg](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objektet - detta är obligatoriskt.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Tillägget för anpassat skript](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av anpassade skript tillägget för Windows.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC-tillägg](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Hämta uppdateringen till rutan i version av PowerShell DSC-tillägg.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Tillägg för Microsoft-program mot skadlig kod](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware för Azure är en enskild agent lösning för program och klient-miljöer är avsedd att köras i bakgrunden utan mänsklig inblandning. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS-tillägg ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objektet - detta är obligatoriskt.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägget för anpassat skript ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av anpassade skript tillägget för Windows.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC-tillägg ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Hämta uppdateringen till rutan i version av PowerShell DSC-tillägg.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Tillägg för Microsoft-program mot skadlig kod ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware för Azure är en enskild agent lösning för program och klient-miljöer är avsedd att köras i bakgrunden utan mänsklig inblandning. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker-tillägget för Linux virtuella datorer. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [VM-åtkomst för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Hämta uppdateringen till den i box-versionen av VMAccess för Linux-tillägg. Det är viktigt om du planerar att använda Debian virtuella Linux-datorer.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ VM-åtkomst för Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Hämta uppdateringen till den i box-versionen av VMAccess för Linux-tillägg. Det är viktigt om du planerar att använda Debian virtuella Linux-datorer.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis säkerhetskopiering tillägget för Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis säkerhetskopiering tillägget för Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis International GmbH. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine-bilder och Lösningsmallar
 
@@ -70,9 +71,9 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express på SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Kostnadsfria express-versionen av SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise på SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Databasplattform för intelligent verksamhetskritiska program. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQLServer 2017 Web på SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Databasplattform för intelligent verksamhetskritiska program. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 på Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 på Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på Ubuntu 16.04 för Maskininlärning](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 på Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på CentOS Linux 7.2 för Maskininlärning](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 på CentOS Linux 7.2. | Microsoft + falsk Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 på Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 på Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på Ubuntu 16.04 för Maskininlärning ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 på Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på CentOS Linux 7.2 för Maskininlärning ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 på CentOS Linux 7.2. | Microsoft + falsk Wave |
 
 
 ## <a name="linux-distributions"></a>Linux-distributioner
@@ -209,5 +210,5 @@ Microsoft Azure-stacken stöder följande Azure Marketplace virtuella datorer oc
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Nivå 4 – 7 programmet leverans domänkontrollant (ADC) belastningsutjämnare, innehåll växeln och Traffic Manager. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibel storage-tjänst som omfattar offentliga och lokala resurser med kapacitet. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. <b>Ladda ned båda Puppet Marketplace-objekt.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Bäst i klassen Öppna källa infrastrukturhantering. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Bäst i klassen Öppna källa infrastrukturhantering. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |

@@ -3,8 +3,8 @@ title: "Använd mallen verifieraren för att kontrollera mallar för Azure-Stack
 description: "Kontrollera mallar för distribution till Azure-stacken"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 02/20/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 6a77efb3ef4236048ff08b14346175b592493982
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Kontrollera dina mallar för Azure-stacken med mallen verifieraren
 
@@ -26,13 +27,28 @@ ms.lasthandoff: 01/23/2018
 
 Du kan använda verktyget mallen verifiering för att kontrollera om din Azure Resource Manager [mallar](azure-stack-arm-templates.md) är redo för Azure-stacken. Mallen valideringsverktyget är tillgängligt som en del av verktyg för Azure-stacken. Hämta Azure Stack-verktyg med hjälp av stegen som beskrivs i den [hämta verktyg från GitHub](azure-stack-powershell-download.md) artikel. 
 
-Om du vill validera mallar kan du använda följande PowerShell-moduler och JSON-filen finns i **TemplateValidator** och **CloudCapabilities** mappar: 
+Om du vill validera mallar kan du använda följande PowerShell-moduler i **TemplateValidator** och **CloudCapabilities** mappar: 
 
  - AzureRM.CloudCapabilities.psm1 skapar en molnet funktioner JSON-fil som representerar de tjänster och -versioner i ett moln som Azure-stacken.
  - AzureRM.TemplateValidator.psm1 använder en molnet funktioner JSON-fil för att testa mallar för distribution i Azure-stacken.
- - AzureStackCloudCapabilities_with_AddOns_20170627.json är en standardfil molnet funktioner.  Du kan skapa en egen eller använda den här filen för att komma igång. 
+ 
+I den här artikeln, skapa en funktionsfil i molnet och kör sedan verktyget verifieraren.
 
-I det här avsnittet köra verifiering mot dina mallar och du kan också skapa en funktionsfil i molnet.
+## <a name="build-cloud-capabilities-file"></a>Skapa en funktionsfil i molnet
+Innan du använder mallen verifieraren kan köra AzureRM.CloudCapabilities PowerShell-modulen för att skapa en JSON-fil. Om du uppdaterar din integrerat system eller Lägg till nya tjänster eller VM-tillägg måste du också köra att modulen igen.
+
+1.  Kontrollera att du har en anslutning till Azure-stacken. Dessa åtgärder kan utföras från Azure-stacken development kit värden eller använda en [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta från din arbetsstation. 
+2.  Importera AzureRM.CloudCapabilities PowerShell-modulen:
+
+    ```PowerShell
+    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
+    ``` 
+
+3.  Använd cmdleten Get-CloudCapabilities för att hämta service-versioner och skapa en moln funktioner JSON-fil. Om du inte anger - OutputPath, filen AzureCloudCapabilities.Json skapas i den aktuella katalogen. Använd din faktiska plats:
+
+    ```PowerShell
+    Get-AzureRMCloudCapability -Location <your location> -Verbose
+    ```             
 
 ## <a name="validate-templates"></a>Validera mallar
 I följande steg ska validera du mallar med hjälp av AzureRM.TemplateValidator PowerShell-modulen. Du kan använda egna mallar eller verifiera den [Azure Stack-snabbstartsmallar](https://github.com/Azure/AzureStack-QuickStart-Templates).
@@ -52,7 +68,7 @@ I följande steg ska validera du mallar med hjälp av AzureRM.TemplateValidator 
     -Verbose
     ```
 
-Några mallen valideringsvarningar eller fel loggas till PowerShell-konsolen och loggas också i en HTML-fil i källkatalogen. Ett exempel på utdata för verifiering rapporten ser ut så här:
+Några mallen valideringsvarningar eller fel loggas PowerShell-konsolen och en HTML-fil i källkatalogen. Här är ett exempel på verifieringsrapporten:
 
 ![exempel för växling vid fel](./media/azure-stack-validate-templates/image1.png)
 
@@ -60,7 +76,7 @@ Några mallen valideringsvarningar eller fel loggas till PowerShell-konsolen och
 
 | Parameter | Beskrivning | Krävs |
 | ----- | -----| ----- |
-| TemplatePath | Anger sökvägen till rekursivt hitta Resource Manager-mallar | Ja | 
+| TemplatePath | Anger sökvägen till rekursivt hitta Azure Resource Manager-mallar | Ja | 
 | TemplatePattern | Anger namnet på mallfilerna ska matchas. | Nej |
 | CapabilitiesPath | Anger sökvägen till molnet funktioner JSON-fil | Ja | 
 | IncludeComputeCapabilities | Innehåller utvärdering av IaaS-resurser som VM-storlekar och VM-tillägg | Nej |
@@ -79,22 +95,6 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities`
 -Report TemplateReport.html
 ```
-
-## <a name="build-cloud-capabilities-file"></a>Skapa en funktionsfil i molnet
-Hämtade filer är en standard *AzureStackCloudCapabilities_with_AddOns_20170627.json* fil som beskriver de service-versionerna som är tillgängliga i Azure-stacken Development Kit med PaaS-tjänster som är installerade.  Du kan använda AzureRM.CloudCapabilities PowerShell-modulen för att skapa en JSON-fil inklusive nya tjänster om du installerar ytterligare Resursleverantörer.  
-
-1.  Kontrollera att du har en anslutning till Azure-stacken.  Dessa åtgärder kan utföras från Azure-stacken development kit värden eller använda [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) att ansluta från din arbetsstation. 
-2.  Importera AzureRM.CloudCapabilities PowerShell-modulen:
-
-    ```PowerShell
-    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
-    ``` 
-
-3.  Använd cmdleten Get-CloudCapabilities för att hämta service-versioner och skapa en moln funktioner JSON-fil:
-
-    ```PowerShell
-    Get-AzureRMCloudCapability -Location 'local' -Verbose
-    ```             
 
 
 ## <a name="next-steps"></a>Nästa steg

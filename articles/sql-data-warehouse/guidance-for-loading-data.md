@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
 Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ Det är en bra säkerhetsrutin att regelbundet ändra åtkomstnyckeln till din B
 
 Så här roterar du Azure Storage-kontonycklar:
 
-1. Skapa andra databasbegränsade autentiseringsuppgifter baserat på åtkomstnyckeln för den sekundära lagringen.
-2. Skapa en andra extern datakälla baserad på de nya autentiseringsuppgifterna.
-3. Släpp och skapa de externa tabellerna så att de pekar till de nya externa datakällorna. 
+För varje lagringskonto vars nyckel har ändrats utfärdar du [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-När du har migrerat dina externa tabeller till den nya datakällan utför du följande rensningsåtgärder:
+Exempel:
 
-1. Släpp den första extern datakällan.
-2. Släpp de första databasbegränsade autentiseringsuppgifterna baserat på åtkomstnyckeln för den primära lagringen.
-3. Logga in på Azure och återskapa den primära åtkomstnyckeln så att den är redo för din nästa rotering.
+Den ursprungliga nyckeln skapas
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Rotera nyckel från nyckel 1 till nyckel 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Det behövs inga andra ändringar i underliggande externa datakällor.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Krav för Azure Stack Public Key Infrastructure-certifikat
 Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av externa offentliga IP-adresser tilldelas en liten uppsättning Azure Stack-tjänster och eventuellt klient virtuella datorer. PKI-certifikat med lämpliga DNS-namn för dessa Azure Stack infrastruktur för offentliga slutpunkter krävs under distributionen av Azure-stacken. Den här artikeln innehåller information om:
@@ -33,7 +33,7 @@ Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av extern
 ## <a name="certificate-requirements"></a>Certifikatkrav
 I följande lista beskrivs kraven på certifikaten som behövs för att distribuera Azure Stack: 
 - Vara måste utfärdat certifikat från en intern certifikatutfärdare eller en offentlig certifikatutfärdare. Om du använder en offentlig certifikatutfärdare, måste det ingå i den grundläggande operativsystemavbildningen som en del av Microsoft Trusted Root myndigheten Program. Du hittar en fullständig lista: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter som lagring och Nyckelvalv där de är obligatoriska. 
+- Certifikatet kan vara ett enda jokertecken certifikat som omfattar alla namnutrymmen i fältet alternativt namn på CERTIFIKATMOTTAGARE. Du kan också använda certifikat med jokertecken för slutpunkter som acs och Nyckelvalv där de är obligatoriska. 
 - Signaturalgoritm certifikatet får inte vara SHA1, måste det vara bättre. 
 - Certifikatets format måste vara PFX, som både offentliga och privata nycklar som krävs för installationen av Azure-stacken. 
 - Certifikat pfx-filer måste ha ett värde ”Digital signatur” och ”KeyEncipherment” i dess ”nyckelanvändning”.

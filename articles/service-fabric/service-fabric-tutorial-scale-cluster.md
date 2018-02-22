@@ -1,6 +1,6 @@
 ---
 title: Skala ett Azure Service Fabric-kluster | Microsoft Docs
-description: "Lär dig hur du snabbt skala ett Service Fabric-kluster."
+description: "Lär dig hur du snabbt skalar ett Service Fabric-kluster."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -12,43 +12,43 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Skala ett Service Fabric-kluster
 
-Den här kursen ingår två av en serie och visar hur du kan skala ditt befintliga kluster och. När du är klar, kommer du att veta hur du skala ditt kluster och rensa alla blivit över resurser.
+Det här är den andra delen i en kurs. I den här delen visas hur du skalar ut och in ditt befintliga kluster. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Noden för klustret läsningar
-> * Lägga till noder i klustret (skalbar)
-> * Tar bort klusternoder (skalan i)
+> * Läser antalet klusternoder
+> * Lägger till klusternoder (skalar ut)
+> * Tar bort klusternoder (skalar in)
 
-I den här självstudiekursen serien lär du dig hur du:
+I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
-> * Skala ett kluster in eller ut
-> * [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
+> * Skala in eller ut ett kluster
+> * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Krav
-Innan du börjar den här kursen:
-- Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installera den [Azure Powershell Modulversion 4.1 eller högre](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
-- Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och **Azure-utveckling**, **ASP.NET och web development**, och **.NET Core plattformsoberoende development**arbetsbelastningar.  Ställa in en [.NET utvecklingsmiljö](service-fabric-get-started.md).
-- Om du distribuerar en Linux-kluster måste du ställa in en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera den [Service Fabric CLI](service-fabric-cli.md). 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar den här självstudien:
+- om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).
+- Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
+- Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+- Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på ditt Azure-konto väljer din prenumeration innan du kan köra kommandon för Azure.
+Logga in på ditt Azure-konto och välj din prenumeration innan du kör Azure-kommandon.
 
 ```powershell
 Login-AzureRmAccount
@@ -63,9 +63,9 @@ az account set --subscription <guid>
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-För att slutföra den här delen av kursen, behöver du ansluta till både Service Fabric-kluster och virtuella datorns skaluppsättning (som är värd för klustret). Virtuella datorns skaluppsättning är Azure-resurs som är värd för Service Fabric på Azure.
+För att slutföra den här delen av kursen måste du ansluta till både Service Fabric-klustret och VM-skalningsuppsättningen (som är värd för klustret). VM-skalningsuppsättningen är den Azure-resurs som är värd för Service Fabric på Azure.
 
-När du ansluter till ett kluster, kan den fråga information. Du kan använda i klustret för att lära dig om vilka noder i klustret är medveten om. Ansluta till klustret i följande kod använder samma certifikat som har skapats i den första delen av den här serien. Se till att ange den `$endpoint` och `$thumbprint` variabler som värdena.
+När du ansluter till ett kluster kan du fråga den om information. Du kan använda klustret för att ta reda på vilka noder klustret känner till. I anslutningen till klustret i följande kod används samma certifikat som skapades i den första delen i den här serien. Se till att ange egna värden för variablerna `$endpoint` och `$thumbprint`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -85,20 +85,20 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Nu när du är ansluten kan använda du ett kommando för att hämta status för varje nod i klustret. PowerShell, Använd den `Get-ServiceFabricClusterHealth` kommando, och för **sfctl** använder den '' kommando.
+Nu när du är ansluten kan använda du ett kommando för att hämta status för varje nod i klustret. I PowerShell använder du kommandot `Get-ServiceFabricClusterHealth` och för **sfctl** använder du kommandot `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Skala ut
 
-När du skalar upp du lägger till flera instanser av virtuell dator i skaluppsättning. Dessa instanser blir de noder som använder Service Fabric. Service Fabric vet när skaluppsättning har flera instanser som lagts till (genom att skala ut) och reagerar automatiskt. Följande kod hämtar en skala som anges av namn och ökar den **kapacitet** skalans in med 1.
+När du skalar ut lägger du till fler instanser av virtuella datorer i skalningsuppsättningen. Dessa instanser blir de noder som används i Service Fabric. Service Fabric vet när fler instanser läggs till i skalningsuppsättningen (genom utskalning) och reagerar automatiskt. Följande kod hämtar en skalningsuppsättning efter namn och ökar **kapaciteten** för skalningsuppsättningen med 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
-Den här koden anger kapaciteten till 6.
+Den här koden anger värdet 6 för kapaciteten.
 
 ```azurecli
 # Get the name of the node with
@@ -108,46 +108,47 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="scale-in"></a>Skala i
+## <a name="scale-in"></a>Skala in
 
-Skalning i är samma som skala ut, förutom att du använder en lägre **kapacitet** värde. När du skalar i skaluppsättning du ta bort instanser för virtuella datorer från skaluppsättning. Normalt sett Service Fabric är inte medveten om vad som har hänt och den anser att en nod har tappats. Service Fabric rapporterar ett feltillstånd för klustret. Om du vill förhindra att felaktigt tillstånd, måste du informera service fabric som du förväntar dig noden försvinner.
+Inskalning fungerar på samma sätt som utskalning, men du använder ett lägre värde för **kapacitet**. När du skalar in skalningsuppsättningen tar du bort instanser för virtuella datorer från skalningsuppsättningen. Normalt är inte Service Fabric medveten om att en inskalning har skett utan tror att en nod har gått förlorad. Service Fabric rapporterar ett feltillstånd för klustret. För att förhindra att feltillståndet uppstår måste du informera Service Fabric om att det var väntat att noden försvinner.
 
-### <a name="remove-the-service-fabric-node"></a>Ta bort service fabric-noden
+### <a name="remove-the-service-fabric-node"></a>Ta bort Service Fabric-noden
 
 > [!NOTE]
-> Den här delen gäller bara den *Brons* hållbarhetsnivån. Läs mer om hållbarhet [kapacitetsplanering för Service Fabric-klustret][durability].
+> Den här delen gäller endast hållbarhetsnivån *Brons*. Mer information om hållbarhet finns i [Kapacitetsplanering för Service Fabric-kluster][durability].
 
-När du skalar i en skaluppsättning för virtuell dator, skaluppsättningen (i de flesta fall) tar du bort den virtuella datorinstans som skapades senast. Så behöver du hitta den motsvarande senast skapade service fabric-noden. Du kan hitta den sista noden genom att kontrollera det största `NodeInstanceId` egenskapsvärdet på service fabric-noder. Kodexempel under Sortera efter noden instansen och returnera information om instansen med det största id-värdet. 
+När du skalar in en VM-skalningsuppsättning tar skalningsuppsättningen (i de flesta fall) bort instansen av den virtuella datorn som skapades senast. Därför behöver du hitta den matchande (senaste skapade) Service Fabric-noden. Du hittar den senaste noden genom att kontrollera vilken av Service Fabric-noderna som har det största `NodeInstanceId`-egenskapsvärdet. Kodexemplen nedan sorteras efter nodinstansen och returnerar information om den instans som har det högsta ID-värdet. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-Service fabric-kluster behöver veta att den här noden kommer att tas bort. Det finns tre steg som du måste utföra:
+Service Fabric-klustret måste informeras om att noden ska tas bort. Du måste göra tre saker:
 
-1. Inaktivera noden så att den inte längre är en kopia för data.  
-PowerShell:`Disable-ServiceFabricNode`  
-sfcli:`sfctl node disable`
+1. Inaktivera noden så att den inte längre är en replik av data.  
+PowerShell: `Disable-ServiceFabricNode`  
+sfcli: `sfctl node disable`
 
-2. Stoppa noden så att service fabric runtime avslutas korrekt och din app hämtar en avsluta begäran.  
-PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
-sfcli:`sfctl node transition --node-transition-type Stop`
+2. Stoppa noden så att Service Fabric-körningen får en ren avstängning och appen får en avslutningsbegäran.  
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfcli: `sfctl node transition --node-transition-type Stop`
 
 2. Ta bort noden från klustret.  
-PowerShell:`Remove-ServiceFabricNodeState`  
-sfcli:`sfctl node remove-state`
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfcli: `sfctl node remove-state`
 
-När de här tre stegen har tillämpats på noden, kan tas bort från skaluppsättning. Om du använder någon hållbarhetsnivån förutom [Brons][durability], de här stegen är klar för dig när skaluppsättning instansen tas bort.
+När du har utfört dessa steg för noden kan du ta bort den från skalningsuppsättningen. Om du har någon annan hållbarhetsnivå än [Brons][durability] görs dessa steg åt dig när instansen av skalningsuppsättningen tas bort.
 
-Hämtar den sista noden som skapade följande kodblock, inaktiverar, stoppar och tar bort noden från klustret.
+Följande kodblock hämtar den senaste skapade noden och inaktiverar, stoppar och tar bort noden från klustret.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -202,7 +203,7 @@ else
 }
 ```
 
-I den **sfctl** code nedan, används följande kommando för att hämta den **nodnamnet** och **nod-instans-id** värden för noden senast skapade:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+I **sfctl**-koden nedan används följande kommando för att hämta **node-name**-värdet för den nod som skapats senast: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -216,19 +217,19 @@ sfctl node remove-state --node-name _nt1vm_5
 ```
 
 > [!TIP]
-> Använd följande **sfctl** frågor för att kontrollera status för varje steg
+> Använd följande **sfctl**-frågor för att kontrollera status för varje steg
 >
-> **Kontrollera status för inaktivering**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> **Kontrollera inaktiveringsstatus**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Kontrollera status för stoppa**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> **Kontrollera stoppstatus**  
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 
-### <a name="scale-in-the-scale-set"></a>Skala i uppsättningen av skala
+### <a name="scale-in-the-scale-set"></a>Skala in skalningsuppsättningen
 
-Nu när service fabric-noden har tagits bort från klustret, kan virtuella datorns skaluppsättning skalas i. I exemplet nedan minskas scale set kapacitet med 1.
+Nu när Service Fabric-noden har tagits bort från klustret kan VM-skalningsuppsättningen skalas in. I exemplet nedan minskas skalningsuppsättningskapaciteten med 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -237,7 +238,7 @@ $scaleset.Sku.Capacity -= 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Den här koden anger kapaciteten till 5.
+Den här koden anger värdet 5 för kapaciteten.
 
 ```azurecli
 # Get the name of the node with
@@ -253,13 +254,13 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Noden för klustret läsningar
-> * Lägga till noder i klustret (skalbar)
-> * Tar bort klusternoder (skalan i)
+> * Läser antalet klusternoder
+> * Lägger till klusternoder (skalar ut)
+> * Tar bort klusternoder (skalar in)
 
 
-Gå sedan till följande kursen lär dig hur du uppgraderar körningen av ett kluster.
+Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
 > [!div class="nextstepaction"]
-> [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
+> [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

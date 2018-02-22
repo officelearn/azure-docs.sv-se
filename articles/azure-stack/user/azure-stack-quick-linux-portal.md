@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Skapa en virtuell Linux-dator med Azure Stack-portalen
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/08/2017
 
 Azure Stack virtuella datorer kan skapas på stacken Azure-portalen. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera en virtuell dator och alla relaterade resurser. Den här snabbstarten visar hur du snabbt skapa en virtuell Linux-dator och installera en webbserver på den.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Linux-avbildning i Azure-stacken marketplace**
 
@@ -59,7 +59,7 @@ Logga in på Azure Stack-portalen. Adressen till stacken för Azure-portalen ber
 
 ## <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-1. Klicka på den **ny** knapp hittades i det övre vänstra hörnet i Azure Stack-portalen.
+1. Klicka på **skapar du en resurs** i det övre vänstra hörnet i Azure Stack-portalen.
 
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Klicka på **Skapa**.

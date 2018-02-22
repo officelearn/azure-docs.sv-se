@@ -3,8 +3,8 @@ title: "Anslut Azure Stack till Azure med hjälp av ExpressRoute"
 description: "Hur du ansluter virtuella nätverk i Azure-stacken till virtuella nätverk i Azure med hjälp av ExpressRoute."
 services: azure-stack
 documentationcenter: 
-author: victorar
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Anslut Azure Stack till Azure med hjälp av ExpressRoute
 

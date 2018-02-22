@@ -3,8 +3,8 @@ title: Viktiga funktioner koncept i Azure-stacken | Microsoft Docs
 description: "Läs mer om viktiga funktioner och koncept i Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: fd16748e1369b8abcab38ce1945f72c681c344b8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: brenduns
+ms.reviewer: 
+ms.openlocfilehash: b252d3d52c9bf3825ae2b443065e007dda141b24
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Viktiga funktioner och koncept i Azure-stacken
 
@@ -104,13 +105,13 @@ Resursproviders är webbtjänster som utgör grunden för alla Azure-baserade Ia
 
 Det finns fyra grundläggande RPs: nätverk, lagring, beräkning och KeyVault. Var och en av dessa RPs hjälper dig att konfigurera och styra sina respektive resurser. Administratörer kan också lägga till nya anpassade providers.
 
-### <a name="compute-rp"></a>Beräkna RP
+### <a name="compute-rp"></a>Compute RP
 Beräkna Resource Provider (CRP) gör att Azure Stack-klienter kan skapa sina egna virtuella datorer. CRP omfattar möjligheten att skapa virtuella datorer samt tillägg för virtuell dator. Tjänsten Virtual Machine-tillägg ger IaaS-funktioner för Windows och Linux virtuella datorer.  Du kan använda CRP exempelvis för att etablera en virtuell Linux-dator och köra Bash-skript under distributionen för att konfigurera den virtuella datorn.
 
-### <a name="network-rp"></a>Nätverket RP
+### <a name="network-rp"></a>Network RP
 Nätverket Resource Provider (NRP) ger en uppsättning funktioner för Programvarudefinierad nätverksfunktion (SDN) och nätverk funktionen virtualisering (NFV) för det privata molnet.  Du kan använda NRP för att skapa resurser som programvara belastningen belastningsutjämnare, offentliga IP-adresser, nätverkssäkerhetsgrupper, virtuella nätverk.
 
-### <a name="storage-rp"></a>Lagring RP
+### <a name="storage-rp"></a>Storage RP
 Lagring RP levererar fyra konsekvent Azure storage-tjänster: blob-, tabell-, kö- och kontohantering. Det erbjuder också en lagring administration molntjänst för att underlätta administrationen av provider i Azure-konsekvent lagringstjänster. Azure Storage ger flexibilitet för att lagra och hämta stora mängder Ostrukturerade data, till exempel dokument och mediafiler med Azure BLOB och strukturerade NoSQL-baserade data med Azure-tabeller. Mer information om Azure Storage finns [introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### <a name="blob-storage"></a>Blob Storage

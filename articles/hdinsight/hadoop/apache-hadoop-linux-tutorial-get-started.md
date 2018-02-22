@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2018
 ms.author: jgao
-ms.openlocfilehash: e517edecce92acdadde5497558055c59fa819976
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a96612e09e51db8941a7828f8fe9cb7bbced837d
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop-självstudiekurs: Komma igång med Hadoop i HDInsight
 
@@ -52,7 +52,7 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
     * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. 
     * **Plats**: Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. 
     * **Klustertyp**: Välj **hadoop** för den här självstudien.
-    * **Klusternamn**: Ange ett namn för Hadoop-klustret.
+    * **Klusternamn**: Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. Observera att det första och sista tecknet i namnet inte kan vara ett bindestreck.
     * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
     * **SSH-användarnamn och lösenord**: Standardanvändarnamnet är **sshuser**.  Du kan byta namn. 
      

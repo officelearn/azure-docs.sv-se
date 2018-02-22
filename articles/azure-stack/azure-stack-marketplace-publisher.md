@@ -3,8 +3,8 @@ title: "Använda Marketplace toolkit för att skapa och publicera marketplace-ob
 description: "Lär dig att snabbt skapa marketplace-objekt med publicering Toolkit"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Lägg till marketplace-objekt med hjälp av Publiceringsverktyget
 Lägger till ditt innehåll till den [Azure Stack Marketplace](azure-stack-marketplace.md) tillgängliggör dina lösningar för dig och dina klienter för distribution.  Marketplace-Toolkit skapar Azure Marketplace-paket (.azpkg) filer baserat på din IaaS Azure Resource Manager-mallar eller VM-tillägg.  Du kan också använda Marketplace Toolkit för att publicera .azpkg filer skapas med verktyget eller med hjälp av [manuell](azure-stack-create-and-publish-marketplace-item.md) steg.  Det här avsnittet hjälper dig att hämta verktyget, skapa en marketplace-objekt baserat på en mall och sedan publicera elementet i stapeln Azure Marketplace.     
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
  - Du måste köra verktyget på Azure Stack-värden eller har [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) anslutning från den dator där du kör verktyget.
 
  - Hämta den [Azure Stack-snabbstartsmallar](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) och extrahera.
@@ -72,9 +73,9 @@ I det här avsnittet Publicera marketplace-objektet till din Azure-stacken Marke
     
     |Fält|Beskrivning|
     |-----|-----|
-    | Namn på serveradministratör | Administratörskonto för tjänsten.  Exempel:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Namn på serveradministratör | Administratörskonto för tjänsten.  Exempel:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Lösenord | Lösenord för administratörskontot för tjänsten. |
-    | API-slutpunkt | Azure Stack Azure Resource Manager-slutpunkt.  Exempel: management.local.azurestack.external |
+    | API-slutpunkt | Azure Stack Azure Resource Manager-slutpunkt.  Example: management.local.azurestack.external |
 2.  Klicka på **publicera** och publishing loggen visas.
 3.  Du kan nu distribuera din publicerade artikeln via Azure Stack-portal.
 

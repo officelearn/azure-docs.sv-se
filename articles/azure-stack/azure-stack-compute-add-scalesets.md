@@ -1,18 +1,22 @@
 ---
-title: "Använda skalningsuppsättningar i virtuella datorer i Azure-stacken"
-description: "Lär dig hur molnadministratören lägger till virtuella datorn till stacken Azure Marketplace"
+title: "Kontrollera virtuella skalningsuppsättningarna tillgängliga i Azure-stacken | Microsoft Docs"
+description: "Lär dig hur en moln-operator lägger till virtuella datorn till stacken Azure Marketplace"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Använda skalningsuppsättningar i virtuella datorer i Azure-stacken
 
@@ -28,7 +32,7 @@ Skaluppsättningar för virtuell dator på Azure-stacken är som skalningsuppsä
 
 Skaluppsättningar för den virtuella datorn stöder inte Autoskala på Azure-stacken. Du kan lägga till flera instanser på en skala som anges med Azure Stack-portalen, Resource Manager-mallar eller PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **PowerShell och verktyg**
 
    Installera och konfigurerade PowerShell för Azure-stacken och Azure Stack-verktyg. Se [komma igång med PowerShell i Azure-stacken](azure-stack-powershell-configure-quickstart.md).
@@ -47,7 +51,7 @@ Skaluppsättningar för den virtuella datorn stöder inte Autoskala på Azure-st
 
 Redigera följande PowerShell-skript för din miljö och sedan köra den att lägga till en virtuell dator skala inställd på Azure Stack-Marketplace. 
 
-``$User``är det konto som används för att ansluta administratörsportalen. Till exempel serviceadmin@contoso.onmicrosoft.com.
+``$User`` är det konto som används för att ansluta administratörsportalen. Till exempel serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

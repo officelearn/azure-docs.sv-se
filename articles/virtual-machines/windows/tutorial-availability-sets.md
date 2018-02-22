@@ -1,6 +1,6 @@
 ---
-title: "Tillgänglighetsuppsättningar självstudier för virtuella Windows-datorer i Azure | Microsoft Docs"
-description: "Läs mer om Tillgänglighetsuppsättningarna för virtuella Windows-datorer i Azure."
+title: "Självstudiekurs i tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure | Microsoft Docs"
+description: "Läs mer om tillgänglighetsuppsättningar för virtuella Windows-datorer i Azure."
 documentationcenter: 
 services: virtual-machines-windows
 author: cynthn
@@ -12,41 +12,43 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2017
+ms.topic: tutorial
+ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2345b434a51b768793c2dea4587dc0a49ab35b70
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Hur du använder tillgänglighetsuppsättningar
+# <a name="how-to-use-availability-sets"></a>Använda tillgänglighetsuppsättningar
 
-I kursen får lära du att öka tillgängligheten och tillförlitligheten hos dina virtuella lösningar på Azure med hjälp av en funktion som kallas Tillgänglighetsuppsättningar. Tillgänglighetsuppsättningar se till att de virtuella datorerna som du distribuerar i Azure är fördelade på flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om ett maskinvaru- eller fel i Azure händer, underordnade uppsättning dina virtuella datorer som påverkas och att din lösning är tillgänglig och fungerar. 
+I den här kursen får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar. 
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
-> * Kontrollera tillgängliga storlekar på VM
+> * Kontrollera tillgängliga VM-storlekar
 > * Kontrollera Azure Advisor
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="availability-set-overview"></a>Översikt över tillgänglighetsuppsättning
 
-En Tillgänglighetsuppsättning är en logisk gruppering funktion som du kan använda i Azure för att säkerställa att VM-resurser som du placerar i den isolerade från varandra när de distribueras i ett Azure-datacenter. Azure säkerställer att de virtuella datorerna som du placerar i en Tillgänglighetsuppsättning körs över flera fysiska servrar, beräkna rack, lagringsenheter och nätverksväxlar. Om ett maskinvaru- eller Azure programvarufel inträffar bara en del av dina virtuella datorer som påverkas och tillämpningsprogrammet övergripande förblir upp och fortsätter att vara tillgängliga för dina kunder. Tillgänglighetsuppsättningar är en viktig funktion när du vill skapa tillförlitliga molnlösningar.
+En tillgänglighetsuppsättning är en logisk grupperingsfunktion som du kan använda i Azure för att se till att VM-resurserna du placerar i Azure är isolerade från varandra när de distribueras i ett Azure-datacenter. Azure ser till att de virtuella datorer du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksväxlar. Om det uppstår ett maskinvarufel eller Azure-programvarufel påverkas endast en del av dina virtuella datorer. Ditt program fungerar fortfarande och är tillgängligt för dina kunder. Tillgänglighetsuppsättningar är en viktig funktion när du vill skapa tillförlitliga molnlösningar.
 
-Nu ska vi titta en typisk VM-baserad lösning där du kan ha 4 frontend-webbservrar och använda 2 backend-VMs som värd för en databas. Med Azure, skulle du vill definiera två tillgänglighetsuppsättningar innan du distribuerar dina virtuella datorer: en tillgänglighetsuppsättning för skiktet web och en tillgänglighetsuppsättning för databasskiktet. När du skapar en ny virtuell dator som du kan ange tillgänglighetsuppsättning som en parameter till virtuellt datorn az skapar kommando och Azure automatiskt ser till att de virtuella datorerna som du skapar inom separat uppsättningen tillgängliga över flera fysiska maskinvaruresurser. Om den fysiska maskinvara som din webbserver eller databasen Server virtuella datorer körs på ett problem har uppstått, vet du att andra instanser av webbservern och databasen virtuella datorer fortsätter att köras eftersom de finns på olika typer av maskinvara.
+Nu ska vi titta en typisk VM-baserad lösning där du kan ha fyra frontend-webbservrar och använda två virtuella backend-datorer som värd för en databas. När du använder Azure bör du definiera två tillgänglighetsuppsättningar innan du distribuerar dina virtuella datorer: en tillgänglighetsuppsättning för webbnivån och en tillgänglighetsuppsättning för databasnivån. När du skapar en ny virtuell dator kan du sedan ange tillgänglighetsuppsättningen som en parameter för kommandot ”az vm create”. Azure ser då automatiskt till att de virtuella datorer du skapar i tillgänglighetsuppsättningen är isolerade över flera fysiska maskinvaruresurser. Om det uppstår ett problem på den fysiska maskinvaran som din webbserver eller de virtuella databasdatorerna körs på fungerar fortfarande de andra instanserna av webbservern och de virtuella databasdatorerna eftersom de finns på en annan maskinvara.
 
-Använd Tillgänglighetsuppsättningar när du vill distribuera tillförlitliga VM-baserade lösningar i Azure.
+Använd tillgänglighetsuppsättningar när du vill distribuera tillförlitliga VM-baserade lösningar i Azure.
 
 ## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Du kan skapa en tillgänglighetsuppsättning med [ny AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). I detta exempel vi in både antalet domäner för uppdatering och fel på *2* för tillgänglighetsuppsättning namngivna *myAvailabilitySet* i den *myResourceGroupAvailability* resursgruppen.
+Du kan skapa en tillgänglighetsuppsättning med [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). I det här exemplet anger du antalet för både uppdaterings- och feldomäner till *2* för tillgänglighetsuppsättningen med namnet *myAvailabilitySet* i resursgruppen *myResourceGroupAvailability*.
 
 Skapa en resursgrupp.
 
@@ -54,144 +56,70 @@ Skapa en resursgrupp.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Skapa en hanterad tillgänglighetsuppsättning med [ny AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) med den **- sku justerad** parameter.
+Skapa en hanterad tillgänglighetsuppsättning med [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) med parametern `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
-   -Location EastUS `
-   -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability `
-   -sku aligned `
+   -Location "EastUS" `
+   -Name "myAvailabilitySet" `
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -Sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>Skapa virtuella datorer i en tillgänglighetsuppsättning
+De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras över maskinvaran. Du kan inte lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning efter att den har skapats. 
 
-Virtuella datorer måste skapas inom tillgänglighetsuppsättning för att kontrollera att de distribueras på rätt sätt i maskinvaran. Du kan inte lägga till en befintlig virtuell dator till en tillgänglighetsuppsättning när den har skapats. 
+Maskinvaran på en plats är uppdelad i flera uppdateringsdomäner och feldomäner. En **uppdateringsdomän** är en grupp av underliggande fysisk maskinvara som kan startas om samtidigt. De virtuella datorerna i samma **feldomän** delar samma lagring, strömkälla och nätverksväxel. 
 
-Maskinvaran på en plats är uppdelat i flera domäner för uppdatering och feldomäner. En **uppdateringsdomän** är en grupp virtuella datorer och underliggande fysiska maskinvara som kan startas på samma gång. Virtuella datorer i samma **feldomän** delar vanliga storage samt en gemensam käll- och strömbrytare. 
+När du skapar en ny virtuell dator med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) använder du parametern `-AvailabilitySetName` för att ange namnet på tillgänglighetsuppsättningen.
 
-När du skapar en VM-konfiguration av [ny AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) du använder den `-AvailabilitySetId` parametern för att ange ID för tillgänglighetsuppsättningen.
-
-Skapa två virtuella datorer med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) i tillgänglighetsuppsättningen.
+Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
-$availabilitySet = Get-AzureRmAvailabilitySet `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Name myAvailabilitySet
-
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAvailability `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-    
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -Location eastus `
-    -Name myNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAvailability `
-    -SecurityRules $nsgRuleRDP
-    
-# Apply the network security group to a subnet
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name mySubnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-
-# Update the virtual network
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-
-for ($i=1; $i -le 2; $i++)
-{
-   $pip = New-AzureRmPublicIpAddress `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name "mypublicdns$(Get-Random)" `
-        -AllocationMethod Static `
-        -IdleTimeoutInMinutes 4
-
-   $nic = New-AzureRmNetworkInterface `
-        -Name myNic$i `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -SubnetId $vnet.Subnets[0].Id `
-        -PublicIpAddressId $pip.Id `
-        -NetworkSecurityGroupId $nsg.Id
-
-   # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig `
-        -VMName myVM$i `
-        -VMSize Standard_D1 `
-        -AvailabilitySetId $availabilitySet.Id
-
-   $vm = Set-AzureRmVMOperatingSystem `
-        -ComputerName myVM$i `
-        -Credential $cred `
-        -VM $vm `
-        -Windows `
-        -EnableAutoUpdate `
-        -ProvisionVMAgent
-   $vm = Set-AzureRmVMSourceImage `
-        -VM $vm `
-        -PublisherName MicrosoftWindowsServer `
-        -Offer WindowsServer `
-        -Skus 2016-Datacenter `
-        -Version latest
-   $vm = Set-AzureRmVMOSDisk `
-        -VM $vm `
-        -Name myOsDisk$i `
-        -DiskSizeInGB 128 `
-        -CreateOption FromImage `
-        -Caching ReadWrite
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -VM $vm
-}
-
+$cred = Get-Credential
 ```
 
-Det tar några minuter att skapa och konfigurera både virtuella datorer. När du är klar har du två virtuella datorer distribuerade i den underliggande maskinvaran. 
+Skapa sedan två virtuella datorer med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) i tillgänglighetsuppsättningen.
 
-Om du tittar på tillgänglighetsuppsättning i portalen genom att gå till resursgrupper > myResourceGroupAvailability > myAvailabilitySet, bör du se hur de virtuella datorerna är fördelade på 2 felet och uppdatera domäner.
+```azurepowershell-interactive
+for ($i=1; $i -le 2; $i++)
+{
+    New-AzureRmVm `
+        -ResourceGroupName "myResourceGroupAvailability" `
+        -Name "myVM$i" `
+        -Location "East US" `
+        -VirtualNetworkName "myVnet" `
+        -SubnetName "mySubnet" `
+        -SecurityGroupName "myNetworkSecurityGroup" `
+        -PublicIpAddressName "myPublicIpAddress$i" `
+        -AvailabilitySetName "myAvailabilitySet" `
+        -Credential $cred
+}
+```
 
-![Tillgänglighetsuppsättning i portalen](./media/tutorial-availability-sets/fd-ud.png)
+Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att PowerShell-kommandotolkarna återgår till dig. Du kan visa information om bakgrundsjobb med cmdleten `Job`. Det tar några minuter att skapa och konfigurera de virtuella datorerna. När du är klar har du två virtuella datorer distribuerade över den underliggande maskinvaran. 
 
-## <a name="check-for-available-vm-sizes"></a>Sök efter tillgängliga storlekar på VM 
+Om du tittar på tillgänglighetsuppsättningen i Portal (genom att gå till Resursgrupper > myResourceGroupAvailability > myAvailabilitySet) ser du hur de virtuella datorerna är distribuerade över två feldomäner och uppdateringsdomäner.
 
-Du kan lägga till flera virtuella datorer tillgänglighetsuppsättning senare, men du behöver veta vilka VM-storlekar är tillgängliga på maskinvaran. Använd [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) att lista alla tillgängliga storlekar på maskinvaran kluster för tillgänglighetsuppsättningen.
+![Tillgänglighetsuppsättning i Portal](./media/tutorial-availability-sets/fd-ud.png)
+
+## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar 
+
+Du kan lägga till fler virtuella datorer i tillgänglighetsuppsättningen senare, men du måste veta vilka VM-storlekar som är tillgängliga på maskinvaran. Använd [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) för att visa en lista över alla tillgängliga storlekar i maskinvaruklustret för tillgänglighetsuppsättningen.
 
 ```azurepowershell-interactive
 Get-AzureRmVMSize `
-   -AvailabilitySetName myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability  
+   -ResourceGroupName "myResourceGroupAvailability" `
+   -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>Kontrollera Azure Advisor 
 
-Du kan också använda Azure Advisor för att få mer information om hur du kan förbättra tillgängligheten för din virtuella dator. Azure Advisor hjälper dig att följa de bästa metoderna för att optimera din Azure-distributioner. Den analyserar dina resurskonfigurationen och telemetri och rekommenderar lösningar som hjälper dig att förbättra kostnadseffektivitet, prestanda, hög tillgänglighet och säkerhet för dina Azure-resurser.
+Du kan också använda Azure Advisor för att få mer information om hur du kan förbättra tillgängligheten för dina virtuella datorer. Azure Advisor hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
-Logga in på den [Azure-portalen](https://portal.azure.com)väljer **fler tjänster**, och skriv **Advisor**. Advisor-instrumentpanelen innehåller anpassad rekommendationer för den valda prenumerationen. Mer information finns i [Kom igång med Azure Advisor](../../advisor/advisor-get-started.md).
+Logga in på [Azure Portal](https://portal.azure.com), välj **Fler tjänster** och skriv **Advisor**. Advisor-instrumentpanelen visar anpassade rekommendationer för den valda prenumerationen. Mer information finns i [Komma igång med Azure Advisor](../../advisor/advisor-get-started.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -201,10 +129,10 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
-> * Kontrollera tillgängliga storlekar på VM
+> * Kontrollera tillgängliga VM-storlekar
 > * Kontrollera Azure Advisor
 
-Gå vidare till nästa kurs vill veta mer om virtuella datorer.
+Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)

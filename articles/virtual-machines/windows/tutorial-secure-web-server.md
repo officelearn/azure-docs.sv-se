@@ -1,68 +1,70 @@
 ---
 title: Skydda IIS med SSL-certifikat i Azure | Microsoft Docs
-description: "Lär dig att skydda IIS-webbserver med SSL-certifikat på en Windows-dator i Azure"
+description: "Lär dig att skydda IIS-webbservern med SSL-certifikat på en virtuell Windows-dator i Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/14/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: MT
+ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Skydda IIS-webbserver med SSL-certifikat på en Windows-dator i Azure
-Säker webbserver kan ett Secure Sockets Layer (SSL)-certifikat användas för att kryptera webbtrafik. Dessa SSL-certifikat kan lagras i Azure Key Vault och tillåta säker distribution av certifikat till Windows-datorer (VM) i Azure. I den här självstudiekursen får du lära du dig att:
+# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Skydda en IIS-webbserver med SSL-certifikat på en virtuell Windows-dator i Azure
+När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Windows-datorer i Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
-> * Generera och överföra ett certifikat till Nyckelvalvet
+> * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera IIS-webbservern
 > * Mata in certifikatet i den virtuella datorn och konfigurera IIS med en SSL-bindning
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 
 ## <a name="overview"></a>Översikt
-Azure Key Vault skyddar kryptografiska nycklar och hemligheter, dessa certifikat eller lösenord. Key Vault hjälper till att förenkla hanteringen för certifikatet och gör att du kan behålla kontrollen över nycklar som har åtkomst till dessa certifikat. Du kan skapa ett självsignerat certifikat i Nyckelvalvet eller ladda upp en befintlig, betrodda certifikat som du redan äger.
+Azure Key Vault skyddar kryptografiska nycklar och hemligheter, som certifikat och lösenord. Key Vault förenklar certifikathanteringen och låter dig behålla kontrollen över nycklar som kommer åt certifikaten. Du kan skapa ett självsignerat certifikat i Key Vault eller ladda upp ett befintligt, betrott certifikat som du redan äger.
 
-I stället för att använda en anpassad VM-avbildning som inkluderar certifikat inbyggd-modulen Certifikat Injicera i en aktiv virtuell dator. Den här processen säkerställer att de senaste certifikat installeras på en webbserver under distributionen. Om du vill förnya eller ersätta ett certifikat, behöver du också skapa en ny anpassad VM-avbildning. Senaste certifikaten är automatiskt matas in när du skapar ytterligare virtuella datorer. Under hela processen certifikat aldrig lämna Azure-plattformen eller exponeras i ett skript, kommandoradsverktyget historik eller mall.
+Istället för att använda en anpassad VM-avbildning med inbyggda certifikat matar du in certifikat till en virtuell dator som körs. Den här processen garanterar att de mest uppdaterade certifikaten är installerade på en webbserver under distributionen. Om du förnyar eller ersätter ett certifikat behöver du inte skapa en ny anpassad VM-avbildning. De senaste certifikaten matas ut automatiskt när du skapar fler virtuella datorer. Under hela processen lämnar certifikaten aldrig Azure-plattformen och exponeras inte i något skript, kommandoradshistorik eller mall.
 
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
-Innan du kan skapa ett Nyckelvalv och certifikat, skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* i den *östra USA* plats:
+Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *East US* (Östra USA):
 
-```powershell
+```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Skapa sedan ett Nyckelvalv med [ny AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Varje Key Vault kräver ett unikt namn och bör vara alla gemen. Ersätt `<mykeyvault>` i följande exempel med dina egna unika Key Vault-namn:
+Skapa sedan ett Key Vault med [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt `mykeyvault` i följande exempel med ditt eget unika Key Vault-namn:
 
-```powershell
-$keyvaultName="<mykeyvault>"
+```azurepowershell-interactive
+$keyvaultName="mykeyvault"
 New-AzureRmKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
     -Location $location `
     -EnabledForDeployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra i Key Vault
-För produktion, ska du importera ett giltigt certifikat som signerats av en betrodd provider med [importera AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Den här självstudiekursen i följande exempel visas hur du kan skapa ett självsignerat certifikat med [Lägg till AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) som använder standardprincipen för certifikat från [ Nya AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
+För produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider med [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). För den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) som använder standardcertifikatprincipen från [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
-```powershell
+```azurepowershell-interactive
 $policy = New-AzureKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
@@ -77,85 +79,26 @@ Add-AzureKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Ange en administratör användarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Nu kan du skapa den virtuella datorn med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapar krävs virtuella nätverkskomponenter, OS-konfigurationen och sedan skapar en virtuell dator med namnet *myVM*:
+Nu kan du skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Stödnätverksresurser skapas, om de inte redan finns. För att tillåta säker webbtrafik öppnar cmdleten även port *443*.
 
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+```azurepowershell-interactive
+# Create a VM
+New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
+    -Name "myVM" `
     -Location $location `
-    -Name "myVnet" `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleRDP"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 443
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleWWW"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -Name "myNetworkSecurityGroup" `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name "myNic" `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2" | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName "myVM" -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest" | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -OpenPorts 443
 
 # Use the Custom Script Extension to install IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
@@ -168,13 +111,13 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-Det tar några minuter för den virtuella datorn skapas. Det sista steget använder tillägget för Azure anpassat skript för att installera IIS-webbserver med [Set AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
+Det tar några minuter att skapa den virtuella datorn. I det sista steget används tillägget för anpassat skript i Azure för att installera IIS-webbservern med [Set-AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
-## <a name="add-a-certificate-to-vm-from-key-vault"></a>Lägga till ett certifikat till en virtuell dator från Nyckelvalvet
-Om du vill lägga till certifikatet från Nyckelvalvet till en virtuell dator, Hämta ID för certifikatet med [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Lägga till certifikatet till den virtuella datorn med [Lägg till AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
+## <a name="add-a-certificate-to-vm-from-key-vault"></a>Lägga till ett certifikat till en virtuell dator från Key Vault
+Om du vill lägga till certifikatet från Key Vault till en virtuell dator hämtar du ID:t för certifikatet med [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Lägg till certifikatet till den virtuella datorn med [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
-```powershell
+```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
@@ -185,12 +128,12 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
-## <a name="configure-iis-to-use-the-certificate"></a>Konfigurera IIS att använda certifikat
-Använda tillägget för anpassat skript igen med [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) att uppdatera konfigurationen av IIS. Den här uppdateringen gäller certifikatet matas in från Nyckelvalvet till IIS och konfigurerar web-bindning:
+## <a name="configure-iis-to-use-the-certificate"></a>Konfigurera IIS för att använda certifikatet
+Använda tillägget för anpassat skript igen med [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) för att uppdatera IIS-konfigurationen. Den här uppdateringen tillämpar certifikatet som matats in från Key Vault till ISS och konfigurerar webbindningen:
 
-```powershell
+```azurepowershell-interactive
 $PublicSettings = '{
-    "fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/secure-iis.ps1"],
+    "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'
 
@@ -205,33 +148,32 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testa det säkra webbprogrammet
-Hämta den offentliga IP-adressen på den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtar IP-adressen för `myPublicIP` skapade tidigare:
+### <a name="test-the-secure-web-app"></a>Testa den säkra webbappen
+Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för `myPublicIP` som skapades tidigare:
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Nu kan du öppna en webbläsare och ange `https://<myPublicIP>` i adressfältet. Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**:
+Nu kan du öppna en webbläsare och ange `https://<myPublicIP>` i adressfältet. Om du använde ett självsignerat certifikat och vill acceptera säkerhetsvarningen väljer du **Information** och sedan **Fortsätt till webbsidan**:
 
-![Acceptera web Säkerhetsvarning för webbläsare](./media/tutorial-secure-web-server/browser-warning.png)
+![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-secure-web-server/browser-warning.png)
 
-Skyddad IIS-webbplatsen visas som i följande exempel:
+Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
 
-![Visa körs säker IIS-webbplats](./media/tutorial-secure-web-server/secured-iis.png)
+![Visa skyddad IIS-webbplats som körs](./media/tutorial-secure-web-server/secured-iis.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen skyddas en IIS-webbserver med ett SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
+I den här självstudien har du skyddat en IIS-webbserver med ett SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
-> * Generera och överföra ett certifikat till Nyckelvalvet
+> * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera IIS-webbservern
 > * Mata in certifikatet i den virtuella datorn och konfigurera IIS med en SSL-bindning
 
-Den här länken om du vill se förskapad virtuella skriptexempel.
+Klicka på den här länken om du vill se inbyggda skriptexempel för virtuella datorer.
 
 > [!div class="nextstepaction"]
-> [Windows skriptexempel för virtuell dator](./powershell-samples.md)
+> [Skriptexempel för virtuella Windows-datorer](./powershell-samples.md)

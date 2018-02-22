@@ -1,6 +1,6 @@
 ---
 title: "Ge programdata hög tillgänglighet i Azure | Microsoft Docs"
-description: "Använd geo-redundant lagring med läsbehörighet så att dina programdata hög tillgänglighet"
+description: "Använd RA-GRS för att ge programdata hög tillgänglighet"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -9,39 +9,48 @@ editor:
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge dina programdata hög tillgänglighet med Azure storage
+# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
 
-Den här kursen ingår i en serie. Den här kursen visar hur du gör dina programdata hög tillgänglighet i Azure. När du är klar har du en .NET core-konsolprogram som överför och hämtar en blobb till en [geo-redundant läsbehörighet](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage-konto. RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är överensstämmelse. Programmet använder den [strömbrytare](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) mönstret för att avgöra vilken slutpunkt för att ansluta till. Programmet växlar till sekundär slutpunkt när ett fel simuleras.
+Den här kursen är första delen i en serie som visar hur du ger dina programdata hög tillgänglighet i Azure. När du är klar har du ett konsolprogram som överför och hämtar en blob till ett [Read-Access Geo Redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. I programmet används [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) för att avgöra vilken slutpunkt programmet ska ansluta till. Programmet växlar till den sekundära slutpunkten när ett fel simuleras.
 
-I delen en av serierna kan du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Hämta exemplet
 > * Ange anslutningssträngen
-> * Köra konsolprogrammet
+> * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien behöver du:
-
+För att slutföra den här kursen behöver du:
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 * Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
   - **Azure Development**
 
-  ![Azure-utveckling (under webb & moln)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Azure-utveckling (under Web & Cloud (Webb och moln))](media/storage-create-geo-redundant-storage/workloads.png)
 
-* Hämta och installera [Fiddler](https://www.telerik.com/download/fiddler)
+* (Valfritt) Ladda ned och installera [Fiddler](https://www.telerik.com/download/fiddler)
+ 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+* Installera [Python](https://www.python.org/downloads/)
+* Ladda ned och installera [Azure Storage SDK för Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* (Valfritt) Ladda ned och installera [Fiddler](https://www.telerik.com/download/fiddler)
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,70 +60,95 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Ett lagringskonto ger ett unikt namnområde för att lagra och komma åt dina Azure storage-dataobjekt.
+Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt.
 
-Följ dessa steg om du vill skapa ett konto med geo-redundant lagring med läsbehörighet:
+Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
 
-1. Välj den **ny** knapp hittades i det övre vänstra hörnet i Azure-portalen.
+1. Välj knappen **New** (Nytt) längst upp till vänster i Azure Portal.
 
-2. Välj **lagring** från den **ny** och väljer **lagringskonto - blob, fil, tabell, kö** under **aktuell**.
-3. Fyll i formuläret storage-konto med följande information som visas i följande bild och välj **skapa**:
+2. Välj **Storage** på sidan **New** (Nytt) och välj **Lagringskonto – blob, fil, tabell, kö** under **Aktuella**.
+3. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Namn** | mittlagringskonto | Ett unikt värde för ditt lagringskonto |
+   | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
    | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
-   | **Typ av konto** | Generellt syfte | Mer information om vilka typer av konton finns [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Prestanda** | Standard | Standard är tillräcklig för exempelscenariot. |
-   | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta är nödvändigt att fungera. |
+   | **Typ av konto** | Generellt syfte | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
+   | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Säker överföring krävs** | Disabled| Säker överföring krävs inte för det här scenariot. |
-   |**Prenumeration** | Din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
+   |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Plats** | Östra USA | Välj en plats. |
 
-![Skapa lagringskonto](media/storage-create-geo-redundant-storage/figure1.png)
+![skapa lagringskonto](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-Extrahera (packa) storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip filen.
-Exempelprojektet innehåller ett konsolprogram.
+[Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett konsolprogram.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+```
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+[Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Python-program.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+---
+
 
 ## <a name="set-the-connection-string"></a>Ange anslutningssträngen
 
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att lagra den här anslutningssträngen inom en miljövariabel på den lokala datorn som kör programmet. Gör något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att du lagrar den här anslutningssträngen inom en miljövariabel på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-Navigera till ditt lagringskonto i Azure-portalen. Välj **åtkomstnycklar** under **inställningar** i ditt lagringskonto. Kopiera den **anslutningssträngen** från de primära och sekundära nycklarna. Ersätt \<yourconnectionstring\> med faktiska anslutningen sträng genom att köra något av följande kommandon baserat på ditt operativsystem. Detta kommando sparar en miljövariabel till den lokala datorn. I Windows, miljövariabeln är inte tillgänglig förrän du uppdatera den **kommandotolk** eller gränssnitt som du använder. Ersätt  **\<storageConnectionString\>**  i följande exempel:
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Ersätt \<yourconnectionstring\> med den faktiska anslutningssträngen genom att köra ett av följande kommandon beroende på vilket operativsystem du har. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt. Ersätt **\<storageConnectionString\>** i följande exempel:
 
-### <a name="linux"></a>Linux
+# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
 
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
+# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
 
-### <a name="windows"></a>Windows
+---
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
-```
 
-![App-konfigurationsfil](media/storage-create-geo-redundant-storage/figure2.png)
+## <a name="run-the-console-application"></a>Kör konsolprogrammet
 
-## <a name="run-the-console-application"></a>Köra konsolprogrammet
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+I Visual Studio trycker du på **F5** eller väljer **Start** för att starta felsökning av programmet. Visual Studio återställer automatiskt NuGet-paket som saknas (om konfigurerat). Gå till avsnittet om hur du [installerar och ominstallerar paket med paketåterställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) om du vill veta mer.
 
-I Visual Studio trycker du på **F5** eller välj **starta** att starta felsökningen av programmet. Visual studio automatiskt återställer saknas NuGet-paket om konfigurerad, gå till [installera och installera om paket med paket återställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) vill veta mer.
+Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. **P** representerar den primära slutpunkten och **S** representerar den sekundära slutpunkten.
 
-Ett konsolfönster öppnas och börjar programmet körs. Programmet överför den **HelloWorld.png** bilden från lösningen till lagringskontot. Programmet kontrollerar att avbildningen har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar nedladdningen av avbildningen upp till 999 gånger. Varje Läs representeras av en **P** eller en **S**. Där **P** representerar primära slutpunkten och **S** representerar sekundära slutpunkten.
+![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
-![Kör-konsolapp](media/storage-create-geo-redundant-storage/figure3.png)
+I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet). Före nedladdningen definieras en [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
-I koden, den `RunCircuitBreakerAsync` uppgift i den `Program.cs` används för att hämta en avbildning från storage-konto med den [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metod. Före hämtningen en [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) har definierats. Åtgärden kontexten definierar händelsehanterare som utlöses när hämtningen är klar eller om en hämtning misslyckas och försöker igen.
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. **P** representerar den primära slutpunkten och **S** representerar den sekundära slutpunkten.
 
-### <a name="retry-event-handler"></a>Försök händelsehanterare
+![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
-Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ange att försöka igen. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
+I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py` för att ladda ned en bild från lagringskontot med hjälp av metoden [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
 
+Återförsöksfunktionen för lagringsobjektet har angetts till en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta innan det görs ett nytt försök. Ange true för värdet **retry\_to\_secondary** om det ska göras ett nytt försök till den sekundära slutpunkten om den första begäran till den primära slutpunkten misslyckas. I exempelprogrammet definieras en anpassad återförsöksprincip i funktionen `retry_callback` för lagringsobjektet.
+ 
+Före nedladdningen definieras funktionerna [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) för objektet. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.  
+
+---
+
+### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
+
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Händelsehanteraren `OperationContextRetrying` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.
+
+I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Före nedladdningen definieras en [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +173,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-### <a name="request-completed-event-handler"></a>Begäran slutförd händelsehanterare
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+Händelsehanteraren `retry_callback` anropas när nedladdningen av bilden misslyckas och den är inställd på att göra nya försök. Om det maximala antalet återförsök som har definierats i programmet nås ändras [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) för begäran till `SECONDARY`. Den här inställningen tvingar programmet att försöka ladda ned bilden från den sekundära slutpunkten. Med den här konfigurationen tar det kortare tid att begära bilden eftersom det inte görs oändliga försök att hämta den från den primära slutpunkten.  
 
-Den `OperationContextRequestCompleted` händelsehanteraren anropas när hämtningen av avbildningen lyckas. Om programmet använder sekundära slutpunkten, fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger programmet anger den [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) tillbaka till `PrimaryThenSecondary` och försöker den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
 
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
+### <a name="request-completed-event-handler"></a>Händelsehanterare för slutförd begäran
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
+Händelsehanteraren `OperationContextRequestCompleted` anropas när nedladdningen av bilden slutförs. Om programmet använder den sekundära slutpunkten fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger återställer programmet [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) till `PrimaryThenSecondary` och försöker på nytt med den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -160,17 +221,36 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
+# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+Händelsehanteraren `response_callback` anropas när nedladdningen av bilden slutförs. Om programmet använder den sekundära slutpunkten fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger återställer programmet [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) till `PRIMARY` och försöker på nytt med den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
+
 ## <a name="next-steps"></a>Nästa steg
 
-I delen en av serierna du lärt dig om hur du skapar hög tillgänglighet med RA-GRS storage-konton, till exempel att:
+I den första delen i serien lärde du dig hur du skapar ett program med hög tillgänglighet med RA-GRS-lagringskonton, till exempel hur du:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Hämta exemplet
 > * Ange anslutningssträngen
-> * Köra konsolprogrammet
+> * Kör konsolprogrammet
 
-Gå vidare till avsnitt två serier till Lär dig att simulera ett fel och tvinga programmet så att den sekundära RA-GRS-slutpunkten.
+Gå vidare till den andra delen i serien och lär dig hur du simulerar ett fel och tvingar programmet att använda den sekundära RA-GRS-slutpunkten.
 
 > [!div class="nextstepaction"]
-> [Simulera ett fel i anslutningen till din primära lagringsplatsen slutpunkt](storage-simulate-failure-ragrs-account-app.md)
+> [Simulera ett fel i anslutningen till din primära lagringsslutpunkt](storage-simulate-failure-ragrs-account-app.md)

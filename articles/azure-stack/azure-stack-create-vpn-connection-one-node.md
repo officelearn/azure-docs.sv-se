@@ -3,8 +3,8 @@ title: "Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk 
 description: "Stegvisa anvisningar som molnadministratören använder för att skapa en plats-till-plats VPN-anslutning mellan två nod Azure Stack Development Kit miljöer."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika Azure-stacken Development Kit miljöer
 ## <a name="overview"></a>Översikt
@@ -52,7 +53,7 @@ I följande tabell sammanfattas nätverkskonfigurationen för både Azure-stacke
 |---------|---------|---------|
 |Namn för virtuellt nätverk     |VNET-01|VNET-02 |
 |Virtuellt adressutrymme |10.0.10.0/23|10.0.20.0/23|
-|Namn på undernät     |Undernät-01|Undernät-02|
+|Namn på undernät     |Subnet-01|Subnet-02|
 |Adressintervall för undernätet|10.0.10.0/24 |10.0.20.0/24 |
 |Gateway-undernät      |10.0.11.0/24|10.0.21.0/24|
 |Extern BGPNAT adress     |         |         |
@@ -365,4 +366,4 @@ Om du vill veta hur mycket data som skickas via plats-till-plats-anslutning till
 2. Gå till **alla resurser**, och välj sedan den **POC2 POC1** anslutning. **Anslutningar** visas.
 4. På den **anslutning** bladet, statistik för **Data i** och **ut Data** visas. I följande skärmbild hänföras stora tal till ytterligare filöverföring. Du bör se vissa inte är noll värden.
    
-    ![Data i och ut](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Data in och ut](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

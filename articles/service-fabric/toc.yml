@@ -529,7 +529,11 @@
         - name: Ansluta till ett säkert kluster
           href: service-fabric-connect-to-secure-cluster.md
         - name: Korrigera klusternoder
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: Övervaka och diagnostisera
       items:
         - name: OMS
@@ -599,7 +603,7 @@
     - name: Utbildningsväg
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Priskalkylator

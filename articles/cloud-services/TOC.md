@@ -20,13 +20,10 @@
 #### [Blob Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Queue Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Table Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Konfigurera paket för kontinuerligt skapande och distribution
-#### [TFS och Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurera trafikregler för en roll](cloud-services-enable-communication-role-instances.md)
 ### [Hantera livscykelhändelser för molntjänst](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Använda Twilio för att ringa ett telefonsamtal (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Konfigurera startuppgifter
 #### [Skapa startuppgifter](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Lagra och visa diagnostikdata i Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Spåra en molntjänst med diagnostik](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Skicka diagnostikdata till App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Felsöka
 ### Felsökning 
-#### [Aktivera fjärrfelsökning med fortsatt leverans](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Alternativ för en molntjänst](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Lokal molntjänst med Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Publicerad molntjänst med Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

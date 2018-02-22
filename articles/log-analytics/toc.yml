@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: Dataförbrukning
       href: log-analytics-usage.md
+    - name: Datasäkerhet
+      href: log-analytics-data-security.md
     - name: Hantera åtkomst
       href: log-analytics-manage-access.md
     - name: Övervaka hybridmiljöer

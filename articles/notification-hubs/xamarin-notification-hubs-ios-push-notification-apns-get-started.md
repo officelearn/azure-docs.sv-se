@@ -218,7 +218,7 @@ Här är en lista med andra guider du kan läsa som handlar om att skicka meddel
 * REST-gränssnitt: Du kan använda push-meddelanden på alla serverdelsplattformar med [REST-gränssnittet](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: I Nuget Package Manager för Visual Studio kör du [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * Node.js: [Använda Notification Hubs från Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* Java/PHP**: Ett exempel på hur du skickar push-meddelanden med hjälp av REST-API:er finns i avsnittet Använda Notification Hubs från Java/PHP ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* Java/PHP \**: Ett exempel på hur du skickar push-meddelanden med hjälp av REST-API:er finns i avsnittet Använda Notification Hubs från Java/PHP ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickade du push-meddelanden till alla dina iOS-enheter. Mer information om hur du riktar in dig på specifika användare finns i självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare]. Om du vill dela in användarna efter intressegrupper läser du [Använda Notification Hubs för att skicka de senaste nyheterna]. Mer information om hur du använder Notification Hubs finns i [Riktlinjer för Notification Hubs] och i [Notification Hubs-instruktioner för iOS].

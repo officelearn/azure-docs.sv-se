@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuera ett program till ett partkluster i Azure
 Den här självstudien är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett partkluster i Azure.
@@ -59,14 +59,33 @@ Om du vill kan du använda ett eget kluster i stället för partklustret.  ASP.N
 > [!NOTE]
 > Partkluster är inte skyddade, så dina program och de data som du lägger där kan vara synliga för andra. Distribuera aldrig sådant som du inte vill att andra ska se. Glöm inte att läsa igenom våra användningsvillkor noga.
 
+Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Certifikatet och värdet **Anslutningens slutpunkt** används i följande steg.
+
+![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+På en Windows-dator ska du installera PFX i certifikatarkivet *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Distribuera appen till Azure
 Nu när programmet är klart kan du distribuera det till partklustret direkt från Visual Studio.
 
-1. Högerklicka på **Röstning** i Solution Explorer och välj **Publicera**.
+1. Högerklicka på **Röstning** i Solution Explorer och välj **Publicera**. 
 
-    ![Dialogrutan Publicera](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Dialogrutan Publicera](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Ange anslutningsslutpunkten för partklustret i fältet **Anslutningsslutpunkt** och klicka på **Publicera**.
+2. Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och fyll i följande information.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades i föregående steg. Klicka på **Publicera**. 
 
     När publiceringen är klar bör du kunna skicka en begäran till programmet via en webbläsare.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer är ett grafiskt användargränssnitt där du kan utfors
 
 Så här tar du bort programmet från partklustret:
 
-1. Gå till Service Fabric Explorer med hjälp av länken på registreringssidan för partklustret. Exempel: http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Gå till Service Fabric Explorer med hjälp av länken på registreringssidan för partklustret. Exempelvis https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. I Service Fabric Explorer navigerar du till noden **fabric://Voting** i trädvyn till vänster.
+2. I Service Fabric Explorer navigerar du till noden **fabric:/Voting** i trädvyn till vänster.
 
 3. Klicka på knappen **Åtgärd** i rutan **Essentials** och välj **Ta bort programmet**. Bekräfta borttagning av programinstansen, så att instansen av vårt program som körs i klustret tas bort.
 

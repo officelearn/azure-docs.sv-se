@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Skicka ett arbetsflöde med flera indata från samma prov
 
-I den här snabbstarten visar vi hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är flera FASTQ- eller BAM-filer **som kommer från samma prov**. Kom ihåg att du **inte** kan skicka in blandade FASTQ- och BAM-filer.
+I den här snabbstarten visar vi hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är flera FASTQ- eller BAM-filer **som kommer från samma prov**. Om du exempelvis körde **samma prov** i flera banor i sekvensen, kunde resulterande utdata bli ett par med FASTQ-filer för varje bana. I stället för att sammanfoga FASTQ-filerna innan inpassning och identifiering av varianter, kan du direkt skicka alla dessa indata till `msgen`-klienten. Utdata från `msgen`-klienten kan vara en **enkel uppsättning** av filer, inklusive en .bam-, .bai- eller .vcf-fil. 
 
-I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har lyckats skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här snabbstarten. 
+Kom ihåg att du **inte** kan skicka in blandade FASTQ- och BAM-filer. Dessutom kan du **inte** skicka flera FASTQ- eller BAM-filer från flera personer. 
+
+I den här artikeln förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har lyckats skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här snabbstarten. 
 
 
 ## <a name="multiple-bam-files"></a>Flera BAM-filer
@@ -32,7 +34,7 @@ Vi antar att du har flera BAM-filer som indata, *reads.bam*, *additional_reads.b
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Skicka jobbet till `msgen`-klienten 
 
-Du kan skicka flera BAM-filer genom att skicka deras namn till argumentet --input-blob-name-1. Observera att alla filer måste komma från samma prov, men deras inbördes ordning är inte viktig. Nedan finns exempel på inskickade filer från kommandoraden i Windows, i Unix och med en konfigurationsfil. Radbrytningar har lagts till för tydlighetens skull:
+Du kan skicka flera BAM-filer genom att skicka deras namn till argumentet --input-blob-name-1. Observera att alla filer måste komma från samma prov, men deras inbördes ordning är inte viktig. I följande avsnitt finns exempel på inskickade filer från kommandoraden i Windows, i Unix och med en konfigurationsfil. Radbrytningar har lagts till för tydlighetens skull:
 
 
 För Windows:
@@ -97,7 +99,7 @@ Vi antar att du har flera parade FASTQ-filer som indata, *reads_1.fq.gz* och *re
 
 Parade FASTQ-filer måste komma från samma prov, men de måste också behandlas tillsammans.  Ordningen på filnamnen är viktig när de skickas som argument till--input-blob-name-1 och --input-blob-name-2. 
 
-Nedan finns exempel på inskickade filer från kommandoraden i Windows, i Unix och med en konfigurationsfil. Radbrytningar har lagts till för tydlighetens skull:
+I följande avsnitt finns exempel på inskickade filer från kommandoraden i Windows, i Unix och med en konfigurationsfil. Radbrytningar har lagts till för tydlighetens skull:
 
 
 För Windows:
@@ -155,4 +157,4 @@ output_storage_account_container: outputs
 Skicka filen `config.txt` med det här anropet: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du laddat upp flera BAM-filer eller parade FASTQ-filer till Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Ytterligare information om att skicka arbetsflöden och andra kommandon som du kan använda med tjänsten Microsoft Genomics finns i [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
+I den här artikeln har du laddat upp flera BAM-filer eller parade FASTQ-filer till Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Ytterligare information om att skicka arbetsflöden och andra kommandon som du kan använda med tjänsten Microsoft Genomics finns i [Vanliga frågor och svar](frequently-asked-questions-genomics.md). 

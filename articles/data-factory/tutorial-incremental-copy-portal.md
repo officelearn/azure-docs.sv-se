@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -45,7 +45,6 @@ I den här självstudiekursen får du göra följande:
 
 
 ## <a name="overview"></a>Översikt
-
 Här är det avancerade diagrammet: 
 
 ![Läsa in data stegvis](media\tutorial-Incremental-copy-portal\incrementally-load.png)
@@ -155,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -193,7 +193,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 3. På sidan **General** (Allmänt) i fönstret **Egenskaper** för pipelinen anger du namnet **IncrementalCopyPipeline**. 
 
    ![Namn på pipeline](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Vi lägger till den första sökningsaktiviteten för att hämta det gamla vattenstämpelvärdet. I verktygslådan **Aktiviteter** expanderar du **SQL Database** och drar och släpper **sökningsaktiviteten** till pipelinedesignytan. Ändra aktivitetens namn till **LookupOldWaterMarkActivity**.
+4. Vi lägger till den första sökningsaktiviteten för att hämta det gamla vattenstämpelvärdet. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ändra aktivitetens namn till **LookupOldWaterMarkActivity**.
 
    ![Den första sökningsaktiviteten – namn](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Växla till fliken **Inställningar** och klicka på **+ Ny** för **källdatauppsättningen**. I det här steget skapar du en datauppsättning för att representera data i **watermarktable**. Den här tabellen innehåller den gamla vattenstämpeln som användes i den tidigare kopieringen. 
@@ -225,7 +225,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 11. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **WatermarkDataset** är valt för fältet **Source Dataset** (Källdatauppsättning). 
 
     ![Pipeline – datauppsättning för gammalt vattenmärke](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. I verktygslådan **Aktiviteter** expanderar du **SQL Database** och drar och släpper ytterligare en **sökningsaktivitet** till pipelinedesignytan och anger namnet **LookupNewWaterMarkActivity** på fliken **General** (Allmänt) i fönstret med egenskaper. Med den här sökningsaktiviteten kopieras det nya vattenstämpelvärdet från tabellen med källdata till målet. 
+12. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper ytterligare en **sökning** på pipelinedesignytan och anger namnet **LookupNewWaterMarkActivity** på fliken **Allmänt** i egenskapsfönstret. Med den här sökningsaktiviteten kopieras det nya vattenstämpelvärdet från tabellen med källdata till målet. 
 
     ![Den andra sökningsaktiviteten – namn](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. I egenskapsfönstret för den andra **sökningsaktiviteten** växlar du till fliken **Inställningar** och klickar på **New** (Nytt). Du skapar en datauppsättning för att peka på källtabellen som innehåller det nya vattenstämpelvärdet (det högsta värdet för LastModifyTime). 
@@ -296,7 +296,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         ![Datauppsättning för mottagare – anslutningsinställningar](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. 
-29. I verktygslådan **Aktiviteter** expanderar du **SQL Database** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
+29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**. 
     
     ![Kopieringsaktivitet – källa](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Välj **aktivitet för lagringsproceduren** i pipelinedesignen och byt namn till **StoredProceduretoWriteWatermarkActivity**. 
@@ -307,26 +307,27 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Växla till fliken **Lagrad procedur** och gör följande: 
 
-    1. Ange **sp_write_watermark** som **namn på lagrad procedur**. 
-    2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **+ Ny** i avsnittet **Parametrar för lagrad procedur** och anger följande värden: 
+    1. Som **Namn på lagrad procedur** väljer du **sp_write_watermark**. 
+    2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern: 
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga fönstret med **verifieringsrapporten för pipeline** klickar du på >>.   
 
     ![Verifiera pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att klicka på knappen **Publicera**. Vänta tills du ser ett meddelande om att publiceringen är klar. 
+28. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Azure Data Factory-tjänsten genom att välja knappen **Publicera alla**. Vänta tills du ser ett meddelande om att publiceringen är klar. 
 
     ![Knappen Publicera](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
-Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). 
+1. Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). 
 
-![Knappen Trigger Now (Utlös nu)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Knappen Trigger Now (Utlös nu)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 

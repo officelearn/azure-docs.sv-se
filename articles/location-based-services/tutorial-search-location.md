@@ -12,25 +12,25 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Location Based Services och sedan använder tillhandahållna API:er för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Location Based Services och sedan använder tillhandahållna API:er för att söka efter en orienteringspunkt. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett konto med Azure Location Based Services
 > * Hitta primärnyckeln för ditt konto i Azure Location Based Services
-> * Skapa ny webbsida med API:et Kartkontroll
+> * Skapa en ny webbsida med API:n för kartkontroll
 > * Använda Search Service för att hitta orienteringspunkter i närheten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-# <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>

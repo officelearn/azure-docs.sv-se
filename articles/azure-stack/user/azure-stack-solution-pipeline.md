@@ -3,8 +3,8 @@ title: Distribuera din app till Azure och Azure Stack | Microsoft Docs
 description: "Lär dig mer om att distribuera appar till Azure och Azure-stacken med en hybrid CI/CD-pipeline."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Distribuera appar till Azure och Azure Stack
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -31,7 +32,7 @@ En hybrid [kontinuerlig integration](https://www.visualstudio.com/learn/what-is-
 > * När koden har gått testning, automatiskt distribuera till Azure-stacken. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Några komponenter krävs för att skapa en hybrid CI/CD-pipeline och kan ta lite tid att förbereda.  Om du redan har vissa av dessa komponenter, kontrollera att de uppfyller krav innan du börjar.
 
 Det här avsnittet förutsätter också att du har viss erfarenhet av Azure och Azure-stacken. Om du vill veta mer innan du fortsätter bör du börja med dessa avsnitt:
@@ -49,7 +50,7 @@ Det här avsnittet förutsätter också att du har viss erfarenhet av Azure och 
  - Distribuera [Apptjänst](../azure-stack-app-service-deploy.md) PaaS-tjänster till Azure-stacken.
  - Skapa en Webbapp och konfigurerar den för [FTP-publicering](../azure-stack-app-service-enable-ftp.md).  Anteckna den nya Web App-URL, eftersom den används senare.  
 
-### <a name="developer-tools"></a>Utvecklingsverktyg
+### <a name="developer-tools"></a>Utvecklarverktyg
  - Skapa en [VSTS arbetsytan](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Registreringsprocessen skapar ett projekt med namnet ”MyFirstProject”.  
  - [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) och [logga in på VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Ansluta till projektet och [klona lokalt](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -71,7 +72,7 @@ I det här avsnittet kan du skapa ett enkelt ASP.NET-program och push-installera
 ### <a name="commit-and-push-changes-to-vsts"></a>Spara och skicka ändringar till VSTS
 1.  Använder teamet Explorer i Visual Studio, Välj i listrutan och klicka på **ändringar**.
 2.  Ange ett meddelande för genomförande och välj **genomför alla**. Du kan uppmanas att spara filen i lösningen, klicka på Ja om du vill spara alla.
-3.  När allokerat, erbjuder Visual Studio att synkronisera ändringar i projektet. Välj **Sync**.
+3.  När allokerat, erbjuder Visual Studio att synkronisera ändringar i projektet. Välj **Synkronisera**.
 
     ![bild som visar skärmen för genomförande när genomförande har slutförts](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -118,7 +119,7 @@ Nu när du har skapat en tom versionen definition och knutna till bygga, vi läg
     |Användarnamn | Användarnamnet som du konfigurerade när du skapar FTP-autentiseringsuppgifter för webbprogram |
     |Lösenord | Lösenordet du skapade när FTP-autentiseringsuppgifter för webbprogram|
     |Källkatalog | $(System.DefaultWorkingDirectory)\**\ |
-    |Fjärrkatalog | /Site/wwwroot / |
+    |Fjärrkatalog | /site/wwwroot/ |
     |Bevara sökvägar | Aktiverat (markerad)|
 
 4.  Klicka på **spara**
@@ -162,7 +163,7 @@ Nu när du har skapat en Versionspost, konfigurerar du de steg som krävs för p
     |Användarnamn | Användarnamnet som du konfigurerade när du skapar FTP-autentiseringsuppgifter för webbprogram |
     |Lösenord | Lösenordet du skapade när FTP-autentiseringsuppgifter för webbprogram|
     |Källkatalog | $(System.DefaultWorkingDirectory)\**\ |
-    |Fjärrkatalog | /Site/wwwroot /|
+    |Fjärrkatalog | /site/wwwroot/|
     |Bevara sökvägar | Aktiverat (markerad)|
 
 2.  Klicka på **spara**

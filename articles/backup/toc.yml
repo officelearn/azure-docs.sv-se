@@ -1,7 +1,6 @@
 - name: Dokumentation om Azure Backup
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Vad är Azure Backup?
       href: backup-introduction-to-azure-backup.md
@@ -80,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Återställa data från Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure-filresurser
+      items:
+        - name: Säkerhetskopiera Azure-filresurser
+          href: backup-azure-files.md
+        - name: Vanliga frågor och svar om att säkerhetskopiera Azure-filresurser
+          href: backup-azure-files-faq.md
+        - name: Felsöka säkerhetskopiering av Azure-filresurser
+          href: troubleshoot-azure-files.md
     - name: Virtuella Azure-datorer
       items:
         - name: Förbereda den virtuella datorn

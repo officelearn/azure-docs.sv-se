@@ -23,6 +23,10 @@
       items:
         - name: Från en virtuell Linux-dator
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: Använda en virtuell MSI-dator för att få åtkomst till Azure Cosmos DB
+      items:
+        - name: Från en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Storage
       items:
         - name: Från en virtuell Linux-dator med åtkomstnyckel

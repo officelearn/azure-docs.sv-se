@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -134,7 +134,7 @@ När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-d
     Tillgängliga operativsystem för pooler med Cloud Services-konfiguration finns i [Kompatibilitetstabell för versioner av Azure-gästoperativsystem och SDK:er](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Cloud Services-noder måste du ange nodstorleken och dess *operativsystemsfamilj*. Cloud Services distribueras snabbare till Azure än virtuella datorer som kör Windows. Om du vill ha pooler med Windows-beräkningsnoder får du bättre distributionstid med Cloud Services.
 
     * *Operativsystemfamiljen* avgör också vilka versioner av .NET som installeras med operativsystemet.
-    * Precis som med arbetarroller i Cloud Services kan du ange en *operativsystemversion* (mer information om arbetarroller finns i avsnittet [Berätta mer om Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) i [Översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md)).
+    * Precis som med arbetsroller i Cloud Services kan du ange en *operativsystemversion* (mer information om arbetsroller finns i avsnittet [Översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md)).
     * Som med arbetarroller rekommenderar vi att du anger `*` för *operativsystemversionen* så att noderna uppgraderas automatiskt och så att inget extra arbete krävs för att hantera nya versioner. Det huvudsakliga skälet till att välja en viss operativsystemversion är att säkerställa programkompatibiliteten, så att du kan testa bakåtkompatibiliteten innan versionen uppdateras. Efter valideringen kan *operativsystemversionen* för poolen uppdateras och den nya operativsystemavbildningen kan installeras – eventuella aktiviteter som körs avbryts och placeras i kö.
 
 När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga nodagent-SKU-ID:n mot OS-avbildningsreferenserna genom att anropa [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Visa nodagent-SKU:er som stöds).
@@ -479,6 +479,8 @@ Du kan utföra ytterligare felsökning genom att logga in till en beräkningsnod
 > Om du vill ansluta till en nod via RDP eller SSH måste du först skapa en användare på noden. Du kan göra detta genom att använda Azure Portal, [lägga till ett användarkonto till en nod][rest_create_user] med hjälp av Batch REST-API:et, anropa [ComputeNode.CreateComputeNodeUser][net_create_user]-metoden i Batch .NET eller genom att anropa [add_user][py_add_user]-metoden i Batch Python-modulen.
 >
 >
+
+Om du behöver begränsa eller inaktivera RDP- eller SSH-åtkomst till beräkningsnoder kan du läsa mer i [Konfigurera eller inaktivera fjärråtkomst till beräkningsnoder i en Azure Batch-pool](pool-endpoint-configuration.md).
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Felsöka problematiska beräkningsnoder
 Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-tjänsten undersöka de misslyckade aktiviteternas metadata för att identifiera en skadad nod. Varje nod i poolen tilldelas ett unikt ID och den nod som en aktivitet körs på tas med i aktivitetens metadata. När du har identifierat en nod som har problem kan du utföra flera åtgärder:

@@ -1,118 +1,112 @@
 ---
-title: "Förbereda lokal VMware-servrar för katastrofåterställning av virtuella VMware-datorer till Azure | Microsoft Docs"
-description: "Lär dig hur du förbereder lokal VMware-servrar för katastrofåterställning till Azure med Azure Site Recovery-tjänsten."
+title: "Förbereda lokala VMware-servrar på haveriberedskap av virtuella VMware-datorer till Azure | Microsoft Docs"
+description: "Lär dig att förbereda lokala VMware-servrar på haveriberedskap till Azure med Azure Site Recovery-tjänsten."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 90a4582c-6436-4a54-a8f8-1fee806b8af7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
-ms.translationtype: MT
+ms.openlocfilehash: 4fecd5f8ddb4a6f432995a7779e29479b5b1a7c0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokal VMware-servrar för katastrofåterställning till Azure
+# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala VMware-servrar på haveriberedskap till Azure
 
-Den här kursen visar hur du förbereder din lokala VMware infrastructure när du vill replikera virtuella VMware-datorer till Azure. I den här kursen får du lära du dig att:
+Den här självstudien visar hur du förbereder din lokala VMware-infrastruktur när du vill replikera virtuella VMware-datorer till Azure. I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Förbereda ett konto på vCenter server eller vSphere ESXi värden, att automatisera VM-identifiering
+> * Förbereda ett konto på vCenter-servern eller vSphere ESXi-värden, för att automatisera VM-identifiering
 > * Förbereda ett konto för automatisk installation av mobilitetstjänsten på virtuella VMware-datorer
-> * Granska kraven för VMware-server
-> * Granska kraven för VMware VM
+> * Granska VMware-serverkraven
+> * Granska VMware-kraven för virtuella datorer
 
-I den här självstudiekursen serien visar vi hur du säkerhetskopierar en enda virtuell dator med hjälp av Azure Site Recovery. Om du planerar att skydda flera virtuella VMware-datorer, bör du hämta den [distribution Kapacitetsplaneringsverktyget för](https://aka.ms/asr-deployment-planner) för VMware-replikering. Det här verktyget som du samlar in information om kompatibilitet för VM, diskar per virtuell dator och dataomsättningen per disk. Verktyget omfattar även kraven på nätverksbandbredd och Azure-infrastrukturen för lyckad replikering och testa redundans. [Lär dig mer](site-recovery-deployment-planner.md) om hur du kör verktyget.
+I den här självstudieserien visar vi hur du säkerhetskopierar en enda virtuell dator med hjälp av Azure Site Recovery. Om du planerar att skydda flera virtuella VMware-datorer, bör du hämta [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner) för VMware-replikering. Det här verktyget samlar in information om VM-kompatibilitet, diskar per virtuell dator och dataomsättningen per disk. Verktyget kontrollerar även kraven på nätverksbandbredd och vilken Azure-infrastruktur som krävs för en lyckad replikering och testning av redundans. [Lär dig mer](site-recovery-deployment-planner.md) om hur du kör verktyget.
 
-Det här är den andra kursen i serien. Se till att du har [konfigurerar du Azure komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående kursen.
+Det här är den andra självstudien i serien. Se till att du har [konfigurerat Azure-komponenterna](tutorial-prepare-azure.md) enligt beskrivningen i föregående självstudie.
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Förbereda ett konto för automatisk identifiering
 
-Site Recovery behöver åtkomst till VMware-servrar till:
+Site Recovery måste ha åtkomst till VMware-servrarna för att:
 
-- Upptäcker automatiskt virtuella datorer. Minst en skrivskyddad konto är obligatoriskt.
-- Samordna replikering, redundans och återställning efter fel. Du behöver ett konto som kan köra åtgärder som till exempel att skapa och ta bort diskar och startar på virtuella datorer.
+- Automatiskt upptäcka virtuella datorer. Minst ett skrivskyddat konto krävs.
+- Samordna replikering, redundans och återställning efter fel. Du behöver ett konto som kan köra åtgärder som till exempel att skapa och ta bort diskar samt starta virtuella datorer.
 
 Skapa kontot enligt följande:
 
-1. Om du vill använda ett särskilt konto skapar du en roll på vCenter-nivå. Namnge rollen som **Azure_Site_Recovery**.
-2. Tilldela rollen behörigheterna sammanfattas i tabellen nedan.
-3. Skapa en användare på vCenter server eller vSphere-värd. Tilldela användaren rollen.
+1. Om du vill använda ett särskilt konto skapar du en roll på vCenter-nivå. Ge rollen ett namn som t.ex. **Azure_Site_Recovery**.
+2. Tilldela rollen behörigheterna som sammanfattas i tabellen nedan.
+3. Skapa en användare på vCenter-servern eller vSphere-värden. Tilldela rollen till användaren.
 
-### <a name="vmware-account-permissions"></a>Behörighet för VMware
+### <a name="vmware-account-permissions"></a>Behörighet för VMware-konto
 
-**Aktivitet** | **Rollbehörigheter /** | **Detaljer**
+**Aktivitet** | **Roll/behörigheter** | **Detaljer**
 --- | --- | ---
-**VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center objektet –> Sprid till underordnade objekt rollen = skrivskyddad | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
-**Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och sedan tilldela rollen till en VMware-användare eller grupp<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> DataStore -> allokera utrymme, bläddra datalagret, låg nivå filåtgärder, ta bort filen och uppdatera filer för virtuella datorer<br/><br/> Nätverk -> nätverk tilldela<br/><br/> Resurs -> Tilldela VM resurspool, migrera är avstängt VM, migrera driven på den virtuella datorn<br/><br/> Aktiviteter -> Skapa uppgift, uppdatera uppgift<br/><br/> Konfiguration av virtuell dator -><br/><br/> Virtual machine -> interagera -> fråga enhetsanslutning, konfigurera CD-skivor, konfigurera diskettenheter media, stänga av, slå på strömmen, installera för VMware-verktyg<br/><br/> Virtual machine -> Lager -> Skapa, registrera, avregistrera<br/><br/> Etablering av virtuell dator -> -> Tillåt virtuella hämtning, tillåter Överför filer för virtuella datorer<br/><br/> Virtual machine -> ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
+**VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
+**Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och tilldela sedan rollen till en VMware-användare eller grupp<br/><br/> Datacenterobjekt –> Sprid till underordnat objekt, roll=Azure_Site_Recovery<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 
-## <a name="prepare-an-account-for-mobility-service-installation"></a>Förbereda ett konto för installationen av Mobility
+## <a name="prepare-an-account-for-mobility-service-installation"></a>Förbereda ett konto för installation av mobilitetstjänsten
 
-Mobilitetstjänsten måste installeras på den virtuella datorn som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. För automatisk installation måste du förbereda ett konto som Site Recovery för att komma åt den virtuella datorn. När du ställer in katastrofåterställning i Azure-konsolen ska du ange det här kontot.
+Mobilitetstjänsten måste installeras på den virtuella dator som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. Vid automatisk installation måste du förbereda det konto som Site Recovery använder för att komma åt den virtuella datorn. Du anger det här kontot när du konfigurerar haveriberedskap i Azure-konsolen.
 
-1. Förbereda en domän eller lokalt konto med behörighet för att installera på den virtuella datorn.
-2. Om du vill installera på virtuella Windows-datorer, om du inte använder ett domänkonto, inaktivera kontroll av fjärråtkomst till användare på den lokala datorn.
-   - I registret under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet 1.
-3. Förbered en rotkontot på Linux källservern för att installera på virtuella Linux-datorer.
+1. Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
+2. För installation på virtuella Windows-datorer måste du, om du inte använder ett domänkonto, inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn.
+   - Från registret, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, lägger du till DWORD-posten **LocalAccountTokenFilterPolicy** med värdet 1.
+3. Om du ska installera på virtuella Linux-datorer förbereder du ett rotkonto på Linux-källservern.
 
 
-## <a name="check-vmware-server-requirements"></a>Kontrollera kraven för VMware-server
+## <a name="check-vmware-server-requirements"></a>Kontrollera VMware-serverkraven
 
-Kontrollera att följande krav är uppfyllda VMware-servrar.
+Kontrollera att VMware-servrarna uppfyller följande krav.
 
 **Komponent** | **Krav**
 --- | ---
-**vCenter server** | vCenter 6.5, 6.0 eller 5.5
+**vCenter-server** | vCenter 6.5, 6.0 eller 5.5
 **vSphere-värd** | vSphere 6.5, 6.0, 5.5
 
-## <a name="check-vmware-vm-requirements"></a>Kontrollera kraven för VMware VM
+## <a name="check-vmware-vm-requirements"></a>Kontrollera kraven för virtuella VMware-datorer
 
-Kontrollera att den virtuella datorn uppfyller kraven för Azure sammanfattas i följande tabell.
+Kontrollera att den virtuella datorn uppfyller Azure-kraven som sammanfattas i följande tabell.
 
 **VM-krav** | **Detaljer**
 --- | ---
-**Operativsystemdisken** | Upp till 2 048 GB.
-**Operativsystemet disk antal** | 1
-**Datadiskar** | 64 eller mindre
-**Datadisken för virtuell Hårddisk** | Upp till 4095 GB
-**Nätverkskort** | Flera nätverkskort som stöds
-**Delad virtuell Hårddisk** | Stöds inte
+**Storlek på operativsystemdisk** | Upp till 2 048 GB.
+**Antal operativsystemdiskar** | 1
+**Antal datadiskar** | 64 eller mindre
+**VHD-storlek för datadisk** | Upp till 4 095 GB
+**Nätverkskort** | Flera nätverkskort stöds
+**Delad VHD** | Stöds inte
 **FC-disk** | Stöds inte
-**Format för hårddisk** | VHD- eller VHDX.<br/><br/> Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer kan du fortsätta att använda VHDX-format.
-**Bitlocker** | Stöds ej. Inaktivera innan du aktiverar replikering för en virtuell dator.
-**Namn på virtuell dator** | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck. VM-namn måste börja och sluta med en bokstav eller siffra.
-**VM-typ** | Generation 1 - Linux eller Windows<br/><br/>Generation 2 - endast Windows
+**Format för hårddisk** | VHD eller VHDX.<br/><br/> Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till VHD när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer kan du fortsätta att använda VHDX-formatet.
+**BitLocker** | Stöds ej. Inaktivera innan du aktiverar replikering för en virtuell dator.
+**Namn på virtuell dator** | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra.
+**VM-typ** | Generation 1 – Linux eller Windows<br/><br/>Generation 2 – endast Windows
 
-Den virtuella datorn måste också köra ett operativsystem som stöds. Finns det [Site Recovery-supportmatrisen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) för en fullständig lista över versioner som stöds.
+Den virtuella datorn måste också köras på ett operativsystem som stöds. Se [Site Recovery-supportmatrisen](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) för en fullständig lista med versioner som stöds.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 
-Under ett failover-scenario kan du vill ansluta till de replikerade virtuella datorerna i Azure från ditt lokala nätverk.
+Under ett redundansscenario kan du ansluta till de replikerade virtuella datorerna i Azure från ditt lokala nätverk.
 
-För att ansluta till virtuella Windows-datorer med RDP efter en växling vid fel, gör du följande:
+Om du vill ansluta till virtuella Windows-datorer med RDP efter en redundans, gör du följande:
 
-1. För att få åtkomst via internet, aktiverar du RDP på den lokala virtuella datorn före redundans. Kontrollera att TCP och UDP-regler har lagts till för den **offentliga** profil och att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
-2. För att komma åt via plats-till-plats-VPN, aktiverar du RDP på den lokala datorn. RDP ska tillåtas i den **Windows-brandväggen** -> **tillåtna appar och funktioner** för **domän och privat** nätverk.
-   Kontrollera att operativsystemets SAN policyn är inställd att **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det ska vara ingen Windows-uppdateringar som väntar på den virtuella datorn när du utlösa redundansväxling. Om det inte finns kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
-3. På Windows Azure VM efter växling vid fel, kontrollera **starta diagnostik** att visa en skärmbild av den virtuella datorn. Om du inte kan ansluta, kontrollera att den virtuella datorn körs och granska dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+1. För att få åtkomst via Internet aktiverar du RDP på den lokala virtuella datorn före redundansen. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.
+2. För åtkomst via plats-till-plats-VPN aktiverar du RDP på den lokala datorn. RDP ska tillåtas i **Windows-brandväggen** -> **Tillåtna appar och funktioner** för nätverken **Domän och privat**.
+   Kontrollera att operativsystemets SAN-princip har angetts till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135). Det får inte finnas några väntande Windows-uppdateringar på den virtuella datorn när du utlöser en redundans. Om det finns det kan du inte logga in på den virtuella datorn förrän uppdateringen är klar.
+3. Efter en redundans av en virtuell Windows Azure-dator, kontrollerar du att **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs. Granska sedan dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-För att ansluta till virtuella Linux-datorer med hjälp av SSH efter växling vid fel, gör du följande:
+Om du vill ansluta till virtuella Linux-datorer med SSH efter en redundans, gör du följande:
 
-1. Kontrollera att Secure Shell-tjänsten är inställd att starta automatiskt på datorn startar på den lokala datorn före redundans. Kontrollera att brandväggsreglerna tillåter en SSH-anslutning.
+1. Kontrollera att Secure Shell-tjänsten är inställd att starta automatiskt vid systemstart på den lokala datorn före redundans. Kontrollera att brandväggsreglerna tillåter en SSH-anslutning.
 
-2. Tillåta inkommande anslutningar till SSH-porten för reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn och Azure-undernätet som den är ansluten på Azure-VM efter växling vid fel.
-   [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn. Du kan kontrollera **starta diagnostik** att visa en skärmbild av den virtuella datorn.
+2. Den virtuella Azure-datorn måste tillåta inkommande anslutningar till SSH-porten efter redundans för reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn och Azure-undernätet som den är ansluten till.
+   [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn. Du kan kontrollera att **Startdiagnostik** visar en skärmbild av den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera katastrofåterställning till Azure för virtuella VMware-datorer](tutorial-vmware-to-azure.md)
+> [Konfigurera haveriberedskap till Azure för virtuella VMware-datorer](tutorial-vmware-to-azure.md)

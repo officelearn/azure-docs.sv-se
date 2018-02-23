@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudien visar vi hur man skapar ett program för Linux och en tjänst med C# i .NET Core 2.0.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
 Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
@@ -40,10 +40,18 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
 
 1. Installera nodejs och NPM på datorn
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn på datorn från NPM
 
   ```bash
@@ -118,11 +126,6 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg:
 1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
 2. Kör `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>Migrera från project.json till .csproj
-1. Om du kör ”dotnet migrate” i projektets rotkatalog migreras alla project.json-filer till csproj-format.
-2. Uppdatera projektreferenserna till csproj-filer i projektfiler.
-3. Uppdatera projektfilnamnen till csproj-filer i build.sh.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -41,6 +41,8 @@
 #### [Överföringar av meddelanden, lås och uppgörelser](message-transfers-locks-settlement.md)
 #### [Ordningsföljd och tidsstämplar för meddelanden](message-sequencing.md)
 #### [Förfallodatum för meddelanden (Time to Live)](message-expiration.md)
+#### [Meddelandehantering med hjälp av Azure Event Grid](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid-exempel](service-bus-to-event-grid-integration-example.md)
 ### [Autentisering och auktorisering](service-bus-authentication-and-authorization.md)
 #### [Migrera från ACS till SAS](service-bus-migrate-acs-sas.md)
 #### [Autentisering med signaturer för delad åtkomst](service-bus-sas.md)

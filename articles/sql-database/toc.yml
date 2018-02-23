@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Hantera klientorganisationsschema
               href: saas-tenancy-schema-management.md
-            - name: Köra ad hoc-frågor
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Rapportering mellan klientorganisationer
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL för analys
               href: saas-tenancy-tenant-analytics.md
         - name: Databas för flera klienter

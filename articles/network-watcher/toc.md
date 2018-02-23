@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topologi](network-watcher-topology-overview.md)
 ## [Variabel infångade paket](network-watcher-packet-capture-overview.md)
@@ -62,6 +61,7 @@
 # Gör så här för att
 ## [Övervaka VPN-gateway med Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnostisera lokal anslutning via en VPN-gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Övervaka nätverksanslutningar](connection-monitor.md)
 ## [Utföra efterlevnad och granskning för nätverket med PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Analysera Application Gateway-loggar i Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Paketinsamling

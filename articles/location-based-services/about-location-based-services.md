@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>En introduktion till Azure Location Based Services (förhandsversion)
 Azure Location Based Services är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med Azure OneAPI-kompatibla tjänster kan du använda välbekanta utvecklingsverktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Location Based Services ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Location Based Services är en uppsättning REST API:er som är kompatibla med Azure One API och som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
@@ -65,7 +65,8 @@ Azure Location Based Services har skapats för rörlighet och fungerar plattform
 
 I Azure Location Based Services används ett nyckelbaserat autentiseringsschema så man kommer åt tjänsterna genom att gå till [Azure-portalen](http://portal.azure.com) och skapa ett Azure Location Based Services-konto. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner direkt i dina program med någon av dina nycklar i begäranden till tjänsten Azure Location Based Services.
 
-**Relation med Bing-kartor** – Tänk på att Azure Location Based Services som beskrivs i detta dokument skiljer sig från det som tillhandahålls av Bing-kartor.  Även om de har flera funktioner gemensamt så är de två tjänsterna olika och inte relaterade.  Produkterbjudandet eller vägkartan för Bing-kartor påverkar inte tillgängligheten för den här nya tjänsten i Azure, som hanteras separat.
+## <a name="relationship-with-bing-maps"></a>Relationen med Bing-kartor
+Azure Location Based Services som beskrivs i detta dokument skiljer sig från det som tillhandahålls av Bing-kartor.  Även om de har flera funktioner gemensamt så är de två tjänsterna olika och inte relaterade.  Produkterbjudandet eller vägkartan för Bing-kartor påverkar inte tillgängligheten för den här nya tjänsten i Azure, som hanteras separat.
 
 Microsofts mål är att ge utvecklare ett val när det gäller erbjudanden om platstjänster.  Nedan visas en kort vägledning för utvecklare om vilken tjänst som ska användas för olika användningsscenarier och kundsituationer.  Tänk på att den här vägledningen för närvarande gäller för Azure LBS i den allmänt tillgängliga förhandsversionen, och den kommer att uppdateras när funktionen blir allmänt tillgänglig senare under 2018.
 
@@ -79,7 +80,7 @@ Microsofts mål är att ge utvecklare ett val när det gäller erbjudanden om pl
 | Kartinnehåll | Standardytkartor räcker | Satellit-, flygfoto- och gatubilder krävs |
 | Underliggande kartkälla | TomTom-kartdata föredras | HERE-kartdata föredras |
 
-Registrera dig för ett [Azure Location Based Services-konto i dag!](http://aka.ms/azurelbsportal)
+Registrera dig för ett [Azure Location Based Services-konto i dag](http://aka.ms/azurelbsportal).
 
 ## <a name="next-steps"></a>Nästa steg
 

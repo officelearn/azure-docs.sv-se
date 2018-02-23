@@ -3,8 +3,8 @@ title: "Tillhandahålla virtuella datorer till Azure-stacken användarna | Micro
 description: "Självstudiekursen för att tillhandahålla virtuella datorer på Azure-stacken"
 services: azure-stack
 documentationcenter: 
-author: vhorne
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Tillhandahålla virtuella datorer till Azure Stack-användare
 
@@ -86,7 +87,7 @@ Nu kan du få saker redo för användarna. När du startar processen uppmanas du
 
    Upprepa dessa steg för nätverk och lagring och klicka sedan på **OK** på den **kvoter** avsnitt.
 
-   Jag. Klicka på **OK** på den **ny plan** avsnitt.
+   i. Klicka på **OK** på den **ny plan** avsnitt.
 
    j. På den **Plan** väljer du den nya planen och klickar på **Välj**.
 

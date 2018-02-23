@@ -1,4 +1,4 @@
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Introduktion
       href: storage-files-introduction.md
@@ -198,6 +198,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Felsöka Storage Explorer
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Storage Explorer-hjälpmedel
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: NuGet-paket
       items:
         - name: Azure Storage-klientbibliotek för .NET

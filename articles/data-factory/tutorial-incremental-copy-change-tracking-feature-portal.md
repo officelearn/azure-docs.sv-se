@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -37,7 +37,6 @@ I den här självstudiekursen får du göra följande:
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Översikt
-
 I en dataintegrationslösning är stegvis inläsning av data efter den första datainläsningen ett vanligt scenario. I vissa fall kan ändrade data inom en period i ditt källdatalager enkelt delas upp (till exempel LastModifyTime, CreationTime). I vissa fall finns det inget uttryckligt sätt att identifiera deltadata från förra gången du bearbetade data. Tekniken för Ändringsspårning som stöds av datakällor som Azure SQL Database och SQL Server kan användas för att identifiera deltadata.  I den här självstudien beskrivs hur du använder Azure Data Factory version 2 så att det ska fungera med SQL-ändringsspårningstekniken för att inkrementellt läsa in deltadata från Azure SQL Database till Azure Blob Storage.  Mer konkret information om SQL-ändringsspårningstekniken finns i [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server) (Ändringsspårning i SQL Server). 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
@@ -152,6 +151,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -361,7 +361,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **IncrementalCopyPipeline**.
 
     ![Namn på pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. Öppna **SQL Database** i verktygslådan **Aktiviteter** och dra och släpp **sökningsaktiviteten** till pipelinedesignytan. Ange aktivitetens namn som **LookupLastChangeTrackingVersionActivity**. Den här aktiviteten hämtar ändringsspårningsversionen som användes i den sista kopieringsåtgärden, som lagras i tabellen **table_store_ChangeTracking_version**.
+3. Visa verktygslådan **Allmänt** i verktygslådan **Aktiviteter** och dra och släpp **sökningen** på pipelinedesignytan. Ange aktivitetens namn som **LookupLastChangeTrackingVersionActivity**. Den här aktiviteten hämtar ändringsspårningsversionen som användes i den sista kopieringsåtgärden, som lagras i tabellen **table_store_ChangeTracking_version**.
 
     ![Namn för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Växla till **Inställningar** i fönstret **Egenskaper** och välj **ChangeTrackingDataset** för fältet för **källdatauppsättning**. 
@@ -409,12 +409,13 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Växla till fliken **Lagrad procedur** och gör följande: 
 
-    1. Ange **Update_ChangeTracking_Version** för **Namn på lagrad procedur**.  
-    2. I avsnittet **Parametrar för lagrad procedur** använder du knappen **+ Ny** för att lägga till följande två parametrar:
+    1. Som **Namn på lagrad procedur** väljer du **Update_ChangeTracking_Version**.  
+    2. Välj **Importera parameter**. 
+    3. I avsnittet **Parametrar för lagrad procedur** anger du följande värden för parametrarna: 
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Sträng | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Lagrad proceduraktivitet – Parametrar](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -424,14 +425,15 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 15. Klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Stäng fönstret med **verifieringsrapporten för pipeline** genom att klicka på **>>**. 
 
     ![Verifieringsknapp](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Data Factory-tjänsten genom att klicka på knappen **Publicera**. Vänta tills du ser meddelandet **Publiceringen är klar**. 
+16.  Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Data Factory-tjänsten genom att klicka på knappen **Publicera alla**. Vänta tills du ser meddelandet **Publiceringen är klar**. 
 
         ![Knappen Publicera](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Kör den inkrementella kopieringspipelinen
-Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu). 
+1. Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu). 
 
-![Menyn Utlös nu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Menyn Utlös nu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Övervaka den inkrementella kopieringspipelinen
 1. Klicka på fliken **Övervaka** till vänster. Du ser pipelinekörningen samt dess status i listan. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i **åtgärdskolumnen** kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 

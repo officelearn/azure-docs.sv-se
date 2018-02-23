@@ -2,24 +2,24 @@
 title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Java | Microsoft Docs"
 description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Java"
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Java
 
 I den här snabbstarten får du lära dig att använda Java för att ladda upp, hämta och lista blockblobbar i Azure Blob-lagring.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -94,9 +94,9 @@ Härnäst går vi igenom exempelkoden så att du kan förstå hur den fungerar.
 
 ### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
 
-Det första du ska göra är att skapa referenser till objekten som används för att komma åt och hantera blobblagringen. De här objekten bygger på varandra – vart och ett används av nästa i listan.
+Det första du ska göra är att skapa referenser till objekten som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra – vart och ett används av nästa i listan.
 
-* Skapa en instans av objektet **CloudStorageAccount** som pekar mot [lagringskontot](/java/api/com.microsoft.azure.management.storage._storage_account).
+* Skapa en instans av objektet [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) som pekar mot lagringskontot.
 
     Objektet **CloudStorageAccount** är en representation av lagringskontot och gör det möjligt att konfigurera och komma åt egenskaper för lagringskontot programmässigt. Med hjälp av objektet **CloudStorageAccount** kan du skapa en instans av klienten **CloudBlobClient**, som krävs för att komma åt blobbtjänsten.
 
@@ -104,18 +104,18 @@ Det första du ska göra är att skapa referenser till objekten som används fö
 
     **CloudBlobClient** ger dig en åtkomstpunkt till blobbtjänsten så att du kan konfigurera och komma åt egenskaper för blobblagring programmässigt. Med hjälp av **CloudBlobClient** kan du skapa en instans av objektet **CloudBlobContainer**, som krävs för att skapa behållare.
 
-* Skapa en instans av objektet **CloudBlobContainer**, som representerar den [behållare](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) du får åtkomst till. Behållare används för att organisera dina blobbar på samma sätt som du använder mappar på datorn för att organisera dina filer.    
+* Skapa en instans av objektet [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container), som representerar den behållare du får åtkomst till. Behållare används för att organisera dina blobar på samma sätt som du använder mappar på datorn för att organisera dina filer.    
 
-    När du har **CloudBlobContainer** kan du skapa en instans av objektet **CloudBlockBlob** som pekar mot den specifika [blobb](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) du är intresserad av, och utföra åtgärder som att ladda upp, hämta och kopiera.
+    När du har **CloudBlobContainer** kan du skapa en instans av objektet [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) som pekar mot den specifika blob du är intresserad av, och utföra åtgärder som att ladda upp, ladda ned och kopiera.
 
 > [!IMPORTANT]
-> Behållarnamn måste använda gemener. Mer information om behållare och blobbnamn finns i [Namngivning och referens av behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Behållarnamn måste använda gemener. Mer information om behållare och blobnamn finns i [Namngivning och referens av behållare, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Skapa en behållare 
 
-I det här avsnittet skapar du en instans av objekt, skapar en ny behållare och anger sedan behörigheter för behållaren så att blobbarna är offentliga och går att komma åt med bara en URL. Behållaren heter **quickstartblobs**. 
+I det här avsnittet skapar du en instans av objekt, skapar en ny behållare och anger sedan behörigheter för behållaren så att blobarna är offentliga och går att komma åt med bara en URL. Behållaren heter **quickstartblobs**. 
 
-Det här exemplet använder **CreateIfNotExists** eftersom vi vill skapa en ny behållare varje gång exemplet körs. I en produktionsmiljö där du använder samma behållare i ett program är det bättre att bara anropa **CreateIfNotExists** en gång. Du kan också skapa behållaren i förväg så att du inte behöver skapa den i koden.
+Det här exemplet använder [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists) eftersom vi vill skapa en ny behållare varje gång exemplet körs. I en produktionsmiljö där du använder samma behållare i ett program, är det bättre att bara anropa **CreateIfNotExists** en gång. Du kan också skapa behållaren i förväg så att du inte behöver skapa den i koden.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -128,9 +128,9 @@ System.out.println("Creating container: " + container.getName());
 container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobRequestOptions(), new OperationContext());
 ```
 
-### <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i behållaren
 
-Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobbar är vanligast och används i denna snabbstart. 
+Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart. 
 
 Hämta en referens till blobben i målbehållaren om du vill överföra en fil till en blobb. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Den här åtgärden skapar blobben om den inte redan finns, eller skriver över den om den finns.
 
@@ -152,9 +152,9 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-Det går att använda flera [uppladdningsmetoder](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) med blobblagring. Om du till exempel har en sträng kan du använda metoden UploadText i stället för metoden Upload. 
+Det finns flera uppladdningsmetoder, exempelvis [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) och [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext) som du kan använda med Blob Storage. Om du till exempel har en sträng kan du använda metoden UploadText i stället för metoden Upload. 
 
-Blockblobbar kan vara valfri texttyp eller binär fil. Sidblobbar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobbar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i blobblagringen är blockblobbar.
+Blockblobbar kan vara valfri texttyp eller binär fil. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
@@ -171,7 +171,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 Ladda ned blobbar till den lokala disken med hjälp av [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String).
 
-Följande kod hämtar blobben som överfördes i föregående avsnitt och lägger till ett suffix med "_DOWNLOADED" i blobbnamnet så att du kan se båda filerna på den lokala disken. 
+Följande kod laddar ned bloben som överfördes i föregående avsnitt och lägger till ett suffix med "_DOWNLOADED" i blobnamnet så att du kan se båda filerna på den lokala disken. 
 
 ```java
 // Download blob. In most cases, you would have to retrieve the reference
@@ -210,4 +210,6 @@ I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-java-how-to-use-blob-storage.md)
 
-Mer information om Storage Explorer och blobbar finns i [Hantera Azure-blobblagringsresurser med Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md).
+Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md).
+
+Flera Java-exempel finns [Azure Storage-exempel som använder Java](../common/storage-samples-java.md).

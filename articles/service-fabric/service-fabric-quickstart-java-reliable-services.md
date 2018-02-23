@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Service Fabric Java-app | Microsoft Docs
+title: Skapa ett Azure Service Fabric Java-program | Microsoft Docs
 description: "Skapa ett Java-program för Azure med hjälp av snabbstartsexemplet för Service Fabric."
 services: service-fabric
 documentationcenter: java
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-java-application"></a>Skapa ett Java-program
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare. 
@@ -36,12 +36,12 @@ I den här snabbstarten lär du dig att:
 > * Distribuera programmet till ett kluster i Azure
 > * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här snabbstarten behöver du:
-1. [Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installera Git](https://git-scm.com/)
 3. [Installera Eclipse](https://www.eclipse.org/downloads/)
-4. [Konfigurera en Java-miljö](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och kontrollera att du följer de valfria stegen för att installera plugin-programmet Eclipse 
+4. [Konfigurera en Java-miljö](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och kontrollera att du följer de valfria stegen för att installera plugin-programmet Eclipse 
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Öppna Eclipse.
-3. Klicka på File -> Open Projects (Arkiv -> Öppna projekt) under File System... (Filsystem). 
+3. Klicka på Arkiv -> Öppna projekt, under Filsystem... 
 4. Klicka på Directory (Katalog) och välj katalogen `Voting` från mappen `service-fabric-java-quickstart` som du klonade från Github. Klicka på Slutför. 
 
     ![Dialogrutan för import till Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
@@ -79,16 +79,42 @@ Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot r�
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Konfigurera ett Azure Service Fabric-kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du antingen skapa ett eget kluster eller använda ett partykluster.
+Om du vill distribuera programmet till ett kluster i Azure kan du skapa ett eget kluster.
 
 Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De körs av Service Fabric-teamet. Där kan alla distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
+
+Du kan använda Service Fabric Explorer, CLI eller Powershell för att utföra hanteringsåtgärder på det säkra partklustret. Om du vill använda Service Fabric Explorer behöver du ladda ned PFX-filen från webbplatsen med partklustret och importera certifikatet till certifikatarkivet (Windows eller Mac) eller till webbläsaren (Ubuntu). Det finns inget lösenord för självsignerade certifikat från partklustret. 
+
+För att kunna utföra hanteringsåtgärder med Powershell eller CLI måste du ha PFX (Powershell) eller PEM (CLI). Om du vill konvertera PFX-filen till en PEM-fil kör du följande kommando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 8080. Se till att den porten är öppen i ditt kluster. Porten är öppen om du använder ett partykluster.
+> Spring Boot-tjänsten är konfigurerad för att lyssna efter inkommande trafik på port 8080. Se till att den porten är öppen i ditt kluster. Porten är öppen om du använder ett partykluster.
 >
 
+### <a name="add-certificate-information-to-your-application"></a>Lägg till certifikatinformation i ditt program
+
+Certifikattumavtrycket måste läggas till i ditt program eftersom det använder Service Fabrics programmeringsmodeller. 
+
+1. Du kommer att behöva tumavtrycket för certifikatet i ```Voting/VotingApplication/ApplicationManiest.xml```-filen när du kör på ett säkert kluster. Kör följande kommando för att extrahera tumavtrycket för certifikatet.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. I ```Voting/VotingApplication/ApplicationManiest.xml``` lägger du till följande kodavsnitt under taggen **ApplicationManifest**. **X509FindValue** ska vara tumavtrycket från föregående steg (inga semikolon). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
 ### <a name="deploy-the-application-using-eclipse"></a>Distribuera programmet med Eclipse
 Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
 
@@ -100,8 +126,8 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
@@ -121,7 +147,7 @@ Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från e
 
 Gör så här om du vill skala frontwebbtjänsten:
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
 
     ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)

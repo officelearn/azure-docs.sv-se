@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Azure AD Connect?](active-directory-aadconnect.md)
 ## [Vad är Azure AD Connect Sync?](active-directory-aadconnectsync-whatis.md)
 ### [Användare och kontakter](active-directory-aadconnectsync-understanding-users-and-contacts.md)
@@ -18,6 +17,7 @@
 ### [Uppgradera från DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Uppgradera från en tidigare version](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Installera med hjälp av en befintlig ADSync-databas](active-directory-aadconnect-existing-database.md)
+### [Installera med hjälp av SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -52,6 +52,7 @@
 
 
 ## Hantera Azure AD Connect Sync
+### [GDPR-kompatibilitet och Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD-tjänstkonto](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -82,6 +83,7 @@
 ### [Anslutning](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Fel under synkronisering](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objektet har inte synkroniserats](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Objektsynkronisering med hjälp av felsökningsaktiviteten](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Lösenordssynkronisering](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [LargeObject-fel som orsakats av userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Så här återställer du från LocalDB med en gräns på 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

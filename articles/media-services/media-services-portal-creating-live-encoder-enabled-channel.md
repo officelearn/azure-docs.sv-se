@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 29cf8e68de5e15e2b570fa2f546d8644c5cf57b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d19f48d99d0be9d2702060be04cf29a30290a001
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot
 Följande steg är allmänna steg som ingår i att skapa vanliga program för direktsänd strömning.
 
 > [!NOTE]
-> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 > 
 > 
 
@@ -56,7 +56,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 5. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
 6. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).    
 7. Starta händelsen när du är redo att påbörja strömning och arkivering.
-8. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+8. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 9. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
 10. Ta bort händelsen (och ta eventuellt bort tillgången).   
 
@@ -70,7 +70,7 @@ I de här självstudierna används Azure-portalen för att utföra följande upp
 5. Spela upp ditt innehåll.
 6. Rensa.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Följande krävs för att kunna genomföra självstudien.
 
 * Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. 
@@ -193,7 +193,7 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 ![Tillgångar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Överväganden
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**.
 
 ## <a name="next-step"></a>Nästa steg

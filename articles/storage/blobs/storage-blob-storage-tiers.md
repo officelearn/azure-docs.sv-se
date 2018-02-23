@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: Nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
 
 ## <a name="overview"></a>Översikt
 
-
-Azure Storage erbjuder tre lagringsnivåer för lagring av Blob-objekt så att du kan lagra data så kostnadseffektivt som möjligt, beroende på din användning. Azures **frekventa lagringsnivå** är optimerad för att lagra data som används ofta. Azures **lågfrekventa lagringsnivå** är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar. **Arkivlagringsnivån** i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav (i storleksordningen timmar). Arkivlagringsnivån är endast tillgänglig på blobnivån och inte på lagringskontonivån. Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data på den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna. Arkivlagring är i frånkopplat tillstånd och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna.
+Azure Storage erbjuder tre lagringsnivåer för lagring av Blob-objekt så att du kan lagra data så kostnadseffektivt som möjligt, beroende på din användning. Azures **frekventa lagringsnivå** är optimerad för att lagra data som används ofta. Azures **lågfrekventa lagringsnivå** är optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar. **Arkivlagringsnivån** i Azure är optimerad för att lagra data som används sällan och som lagras i minst 180 dagar med flexibla svarstidskrav (i storleksordningen timmar). Arkivlagringsnivån är endast tillgänglig på blobnivån och inte på lagringskontonivån. Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data på den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader jämfört med frekventa data godtagbara med tanke på de lägre lagringskostnaderna. Arkivlagring är i frånkopplat tillstånd och erbjuder de lägsta lagringskostnaderna men även de högsta åtkomstkostnaderna. Endast frekventa och lågfrekventa lagringsnivåer (ej arkiv) kan anges på kontonivå. Alla tre nivåer kan ställas in på objektnivå.
 
 Idag växer mängden data som lagras i molnet i exponentiell takt. För att hålla kontroll på kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod för att optimera kostnaderna. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
 
@@ -60,7 +59,7 @@ När en blob finns i arkivlagring är den i offline-tillstånd och kan inte läs
 
 Exempelscenarier för arkivlagringsnivå:
 
-* Datauppsättningar för långsiktig säkerhetskopiering, arkivering och haveriberedskap
+* Långsiktig säkerhetskopiering, sekundär säkerhetskopiering och datauppsättningar för arkivering
 * Ursprungliga rådata som måste bevaras, även efter att de har bearbetats till ett slutligt användbart format. (*Till exempel* mediefiler i RAW-format som har omkodats till andra format.)
 * Efterlevnads- och arkiveringsdata som behöver lagras under en längre tid och som nästan aldrig används. (*Till exempel* film från säkerhetskameror, gamla röntgenbilder/magnetröntgenbilder för vårdorganisationer, ljudinspelningar och transkript av kundsamtal för ekonomiska tjänster.)
 
@@ -84,7 +83,7 @@ Om en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, fre
 
 Om du ändrar kontonivån från frekvent till lågfrekvent debiteras du för skrivåtgärder (per 10 000) för blobbar som saknar angiven nivå, men endast i GPv2-konton. Ingen debitering sker för detta i Blob Storage-konton. Du debiteras för både läsåtgärder (per 10 000) och datahämtning (per GB) om du växlar ditt Blob Storage- eller GPv2-konto från lågfrekvent till frekvent. Kostnader för tidig borttagning av blobbar från lågfrekvent lagring eller arkivlagring kan också tillkomma.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Tidig borttagning från lågfrekvent lagring och arkivlagring (från och med 1 februari 2018)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Tidig borttagning i lågfrekvent lagring och i arkivet (gäller från den 1 mars 2018)
 
 Utöver kostnaderna per GB och per månad kan kostnader tillkomma för tidig borttagning. För blobbar som flyttas till lågfrekvent lagring (gäller endast GPv2-konton) är den minsta lagringstiden 30 dagar, och för blobbar som flyttas till arkivlagring är den minsta lagringstiden 180 dagar. Den här kostnaden beräknas proportionellt. Exempel: Om en blob flyttas till arkivlagring och sedan tas bort eller flyttas till frekvent nivå efter 45 dagar, debiteras du en avgift för tidig borttagning motsvarande 135 (180 minus 45) dagars arkivlagring av blobben.
 
@@ -178,7 +177,7 @@ Varje blob faktureras alltid enligt den nivå som angetts med blobegenskapen **�
 
 **Hur kan jag se om jag påförs en avgift för tidig borttagning när jag tar bort eller flyttar en blob från lågfrekvent lagring eller arkivlagring?**
 
-Om en blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) inom 30 dagar, eller från arkivlagring inom 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning (från och med 1 februari 2018). Du kan se hur länge en blob har lagrats på lågfrekvent nivå eller arkivnivå genom att kontrollera blobegenskapen **Ändringstid för åtkomstnivå** som innehåller en tidsstämpel för den senaste nivåändringen. Mer information finns under [Tidig borttagning från lågfrekvent lagring och arkivlagring](#cool-and-archive-early-deletion).
+Om en blob tas bort eller flyttas från lågfrekvent lagring (endast GPv2-konton) inom 30 dagar, eller från arkivlagring inom 180 dagar, påförs en proportionellt beräknad avgift för tidig borttagning (från och med den 1 mars 2018). Du kan se hur länge en blob har lagrats på lågfrekvent nivå eller arkivnivå genom att kontrollera blobegenskapen **Ändringstid för åtkomstnivå** som innehåller en tidsstämpel för den senaste nivåändringen. Mer information finns under [Tidig borttagning från lågfrekvent lagring och arkivlagring](#cool-and-archive-early-deletion).
 
 **Vilka Azure-verktyg och SDK:er stöder blobnivåindelning och arkivlagring?**
 

@@ -1,6 +1,6 @@
 ---
-title: "Virtuella Azure-nätverk och virtuella Linux-datorer | Microsoft Docs"
-description: "Självstudiekurs – hantera virtuella Azure-nätverk och virtuella Linux-datorer med Azure CLI"
+title: "Virtuella nätverk och virtuella Linux-datorer i Azure | Microsoft Docs"
+description: "Självstudie – Hantera virtuella Azure-nätverk och virtuella Linux-datorer med Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Hantera virtuella Azure-nätverk och virtuella Linux-datorer med Azure CLI
 
-Azure virtual machines använder Azure-nätverk för interna och externa nätverkskommunikation. Den här kursen går igenom hur du distribuerar två virtuella datorer och konfigurera Azure nätverk för dessa virtuella datorer. Exemplen i den här kursen förutsätter att de virtuella datorerna är värd för ett webbprogram med en-databas, men ett program inte har distribuerats i självstudiekursen. I den här guiden får du lära dig hur man:
+Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Skapa ett virtuellt nätverk och undernät
+> * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
-> * Skapa en frontend virtuell dator
-> * Skydda nätverkstrafik
-> * Skapa en backend-virtuell dator
+> * Skapa en virtuell dator för klientdelen
+> * Skydda nätverkstrafiken
+> * Skapa en virtuell dator för serverdelen
 
-Du kan se dessa resurser som skapas när den här kursen:
+När du slutför den här självstudien kommer du att se att följande resurser skapas:
 
 ![Virtuellt nätverk med två undernät](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -det virtuella nätverket som de virtuella datorerna använder för att kommunicera med varandra och internet.
-- *myFrontendSubnet* -undernät i *myVNet* används av frontend resurserna.
-- *myPublicIPAddress* -offentlig IP-adress som används för att få åtkomst till *myFrontendVM* från internet.
-- *myFrontentNic* -nätverksgränssnittet som används av *myFrontendVM* att kommunicera med *myBackendVM*.
-- *myFrontendVM* -den virtuella datorns används för att kommunicera mellan internet och *myBackendVM*.
-- *myBackendNSG* -nätverkssäkerhetsgruppen som styr kommunikationen mellan den *myFrontendVM* och *myBackendVM*.
-- *myBackendSubnet* -undernätet med *myBackendNSG* och används av backend-resurser.
-- *myBackendNic* -nätverksgränssnittet som används av *myBackendVM* att kommunicera med *myFrontendVM*.
-- *myBackendVM* -den virtuella datorns som använder port 22 och 3306 för att kommunicera med *myFrontendVM*.
+- *myVNet* – Det virtuella nätverk som de virtuella datorerna använder för att kommunicera med varandra och Internet.
+- *myFrontendSubnet* – Undernät i *myVNet* som används av klientdelsresurserna.
+- *myPublicIPAddress* – Offentlig IP-adress som används för att få åtkomst till *myFrontendVM* från Internet.
+- *myFrontentNic* – Nätverksgränssnitt som används av *myFrontendVM* till att kommunicera med *myBackendVM*.
+- *myFrontendVM* – Den virtuella dator som används för att kommunicera mellan Internet och *myBackendVM*.
+- *myBackendNSG* – Nätverkssäkerhetsgruppen som styr kommunikationen mellan *myFrontendVM* och *myBackendVM*.
+- *myBackendSubnet* – Det undernät som är associerat med *myBackendNSG* och används av serverdelsresurserna.
+- *myBackendNic* – Nätverksgränssnittet som används av *myBackendVM* till att kommunicera med *myFrontendVM*.
+- *myBackendVM* – Den virtuella dator som använder port 22 och 3306 för att kommunicera med *myFrontendVM*.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="vm-networking-overview"></a>VM-nätverk – översikt
+## <a name="vm-networking-overview"></a>Nätverksöversikt för VM
 
-Virtuella Azure-nätverk kan säkra nätverksanslutningar mellan virtuella datorer, internet och andra Azure-tjänster, till exempel Azure SQL-databas. Virtuella nätverk är uppdelad i logiska segment som kallas subnät. Undernät används för flödeskontroll för nätverk och som en säkerhetsgräns. När du distribuerar en virtuell dator innehåller vanligtvis ett virtuellt nätverksgränssnitt som är ansluten till ett undernät.
+Med virtuella Azure-nätverk skyddas nätverksanslutningar mellan virtuella datorer, Internet och andra Azure-tjänster, till exempel Azures SQL-databas. Virtuella nätverk är uppdelade i logiska segment som kallas undernät. Undernät används för att kontrollera nätverksflödet och som en säkerhetsgräns. När du distribuerar en virtuell dator ingår vanligtvis ett virtuellt nätverksgränssnitt som är anslutet till ett undernät.
 
-## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och undernät
+## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
-Ett enda virtuellt nätverk skapas med två undernät för den här kursen. Ett frontend undernät som värd för ett webbprogram och ett backend-undernät som värd för en databasserver.
+I den här självstudien skapas ett enda virtuellt nätverk med två undernät. Ett klientdelsundernät som är värd för ett webbprogram och ett serverdelsundernät som är värd för en databasserver.
 
-Innan du kan skapa ett virtuellt nätverk, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myRGNetwork* eastus plats.
+Innan du kan skapa ett virtuellt nätverk skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myRGNetwork* på platsen eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
 
-Använd den [az network vnet skapa](/cli/azure/network/vnet#create) kommando för att skapa ett virtuellt nätverk. I det här exemplet är nätverket heter *mvVNet* och ges en adressprefixet *10.0.0.0/16*. Dessutom skapas ett undernät med namnet *myFrontendSubnet* och prefixet *10.0.1.0/24*. Senare i den här självstudiekursen är frontend VM anslutet till det här undernätet. 
+Använd kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) för att skapa ett virtuellt nätverk. I det här exemplet heter nätverket *mvVNet* och har adressprefixet *10.0.0.0/16*. Dessutom skapas ett undernät med namnet *myFrontendSubnet* och prefixet *10.0.1.0/24*. Senare i den här självstudien ansluts klientdelens VM till det här undernätet. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -79,9 +79,9 @@ az network vnet create \
   --subnet-prefix 10.0.1.0/24
 ```
 
-### <a name="create-subnet"></a>Skapa ett undernät
+### <a name="create-subnet"></a>Skapa undernät
 
-Ett nytt undernät har lagts till i det virtuella nätverket med hjälp av den [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#create) kommando. I det här exemplet undernätet med namnet *myBackendSubnet* och ges en adressprefixet *10.0.2.0/24*. Det här undernätet används med alla backend-tjänster.
+Ett nytt undernät läggs till i det virtuella nätverket med hjälp av kommandot [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I det här exemplet heter undernätet *myBackendSubnet* och har adressprefixet *10.0.2.0/24*. Det här undernätet används med alla serverdelstjänster.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -91,31 +91,31 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Ett nätverk har nu skapats och upp i två undernät, en för frontend-tjänster och en för backend-tjänster. I nästa avsnitt, virtuella datorer skapas och anslutna till dessa undernät.
+Ett nätverk har nu skapats och delats upp i två undernät, ett för klientdelstjänster och ett för serverdelstjänster. I nästa avsnitt skapar vi virtuella datorer och ansluter dem till dessa undernät.
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-En offentlig IP-adress kan Azure-resurser ska vara tillgänglig på internet. Allokeringsmetod för offentliga IP-adressen kan konfigureras som dynamiska eller statiska. Som standard tilldelas dynamiskt offentlig IP-adress. Dynamiska IP-adresser släpps när en virtuell dator har frigjorts. Detta medför IP-adressen ändras under åtgärder som innehåller en VM-flyttningen.
+Med en offentlig IP-adress blir Azure-resurser tillgängliga på Internet. Allokeringsmetoden för den offentliga IP-adressen kan konfigureras som dynamisk eller statisk. Som standard blir en offentlig IP-adress dynamiskt allokerad. Dynamiska IP-adresser släpps när de virtuella datorerna frigörs. Detta medför IP-adressen ändras vid åtgärder som innebär att en virtuell dator frigörs.
 
-Allokeringsmetoden kan anges som statisk, vilket garanterar att IP-adressen fortfarande kopplad till en virtuell dator, även under en frigjord tillstånd. Den IP-adressen kan inte anges när du använder en statiskt tilldelade IP-adress. Istället tilldelas den från en pool med tillgängliga adresser.
+Allokeringsmetoden kan anges som statisk, vilket garanterar att IP-adressen förblir tilldelad till en virtuell dator, även när den frigjorts. Det går inte att ange IP-adressen när du använder en statiskt tilldelad IP-adress. I stället allokeras den från en pool med tillgängliga adresser.
 
 ```azurecli-interactive
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-När du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm#create) kommandot offentliga IP-adress allokering standardmetoden är dynamisk. När du skapar en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#create) kommandot, innehåller den `--public-ip-address-allocation static` argumentet att tilldela en statisk offentlig IP-adress. Den här åtgärden visas inte i den här självstudiekursen, men i nästa avsnitt ändras dynamiskt allokerade IP-adress till ett statiskt allokerade adressen. 
+När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create) är den offentliga IP-adressens allokeringsmetod dynamisk. När du skapar en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create) ska du inkludera argumentet `--public-ip-address-allocation static` som tilldelar en statisk offentlig IP-adress. Den här åtgärden visas inte i den här självstudien, men i nästa avsnitt ändras en dynamiskt allokerad IP-adress till en statiskt allokerad adress. 
 
 ### <a name="change-allocation-method"></a>Ändra allokeringsmetod
 
-Allokeringsmetod för IP-adress kan ändras med den [az nätverket offentliga ip-uppdatering](/cli/azure/network/public-ip#update) kommando. I det här exemplet ändras allokeringsmetoden av frontend VM IP-adress till statisk.
+Allokeringsmetoden för IP-adresser kan ändras med kommandot [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). I det här exemplet ändras allokeringsmetoden för IP-adresser i klientdelen av den virtuella datorn till statisk.
 
-Ta bort den virtuella datorn först.
+Frigör först den virtuella datorn.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Använd den [az nätverket offentliga ip-uppdatering](/cli/azure/network/public-ip#update) kommando för att uppdatera allokeringsmetoden. I det här fallet den `--allocation-method` anges till *statiska*.
+Använd kommandot [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) till att uppdatera allokeringsmetoden. I det här fallet anges `--allocation-method` som *statisk*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -129,11 +129,11 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ### <a name="no-public-ip-address"></a>Ingen offentlig IP-adress
 
-Ofta behöver inte en virtuell dator som är tillgängliga via internet. Om du vill skapa en virtuell dator utan en offentlig IP-adress, använder den `--public-ip-address ""` argument med en tom uppsättning med dubbla citattecken. Den här konfigurationen visas längre fram i den här kursen.
+Ofta behöver inte en virtuell dator vara tillgänglig via Internet. Om du vill skapa en virtuell dator utan en offentlig IP-adress, använder du argumentet `--public-ip-address ""` med en tom uppsättning av dubbla citattecken. Den här konfigurationen visas längre fram i självstudien.
 
-## <a name="create-a-front-end-vm"></a>Skapa en frontend virtuell dator
+## <a name="create-a-front-end-vm"></a>Skapa en virtuell dator för klientdelen
 
-Använd den [az vm skapa](/cli/azure/vm#create) kommando för att skapa den virtuella datorn med namnet *myFrontendVM* med *myPublicIPAddress*.
+Använd kommandot [az vm create](/cli/azure/vm#az_vm_create) för att skapa den virtuella datorn med namnet *myFrontendVM* med hjälp av *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -147,37 +147,37 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="secure-network-traffic"></a>Skydda nätverkstrafik
+## <a name="secure-network-traffic"></a>Skydda nätverkstrafiken
 
-En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). NSG: er kan vara kopplad till undernät eller individuella nätverksgränssnitt. När en NSG är associerad med ett nätverksgränssnitt gäller bara den associera virtuella datorn. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. 
+En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). NSG:er kan vara associerade med undernät eller separata nätverksgränssnitt. När en NSG är associerad med ett nätverksgränssnitt, tillämpar den bara den associerade virtuella datorn. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. 
 
 ### <a name="network-security-group-rules"></a>Regler för nätverkssäkerhetsgrupp
 
-NSG-regler definiera nätverk portar under vilken trafik tillåts eller nekas. Regler kan innehålla käll- och IP-adressintervall så att trafik styrs mellan specifika system eller undernät. NSG-regler kan även innehålla en prioritet (mellan 1 – och 4096). Reglerna utvärderas prioritsordning. En regel med en prioritet på 100 utvärderas innan en regel med prioritet 200.
+NSG-regler definierar nätverksportar där trafik tillåts eller nekas. Reglerna kan innehålla käll- och målintervall för IP-adresser så att trafiken styrs mellan specifika system eller undernät. NSG-regler kan även innehålla en prioritet (mellan 1 och 4 096). Reglerna utvärderas i prioritetsordning. En regel med en prioritet på 100 utvärderas före en regel med prioritet 200.
 
 Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bort, men eftersom de tilldelas lägst prioritet så kan de överskridas av de reglerna du själv skapar.
 
-Standardregler för NSG: er är:
+Standardreglerna för NSG:er är:
 
-- **Virtuellt nätverk** - trafik med ursprung och slutar med ett virtuellt nätverk tillåts både i inkommande och utgående riktningar.
-- **Internet** - utgående trafik tillåts, men inkommande trafik blockeras.
-- **Belastningsutjämnaren** -Tillåt Azure belastningsutjämnare avsökning hälsotillståndet för dina virtuella datorer och rollinstanser. Om du inte använder en belastningsutjämnad uppsättning, kan du åsidosätta den här regeln.
+- **Virtuellt nätverk** – Trafik som kommer från eller som går till ett virtuellt nätverk tillåts både i inkommande och utgående riktning.
+- **Internet** – Utgående trafik tillåts, men inkommande trafik blockeras.
+- **Belastningsutjämnare** – Tillåter att Azures belastningsutjämnare avsöker hälsotillståndet för dina virtuella datorer och rollinstanser. Du kan åsidosätta den här regeln om du inte använder någon belastningsutjämnad uppsättning.
 
-### <a name="create-network-security-groups"></a>Skapa säkerhetsgrupper för nätverk
+### <a name="create-network-security-groups"></a>Skapa nätverkssäkerhetsgrupper
 
-En nätverkssäkerhetsgrupp kan skapas samtidigt som en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#create) kommando. När du gör det NSG: N är kopplad till nätverksgränssnitt för virtuella datorer och en NSG-regel är skapade för att tillåta trafik på port automatiskt *22* från andra källor. Tidigare i den här självstudien har frontend NSG: N skapats automatiskt med frontend VM. En regel för NSG har också automatiskt skapat för port 22. 
+En nätverkssäkerhetsgrupp kan skapas samtidigt som en virtuell dator med hjälp av kommandot [az vm create](/cli/azure/vm#az_vm_create). När du gör detta associeras NSG:n till nätverksgränssnittet för de virtuella datorerna och en NSG-regel skapas automatiskt för att tillåta trafik på port *22* från andra källor. Tidigare i den här självstudien har NSG:n för klientdelen skapats automatiskt med den virtuella datorns klientdel. En NSG-regel har också skapats automatiskt för port 22. 
 
-I vissa fall kan vara det bra att skapa en NSG till exempel när standardreglerna för SSH inte skapas eller när NSG: N ska kopplas till ett undernät. 
+I vissa fall kan vara det bra att skapa en NSG i förväg, till exempel när standardreglerna för SSH inte går att skapa eller när NSG:n ska kopplas till ett undernät. 
 
-Använd den [az nätverket nsg skapa](/cli/azure/network/nsg#create) kommando för att skapa en nätverkssäkerhetsgrupp.
+Använd kommandot [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) för att skapa en nätverkssäkerhetsgrupp.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
 ```
 
-I stället för att koppla NSG till ett nätverksgränssnitt, är den associerad med ett undernät. I den här konfigurationen ärver någon virtuell dator som är kopplad till undernätet NSG-regler.
+I stället för att associera NSG med ett nätverksgränssnitt, är den associerad med ett undernät. I den här konfigurationen kommer alla virtuella datorer som är anslutna till undernätet ärva NSG-reglerna.
 
-Uppdatera befintliga undernätet med namnet *myBackendSubnet* med nya NSG: N.
+Uppdatera det befintliga undernätet med namnet *myBackendSubnet* med den nya NSG:n.
 
 ```azurecli-interactive 
 az network vnet subnet update \
@@ -189,9 +189,9 @@ az network vnet subnet update \
 
 ### <a name="secure-incoming-traffic"></a>Skydda inkommande trafik
 
-När frontend VM skapades, skapades en NSG-regel för att tillåta inkommande trafik på port 22. Den här regeln kan SSH-anslutningar till den virtuella datorn. I det här exemplet trafik även ska tillåtas på port *80*. Den här konfigurationen kan ett program som kan nås på den virtuella datorn.
+När klientdelen i den virtuella datorn skapades, skapades en NSG-regel som tillåter inkommande trafik på port 22. Den här regeln tillåter SSH-anslutningar till den virtuella datorn. I det här exemplet tillåts trafik även på port *80*. Med den här konfigurationen kan en webbapp nås på den virtuella datorn.
 
-Använd den [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create) kommando för att skapa en regel för port *80*.
+Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) för att skapa en regel för port *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -208,17 +208,17 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Frontend VM är endast tillgänglig på port *22* och port *80*. All annan inkommande trafik blockeras på nätverkssäkerhetsgruppen. Det kan vara bra att visualisera regelkonfigurationer NSG. Returnera NSG regelkonfigurationen med den [az nätverket regellistan](/cli/azure/network/nsg/rule#list) kommando. 
+Klientdelen i den virtuella datorn är endast tillgänglig på port *22* och port *80*. All annan inkommande trafik blockeras i nätverkssäkerhetsgruppen. Det kan vara bra att visualisera regelkonfigurationerna för NSG. Returnera NSG-regelkonfigurationen med kommandot [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
 ```
 
-### <a name="secure-vm-to-vm-traffic"></a>Säker VM VM-trafik
+### <a name="secure-vm-to-vm-traffic"></a>Säker trafik mellan virtuella datorer
 
-Regler för nätverkssäkerhetsgrupper kan också använda mellan virtuella datorer. I det här exemplet frontend VM behöver kommunicera med backend-VM på port *22* och *3306*. Den här konfigurationen tillåter SSH-anslutningar från frontend VM och även att ett program på den frontend virtuella datorn kan kommunicera med en backend-MySQL-databas. All annan trafik ska blockeras mellan frontend- och virtuella datorer.
+Regler för nätverkssäkerhetsgrupper kan också användas mellan virtuella datorer. I det här exemplet behöver klientdelens VM kommunicera med serverdelens VM på port *22* och *3306*. Konfigurationen tillåter SSH-anslutningar från klientdelens VM och även att ett program på klientdelens virtuella dator kommunicerar med en MySQL-databas i serverdelen. All annan trafik blockeras mellan klientdelens och serverdelens virtuella datorer.
 
-Använd den [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create) kommando för att skapa en regel för port 22. Observera att den `--source-address-prefix` argumentet anger ett värde för *10.0.1.0/24*. Den här konfigurationen säkerställer att endast trafik från undernätet som frontend tillåts via NSG: N.
+Använd kommandot [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) för att skapa en regel för port 22. Observera att argumentet `--source-address-prefix` anger värdet *10.0.1.0/24*. Den här konfigurationen säkerställer att endast trafik från klientdelens undernät tillåts via NSG:n.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -235,7 +235,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-Lägg till regel för MySQL-trafik på port 3306.
+Lägg nu till regel för MySQL-trafik på port 3306.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -252,7 +252,7 @@ az network nsg rule create \
   --destination-port-range "3306"
 ```
 
-Slutligen: eftersom NSG: er har en standardregel som tillåter all trafik mellan virtuella datorer i samma virtuella nätverk, en regel skapas för backend-NSG: er att blockera all trafik. Observera som den `--priority` ges värdet *300*, vilket är lägre som både MySQL och NSG-regler. Den här konfigurationen garanterar att SSH och MySQL trafiken fortfarande tillåts NSG: N.
+Eftersom NSG:er har en standardregel som tillåter all trafik mellan virtuella datorer i samma virtuella nätverk, skapas slutligen en regel för serverdelens NSG:er som blockerar all trafik. Observera att `--priority` får värdet *300*, vilket är lägre än både MySQL- och NSG-reglerna. Konfigurationen innebär att SSH- och MySQL-trafiken fortfarande tillåts via NSG:n.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -269,9 +269,9 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-## <a name="create-back-end-vm"></a>Skapa backend-VM
+## <a name="create-back-end-vm"></a>Skapa en virtuell dator för serverdelen
 
-Nu skapa en virtuell dator som är ansluten till den *myBackendSubnet*. Observera att den `--nsg` argumentet har värdet tomt dubbla citattecken. En NSG behöver inte skapas med den virtuella datorn. Den virtuella datorn är ansluten till backend-undernät, som är skyddat med backend-förskapade NSG: N. Den här NSG gäller för den virtuella datorn. Observera också här som den `--public-ip-address` argumentet har värdet tomt dubbla citattecken. Den här konfigurationen skapar en virtuell dator utan en offentlig IP-adress. 
+Nu ska du skapa en virtuell dator som är ansluten till *myBackendSubnet*. Observera att argumentet `--nsg` har ett värde med tomma dubbla citattecken. Du behöver inte skapa någon NSG med den virtuella datorn. Den virtuella datorn är ansluten till serverdelens undernät, som skyddas med den NSG för serverdelen som skapades i förväg. Den här NSG:n gäller för den virtuella datorn. Observera också att argumentet `--public-ip-address` har ett värde med tomma dubbla citattecken. Den här konfigurationen skapar en virtuell dator utan en offentlig IP-adress. 
 
 ```azurecli-interactive 
 az vm create \
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Backend-VM är endast tillgänglig på port *22* och port *3306* från frontend undernät. All annan inkommande trafik blockeras på nätverkssäkerhetsgruppen. Det kan vara bra att visualisera regelkonfigurationer NSG. Returnera NSG regelkonfigurationen med den [az nätverket regellistan](/cli/azure/network/nsg/rule#list) kommando. 
+Serverdelen i den virtuella datorn är endast tillgänglig på port *22* och port *3306* från klientdelens undernät. All annan inkommande trafik blockeras i nätverkssäkerhetsgruppen. Det kan vara bra att visualisera regelkonfigurationerna för NSG. Returnera NSG-regelkonfigurationen med kommandot [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
@@ -293,16 +293,16 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen skapas och skyddas av Azure-nätverk som är relaterade till virtuella datorer. Du har lärt dig att:
+I den här självstudien har du skapat och skyddat Azure-nätverk som är relaterade till virtuella datorer. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa ett virtuellt nätverk och undernät
+> * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
-> * Skapa en frontend virtuell dator
-> * Skydda nätverkstrafik
-> * Skapa backend-VM
+> * Skapa en virtuell dator för klientdelen
+> * Skydda nätverkstrafiken
+> * Skapa en virtuell dator för serverdelen
 
-Gå vidare till nästa kurs att lära dig att skydda data på virtuella datorer med Azure backup. 
+Gå vidare till nästa självstudie för att lära dig att skydda data på virtuella datorer med Azures säkerhetskopiering. 
 
 > [!div class="nextstepaction"]
 > [Säkerhetskopiera virtuella Linux-datorer i Azure](./tutorial-backup-vms.md)

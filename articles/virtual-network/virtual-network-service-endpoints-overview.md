@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Slutpunkter för virtuellt nätverk
 
@@ -28,7 +28,8 @@ Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat ad
 Den här funktionen är tillgänglig för följande Azure-tjänster och regioner:
 
 - **Azure Storage**: – Allmänt tillgänglig. Alla regioner i det offentliga Azure-molnet och Azure Government.
-- **Azure SQL**: Förhandsversion. Alla regioner i det offentliga Azure-molnet.
+- **Azure SQL Database**: Generellt tillgänglig i alla Azure-regioner. 
+- **Azure SQL Datawarehouse**: Förhandsversion. Alla regioner i det offentliga Azure-molnet.
 
 De mest uppdaterade meddelandena om förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

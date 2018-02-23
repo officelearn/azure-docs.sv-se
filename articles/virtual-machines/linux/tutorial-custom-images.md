@@ -1,6 +1,6 @@
 ---
 title: Skapa anpassade VM-avbildningar med Azure CLI | Microsoft Docs
-description: "Självstudiekurs – skapa en anpassad VM-avbildning med hjälp av Azure CLI."
+description: "Självstudie – Skapa en anpassad VM-avbildning med hjälp av Azure CLI."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,56 +16,56 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI
 
-Anpassade avbildningar liknar marketplace-bilder, men du skapa dem själv. Anpassade avbildningar kan användas för bootstrap konfigurationer, till exempel förinstalleras program, Programinställningar och andra OS-konfigurationer. I den här självstudiekursen skapar du en egen anpassad avbildning av en virtuell Azure-dator. Lär dig att:
+Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator. Lär dig att:
 
 > [!div class="checklist"]
-> * Ta bort etableringen och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Avetablera och generalisera virtuella datorer
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
-> * Alla avbildningar i din prenumeration
-> * Ta bort en bild
+> * Göra en lista med alla avbildningar i din prenumeration
+> * Ta bort en avbildning
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen nedan innehåller information om hur du tar en befintlig virtuell dator och omvandla det till en återanvändbara anpassad avbildning som du kan använda för att skapa nya VM-instanser.
+Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan använda för att skapa nya VM-instanser.
 
-Du måste ha en befintlig virtuell dator för att slutföra exemplet i den här självstudiekursen. Om det behövs, detta [skriptexempel](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) kan skapa en åt dig. När gå igenom kursen, ersätter namn resursgrupp och VM där det behövs.
+Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i självstudien. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
-## <a name="create-a-custom-image"></a>Skapa en egen avbildning
+## <a name="create-a-custom-image"></a>Skapa en anpassad avbildning
 
-Om du vill skapa en avbildning av en virtuell dator måste du förbereda den virtuella datorn genom att avetablering det frigjorts och markera den Virtuella som generaliserad källdatorn. När den virtuella datorn har förberetts, kan du skapa en avbildning.
+Om du vill skapa en avbildning av en virtuell dator måste du förbereda den virtuella datorn genom att avetablera, frigöra och markera den virtuella källdatorn som generaliserad. Du kan skapa en avbildning när den virtuella datorn har förberetts.
 
-### <a name="deprovision-the-vm"></a>Ta bort etableringen av den virtuella datorn 
+### <a name="deprovision-the-vm"></a>Avetablera den virtuella datorn 
 
-Avetablering generalisering den virtuella datorn genom att ta bort information om datorn. Den här generalisering gör det möjligt att distribuera flera virtuella datorer från en enda avbildning. Under avetablering, värdnamnet återställs till *localhost.localdomain*. SSH-värdnycklar, nameserver konfigurationer, rotlösenordet och cachelagrade DHCP-lån tas också bort.
+Avetableringen generaliserar den virtuella datorn genom att ta bort datorspecifik information. Tack vare generaliseringen kan man distribuera flera virtuella datorer från en enda avbildning. Under avetableringen återställs värdnamnet till *localhost.localdomain*. SSH-värdnycklar, namnserverkonfigurationer, rotlösenord och cachelagrade DHCP-lån tas också bort.
 
-Om du vill ta bort etableringen av den virtuella datorn, kan du använda Virtuella Azure-agenten (waagent). Virtuella Azure-agenten är installerad på den virtuella datorn och hanterar etablering och interagerar med Azure-Infrastrukturkontrollanten. Mer information finns i [Azure Linux-agenten användarhandboken](agent-user-guide.md).
+Om du vill avetablera den virtuella datorn kan du använda Azure VM-agenten (waagent). Azure VM-agenten är installerad på den virtuella datorn och hanterar etablering och interaktion med Azures infrastrukturkontrollant. Mer information finns i [Användarguide för Azure Linux Agent](agent-user-guide.md).
 
-Ansluta till den virtuella datorn med SSH och kör kommandot för att ta bort etableringen av den virtuella datorn. Med den `+user` argumentet, det senaste kontot för etablerad användare och alla associerade data tas också bort. Ersätt den IP-adressen med den offentliga IP-adressen på den virtuella datorn.
+Anslut till den virtuella datorn med SSH och kör kommandot för att avetablera den virtuella datorn. Med argumentet `+user` tas det senast etablerade användarkontot och alla associerade data också bort. Ersätt IP-exempeladressen med den offentliga IP-adressen för din virtuella dator.
 
 SSH till den virtuella datorn.
 ```bash
 ssh azureuser@52.174.34.95
 ```
-Ta bort etableringen av den virtuella datorn.
+Avetablera den virtuella datorn.
 
 ```bash
 sudo waagent -deprovision+user -force
 ```
-Stäng SSH-session.
+Stäng SSH-sessionen.
 
 ```bash
 exit
@@ -73,13 +73,13 @@ exit
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Frigöra och markera den virtuella datorn som generaliserad
 
-Om du vill skapa en avbildning måste den virtuella datorn att frigöras. Frigör den virtuella datorn med hjälp av [az vm frigöra](/cli//azure/vm#deallocate). 
+Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör den virtuella datorn med hjälp av [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Slutligen att ställa in tillståndet för den virtuella datorn eftersom generaliserad med [az vm generalisera](/cli//azure/vm#generalize) så att Azure-plattformen vet att den virtuella datorn har generaliserats. Du kan bara skapa en avbildning från en generaliserad virtuell dator.
+Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [az vm generalize](/cli//azure/vm#generalize), så att Azure-plattformen vet att den virtuella datorn har generaliserats. Du kan bara skapa en avbildning från en generaliserad virtuell dator.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Skapa avbildningen
 
-Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [az bild skapa](/cli//azure/image#create). I följande exempel skapas en bild med namnet *myImage* från en virtuell dator med namnet *myVM*.
+Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [az image create](/cli//azure/image#create). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
 
-Nu när du har skapat en avbildning kan du skapa en eller flera nya virtuella datorer från en avbildning med hjälp av [az vm skapa](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMfromImage* från avbildningen med namnet *myImage*.
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från den med hjälp av [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVMfromImage* från en avbildning med namnet *myImage*.
 
 ```azurecli-interactive 
 az vm create \
@@ -113,14 +113,14 @@ az vm create \
 
 Här följer några exempel på vanliga hanteringsuppgifter för avbildning och hur du utför dem med hjälp av Azure CLI.
 
-Visa alla avbildningar av namnet i tabellformat.
+Lista alla avbildningar efter namn i ett tabellformat.
 
 ```azurecli-interactive 
 az image list \
     --resource-group myResourceGroup
 ```
 
-Ta bort en bild. Det här exemplet tar bort det bild med namnet *myOldImage* från den *myResourceGroup*.
+Ta bort en avbildning. I det här exemplet tar vi bort avbildningen med namnet *myOldImage* från *myResourceGroup*.
 
 ```azurecli-interactive 
 az image delete \
@@ -130,17 +130,17 @@ az image delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får skapat du en anpassad VM-avbildning. Du har lärt dig att:
+I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ta bort etableringen och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Avetablera och generalisera virtuella datorer
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
-> * Alla avbildningar i din prenumeration
-> * Ta bort en bild
+> * Göra en lista med alla avbildningar i din prenumeration
+> * Ta bort en avbildning
 
-Gå vidare till nästa kurs vill veta mer om virtuella datorer med hög tillgänglighet.
+Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med hög tillgänglighet.
 
 > [!div class="nextstepaction"]
-> [Skapa högtillgängliga virtuella datorer](tutorial-availability-sets.md).
+> [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md).
 

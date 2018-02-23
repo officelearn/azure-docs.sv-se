@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
@@ -31,6 +30,9 @@
 #### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Program i skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)
 ### [Använda datadiskar med skalningsuppsättningar](virtual-machine-scale-sets-attached-disks.md)
+### Kryptera diskar i skalningsuppsättningar
+#### [Använda PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Använda Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Arbeta med stora skalningsuppsättningar](virtual-machine-scale-sets-placement-groups.md)
 ### [Konvertera en skalningsuppsättningsmall för användning av hanterad disk](virtual-machine-scale-sets-convert-template-to-md.md)
 

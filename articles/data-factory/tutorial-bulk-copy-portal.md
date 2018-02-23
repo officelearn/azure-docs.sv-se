@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -74,6 +74,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 3. På sidan **Brandväggsinställningar** väljer du **På** för **Tillåt åtkomst till Azure-tjänster**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ Den här pipelinen utför två steg:
 2. I fönstret Egenskaper ändrar du pipelinenamnet till **GetTableListAndTriggerCopyData**. 
 
     ![Namn på pipeline](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. I verktygslådan **Aktiviteter** expanderar du **SQL Database** och drar och släpper **sökningsaktiviteten** till pipelinedesignytan och utför följande steg:
+3. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningsaktiviteten** till pipelinedesignytan och utför följande steg:
 
     1. Skriv **LookupTableList** som **namn**. 
     2. Ange **Retrieve the table list from Azure SQL database** (Hämta tabellistan från Azure SQL Database) som **Beskrivning**.
@@ -322,7 +323,7 @@ Den här pipelinen utför två steg:
 8. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
     ![Den andra pipelinen – verifieringsrapport](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten klickar du på **Publicera**. Vänta tills publiceringen har lyckats. 
+9. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten klickar du på **Publicera alla**. Vänta tills publiceringen har lyckats. 
 
     ![Knappen Publicera](./media/tutorial-bulk-copy-portal/publish.png)
 

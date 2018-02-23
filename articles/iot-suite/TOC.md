@@ -17,7 +17,6 @@
 #### [Behörigheter på azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Genomgång av lösning för fjärrövervakning](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Anslut Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Ansluta MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Använd C
 ###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementera uppdatering för inbyggd programvara](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Ansluta MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Instruktionsguider
 #### Anslut en simulerad enhet
@@ -99,5 +99,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Vanliga frågor och svar](iot-suite-faq.md)
+## [Vanliga frågor och svar om fjärrövervakning](iot-suite-faq-rm-v2.md)
 ## [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Utbildningsväg för IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

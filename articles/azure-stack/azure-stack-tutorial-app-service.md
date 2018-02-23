@@ -3,8 +3,8 @@ title: "Göra webb- och API-appar tillgängliga för användarna Azure Stack | M
 description: "Kursen hjälper dig att installera App-tjänstresursprovider och skapa erbjuder som ger Azure Stack användarna möjlighet att skapa webb- och API apps."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Göra webb- och API apps tillgängliga för användarna i Azure-stacken
 

@@ -88,6 +88,7 @@
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
+### [Framtvinga en namnprincip för grupper](groups-naming-policy.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)

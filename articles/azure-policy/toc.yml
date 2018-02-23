@@ -21,10 +21,14 @@
   items:
     - name: Principmallar
       href: json-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Azure Policy-definitionsstruktur
       href: policy-definition.md
+- name: Instruktionsguider
+  items:
+    - name: Skapa principer med REST API
+      href: policy-insights.md
 - name: Referens
   items:
     - name: Azure CLI

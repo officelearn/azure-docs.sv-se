@@ -2,8 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop på HDInsight
   items:
-    - name: |
-        Översikt
+    - name: Översikt
       href: apache-hadoop-introduction.md
     - name: Hadoop-arkitektur i HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -42,7 +41,7 @@
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Använd Beeline
               href: apache-hadoop-use-hive-beeline.md
-            - name: Använd cURL
+            - name: Använda REST-API
               href: apache-hadoop-use-hive-curl.md
             - name: Använda Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
@@ -290,6 +289,9 @@
         - name: Skala ett HDInsight-kluster
           href: ../hdinsight-scaling-best-practices.md
           maintainContext: true
+        - name: Använda extern metadatalagring
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: Hantera loggar för ett HDInsight-kluster
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -383,8 +385,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: |
-            Översikt
+        - name: Översikt
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

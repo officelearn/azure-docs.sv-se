@@ -1,6 +1,6 @@
 ---
-title: Anpassa en Windows-dator i Azure | Microsoft Docs
-description: "Lär dig hur du använder tillägget för anpassat skript och Key Vault för att anpassa virtuella Windows-datorer i Azure"
+title: Anpassa en virtuell Windows-dator i Azure | Microsoft Docs
+description: "Lär dig hur du använder det anpassade skripttillägget till att automatisera programinstallationer på virtuella Windows-datorer i Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,169 +10,103 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17a6c243aaf73fcd88261870fbdd9e8c936471b8
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 63858da0a4a47d67ec659e922ab10f9f7bc97938
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Hur du anpassar en Windows-dator i Azure
-Om du vill konfigurera virtuella datorer (VM) på ett snabbt och konsekvent sätt önskade vanligtvis någon form av automatisering. Ett vanligt sätt att anpassa en virtuell Windows-dator är att använda [anpassade skript tillägget för Windows](extensions-customscript.md). I den här självstudiekursen får du lära du dig att:
+# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Anpassa en virtuell Windows-dator i Azure
+Om du vill konfigurera virtuella datorer (VM) på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt för att anpassa en virtuell Windows-dator är att använda [Anpassat skripttillägg för Windows](extensions-customscript.md). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Använda tillägget för anpassat skript för att installera IIS
-> * Skapa en virtuell dator som använder tillägget för anpassat skript
-> * Visa en IIS-webbplats som körs när tillägget används
+> * Använd det anpassade skripttillägget till att installera IIS
+> * Skapa en virtuell dator som använder det anpassade skripttillägget
+> * Visa en IIS-webbplats efter att tillägget har tillämpats
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 
-## <a name="custom-script-extension-overview"></a>Översikt över tillägget för anpassat skript
-Tillägget för anpassat skript hämtar och kör skript på Azure Virtual Machines. Det här tillägget är användbart för post distributionskonfiguration, Programvaruinstallation eller någon annan konfiguration / hanteringsaktivitet. Skript kan hämtas från Azure storage eller GitHub eller tillhandahålls på Azure-portalen på tillägget körtiden.
+## <a name="custom-script-extension-overview"></a>Översikt över Anpassat skripttillägg
+Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning.
 
-Tillägget för anpassat skript kan integreras med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller Azure Virtual Machine REST API.
+Det anpassade skripttillägget är integrerat med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller REST API:n för virtuella Azure-datorer.
 
-Du kan använda tillägget för anpassat skript med Windows och Linux virtuella datorer.
+Du kan använda det anpassade skripttillägget med både Windows och Linux virtuella datorer.
 
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-Innan du kan skapa en virtuell dator, skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAutomate* i den *EastUS* plats:
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
-```
-
-Ange en administratör användarnamn och lösenord för de virtuella datorerna med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Nu kan du skapa den virtuella datorn med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapar krävs virtuella nätverkskomponenter, OS-konfigurationen och sedan skapar en virtuell dator med namnet *myVM*:
+Nu kan du skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Resursgruppen *myResourceGroupAutomate* och stödjande nätverksresurser skapas om de inte redan finns. För att tillåta webbtrafik öppnar cmdleten även port *80*.
 
 ```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine using the configuration
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Credential $cred
 ```
 
-Det tar några minuter för de resurser och den virtuella datorn skapas.
+Det tar några minuter att skapa resurserna och den virtuella datorn.
 
 
 ## <a name="automate-iis-install"></a>Automatisera installationen av IIS
-Använd [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) att installera tillägget för anpassat skript. Tillägget körs `powershell Add-WindowsFeature Web-Server` att installera IIS-webbserver och uppdateringar av *Default.htm* sidan för att visa värdnamnet för den virtuella datorn:
+Använd [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) till att installera det anpassade skripttillägget. Tillägget kör `powershell Add-WindowsFeature Web-Server` för att installera IIS-webbservern och uppdaterar sedan sidan *Default.htm* till att visa värddatornamnet för den virtuella datorn:
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
-    -ExtensionName IIS `
-    -VMName myVM `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupAutomate" `
+    -ExtensionName "IIS" `
+    -VMName "myVM" `
+    -Location "EastUS" `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.8 `
-    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location EastUS
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 
-## <a name="test-web-site"></a>Test-webbplats
-Hämta offentlig IP-adressen för din belastningsutjämnare med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtar IP-adressen för *myPublicIP* skapade tidigare:
+## <a name="test-web-site"></a>Testwebbplats
+Hämta den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIPAddress* som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myResourceGroupAutomate `
-    -Name myPublicIP | select IpAddress
+    -ResourceGroupName "myResourceGroupAutomate" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värdnamnet för den virtuella datorn som belastningsutjämnaren distribuerade trafik till som i följande exempel:
+Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som belastningsutjämnaren distribuerade trafik till, som i följande exempel:
 
-![Kör IIS-webbplats](./media/tutorial-automate-vm-deployment/running-iis-website.png)
+![Köra IIS-webbplatsen](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen automatiskt installera IIS på en virtuell dator. Du har lärt dig att:
+I den här självstudien kommer du att automatisera installationen av IIS på en virtuell dator. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Använda tillägget för anpassat skript för att installera IIS
-> * Skapa en virtuell dator som använder tillägget för anpassat skript
-> * Visa en IIS-webbplats som körs när tillägget används
+> * Använd det anpassade skripttillägget till att installera IIS
+> * Skapa en virtuell dator som använder det anpassade skripttillägget
+> * Visa en IIS-webbplats efter att tillägget har tillämpats
 
-Gå vidare till nästa kurs att lära dig hur du skapar anpassade VM-avbildningar.
+Gå vidare till nästa självstudie där du får lära dig att skapa anpassade avbildningar för virtuella datorer.
 
 > [!div class="nextstepaction"]
 > [Skapa anpassade avbildningar av en virtuell dator](./tutorial-custom-images.md)

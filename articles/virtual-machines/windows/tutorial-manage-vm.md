@@ -1,218 +1,87 @@
 ---
 title: Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen | Microsoft Docs
-description: "Självstudiekurs – skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen"
+description: "Självstudie – Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
 
-Virtuella datorer i Azure ger en fullständigt konfigurerbara och flexibel datormiljö. Den här kursen ingår grundläggande virtuella Azure-datorn distribution objekt, till exempel välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
+Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs den grundläggande distributionen av virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa och ansluta till en virtuell dator
-> * Välj och Använd VM-avbildningar
+> * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
 > * Ändra storlek på en virtuell dator
-> * Visa och förstå tillstånd för virtuell dator
+> * Visa och förstå tillstånd för virtuella datorer
 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.3 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
 Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator. I det här exemplet en resursgrupp med namnet *myResourceGroupVM* skapas i den *EastUS* region. 
+En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I följande exempel skapas en resursgrupp med namnet *myResourceGroupVM* i regionen *EastUS*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
 ```
 
-Resursgruppen har angetts när du skapar eller ändrar en VM som kan ses i hela den här kursen.
+Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-En virtuell dator måste vara ansluten till ett virtuellt nätverk. Du kan kommunicera med den virtuella datorn med en offentlig IP-adress via ett nätverkskort.
+När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, nätverkskonfiguration och administrativa autentiseringsuppgifter. I det här exemplet skapas en virtuell dator med namnet *myVM*. Den kör som standard den senaste versionen av Windows Server 2016 Datacenter.
 
-### <a name="create-virtual-network"></a>Skapa det virtuella nätverket
-
-Skapa ett undernät med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 `
-  -Subnet $subnetConfig
-```
-### <a name="create-public-ip-address"></a>Skapa offentlig IP-adress
-
-Skapa en offentlig IP-adress med [ny AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
-
-```azurepowershell-interactive
-$pip = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIPAddress
-```
-
-### <a name="create-network-interface-card"></a>Skapa nätverkskort
-
-Skapa ett nätverkskort med [ny AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
-
-```azurepowershell-interactive
-$nic = New-AzureRmNetworkInterface `
-  -ResourceGroupName myResourceGroupVM  `
-  -Location EastUS `
-  -Name myNic `
-  -SubnetId $vnet.Subnets[0].Id `
-  -PublicIpAddressId $pip.Id
-```
-
-### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
-
-En Azure [nätverkssäkerhetsgruppen](../../virtual-network/virtual-networks-nsg.md) (NSG) styr inkommande och utgående trafik för en eller flera virtuella datorer. Regler för nätverkssäkerhetsgrupper Tillåt eller neka nätverkstrafik på en specifik port eller ett intervall. De här reglerna kan också inkludera en källadress-prefix så att endast trafik i en fördefinierad källa kan kommunicera med en virtuell dator. För att komma åt IIS-webbserver som du installerar måste du lägga till en regel för inkommande NSG.
-
-Så här skapar du en regel för inkommande NSG [Lägg till AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). I följande exempel skapas en NSG regeln med namnet *myNSGRule* som öppnar port *3389* för den virtuella datorn:
-
-```azurepowershell-interactive
-$nsgRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name myNSGRule `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 1000 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 `
-  -Access Allow
-```
-
-Skapa en NSG med hjälp av *myNSGRule* med [ny AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
-
-```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupVM `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRule
-```
-
-Lägg till NSG: N till undernät i det virtuella nätverket med [Set AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -VirtualNetwork $vnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Uppdatera det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
-
-### <a name="create-virtual-machine"></a>Skapa en virtuell dator
-
-När du skapar en virtuell dator, är flera alternativ tillgängliga, till exempel operativsystemavbildningen, storlek och administrativa autentiseringsuppgifter för disken. I det här exemplet skapas en virtuell dator med namnet *myVM* kör den senaste versionen av Windows Server 2016 Datacenter.
-
-Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange användarnamnet och lösenordet för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa den första konfigurationen för den virtuella datorn med [ny AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig):
-
-```azurepowershell-interactive
-$vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
-```
-
-Lägg till information om operativsystemet i konfigurationen av virtuella datorn med [Set AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOperatingSystem `
-    -VM $vm `
-    -Windows `
-    -ComputerName myVM `
-    -Credential $cred `
-    -ProvisionVMAgent -EnableAutoUpdate
-```
-
-Lägga till bilden i konfigurationen av virtuella datorn med [Set AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-```
-
-Lägg till disk operativsysteminställningar i konfigurationen av virtuella datorn med [Set AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOSDisk `
-    -VM $vm `
-    -Name myOsDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-```
-
-Lägg till nätverkskortet som du skapade tidigare till konfigurationen av virtuella datorn med [Lägg till AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
-
-```azurepowershell-interactive
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-```
-
 Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till en virtuell dator
+## <a name="connect-to-vm"></a>Ansluta till VM
 
 När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning med den virtuella datorn.
 
 Kör följande kommandon för att returnera den offentliga IP-adressen för den virtuella datorn. Anteckna denna IP-adress så att du kan ansluta till den till din webbläsare för att testa webbanslutningen i ett framtida steg.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
 Använd följande kommando på den lokala datorn för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med *publicIPAddress* för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
@@ -223,15 +92,15 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="understand-vm-images"></a>Förstå VM-avbildningar
 
-Azure marketplace innehåller många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med Windows Server 2016-Datacenter-avbildning. I det här steget används i PowerShell-modulen för att söka på marketplace för andra Windows-avbildningar kan också som bas för nya virtuella datorer. Den här processen består av att söka efter utgivare, erbjudande och Avbildningsnamnet (Sku). 
+På Azures marknadsplats finns många avbildningar av virtuella datorer som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016-Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Processen innebär att man söker efter utgivare, erbjudande och avbildningsnamn (Sku). 
 
-Använd den [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) kommando för att returnera en lista över avbildningen utgivare.  
+Använd kommandot [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) till att returnera en lista med avbildningsutgivare:
 
 ```powersehll
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
-Använd den [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) att returnera en lista med bild erbjudanden. Den returnerade listan filtreras på den angivna utgivaren med det här kommandot. 
+Använd [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) till att returnera en lista med avbildningserbjudanden. Den returnerade listan filtreras på den angivna utgivaren med det här kommandot:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
@@ -245,7 +114,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS   
 ```
 
-Den [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) kommandot filtrerar sedan på namnet på utgivaren och erbjudandet att returnera en lista över namn på bilder.
+Kommandot [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) filtrerar sedan på namnet på utgivaren och erbjudandet och returnerar en lista med avbildningsnamn.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -270,95 +139,102 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Den här informationen kan användas för att distribuera en virtuell dator med en viss bild. Det här exemplet anger avbildningens namn på det Virtuella datorobjektet. I föregående exempel finns i den här självstudiekursen fullständig distributionssteg.
+Den här informationen kan användas till att distribuera en virtuell dator med en viss avbildning. Det här exemplet distribuerar en virtuell dator med hjälp av en Windows Server 2016 med behållaravbildningen.
 
 ```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter-with-Containers `
-    -Version latest
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM2" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress2" `
+    -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
+    -Credential $cred `
+    -AsJob
 ```
+
+Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att du återfår fokus i PowerShell-kommandotolkarna. Du kan visa information om bakgrundsjobb med cmdleten `Job`.
+
 
 ## <a name="understand-vm-sizes"></a>Förstå VM-storlekar
 
-Storlek på en virtuell dator bestämmer hur mycket av beräkningsresurser som Processorn och GPU-minne som är tillgängliga för den virtuella datorn. Virtuella datorer måste skapas med lämplig storlek för förväntat arbetsbelastning. Om belastningen ökar, kan en befintlig virtuell dator ändras.
+Storleken på den virtuella datorn avgör hur mycket av beräkningsresurser som CPU, GPU och minne som är tillgängliga för den virtuella datorn. Virtuella datorer måste skapas med lämplig storlek för förväntad arbetsbelastning. Om arbetsbelastningen ökar kan man ändra storlek på den befintliga virtuella datorn.
 
 ### <a name="vm-sizes"></a>VM-storlekar
 
-I följande tabell kategoriserar storlekar i användningsfall.  
-
-| Typ                     | Storlekar           |    Beskrivning       |
+I följande tabell kategoriseras storlekarna i användningsfall.  
+| Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Generellt syfte         |DSv2, Dv2, DS, D, Av2, A0 7| Belastningsutjämnade CPU-till-minne. Idealiskt för dev / test och små till medelstora lösningar för program och data.  |
-| Beräkningsoptimerad      | FS, F             | Hög CPU-till-minne. Bra för medelhög trafik program, nätverksinstallationer och batchprocesser.        |
-| Minnesoptimerad       | GS, G, DSv2, DS, Dv2, D   | Hög minne-till-processor. Perfekt för relationsdatabaser, medelstora till stora cacheminnen och analyser i minnet.                 |
-| Lagringsoptimerad       | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| GPU           | NV NC            | Särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video.       |
-| Hög prestanda | H, A8-11          | Våra mest kraftfulla CPU virtuella datorer med valfritt hög genomströmning nätverksgränssnitt (RDMA). 
+| [Generellt syfte](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Idealiskt för Dev/Test samt små till medelstora lösningar för program och data.  |
+| [Beräkningsoptimerad](sizes-compute.md)   | FS, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Lagringsoptimerad](sizes-storage.md)      | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NC            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
+| [Hög kapacitet](sizes-hpc.md) | H, A8-11          | Våra virtuella datorer med de mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
 
 
-### <a name="find-available-vm-sizes"></a>Hitta tillgängliga storlekar på VM
+### <a name="find-available-vm-sizes"></a>Hitta tillgängliga VM-storlekar
 
-Om du vill se en lista över storlekar på VM tillgängliga i en viss region, Använd den [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) kommando.
+Om du vill se en lista med VM-storlekar som är tillgängliga i en viss region kan du använda kommandot [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location EastUS
+Get-AzureRmVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
 
-När en virtuell dator har distribuerats, kan den ändras för att öka eller minska resursallokering.
+När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen.
 
-Kontrollera om önskad storlek är tillgängligt på den aktuella virtuella datorns klustret innan du ändrar storlek på en virtuell dator. Den [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) kommando returnerar en lista över storlekar. 
+Kontrollera om önskad storlek är tillgänglig i den aktuella virtuella datorns kluster innan du ändrar storleken på en virtuell dator. Kommandot [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) returnerar en lista med storlekar. 
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
+Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-Om önskad storlek är tillgänglig, kan den virtuella datorn ändras från ett slås på tillstånd, men den startas under åtgärden.
+Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras från att vara igång, men den startas om under åtgärden.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_D4"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
-Om önskad storlek inte är i det aktuella klustret måste den virtuella datorn frigörs innan åtgärden Ändra storlek kan ske. Observera att när den virtuella datorn är påslagen tillbaka alla data på disken för temporär tas bort och den offentliga IP-ändra såvida inte en statisk IP-adress används. 
+Om önskad storlek inte finns i det aktuella klustret måste den virtuella datorn frigöras innan åtgärden för att ändra storlek kan utföras. Observera att när den virtuella datorn sätts på igen kommer alla data på den tillfälliga disken tas bort och den offentliga IP-adressen ändras, såvida inte en statisk IP-adress används. 
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_F4s"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 ```
 
-## <a name="vm-power-states"></a>Energisparfunktioner för VM
+## <a name="vm-power-states"></a>Energisparlägen för VM
 
-En virtuell Azure-dator kan ha en av många energisparfunktioner. Det här tillståndet representerar det aktuella tillståndet för den virtuella datorn för hypervisor-programmet. 
+En virtuell Azure-dator kan ha en av många energisparlägen. Det här tillståndet motsvarar aktuellt tillstånd för den virtuella datorn i hypervisor-programmet. 
 
-### <a name="power-states"></a>Energisparfunktioner
+### <a name="power-states"></a>Energisparlägen
 
 | Energisparläge | Beskrivning
 |----|----|
 | Startar | Anger den virtuella datorn startas. |
 | Körs | Anger att den virtuella datorn körs. |
-| Stoppas | Anger att den virtuella datorn har stoppats. | 
-| Stoppad | Anger att den virtuella datorn har stoppats. Observera att virtuella datorer i ett stoppat tillstånd fortfarande avgifter beräkning.  |
-| Frigör | Anger att den virtuella datorn har flyttats. |
-| Frigjord | Anger att den virtuella datorn är helt tas bort från hypervisor-programmet men fortfarande tillgängliga i kontrollplan. Virtuella datorer med tillståndet Deallocated inte avgifter beräkning. |
-| - | Anger att energisparläge för den virtuella datorn är okänt. |
+| Stoppas | Anger att den virtuella datorn stoppas. | 
+| Stoppad | Anger att den virtuella datorn har stoppats. Observera att virtuella datorer i ett stoppat tillstånd fortfarande kan medföra beräkningsavgifter.  |
+| Frigör | Anger att den virtuella datorn frigörs. |
+| Frigjord | Anger att den virtuella datorn är helt frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanen. Virtuella datorer med tillståndet Frigjord medför inte några beräkningsavgifter. |
+| - | Anger att energisparläget för den virtuella datorn är okänt. |
 
-### <a name="find-power-state"></a>Hitta energiläge
+### <a name="find-power-state"></a>Hitta energisparläge
 
-Använd för att hämta tillståndet för en viss virtuell dator i [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) kommando. Se till att ange ett giltigt namn för en virtuell dator och resursgruppen. 
+Om du vill hämta tillståndet för en viss virtuell dator kan du använda kommandot [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
 
 ```azurepowershell-interactive
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroupVM `
-    -Name myVM `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
@@ -372,44 +248,44 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Administrativa uppgifter
 
-Under livscykeln för en virtuell dator kan du vill köra hanteringsuppgifter, till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med hjälp av Azure PowerShell, kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript.
+Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med hjälp av Azure PowerShell kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript.
 
-### <a name="stop-virtual-machine"></a>Stoppa den virtuella datorn
+### <a name="stop-virtual-machine"></a>Stoppa en virtuell dator
 
-Stoppa och ta bort en virtuell dator med [stoppa AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
+Stoppa och frigöra en virtuell dator med [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
 ```
 
-Använd parametern - StayProvisioned om du vill behålla den virtuella datorn i ett etablerat tillstånd.
+Använd parametern -StayProvisioned om du vill behålla den virtuella datorn i ett etablerat tillstånd.
 
-### <a name="start-virtual-machine"></a>Starta den virtuella datorn
+### <a name="start-virtual-machine"></a>Starta en virtuell dator
 
 ```azurepowershell-interactive
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>Ta bort resursgrupp
 
-En resursgrupp också tar du bort alla resurser som ingår i.
+Om en resursgrupp tas bort, tas även alla resurser som ingår i gruppen bort.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
+Remove-AzureRmResourceGroup -Name "myResourceGroupVM" -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du lärt dig om grundläggande VM skapande och hantering, till exempel hur du:
+I den här självstudien har du lärt dig om grundläggande VM-skapande och hantering, till exempel att:
 
 > [!div class="checklist"]
 > * Skapa och ansluta till en virtuell dator
-> * Välj och Använd VM-avbildningar
+> * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
 > * Ändra storlek på en virtuell dator
-> * Visa och förstå tillstånd för virtuell dator
+> * Visa och förstå tillstånd för virtuella datorer
 
-Gå vidare till nästa kurs vill veta mer om Virtuella diskar.  
+Gå vidare till nästa självstudie om du vill lära dig mer om virtuella datordiskar.  
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera Virtuella diskar](./tutorial-manage-data-disk.md)
+> [Skapa och hantera virtuella datordiskar](./tutorial-manage-data-disk.md)

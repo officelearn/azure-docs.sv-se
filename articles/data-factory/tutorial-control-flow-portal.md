@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en behållare i Azure Blob Storage till en annan behållare i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
         - Datafabriksnamn – skicka värdet för `@{pipeline().DataFactory}`. Detta är en systemvariabel som gör att du kan komma åt motsvarande datafabriksnamn. En lista över systemvariabler finns i artikeln om [systemvariabler](control-flow-system-variables.md).
         - Pipelinenamn – skicka värdet för `@{pipeline().Pipeline}`. Detta är också en systemvariabel som gör att du kan komma åt motsvarande pipelinenamn. 
         - Mottagare – skicka värdet för "@pipeline().parameters.receiver"). Kommer åt pipelineparametrar.
-    6. **Inställningarna** ska se ut som på följande bild: 
-
+    
         ![Inställningar för den första webbaktiviteten](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Anslut **kopieringsaktiviteten** till **webbaktiviteten** genom att dra den gröna knappen bredvid kopieringsaktiviteten och släppa den på webbaktiviteten. 
 
@@ -266,8 +266,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **Inställningarna** ska se ut som på följande bild: 
-    
+
         ![Inställningar för den andra webbaktiviteten](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Välj **kopieringsaktiviteten** i pipelinedesignen och klicka på  **+->**  och välj **Fel**.  
 
@@ -278,7 +277,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 24. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **>>**.
 
     ![Verifiera pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten klickar du på **Publicera**. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.
+24. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten väljer du **Publicera alla**. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.
 
     ![Publicera](./media/tutorial-control-flow-portal/publish-button.png)
  

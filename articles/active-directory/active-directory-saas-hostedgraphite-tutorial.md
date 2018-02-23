@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Självstudier: Azure Active Directory-integrering med värd grafit
 
@@ -31,7 +31,7 @@ Integrera finns grafit med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med värd grafit behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. På den **finns grafit domän och URL: er** om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
    
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
   
     a. Klicka på den **visa avancerade inställningar för URL: en** alternativet
 
-    b. I den **logga URL** textruta Skriv en URL med följande mönster:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. I den **logga URL** textruta Skriv en URL med följande mönster: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Observera att detta inte är verkliga värden. Du måste uppdatera dessa värden med faktiska identifierare, Reply URL och logga URL. För att få dessa värden kan du gå till Access -> SAML-installationen på dina program på serversidan eller kontakta [finns grafit supportteamet](mailto:help@hostedgraphite.com).
@@ -205,7 +205,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas vid ett försök att komma åt värdbaserade grafit om den inte finns.
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt, måste du kontakta supportteamet finns grafit via < mailto:help@hostedgraphite.com >. 
+>Om du behöver skapa en användare manuellt, måste du kontakta supportteamet finns grafit via <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

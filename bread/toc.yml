@@ -254,6 +254,9 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Platsbaserade tjänster
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Belastningsutjämnare
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/

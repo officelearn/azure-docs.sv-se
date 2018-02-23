@@ -1,4 +1,4 @@
-1. På vänstra sidan i portalen klickar du på **+** och skriver "Virtuell nätverksgateway" i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **Virtuell nätverksgateway** klickar du på **Skapa** längst ned på sidan för att öppna sidan **Skapa en virtuell nätverksgateway**.
+1. På vänstra sidan i portalen klickar du på **+Skapa en resurs** och skriver ”Virtuell nätverksgateway” i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **Virtuell nätverksgateway** klickar du på **Skapa** längst ned på sidan för att öppna sidan **Skapa en virtuell nätverksgateway**.
 2. På sidan **Skapa en virtuell nätverksgateway** fyller du i värdena för din virtuella nätverksgateway.
 
   ![Fält på sidan Skapa en virtuell nätverksgateway](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Fält på sidan Skapa en virtuell nätverksgateway")

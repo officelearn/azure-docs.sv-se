@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -41,7 +41,6 @@ I den här självstudiekursen får du göra följande:
 > Den här artikeln gäller för version 2 av Azure Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, hittar du information i [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Översikt
-
 Här är några viktiga steg för att skapa den här lösningen: 
 
 1. **Markera vattenstämpelkolumnen**.
@@ -136,7 +135,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i SQL-databasen för att lagra värdet för högvattenmärket
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL-databasen för att lagra värdet för högvattenmärket
 1. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för högvattenmärket: 
     
     ```sql
@@ -158,7 +157,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Skapa en lagrad procedur i SQL-databasen 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Skapa en lagrad procedur i Azure SQL-databasen 
 
 Kör följande kommando för att skapa en lagrad procedur i din SQL-databas. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
 
@@ -176,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Skapa datatyper och ytterligare lagrade procedurer
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Skapa datatyper och ytterligare lagrade procedurer i Azure SQL-databasen
 Kör följande fråga för att skapa två lagrade procedurer och två datatyper i SQL-databasen. De används för att slå samman data från källtabellerna till måltabellerna.
 
 ```sql
@@ -229,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Data Factory-användargränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -423,7 +423,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     3. Välj **Object** som parameterns **typ**.
 
     ![Pipeline-parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Dra och släpp aktiviteten **ForEach** från verktygslådan **Aktiviteter** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
+4. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
 
     ![Aktiviteten ForEach – namn](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och ange `@pipeline().parameters.tableList` för **Items** (objekt). Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
@@ -432,7 +432,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 6. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)**.
 
     ![Aktiviteten ForEach – redigera](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Dra och släpp aktiviteten **Lookup** från verktygslådan **Aktiviteter** och ange **LookupOldWaterMarkActivity** som **namn**.
+7. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
 
     ![Första Lookup-aktiviteten – namn](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och utför följande steg: 
@@ -498,12 +498,13 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Växla till fliken **Lagrad procedur** och gör följande:
 
-    1. Ange `sp_write_watermark` för **Namn på lagrad procedur**. 
-    2. Använd knappen **Ny** och lägg till följande parametrar: 
+    1. Som **Namn på lagrad procedur** väljer du `sp_write_watermark`. 
+    2. Välj **Importera parameter**. 
+    3. Ange följande värden för parametrarna: 
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

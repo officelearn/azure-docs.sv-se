@@ -1,7 +1,6 @@
 - name: Event Grid
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Om Event Grid
       href: overview.md
@@ -37,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Instruktionsguider
   items:
+    - name: Ta emot händelser till en HTTP-slutpunkt
+      href: receive-events.md
     - name: Strömma data från Event Hubs till informationslager
       href: event-grid-event-hubs-integration.md
     - name: Skicka meddelanden om IoT Hub-händelser

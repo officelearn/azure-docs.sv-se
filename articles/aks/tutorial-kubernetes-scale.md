@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes på Azure tutorial – skala program"
-description: "AKS tutorial – skala program"
+title: "Självstudie om Kubernetes i Azure – Skala program"
+description: "Självstudie om AKS – Skala program"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Skala program i Azure Container Service (AKS)
+# <a name="scale-application-in-azure-container-service-aks"></a>Skala ett program i Azure Container Service (AKS)
 
-Om du har följande självstudierna du ha en fungerande Kubernetes klustret i AKS och du har distribuerat appen Azure röstning.
+Om du har följt självstudierna så har du ett fungerande Kubernetes-kluster i AKS och du har distribuerat programmet Azure Voting.
 
-I den här kursen ingår fem åtta skala ut skida i appen och försök baljor autoskalning. Du också lära dig hur du skalar antalet Virtuella Azure-noder att ändra klustrets kapacitet för värd för arbetsbelastningar. Aktiviteter har slutförts är:
+I den här självstudien, som är del fem av åtta, skalar du ut poddarna i programmet och provar autoskalning av poddar. Du får också lära dig hur du skalar ut antalet Azure VM-noder så att du ändrar klustrets kapacitet som värd för arbetsbelastningar. Det här är några av uppgifterna:
 
 > [!div class="checklist"]
 > * Skala Kubernetes Azure-noder
-> * Skalning Kubernetes skida manuellt
-> * Konfigurera Autoskala skida kör app klientdelen
+> * Skala Kubernetes-poddar manuellt
+> * Konfigurera autoskalning av poddarna som kör appens klientdel
 
-Programmet Azure rösten uppdateras i efterföljande självstudiekurser och Operations Management Suite som konfigurerats för att övervaka Kubernetes klustret.
+I efterföljande självstudier uppdaterar du programmet Azure Vote och konfigurerar Operations Management Suite för att övervaka Kubernetes-klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I föregående självstudier, ett program som har paketerats i en behållare avbildning, avbildningen har överförts till registret för Azure-behållaren och ett Kubernetes kluster skapas. Programmet körs sedan Kubernetes klustret.
+I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till den [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
-## <a name="scale-aks-nodes"></a>Skala AKS noder
+## <a name="scale-aks-nodes"></a>Skala AKS-noder
 
-Om du har skapat klustret Kubernetes med kommandona i föregående kursen har en nod. Du kan justera antalet noder manuellt om du planerar fler eller färre arbetsbelastningar i behållare på ditt kluster.
+Om du har skapat Kubernetes-klustret med kommandona i föregående självstudie har det en nod. Du kan justera antalet noder manuellt om du planerar att ha fler eller färre arbetsbelastningar i klustret.
 
-I följande exempel ökar antalet noder till tre i Kubernetes klustret med namnet *myK8sCluster*. Kommandot tar några minuter att slutföra.
+I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med namn *myAKSCluster*. Det tar några minuter att slutföra kommandot.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 Utdatan liknar följande:
@@ -52,7 +52,7 @@ Utdatan liknar följande:
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -62,9 +62,9 @@ Utdatan liknar följande:
   }
 ```
 
-## <a name="manually-scale-pods"></a>Skala skida manuellt
+## <a name="manually-scale-pods"></a>Skala poddar manuellt
 
-Därmed distribuerats långt Azure rösten frontend och Redis-instans har, var och en med en enskild replik. Du kan kontrollera genom att köra den [kubectl hämta] [ kubectl-get] kommando.
+Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var och en med en enda replik. Du kan kontrollera detta genom att köra programmet [kubectl get][kubectl-get].
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manuellt ändra antalet skida i den `azure-vote-front` distribution med den [kubectl skala] [ kubectl-scale] kommando. Det här exemplet ökar antalet till 5.
+Ändra antalet poddar i `azure-vote-front`-distributionen manuellt med kommandot [kubectl scale][kubectl-scale]. I det här exemplet ökas antalet till 5.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Kör [kubectl hämta skida] [ kubectl-get] att verifiera att Kubernetes skapar skida. När en minut eller så kan kör ytterligare skida:
+Kör [kubectl get pods][kubectl-get] om du vill verifiera att Kubernetes skapar poddarna. Efter ungefär en minut körs de nya poddarna:
 
 ```azurecli
 kubectl get pods
@@ -102,11 +102,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Autoskala skida
+## <a name="autoscale-pods"></a>Automatisk skalning av poddar
 
-Har stöd för Kubernetes [vågräta baljor autoskalning] [ kubernetes-hpa] för att justera antalet skida i en distribution beroende på CPU-användning eller annan välja mått.
+Kubernetes har stöd för [horisontell autoskalning av poddar][kubernetes-hpa] så att antalet poddar i en distribution justeras beroende på CPU-användningen eller något annat mått du väljer.
 
-Om du vill använda autoscaler ha din skida CPU-begäranden och gränser har definierats. I den `azure-vote-front` distribution, behållaren frontend begäranden 0,25 processor, med högst 0,5 CPU. Det ser ut som inställningarna:
+Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelsbehållaren 0,25 CPU med maxgränsen 0,5 CPU. Inställningarna ser ut så här:
 
 ```YAML
 resources:
@@ -116,14 +116,14 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används den [kubectl Autoskala] [ kubectl-autoscale] kommandot Autoskala antalet skida i den `azure-vote-front` distribution. Om processoranvändningen överskrider 50%, ökar autoscaler här skida högst 10.
+I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] till att automatiskt skala antalet poddar i `azure-vote-front`-distributionen. Om processoranvändningen överskrider 50 % ökar autoskalningen antalet poddar till högst 10.
 
 
 ```azurecli
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Om du vill se status för autoscaler, kör du följande kommando:
+Om du vill se status för autoskalningen kör du följande kommando:
 
 ```azurecli
 kubectl get hpa
@@ -136,18 +136,18 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Efter några minuter med minimal belastning på appen Azure röst minskar antalet baljor replikerna automatiskt till 3.
+Efter några minuter med minimal belastning på Azure Vote-appen minskar antalet poddrepliker automatiskt till 3.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen används olika skalning funktioner i Kubernetes klustret. Uppgifter som omfattas ingår:
+I den här självstudien har du använt olika skalningsfunktioner i Kubernetes-klustret. Här är några av uppgifterna:
 
 > [!div class="checklist"]
-> * Skalning Kubernetes skida manuellt
-> * Konfigurera Autoskala skida kör app klientdelen
+> * Skala Kubernetes-poddar manuellt
+> * Konfigurera autoskalning av poddarna som kör appens klientdel
 > * Skala Kubernetes Azure-noder
 
-Gå vidare till nästa kurs att lära dig om att uppdatera programmet i Kubernetes.
+Gå vidare till nästa självstudie om du vill lära dig om att uppdatera program i Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Uppdatera ett program i Kubernetes][aks-tutorial-update-app]

@@ -23,6 +23,7 @@
 ### [MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestandanivåer](performance-tiers.md)
 ### [Informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Skala ut, pausa och återuppta](sql-data-warehouse-manage-compute-overview.md)
 ### [Säkerhetskopior av informationslager](sql-data-warehouse-backups.md)
 ### [Granskning](sql-data-warehouse-auditing-overview.md)
 ### [Kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## Övervaka och finjustera
-### [Riktlinjer](resource-classes-for-workload-management.md)
+### [Arbetsbelastningshantering](resource-classes-for-workload-management.md)
 ### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Övervaka](sql-data-warehouse-manage-monitor.md)
 ### [Felsöka](sql-data-warehouse-troubleshoot.md)

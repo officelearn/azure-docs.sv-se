@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
@@ -50,7 +50,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management-tjänster. Med aktivitetsloggar kan du bestämma ”vad, vem och när” för skrivåtgärder (PUT, POST, DELETE) som ska vidtas för dina API Management-tjänster. 
 
 > [!NOTE]
-> Aktivitetsloggar inkluderar inte läsåtgärder (GET) eller åtgärder som utförs i den klassiska Publisher-portalen eller via ursprungliga Management-API:er.
+> Aktivitetsloggar inkluderar inte läsåtgärder (GET), åtgärder som utförs i Azure-portalen eller via ursprungliga hanterings-API:er.
 
 Du kan få åtkomst till aktivitetsloggar i API Management-tjänsten eller få åtkomst till loggar för alla dina Azure-resurser i Azure Monitor. 
 

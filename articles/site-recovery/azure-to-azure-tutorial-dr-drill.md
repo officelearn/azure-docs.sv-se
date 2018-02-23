@@ -1,56 +1,53 @@
 ---
-title: "Kör en katastrof återställningsgranskning för virtuella Azure-datorer till en sekundär region som Azure med Azure Site Recovery (förhandsgranskning)"
-description: "Lär dig hur du kör en katastrof återställningsgranskning för virtuella Azure-datorer till en sekundär Azure region med hjälp av Azure Site Recovery-tjänsten."
+title: "Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery (förhandsversion)"
+description: "Lär dig att köra ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region med Azure Site Recovery-tjänsten."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bcd3d64714951508d984c17326e845ae4842670
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Kör en katastrof återställningsgranskning för virtuella Azure-datorer till en sekundär Azure region (förhandsgranskning)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Kör ett programåterställningstest för virtuella Azure-datorer till en sekundär Azure-region (förhandsversion)
 
-Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din affärskontinuitet och haveriberedskap (BCDR) strategi genom att hålla dina appar och köra tillgängliga under planerade och oplanerade avbrott. Site Recovery samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer (VM), inklusive replikering, redundans och återställning hanterar.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra de som är tillgängliga under planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-Den här kursen visar hur du kör en katastrof återställningsgranskning för en Azure-VM från en Azure-region till en annan, med ett redundanstest. Visa verifierar din replikeringsstrategi för utan dataförlust eller driftstopp och påverkar inte din produktionsmiljö. I den här guiden får du lära dig hur man:
+I den här självstudien visar vi hur du kör ett programåterställningstest för en virtuell Azure-dator från en Azure-region till en annan med ett redundanstest. Testet verifierar din replikeringsstrategi utan dataförlust eller driftstopp och påverkar inte din produktionsmiljö. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Kontrollera krav
-> * Köra ett redundanstest för en enskild virtuell dator
+> * Kontrollera förutsättningarna
+> * Köra ett redundanstest för en enstaka virtuell dator
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaper för att kontrollera att allt är som förväntat.  Komma åt VM-egenskaper i **replikerade objekt**. Den **Essentials** bladet visar information om inställningar för datorer och status.
-- Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorn för att testa redundans och inte standardnätverk som skapades när du har aktiverat replikering.
+- Innan du kör ett redundanstest rekommenderar vi att du kontrollerar VM-egenskaperna så att allt är som förväntat.  VM-egenskaper finns i **Replikerade objekt**. På bladet **Information** finns information om datorinställningar och status.
+- Vi rekommenderar att du använder ett separat nätverk för virtuella Azure-datorer när du testar redundans, i stället för det standardnätverk som skapades när du aktiverade replikeringen.
 
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 
-1. I **inställningar** > **replikerade objekt**, klicka på den virtuella datorn **+ testa redundans** ikon.
+1. I **Inställningar** > **Replikerade objekt** klickar du på VM-ikonen **+Testa redundans**.
 
-2. I **Redundanstest**, Välj en återställningspunkt som ska användas för redundans:
+2. I **Testa redundans** väljer du en återställningspunkt som ska användas för redundansen:
 
-   - **Senaste bearbetas**: växlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid bearbetning av data, så att den ger en låga RTO (mål)
-   - **Senaste programkonsekventa**: det här alternativet flyttas över alla virtuella datorer till den senaste programkonsekventa återställningspunkten. Tidsstämpeln visas.
-   - **Anpassad**: Välj någon annan återställningspunkt.
+   - **Senaste bearbetade**: Redundansväxlar den virtuella datorn till den senaste återställningspunkten som bearbetades av Site Recovery-tjänsten. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstid (RTO)
+   - **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer till den senaste appkonsekventa återställningspunkten. Tidsstämpeln visas.
+   - **Anpassad**: Välj en annan återställningspunkt.
 
-3. Välj målobjektet för Azure-nätverk till vilka virtuella Azure-datorer i den sekundära regionen ansluts efter att växlingen sker.
+3. Välj det virtuella Azure-nätverkets mål som virtuella Azure-datorer i den sekundära regionen ska anslutas till efter att redundansen utförts.
 
-4. Starta växlingen vid fel, klicka på **OK**. Om du vill spåra förloppet klickar du på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på den **Redundanstest** jobb i valvnamnet > **inställningar** > **jobb** > **Site Recovery-jobb**.
-5. När redundansväxlingen är klar repliken virtuella Azure-datorn visas i Azure-portalen > **virtuella datorer**. Kontrollera att den virtuella datorn körs, storlek på rätt sätt och ansluten till lämpligt nätverk.
-6. Ta bort de virtuella datorerna som skapades under redundanstestningen, klicka på **Rensa redundanstestet** på det replikerade objektet eller återställningsplanen. I **anteckningar**, registrera och spara observationer från redundanstestningen.
+4. Starta redundansen genom att klicka på **OK**. Om du vill spåra förloppet klickar du på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **Testa redundans** i valvnamnet > **Inställningar** > **Jobb** > **Site Recovery-jobb**.
+5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
+6. Om du vill ta bort de virtuella Azure-datorer som skapades under redundanstestet klickar du på **Rensa redundanstestning** i det replikerade objektet eller återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kör en produktions-redundans](azure-to-azure-tutorial-failover-failback.md)
+> [Köra en produktionsredundans](azure-to-azure-tutorial-failover-failback.md)

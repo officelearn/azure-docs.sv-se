@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer
 
@@ -68,7 +68,7 @@ Följ anvisningarna på skärmen för att göra en grundläggande konfiguration.
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser i programmet i en enda, samordnad åtgärd.
 
-## <a name="cluster-types"></a>Klustertyper och konfiguration
+## <a name="cluster-types">Klustertyper och konfiguration</a>
 Azure HDInsight innehåller för närvarande följande typer av klustret, var och en med en uppsättning komponenter att tillhandahålla vissa funktioner.
 
 > [!IMPORTANT]
@@ -127,6 +127,8 @@ Under konfigurationen för standardslutpunkten lagring anger du en blob-behålla
 
 ### <a name="optional-metastores"></a>Valfritt metastores
 Du kan skapa valfria Hive- eller Oozie metastores. Men inte alla klustertyper stöder metastores och Azure SQL Data Warehouse är inte kompatibelt med metastores. 
+
+Mer information finns i [använda externa metadata lagras i Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > När du skapar en anpassad metastore, Använd inte bindestreck, bindestreck och blanksteg i databasens namn. Detta kan orsaka klusterskapandeprocessen misslyckas.
@@ -226,16 +228,16 @@ Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som
 Ibland kan vill du konfigurera följande konfigurationsfilerna under skapandeprocessen:
 
 * clusterIdentity.xml
-* Core-site.xml
-* gateway.XML
-* hbase env.xml
+* core-site.xml
+* gateway.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-plats
+* mapred-site
 * oozie-site.xml
-* oozie env.xml
+* oozie-env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

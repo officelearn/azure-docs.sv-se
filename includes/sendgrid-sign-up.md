@@ -2,7 +2,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrera ett SendGrid-konto
 1. Logga in på den [Azure-portalen][Azure portal].
-2. Klicka på **Nytt** i den vänstra menyn.
+2. Klicka på menyn till vänster **skapar du en resurs**.
 
     ![command-bar-new][command-bar-new]
 3. Klicka på **Tillägg** och sedan **SendGrid Email Delivery** (E-postleverans med SendGrid).
@@ -45,7 +45,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 
     ![api-keys][api-keys]
 
-3. Klicka på listrutan **Create API Key** (Skapa API-nyckel) och välj **General API Key** (Allmän API-nyckel).
+3. Klicka på den **skapa API-nyckel**.
 
     ![general-api-key][general-api-key]
 4. Ange minst **Name of this key** (Den här nyckelns namn), ge fullständig åtkomst till **Mail Send** (Skicka e-post) och välj **Spara**.

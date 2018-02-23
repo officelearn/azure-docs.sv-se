@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Hämta anslutningssträngen från Azure-portalen
 Använd den [Azure-portalen](https://portal.azure.com/) att hämta anslutningssträngen som krävs för att klienten ska interagera med Azure SQL Database. 
 
-1. Välj **Bläddra bland alla** > **SQL-databaser**.
+1. Välj **alla tjänster** > **SQL-databaser**.
 
 2. Ange namnet på databasen i textrutan filter nära det övre vänstra hörnet av den **SQL-databaser** bladet.
 
@@ -19,7 +19,6 @@ Använd den [Azure-portalen](https://portal.azure.com/) att hämta anslutningsst
 
 4. När bladet visas för din databas för visual bekvämlighet väljer den **minimera** knappar för att komprimera blad som du använde för sökning och filtrering av databasen. 
    
-    ![Filter för att isolera din databas][10-FilterDatabase]
 5. På bladet för din databas väljer **visa databasanslutningssträngar**.
 
 6. Om du tänker använda anslutningsbibliotek ADO.NET kopiera strängen med etiketten **ADO**. 
@@ -31,7 +30,7 @@ Mer information finns i [anslutningssträngar och konfigurationsfiler](http://ms
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

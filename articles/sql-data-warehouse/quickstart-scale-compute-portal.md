@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skala compute i Azure SQL Data Warehouse i Azure-portalen
 
-Skala bearbetning i Azure SQL Data Warehouse i Azure-portalen. Skala ut beräkning för bättre prestanda eller skala beräkna tillbaka om du vill spara kostnader. 
+Skala bearbetning i Azure SQL Data Warehouse i Azure-portalen. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) tillbaka beräkning för att spara kostnader för bättre prestanda eller skalning. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -34,7 +34,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Du kan skala ett datalager som du redan har, eller Använd [Snabbstart: skapa och ansluta - portal](create-data-warehouse-portal.md) att skapa ett data warehouse med namnet **mySampleDataWarehouse**.  Denna Snabbstart skalas **mySampleDataWarehouse**.
 
-## <a name="scale-compute"></a>Skala bearbetning
+## <a name="scale-compute"></a>Skala beräkning
 
 Du kan öka eller minska beräkningsresurser genom att justera informationslagerenheter i SQL Data Warehouse. Den [skapa och Connect - portal](create-data-warehouse-portal.md) skapade **mySampleDataWarehouse** och initieras med 400 dwu: er. Följande steg justera dwu: er för **mySampleDataWarehouse**.
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Förstå Azure IoT kant-runtime och dess arkitektur - förhandsgranskning
 
@@ -64,14 +64,18 @@ Edge hubb underlättar modulen modulen kommunikationen. Med hjälp av Edge-hubb 
 
 Om du vill skicka data till hubben Edge anropar metoden SendEventAsync i en modul. Det första argumentet anger på vilka utdata att skicka meddelandet. Följande pseudocode skickar ett meddelande på output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Registrera ett återanrop som bearbetar inkommande meddelanden på specifika indata för att ta emot ett meddelande. Följande pseudocode registrerar funktionen messageProcessor som ska användas för bearbetning av alla meddelanden som tas emot på input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 Lösningsutvecklaren ansvarar för att ange regler som bestämmer hur Edge hubb skickar meddelanden mellan moduler. Regler för routning definieras i molnet och flyttas fram till Edge hubb i sin enhet dubbla. Samma syntax för IoT-hubb vägar används för att definiera vägar mellan moduler i Azure IoT kant. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,7 +90,7 @@ Om du vill starta körningen av Edge-agent, kör du startkommandot azure iot-edg
 
 Varje objekt i moduler ordlistan innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
 
-* **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge-agenten använder du följande kommando:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge-agenten använder du följande kommando: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Lägger till Docker-alternativ i den här egenskapen kan avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
 * **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator eller fel enhet. Stöds statusar:
    * Hämtar

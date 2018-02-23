@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Stora instanser för SAP HANA hög tillgänglighet och katastrofåterställning recovery på Azure 
 
@@ -111,7 +111,7 @@ SAP HANA i Azure (stora instanser) erbjuder två alternativ för säkerhetskopie
 Lagringsinfrastruktur som underliggande SAP HANA i Azure (stora instanser) stöder lagring ögonblicksbilder av volymer. Både säkerhetskopiering och återställning av volymer stöds, med följande:
 
 - I stället för fullständiga databassäkerhetskopieringar vidtas ögonblicksbilder av lagring regelbundet.
-- När utlösa en ögonblicksbild över/hana/data, hana eller in och /hana/shared (inklusive /usr/sap) initierar en SAP HANA ögonblicksbild innan ögonblicksbilden lagring körs volymer, lagring ögonblicksbilden. SAP HANA ögonblicksbilden är installationen avseende eventuell loggen återställningar efter återställningen av ögonblicksbilden lagring.
+- När utlösa en ögonblicksbild över /hana/data och /hana/shared (inklusive /usr/sap) initierar en SAP HANA ögonblicksbild innan ögonblicksbilden lagring körs volymer, lagring ögonblicksbilden. SAP HANA ögonblicksbilden är installationen avseende eventuell loggen återställningar efter återställningen av ögonblicksbilden lagring.
 - Efter den punkt där lagring ögonblicksbilden har körts utan problem, SAP HANA ögonblicksbilden har tagits bort.
 - Säkerhetskopior av transaktionsloggar tas ofta och lagras i /hana/logbackups volymen eller i Azure. Du kan utlösa /hana/logbackups volymen som innehåller transaktionsloggen säkerhetskopior om du vill ta en ögonblicksbild separat. I så fall behöver du inte köra en HANA ögonblicksbild.
 - Om du måste återställa en databas till en viss punkt i tiden, begär Microsoft Azure-supporten (för ett avbrott i produktionen) eller SAP HANA på Azure Service Management för att återställa till en viss lagring ögonblicksbild. Ett exempel är en planerad återställning av ett system med begränsat till det ursprungliga tillståndet.
@@ -149,7 +149,7 @@ Följande avsnitt innehåller information för att utföra dessa ögonblicksbild
 - Under större omorganisering av SAP HANA tabeller bör lagring ögonblicksbilder undvikas, om möjligt.
 - Lagring ögonblicksbilder är en förutsättning för att dra nytta av funktionerna för katastrofåterställning för SAP HANA i Azure (stora instanser).
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Förutsättningar för att kunna utnyttja självbetjäning lagring ögonblicksbilder
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Förutsättningar för att kunna utnyttja självbetjäning lagring ögonblicksbilder
 
 Kontrollera att Perl är installerad på Linux-operativsystem på servern HANA stora instanser för att säkerställa att ögonblicksbild skriptet körs utan problem. Perl finns förinstallerat på HANA stora instans-enhet. Om du vill kontrollera versionen perl, använder du följande kommando:
 
@@ -290,7 +290,7 @@ HANABackupCustomerDetails.txt
 Från och med behandlar perl-skript: 
 
 - Ändra aldrig skript om du uppmanas av Microsoft Operations.
-- När du tillfrågas om du vill ändra skriptet eller en parameterfil, Använd alltid linux textredigerare, till exempel ”vi” och inte i Windows-redigerare t.ex. anteckningar. Formatet kan skadas om du använder windows-redigeraren.
+- När du tillfrågas om du vill ändra skriptet eller en parameterfil, Använd alltid Linux textredigerare, till exempel ”vi” och inte i Windows-redigerare t.ex. anteckningar. Formatet kan skadas om du använder windows-redigeraren.
 - Använd alltid senaste skript. Du kan hämta den senaste versionen från GitHub.
 - Använd samma version av skripten i liggande.
 - Testa skripten och lär du dig med de parametrar som krävs och utdata från skriptet innan du använder direkt i produktionssystemet.
@@ -299,7 +299,7 @@ Från och med behandlar perl-skript:
 
 Syftet med olika skript och filer är:
 
-- **Azure\_hana\_backup.pl**: schemalägga det här skriptet med cron ska köras lagring ögonblicksbilder på HANA data/log/klusterdelade volymer, / hana/logbackups volymen eller Operativsystemet.
+- **Azure\_hana\_backup.pl**: schemalägga det här skriptet med cron ska köras lagring ögonblicksbilder på HANA data och delade volymer, / hana/logbackups volymen eller Operativsystemet.
 - **Azure\_hana\_replikering\_status.pl**: det här skriptet innehåller grundläggande information kring replikeringsstatus från produktionsplatsen till platsen för katastrofåterställning. Skript-Övervakare för att säkerställa att replikeringen sker och den visar storleken på objekt som replikeras. Det ger också information om en replikering tar för lång eller om länken inte är tillgänglig.
 - **Azure\_hana\_ögonblicksbild\_details.pl**: det här skriptet innehåller en lista över grundläggande information om alla ögonblicksbilder, per volym, som finns i din miljö. Det här skriptet kan köras på den primära servern eller på en server-enhet på plats för katastrofåterställning. Skriptet innehåller följande information fördelade på varje volym som innehåller ögonblicksbilder:
    * Storleken på totala antalet ögonblicksbilder på en volym

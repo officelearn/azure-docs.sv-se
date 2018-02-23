@@ -1,13 +1,13 @@
 ---
-title: "Paketera och distribuera ett program för Service Fabric-behållare | Microsoft Docs"
-description: "Lär dig hur du skapar en definition av en Azure Service Fabric-program med hjälp av Yeoman och paketera programmet."
+title: "Paketera och distribuera ett Service Fabric-behållarprogram | Microsoft Docs"
+description: "Lär dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker-behållare, Mikrotjänster, Service Fabric, Azure"
+keywords: Docker, Containers, Microservices, Service Fabric, Azure
 ms.assetid: 
 ms.service: service-fabric
 ms.topic: tutorial
@@ -16,43 +16,43 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-ms.translationtype: MT
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paketera och distribuera behållare som ett Service Fabric-program
 
-Den här kursen ingår två i en serie. I den här självstudiekursen används en mall-generatorn (Yeoman) för att generera en definition för Service Fabric. Det här programmet kan sedan användas för att distribuera behållare till Service Fabric. I den här självstudiekursen får du lära du dig att: 
+Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera behållare till Service Fabric. I den här självstudiekursen får du lära du dig att: 
 
 > [!div class="checklist"]
 > * Installera Yeoman  
-> * Skapa ett programpaket med hjälp av Yeoman
-> * Konfigurera inställningar i programpaket för användning med behållare
+> * Skapa ett programpaket med Yeoman
+> * Konfigurera inställningar i programpaketet för användning med behållare
 > * Skapa programmet  
 > * Distribuera och köra programmet 
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Behållaren bilder pushas till Azure-behållare registret som skapats i [del 1](service-fabric-tutorial-create-container-images.md) serie som används i den här kursen.
-- Linux-utvecklingsmiljö är [konfigurera](service-fabric-tutorial-create-container-images.md).
+- De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
+- [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.
 
 ## <a name="install-yeoman"></a>Installera Yeoman
-Service fabric innehåller scaffold-teknik för verktyg för att skapa program från terminal med Yeoman mall generator. Följ stegen nedan för att kontrollera att du har Yeoman mall generator. 
+Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Yeoman-mallgeneratorn. 
 
-1. Installera nodejs och NPM på din dator. Observera att, Mac OS x-användare måste använda package manager Homebrew
+1. Installera NodeJS och NPM på datorn. Mac OSX-användare måste använda pakethanteraren Homebrew
 
     ```bash
     sudo apt-get install npm && sudo apt install nodejs-legacy
     ```
-2. Installera Yeoman mall generator på datorn via NPM 
+2. Installera Yeoman mallgenerator på maskinen från NPM 
 
     ```bash
     sudo npm install -g yo
     ```
-3. Installera Service Fabric Yeoman behållare generator
+3. Installera Service Fabric Yeoman-behållargenerator
 
     ```bash 
     sudo npm install -g generator-azuresfcontainer
@@ -60,18 +60,18 @@ Service fabric innehåller scaffold-teknik för verktyg för att skapa program f
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Paketera en Docker-avbildningsbehållare med Yeoman
 
-1. Om du vill skapa en behållare för Service Fabric program i katalogen 'självstudie om behållaren' på klonade databasen, kör följande kommando.
+1. Skapa ett Service Fabric-behållarprogram i mappen ”container-tutorial” i den klonade lagringsplatsen genom att köra följande kommando.
 
     ```bash
     yo azuresfcontainer
     ```
-2. Skriv in ”TestContainer” för att namnge ditt program
-3. Ange ”azurevotefront” för att namnge din programtjänsten.
-4. Ange avbildning behållare i ACR för frontend-lagringsplatsen - till exempel '\<acrName >.azurecr.io / azure-röst-fram: v1'. Den \<acrName > fältet måste vara detsamma som värdet som användes i tidigare kursen.
-5. Tryck på RETUR för att avsluta kommandona avsnittet tomt.
+2. Ange ”TestContainer” som namn på programmet
+3. Ange ”azurevotefront” som namn på tillämpningstjänsten.
+4. Ange sökvägen för behållaravbildningen i ACR för klientdelens repo – till exempel ”\<acrName>.azurecr.io/azure-vote-front:v1”. Fältet \<acrName> måste ha samma värde som användes i den föregående självstudien.
+5. Tryck på Retur och lämna avsnittet Kommandon tomt.
 6. Ange ett instansantal på 1.
 
-Följande visar indata och utdata för körs den yo kommando:
+Följande visar indata och utdata vid körning av yo-kommandot:
 
 ```bash
 ? Name your application TestContainer
@@ -87,16 +87,16 @@ Följande visar indata och utdata för körs den yo kommando:
    create TestContainer/uninstall.sh
 ```
 
-Utför följande steg för att lägga till en annan behållartjänst till ett program som redan har skapats med hjälp av Yeoman:
+Om du vill lägga till en till behållartjänst till ett program som redan har skapats med hjälp av Yeoman utför du följande steg:
 
-1. Ändra katalogen en nivå till den **TestContainer** directory, till exempel *. / TestContainer*
+1. Byt katalog en nivå till **TestContainer**-katalogen, till exempel *./TestContainer*
 2. Kör `yo azuresfcontainer:AddService` 
-3. Name service azurevoteback
-4. Ange sökvägen till bilden för Redis - ' alpine: redis'
-5. Tryck på RETUR för att avsluta kommandona avsnittet tom
+3. Kalla tjänsten ”azurevoteback”
+4. Ange sökvägen för behållaravbildningen – ”alpine:redis”
+5. Tryck på Retur och lämna avsnittet Kommandon tomt
 6. Ange ett instansantal på ”1”.
 
-Posterna för att lägga till den tjänst som används visas alla:
+De poster som används för att lägga till tjänsten visas:
 
 ```bash
 ? Name of the application service: azurevoteback
@@ -108,30 +108,30 @@ Posterna för att lägga till den tjänst som används visas alla:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Vi arbetar för resten av den här kursen den **TestContainer** directory. Till exempel *./TestContainer/TestContainer*. Så här ska innehållet i katalogen.
+Under resten av den här självstudien kommer vi att arbeta i katalogen **TestContainer**. Till exempel *./TestContainer/TestContainer*. Katalogen ska innehålla följande.
 ```bash
 $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
-## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Konfigurera applikationsmanifestet med autentiseringsuppgifter för Azure-behållare registret
-Vi behöver ange autentiseringsuppgifter i för Service Fabric och hämtar behållaren bilder från registret för Azure-behållaren i **ApplicationManifest.xml**. 
+## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Konfigurera applikationsmanifestet med autentiseringsuppgifter för Azure Container Registry
+Service Fabric behöver autentiseringsuppgifter för att hämta behållaravbildningar från Azure Container Registry. Dessa anges i **ApplicationManifest.xml**. 
 
-Logga in på din ACR-instans. Använd den **az acr inloggning** kommando för att slutföra åtgärden. Ange unika namnet på behållaren registret när den skapades.
+Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för behållarregistret när det skapades.
 
 ```bash
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar en **inloggningen har slutförts** meddelande när den har slutförts.
+Du får ett meddelande om att **inloggningen lyckades** när inloggningen är klar.
 
-Kör följande kommando för att hämta lösenordet för behållaren registret. Det här lösenordet används av Service Fabric för att autentisera med ACR att hämta avbildningar för behållaren.
+Kör sedan följande kommando för att hämta lösenordet för behållarregistret. Lösenordet används av Service Fabric för att autentisera med ACR och hämta behållaravbildningarna.
 
 ```bash
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-I den **ApplicationManifest.xml**, Lägg till kodstycke under den **ServiceManifestImport** element för frontend-tjänsten. Infoga din **acrName** för den **AccountName** fältet och lösenordet som returnerades från föregående kommando används för den **lösenord** fältet. En fullständig **ApplicationManifest.xml** har angetts i slutet av det här dokumentet. 
+I **ApplicationManifest.xml** lägger du till kodfragmentet under elementet **ServiceManifestImport** för klientdelstjänsten. Ange **acrName** i fältet **Kontonamn** och lösenordet från föregående kommando i fältet **Lösenord**. En fullständig **ApplicationManifest.xml** finns i slutet av det här dokumentet. 
 
 ```xml
 <Policies>
@@ -142,9 +142,9 @@ I den **ApplicationManifest.xml**, Lägg till kodstycke under den **ServiceManif
 ```
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Konfigurera kommunikation och portmappning mellan behållare och värd
 
-### <a name="configure-communication-port"></a>Konfigurera kommunikationsport
+### <a name="configure-communication-port"></a>Konfigurera kommunikationsporten
 
-Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst. Öppna den *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* filen och deklarera en slutpunkt-resurs i den **ServiceManifest** element.  Lägg till protokollet, porten och namnet. Tjänsten lyssnar på port 80 för den här självstudiekursen. Följande kodavsnitt placeras under den *ServiceManifest* tagg i resursen.
+Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst. Öppna filen *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* och deklarera en slutpunktsresurs i elementet **ServiceManifest**.  Lägg till protokollet, porten och namnet. I den här självstudien lyssnar tjänsten på port 80. Följande kodfragment placeras under taggen *ServiceManifest* i resursen.
   
 ```xml
 <Resources>
@@ -158,7 +158,7 @@ Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst. 
 
 ```
   
-På liknande sätt kan ändra Service Manifest för backend-tjänsten. Öppna den *./TestContainer/azurevotebackPkg/ServiceManifest.xml* och deklarera en slutpunkt-resurs i den **ServiceManifest** element. Den här självstudien bevaras 6379 redis standardvärdet. Följande kodavsnitt placeras under den *ServiceManifest* tagg i resursen.
+Modifiera på tjänstemanifestet på samma sätt för serverdeltjänsten. Öppna *./TestContainer/azurevotebackPkg/ServiceManifest.xml* och deklarera en slutpunktsresurs i elementet **ServiceManifest**. För denna självstudiekurs behålls redis-standardvärdet på 6379. Följande kodfragment placeras under taggen *ServiceManifest* i resursen.
 
 ```xml
 <Resources>
@@ -170,10 +170,10 @@ På liknande sätt kan ändra Service Manifest för backend-tjänsten. Öppna de
   </Endpoints>
 </Resources>
 ```
-Att tillhandahålla den **UriScheme**automatiskt registreras behållaren slutpunkten med namngivning av Service Fabric-tjänsten för synlighet. En fullständig ServiceManifest.xml-exempelfil för serverdelstjänsten tillhandahålls som ett exempel i slutet av den här artikeln. 
+Genom att tillhandahålla **UriScheme** registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil för serverdeltjänsten finns i slutet av den här artikeln. 
 
-### <a name="map-container-ports-to-a-service"></a>Mappa behållaren portar till en tjänst
-För att exponera behållare i klustret, behöver vi också skapa en port-bindning i ApplicationManifest.xml. Den **PortBinding** principen refererar till den **slutpunkter** vi har definierat i den **ServiceManifest.xml** filer. Inkommande begäranden till dessa slutpunkter hämta mappas till behållaren portarna som öppnats och avgränsas här. I den **ApplicationManifest.xml** lägger du till följande kod för att binda port 80 och 6379 till slutpunkterna. En fullständig **ApplicationManifest.xml** är tillgängliga i slutet av det här dokumentet. 
+### <a name="map-container-ports-to-a-service"></a>Mappa behållarportar till en tjänst
+För att göra behållarna tillgängliga i klustret måste vi även skapa en portbindning i ”ApplicationManifest.xml”. Principen **PortBinding** använder de **slutpunkter** vi definierade i **ServiceManifest.xml**-filerna som referens. Inkommande begäranden till dessa slutpunkter mappas till de behållarportar som öppnas och binds här. I **ApplicationManifest.xml**-filen lägger du till följande kod för att binda port 80 och 6379 till slutpunkterna. En fullständig **ApplicationManifest.xml** finns i slutet av det här dokumentet. 
   
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -189,7 +189,7 @@ För att exponera behållare i klustret, behöver vi också skapa en port-bindni
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Lägg till ett DNS-namn till serverdelstjänsten
   
-För Service Fabric att tilldela den här DNS-namn till serverdelstjänsten namnet måste anges i den **ApplicationManifest.xml**. Lägg till den **ServiceDnsName** attribut till den **Service** element som visas: 
+Service Fabric kan inte tilldela DNS-namnet till serverdelstjänsten om namnet inte anges i **ApplicationManifest.xml**. Lägg till attributet **ServiceDnsName** till elementet **Service** som visat: 
   
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
@@ -199,13 +199,13 @@ För Service Fabric att tilldela den här DNS-namn till serverdelstjänsten namn
 </Service>
 ```
 
-Frontend-tjänsten läser en miljövariabel för att känna till DNS-namnet för Redis-instansen. Den här miljövariabeln har redan definierats i Dockerfile som användes för att skapa Docker-bilden och ingen åtgärd behöver inte vidta här.
+Klientdelstjänsten läser en miljövariabel för att ta reda på Redis-instansens DNS-namn. Miljövariabeln är redan definierad i den Dockerfile som användes för att skapa Docker-avbildningen. Inga åtgärder krävs.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Följande kodavsnitt illustrerar hur frontend Python-kod hämtar miljövariabeln som beskrivs i Dockerfile. Ingen åtgärd behöver inte vidta här. 
+Följande kodfragment visar hur Python-koden i klientdelen läser in miljövariabeln som beskrivs i Dockerfile. Inga åtgärder krävs. 
 
 ```python
 # Get DNS Name
@@ -215,46 +215,54 @@ redis_server = os.environ['REDIS']
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 ```
 
-Nu i självstudierna är mallen för servicepaket program tillgängliga för distribution till ett kluster. Det här programmet distribueras i efterföljande självstudierna och kördes i ett Service Fabric-kluster.
+Mallen för ett tjänstepaketprogram är nu tillgänglig för distribuering till ett kluster. I följande självstudiekurs distribueras programmet och körs i ett Service Fabric-kluster.
 
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du antingen använda ett eget kluster, eller använda ett partykluster.
+Om du vill distribuera programmet till ett kluster i Azure kan du skapa ett eget kluster.
 
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. Den hanteras av Service Fabric-teamet där alla kan distribuera program och lär dig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De körs av Service Fabric-teamet. Där kan alla distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
+
+Du kan använda Service Fabric Explorer, CLI eller Powershell för att utföra hanteringsåtgärder på det säkra partklustret. Om du vill använda Service Fabric Explorer behöver du ladda ned PFX-filen från webbplatsen med partklustret och importera certifikatet till certifikatarkivet (Windows eller Mac) eller till webbläsaren (Ubuntu). Det finns inget lösenord för självsignerade certifikat från partklustret. 
+
+Om du vill utföra hanteringsåtgärder med Powershell eller CLI behöver du PFX (Powershell) eller PEM (CLI). Om du vill konvertera PFX-filen till en PEM-fil kör du följande kommando:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
-## <a name="build-and-deploy-the-application-to-the-cluster"></a>Skapa och distribuera programmet till klustret
-Du kan distribuera programmet Azure klustret med hjälp av Service Fabric-CLI. Om Service Fabric CLI inte installerat på datorn, följer du anvisningarna [här](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) att installera den. 
+## <a name="build-and-deploy-the-application-to-the-cluster"></a>Bygg och distribuera programmet till klustret
+Du kan distribuera programmet till Azure-klustret med Service Fabric CLI. Om Service Fabric CLI inte är installerat på datorn följer du [dessa](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) anvisningar och installerar det. 
 
-Anslut till Service Fabric-klustret i Azure. Ersätt platshållaren slutpunkten med din egen. Slutpunkten måste vara en fullständig Webbadress som liknar den nedan.
+Anslut till Service Fabric-klustret i Azure. Byt platshållaren för slutpunkt mot din egen. Slutpunkten måste vara en fullständig webbadress som liknar den som visas nedan.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
-Använd installationsskriptet som anges i den **TestContainer** directory för att kopiera programpaketet till klustrets avbildningsarkivet registrera programtypen och skapa en instans av programmet.
+Använd installationsskriptet som medföljer i katalogen **TestContainer** för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
 
 ```bash
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric-Utforskaren på http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expandera noden program och Observera att det finns en post för din typ av program och en annan för instansen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det finns en post för din programtyp och en för instansen.
 
 ![Service Fabric Explorer][sfx]
 
-Öppna en webbläsare och gå till kluster-url – till exempel http://lin0823ryf2he.cloudapp.azure.com:80 för att ansluta till program som körs. Du bör se röst-programmet i webbgränssnittet.
+Anslut till programmet genom att öppna en webbläsare och gå till klustrets webbadress – till exempel http://lin0823ryf2he.cloudapp.azure.com:80. Röstningsprogrammet ska visas i webbläsaren.
 
-![votingapp][votingapp]
+![röstningsapp][votingapp]
 
 ## <a name="clean-up"></a>Rensa
-Använd avinstallationsskriptet som medföljer mallen för att ta bort programinstansen från klustret och avregistrera programtypen. Det här kommandot tar tid att rensa instansen och kommandot 'install.sh' kan inte köras omedelbart efter det här skriptet. 
+Använd avinstallationsskriptet som medföljer mallen för att ta bort programinstansen från klustret och avregistrera programtypen. Det tar lite tid att rensa instansen med det här kommandot. Kommandot ”install.sh” kan inte köras omedelbart efter det här skriptet. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="examples-of-completed-manifests"></a>Exempel på slutförda manifest
+## <a name="examples-of-completed-manifests"></a>Exempel på manifest
 
 ### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
 ```xml
@@ -292,7 +300,7 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
 </ApplicationManifest>
 ```
 
-### <a name="front-end-servicemanifestxml"></a>Frontend ServiceManifest.xml 
+### <a name="front-end-servicemanifestxml"></a>Front-end ServiceManifest.xml 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
@@ -359,20 +367,20 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har flera behållare paketeras till en Service Fabric-program med hjälp av Yeoman. Det här programmet har sedan distribueras och körs på ett Service Fabric-kluster. Följande steg har slutförts:
+I den här självstudiekursen packades flera behållare in i ett Service Fabric-program med Yeoman. Programmet distribuerades sedan och kördes på ett Service Fabric-kluster. Följande steg har slutförts:
 
 > [!div class="checklist"]
 > * Installera Yeoman  
-> * Skapa ett programpaket med hjälp av Yeoman
-> * Konfigurera inställningar i programpaket för användning med behållare
+> * Skapa ett programpaket med Yeoman
+> * Konfigurera inställningar i programpaketet för användning med behållare
 > * Skapa programmet  
 > * Distribuera och köra programmet 
 > * Rensa programmet
 
-Gå vidare till nästa kurs mer information om växling vid fel och skalning av programmet i Service Fabric.
+Gå vidare till nästa självstudie om du vill veta mer om redundansväxling och skalning av programmet i Service Fabric.
 
 > [!div class="nextstepaction"]
-> [Mer information om växling vid fel och skala program](service-fabric-tutorial-containers-failover.md)
+> [Läs om redundansväxling och skalning av program](service-fabric-tutorial-containers-failover.md)
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png

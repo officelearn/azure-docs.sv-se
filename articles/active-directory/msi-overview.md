@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 72e1d5250de214c063a970f5761105b2329ccf7f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Hanterad Service identitet (MSI) för Azure-resurser
 
@@ -87,12 +87,12 @@ Följande tjänster stöder Azure AD-autentisering och har testats med klienttj�
 
 | Tjänst | Resurs-ID | Status | Date | Tilldela åtkomst |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com/ | Tillgänglig | September 2017 | [Azure-portalen](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net/ | Tillgänglig | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net/ | Tillgänglig | September 2017 | |
-| Azure SQL | https://database.windows.net/ | Tillgänglig | Oktober 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net/ | Tillgänglig | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net/ | Tillgänglig | December 2017 | |
+| Azure Resource Manager | https://management.azure.com | Tillgänglig | September 2017 | [Azure-portalen](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net | Tillgänglig | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net | Tillgänglig | September 2017 | |
+| Azure SQL | https://database.windows.net | Tillgänglig | Oktober 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net | Tillgänglig | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net | Tillgänglig | December 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Hur mycket kostar hanterade tjänstidentiteten?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 084fdf2f9a65eed3e444851afb88390aacf33738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Konfigurera klustret resource manager-inställningar för Service Fabric-tjänster
 Service Fabric klustret Resource Manager kan detaljerad kontroll över de regler som styr varje person med namnet på tjänsten. Varje tjänsten kan ange regler för hur den ska allokeras i klustret. Varje tjänsten kan också definiera en uppsättning mått som rapporten, inklusive hur viktigt är de till den tjänsten. Konfigurera services uppdelad i tre olika aktiviteter:

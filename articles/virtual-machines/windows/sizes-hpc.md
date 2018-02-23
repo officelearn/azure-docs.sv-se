@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Högpresterande beräkning VM-storlekar
 
@@ -36,13 +36,7 @@ Du kan använda RDMA-kompatibla instanser att kommunicera över ett InfiniBand-n
 
 Följande är kraven för RDMA-kompatibla virtuella Windows-datorer att ansluta till Azure RDMA-nätverket: 
 
-* **Operativsystem**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Windows Server 2016 stöder för närvarande inte RDMA-anslutningar i Azure.
-  >
+* **Operativsystemet** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Tillgänglighetsuppsättning eller Molntjänsten** – distribuera RDMA-kompatibla virtuella datorer i samma tillgänglighetsuppsättning (när du använder Azure Resource Manager-distributionsmodellen) eller samma tjänst i molnet (när du använder den klassiska distributionsmodellen). Om du använder Azure Batch måste RDMA-kompatibla virtuella datorer vara i samma pool.
 
@@ -52,7 +46,7 @@ Följande är kraven för RDMA-kompatibla virtuella Windows-datorer att ansluta 
 
 * **RDMA nätverks-adressutrymme** -av RDMA-nätverk i Azure reserverar adressutrymme 172.16.0.0/16. Kontrollera att virtuella nätverkets adressutrymme inte överlappar RDMA-nätverk för att köra MPI program på instanser distribuerade i Azure-nätverk.
 
-* **HpcVmDrivers VM-tillägget** -på RDMA-kompatibla virtuella datorer, måste du lägga till tillägget HpcVmDrivers för att installera drivrutiner för Windows-nätverk för RDMA-anslutning. (I vissa distributioner av A8- och A9 instanser HpcVmDrivers tillägg läggs automatiskt.) Om du vill lägga till tillägg för virtuell dator till en virtuell dator, kan du använda [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+* **HpcVmDrivers VM-tillägget** – på RDMA-kompatibla virtuella datorer, lägga till filnamnstillägget HpcVmDrivers om du vill installera enhetsdrivrutiner för Windows-nätverk för RDMA-anslutning. (I vissa distributioner av A8- och A9 instanser HpcVmDrivers tillägg läggs automatiskt.) Om du vill lägga till tillägg för virtuell dator till en virtuell dator, kan du använda [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   
   Senaste version 1.1 HpcVMDrivers tillägget installeras i följande kommando på en befintlig RDMA-kompatibla virtuell dator med namnet *myVM* distribuerats i resursgruppen med namnet *myResourceGroup* i den  *USA, västra* region:

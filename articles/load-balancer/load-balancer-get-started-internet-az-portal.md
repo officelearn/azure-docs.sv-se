@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Skapa en offentlig belastningen belastningsutjämnaren Standard med zonredundant klientdel för offentlig IP-adress med hjälp av Azure portal
 
@@ -44,7 +44,7 @@ Logga in på Azure-portalen på https://portal.azure.com.
 ## <a name="create-a-zone-redundant-load-balancer"></a>Skapa en zon redundant belastningsutjämnare
 
 1. Öppna en webbläsare och gå till Azure Portal: [http://portal.azure.com](http://portal.azure.com). Logga in med ditt Azure-konto.
-2. På den översta vänstra sidan av skärmen väljer **ny** > **nätverk** > **belastningsutjämnaren.**
+2. På den översta vänstra sidan av skärmen väljer **skapar du en resurs** > **nätverk** > **belastningsutjämnaren.**
 3. I den ** skapa belastningsutjämnare, under **namn** typen **myPublicLB**.
 4. Under **Typ** väljer du **Offentlig**.
 5. Välj under SKU, **Standard (förhandsgranskning)**.

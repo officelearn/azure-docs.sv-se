@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Läs om certifikat och Enterprise-integreringspaket
 ## <a name="overview"></a>Översikt
@@ -44,7 +44,7 @@ När du har överfört ett certifikat är tillgängligt för att skydda dina B2B
 
 Här följer detaljerade anvisningar för uppladdning av din offentliga certifikat till kontot integration när du loggar in på Azure-portalen:
 
-1. Välj **fler tjänster** och ange **integrering** i sökrutan filtrera. Välj **Integrationskonton** från resultatlistan över     
+1. Välj **alla tjänster** och ange **integrering** i sökrutan filtrera. Välj **Integrationskonton** från resultatlistan över     
 ![Välj Bläddra](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Välj integration kontot som du vill lägga till certifikatet.  
 ![Välj integration kontot som du vill lägga till certifikatet](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Att använda en *privat certifikat* i dina logic apps med B2B-funktioner, du kan
 1. [Ladda upp din privata nyckel till Nyckelvalvet](../key-vault/key-vault-get-started.md "Lär dig mer om Key Vault") och ger en **nyckelnamn** 
    
    > [!TIP]
-   > Du måste auktorisera Logic Apps att utföra åtgärder på Nyckelvalvet. Du kan ge åtkomst till Logic Apps tjänstens huvudnamn med hjälp av följande PowerShell-kommando:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > Du måste auktorisera Logic Apps att utföra åtgärder på Nyckelvalvet. Du kan ge åtkomst till Logic Apps tjänstens huvudnamn med hjälp av följande PowerShell-kommando: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 

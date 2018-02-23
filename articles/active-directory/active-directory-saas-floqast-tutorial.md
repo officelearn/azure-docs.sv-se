@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Självstudier: Azure Active Directory-integrering med FloQast
 
@@ -106,22 +106,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och FloQast domän med enkel inloggning information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.floqast.com/`
-
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     I den **identifierare** textruta, ange ett URL-Adressen: `https://go.floqast.com/`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och FloQast domän med enkel inloggning information](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.floqast.com/login/sso`
+     I den **inloggnings-URL** textruta, ange ett URL-Adressen: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [FloQast klienten supportteamet](mailto:support@floqast.com) att hämta dessa värden.
-
 5. FloQast program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
     
-    ![Konfigurera enkel inloggning attb](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Konfigurera enkel inloggning attribut](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
@@ -241,8 +236,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

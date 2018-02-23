@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure PowerShell
 Dessa steg visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen till Azure Resource Manager-distributionsmodellen.
@@ -59,7 +59,7 @@ Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure P
 Om du vill utföra migreringen måste du måste läggas till som medadministratör för prenumerationen på den [Azure-portalen](https://portal.azure.com).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På navmenyn väljer **prenumeration**. Om du inte ser det, väljer **fler tjänster**.
+2. På navmenyn väljer **prenumeration**. Om du inte ser det, väljer **alla tjänster**.
 3. Hitta lämpliga prenumerationspost titta sedan på den **Mina ROLLEN** fältet. För en medadministratör. värdet bör vara _kontoadministratören_.
 
 Om du inte kan lägga till en medadministratör kontakta en administratör eller medadministratör för prenumerationen för att hämta själv lagts till.   

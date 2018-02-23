@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Skala din Jenkins distributioner för att uppfylla begäran med Virtuella Azure-agenter
 
@@ -33,7 +33,7 @@ I den här kursen ska du:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration
 * Jenkins huvudserver. Om du inte har någon kan visa den [quickstart](install-jenkins-solution-template.md) att ställa in en i Azure.
@@ -91,7 +91,7 @@ I den här kursen ska du:
             }
      ```
 
-    Slutförda tjänstens huvudnamn ska använda den `id` för **prenumerations-ID**, `appId` värde för **klient-ID**, `password` för **Klienthemlighet**, och en Webbadressen för **OAuth 2.0-Token för slutpunkt** av `https://login.windows.net/<tenant_value>`. Välj **Lägg till** lägga till tjänstens huvudnamn och sedan konfigurera plugin-programmet för att använda den nyligen skapade referensen.
+    Slutförda tjänstens huvudnamn ska använda den `id` för **prenumerations-ID**, `appId` värde för **klient-ID**, `password` för **Klienthemlighet**, och `tenant` för **klient-ID**. Välj **Lägg till** lägga till tjänstens huvudnamn och sedan konfigurera plugin-programmet för att använda den nyligen skapade referensen.
 
     ![Konfigurera Azure tjänstens huvudnamn](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Välj **Kontrollera mallen** att kontrollera konfigurationen och välj sedan **s
 2. Ange `demoproject1` för namn och välj **Freestyle projektet**och välj **OK**.
 3. I den **allmänna** , Välj **begränsa där du kan köra project** och skriv `ubuntu` i **etikettuttrycket**. Du ser ett meddelande som bekräftar att etiketten hanteras av konfigurationen för molnet skapade i föregående steg. 
    ![Ange jobb](./media/jenkins-azure-vm-agents/job-config.png)
-4. I den **källa kod Management** väljer **Git** och Lägg till följande URL till den **databasen URL** fält:`https://github.com/spring-projects/spring-petclinic.git`
+4. I den **källa kod Management** väljer **Git** och Lägg till följande URL till den **databasen URL** fält: `https://github.com/spring-projects/spring-petclinic.git`
 5. I den **skapa** väljer **Lägg till build steg**, sedan **anropa översta Maven mål**. Ange `package` i den **mål** fältet.
 6. Välj **spara** spara jobbdefinitionen.
 

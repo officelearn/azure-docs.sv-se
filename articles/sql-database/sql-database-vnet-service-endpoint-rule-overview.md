@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/13/2018
+ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -127,9 +127,6 @@ Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 ## <a name="limitations"></a>Begränsningar
 
 För Azure SQL Database har funktionen virtuellt nätverk regler följande begränsningar:
-
-- För närvarande en Azure-Webbapp i ett undernät som har **Tjänsteslutpunkter** aktiverat har inte ännu fungera som förväntat. Vi arbetar på att aktivera den här funktionen.
-    - Vi rekommenderar att du flyttar ditt webbprogram till ett annat undernät som inte har Tjänsteslutpunkter aktiverat för SQL förrän den här funktionen är fullständigt genomförd.
 
 - Varje virtuellt nätverk regel refererar till ett undernät i brandväggen för SQL-databas. Dessa refererade undernät måste finnas i samma geografiska region som är värd för SQL-databasen.
 

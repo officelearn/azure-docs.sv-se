@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Skydda dina personliga data med funktioner för nätverkssäkerhet: Azure Application Gateway och Nätverkssäkerhetsgrupper
 
@@ -59,18 +59,9 @@ Du kan skapa en Programgateway med Brandvägg eller Lägg till Brandvägg i en b
 
 Om du vill skapa en ny Programgateway med Brandvägg är aktiverad, gör du följande:
 
-1. Logga in på Azure-portalen och i den **Favoriter** i portalen klickar du på **ny**
-
-2. Klicka på **Nätverk** i bladet **Nytt**.
-
-3. Klicka på **Programgateway**.
-
-4. Gå till Azure-portalen **klickar du på nytt \> nätverk \> Application Gateway.**
-
-   ![Skapa programgatewayer](media/protect-netsec/app-gateway-01.png)
-
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **skapar du en resurs** > **nätverk** > **Programgateway**.
 5. I den **grunderna** bladet som visas, ange värden för följande fält: namn, tjänstnivån (Standard eller Brandvägg) SKU-storleken (små, medelstora eller stora) instansen antalet (2 för hög tillgänglighet), prenumeration, resursgrupp och plats.
-
 6. I den **inställningar** bladet som visas under **för virtuella nätverk**, klickar du på **Välj ett virtuellt nätverk**. Det här steget anger du öppnas bladet välj virtuella nätverk.
 
 7. Klicka på **Skapa nytt** att öppna den **skapa virtuellt nätverk** bladet.
@@ -126,7 +117,7 @@ Mer information i Planera och implementera NSG: er och ett exempelscenario för 
 
 För att skapa regler för inkommande trafik i en befintlig NSG, gör du följande:
 
-1. Klicka på **Bläddra**, och sedan **Nätverkssäkerhetsgrupper**.
+1. Klicka på **alla tjänster**, och sedan **Nätverkssäkerhetsgrupper**.
 
 2. I listan över NSG: er, klickar du på **NSG-klientdel**, och sedan **inkommande säkerhetsregler.**
 
@@ -144,7 +135,7 @@ Mer information om hur du skapar NSG: er i undernät, skapa regler och koppla en
 
 [Azure nätverkssäkerhet](https://azure.microsoft.com/blog/azure-network-security/)
 
-[Säkerhetsmetoder för Azure-nätverk](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+[Metodtips för nätverkssäkerhet i Azure](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 
 [Hämta information om en nätverkssäkerhetsgrupp](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 

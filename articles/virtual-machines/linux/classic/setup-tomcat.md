@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Ställa in Tomcat7 på en Linux-dator med Azure
 Apache Tomcat (eller bara Tomcat kan också kallades Djakarta Tomcat) är en öppen källkod webbservern och servlet-behållare som utvecklats av Apache Software Foundation (ASF). Tomcat implementerar Java-Servlet och specifikationer för JavaServer sidor (JSP) från Sun Microsystems. Tomcat ger en ren Java HTTP web server-miljö där du kan köra Java-kod. I den enklaste konfigurationen körs Tomcat i en enda process. Den här processen körs en Java virtual machine (JVM). Alla HTTP-begäran från en webbläsare till Tomcat behandlas som en separat tråd i Tomcat-processen.  
@@ -64,7 +64,7 @@ Följ dessa steg för att generera nyckeln SSH-autentisering.
 6. Klicka på **Spara privat nyckel**, och spara den i en fil med namnet privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Steg 2: Skapa avbildningen i Azure-portalen
-1. I den [portal](https://portal.azure.com/), klickar du på **ny** i Aktivitetsfältet för att skapa en avbildning. Välj den Linux-avbildning som är baserad på dina behov. I följande exempel används Ubuntu 14.04 bilden.
+1. I den [portal](https://portal.azure.com/), klickar du på **skapar du en resurs** i Aktivitetsfältet för att skapa en avbildning. Välj den Linux-avbildning som är baserad på dina behov. I följande exempel används Ubuntu 14.04 bilden.
 ![Skärmbild av portalen som visar knappen Nytt][3]
 
 2. För **värdnamn**, ange namnet på den URL som du och Internet-klienter använder för att komma åt den virtuella datorn. Definiera den sista delen av DNS-namn, till exempel tomcatdemo. Azure skapar sedan URL: en som tomcatdemo.cloudapp.net.  
@@ -238,7 +238,7 @@ Efter anslutning, bör du se något som liknar följande:
 
 ## <a name="common-issues"></a>Vanliga problem
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>Det går inte att komma åt den virtuella datorn med Tomcat och Moodle från Internet
-#### <a name="symptom"></a>Symtom  
+#### <a name="symptom"></a>Symptom  
   Tomcat körs men du kan inte se sidan Tomcat standard med din webbläsare.
 #### <a name="possible-root-cause"></a>Möjliga underliggande orsaker   
 
@@ -287,7 +287,7 @@ Kör följande kommando för att läsa in iptables:
 Det här har testats på CentOS 6.3.
 
 ### <a name="permission-denied-when-you-upload-project-files-to-varlibtomcat7webapps"></a>Åtkomst nekad när du överför projektfilerna till /var/lib/tomcat7/webapps /
-#### <a name="symptom"></a>Symtom
+#### <a name="symptom"></a>Symptom
   När du använder en SFTP-klient (till exempel FileZilla) att ansluta till den virtuella datorn och navigera till /var/lib/tomcat7/webapps/publicera webbplatsen kan få du ett felmeddelande liknar följande:  
 
      status:    Listing directory /var/lib/tomcat7/webapps

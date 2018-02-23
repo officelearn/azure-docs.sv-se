@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera Tjänstkarta i Operations Management Suite | Microsoft Docs"
-description: "Tjänstkarta är en Operations Management Suite-lösning som automatiskt identifierar programkomponenter på Windows- och Linux-system och mappar kommunikationen mellan tjänster. Den här artikeln innehåller information för att distribuera Tjänstkarta i din miljö och använda den i en mängd olika scenarier."
+title: "Konfigurera Tjänstkarta i Azure | Microsoft Docs"
+description: "Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Tjänstkarta i din miljö och använda den i en mängd olika scenarier."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Konfigurera Tjänstkarta i Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du betrakta dem--som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med än installation av en agent krävs ingen konfiguration.
 
-Den här artikeln innehåller information om konfigurera Tjänstkarta och onboarding-agenter. Information om hur du använder Tjänstkarta finns [använder Tjänstkarta lösningen i Operations Management Suite](operations-management-suite-service-map.md).
+Den här artikeln innehåller information om konfigurera Tjänstkarta och onboarding-agenter. Information om hur du använder Tjänstkarta finns [använda Tjänstkarta lösningen i Azure](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Hämtar Beroendeagent
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Anslutna källor
-Tjänstkarta hämtar data från Microsoft Beroendeagent. Agenten beroende beror på OMS-Agent för sina anslutningar till Operations Management Suite. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan beroende agenten kan installeras. I följande tabell beskrivs anslutna källor som har stöd för Tjänstkarta-lösning.
+Tjänstkarta hämtar data från Microsoft Beroendeagent. Agenten beroende beror på OMS-Agent för sina anslutningar till logganalys. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan beroende agenten kan installeras. I följande tabell beskrivs anslutna källor som har stöd för Tjänstkarta-lösning.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
 | Windows-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer med Windows-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
 | Linux-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer för Linux-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
-| System Center Operations Manager-hanteringsgrupp | Ja | Tjänstkarta analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](../log-analytics/log-analytics-om-agents.md). <br><br>Det krävs en direkt anslutning från datorn som System Center Operations Manager-agenten till Operations Management Suite. Data skickas från hanteringsgruppen till Operations Management Suite-databasen.|
+| System Center Operations Manager-hanteringsgrupp | Ja | Tjänstkarta analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](../log-analytics/log-analytics-om-agents.md). <br><br>Det krävs en direkt anslutning från System Center Operations Manager-agentdatorn till logganalys. Data skickas från hanteringsgruppen till logganalys-arbetsytan.|
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från det att samla in från Azure Storage. |
 
 Tjänstkarta stöder endast 64-bitars plattformar.
 
-I Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och Operations Management Suite att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-Agent, OMS-Agent, Log Analytics Agent, MMA eller direkt Agent, beroende på kontext.) System Center Operations Manager och Operations Management Suite ger olika out av the box-versioner av MMA. Dessa versioner kan varje rapport till System Center Operations Manager, Operations Management Suite, eller båda.  
+I Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och logganalys att samla in och skicka övervakningsdata. (Den här agenten kallas System Center Operations Manager-Agent, OMS-Agent, Log Analytics Agent, MMA eller direkt Agent, beroende på kontext.) System Center Operations Manager och Log Analytics ger olika out av the box-versioner av MMA. Dessa versioner kan varje rapport till System Center Operations Manager till logganalys eller båda.  
 
-På Linux, OMS-Agent för Linux samlar in och skickar övervakningsdata till Operations Management Suite. Du kan använda Tjänstkarta på servrar med OMS direkt agenter eller servrar som är kopplade till Operations Management Suite via System Center Operations Manager-hanteringsgrupper.  
+På Linux, OMS-Agent för Linux samlar in och skickar övervakningsdata till logganalys. Du kan använda Tjänstkarta på servrar med OMS direkt agenter eller servrar som är kopplade till logganalys via System Center Operations Manager-hanteringsgrupper.  
 
-I den här artikeln ska vi refererar till alla agenter--om Linux- eller Windows, om ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Operations Management Suite--som ”OMS-agenten”. Vi använder distributionsnamnet på agenten endast om det behövs för kontext.
+I den här artikeln ska vi refererar till alla agenter--om Linux- eller Windows, om ansluten till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics--som ”OMS-agenten”. Vi använder distributionsnamnet på agenten endast om det behövs för kontext.
 
-Tjänstkarta agenten överföra inte alla data och kräver inte ändringar brandväggar och portar. Data i Tjänstkartan överförs alltid av OMS-Agent till Operations Management Suite, antingen direkt eller via OMS-Gateway.
+Tjänstkarta agenten överföra inte alla data och kräver inte ändringar brandväggar och portar. Data i Tjänstkartan överförs alltid av OMS-Agent till logganalys, antingen direkt eller via OMS-Gateway.
 
 ![Tjänstkarta agenter](media/oms-service-map/agents.png)
 
-Om du är en System Center Operations Manager-kund med en hanteringsgrupp som är anslutna till Operations Management Suite:
+Om du är en System Center Operations Manager-kund med en hanteringsgrupp som är ansluten till logganalys:
 
-- Om System Center Operations Manager-agenter kan komma åt Internet för att ansluta till Operations Management Suite, krävs ingen ytterligare konfiguration.  
-- Om System Center Operations Manager-agenter inte kan komma åt Operations Management Suite via Internet, måste du konfigurera OMS-Gateway att fungera med System Center Operations Manager.
+- Om System Center Operations Manager-agenter kan komma åt Internet för att ansluta till logganalys, krävs ingen ytterligare konfiguration.  
+- Om System Center Operations Manager-agenter inte kan komma åt logganalys via Internet, måste du konfigurera OMS-Gateway att fungera med System Center Operations Manager.
   
-Om du använder direkt OMS-agenten måste du konfigurera OMS själva agenten att ansluta till Operations Management Suite eller till din OMS-Gateway. OMS-Gateway kan hämtas från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Om du använder direkt OMS-agenten måste du konfigurera OMS själva agenten att ansluta till logganalys eller till din OMS-Gateway. OMS-Gateway kan hämtas från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Hanteringspaket
-När Tjänstkarta är aktiverat i en Operations Management Suite-arbetsyta, skickas ett 300 KB hanteringspaket till alla Windows-servrar i arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. Om agenter är anslutna direkt levererar Operations Management Suite management pack.
+När Tjänstkarta är aktiverat i logganalys-arbetsytan, skickas ett 300 KB hanteringspaket till alla Windows-servrar på arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. Om agenter är anslutna direkt levererar Log Analytics management pack.
 
 Management pack heter Microsoft.IntelligencePacks.ApplicationDependencyMonitor. De skrivs till %Programfiles%\Microsoft övervakning Agent\Agent\Health Service State\Management Packs\. Datakällan som används av management pack är % Program files%\Microsoft övervakning Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ Du kan använda följande exempel för att distribuera Azure VM-tillägget via P
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Ett enklare sätt att kontrollera den beroende agenten finns på var och en av d
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Om Beroendeagent-installationen har slutförts, men du inte ser servern i Tjäns
 
 * Är du på den [kostnadsfria prisnivån för Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Fria abonnemang tillåter upp till fem unika servrar i Tjänstkartan. Övriga servrar visas inte i Tjänstkartan, även om de tidigare fem längre skickar data.
 
-* Är din server skicka logg- och prestandadata till Operations Management Suite? Gå till loggen Sök och kör följande fråga för datorn: 
+* Är din server skicka logg- och prestandadata till Log Analytics? Gå till loggen Sök och kör följande fråga för datorn: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Fick du ett antal händelser i resultaten? Är data senaste? I så fall, fungerar OMS-Agent och kommunicera med Operations Management Suite-tjänsten. Om inte, kontrollera OMS-agenten på servern: [OMS-Agent för Windows felsökning](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) eller [OMS-Agent för Linux felsökning](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Fick du ett antal händelser i resultaten? Är data senaste? I så fall, fungerar OMS-Agent och kommunicerar med logganalys. Om inte, kontrollera OMS-agenten på servern: [OMS-Agent för Windows felsökning](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) eller [OMS-Agent för Linux felsökning](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Tjänstkartan men har inga processer
 Om du ser servern i Tjänstkartan, men den har ingen process eller anslutning till data, som anger att beroende-agenten är installerad och körs, men kernel-drivrutinen lästes inte in. 

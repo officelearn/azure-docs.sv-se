@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -40,7 +40,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 
 * **F: kan användarna registrera sina egna data för återställning av lösenord?**
 
-  > **S:** Ja. Så länge lösenordsåterställning har aktiverats och de licensierade kan användare gå till registreringsportalen för lösenordsåterställning (http://aka.ms/ssprsetup) att registrera sina autentiseringsinformationen. Användarna kan också registrera via åtkomstpanelen (http://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver väljer deras profilbild, väljer **profil**, och välj sedan den **registrera dig för lösenordsåterställning** alternativet.
+  > **S:** Ja. Så länge lösenordsåterställning har aktiverats och de licensierade kan användare gå till registreringsportalen för lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sina autentiseringsinformationen. Användarna kan också registrera via åtkomstpanelen (http://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver väljer deras profilbild, väljer **profil**, och välj sedan den **registrera dig för lösenordsåterställning** alternativet.
   >
   >
 * **F: om jag aktiverar lösenord återställer för en grupp och sedan väljer att aktivera det för alla mina användare krävs registrera?**
@@ -180,7 +180,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
   >
 * **F: om en användare har registrerats fler än det maximala antalet frågor som krävs för att återställa, hur säkerhetsfrågorna väljs under återställning?**
 
-  > **S:** *N* antal säkerhetsfrågor väljs slumpmässigt utanför det totala antalet frågor en användare har registrerats för var *N* är den som har angetts för den  **Antal frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och uppvisas vid återställning. Om du vill förhindra att fråga hammering, om användaren får svar på frågorna fel markeringen processen startar över.
+  > **S:** *N* antal säkerhetsfrågor väljs slumpmässigt utanför det totala antalet frågor en användare har registrerats för var *N* är den som har angetts för den **tal frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och uppvisas vid återställning. Om du vill förhindra att fråga hammering, om användaren får svar på frågorna fel markeringen processen startar över.
   >
   >
 * **F: hur lång tid är e-post och SMS enstaka lösenord giltig?**

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Skydda privilegierad åtkomst i Azure AD
 Skydda privilegierad åtkomst är ett viktigt första steg för att skydda företagets tillgångar i en modern organisation. Privilegierade konton är konton som administrera och hantera IT-system. Cyber angripare mål dessa konton för att få åtkomst till företagets data och system. Om du vill skydda privilegierad åtkomst bör du isolera konton och system från risk att utsättas för en obehörig användare.
@@ -50,7 +50,7 @@ Mer information finns i [MFA för Office 365 och Azure MFA](https://blogs.techne
 ## <a name="time-bound-privileges"></a>Tidsbundna privilegier
 Vissa organisationer kan hitta de har för många användare i mycket Privilegierade roller. En användare kan ha lagts till rollen för en viss aktivitet som du registrerar dig för en tjänst, men använder inte de behörigheterna som ofta efteråt.
 
-För att minska exponeringstid privilegier och öka din insyn i deras användning, begränsa användare till att endast ta med på sina privilegier just-in-time ”(JIT) eller tilldela dessa roller för en kortare varaktighet tryggt behörigheter återkallas automatiskt. Du kan använda för Azure Active Directory, Azure-resurser (förhandsversion) och Microsoft Online Services, [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+För att minska exponeringstid privilegier och öka din insyn i deras användning, begränsa användare till att endast ta med på sina privilegier just-in-time ”(JIT) eller tilldela dessa roller för en kortare varaktighet tryggt behörigheter återkallas automatiskt. Du kan använda för Azure Active Directory, Azure-resurser (förhandsversion) och Microsoft Online Services, [Azure AD Privileged Identity Management (PIM)](https://aka.ms/AzurePIM).
 
 ![PIM-instrumentpanelen][2]
 
@@ -68,7 +68,7 @@ Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du välje
 * Aktivera [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Aktivera [villkorlig åtkomstkontroll](../active-directory-conditional-access-azure-portal.md)
 
-Mer information om hur du skapar en plan för fullständig säkerhet finns i avsnittet ”kundens ansvarsområden och översikt över” för den [Microsoft Cloud Security för Enterprise-arkitekter](http://aka.ms/securecustomer) dokumentet. Mer information om att Microsoft-tjänster för att hjälpa till med någon av dessa avsnitt, kontakta din Microsoft-representant eller besök vår [Cybersecurity lösningar sidan](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Mer information om hur du skapar en plan för fullständig säkerhet finns i avsnittet ”kundens ansvarsområden och översikt över” för den [Microsoft Cloud Security för Enterprise-arkitekter](https://aka.ms/securecustomer) dokumentet. Mer information om att Microsoft-tjänster för att hjälpa till med någon av dessa avsnitt, kontakta din Microsoft-representant eller besök vår [Cybersecurity lösningar sidan](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

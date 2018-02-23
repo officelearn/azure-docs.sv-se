@@ -1,8 +1,8 @@
 ---
 title: "Skapa åtgärdsgrupper med Resource Manager-mallar | Microsoft Docs"
 description: "Lär dig hur du skapar en grupp med en Azure Resource Manager-mall."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 5e715cad5cb28ad0c763ffb29c43e9ee98741699
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 1f97bf1e1e5c2800c2cdc16a6bcc1837f178e408
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en grupp med en Resource Manager-mall
 Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) så här konfigurerar du åtgärdsgrupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärdsgrupper som kan återanvändas i vissa typer av aviseringar. Åtgärdsgrupperna se till att rätt parterna meddelas när en avisering utlöses.
@@ -33,7 +33,7 @@ Först beskrivs hur du skapar en Resource Manager-mall för en grupp där defini
 
 ## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en grupp
 
-Om du vill skapa en grupp med hjälp av en Resource Manager-mall som du skapar en resurs av typen `Microsoft.Insights/actionGroups`. Du fylla i alla relaterade egenskaper. Här är två exempelmallar som skapar en grupp.
+Om du vill skapa en grupp med en Resource Manager-mall som du skapar en resurs av typen `Microsoft.Insights/actionGroups`. Du fylla i alla relaterade egenskaper. Här är två exempelmallar som skapar en grupp.
 
 ```json
 {
@@ -56,7 +56,7 @@ Om du vill skapa en grupp med hjälp av en Resource Manager-mall som du skapar e
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -139,7 +139,7 @@ Om du vill skapa en grupp med hjälp av en Resource Manager-mall som du skapar e
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

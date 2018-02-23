@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Komma igång med Azure Stream Analytics: att upptäcka bedrägerier i realtid
 
@@ -61,7 +61,7 @@ Att analysera en dataström du *infognings-* till Azure. Ett vanligt sätt att m
 ### <a name="create-a-namespace-and-event-hub"></a>Skapa ett namnområde och händelse-hubb
 I den här proceduren du först skapa en event hub-namnområde och sedan lägga till en händelsehubb i detta namnområde. Event hub namnområden används för att gruppera relaterade händelser-bussen instanser. 
 
-1. Logga in på Azure portal och klicka på **ny** > **Sakernas Internet** > **Händelsehubb**. 
+1. Logga in på Azure portal och klicka på **skapar du en resurs** > **Sakernas Internet** > **Händelsehubb**. 
 
 2. I den **skapa namnområdet** rutan Ange ett namn för namnområdet som `<yourname>-eh-ns-demo`. Du kan använda valfritt namn för namnområdet, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
@@ -165,7 +165,7 @@ Nu när du har en dataström med anropet händelser kan ställa du in ett Stream
 
 ### <a name="create-the-job"></a>Skapa jobbet 
 
-1. I Azure-portalen klickar du på **ny** > **Sakernas Internet** > **Stream Analytics-jobbet**.
+1. I Azure-portalen klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
 
 2. Namnge jobbet `sa_frauddetection_job_demo`, ange en prenumeration, resursgrupp och plats.
 

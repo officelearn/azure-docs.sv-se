@@ -1,6 +1,6 @@
 ---
 title: Skapa anpassade instrumentpaneler i Azure Application Insights | Microsoft Docs
-description: "Självstudiekurs om att skapa anpassade KPI instrumentpaneler med hjälp av Azure Application Insights."
+description: "Självstudie för att skapa anpassade KPI-instrumentpaneler med Azure Application Insights."
 keywords: 
 services: application-insights
 author: mrbullwinkle
@@ -10,123 +10,123 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI instrumentpaneler med hjälp av Azure Application Insights
+# <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 
-Du kan skapa flera instrumentpaneler i Azure-portalen som varje inkludera paneler visualisera data från flera Azure-resurser mellan olika resursgrupper och prenumerationer.  Du kan fästa olika tabeller och vyer från Azure Application Insights för att skapa anpassade instrumentpaneler som ger dig fullständig bild av hälsan och prestanda för ditt program.  Den här självstudiekursen vägleder dig genom att skapa en anpassad instrumentpanel som innehåller flera typer av data och visualiseringar från Azure Application Insights.  Lär dig att:
+Du kan skapa flera instrumentpaneler i Azure-portalen som var och en inkluderar paneler som visualiserar data från flera Azure-resurser i olika grupper och prenumerationer.  Du kan fästa olika diagram och vyer från Azure Application Insights för att skapa anpassade instrumentpaneler som ger dig en fullständig bild av programmets hälsa och prestanda.  Den här självstudien vägleder dig igenom skapandet av en anpassad instrumentpanel som inkluderar fler typer av data och visualiseringar från Azure Application Insights.  Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad instrumentpanel i Azure
-> * Lägg till en panel från galleriet sida vid sida
-> * Lägg till standard mått i Application Insights på instrumentpanelen 
-> * Lägga till ett anpassat mått diagram Application Insights på instrumentpanelen
-> * Lägga till resultatet av en Analytics-fråga på instrumentpanelen 
+> * Lägga till en panel från panelgalleriet
+> * Lägga till standardmått i Application Insights till instrumentpanelen 
+> * Lägga till ett anpassat måttdiagram i Application Insights till instrumentpanelen
+> * Lägga till resultatet från en Analytics-fråga till instrumentpanelen 
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md). 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
-En enda instrumentpanel kan innehålla resurser från flera program, resursgrupper och prenumerationer.  Starta guiden genom att skapa en ny instrumentpanel för ditt program.  
+En enda instrumentpanel kan innehålla resurser från flera program, resursgrupper och prenumerationer.  Börja självstudien genom att skapa en ny instrumentpanel för ditt program.  
 
-2.  Huvudfönstret i portalen och välj **ny instrumentpanel**.
+2.  I portalens huvudfönster väljer du **Ny instrumentpanel**.
 
     ![Ny instrumentpanel](media/app-insights-tutorial-dashboards/new-dashboard.png)
 
 3. Ange ett namn för instrumentpanelen.
-4. Ta en titt på den **panelen galleriet** för olika paneler som du kan lägga till din instrumentpanel.  Förutom att lägga till paneler från galleriet kan du fästa diagram och andra vyer direkt från Application Insights på instrumentpanelen.
-5. Leta upp den **Markdown** panelen och dra in på din instrumentpanel.  Den här panelen kan du lägga till text som har formaterats i markdown idealisk för att lägga till beskrivande text i instrumentpanelen.
-6. Lägga till text i på panelen Egenskaper och storlek på arbetsytan för instrumentpanelen.
+4. Ta en titt i **panelgalleriet** och se olika paneler som du kan lägga till i instrumentpanelen.  Utöver att lägga till filer från galleriet kan du fästa diagram och andra vyer direkt från Application Insights till instrumentpanelen.
+5. Leta rätt på panelen **Markdown** och dra den till din instrumentpanel.  Med den här panelen kan du lägga till text som är formaterad i Markdown, vilket är idealiskt för att lägga till beskrivande text i instrumentpanelen.
+6. Lägg till text i panelens egenskaper och ändra storlek på den på instrumentpanelens arbetsyta.
     
-    ![Redigera markdown sida vid sida](media/app-insights-tutorial-dashboards/edit-markdown.png)
+    ![Redigera Markdown-panel](media/app-insights-tutorial-dashboards/edit-markdown.png)
 
-6. Klicka på **klar anpassa** överst på skärmen för att avsluta panelen anpassning läge och sedan **publicera ändringar** att spara ändringarna.
+6. Klicka på **Anpassningen är klar** överst på skärmen för att avsluta läget för panelanpassning och sedan på **Publicera ändringar** för att spara dina ändringar.
 
-    ![Instrumentpanel med markdown sida vid sida](media/app-insights-tutorial-dashboards/dashboard-01.png)
-
-
-## <a name="add-health-overview"></a>Lägg till hälsa översikt
-En instrumentpanel med bara statisk text inte mycket intressanta, så nu lägga till en panel från Application Insights för att visa information om ditt program.  Du kan lägga till Application Insights brickor från galleriet panelen eller du kan fästa dem direkt från Application Insights skärmar.  På så sätt kan du konfigurera tabeller och vyer som du redan är bekant med innan du fäster dem på instrumentpanelen.  Starta genom att lägga till standard hälsa översikt för ditt program.  Det krävs ingen konfiguration och gör minimal anpassning på instrumentpanelen.
+    ![Instrumentpanel med Markdown-panel](media/app-insights-tutorial-dashboards/dashboard-01.png)
 
 
-1. Välj **Programinsikter** i Azure-menyn och välj sedan dina program.
-2. I den **översikt över tidslinjen**, Välj snabbmenyn och klickar på **fäst på instrumentpanelen**.  Detta lägger till panelen till den senaste instrumentpanel som du tittade.  
+## <a name="add-health-overview"></a>Lägga till hälsoöversikt
+En instrumentpanel med bara statisk text är inte särskilt intressant, så lägg nu till en panel från Application Insights som visar information om ditt program.  Du kan lägga till Application Insights-paneler från panelgalleriet eller fästa dem direkt från skärmarna i Application Insights.  På så sätt kan du konfigurera tabeller och vyer som du redan är bekant med innan du fäster dem på instrumentpanelen.  Börja med att lägga till en standardhälsoöversikt för programmet.  Det kräver ingen konfiguration och gör en minimal anpassning i instrumentpanelen.
 
-    ![Översikt över tidslinjen för PIN-kod](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
+
+1. Välj **Application Insights** på Azure-menyn och välj sedan ditt program.
+2. På **översiktstidslinjen** väljer du snabbmenyn och klickar på **Fäst på instrumentpanelen**.  Då läggs panelen till i instrumentpanelen som du visade senast.  
+
+    ![Fästa översiktstidslinje](media/app-insights-tutorial-dashboards/pin-overview-timeline.png)
  
-3. Överst på skärmen klickar du på **visa instrumentpanelen** att återgå till instrumentpanelen.
-4. Översikt över tidslinjen läggs nu till din instrumentpanel.  Klicka och dra den på plats och sedan på **klar anpassa** och **publicera ändringar i**.  Din instrumentpanel har nu en panel med användbar information.
+3. Överst på skärmen klickar du på **Visa instrumentpanel** för att återgå till instrumentpanelen.
+4. Översiktstidslinjen läggs nu till i instrumentpanelen.  Klicka och dra den på plats och klicka sedan på **Anpassningen är klar** och **Publicera ändringar**.  Instrumentpanelen har nu en panel med lite användbar information.
 
-    ![Instrumentpanel med översikt över tidslinjen](media/app-insights-tutorial-dashboards/dashboard-02.png)
+    ![Instrumentpanel med översiktens tidslinje](media/app-insights-tutorial-dashboards/dashboard-02.png)
 
 
 
-## <a name="add-custom-metric-chart"></a>Lägga till anpassade mått diagram
-Den **mått** panelen kan du ett diagram över ett mått som samlas in av Application Insights över tid med valfritt filter och gruppering.  Du kan lägga till det här diagrammet på instrumentpanelen som allt annat i Application Insights.  Detta kräver att du ska göra lite anpassning först.
+## <a name="add-custom-metric-chart"></a>Lägga till anpassade måttdiagram
+I panelen **Mått** kan du visa ett diagram över ett mått som samlas in av Application Insights över tid med valfritt filter och valfri gruppering.  Du kan lägga till det här diagrammet på instrumentpanelen, precis som med allt annat i Application Insights.  Det kräver lite anpassning först.
 
-1. Välj **Programinsikter** i Azure-menyn och välj sedan dina program.
-1. Välj **mått**.  
-2. Ett tomt diagram redan har skapats och du uppmanas att lägga till ett mått.  Lägga till ett mått i diagrammet och eventuellt lägga till ett filter och en gruppering.  Exemplet nedan visar antalet serverbegäranden grupperade efter lyckades.  Detta ger en körs vy av lyckade och misslyckade förfrågningar.
+1. Välj **Application Insights** på Azure-menyn och välj sedan ditt program.
+1. Välj **Mått**.  
+2. Ett tomt diagram har redan skapats, och du uppmanas att lägga till ett mått.  Lägg till ett mått i diagrammet och lägg eventuellt till ett filter och en gruppering.  I exemplet nedan visas antalet serverbegäranden grupperade efter framgång.  Då får du en löpande vy över slutförda och misslyckade begäranden.
 
-    ![Lägg till mått](media/app-insights-tutorial-dashboards/metrics-chart.png)
+    ![Lägga till mått](media/app-insights-tutorial-dashboards/metrics-chart.png)
 
-4. Välj snabbmenyn för diagrammet och välj **fäst på instrumentpanelen**.  Vyn läggs till i den senaste instrumentpanel som du arbetade med.
+4. Välj snabbmenyn för diagrammet och välj **Fäst på instrumentpanelen**.  Då läggs vyn till i instrumentpanelen som du arbetade med senast.
 
-    ![PIN-kod mått diagram](media/app-insights-tutorial-dashboards/pin-metrics-chart.png)
+    ![Fästa måttdiagram](media/app-insights-tutorial-dashboards/pin-metrics-chart.png)
 
-3. Överst på skärmen klickar du på **visa instrumentpanelen** att återgå till instrumentpanelen.
+3. Överst på skärmen klickar du på **Visa instrumentpanel** för att återgå till instrumentpanelen.
 
-4. Översikt över tidslinjen läggs nu till din instrumentpanel.  Klicka och dra den på plats och sedan på **klar anpassa** och sedan **publicera ändringar i**. 
+4. Tidslinjens måttdiagram läggs nu till i instrumentpanelen. Klicka och dra den på plats och klicka sedan på **Anpassningen är klar** och **Publicera ändringar**. 
 
-    ![instrumentpanel med mått](media/app-insights-tutorial-dashboards/dashboard-03.png)
+    ![Instrumentpanel med mått](media/app-insights-tutorial-dashboards/dashboard-03.png)
 
 
 ## <a name="metrics-explorer"></a>Metrics Explorer
-**Metrics Explorer** liknar mått trots att den tillåter betydligt mer anpassning när de läggs till på instrumentpanelen.  Där du kurva dina beror på dina specifika önskemål och krav.
+**Metrics Explorer** liknar Metrics, men det går att anpassa mycket mer när det läggs till i instrumentpanelen.  Vilken du använder för att visa dina mått beror på dina önskemål och krav.
 
-1. Välj **Programinsikter** i Azure-menyn och välj sedan dina program.
+1. Välj **Application Insights** på Azure-menyn och välj sedan ditt program.
 1. Välj **Metrics Explorer**. 
-2. Klicka om du vill redigera diagrammet och välj ett eller flera mått och eventuellt en detaljerad konfiguration.  Exemplet visar ett linjediagram spåra genomsnittlig sidan svarstid.
-3. Klicka på ikonen PIN-kod i övre behörighet att lägga till diagrammet på din instrumentpanel och dra den på plats.
+2. Klicka för att redigera diagrammet och välj ett eller flera mått och eventuellt en detaljerad konfiguration.  I exemplet visas ett linjediagram som visar genomsnittlig svarstid för sidor.
+3. Klicka på fästikonen överst till höger för att lägga till diagrammet till instrumentpanelen och dra den sedan på plats.
 
     ![Metrics Explorer](media/app-insights-tutorial-dashboards/metrics-explorer.png)
 
-4. Panelen Metrics Explorer tillåter anpassning av mer när den har lagts till på instrumentpanelen.  Högerklicka på panelen och välj **redigera titel** att lägga till en anpassad rubrik.  Gå vidare och göra andra anpassningar om du vill.
+4. I panelen Metrics Explorer går det att anpassa mer när den har lagts till i instrumentpanelen.  Högerklicka på panelen och välja **Redigera rubrik** för att lägga till en anpassad rubrik.  Gå vidare och gör andra anpassningar om du vill.
 
-    ![Instrumentpanel med metrics explorer](media/app-insights-tutorial-dashboards/dashboard-04a.png)
+    ![Instrumentpanel med Metrics Explorer](media/app-insights-tutorial-dashboards/dashboard-04a.png)
 
-5. Nu har du Metrics Explorer-diagram lagts till på instrumentpanelen.
+5. Nu är Metrics Explorer-diagrammet tillagt i instrumentpanelen.
 
-    ![Instrumentpanel med metrics explorer](media/app-insights-tutorial-dashboards/dashboard-04.png)
+    ![Instrumentpanel med Metrics Explorer](media/app-insights-tutorial-dashboards/dashboard-04.png)
 
-## <a name="add-analytics-query"></a>Lägg till Analytics-fråga
-Azure Application Insights Analytics ger ett rikt frågespråk som hjälper dig att analysera alla data som samlas in Application Insights.  Du kan lägga till utdata från en Analytics-fråga på instrumentpanelen precis som diagram och andra vyer.   
+## <a name="add-analytics-query"></a>Lägga till Analytics-fråga
+Azure Application Insights Analytics har ett funktionsrikt frågespråk som gör att du kan analysera alla data som samlas in av Application Insights.  Precis som diagram och andra vyer kan du lägga till utdata resultatet från en Analytics-fråga till instrumentpanelen.   
 
-Eftersom Azure program insikter Analytics är en separat tjänst, behöver du dela instrumentpanelen för att den ska innehålla en Analytics-fråga.  När du delar en Azure instrumentpanel kan publicera du den som en Azure-resurs som kan göra den tillgänglig för andra användare och resurser.  
+Eftersom Azure Applications Insights Analytics är en separat tjänst måste du dela din instrumentpanel för att den ska ta med en Analytics-fråga.  När du delar en Azure-instrumentpanel publicerar du den som en Azure-resurs som kan göra den tillgänglig för andra användare och resurser.  
 
-1. Överst på skärmen instrumentpanelen klickar du på **resursen**.
+1. Överst i instrumentpanelens skärm klickar du på **Dela**.
 
-    ![publicera instrumentpanelen](media/app-insights-tutorial-dashboards/publish-dashboard.png)
+    ![Publicera instrumentpanel](media/app-insights-tutorial-dashboards/publish-dashboard.png)
 
-2. Behåll den **instrumentpanelens namn** samma och väljer den **prenumerationsnamn** att dela instrumentpanelen.  Klicka på **Publicera**.  Instrumentpanelen är nu tillgänglig för andra tjänster och prenumerationer.  Alternativt kan du definiera specifika användare som ska ha åtkomst till instrumentpanelen.
-1. Välj **Programinsikter** i Azure-menyn och välj sedan dina program.
-2. Klicka på **Analytics** överst på skärmen för att öppna Analytics-portalen.
+2. Behåll samma **namn på instrumentpanelen** och välj **prenumerationens namn** för att dela instrumentpanelen.  Klicka på **Publicera**.  Nu är instrumentpanelen tillgänglig för andra tjänster och prenumerationer.  Om du vill kan du definiera specifika användare som ska ha åtkomst till instrumentpanelen.
+1. Välj **Application Insights** på Azure-menyn och välj sedan ditt program.
+2. Klicka på **Analytics** överst på skärmen om du vill öppna Analytics-portalen.
 
     ![Starta Analytics](media/app-insights-tutorial-dashboards/start-analytics.png)
 
-3. Skriv följande fråga som returnerar de översta 10 mest efterfrågade sidorna och antal begäran:
+3. Skriv följande fråga som returnerar de 10 mest efterfrågade sidorna och antal förfrågningar:
 
     ```
     requests
@@ -135,12 +135,12 @@ Eftersom Azure program insikter Analytics är en separat tjänst, behöver du de
     | take 10 
     ```
 
-4. Klicka på **Gå** kontrollera resultatet av frågan.
-5. Klicka på ikonen PIN-kod och välj namnet på instrumentpanelen.  Orsaken till att det här alternativet har du väljer en instrumentpanel till skillnad från föregående steg där senaste instrumentpanelen användes är eftersom konsolen Analytics är en separat tjänst och behöver välja från alla tillgängliga delade instrumentpaneler.
+4. Klicka på **Go** (Kör) för att validera frågans resultat.
+5. Klicka på fästikonen och välj instrumentpanelens namn.  Anledningen till att du via det här alternativet måste välja en instrumentpanel till skillnad från tidigare steg där den senaste instrumentpanelen användes är att Analytics-konsolen är en separat tjänst och måste väljas från alla tillgängliga delade instrumentpaneler.
 
-    ![PIN-kod Analytics-fråga](media/app-insights-tutorial-dashboards/analytics-pin.png)
+    ![Fästa Analytics-fråga](media/app-insights-tutorial-dashboards/analytics-pin.png)
 
-5. Innan du går tillbaka till instrumentpanelen, lägga till en annan fråga, men nu visa den som ett schema så att du kan se de olika sätten att visualisera Analytics-fråga på en instrumentpanel.  Börja med följande fråga som sammanfattar de översta 10 åtgärderna med de flesta undantag.
+5. Innan du går tillbaka till instrumentpanelen lägger du till ytterligare en fråga, men den här gången ska du rendera den som ett diagram så du ser de olika sätten att visualisera en Analytics-fråga i en instrumentpanel.  Börja med följande fråga som summerar de 10 vanligaste åtgärderna med flest undantag.
 
     ```
     exceptions
@@ -149,21 +149,21 @@ Eftersom Azure program insikter Analytics är en separat tjänst, behöver du de
     | take 10 
     ```
 
-6. Välj **diagram** och ändra till en **ringdiagram** visualisera utdata.
+6. Välj **Diagram** och byt till en **ring** för att visualisera resultatet.
 
     ![Analytics-diagram](media/app-insights-tutorial-dashboards/analytics-chart.png)
 
-6. Klicka på ikonen PIN-kod för att fästa diagrammet på din instrumentpanel och nu Klicka på länken om du vill gå tillbaka till instrumentpanelen.
-4. Resultatet av frågorna läggs nu till din instrumentpanel i det format som du har valt.  Klicka och dra varje på plats och klicka sedan på **är klar med redigeringen**.
-5. Högerklicka på var och en av de paneler och välj **redigera rubrik** att ge dem en beskrivande rubrik.
+6. Klicka på fästikonen för att fästa diagrammet på instrumentpanelen och välj den här gången länken för att återgå till instrumentpanelen.
+4. Resultatet av frågorna läggs nu till i instrumentpanelen i det format du har valt.  Klicka och dra var och en på plats och markera sedan att **redigeringen är slutförd**.
+5. Högerklicka på varje panel och välj **Redigera rubrik** för att ge dem en beskrivande rubrik.
 
     ![Instrumentpanel med Analytics](media/app-insights-tutorial-dashboards/dashboard-05.png)
 
-5. Klicka på **publicera ändringar** att genomföra ändringarna till din instrumentpanel som innehåller nu en mängd olika diagram och visualiseringar från Application Insights.
+5. Klicka på **Publicera ändringar** för att genomföra ändringarna i instrumentpanelen som nu innehåller många olika diagram och visualiseringar från Application Insights.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du skapar anpassade instrumentpaneler, ta en titt på resten av Application Insights dokumentationen inklusive en fallstudie.
+Nu när du har lärt dig att skapa anpassade instrumentpaneler kan du ta en titt på resten av Application Insights-dokumentationen, som innehåller en fallstudie.
 
 > [!div class="nextstepaction"]
 > [Djupgående diagnostik](app-insights-devops.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Tjänstens hälsa för Azure ger lämplig och personlig information när problem i Azure-tjänster påverkar dina tjänster.  Det hjälper dig också för kommande planerat underhåll.
@@ -32,8 +32,13 @@ Tjänstens hälsa spårar tre typer av hälsotillstånd händelser som kan påve
     ![Händelser för Hälsotjänst](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Kom igång med tjänstens hälsa
-Välj panelen tjänstens hälsa på instrumentpanelen i portalen om du vill starta instrumentpanelen tjänstens hälsa. Om du tidigare har tagit bort panelen eller om du använder anpassade instrumentpanel, söka efter tjänstens hälsa för tjänsten i ”fler tjänster” (nedre vänstra på instrumentpanelen).
+Välj panelen tjänstens hälsa på instrumentpanelen i portalen om du vill starta instrumentpanelen tjänstens hälsa. 
+
 ![Kom igång med tjänstens hälsa](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Om du tidigare har tagit bort panelen eller om du använder anpassade instrumentpanel, söka efter tjänstens hälsa för tjänsten i ”**alla tjänster**” (vänster på instrumentpanelen överkant).
+
+![Kom igång med tjänstens hälsa](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Visa aktuella problem som påverkar dina tjänster
 Den **tjänsten problem** pågående problem visas i Azure-tjänster som som påverkar dina resurser. Du kan förstå när problemet började och vilka tjänster och regioner som påverkas. Du kan också läsa den senaste uppdateringen för att förstå vad Azure gör för att lösa problemet. 

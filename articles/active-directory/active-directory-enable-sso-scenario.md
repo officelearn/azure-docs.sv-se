@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Hantera program med Azure Active Directory
 Utöver det faktiska arbetsflödet eller innehåll har företag två grundläggande krav för alla program:
@@ -78,7 +78,7 @@ När du använder Azure AD för att hantera program och aktivera enkel inloggnin
 * Autentisering görs på användarens lokala (t.ex. AD) eller Azure AD-kontot.
 * Auktorisering körs på Azure AD tilldelning och skydd principen för att säkerställa konsekvent slutanvändarupplevelse och gör att du kan lägga till tilldelning, platser och MFA villkor på alla program, oavsett dess interna funktioner.
 
-Det är viktigt att förstå att sätt tillståndet trätt i kraft på målprogrammet varierar beroende på hur programmet har integrerat med Azure AD.
+Det är viktigt att förstå som hur tillståndet trätt i kraft på målprogrammet varierar beroende på hur programmet har integrerat med Azure AD.
 
 * **Redan integrerade program av tjänstleverantören** som Office 365 och Azure, de är program som skapats direkt på Azure AD och förlita dig på den för sina omfattande identitets- och hanteringsfunktioner. Åtkomst till dessa program aktiveras via kataloginformation och utfärdande.
 * **Redan integrerade program från Microsoft och anpassade program** dessa är oberoende molnprogram som förlitar sig på ett internt programkatalogen och kan användas oberoende av Azure AD. Åtkomst till dessa program har aktiverats genom att utfärda ett program autentiseringsuppgifter som mappas till ett konto för programmet. Beroende på programfunktioner kanske autentiseringsuppgifter en federation-token eller användarnamnet och lösenordet för ett konto som tidigare har etablerats i programmet.
@@ -90,13 +90,13 @@ Om en användare ansluter till din organisation, måste du skapa ett konto för 
 IT-avdelningar är ofta inte medvetna om alla molnprogram som används i moderna företag. Tillsammans med Cloud App Discovery ger Azure AD dig en lösning för att identifiera dessa program.
 
 ## <a name="account-management"></a>Kontohantering
-Hantera konton i olika program traditionellt är en manuell process som utförs av IT eller stöd för personal i organisationen. Azure AD automatiserad helt kontohantering över alla service provider integrerade program och de program som redan integrerade Microsoft stöder automatisk användaretablering eller SAML JIT.
+Hantera konton i olika program traditionellt är en manuell process som utförs av IT eller supportpersonalen i organisationen. Azure AD automatiserar fullständigt kontohantering över alla service provider integrerade program och de program som redan integrerade Microsoft stöder automatisk användaretablering eller SAML kompilerats etablering.
 
 ## <a name="automated-user-provisioning"></a>Automatisk användaretablering
 Vissa program ange automation-gränssnitt för att skapa och ta bort (eller avaktivering) av konton. Om en provider erbjuder sådant gränssnitt kan utnyttjas den av Azure AD. Detta din driftskostnaderna minskar eftersom administrativa uppgifter sker automatiskt och förbättrar säkerheten för din miljö, eftersom det minskar risken för obehörig åtkomst.
 
 ## <a name="access-management"></a>Åtkomsthantering
-Använda Azure AD kan du hantera åtkomst till program med hjälp av enskilda eller regel drivs tilldelningar. Du kan också delegera åtkomsthantering till rätt personer i organisationen säkerställa bästa tillsyn och minska belastningen på supportavdelningen.
+Du kan hantera åtkomst till program med hjälp av enskilda eller regel drivs tilldelningar med Azure AD. Du kan också delegera åtkomsthantering till rätt personer i organisationen säkerställa bästa tillsyn och minska belastningen på supportavdelningen.
 
 ## <a name="on-premises-applications"></a>Lokala program
 Den inbyggda i application proxy kan du publicera dina lokala program till användarna som resulterar i åtkomst både konsekvent upplevelse med moderna molnapp och fördelarna från funktionerna i Azure AD övervakning, rapportering och säkerhet.

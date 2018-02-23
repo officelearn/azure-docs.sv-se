@@ -1,7 +1,7 @@
 ---
-title: Azure Marketplace Publisher Guide
+title: Azure Marketplace och AppSource Publisher Guide
 description: "Steg för steg guide och publicera checklistor för nya publikationer Azure Marketplace"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Azure Marketplace Publisher Guide
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace och AppSource Publisher Guide
 
-Välkommen till guiden Marketplace utgivare. Den här guiden är avsedda att hjälpa candidate och befintliga utgivare förstå hur man utnyttjar Azure Marketplace och AppSource skyltfönster om du vill visa en lista över sina program och tjänster för att utöka verksamheten tillsammans med Microsoft. I slutet av den här guiden du lär dig mer om var och en av dessa artiklar och veta var du hittar mer detaljerad information:
+Välkommen till den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [AppSource](https://appsource.microsoft.com) Publisher Guide. Den här guiden är utformad för att nya och befintliga utgivare förstå hur man utnyttjar Azure Marketplace och AppSource skyltfönster, de steg som krävs för att publicera dina program och tjänster och hur du växa tillsammans med Microsoft. I slutet av den här guiden du lär dig mer om var och en av dessa artiklar och veta var du hittar mer detaljerad information:
 
-- Vad är fördelarna med att delta i Marketplace
+- Vilka är fördelarna med lista i något av de marketplace-skyltfönster
 - Vad är Azure Marketplace och AppSource
 - Hur man utnyttjar dessa skyltfönster
 - Vilka storefront som passar dina erbjudanden och tjänster 
@@ -36,30 +36,33 @@ Välkommen till guiden Marketplace utgivare. Den här guiden är avsedda att hj�
 - Optimera en lista och använda gå till marknaden resurser till enheten påverkan
 - Var du vill få hjälp och support för frågor om Azure Marketplace, AppSource, eller kontakta den här publiceringsguide Marketplace-teamet på  **cloudmarketplace@microsoft.com** . 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>Fördelar med att delta i Marketplace
+## <a name="benefits-of-participating-in-the-marketplace"></a>Fördelar med att delta i marketplace
 
-Marketplace är startmenyn för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, din Marketplace-erbjudande portfölj mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande i Marketplace. Vårt mål är att ansluta Microsoft-kunder med de bästa lösningarna som erbjuder våra partner-ekosystemet.
+Azure Marketplace och AppSource är startar punkter för gemensamma gå till marknaden aktiviteter med Microsoft och svänghjul för tillväxt. Starta befordran och efterfrågan gemensamma försäljning och marknadsföring vara, marketplace-listor mittpunkten ditt moln business-motorn. Det finns inga avgifter för deltagande i marketplace. Vårt mål är att ansluta Microsoft-kunder med de bästa lösningarna och tjänster som erbjuder våra partner-ekosystemet.
 
-Dra nytta av funktioner för Marketplace att växa:
+Dra nytta av funktioner för marketplace att växa:
 
-- **Generera leads och potentiella kunder.** Ange nya marknader med en utökad portfölj av lösningar på Microsoft cloud-plattformen. Medföljande och mellan säljer Marketplace-erbjudanden. 
-- **Förbättra affärsvärde och öka avtalsstorlek med befintliga och nya kunder.** Utöka systembearbetningstid storlek och adress stötestenar för kund när flytta arbetsbelastningar till molnet. Öka systembearbetningstid lönsamhet genom att sälja kompletta lösningar. 
-- **Hämta tillämplig insikter.** Din framgång är vår framgång. Få insikter via molnet partnerportalen på vad utförs, vad leder dig har genererat och maximera din kampanjaktiviteter.
+- **Generera leads och potentiella kunder.** Ange nya marknader med en utökad portfölj av lösningar på Microsoft cloud-plattformen. Medföljande och mellan säljer marketplace-erbjudanden. 
+- **Förbättra affärsvärde och öka avtalsstorlek med befintliga och nya kunder.** Utöka systembearbetningstid storlek och adress stötestenar för kund när flytta arbetsbelastningar till molnet. Minska försäljning cykler och öka systembearbetningstid lönsamhet genom att sälja kompletta lösningar som mål för specifika arbetsbelastningar och industrin scenarier.
+- **Hämta tillämplig insikter.** Din framgång är vår framgång. Få insikter på prestandan hos dina listor via molnet Partner-portalen. Lär dig vad utförs, vad leder dig har genererat och maximera din kampanjaktiviteter.
+
+>[!NOTE]
+>Appar som utökar Office kommer åt insikter via Office-appar publiceringsprocessen.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Vad är Azure Marketplace och AppSource?
 
-Microsoft tillhandahåller två distinkta Marketplace skyltfönster som gör att partner att visa en lista med erbjudanden, aktivera försök och transact direkt med Microsofts kunder och ekosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) och () [AppSource] https://appsource.microsoft.com). Dessa skyltfönster kan kunder att hitta, försök och köpa program och tjänster som påskyndar sina digitala Transformation och hjälpa utgivare utöka sin verksamhet genom att öka åtkomst till Microsofts kunder och partner-ekosystemet.
+Microsoft tillhandahåller två distinkta marketplace skyltfönster som gör att partner att visa en lista med erbjudanden, aktivera försök och transact direkt med Microsofts kunder och ekosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) och () [AppSource] https://appsource.microsoft.com). Dessa skyltfönster kan kunder att hitta, försök och köpa program och tjänster som påskyndar sina digitala Transformation och hjälpa utgivare utöka sin verksamhet genom att öka åtkomst till Microsofts kunder och partner-ekosystemet.
  
-Marketplace-skyltfönster justeras till målgrupper och Microsoft cloud-produkter som hjälper kunder att hitta exakt vad de behöver. Varje storefront innehåller särskilda publiceringsalternativ som hjälper dig att maximera investeringen publishing sammanfattning av följande tabell:
+Marketplace-skyltfönster justeras till målgrupper och Microsoft cloud-produkter som hjälper kunder att söka efter de behöver. Varje storefront innehåller särskilda publiceringsalternativ som hjälper dig att maximera investeringen publishing sammanfattning av följande tabell:
 
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
 |Målgrupp     |IT-proffs, utvecklare (specialist roller med DBAs, säkra driftsmetoder, DevOps osv.)    | Branschspecifika Business beslutsfattare (specialist roller med inköp, tillverkning, redovisning, etc.)      |
-|Byggd för att utöka     |Azure         | Azure, Dynamics 365, Office 365, Powerbi och Power appar       |
-|Typer av lösningar och tjänster     |  Lösningar för infrastruktur och professionella tjänster   | Klar branschspecifika appar och professionella tjänster        |
-|Publiceringsalternativ     |  Kontakta mig, rådgivning erbjuda utvärderingsversion, virtuell dator, Lösningsmallar och hanterade appar       |  Kontakta mig samråd erbjuder eller utvärderingsversion       |
-|I appen     | Azure-portalen och CLI         | Office 365, Dynamics 365 Power BI Office-klientprogram       |
+|Skapats med eller utöka     |Azure         | Azure, Dynamics 365, Office 365, Powerbi och Power appar       |
+|Typer av lösningar och tjänster     |  Lösningar för infrastruktur och professionella tjänster   | Klar branschspecifika business molnprogram, tillägg för Office 365 och professionella tjänster        |
+|Publiceringsalternativ     |  Kontakta mig, rådgivning erbjuda utvärderingsversion, virtuell dator, Lösningsmallar och hanterade appar       |  Kostnadsfri utvärderingsversion, Hämta nu testversionen och kontakta mig samråd erbjuder      |
+|I appen upplevelse ger användare åtkomst till appar och tjänster i samband med sina program  | Azure-portalen och CLI         | Office 365, Dynamics 365 Power BI Office-klientprogram       |
 
 ## <a name="leveraging-these-storefronts"></a>Utnyttja dessa skyltfönster
 
@@ -75,44 +78,50 @@ Engagera IT-proffs och utvecklare molnet via den **Azure Marketplace** för att 
 |**Behöver en skalbar distribution mekanism för tredje parts-program och tjänster**   | Gör det möjligt att skapa och konfigurationen för skalbara distributioner för tredje parts-program och tjänster        |
 |**Kräver nya program och tjänster för att integrera och arbeta med befintliga lösningar**  |   Enkelt integreras från tredje part, program och tjänster med befintliga lösningar på Azure      |
 
-Engagera användare i verksamheten genom att använda **AppSource** att identifiera och försök rad Business SaaS-appar och tjänster: 
+Engagera företagsanvändare på **AppSource** att hitta, försök och hämta line-of-business SaaS-program och tjänster-implementering för att enheten verksamhetsresultat och minska tiden för värden:: 
 
 
 |Kundens behov  |AppSource  |
 |---------|---------|
-|**Om du vill utöka funktionaliteten i Dynamics 365, Office 365, Power BI och Power appar**   |  Ger kunder möjlighet att använda program från tredje part och tjänster för att utöka plattformsfunktioner för Microsoft-molntjänster       |
-|**Söker efter svårt för att identifiera rätt program eller tjänst**    |   Ger en affär att identifiera och utvärderingsversion program och tjänster och tillägg      |
-|**Behöver en lösning för branschspecifika Line of Business**   | Aktiverar lösningar för alla branscher så att kunder kan hitta vad de behöver        |
-|**Kräver business-specifika lösningar**    | Aktiverar lösningar för varje rad i affärs- och business problemet, inklusive kundservice, HR, åtgärder och mycket mer        |
+|**Söker efter företagslösningar som fungerar med Microsoft-produkter använder de redan** | Tillåt kunderna att använda program från tredje part och tjänster för att utöka Microsofts molnprogram och tekniker.       |
+|**Möjlighet att enkelt hitta höger tjänsten rätt lösning eller implementering.**    |   Ger en affär för att identifiera utvärderingsversion, och hämta program och tjänster och tillägg      |
+|**Branschspecifika branschspecifika affärslösning till deras specifika utmaningarna**   | Ger klar slutpunkt till slutpunkt branschlösningar för att adressen specifika krav i många branscher     |
+|**Appar för att förbättra produktiviteten och effektiviteten affärsinsikter**    | Tillhandahåller apparna för verksamhetsområde, inklusive kundservice, HR, åtgärder och mycket mer        |
+| **Erfarna implementering partner för att anpassa appar till deras unika situation** | Ger en översikt över samråd erbjudanden för tjänster för lösningar som är baserade på Dynamics 365, Power BI, PowerApps och 3 partsappar är tillgängliga på AppSource för att söka efter samråd med användare i verksamheten services design att leverera förutsägbar resultat |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Förstå skillnaderna mellan skyltfönster
 
-Om du väljer en storefront börjar med att identifiera målgrupp för erbjudandet: Azure Marketplace justeras efter behoven för IT-proffs och utvecklare och AppSource justeras till användare i verksamheten. Om din lösning riktar sig till båda målgrupper, behöver du bara publicera en gång i listan i båda skyltfönster.
+Om du väljer en storefront börjar med att identifiera målgrupp för erbjudandet: Azure Marketplace justeras efter behoven för IT-proffs och utvecklare och AppSource justeras efter behoven för användare i verksamheten. Om din lösning riktar sig till båda målgrupper, behöver du bara publicera en gång i listan i båda skyltfönster.
  
 Överväg att de ytterligare fördelarna med varje storefront:
 
 |Storefront förmån  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Faktureringsflexibilitet**    | För virtuella datorer Använd 'Betala per användning' fakturering alternativ, Microsoft enterprise-avtal eller web direkt försäljning modeller. Prisnivå alternativ kan också innehålla en kostnadsfri nivå-prenumeration om ett erbjudande är perpetually fritt, samt en försök nu prenumeration som är ledigt promotionally under en begränsad tidsperiod efter vilken konverteras till en betald prenumeration. Ta med din egen licens-aktivering är också ett alternativ för att stödja utgivare för båda fakturering alternativen i scenarier där virtuella datorer distribueras via Azure-appar (t.ex. Lösningsmall eller hanterad App), alla Azure-resurser som etablerats debiteras direkt till kunden | AppSource ger sömlös etablering av en utvärderingsversionen men erbjuder inte ett commerce-aktiverade publiceringsalternativ; Detta gör att du kan använda din aktuella beställning och fakturering infrastruktur utan ytterligare investeringar eller ändringar        |
-|**Underlätta anslutningar till andra Partners**     |Azure Marketplace tillåter för närvarande inte utgivaren för att länka en service provider eller leverans partners till erbjudandet         |  Oberoende programvaruleverantörer och systemintegrerare hanteras tjänstleverantörer kan länkas scenarier med specifika implementeringen stöder samarbete sälja till nya kunder      |
+|**Faktureringsflexibilitet**    | För virtuella datorer Använd 'Betala per användning' fakturering alternativ, Microsoft enterprise-avtal eller web direkt försäljning modeller. Prisnivå alternativ kan också innehålla en kostnadsfri nivå-prenumeration om ett erbjudande är perpetually fritt, samt en försök nu prenumeration som är ledigt promotionally under en begränsad tidsperiod efter vilken konverteras till en betald prenumeration. Ta med din egen licens-aktivering är också ett alternativ för att stödja utgivare för båda fakturering alternativen i scenarier där virtuella datorer distribueras via Azure-appar (t.ex. Lösningsmall eller hanterad App), alla Azure-resurser som etablerats debiteras direkt till kunden | AppSource ger etablering av en utvärderingsversionen men erbjuder inte ett commerce-aktiverade publiceringsalternativ; Detta gör att du kan använda din aktuella beställning och fakturering infrastruktur utan ytterligare investeringar eller ändringar        |
+|**Underlätta anslutningar till andra Partners**     |Azure Marketplace tillåter för närvarande inte utgivaren för att länka en service provider eller leverans partners till erbjudandet, men att starta om den här funktionen 2018         |  Oberoende programvaruleverantörer och systemintegrerare hanteras tjänstleverantörer kan länkas scenarier med specifika implementeringen stöder samarbete sälja till nya kunder      |
 |**Automation**     |    Azure Marketplace tillåter för närvarande inte utgivaren för att länka en service provider eller leverans partners till erbjudandet     | Dra nytta av automatiserad SaaS med tillägget etablering och använda Lösningsmallar för att automatisera SaaS-baserade datascenarier för insamling och distribution        |Oberoende programvaruleverantörer och systemintegrerare hanteras tjänstleverantörer kan länkas scenarier med specifika implementeringen stöder samarbete sälja till nya kunder
 |**Flera Molntyper**     |   Publicera både offentliga molnet och lokala lösningar via Azure Stack eller publicera till Azure Government och regionala moln, inklusive Kina och Tyskland      |    AppSource erbjuder för närvarande inte stöd för Azure-stacken, Azure Government eller regionala moln     |
-|**Presentation i kontexten för kunder**     |  Gör din lösning som är tillgängliga i Azure-portal upplevelsen för kontextuella search (virtuella datorer och Lösningsmallar)       |  Gör din lösning som är tillgänglig i app-upplevelse för Microsoft-produkter       |
+|**Presentation i kontexten för kunder**     |  Gör din lösning som är tillgängliga i Azure-portal upplevelsen för kontextuella search (virtuella datorer och Lösningsmallar)       |  Nå fler kunder via app upplevelsen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365    |
 
 ## <a name="select-a-publishing-option"></a>Välj en publicering alternativet
 
 Varje storefront stöder flera publiceringsalternativ och erbjudandetyper: lista, utvärderingsversionen och Transact. Välj en typ av erbjudande som bäst motsvarar dina program och information om tjänsten. Alla publiceringsalternativ får partners åtkomst till leda delning. 
 
+Det här avsnittet tar dig igenom alternativ som är tillgängliga för dig i båda skyltfönster. 
+
 
 |**Publiceringsalternativ**  | **Erbjudandetypen** | **Storefront**  |
 |---------|---------|---------|
-|**Lista**    |    Kontakta mig samråd med tjänsten     |  Azure Marketplace, AppSource       |
+|lista    |    Kontakta mig samråd med tjänsten     |  Azure Marketplace, AppSource       |
 |**Utvärdering**   |     Kostnadsfri utvärderingsversion, SaaS utvärderingsversion, interaktiva Demo, Testkör    |  Azure Marketplace, AppSource       |
 |**Transact**     |   Virtuell dator, Lösningsmall för, hanterade program      |    Azure Marketplace     |
 
 ### <a name="list"></a>LISTA
 
 Använd **kontakta mig** när en utvärderingsversion eller transaktionsnivå deltagande inte är möjligt. Fördelen med den här metoden är att du kan utgivare med en lösning på marknaden omedelbart tar emot leads som kan vara nurtured i grundläggande avtal att starta business-svänghjul. Nackdelen är dock att kunden engagement är begränsad, jämfört med andra erbjudandetyper av.
+
+>[!IMPORTANT]
+>Kontakta mig är inte en rekommenderad lista och bör endast användas i situationer där det inte går att upprätta en utvärderingsversionen. Engagera kunder är bäst med utvärderingsversion och Transact erbjuder. Om du har någon typ av utvärderingsversionen leder våra onboarding-processen dig till något av dessa alternativ beroende på ditt scenario.
 
 När erbjudandet består i huvudsak av professionella tjänster (t.ex. bedömningar implementeringar, diskussionsgrupper), används den **samråd Services** tillhandahåller typ. Erbjudande omfång, varaktighet och pris måste åtgärdas, måste vara för en kund och måste utföras på plats.
 
@@ -122,7 +131,7 @@ Att tillhandahålla en utvärderingsversion upplevelse ökar engagement erbjuds 
  
 Alla alternativ för testversionen distribueras till din utvärderingsversion miljö och/eller Azure-prenumeration i stället för i kundens miljö eller Azure-prenumeration. Försök ska vara kunden ledde utan några ytterligare inköp och minimal eventuella ytterligare konfiguration för att slutföra en enkel användningsfall. Försök måste åtminstone innehålla kostnadsfri support under hela utvärderingsperioden. Användare ska nurtured och övervakas längs en avsiktlig utvärdering sökväg för bästa resultat. Utgivare uppmuntras att använda både Marketplace leads och utgivarens egna i appen tillgångsinformation för att övervaka och hantera användare.
 
-Det finns 3 vanliga utvärderingsversion scenarier:
+Det finns 4 typiska utvärderingsversion scenarier:
 
 
 |**Utvärderingsversion alternativet**  |**Viktiga fördelar**  |**Välj det här alternativet om...**  |
@@ -130,6 +139,7 @@ Det finns 3 vanliga utvärderingsversion scenarier:
 |**Kostnadsfri utvärderingsversion**    |     Kan en kund försök produkten innan de köper med en automatisk metod för att konvertera till betald och möjliggör bevis på koncept för kund- och gemensamma interaktion med Microsoft försäljning team |     Lösningen är en virtuell dator eller lösning mall eller din lösning är en SaaS erbjudande och du erbjudandet för en produkt för flera innehavare SaaS har du först köra för att få en kund och igång snabbt, om du har en enda klient men lägger till kunder som ' gästen oss ändare'|
 **Testkör**     |     Aktiverar en kund för att prova produkten innan de köpa och ger en interaktiv upplevelse av din lösning för en förkonfigurerad installation |   Lösningen är en virtuell dator, mall för lösning eller SaaS-app med en organisation eller komplicerade att etablera eller du inte har en metod för att konvertera en utvärderingsversion till köperbjudande |
 |**Interaktiv Demo**    |  Ger kunder möjlighet att se din produkt fungerar utan komplexitet av installationsprogrammet       |    Lösningen kräver komplexa installationen som skulle vara svårt att uppnå i utvärderingsperioden     |
+
 
 #### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
@@ -159,7 +169,10 @@ I Azure Marketplace, använda en **virtuella** när lösningen har distribuerats
 
 Använd en **Azure Lösningsmall** när en lösning kräver ytterligare distribution och konfiguration av automation utöver den virtuella installationen. Lösningsmallar kan automatisera etablering av en eller flera virtuella datorresurser och dessutom kan etablera nätverk och lagringsresurser. Lösningsmallar ger automation fördelar på samma virtuella datorer samt hela lösningen för IaaS-baserade miljöer. Lär dig mer om hur du skapar Lösningsmallar [här](https://github.com/MicrosoftDocs/azure-docs).
 
-Använda en Azure-hanterad App när du distribuerar en virtuell dator eller en hel IaaS-baserad lösning till kundens prenumeration när utgivare eller kund önskar lösningen ska hanteras av en 3 part, till exempel en SI eller MSP. Lär dig mer om [bygga appar här](https://docs.microsoft.com/azure/managed-applications/overview). En lista över vanliga frågor finns i [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
+Använd en **Azure hanterad App** när du distribuerar en virtuell dator eller en hel IaaS-baserad lösning till kundens prenumeration när utgivare eller kund önskar lösningen ska hanteras av en 3 part, till exempel en SI eller MSP. Lär dig mer om [bygga appar här](https://docs.microsoft.com/azure/managed-applications/overview). En lista över vanliga frågor finns i [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Hanterade appar måste vara distribueras via marketplace. Observera att du kommer att kunna nå ut till berörda kunder om du har lead delning aktiverad om kunden kommunikation platser är viktig.
 
 ### <a name="azure-certified"></a>Azure Certified
 
@@ -197,11 +210,11 @@ Om du aktiverar du däremot ta din egen licens som ett alternativ:
 |Licens-kostnad     | Licens avgift förhandlades och debiteras av utgivare        |
 |---------|---------|
 |Azure användning kostnaden (D1/1 kärna)    | $0.14 per timme         |
-|**Kunden faktureras av Microsoft**     | **$0.14 per timme**        |
+|**Kunden faktureras av Microsoft**     | $0.14 per timme        |
 
 I det här scenariot debiterar Microsoft $0.14 per timme för användning av dina publicerade avbildning av virtuell dator. 
 
-|**Microsoft växlar**    |   **$0.14 per timme**      |
+|**Microsoft växlar**    |   $0.14 per timme      |
 |---------|---------|
 |Microsoft håller kostnaden för Azure-användning     |    $0.14 per timme     |
 |Microsoft håller 0% av licens-kostnad     |  0.00 $ per timme       |
@@ -227,7 +240,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 |---------|---------|---------|
 |**Deltagande principer**    | Granska Azure Marketplace deltagande principer [här] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Lista, utvärderingsversion, Transact        |
 |**Integrering med Microsoft**    | Azure Marketplace-erbjudanden bör utnyttja eller utöka Microsoft Azure-tjänster, till exempel beräkning, nätverk och lagring och justera i en befintlig Azure Marketplace-kategori databaser, säkerhet, nätverk, t.ex. Den fullständiga listan [här](https://azuremarketplace.microsoft.com/marketplace/apps).        | Lista, utvärderingsversion, Transact        |
-|**Målgrupp**    | Azure Marketplace-erbjudanden måste vara för IT-proffs, molnet utvecklare eller andra tekniska kundroller.       |  Lista, utvärderingsversion, Transact 
+|målgrupp    | Azure Marketplace-erbjudanden måste vara för IT-proffs, molnet utvecklare eller andra tekniska kundroller.       |  Lista, utvärderingsversion, Transact 
 |**Administrera leads**    | Du måste aktivera din CRM (Marketo, Microsoft Dynamics eller Salesforce) för att acceptera lead data för att ta emot leads från Marketplace.        |   Lista, utvärderingsversion, Transact      |
 |**Sekretesspolicy och användningsvillkor**     |   Sekretesspolicy för måste vara tillgängliga via en offentlig URL och måste ange dina villkor för användning som text vid publicering.      |   Lista, utvärderingsversion, Transact      |
 |**Support**     |  Erbjudandet måste innehålla en offentligt tillgänglig URL där kunder kan hitta hjälp. För försök anges support utan extra kostnad för utvärderingsperioden.       |  Utvärderingsversion, Transact       |
@@ -252,7 +265,7 @@ Samtliga Enterprise Agreement-kunder kan nu lägga till Azure i avtalet genom at
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Krav som är specifika för samråd Services publicering
 
 
-|**Krav** |**Detaljer**  |**Publiceringsalternativ**  |
+|Krav |**Detaljer**  |**Publiceringsalternativ**  |
 |---------|---------|---------|
 |**Tjänster erbjuder egenskaper**     | Tjänsten samråd måste vara levererade som ett fast scope, fast varaktighet, fast pris (eller gratis) engagement, främst förförsäljnings inriktade, begränsat till en kund och utförs på plats        |    Visa lista     |
 |**Partnerkrav för rådgivning**    |   **AppSource.**  Dynamics 365 för kunden Engagement [Silver eller guld moln Customer Relationship Management kompetensen](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 för ekonomi och åtgärder Enterprise edition: Silver eller guld [Enterprise resursplanering] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) kompetensen och en minsta intäkter av $25K i molnet Åtgärder i efterföljande tolv månader. Dynamics 365 för ekonomi och åtgärder, Business edition: fungera som [moln-providers (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) eller [digitala Partner av posten (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) för minst en kund. Powerbi: Uppfyller [samarbetspartner] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf). PowerApps: Ha en lösning för [Partner samlade] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Visa lista     |
@@ -295,7 +308,22 @@ Det finns flera alternativ för en organisation program:
 - Utveckla en per kund Test-enhet
 - Skapa en flera innehavare demo exempelapp med enkel inloggning
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Molnet partnerportalen före publicering Checklista
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Publishing processer av produkten för Office, Dynamics och Power BI
+För AppSource appar som utökar Office, Dynamics och Power BI kan läsa du mer om specifika krav i produktdokumentationen för specifika i det här avsnittet. 
+
+
+|Produkt |Publicerar Information  |
+|---------|---------|
+|Office 365     |    Granska de [publicering processen och riktlinjer]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 för ekonomi och åtgärder  |   När du bygger för Enterprise Edition, granska den [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 för kunden Engagement |Granska de [publicering processen och riktlinjer](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     Granska de [publicering processen och riktlinjer.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
+|Cortana Intelligence     |    Lär dig mer om [Cortana i AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource samråd erbjudanden     |  Granska de [riktlinjer och lära dig hur du skickar in erbjudandet.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Molnet partnerportalen före publicering checklista för Azure Marketplace
 
 Innan du börjar publishing, är det viktigt att förstå de komponenter som krävs för att skapa ett erbjudande. Följande artefakter krävs för att slutföra skapa erbjuder publicering i partnerportalen molnet. 
 
@@ -364,7 +392,7 @@ Innan du börjar publishing, är det viktigt att förstå de komponenter som kr�
 
 |Du behöver den publicerar artefakt  |För den här Erbjudandetypen  |
 |---------|---------|
-|**Versionsnummer**     |    Transact-Azure appar (Lösningsmallar och hanterade appar)     |
+|Versionsnummer     |    Transact-Azure appar (Lösningsmallar och hanterade appar)     |
 |**Paketfil som innehåller alla mallfilerna och createUIDefinitionFile**   |Transact-Azure appar (Lösningsmallar och hanterade appar)         |
 |**Information om operativsystem**    |   Transact-virtuella datorer      |
 |**Portar och protokoll som används**    |  Transact-virtuella datorer       |
@@ -388,7 +416,7 @@ I det här avsnittet förklarar vi hur: ska bli en utgivare i Azure Marketplace 
 
 Genom hela Marketplace publiceringsprocessen använder du en e-postadress som identifierar Marketplace-konto. E-postadressen måste vara registrerad som ett Microsoft-ID och kommer att användas för både den [Microsoft Developer Center](https://developer.microsoft.com/) och [moln partnerportalen](https://cloudpartner.azure.com/). Du bör ha endast ett ID för Microsoft-konto för din Azure Marketplace och AppSource erbjudanden och vi rekommenderar starkt att den inte delas med andra tjänster eller erbjuder.
 
-E-postadressen som valts bör helst vara i din företagsdomän och styrs av din IT-teamet. Granska bilaga: riktlinjer för att skapa ett Microsoft-ID för att hantera Marketplace-konto och bilaga: riktlinjer för Microsoft IDs i AAD federerad domäner för riktlinjer innan skapar ett ID. 
+E-postadressen som valts bör helst vara i din företagsdomän och styrs av din IT-teamet. Läs avsnitten i [riktlinjer och hur Tos](#Guidelines-and-How-Tos) inklusive riktlinjer för att skapa ett Microsoft-ID för att hantera Marketplace-konto och riktlinjer för Microsoft IDs i AAD federerad domäner för riktlinjer innan skapar ett ID. 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Skicka formuläret Marketplace kandidat
 Som en del av onboarding-processen Marketplace behöver du skicka en kandidat formulär när du skickar information om ditt program eller tjänsterbjudande företagets information och supportnivå som du tillhandahåller.  
@@ -423,175 +451,6 @@ Använda din Marketplace-konto (Microsoft-ID) för att komma åt din publisher-p
 
 Detaljerad information om hur du använder molntjänster partnerportalen referera till den [Läs](https://cloudpartner.azure.com/#Learn) menyn i portalen och klicka i avsnittet dokumentation. 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Så här växa med Marketplace
-
-Följande metodtips i marknadsföring hjälper in du för lyckas med gå till marknaden och Microsoft samtidigt Sell initiativ, samt maximera fördelarna via Marketplace. Den [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) är din gateway för alla icke-Marketplace relaterade marknadsföring och programmässiga resurser. 
-
-Kvaliteten på app publikationen och åtagande att kunden central begäran generation och partner engagement hjälp enhet kunden tillväxt för ditt företag. Engagera er i dessa aktiviteter hjälper Microsoft att komplettera gå till marknaden arbete och funktionen viktiga Solutions över marketplace-skyltfönster. 
-
-Det här avsnittet vägleder dig genom marknadsföring bästa praxis för ett erbjudande enligt följande Checklista:
-
-- Jag har optimerat registreringen för enheten trafik och engagement.
-- Jag har skapat meddelanden på min webbplats genom att använda en unik landningssida att enheten trafik till Marketplace-lista.
-- Jag har publicerat en Test-enhet eller andra utvärderingsversion så att kunderna kan ha min erbjudande körs live i Azure.
-- Jag har planerat och inbyggda min egen marknadsföring och kampanjer kampanjer till enheten medvetenhet och engagement.
-- Jag har aktiverat på begäran lead generation så att varje gång någon fungerar om du vill testa eller distribuera mitt program jag får sina namn och information.
-- Jag har lärt dig och ansluten med Partnerresurser som är tillgängliga för mig via den [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Skapa en bra lista
-
-Din registrering i marketplace kan ibland vara första interaktionen med potentiella kunder. Precis som alla första intryck du vill göra det starkt och något målgruppen vill följa upp. Det finns några grundläggande saker du kan göra för att göra den här första intryck i marketplace bra!
-
-- **Hittas:** skriva ditt erbjudande beskrivning med nyckel ord och fraser din centraliserad söker efter. 
-- **Att visual:** bilder och videor hjälper att användarna kan se dina viktiga funktioner och kan hjälpa dig att illustrera din upplevelse. Tänka på vad du kan visa att hjälper dig att leverera ditt värdeförslag eller besvara din centraliserad översta frågor.
-- **Få en upplevelse:** kunder vill prova innan de köpa. Leads genereras från demonstrationer försök, och testa enheter bevisa för att leda till flera kundens avtal. Ju starkare utvärderingsversionen kan du ange den starkare lead genererar du. Vi har hittat Testkör leder resultatet (i genomsnitt) till 40% stängd avtal.
-- **Hjälp användarna veta:** skulle du gärna att hålla din översikt sida tydligt och enkelt, men det finns också tillräckligt med utrymme för att peka till ytterligare resurser om produkten. Använd det här utrymmet för att leverera kortfattade meddelandet om hur produkten fungerar och hur den är en anpassning för kundens behov. är bara att dirigera dem till ytterligare material som du vill veta mer. Rätta om dessa learning material eller länkar kan spåra till ditt innehåll marknadsföring strategi så att du kan konsekvent publiceringsaktiviteter leder.
-- **Utnyttja klassificeringar & granskningar:** kan kunderna sälja produkten för dig. Kunden befrämjande kan vara Försäljning största drivrutinen och är ofta var centraliserad innan de Lär dig mer om produkten. Med flera starkt granskningar hjälper också öka erbjudandet i sökresultaten och i aktuell nyckelområden.
-
-### <a name="build-a-great-landing-page"></a>Skapa en bra landningssida
-En landningssida på företagets webbplats är en gateway från din begäran generation aktiviteter till din marketplace-lista i Azure Marketplace. 
-
-Börja med att identifiera dina mål. Bestäm som kundens mål är och vad du vill kunna ta för dina Marketplace-lösningar. Exempel åtgärder skulle vara 'Testkör vår lösning' eller 'Hämta en lösning nu ”. Denna sida kan utnyttjas över flera marknadsföring medvetande något annat från händelser, webbsändningar och sociala medier faktablad, tekniska utbildningar och pressmeddelanden. Ju mer konsekvent du i dina meddelanden och anrop till åtgärd, desto lättare din lösning är att hitta.
-
-När du har en kampanj plan klar följa dessa rekommendationer och överväga vad du ska undvika när du skapar sidan för att maximera effektiviteten hos dina landningssida: 
-
-
-|Bästa praxis  |Saker att undvika  |
-|---------|---------|
-|**Tydligt vilket kunden problem som löser din lösning och hur du kan utnyttja Azure så att det kan hända**    |  Misslyckas att förklara hur där din lösning plus Azure tillsammans       |
-|**Skapa en korta, enkla att komma ihåg URL**    |    Långa URL: er som är inte lätt att komma ihåg och är svåra att hitta     |
-|**Lägg till relevanta visuellt innehåll: en kund åsikt video eller lösning arkitektur är bästa praxis**   |   Med hjälp av för mycket text kan göra din målgrupp finjustera och stoppa utforska med dig      |
-|**Skapa ett Rensa anrop till åtgärd att dirigera besökare till din katalog Marketplace-sida**    |   Med för många länkar eller möjliga åtgärder på sidan       |
-|**Placera anrop till åtgärd i ett sidhuvud eller en tydligt avgränsad avsnitt**    |  Bädda in länkar till din Marketplace-lista i en punkt i texten       |
-|**Undersök bästa nyckelord och optimera sidan för sökning**    | Förutsatt att din produktnamn genererar högre Sök rangordning        |
-|**Använda nyckelord från din annonskampanjer**    |  Med hjälp av många olika nyckelord mellan dina webbegenskaper kommer Späd reklam-investeringar       |
-|**Placera relevanta produktnamn och nyckelord 'över vikning'**     | Göra dem rulla för att se vilka produkt eller lösningen med        |
-|**Använd varumärken bilder visar färgerna (till exempel Azure certifierad *) för att validera din lösning och anpassning riktlinjer i enlighet med Microsoft**    |    Med hjälp av icke godkända Microsoft varumärke bilder visar färgerna     |
-
-* Lär dig mer om den [Azure certifierade Aktivitetsikon](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) medlemmar får åtkomst till ytterligare resurser för företagsanpassning via [varumärken centrala](https://microsoft.sharepoint.com/teams/brandcentral) och komma åt den [Logo Builder](https://logobuilder.partner.microsoft.com) verktyget. Klicka här för att lära dig om att koppla [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Främja nya erbjudandet
-
-#### <a name="building-an-effective-marketing-campaign"></a>Skapa en effektiv marknadsföringskampanj
-En marknadsföringskampanj är en serie aktiviteter reklam eller marknadsföring medvetande syftar till att köra målgruppen till en önskad åtgärd eller resultatet. Innan du utformar din kampanj, bör du:
-
-#### <a name="know-your-audience"></a>Specificera målgruppen
-
-Kontrollera först vem är centraliserad och som är Påverkare? Din medvetande och anrop till åtgärd för varje grupp kan variera. Ställa följande utvärderingsfrågor:
-
-- Hur stor kontroll har centraliserad över köp beslutet? 
-- Hur stor inverkan har Påverkare? 
-- Vad påverkar Påverkare? 
-- De påverkar budget eller vilken lösning som har valts ut? 
-
-Om du vet svaren på dessa frågor hjälper dig att fatta beslut om var ni ska investera i dollar och hur du distribuerar din dollar.
-
-#### <a name="define-where-your-audience-learns"></a>Definiera där användarna lär sig
-
-Centraliserad är 90% av sätt via transporten när de besöker en marketplace. Centraliserad hämta detta långt i beslutsfattande processen genom att lära sig lösningar och bedöma alternativ i förväg. Du vill utforma en kampanj som syftar till att vara där dina centraliserad och Påverkare Läs. Var varje bransch, lodrät eller kategori är olika. Har din målgrupp Läs online, via e-post på mässor via sociala medier eller konversationer med betrodda rådgivare? Beroende på var och hur användarna lär sig vill du utforma aktiviteter och därefter distribuera din pengar. Kombinationen av dessa medvetande blir din strategi för kampanjen.
-
-#### <a name="create-clear-campaign-goals"></a>Skapa Rensa kampanj mål
-
-Du behöver definiera slutförd för kampanjen marketplace och skapa Rensa KPI: er. Du kan köra flera kampanjer med annan end mål. Naturligtvis vill vi alla växa försäljning. End-målet är bättre intäkter eller kund förvärv. Dock kan marknadsföringskampanjer vara bundna till mål i andra led i inköp cykeln.
-
-Exempelvis om du nyligen har öppnat produkten i vår Marketplace kanske du vill göra bäst går till målgruppen utbildning och lead generation. Lyckade kan definieras med antalet leads som genereras från marketplace-lista. I det här fallet skulle din marknadsföring medvetande (och landningssida) fokusera på ritning kunder till marketplace-lista.
-
-Om du har en utvärderingsversion i marketplace och du vet att din produkt kräver någon form av engagement och erfarenhet innan du köper du kampanj målet ned antalet försök. I så fall skulle centrum för jordbruksutveckling för din kampanj medvetande fokusera kraftigt på uppmuntra en utvärderingsversion i marketplace. 
-
-Om produkten eller kategori är mer välkända och du har inköp funktioner i marketplace kan du välja att hoppa över steg som utvärderingsversion och dirigera användarna direkt till ditt köp nu länken i marketplace.
-
-Vid en mogen punkt i ditt erbjudande tidigare kan du välja att fokusera din kampanj arbete på upselling kunden base och i det här fallet enhet åtgärd mot ökade inköp på Marketplace. Din medvetande vill fokusera på att uppmuntra kunderna att 'Köp nu' på marketplace. KPI: N kan vara intäkter via Marketplace.
-
-Oavsett ditt erbjudande förfall och målen för din organisation, om det här målet används fokuserad och mappa en uppsättning integrerad marknadsföring medvetande justeras till det här målet är nyckeln till att maximera effektiviteten din kampanj.
-
-Som en del av att en ny utgivare i Azure Marketplace, finns erbjudandet om kostnadsfri Marketplace GTM fördelar. Du bör tänka ytterst hur man utnyttjar dessa fördelar i din strategi för kampanjen. Låt våra marknadsföringsgruppen vet att dina marketplace kampanj mål och din målgrupp-åtgärd. Vi kan anpassa dessa leveranser ska fungera i planen.
-
-Ytterligare gå till marknaden stöder till exempel mallar, webbinnehåll, utbildning och verktyg för att uppgradera ditt företag besök [www. MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) ytterligare innehåll på kampanj bygga och marknadsföring metodtips finns [Smart Partner marknadsföring](https://partner.microsoft.com/en-US/smart-partner-marketing), ett program för Microsoft Partner Network.
-
-#### <a name="marketplace-gtm-benefits"></a>Marketplace GTM fördelar
-
-Nya listor i Marketplace blir få kostnadsfria Marketplace GTM fördelar. När visas kommer vårt team av marknadsföring specialister nå ut till dig till rivstarta dessa aktiviteter. Det finns inget att med undantag för att interagera med oss när vi nå ut. 
-
-Aktiviteter som vi tillhandahåller varierar beroende på din lösningsstatus i vår marketplace. Fördelar ökar för erbjudanden som medföljer en utvärderingsversionen eller transact funktioner i marketplace.
-
-För att maximera effekten av dessa aktiviteter, skulle du gärna ha din starta plan som är redo att köra. Du kanske vill utnyttja dina Landningssida för många av dessa metoder. Observera att OCP-katalogen (en kommersiell Partner katalog) är en fördel av medlemmar i Microsoft Partner Network. 
-
-![Marketplace GTM fördelar](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Stöder till exempel mallar, webbinnehåll, utbildning och verktyg för att utveckla ditt företag, finns [Microsoft går du till marknaden](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Aktivera delning av Lead
-
-Se till att lead management är aktiverat i Marketplace-erbjudande så att du får kontaktinformation för din Marketplace-kunder. Dessa leads utgör grunden för bredd för begäran generation kampanjer, försäljning rörelser av dina säljare och information om hur erbjudandet utförs. 
-
-Metodtips för dessa leads inkluderar:
-
-- Kvalificera leads och bedömningen dem som affärsmöjligheter
-- Publiceringsaktiviteter dem för att ange en försäljningsförlopp
-- Justera dessa åtgärder med en övergripande marknadsföringsstrategi kampanj
-
-Dessa leads visar mycket målanvändare intresse i Marketplace-erbjudande och tekniken och så ska behandlas som ett sätt att hitta potentiellt hög ägnar åt kunderna. När ett lead skapas i Marketplace, skapas en liknande lead i Microsoft fältet Säljare CRM. 
-
-Dock skiljer Marketplace leads sig från Microsoft säljare qualified leads som är en funktion i programmet sälja samtidigt. Se nedan om du vill veta mer om hur du kommer åt samtidigt säljer programmet. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Utveckla ditt företag via Microsoft
-
-Det finns många personer och grupper på Microsoft vars enda målet är att stödja våra samarbetspartners och minska eventuella friktion som du har i sälja med oss. Nu när du har angett i vår marketplace öppnat åtkomst till vår marketplace-program och resurser. 
-
-Om du inte har redan registrerat upp till den [Microsoft Partner Network (MPN)](https://partner.microsoft.com), ska den vara det första steget. MPN ger vägledning för att navigera Microsoft ' från nya affärsmöjligheter, ansluter med team eller partners, information om lösningar och utbildning för att utöka dina kunskaper.
-Bästa nästa steg ska utföras för att ge åtkomst till ytterligare fördelar för partner och resurser är:
-
-1.  Utnyttjar din [grundläggande förmåner](https://partner.microsoft.com/en-US/membership/core-benefits) som en del av våra Microsoft Partner Network, får du en mängd fördelar som kan hjälpa dig att spara tid och pengar medan du förstärker dina funktioner, bättre tjäna kunder och skapa anslutningar till företag uppnå sin fulla potentiella.
-
-2.  Skaffa din [Cloud Platform kompetensen](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) med en kompetensen gör att du kan särskilja själv i Microsofts utökat partnernätverk samt visa teknisk expertis och kunden lyckades på marknaden. Skaffa en kompetensen krävs också för många viktiga partnerprogram som samtidigt säljer.
-
-3.  Bli [samtidigt säljer redo](https://partner.microsoft.com/en-US/reach-customers/promote-your-business) det här programmet kan du samarbeta direkt med Microsoft säljare och andra partners på mål-kund affärsmöjligheter och kontot planering. Din lösning blir synlig för våra säljare i sitt lösning katalogen och våra säljare är belönad samarbeta och vinna med dig.
-
-#### <a name="merchandising"></a>Inköpschef 
-Som en del av publiceringsprocessen kan vara vilken typ av erbjudandet för att skapa och haft möjlighet att välja en kategori för erbjudandet i Azure Marketplace. Kontrollera att du väljer en kategori som är korrekta för din lösning så att den kommer att visas korrekt potentiella kunder. 
-
-I Azure Marketplace blir du berättigad till aktuella appar när du aktiverar utvärderingsversionen och Transact-funktioner. Granska Marketplace GTM fördelar med att förstå hur aktuella appar passar in i samband med din gå till marknaden fördelar. 
-
-Aktuella appar är valt baserat som appar ger bästa möjliga kundupplevelse för en användare och använder hög kvalitet partner marknadsföring engagement. Detta innefattar förstå listan, tillförlitlighet tekniken och tillväxt kunder plattform användning, och din engagement med att skapa marknadsföringsmaterial av hög kvalitet. 
-
-För att maximera din app risken för att aktuella, bör du investera i genomförandet av marketplace-erbjudande och Överväg följande metoder för att säkerställa en bra kundupplevelse av erbjudandet: 
-
-- Kontrollera din marknadsföring artefakter överföras och visar korrekt
-- Anslut den [Microsoft Partner Network](https://partner.microsoft.com/membership) och interagera med partner ekosystem
-- Ge hög kvalitet trafik till erbjudandet i Azure Marketplace genom att skapa hög kvalitet begäran generation kampanjer
-- Se till att alla dina Azure-lösningar och appar är tillgängliga i Azure Marketplace
-- Utöka användningen av Azure Marketplace-erbjudanden genom att köra begäran, ger hög kvalitet kundtjänst och uppdateringar på din produkt
-
-## <a name="analytics-and-reporting"></a>Analys och rapportering
-
-I avsnittet insikter i molnet partnerportalen visas en översikt över prestanda för ditt erbjudande. De rapporter som ingår i det här avsnittet är:  
-- Översikt över ögonblicksbild av order
-- Användning
-- Distributioner
-- Kunden trender på startsidan insikter
-- Detaljerad order, användning och kundinformation
-- Order- och användningsdata visas som månatligen eller som en vy i sex månader trend
-- Användning/order segmenterat efter flera villkor
-
-Detaljerade rapporter visar kundinformation, exempelvis företagsnamn och geografisk plats till postnumret, så att du kan jämföra kunder och kompensera din säljare. Följande lista innehåller specifika attribut som vi tillhandahåller om dina kunder:
-- Återförsäljare
-- Förnamn
-- Efternamn
-- E-post
-- Företagsnamn
-- Transaktionsdatum
-- Prenumerationsnamn
-- Azure prenumerations-Id (endast PAYG kunder)
-- Instansnamn för molnet
-- Antal ordning
-- Kundens land
-- Kunden ort
-- Kunden kommunikation kultur
-- Kunden postnummer
-
-Bästa praxis för informationen i rapporterna är att stämma med din egen interna data och använda den för att prioritera dina marknadsföring kampanj åtgärder. 
-
-Analytics-avsnittet i molnet Partner-portalen kunskap innehåller en omfattande instrumentpanel baserat på Power BI som gör att du kan se trafiken på din app detaljsida. Nya funktioner för den här instrumentpanelen lyfts på ett pågående sätt. I molnet partnerportalen är också dokumentation om Microsoft Campaigns, en funktion som du ställer in kampanjer och spåra dem i portalen.
 
 ## <a name="getting-support"></a>Få Support
 
@@ -600,7 +459,7 @@ Detta är listan över alternativ för support för Azure Marketplace:
 **Azure Marketplace allmänna frågor:**
 |Stöd för kanalen |Beskrivning |
 |---------|---------|
-|E-post:cloudmarketplace@microsoft.com     |  Onboarding-Support distributionslista. Används för onboarding-begäranden, ställa in identifieringen sessioner och arkitektur Design sessioner (ADS) med Partners.        |
+|E-post: cloudmarketplace@microsoft.com     |  Onboarding-Support distributionslista. Används för onboarding-begäranden, ställa in identifieringen sessioner och arkitektur Design sessioner (ADS) med Partners.        |
 
 **Azure Marketplace publicering stöd:**
 
@@ -633,9 +492,9 @@ Amp-testdrive@microsoft.com |   Tillhandahåller onboarding åtkomst till Test-e
 
 |Stöd för kanalen  |Beskrivning  |
 |---------|---------|
-|E-post:cosell@microsoft.com    |  Ger stöd för onboarding processer och frågor som rör samtidigt säljer programmet. Baserade i tidszonen Pacific Time.        |
-|E-post:gtm@microsoft.com    |  Ger stöd för att gå till marknaden fördelar och frågor för programmet. Arbetstid i tidszonen Pacific Time.        |
-|E-post:CEBrand@Microsoft.com     |  Svar på frågor om användning av varumärken för Azure logotyper och anpassning.       |
+|E-post: cosell@microsoft.com    |  Ger stöd för onboarding processer och frågor som rör samtidigt säljer programmet. Baserade i tidszonen Pacific Time.        |
+|E-post: gtm@microsoft.com    |  Ger stöd för att gå till marknaden fördelar och frågor för programmet. Arbetstid i tidszonen Pacific Time.        |
+|E-post: CEBrand@Microsoft.com     |  Svar på frågor om användning av varumärken för Azure logotyper och anpassning.       |
 
 ## <a name="guidelines-and-how-tos"></a>Riktlinjer och instruktioner
 
@@ -644,7 +503,7 @@ Amp-testdrive@microsoft.com |   Tillhandahåller onboarding åtkomst till Test-e
 När du skapar ett företagskonto, följer du dessa riktlinjer om mer än en person behöver åtkomst till kontot genom att logga in med Microsoft-konto som har öppnat kontot.
 
 >[!IMPORTANT]
->Tillåt flera användare att komma åt ditt konto Dev Center, bör du använda Azure Active Directory för att tilldela roller till enskilda användare som har åtkomst till kontot genom att logga in med sina individuella autentiseringsuppgifter för Azure AD. Mer information finns i [vägledning för AAD federerad domäner](#guidance-with-aad-federated-domains). Skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till ditt företags domän, men inte till en enda individual'for exempelvis windowsapps@fabrikam.com.
+>Tillåt flera användare att komma åt ditt konto Dev Center, bör du använda Azure Active Directory för att tilldela roller till enskilda användare som har åtkomst till kontot genom att logga in med sina individuella autentiseringsuppgifter för Azure AD. Mer information finns i [vägledning för AAD federerad domäner](#guidance-with-aad-federated-domains). Skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till företagets domän, men inte till enskilda användare exempelvis windowsapps@fabrikam.com.
 
 - Begränsa åtkomsten till den här Microsoft-konto av minsta möjliga antal utvecklare.
 - Ställ in en distributionslista för företagets e-post som innehåller alla som behöver åtkomst till kontot för utvecklare och lägga till e-postadressen till din säkerhetsinformation. Detta gör att alla anställda på listan med att ta emot säkerhetskoder vid behov och hantera säkerhetsinformation för ditt Microsoft-konto. Om hur du konfigurerar en distributionslista inte är möjligt behöver ägaren av enskilda e-postkontot ska kunna komma åt och dela säkerhetskod när du uppmanas (t.ex när nya säkerhetsinformation har lagts till i kontot eller när den måste kunna nås från en ny enhet).

@@ -4,7 +4,7 @@ description: "Lär dig mer om att säkerhetskopiera SQL Server till Azure Storag
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Använd Azure Storage för SQL Server-säkerhetskopiering och återställning
 ## <a name="overview"></a>Översikt
@@ -49,16 +49,16 @@ Följande Azure komponenter används när du säkerhetskopierar till Azure Blob 
 | Komponent | Beskrivning |
 | --- | --- |
 | **Storage-konto** |Lagringskontot är startpunkten för alla lagringstjänster. För att komma åt en Azure Blob Storage-tjänst måste du först skapa ett Azure Storage-konto. Mer information om Azure Blob storage-tjänst finns [hur du använder Azure Blob Storage-tjänsten](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
-| **Behållaren** |En behållare grupperar en uppsättning blobbar och kan lagra ett obegränsat antal Blobbar. Om du vill skriva en SQL Server att säkerhetskopiera till Azure Blob-tjänsten måste du ha minst Rotbehållare som skapats. |
-| **BLOB** |En fil av valfri typ och storlek. Blobbar är adresserbara via följande URL-format: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Läs mer om Sidblobbar [förstå Block och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| Behållaren |En behållare grupperar en uppsättning blobbar och kan lagra ett obegränsat antal Blobbar. Om du vill skriva en SQL Server att säkerhetskopiera till Azure Blob-tjänsten måste du ha minst Rotbehållare som skapats. |
+| **Blob** |En fil av valfri typ och storlek. Blobbar är adresserbara via följande URL-format: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Läs mer om Sidblobbar [förstå Block och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server-komponenter
 Följande SQL Server-komponenter används när du säkerhetskopierar till Azure Blob storage-tjänst.
 
 | Komponent | Beskrivning |
 | --- | --- |
-| **URL: EN** |En URL anger en identifierare URI (Uniform Resource) till en unik säkerhetskopia. URL: en används för att ange plats och namn för SQL Server-säkerhetskopia. URL: en måste peka till faktiska blob, inte bara en behållare. Om blob inte finns, skapas. Om en befintlig blob anges SÄKERHETSKOPIERINGEN misslyckas, såvida inte den > med formatalternativ har angetts. Följande är ett exempel på den URL som du anger i kommandot BACKUP: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS rekommenderas men krävs inte. |
-| **Autentiseringsuppgifter** |Den information som krävs för att ansluta och autentisera till Azure Blob storage-tjänst lagras som en autentiseringsuppgift.  En SQL Server-autentiseringsuppgift måste skapas för SQL Server för att skriva säkerhetskopieringar på Azure Blob- eller Återställ från den. Mer information finns i [autentiseringsuppgifter för SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **URL** |En URL anger en identifierare URI (Uniform Resource) till en unik säkerhetskopia. URL: en används för att ange plats och namn för SQL Server-säkerhetskopia. URL: en måste peka till faktiska blob, inte bara en behållare. Om blob inte finns, skapas. Om en befintlig blob anges SÄKERHETSKOPIERINGEN misslyckas, såvida inte den > med formatalternativ har angetts. Följande är ett exempel på den URL som du anger i kommandot BACKUP: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS rekommenderas men krävs inte. |
+| **autentiseringsuppgifter** |Den information som krävs för att ansluta och autentisera till Azure Blob storage-tjänst lagras som en autentiseringsuppgift.  En SQL Server-autentiseringsuppgift måste skapas för SQL Server för att skriva säkerhetskopieringar på Azure Blob- eller Återställ från den. Mer information finns i [autentiseringsuppgifter för SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
 > Om du väljer att kopiera och överföra en säkerhetskopia till Azure Blob storage-tjänst måste du använda en sida blob-datatyp som din lagringsalternativ om du planerar att använda den här filen för återställning. ÅTERSTÄLLNING från en block-blob-datatyp misslyckas med felmeddelandet.

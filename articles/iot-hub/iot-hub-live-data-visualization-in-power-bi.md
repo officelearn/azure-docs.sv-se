@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT-hubb med Power BI
 
@@ -52,7 +52,7 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 
 ### <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. Klicka på ny i Azure-portalen > Internet of Things > Stream Analytics-jobbet.
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
 1. Ange följande information för jobbet.
 
    **Jobbnamnet**: namnet på jobbet. Namnet måste vara globalt unikt.
@@ -61,7 +61,7 @@ Du lär dig att visualisera sensordata i realtid som tar emot din Azure IoT-hubb
 
    **Plats**: använda samma plats som resursgruppen.
 
-   **Fäst på instrumentpanelen**: Markera det här alternativet för enkel åtkomst till din IoT-hubb från instrumentpanelen.
+   **Fäst på instrumentpanelen**: Välj det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
 
    ![Skapa ett Stream Analytics-jobb i Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 

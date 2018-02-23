@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Felsökning av ett objekt som inte synkroniseras med Azure AD
 
 Om ett objekt inte synkroniseras som förväntat till Azure AD, kan det vara på grund av flera skäl. Om du har fått ett e-postmeddelande med fel från Azure AD eller om du ser felet i Azure AD Connect Health, Läs [felsöka export](active-directory-aadconnect-troubleshoot-sync-errors.md) i stället. Men om du felsöker ett problem där objektet inte är i Azure AD, sedan det här avsnittet för dig. Det beskriver hur du söka efter fel i Azure AD Connect-synkronisering lokalt komponent.
+
+>[!IMPORTANT]
+>För Azure Active Directory (AAD) Anslut distribution med version <verison> eller högre, Använd den [felsökning uppgiften](active-directory-aadconnect-troubleshoot-objectsync.md) i guiden för att felsöka objekt synkroniseringsproblem. 
 
 Om du vill hitta felen ska du titta på några olika platser i följande ordning:
 
@@ -36,7 +39,7 @@ Starta [Synchronization Service Manager](active-directory-aadconnectsync-service
 Fliken åtgärder i hanteraren för synkroniseringstjänsten är där du ska starta felsökningen. Fliken åtgärder visar resultaten från de senaste åtgärderna.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-Den övre delen visar alla kör kronisk. Som standard åtgärderna logga behåller information om de senaste sju dagarna, men den här inställningen kan ändras med den [scheduler](active-directory-aadconnectsync-feature-scheduler.md). Du vill söka efter alla kör som inte visar statusen lyckades. Du kan ändra sortering genom att klicka på rubrikerna.
+Den övre delen visas alla körs i kronologisk ordning. Som standard åtgärderna logga behåller information om de senaste sju dagarna, men den här inställningen kan ändras med den [scheduler](active-directory-aadconnectsync-feature-scheduler.md). Du vill söka efter alla kör som inte visar statusen lyckades. Du kan ändra sortering genom att klicka på rubrikerna.
 
 Den **Status** kolumnen är den viktigaste informationen och visar de svåraste problemet för en körning. Här är en kort sammanfattning av de vanligaste status i prioritetsordning att undersöka (där * ange flera möjliga felsträngar).
 
@@ -78,7 +81,7 @@ Om inte att hitta objektet du letar efter, så den kan ha filtrerats med [domän
 
 En annan användbar sökning är att välja Azure AD-koppling i **omfång** Välj **väntande Import**, och välj den **Lägg till** kryssrutan. Den här sökningen ger alla synkroniserade objekt i Azure AD kan inte kopplas till ett lokalt objekt.  
 ![Kopplingen utrymme Sök rader](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Dessa objekt har skapats av en annan Synkroniseringsmotorn eller en Synkroniseringsmotorn med en annan filtrering konfiguration. Den här vyn visas en lista över **rader** objekt som inte längre hanteras. Du bör granska listan och ta bort dessa objekt med hjälp av den [Azure AD PowerShell](http://aka.ms/aadposh) cmdlets.
+Dessa objekt har skapats av en annan Synkroniseringsmotorn eller en Synkroniseringsmotorn med en annan filtrering konfiguration. Den här vyn visas en lista över **rader** objekt som inte längre hanteras. Du bör granska listan och ta bort dessa objekt med hjälp av den [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
 
 ### <a name="cs-import"></a>CS-Import
 När du öppnar ett cs-objekt, finns det flera flikar högst upp. Den **importera** visar de data som mellanlagras efter en import.  

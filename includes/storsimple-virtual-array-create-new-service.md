@@ -2,7 +2,7 @@
 
 1.  Logga in på Azure Portal på följande URL genom att ange autentiseringsuppgifterna för ditt Microsoft-konto: <https://portal.azure.com/>. Om distribuerar enheten i Government portal, logga in på: <https://portal.azure.us/>
 
-2.  I Azure-portalen klickar du på **+ ny** &gt; **lagring** &gt; **virtuella StorSimple-serien**.
+2.  I Azure-portalen klickar du på **+ skapa en resurs** &gt; **lagring** &gt; **virtuella StorSimple-serien**.
 
     ![Skapa ny tjänst](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

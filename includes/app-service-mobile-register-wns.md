@@ -1,16 +1,16 @@
 
-1. Högerklicka på Windows Store-app-projekt i Visual Studio Solution Explorer och klicka på **Store** > **associera appen med butiken**.
+1. Högerklicka på Windows Store-app-projekt i Visual Studio Solution Explorer. Välj sedan **Store** > **associera appen med butiken**.
 
     ![Associera appen med Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
-2. I guiden klickar du på **nästa**, och logga in med ditt Microsoft-konto. Skriv ett namn för din app i **reservera ett nytt namn för appen**, och klicka sedan på **reservera**.
-3. Efter registreringen app har skapats, Välj ny programnamn, klicka på **nästa**, och klicka sedan på **associera**. Detta lägger till den registreringsinformation som krävs för Windows Store i programmanifestet.
+2. I guiden väljer du **nästa**. Logga sedan in med ditt Microsoft-konto. I **reservera ett nytt namn för appen**, Skriv ett namn för din app och markera sedan **reservera**.
+3. När registreringen app har skapats, Välj ny app. Välj **nästa**, och välj sedan **associera**. Den här processen lägger till nödvändig information för registrering av Windows Store i programmanifestet.
 4. Upprepa steg 1 och 3 för Windows Phone Store-app-projekt med samma registrering som du skapade tidigare för Windows Store-app.  
-5. Bläddra till den [Windows Dev Center](https://dev.windows.com/en-us/overview), och logga in med ditt Microsoft-konto. Klicka på den nya app registreringen i **Mina appar**, och expandera sedan **Services** > **Push-meddelanden**.
-6. På den **Push-meddelanden** klickar du på **webbplatsen Live-tjänster** under **Windows Push Notification Services (WNS) och Microsoft Azure Mobile Apps**. Anteckna värdena för den **paket-SID** och *aktuella* värde i **Programhemlighet**. 
+5. Gå till den [Windows Dev Center](https://dev.windows.com/en-us/overview), och logga sedan in med ditt Microsoft-konto. I **Mina appar**, Välj den nya app-registreringen. Expandera **Services** > **Push-meddelanden**.
+6. På den **Push-meddelanden** sidan under **Windows Push Notification Services (WNS) och Microsoft Azure Mobile Apps**väljer **webbplatsen Live-tjänster**.  Anteckna värdena för den **paket-SID** och *aktuella* värde i **Programhemlighet**. 
 
     ![Appinställningen i developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
    > [!IMPORTANT]
-   > Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app.
+   > Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Inte dela dessa värden med någon eller distribuera dem med din app.
    >
    >

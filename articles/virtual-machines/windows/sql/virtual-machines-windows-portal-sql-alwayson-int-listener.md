@@ -4,7 +4,7 @@ description: "Stegvisa instruktioner för att skapa en lyssnare för en Always O
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en tillgänglighetsgrupp alltid på i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i virtuella Azure-datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanser finns på virtuella Azure-datorer. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.
 
 Du måste ha en SQL Server-tillgänglighetsgrupp som distribueras på virtuella Azure-datorer som körs med Resource Manager för att slutföra den här uppgiften. Både SQL Server-datorer måste tillhöra samma tillgänglighetsuppsättning. Du kan använda den [Microsoft mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) att automatiskt skapa tillgänglighetsgruppen i Resource Manager. Den här mallen skapas automatiskt en intern belastningsutjämnare. 
 
-Om du vill kan du [manuellt konfigurera en tillgänglighetsgrupp](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Om du vill kan du [manuellt konfigurera en tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Den här artikeln kräver att din Tillgänglighetsgrupper har redan konfigurerats.  
 
 Närliggande ämnen innefattar:
 
-* [Konfigurera alltid på Tillgänglighetsgrupper i Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Konfigurera alltid på Tillgänglighetsgrupper i Azure VM (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Genom att gå via den här artikeln, skapa och konfigurera en belastningsutjämnare i Azure-portalen. När processen är klar kan konfigurera du klustret för att använda IP-adress från belastningsutjämnaren för tillgänglighetsgruppens lyssnare.
@@ -68,7 +68,7 @@ Först skapa belastningsutjämnaren.
    | **Typ** |**Internt**: de flesta implementeringar av använder en intern belastningsutjämnare, vilket gör att program i samma virtuella nätverk att ansluta till tillgänglighetsgruppen.  </br> **Externa**: gör att program kan ansluta till tillgänglighetsgruppen via en offentlig Internetanslutning. |
    | **Virtuellt nätverk** |Välj det virtuella nätverket som SQL Server-intances finns i. |
    | **Undernät** |Välj det undernät som SQL Server-instanser finns i. |
-   | **IP-adresstilldelning** |**Statisk** |
+   | IP-adresstilldelning |**Statisk** |
    | **Privat IP-adress** |Ange en tillgänglig IP-adress från undernätet. Använd följande IP-adress när du skapar en lyssnare på klustret. I ett PowerShell-skript, senare i den här artikeln använder den här adressen för den `$ILBIP` variabeln. |
    | **Prenumeration** |Om du har flera prenumerationer, visas det här fältet. Välj den prenumeration som du vill associera med den här resursen. Det är vanligtvis samma prenumeration som alla resurser för tillgänglighetsgruppen. |
    | **Resursgrupp** |Välj den resursgrupp som SQL Server-instanser finns i. |
@@ -140,10 +140,10 @@ Belastningsutjämningsregler konfigurera hur belastningsutjämnaren dirigerar tr
    | **Protokoll** |**TCP** |
    | **Port** |*1433* |
    | **Backend-Port** |*1433*. Det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt serverreturnering)**. |
-   | **Avsökningen** |Använd namnet på den avsökningen som du skapade för denna belastningsutjämning. |
-   | **Persistence för session** |**Ingen** |
-   | **Tidsgränsen för inaktivitet (minuter)** |*4* |
-   | **Flytande IP (direkt serverreturnering)** |**Aktiverad** |
+   | **Probe** |Använd namnet på den avsökningen som du skapade för denna belastningsutjämning. |
+   | **Persistence för session** |Ingen |
+   | Tidsgränsen för inaktivitet (minuter) |*4* |
+   | **Flytande IP (direkt serverreturnering)** |aktiverad |
 
    > [!NOTE]
    > Du kanske måste rulla nedåt bladet för att visa alla inställningar.
@@ -242,9 +242,9 @@ Om du vill lägga till en IP-adress till en belastningsutjämnare med Azure-port
    |**Port** |Använd den port som använder SQL Server-instanser. En standardinstans använder port 1433, om du har ändrat den. 
    |**Backend-port** |Använd samma värde som **Port**.
    |**Serverdelspool** |Den pool som innehåller de virtuella datorerna med SQL Server-instanser. 
-   |**Hälsoavsökningen** |Välj avsökningen som du skapade.
+   |Hälsoavsökningen |Välj avsökningen som du skapade.
    |**Persistence för session** |Ingen
-   |**Tidsgränsen för inaktivitet (minuter)** |Standard (4)
+   |Tidsgränsen för inaktivitet (minuter) |Standard (4)
    |**Flytande IP (direkt serverreturnering)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Konfigurera tillgänglighetsgruppen för att använda den nya IP-adressen
@@ -269,6 +269,34 @@ När du har lagt till en IP-adress för lyssnaren kan du konfigurera ytterligare
 6. [Ange Klusterparametrar i PowerShell](#setparam).
 
 När du har konfigurerat tillgänglighetsgruppen för att använda den nya IP-adressen kan du konfigurera anslutningen till lyssnaren. 
+
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Lägg till belastningsutjämningsregel för distribuerad tillgänglighetsgrupp
+
+Om en tillgänglighetsgrupp deltar i en distribuerad tillgänglighetsgrupp, måste belastningsutjämnaren en ytterligare regel. Den här regeln lagrar den port som används av distribuerade tillgänglighetsgruppens lyssnare.
+
+>[!IMPORTANT]
+>Det här steget gäller endast om tillgänglighetsgruppen deltar i en [distribuerad tillgänglighetsgrupp](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Skapa en regel för inkommande trafik på distribuerade tillgänglighetsgruppens lyssnare TCP-port på varje server som ingår i den distribuerade tillgänglighetsgruppen. I många exemplen använder dokumentationen 5022. 
+
+1. I Azure-portalen klickar du på belastningsutjämnaren och klicka på **belastningsutjämningsregler**, och klicka sedan på **+ Lägg till**. 
+
+1. Skapa regel för belastningsutjämning med följande inställningar:
+
+   |Inställning |Värde
+   |:-----|:----
+   |**Namn** |Ett namn som identifierar belastningsutjämningsregeln för den distribuerade tillgänglighetsgruppen. 
+   |**Frontend-IP-adress** |Använd samma IP-adress för klientdel som tillgänglighetsgruppen.
+   |**Protokoll** |TCP
+   |**Port** |5022 - porten för den [distribuerade slutpunkten för tillgänglighetsgruppslyssnaren](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Kan vara en ledig port.  
+   |**Backend-port** | 5022 - Använd samma värde som **Port**.
+   |**Serverdelspool** |Den pool som innehåller de virtuella datorerna med SQL Server-instanser. 
+   |Hälsoavsökningen |Välj avsökningen som du skapade.
+   |**Persistence för session** |Ingen
+   |Tidsgränsen för inaktivitet (minuter) |Standard (4)
+   |**Flytande IP (direkt serverreturnering)** | Enabled
+
+Upprepa dessa steg för belastningsutjämnaren på andra Tillgänglighetsgrupper som deltar i distribuerade Tillgänglighetsgrupper.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Hantera rollbaserad åtkomstkontroll med REST API
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Rollbaserad åtkomstkontroll (RBAC) i Azure-portalen och Azure Resource Manager API hjälper dig att hantera åtkomst till din prenumeration och resurser på en detaljerad nivå. Med den här funktionen kan du bevilja åtkomst för Active Directory-användare, grupper eller tjänstens huvudnamn genom att tilldela vissa roller till dem för ett visst område.
+Med rollbaserad åtkomstkontroll (RBAC), definiera åtkomst för användare, grupper och tjänstens huvudnamn genom att tilldela roller för ett visst område. Den här artikeln beskriver hur du hanterar åtkomst med hjälp av REST API.
 
 ## <a name="list-all-role-assignments"></a>Visa en lista med alla rolltilldelningar
 Listar alla rolltilldelningar i definitionsområdet och subscopes.
@@ -48,9 +48,9 @@ Gör följande ersättningar att anpassa din begäran inom URI:
 2. Ersätt *{api-version}* med 2015-07-01.
 3. Ersätt *{filter}* med villkor som du vill tillämpa för att filtrera listan rollen tilldelning:
 
-   * Lista rolltilldelningar för endast det angivna omfånget, exklusive rolltilldelningar på subscopes:`atScope()`    
-   * Lista rolltilldelningar för en viss användare, grupp eller ett program:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Visa en lista med rolltilldelningar för en viss användare, inklusive de som ärvts från grupper |`assignedTo('{objectId of user}')`
+   * Lista rolltilldelningar för endast det angivna omfånget, exklusive rolltilldelningar på subscopes: `atScope()`    
+   * Lista rolltilldelningar för en viss användare, grupp eller ett program: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Visa en lista med rolltilldelningar för en viss användare, inklusive de som ärvts från grupper | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Svar
 Statuskod: 200
@@ -153,7 +153,7 @@ För begärantext, anger du värden i följande format:
 
 | Elementnamn | Krävs | Typ | Beskrivning |
 | --- | --- | --- | --- |
-| roleDefinitionId |Ja |Sträng |Identifierare för rollen. Formatet på identifieraren är:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |Ja |Sträng |Identifierare för rollen. Formatet på identifieraren är: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Ja |Sträng |objectId av Azure AD är säkerhetsobjekt (användare, grupp eller tjänstens huvudnamn) som har tilldelats rollen. |
 
 ### <a name="response"></a>Svar
@@ -238,8 +238,8 @@ Gör följande ersättningar att anpassa din begäran inom URI:
 2. Ersätt *{api-version}* med 2015-07-01.
 3. Ersätt *{filter}* med villkor som du vill använda för att filtrera listan över roller:
 
-   * Lista roller som är tillgängliga för tilldelning i det specificerade omfånget och alla dess underordnade omfattningar:`atScopeAndBelow()`
-   * Sök efter en roll med exakt visningsnamn: `roleName%20eq%20'{role-display-name}'`. Använd URL-kodade formatet exakt visningsnamnet för rollen. Till exempel`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lista roller som är tillgängliga för tilldelning i det specificerade omfånget och alla dess underordnade omfattningar: `atScopeAndBelow()`
+   * Sök efter en roll med exakt visningsnamn: `roleName%20eq%20'{role-display-name}'`. Använd URL-kodade formatet exakt visningsnamnet för rollen. Till exempel `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Svar
 Statuskod: 200

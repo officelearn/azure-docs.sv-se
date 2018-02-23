@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra sentiment analys med hjälp av Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du använder en Machine Learning sentiment analytics modell från Cortana Intelligence Gallery analysera strömmande textdata och fastställa sentiment poäng i realtid. Med hjälp av Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa av bygger en sentiment analytics modell.
@@ -41,7 +41,7 @@ Följande bild visar den här konfigurationen. Som anges för en mer realistisk 
 
 ![Stream Analytics Machine Learning-integration: översikt](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar bör du kontrollera att du har följande:
 
 * En aktiv Azure-prenumeration.
@@ -57,7 +57,7 @@ På en hög nivå för att slutföra de uppgifter som visas i den här artikeln 
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Skapa en lagringsbehållare och ladda upp CSV indatafilen
 Du kan använda CSV-fil, till exempel en tillgänglig från GitHub för det här steget.
 
-1. I Azure-portalen klickar du på **ny** &gt; **lagring** &gt; **lagringskonto**.
+1. I Azure-portalen klickar du på **skapar du en resurs** &gt; **lagring** &gt; **lagringskonto**.
 
    ![Skapa nytt lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Du kan nu skapa ett Stream Analytics-jobb som läser exempel tweets från CSV-fi
 
 1. Gå till [Azure-portalen](https://portal.azure.com).  
 
-2. Klicka på **ny** > **Sakernas Internet** > **Stream Analytics-jobbet**. 
+2. Klicka på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**. 
 
    ![Azure portal sökvägen för att hämta ett nytt Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

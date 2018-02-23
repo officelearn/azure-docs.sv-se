@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>En metod med flera nivåer för säkerhet för Azure AD-lösenord
 
@@ -46,7 +46,7 @@ Azure AD och Microsofts kontosystem använder branschen beprövade metoder för 
 * Lösenord som förbjuds dynamiskt
 * Smart lösenordsutelåsning
 
-Information om lösenordshantering baserat på aktuella research finns i vitboken [lösenord vägledning](http://aka.ms/passwordguidance).
+Information om lösenordshantering baserat på aktuella research finns i vitboken [lösenord vägledning](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Lösenord som förbjuds dynamiskt
 

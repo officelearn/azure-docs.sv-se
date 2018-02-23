@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Skapa en skaluppsättning för virtuell dator som använder tillgänglighet zoner (förhandsgranskning)
 Du kan skapa en skala in över tillgänglighet zoner för att skydda din skalningsuppsättningar i virtuella datorer från fel datacenter-nivå. Azure-regioner som har stöd för tillgänglighet zoner har minst tre separata zoner med sina egna oberoende power käll-, nätverks- och kylning. Mer information finns i [översikt av tillgänglighet zoner](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Du kan skapa en skala in över tillgänglighet zoner för att skydda din skalnin
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Skaluppsättningar för en zon och zonredundant
 När du distribuerar en skaluppsättning för virtuell dator kan välja du att använda en zon i en region tillgänglighet eller flera zoner.
 
-När du skapar en skala som anges i en zon, styr vilken zon dessa VM-instanser körs i och skaluppsättning hanteras och autoscales endast inom zonen. Följande diagram visar ett exempel på hur du kan skapa flera enskild zon skala uppsättningar med en zonredundant belastningsutjämnare som distribuerar trafik:
-
-![Distribution med zonredundant belastningsutjämnaren skalningsuppsättning i en zon](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Zonredundant skaluppsättning kan du skapa en enda skaluppsättning som sträcker sig över flera zoner. När VM-instanser som skapas som standard balanseras de jämnt mellan zoner. Bör avbrott uppstår i någon av zonerna kan en skaluppsättning inte automatiskt kan skaländras ut till öka kapaciteten. Ett bra tips är att konfigurera automatiska regler baserat på användning av CPU eller minne. Autoskala reglerna att skaluppsättningen att svara på en förlust av VM-instanser i en zonen genom att skala ut nya instanser i de återstående operativa zonerna. Följande diagram visar ett exempel på en enda skaluppsättning som distribueras över flera zoner:
-
-![Zonal redundant skala ange distribution och belastningsutjämnare](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+När du skapar en skala som anges i en zon, styr vilken zon dessa VM-instanser körs i och skaluppsättning hanteras och autoscales endast inom zonen. Zonredundant skaluppsättning kan du skapa en enda skaluppsättning som sträcker sig över flera zoner. När VM-instanser som skapas som standard balanseras de jämnt mellan zoner. Bör avbrott uppstår i någon av zonerna kan en skaluppsättning inte automatiskt kan skaländras ut till öka kapaciteten. Ett bra tips är att konfigurera automatiska regler baserat på användning av CPU eller minne. Autoskala reglerna att skaluppsättningen att svara på en förlust av VM-instanser i en zonen genom att skala ut nya instanser i de återstående operativa zonerna.
 
 Om du vill använda tillgänglighet zoner din skaluppsättning måste skapas i en [stöd för Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du måste också [registrera för tillgänglighet zoner Förhandsgranska](http://aka.ms/azenroll). Du kan skapa en skalningsuppsättning som använder tillgänglighet zoner med någon av följande metoder:
 

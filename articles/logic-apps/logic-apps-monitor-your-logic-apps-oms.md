@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Övervaka och få insikter om logik appen körs med Operations Management Suite (OMS) och logganalys
 
@@ -35,7 +35,7 @@ Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OM
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Aktivera diagnostikloggning när du skapar logikappar
 
-1. I [Azure-portalen](https://portal.azure.com), skapa en logikapp. Välj **nya** > **företagsintegration** > **Logikapp** > **skapa**.
+1. I [Azure-portalen](https://portal.azure.com), skapa en logikapp. Välj **skapar du en resurs** > **Enterprise Integration** > **Logikapp**.
 
    ![Skapa en logikapp](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
 
@@ -60,7 +60,7 @@ Om du redan aktiverat logganalys när du skapade din logikapp, hoppar du över d
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” som filter och välja **logganalys** som visas:
 
-   ![Välj ”logganalys”](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
 2. Under **logganalys**, söka efter och välj din OMS-arbetsyta. 
 

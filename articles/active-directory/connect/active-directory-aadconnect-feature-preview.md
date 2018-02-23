@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Mer information om funktionerna i förhandsversionen
 Det här avsnittet beskriver hur du använder funktioner för närvarande under förhandsgranskning.
@@ -26,7 +26,7 @@ Det här avsnittet beskriver hur du använder funktioner för närvarande under 
 ## <a name="group-writeback"></a>Tillbakaskrivning av grupp
 Alternativet för tillbakaskrivning av grupp i valfria funktioner kan du tillbakaskrivning **Office 365-grupper** till en skog med Exchange installerad. Det här är en grupp som alltid lärt dig i molnet. Om du har Exchange lokalt kan sedan du skriva tillbaka grupperna till lokalt så att användare med en lokal Exchange-postlåda kan skicka och ta emot e-post från dessa grupper.
 
-Mer information om Office 365-grupper och hur de används finns [här](http://aka.ms/O365g).
+Mer information om Office 365-grupper och hur de används finns [här](https://aka.ms/O365g).
 
 En grupp för Office 365 representeras som en distributionsgrupp i lokala AD DS. Lokal Exchange-server måste vara i Exchange 2013 cumulative update 8 (ut i mars 2015) eller Exchange 2016 att identifiera den här nya grupptypen.
 

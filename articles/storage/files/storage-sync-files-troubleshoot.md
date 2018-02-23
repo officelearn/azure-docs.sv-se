@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -43,6 +43,10 @@ Granska installer.log om du vill ta reda på orsaken till att installationen mis
 > [!Note]  
 > Agentinstallationen misslyckas om datorn har konfigurerats att använda Microsoft Update och Windows Update-tjänsten körs inte.
 
+<a id="agent-installation-on-DC"></a>**Agentinstallationen misslyckas på Active Directory-domänkontrollant** om du försöker och installera sync-agenten på en Active Directory-domänkontrollant där rollägare PDC är på en Windows Server 2008R2 eller under OS-version du kan träffa problemet där sync agenten kan inte installeras.
+
+Överför PDC-rollen till en annan domän domänkontrollanten kör Windows Server 2012 R2 eller senare för att lösa, och sedan installera synkronisering.
+
 <a id="agent-installation-websitename-failure"></a>**Agentinstallationen misslyckas med felet: ”lagring Sync Agent guiden avslutades för tidigt”**  
 Det här problemet kan inträffa om standardnamnet för IIS-webbplatsen har ändrats. Undvik det här problemet Byt namn på standardwebbplatsen för IIS som ”Default Web Site” och försök installera igen. Problemet korrigeras i en kommande uppdatering av agenten. 
 
@@ -51,6 +55,8 @@ Om en server inte visas **registrerade servrar** för en tjänst för synkronise
 1. Logga in på den server som du vill registrera.
 2. Öppna Utforskaren och gå till installationskatalogen lagring Sync Agent (standardsökvägen är C:\Program Files\Azure\StorageSyncAgent). 
 3. Kör ServerRegistration.exe och slutför guiden för att registrera servern med en Storage-synkroniseringstjänsten.
+
+
 
 <a id="server-already-registered"></a>**Registrera servern visas följande meddelande under Azure filsynkronisering agentinstallationen: ”den här servern är redan registrerad”** 
 
@@ -95,9 +101,7 @@ Om du vill skapa en molnslutpunkt måste ditt användarkonto ha Microsoft Author
 
 Följande inbyggda roller har behörigheterna som krävs Microsoft Authorization:  
 * Ägare
-* Administratör för användaråtkomst
-
-Att avgöra om din användarroll konto har behörigheterna som krävs:  
+* Administratör för användaråtkomst att avgöra om din användarroll konto har behörigheterna som krävs:  
 1. Välj i Azure-portalen **resursgrupper**.
 2. Markera den resursgrupp där lagringskontot finns och välj sedan **åtkomstkontroll (IAM)**.
 3. Välj den **rollen** (till exempel ägare eller deltagare) för ditt konto.
@@ -105,11 +109,24 @@ Att avgöra om din användarroll konto har behörigheterna som krävs:
     * **Rolltilldelningen** ska ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** ska ha **Läs** och **skriva** behörigheter.
 
-<a id="server-endpoint-createjobfailed"></a>**Server-slutpunkten har skapats misslyckas med felet: ”MgmtServerJobFailed” (felkod:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Server-slutpunkten har skapats misslyckas med felet: ”MgmtServerJobFailed” (felkod:-2134375898)**                                                                                                                    
 Det här problemet uppstår om slutpunktsökväg server finns i systemvolymen och moln skiktning är aktiverad. Molnet skiktning stöds inte på systemvolymen. Inaktivera molnet skiktning när du skapar Serverslutpunkten om du vill skapa en serverslutpunkt för på systemvolymen.
 
 <a id="server-endpoint-deletejobexpired"></a>**Borttagning av slutpunkten misslyckas med felet: ”MgmtServerJobExpired”**                
 Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern på portalen som tar bort server-slutpunkter. Om du vill ta bort server-slutpunkter, följer du stegen som beskrivs i [Avregistrerar en server med Azure filsynkronisering](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Det gick inte att öppna egenskapssidan för servern endpoint eller uppdatera principer för lagringsnivåer moln**
+
+Det här problemet kan inträffa om en management-åtgärd på Serverslutpunkten misslyckas. Om egenskapssidan för slutpunkten inte öppnas i Azure-portalen, kan uppdaterar Serverslutpunkten med hjälp av PowerShell-kommandon från servern åtgärda problemet. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresursen via SMB eller via portalen hur lång tid det tar för filen som synkroniseras till servrar i gruppen synkronisering?**  

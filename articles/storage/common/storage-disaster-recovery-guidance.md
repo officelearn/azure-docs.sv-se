@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver våra styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hantera dessa sällsynta förekomster ska ger vi följande övergripande riktlinjer för Azure Storage-tjänster.
@@ -27,9 +27,9 @@ På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid �
 Det är viktigt för varje kund att förbereda en plan för haveriberedskap. För att återställa från ett avbrott för lagring vanligtvis omfattar både operations personal och automatiserade procedurer för att återaktivera ditt program med fungerande tillstånd. Hittar du i Azure-dokumentationen nedan för att skapa en egen plan för katastrofåterställning:
 
 * [Tillgänglighetschecklista](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Utforma återhämtningsprogram för Azure](/azure/architecture/resiliency)
+* [Utforma återhämtningsprogram för Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery-tjänsten](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Storage-replikering](storage-redundancy)
+* [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup-tjänsten](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Hur du identifierar

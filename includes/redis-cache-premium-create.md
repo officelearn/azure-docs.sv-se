@@ -1,4 +1,4 @@
-Om du vill skapa ett premium-cacheminne loggar du in på [Azure Portal](https://portal.azure.com) och klickar på **Ny** > **Databaser** > **Redis Cache**.
+Om du vill skapa en premium-cache, logga in på den [Azure-portalen](https://portal.azure.com) och på **skapar du en resurs** > **databaser** > **Redis-Cache** .
 
 ![Skapa ett cacheminne](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

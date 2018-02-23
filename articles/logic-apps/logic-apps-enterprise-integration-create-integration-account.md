@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>Vad är en integrering konto?
 
 Ett konto för integrering tillåter enterprise integration apparna att hantera artefakter, inklusive scheman, kartor, certifikat, partners och avtal. Alla integration appar som du skapar använder ett konto för integrering för att komma åt dessa scheman, kartor, certifikat och så vidare.
 
-## <a name="create-an-integration-account"></a>Skapa ett konto för integrering
+## <a name="create-an-integration-account"></a>Skapa ett integrationskonto
 
-1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). I den vänstra menyn, Välj **fler tjänster**.
+1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). I den vänstra menyn, Välj **alla tjänster**.
 
-    ![Välj ”fler tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Välj ”alla tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. I sökrutan skriver du ”integration” för filtret. Välj i resultatlistan **Integrationskonton**.
 
@@ -56,7 +56,7 @@ Därefter länka integration-konto som du har skapat i din logikapp.
 
 Om du vill ge dina logic länka appar åtkomst till maps, scheman, avtal och andra artefakter i kontot integration integration-konto till din logikapp.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Ett konto för integrering
 * En logikapp
@@ -85,9 +85,9 @@ Nu när ditt konto integration är länkad till din logikapp, kan du använda B2
 
 ## <a name="delete-your-integration-account"></a>Ta bort ditt konto för integrering
 
-1. Välj **fler tjänster**.
+1. Välj **alla tjänster**.
 
-    ![Välj ”fler tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Välj ”alla tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. I sökrutan skriver du ”integration” för filtret. Välj i resultatlistan **Integrationskonton**.
 
@@ -110,9 +110,9 @@ Följ dessa steg om du vill flytta ett integration konto till en annan Azure-pre
 > [!IMPORTANT]
 > Du måste uppdatera alla skript om du vill använda den nya resursen-ID när du flyttar ett konto för integrering.
 
-1. Välj **fler tjänster**.
+1. Välj **alla tjänster**.
 
-    ![Välj ”fler tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Välj ”alla tjänster”](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. I sökrutan skriver du ”integration” för filtret. Välj i resultatlistan **Integrationskonton**.
 

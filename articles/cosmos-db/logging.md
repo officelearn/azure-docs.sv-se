@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
-När du har börjat använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när databaserna används. Diagnostiska loggar in Azure Cosmos DB kan du utföra denna övervakning. Genom att aktivera diagnostikloggning kan du skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och/eller exportera dem till [logganalys](https://azure.microsoft.com/services/log-analytics/), vilket är en del av [ Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+När du har börjat använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när databaserna används. Den här artikeln innehåller en översikt över alla tillgängliga loggar på Azure-plattformen och förklarar hur du aktiverar du diagnostikloggning för övervakning att skicka loggar för [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs ](https://azure.microsoft.com/services/event-hubs/), och/eller exportera dem till [logganalys](https://azure.microsoft.com/services/log-analytics/), vilket är en del av [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
+
+Innan vi går in övervakningskonto Azure Cosmos DB kan tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, pulsslag övervakning, operations loggar, osv. Det finns uppsjö av loggar. Du kan se en fullständig lista över loggar i [Azure logganalys](https://azure.microsoft.com/en-us/services/log-analytics/) i Azure-portalen. 
+
+Följande bild visar de olika typerna av Azure loggar som är tillgängliga.
+
+![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
+
+För vår kan du fokusera på aktivitet för Azure, Azure Diagnotic och mått. Så vad är skillnaden mellan dessa tre loggar? 
+
+### <a name="azure-activity-log"></a>Azure-aktivitetsloggen
+
+Azure-aktivitetsloggen är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Aktivitetsloggen rapporterar kontroll-plan händelser för dina prenumerationer under den administrativa kategorin. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. 
+
+Aktivitetsloggen skiljer sig från diagnostikloggar. Aktivitetsloggar ger information om åtgärder på en resurs från utsidan (”kontrollplan”). I Azure DB som Cosmos-kontexten skapa vissa kontrollplan operations inkludera samling, lista nycklar, ta bort nycklar, lista databas och så vidare. Diagnostik loggar orsakat av en resurs och ger information om handhavandet av resursen (”dataplan”). Vissa data plan diagnostiska loggen exempel blir delete, insert, readfeed åtgärden osv.
+
+Aktivitetsloggar (kontroll plan operations) kan vara mycket större till sin natur, de kan innehålla den fullständiga e-postadressen av anroparen, anroparen IP-adress, resurs, Åtgärdsnamnet och TenantId, osv. Aktivitetsloggen innehåller flera [kategorier](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) av data. Fullständig information om scheman av dessa kategorier finns [Azure-aktivitetsloggen Händelseschema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  Diagnostikloggar kan dock vara begränsad till sin natur som personligt identifierbar information data ofta tas bort från dem. Så du kan ha IP-adressen för anroparen, men den senaste octent tas bort.
+
+### <a name="azure-metrics"></a>Azure Metrics
+
+[Azure mått](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), de viktigaste typ av Azure telemetridata (kallas även prestandaräknare) sänds av mest Azure-resurser. Mått kan du visa information om dataflöde, lagring, konsekvens, tillgänglighet och svarstiden för dina Azure DB som Cosmos-resurser. Mer information finns i [övervakning och felsökning med mått i Azure Cosmos DB](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
+
+Azure diagnostikloggar är loggar som orsakat av en resurs och ger omfattande, ofta data om användningen av den här resursen. Innehållet i de här loggarna varierar beroende på resurstypen. Resursnivå diagnostikloggar också skilja sig från diagnostikloggar för gäst-OS-nivå. Gästoperativsystem diagnostikloggar är de som samlats in av en agent som körs i en virtuell dator eller andra stöd för resurstypen. Resursnivå diagnostikloggar kräver ingen agent och avbilda resurs-specifika data från Azure-plattformen, medan gäst-OS-nivå diagnostikloggar samla in data från operativsystemet och program som körs på en virtuell dator.
 
 ![Diagnostikloggning till lagring, Händelsehubbar eller Operations Management Suite via logganalys](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Använd den här kursen och kom igång med Azure Cosmos DB loggning via Azure-portalen, CLI eller PowerShell.
-
-## <a name="what-is-logged"></a>Vad är inloggad?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Vad är inloggad med Azure diagnostikloggar?
 
 * Alla autentiserade backend-förfrågningar (TCP/REST) loggas över alla API: er, vilket inkluderar misslyckade begäranden på grund av behörigheter för åtkomst, systemfel eller felaktiga begäranden. Stöd för användaren initieras diagram, Cassandra, och tabellen API-begäranden är inte tillgängliga.
 * Åtgärder på själva databasen, som innehåller CRUD-åtgärder på alla dokument, behållare och databaser.
 * Åtgärder på nycklar, vilket innefattar att skapa, ändra eller ta bort de här nycklarna.
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.
 
-## <a name="prerequisites"></a>Förutsättningar
-Den här kursen behöver du följande resurser:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Aktivera loggning i Azure-portalen
+
+Om du vill aktivera diagnostikloggning, måste du ha följande resurser:
 
 * En befintlig Azure Cosmos DB kontot, databas och behållare. Anvisningar om hur du skapar de här resurserna finns [skapa ett databaskonto i Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [CLI prover](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Aktivera loggning i Azure-portalen
+Om du vill aktivera diagnostiska loggar in på Azure-portalen, gör du följande:
 
 1. I den [Azure-portalen](https://portal.azure.com), i din Azure Cosmos DB konto, klickar du på **diagnostikloggar** i det vänstra navigeringsfönstret och klicka sedan på **aktivera diagnostiken**.
 
@@ -98,7 +123,7 @@ Du kan kombinera dessa parametrar för att aktivera flera alternativ för utdata
 
 ## <a name="turn-on-logging-using-powershell"></a>Aktivera loggning med hjälp av PowerShell
 
-Om du vill aktivera loggning med hjälp av PowerShell behöver du Azure Powershell med en lägsta version av 1.0.1.
+Om du vill aktivera diagnostikloggning med hjälp av PowerShell behöver du Azure Powershell med en lägsta version av 1.0.1.
 
 Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
@@ -233,7 +258,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-Som du kan se dessa utdata kan följa en namngivningskonvention blobar:`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Som du kan se dessa utdata kan följa en namngivningskonvention blobar: `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Datum- och tidsvärdena använder UTC.
 
@@ -285,8 +310,8 @@ Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 Följande gäller också:
 
-* Fråga status för diagnostikinställningar för din databas resurs:`Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
-* Inaktivera loggning av **DataPlaneRequests** kategori för din databas konto resurs:`Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
+* Fråga status för diagnostikinställningar för din databas resurs: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+* Inaktivera loggning av **DataPlaneRequests** kategori för din databas konto resurs: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
 
 Blobbar som returneras i var och en av de här frågorna lagras som text, formateras som en JSON-blob som visas i följande kod. 
@@ -315,7 +340,7 @@ Mer information om data i varje JSON-blob, se [tolka Azure Cosmos DB loggarna](#
 
 ## <a name="managing-your-logs"></a>Hantera dina loggar
 
-Loggar görs tillgängliga i ditt konto två timmar från den tidpunkt som Azure DB som Cosmos-åtgärden utfördes. Det är upp till dig att hantera loggarna i ditt lagringskonto:
+Diagnostikloggar görs tillgängliga i ditt konto två timmar från den tidpunkt som Azure DB som Cosmos-åtgärden utfördes. Det är upp till dig att hantera loggarna i ditt lagringskonto:
 
 * Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
@@ -325,7 +350,7 @@ Loggar görs tillgängliga i ditt konto två timmar från den tidpunkt som Azure
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visa loggfiler i logganalys
 
-Om du har valt den **skicka till logganalys** alternativet när du har aktiverat loggning diagnostikdata från din samling vidarebefordras till logganalys inom två timmar. Det innebär att om du tittar på logganalys omedelbart efter det att loggning inte visas några data. Bara vänta två timmar och försök igen. 
+Om du har valt den **skicka till logganalys** när du har aktiverat diagnostikloggning, diagnostiska data från din samling vidarebefordras till logganalys inom två timmar. Det innebär att om du tittar på logganalys omedelbart efter det att loggning inte visas några data. Bara vänta två timmar och försök igen. 
 
 Innan du visar loggar vill du och se om logganalys-arbetsytan har uppgraderats för att använda nya Log Analytics-frågespråket. Du kan kontrollera detta genom att öppna den [Azure-portalen](https://portal.azure.com), klickar du på **logganalys** på långt till vänster, välj sedan namnet på arbetsytan som visas i följande bild. Den **OMS-arbetsytan** visas som visas i följande bild.
 

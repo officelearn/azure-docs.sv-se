@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuera en tjänst för att dela/sammanslå
 Dela merge-verktyget kan du flytta data mellan delat databaser. Se [flytta data mellan databaser som skalats ut moln](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -34,13 +34,13 @@ Dela merge-verktyget kan du flytta data mellan delat databaser. Se [flytta data 
 
 Filerna placeras i en katalog med namnet **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** där *x.x.xxx.x* visar versionsnumret. Hitta delade dokument Service-filer i den **content\splitmerge\service** underkatalog, och den delade dokument PowerShell-skript (och nödvändiga klient DLL-filer) i den **content\splitmerge\powershell** underkatalog.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 1. Skapa en Azure SQL DB-databas som ska användas som databas för delade dokument status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL-databas**. Namnge databasen och skapa en ny administratör och lösenord. Kom ihåg att registrera namn och lösenord för senare användning.
 2. Kontrollera att din Azure SQL DB-server tillåter Azure-tjänster att ansluta till den. I portalen i den **brandväggsinställningar**, se till att den **Tillåt åtkomst till Azure-tjänster** inställningen **på**. Klicka på ikonen ”spara”.
    
    ![Tillåtna tjänster][1]
-3. Skapa ett Azure Storage-konto som ska användas för diagnostik utdata. Gå till Azure-portalen. I fältet till vänster klickar du på **ny**, klickar du på **Data + lagring**, sedan **lagring**.
-4. Skapa en Azure-molntjänst som innehåller delning-kopplingstjänsten.  Gå till Azure-portalen. I fältet till vänster klickar du på **ny**, sedan **Compute**, **Molntjänsten**, och **skapa**. 
+3. Skapa ett Azure Storage-konto som ska användas för diagnostik utdata. Gå till Azure-portalen. I fältet till vänster klickar du på **skapar du en resurs**, klickar du på **Data + lagring**, sedan **lagring**.
+4. Skapa en Azure-molntjänst som innehåller delning-kopplingstjänsten.  Gå till Azure-portalen. I fältet till vänster klickar du på **skapar du en resurs**, sedan **Compute**, **Molntjänsten**, och **skapa**. 
 
 ## <a name="configure-your-split-merge-service"></a>Konfigurera din delade kopplingstjänsten
 ### <a name="split-merge-service-configuration"></a>Dela kopplingstjänsten konfiguration

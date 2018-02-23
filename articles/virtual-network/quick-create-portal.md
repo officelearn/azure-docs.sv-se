@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 264dc38383b9adad70325f7fb7802b1dcf2da1c0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Skapa ett virtuellt nätverk med Azure Portal
 
@@ -102,7 +102,7 @@ Validera kommunikation med *myVm2*, anger du följande kommando från en kommand
 mstsc /v:myVm2
 ```
 
-Anslutning till fjärrskrivbord är lyckas eftersom både virtuella datorer har den privata IP-adresser tilldelas från den *standard* undernät och eftersom fjärrskrivbord är öppen via Windows-brandväggen som standard. Du kan ansluta till *myVm2* av värdnamn eftersom automatiskt ger DNS-namnmatchning för alla värdar inom ett virtuellt nätverk i Azure. Från en kommandotolk pinga min *myVm1*, från *myVm2*.
+Anslutning till fjärrskrivbord är lyckas eftersom både virtuella datorer har den privata IP-adresser tilldelas från den *standard* undernät och eftersom fjärrskrivbord är öppen via Windows-brandväggen som standard. Du kan ansluta till *myVm2* av värdnamn eftersom automatiskt ger DNS-namnmatchning för alla värdar inom ett virtuellt nätverk i Azure. Från en kommandotolk pinga *myVm1*, från *myVm2*.
 
 ```
 ping myvm1

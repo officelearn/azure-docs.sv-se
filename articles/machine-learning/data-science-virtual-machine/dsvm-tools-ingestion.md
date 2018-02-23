@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data vetenskap virtuella data införandet verktyg
 
@@ -35,7 +35,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Stöds DSVM versioner      | Windows      |
 | Vanliga användningsområden      | Importera flera blobbar från Azure-lagring till Azure Data Lake Store.      |
 |  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `adlcopy` kan få hjälp.    |
-| Länkar till exempel      | [Använder AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Länkar till exempel      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Relaterade verktyg på DSVM      | AzCopy, Azure kommandoraden     |
 
 ## <a name="azure-command-line"></a>Azure kommandoraden
@@ -47,7 +47,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Vanliga användningsområden      | Import, export av data till och från Azure storage, Azure Data Lake Store      |
 |  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `az` kan få hjälp.    |
 | Länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
-| Relaterade verktyg på DSVM      | AzCopy AdlCopy      |
+| Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
 ## <a name="azcopy"></a>AzCopy
@@ -71,7 +71,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Vanliga användningsområden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure-tabellagring till CosmosDB eller importera data från en SQL Server-databas till CosmosDB.     |
 |  Hur du använder / kör den?    |   För att använda kommandoraden version, öppna en kommandotolk, Skriv `dt`. Att använda GUI-verktyg, öppna Kommandotolken, Skriv `dtui`.    |
 | Länkar till exempel      | [CosmosDB importera Data](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
-| Relaterade verktyg på DSVM      | AzCopy AdlCopy      |
+| Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
 ## <a name="bcp"></a>bcp
@@ -84,6 +84,17 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 |  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `bcp` kan få hjälp.    |
 | Länkar till exempel      | [Bulk Copy-verktyget](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Relaterade verktyg på DSVM      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Vad är det?   | Ett verktyg för att montera en Azure blob-behållare i Linux-filsystem.      |
+| Stöds DSVM versioner      | Linux      |
+| Vanliga användningsområden      | Läsning och skrivning till blobbar i en behållare      |
+|  Hur du använder / kör den?    |   Kör _blobfuse_ i en terminal.    |
+| Länkar till exempel      | [blobfuse på GitHub) [https://github.com/Azure/azure-storage-fuse]      |
+| Relaterade verktyg på DSVM      | Azure kommandoraden      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway

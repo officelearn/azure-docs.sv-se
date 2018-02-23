@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du hanterar SQL Server agent-till�
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Klassisk](../classic/sql-server-agent-extension.md)
-> 
-> 
+> * [Klassisk](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 SQL Server IaaS Agent tillägget (SQLIaaSExtension) körs på virtuella Azure-datorer att automatisera administrationsuppgifter. Den här artikeln innehåller en översikt över de tjänster som stöds av tillägget samt anvisningar för installation, status och borttagning.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Den klassiska versionen av den här artikeln finns [SQL Server Agent-tillägget för SQL Server VMs klassiska](../classic/sql-server-agent-extension.md).
+Den klassiska versionen av den här artikeln finns [SQL Server Agent-tillägget för SQL Server VMs klassiska](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Tjänster som stöds
 SQL Server IaaS Agent tillägget stöder följande administrationsuppgifter:
@@ -56,7 +54,7 @@ Krav för att använda SQL Server IaaS Agent tillägget på den virtuella datorn
 
 **SQL Server-versioner**:
 
-* SQLServer 2012
+* SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
 
@@ -95,7 +93,7 @@ Föregående kommando bekräftar att agenten är installerad och ger allmän sta
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>Borttagning
-I Azure-portalen kan du avinstallera tillägget genom att klicka på knappen på den **tillägg** fönstret i Egenskaper för virtuell dator. Klicka på **ta bort**.
+I Azure-portalen kan du avinstallera tillägget genom att klicka på knappen på den **tillägg** fönstret i Egenskaper för virtuell dator. Klicka på **Ta bort**.
 
 ![Avinstallera SQL Server IaaS Agent tillägget i Azure-portalen](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

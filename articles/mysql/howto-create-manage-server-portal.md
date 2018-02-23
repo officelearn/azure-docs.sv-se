@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Skapa och hantera Azure-databas för MySQL-servern med hjälp av Azure-portalen
 Det här avsnittet beskrivs hur du snabbt kan skapa en ny Azure-databas för MySQL-servern. Det innehåller även information om hur du hanterar servern med hjälp av Azure portal. Server management innehåller visa serverinformation och databaser att återställa lösenordet och ta bort servern.
@@ -24,13 +24,13 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
 Följ dessa steg om du vill skapa en Azure-databas för MySQL-server med namnet ”mysqlserver4demo”.
 
-1. Klicka på den **ny** knapp som finns i det övre vänstra hörnet i Azure-portalen.
+1. Klicka på den **skapar du en resurs** knapp som finns i det övre vänstra hörnet i Azure-portalen.
 
 2. På den nya sidan Välj **databaser**, och databaser på sidan Välj **Azure-databas för MySQL**.
 
     > En Azure-databas för MySQL-server har skapats med en definierad uppsättning [beräkning och lagring](./concepts-compute-unit-and-storage.md) resurser. Databasen har skapats i en Azure-resursgrupp och i Azure-databasen för MySQL-servern.
 
-   ![Skapa nya-server](./media/howto-create-manage-server-portal/create-new-server.png)
+   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3. Fylla i Azure-databasen för MySQL formulär med hjälp av följande information:
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill skapa en Azure-databas för MySQL-server med namnet 
 
 4. Klicka på **prisnivå** att ange tjänstenivå för tjänstnivå och prestandanivå för den nya servern. Compute-enhet kan konfigureras mellan 50 och 100 i grundläggande nivån mellan 100 och 200 i standardnivån, och lagringsutrymme kan läggas till baserat på hur ingår. Den här guiden Ta väljer vi 50 beräknings-enhet och 50 GB. Klicka på **OK** att spara ditt val.
 
-   ![Skapa-server--prisnivån](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
+   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
 
@@ -63,7 +63,7 @@ När nya servern är etablerad användaren har två alternativ för att redigera
 
 2. Ange nya lösenord och bekräfta lösenordet i fönstret som visas:
 
-   ![Återställ lösenord](./media/howto-create-manage-server-portal/reset-password.png)
+   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Klicka på **OK** att spara det nya lösenordet.
 

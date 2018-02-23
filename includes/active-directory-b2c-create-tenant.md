@@ -1,4 +1,4 @@
-Klicka på **Nytt**. I fältet **Sök på marketplace** skriver du `Azure Active Directory B2C`.
+Klicka på den **skapar du en resurs** knappen. I fältet **Sök på marketplace** skriver du `Azure Active Directory B2C`.
 
 ![Knappen Lägg till markerad och texten Azure Active Directory B2C i fältet Sök på marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

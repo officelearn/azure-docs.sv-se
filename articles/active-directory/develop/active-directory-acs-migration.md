@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från tjänsten Azure Access Control
 
@@ -180,7 +180,7 @@ En annan metod är att följa [detta kodexempel](https://github.com/Azure-Sample
 
 Om du väljer den här metoden måste du förstå [signering nyckelförnyelse i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Den här metoden använder globala signeringsnyckel problemet tokens Azure AD. Som standard uppdateras WIF inte automatiskt Signeringsnycklar. När Azure AD roterar dess globala Signeringsnycklar, måste WIF-implementering vara beredd att acceptera ändringar.
 
-Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll, rekommenderar vi då. Vi har en omfattande dokumentation och information om hur du integrerar Azure AD i ditt webbprogram som är tillgängliga i vår [Utvecklarhandbok för Azure AD](http://aka.ms/aaddev).
+Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll, rekommenderar vi då. Vi har en omfattande dokumentation och information om hur du integrerar Azure AD i ditt webbprogram som är tillgängliga i vår [Utvecklarhandbok för Azure AD](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -231,7 +231,7 @@ Om du väljer att Azure AD B2C är den bästa migreringsvägen för dina program
 I vissa fall kanske du upptäcker att Azure AD och Azure AD B2C inte är tillräckligt för att ersätta åtkomstkontroll i ditt webbprogram utan ändringar av större kod. Några vanliga exempel kan innehålla:
 
 - Webbprogram som använder WIF eller WS-Federation för inloggning med sociala identitetsleverantörer, till exempel Google eller Facebook.
-- Webbprogram som utför direkt federering till företaget identifiera provider via protokollet WS-Federation.
+- Webbprogram som utför direkt federering till en enterprise-identitetsleverantör via protokollet WS-Federation.
 - Webbprogram som kräver åtkomst-token som utfärdas av en sociala identitetsprovider (till exempel Google eller Facebook) som ett anspråk i de token som utfärdats av åtkomstkontroll.
 - Webbprogram med reglerna för omvandling av komplexa token som Azure AD eller Azure AD B2C inte kan återskapa.
 - Flera innehavare webbprogram som centralt hantera federering till många olika identitetsleverantörer ACS
@@ -281,8 +281,8 @@ Du kan också använda Azure AD för autentisering av server-till-server med hj�
 | Så här registrerar du en webbtjänst | Skapa en förlitande part i hanteringsportalen för åtkomstkontroll | Skapa en Azure AD-webbapp i Azure-portalen |
 | Så här registrerar du en klient | Skapa en tjänstidentitet i hanteringsportalen för åtkomstkontroll | Skapa en annan Azure AD-webbprogram i Azure-portalen |
 | Protokoll som används |-Protokollet OAuth OMSLUTNING<br />-Bevilja OAuth 2.0 utkast 13 klientens autentiseringsuppgifter | Bevilja OAuth 2.0 klientens autentiseringsuppgifter |
-| Klientautentiseringsmetoder |-Enkla lösenord<br />-Signerade SWT<br />-SAML token från en federerad identitet-provider |-Enkla lösenord<br />-JWT signerad |
-| Token format |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Endast JWT |
+| Klientautentiseringsmetoder |-Enkla lösenord<br />- Signed SWT<br />-SAML token från en federerad identitet-provider |-Enkla lösenord<br />- Signed JWT |
+| Token format |-JWT<br />-SAML 1.1<br />- SAML 2.0<br />-SWT<br /> | Endast JWT |
 | Omvandling av token |-Lägg till anpassade anspråk<br />-Enkelt om sedan anspråk utfärdande-logiken | Lägga till anpassade anspråk | 
 | Automatisera hantering och konfiguration av uppgifter | Stöds via Access Control Management-tjänsten | Stöds via Microsoft Graph och Azure AD Graph API |
 

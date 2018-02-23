@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogen nya klienter som använder program per klient SaaS mönster
 
@@ -30,7 +30,7 @@ Den här artikeln har två huvuddelar:
 * En självstudiekurs som visar exempelkod för PowerShell som genomför etablering och katalogiserar
     * I självstudiekursen används Wingtip biljetter SaaS exempelprogrammet anpassas till fristående app per klient mönster.
 
-## <a name="application-per-tenant-pattern"></a>Program per klient mönster
+## <a name="standalone-application-per-tenant-pattern"></a>Fristående program per klient mönster
 Fristående app per klient mönster är ett av flera mönster för flera innehavare SaaS-program.  I det här mönstret etableras en fristående app för varje klient. Programmet omfattar nivå programkomponenter och en SQL-databas.  Varje klient-app kan distribueras i leverantörens prenumerationen.  Du kan också Azure erbjuder en [hanterade program programmet](https://docs.microsoft.com/en-us/azure/managed-applications/overview) i som en app kan distribueras i en klients prenumerationen och hanteras av leverantören för klientens räkning. 
 
    ![mönstret App per klient](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Varje klient kräver en ny Azure resursgrupp, som måste skapas innan resurser k
 
 I den här självstudiekursen får du lära du dig att:
 * Etablera en katalog
-* Registrera klient-databaser som distribuerats tidigare i katalogen
+* Registrera klienten exempeldatabasen som du har distribuerat tidigare i katalogen
 * Etablera en ytterligare klient och registrera den i katalogen
 
 En Azure Resource Manager-mallen används för att distribuera och konfigurera programmet, skapar klient-databasen och sedan importera en bacpac-fil för att initiera den. Begäran om att importera köas i flera minuter innan den är åtgärdade.
@@ -148,3 +148,5 @@ I den här guiden har du lärt dig:
 > * Så här distribuerar du Wingtip biljetter SaaS fristående program.
 > * Om servrar och databaser som ingår i appen.
 > * Ta bort resurser för att stoppa relaterade fakturering.
+
+Du kan utforska hur katalogen används för att stödja olika mellan klient-scenarier med hjälp av databasen per klient-versionen av den [Wingtip biljetter SaaS-program](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Förstå Azure IoT kant moduler – förhandsgranskning
 
@@ -50,7 +50,7 @@ Varje modulinstans har även en motsvarande modulen dubbla som du kan använda f
 
 En modul dubbla är ett JSON-dokument som innehåller modulen och konfigurationsinformation egenskaper. Detta begrepp parallels den [enheten dubbla] [ lnk-device-twin] konceptet från IoT-hubb. Struktur för en modul dubbla är exakt detsamma som en enhet dubbla. API: er som används för att interagera med båda typerna av twins är också samma. Den enda skillnaden mellan två är det identitet som används för att skapa en instans av klient-SDK. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 

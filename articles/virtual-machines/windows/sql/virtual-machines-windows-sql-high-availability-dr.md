@@ -4,7 +4,7 @@ description: "En beskrivning av de olika typerna av HADR strategier för SQL Ser
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines
 
@@ -69,7 +69,7 @@ Du kan ha en lösning för katastrofåterställning för SQL Server-databaser i 
 | Teknologi | Exempel arkitekturer |
 | --- | --- |
 | **Tillgänglighetsgrupper** |Vissa tillgänglighetsrepliker som körs i virtuella Azure-datorer och andra repliker som körs lokalt för katastrofåterställning för webbplatser. Produktionsplatsen kan vara antingen lokalt eller i ett Azure-datacenter.<br/>![Tillgänglighetsgrupper](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Eftersom alla tillgänglighetsrepliker måste vara i samma kluster för växling vid fel måste i klustret omfatta båda nätverken (ett flera undernät failover-kluster). Den här konfigurationen kräver en VPN-anslutning mellan Azure och det lokala nätverket.<br/><br/>För lyckad katastrofåterställning för dina databaser, bör du också installera en replika-domänkontroller på disaster recovery-plats.<br/><br/>Det är möjligt att använda guiden Lägg till replik i SSMS att lägga till en Azure replik till en befintlig alltid på tillgänglighetsgrupp. Mer information finns i självstudiekursen: utöka alltid på Tillgänglighetsgruppen till Azure. |
-| **Databasspegling** |En partner som körs i en virtuell dator i Azure och den andra körs lokalt för katastrofåterställning för webbplatser som använder servercertifikat. Partners behöver inte finnas i samma Active Directory-domän och någon VPN-anslutning krävs.<br/>![Databasspegling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Ett annat scenario för databasspegling innebär en partner som körs i en virtuell dator i Azure och den andra körs lokalt i samma Active Directory-domän för katastrofåterställning för webbplatser. En [VPN-anslutning mellan Azure-nätverket och det lokala nätverket](../../../vpn-gateway/vpn-gateway-site-to-site-create.md) krävs.<br/><br/>För lyckad katastrofåterställning för dina databaser, bör du också installera en replika-domänkontroller på disaster recovery-plats. |
+| **Databasspegling** |En partner som körs i en virtuell dator i Azure och den andra körs lokalt för katastrofåterställning för webbplatser som använder servercertifikat. Partners behöver inte finnas i samma Active Directory-domän och någon VPN-anslutning krävs.<br/>![Databasspegling](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Ett annat scenario för databasspegling innebär en partner som körs i en virtuell dator i Azure och den andra körs lokalt i samma Active Directory-domän för katastrofåterställning för webbplatser. En [VPN-anslutning mellan Azure-nätverket och det lokala nätverket](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) krävs.<br/><br/>För lyckad katastrofåterställning för dina databaser, bör du också installera en replika-domänkontroller på disaster recovery-plats. |
 | **Loggöverföring** |En server som körs i en virtuell dator i Azure och den andra körs lokalt för katastrofåterställning för webbplatser. Loggöverföring beror på Windows fildelning, så krävs en VPN-anslutning mellan Azure-nätverket och det lokala nätverket.<br/>![Loggöverföring](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>För lyckad katastrofåterställning för dina databaser, bör du också installera en replika-domänkontroller på disaster recovery-plats. |
 | **Säkerhetskopiering och återställning med Azure Blob Storage-tjänst** |Lokalt produktionsdatabaserna säkerhetskopieras direkt till Azure blob storage för katastrofåterställning.<br/>![Säkerhetskopiering och återställning](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Mer information finns i [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replikering och redundans SQL Server till Azure med Azure Site Recovery** |Lokal produktion SQL Server replikeras direkt till Azure Storage för katastrofåterställning.<br/>![Replikera med Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Mer information finns i [skydda SQL Server med SQL Server-katastrofåterställning och Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -104,7 +104,7 @@ Det finns två huvudsakliga alternativ för att konfigurera din lyssnare: extern
 Om Tillgänglighetsgruppen sträcker sig över flera Azure-undernät (till exempel en distribution som passerar Azure-regioner), klient-anslutningssträngen måste innehålla ”**MultisubnetFailover = True**”. Detta resulterar i parallella anslutningsförsök till replikerna i olika undernät. Anvisningar om hur du skapar en lyssnare finns
 
 * [Konfigurera en ILB-lyssnare för Tillgänglighetsgrupper i Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Konfigurera en extern lyssnare för Tillgänglighetsgrupper i Azure](../classic/ps-sql-ext-listener.md).
+* [Konfigurera en extern lyssnare för Tillgänglighetsgrupper i Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 Du kan fortfarande ansluta till varje tillgänglighetsreplik separat för genom att ansluta direkt till tjänstinstansen. Dessutom eftersom Tillgänglighetsgrupper är bakåtkompatibel med klienter för databasspegling, kan du ansluta till tillgänglighetsrepliker som databasspegling partners så länge replikerna konfigureras liknar databasspegling:
 

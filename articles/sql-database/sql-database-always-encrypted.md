@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Skydda känsliga data i SQL-databasen och lagra krypteringsnycklar i Windows certifikatarkiv
 
@@ -38,7 +38,7 @@ Följ stegen i den här artikeln lär du dig hur du ställer in Always Encrypted
 * Skapa en databastabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här kursen behöver du:
 
 * Ett Azure-konto och prenumeration. Om du inte har någon registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -47,8 +47,8 @@ Den här kursen behöver du:
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **nya** > **Data + lagring** > **SQL-databas**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **skapar du en resurs** > **Data + lagring** > **SQL-databas**.
 3. Skapa en **tom** databas med namnet **kurs** på en ny eller befintlig server. Detaljerade instruktioner om hur du skapar en databas i Azure portal finns [första Azure SQL database](sql-database-get-started-portal.md).
    
     ![Skapa en tom databas](./media/sql-database-always-encrypted/create-database.png)

@@ -1,6 +1,6 @@
 ---
 title: "Skydda en flera nivåer SAP NetWeaver programdistribution med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln beskriver hur du kan skydda SAP NetWeaver programdistributioner med hjälp av Azure Site Recovery"
+description: "Den här artikeln beskriver hur du kan skydda SAP NetWeaver distribution av program med hjälp av Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -14,107 +14,107 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1ee472498bdefc4eeb9863670e5480326b5ba6d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Skydda en flera nivåer SAP NetWeaver programdistribution med hjälp av Azure Site Recovery
+# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Skydda en distribution av flera nivåer SAP NetWeaver med Site Recovery
 
-De flesta distributioner för små och medelstora SAP har någon form av Disaster Recovery-lösning.  Vikten av robust och kan testas Disaster Recovery-lösningar har ökat när flera kärnprocesser flyttas till program, till exempel SAP.  Azure Site Recovery har testats och är integrerad med SAP-program och överskrider kapaciteterna för de flesta lokala Disaster Recovery-lösningar, på en lägre ägandekostnader (TCO) än konkurrerande lösningar.
-Med Azure Site Recovery kan du:
-* Aktivera skydd av SAP NetWeaver och icke-NetWeaver-produktionsprogram som körs lokalt genom att replikera komponenter till Azure.
-* Aktivera skydd av SAP NetWeaver och icke-NetWeaver-produktionsprogram som kör Azure, genom att replikera komponenter till ett annat Azure-datacenter.
-* Förenkla molnmigreringen genom att använda Site Recovery för att migrera din SAP-distribution till Azure.
-* Förenkla SAP-projektuppgradering, testning och prototyper genom att skapa en produktionsklon på begäran för att testa SAP-program.
+De flesta stora och medelstora SAP-distributioner använder någon form av lösning för katastrofåterställning. Vikten av robust och kan testas katastrofåterställning har ökat när flera kärnprocesser flyttas till program som SAP. Azure Site Recovery har testats och integrera med SAP-program. Site Recovery överskrider kapaciteterna för de flesta lokala lösningar för katastrofåterställning, och på en lägre ägandekostnader (TCO) än konkurrerande lösningar.
 
-Den här artikeln beskriver hur du kan skydda SAP NetWeaver programdistributioner med [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskrivs bästa praxis för att skydda en distribution med tre nivåer SAP NetWeaver i Azure genom att replikera till en annan Azure-datacenter med hjälp av Azure Site Recovery scenarier som stöds och konfigurationer och hur du utför redundans, både test växling vid fel (haveriberedskap) och faktiska växling vid fel.
+Med Site Recovery kan du:
+* **Aktivera skyddet för SAP NetWeaver och icke-NetWeaver produktions-program som körs lokalt** genom att replikera komponenter till Azure.
+* **Aktivera skyddet för SAP NetWeaver och icke-NetWeaver produktionsprogram som körs på Azure** genom att replikera komponenter till en annan Azure-datacenter.
+* **Förenkla molnmigreringen** med Site Recovery för att migrera din SAP-distribution till Azure.
+* **Förenkla SAP projektet uppgraderingar, testning och prototyper** klona på begäran för att testa SAP-program genom att skapa en produktion.
 
+Den här artikeln beskriver hur du skyddar SAP NetWeaver programdistributioner med [Azure Site Recovery](site-recovery-overview.md). Artikeln innehåller metodtips för att skydda en distribution med tre nivåer SAP NetWeaver i Azure genom att replikera till en annan Azure-datacentret genom att använda Site Recovery. Beskriver scenarier som stöds och konfigurationer och hur du utför redundanstestningar (haveriberedskap) och faktiska växling vid fel.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar bör du kontrollera att du känna till följande:
+Se till att du vet hur du gör följande innan du börjar:
 
-1. [Replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md)
-2. Så här [utforma ett nätverk för återställning](site-recovery-azure-to-azure-networking-guidance.md)
-3. [Gör ett redundanstest till Azure](azure-to-azure-walkthrough-test-failover.md)
-4. [Gör en redundansväxling till Azure](site-recovery-failover.md)
-5. Så här [replikera en domänkontrollant](site-recovery-active-directory.md)
-6. Så här [replikera SQL Server](site-recovery-sql.md)
+* [Replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md)
+* [Utforma ett nätverk för återställning](site-recovery-azure-to-azure-networking-guidance.md)
+* [Gör ett redundanstest till Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Gör en redundansväxling till Azure](site-recovery-failover.md)
+* [Replikera en domänkontrollant](site-recovery-active-directory.md)
+* [Replikera SQL Server](site-recovery-sql.md)
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Med Azure Site Recovery kan du implementera en lösning för katastrofåterställning i följande scenarier:
-* SAP-system som körs i en Azure-datacenter replikeras till en annan Azure-datacenter (Azure till Azure DR) som konstruerad [här](https://aka.ms/asr-a2a-architecture).
-* SAP-system som kör VMWare (eller fysisk) servrar på plats replikeras till en DR-plats i ett Azure-datacenter (VMware till Azure DR) som kräver vissa ytterligare komponenter som konstruerad [här](https://aka.ms/asr-v2a-architecture).
-* SAP-system som kör Hyper-V lokalt replikeras till en DR-plats i ett Azure-datacenter (Hyper-V-till-Azure DR) som kräver vissa ytterligare komponenter som konstruerad [här](https://aka.ms/asr-h2a-architecture).
+Du kan använda Site Recovery för att implementera en lösning för katastrofåterställning i följande scenarier:
+* SAP-system körs i en Azure-datacenter som replikeras till en annan Azure-datacenter (Azure till Azure-katastrofåterställning). Mer information finns i [Azure till Azure replikeringsarkitektur](https://aka.ms/asr-a2a-architecture).
+* SAP-system som körs på VMware (eller fysisk) servrar lokalt som replikerar till en disaster recovery-plats i ett Azure-datacenter (VMware till Azure-katastrofåterställning). Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [VMware till Azure replikeringsarkitektur](https://aka.ms/asr-v2a-architecture).
+* SAP-system som kör Hyper-V på plats och som replikeras till en disaster recovery-plats i ett Azure-datacenter (Hyper-V-till-Azure katastrofåterställning). Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [Hyper-V-till-Azure replikeringsarkitektur](https://aka.ms/asr-h2a-architecture).
 
-Det här dokumentet använder det första fallet - Azure till Azure DR - för att demonstrera funktioner för Azure Site Recovery SAP katastrofåterställning. Azure Site Recovery replikering är oberoende av programmet, förväntas processen som beskrivs håller för andra scenarier samt.
+I den här artikeln använder vi en Azure-Azure-katastrofåterställning för att demonstrera SAP återställningskapacitet av Site Recovery. Eftersom Site Recovery replikering inte programspecifika, förväntas processen som beskrivs gäller även för andra scenarier.
 
 ### <a name="required-foundation-services"></a>Nödvändiga foundation-tjänster
-Den här dokumentationen scenariot alla har distribuerats med följande foundation-tjänster som distribueras:
-* ExpressRoute eller plats-till-plats virtuellt privat nätverk (VPN)
+Följande foundation-tjänster har distribuerats i det scenariot diskuterar vi i den här artikeln:
+* Azure ExpressRoute eller Azure VPN-Gateway
 * Minst en Active Directory-domänkontrollant och DNS-server som körs i Azure
 
-Du rekommenderas att infrastrukturen ovan upprättas innan du distribuerar Azure Site Recovery.
-
+Vi rekommenderar att du upprättar infrastrukturen innan du distribuerar Site Recovery.
 
 ## <a name="typical-sap-application-deployment"></a>Vanliga SAP-programdistribution
-Stora SAP-kunder distribuera vanligtvis mellan 6 och 20 enskilda SAP-program.  De flesta av dessa program är baserade på motorer SAP NetWeaver ABAP eller Java.  Stöd för programmen core NetWeaver är många mindre specifika icke - NetWeaver SAP fristående motorer och vanligtvis vissa icke-SAP-program.  
+Stora SAP-kunder distribuera vanligtvis mellan 6 och 20 enskilda SAP-program. De flesta av dessa program är baserade på SAP NetWeaver ABAP eller Java. Många mindre och specifika icke - NetWeaver SAP fristående motorer och vanligtvis vissa icke-SAP-program, stöd för dessa core NetWeaver program.  
 
-Det är viktigt att alla de SAP-program som körs i ett liggande och för att fastställa distributionsläget (nivå 2 eller 3-skikts), versioner, korrigeringsfiler, storlek, omsättningsuppdateringar frekvens och beständiga diskkrav inventering.
+Det är viktigt att inventera alla SAP-program som körs i din miljö. Kontrollera sedan distributionsläget (antingen två eller tre nivåer), versioner, korrigeringsfiler, storlek, omsättning priser och beständiga diskkrav.
 
-![Mönster för distribution](./media/site-recovery-sap/sap-typical-deployment.png)
+![Diagram över ett typiskt mönster för SAP-distribution](./media/site-recovery-sap/sap-typical-deployment.png)
 
-SAP-databasen beständiga lagret borde vara skyddad via native DBMS-verktyg som SQL Server AlwaysOn, Oracle DataGuard eller HANA System replikering. Klienten lagret också skyddas av Azure Site Recovery, men det är viktigt att tänka på ämnen som påverkar detta skikt som DNS-spridningen fördröjning, säkerhet och fjärråtkomst till DR-datacenter.
+Skydda SAP-databasen beständiga lagret med hjälp av inbyggda DBMS-verktyg som SQL Server AlwaysOn, Oracle Data Guard eller SAP HANA system replikering. Som SAP-databasen lagret, är inte klient-lagret skyddad av Site Recovery. Det är viktigt att beakta faktorer som påverkar detta skikt. Faktorer är DNS-spridningen fördröjning, säkerhet och fjärråtkomst till disaster recovery-datacenter.
 
-Azure Site Recovery är den rekommenderade lösningen på programnivå, inklusive (A) SCS. Andra program, till exempel NetWeaver SAP-program och icke-SAP-program utgör en del av hela miljön för SAP-distribution och bör också skyddas med Azure Site Recovery.
+Site Recovery är den rekommenderade lösningen på programnivå, inklusive för SAP SCS och ASCS. Andra program, till exempel NetWeaver SAP-program och icke-SAP-program, utgör en del av hela miljön för SAP-distribution. Du bör skydda dem med Site Recovery.
 
 ## <a name="replicate-virtual-machines"></a>Replikera virtuella datorer
-Följ [vägledningen](azure-to-azure-walkthrough-enable-replication.md) att starta replikering av alla SAP programmet virtuella datorer till Azure DR-datacenter.
+Om du vill starta replikera alla SAP programmet virtuella datorer till Azure disaster recovery datacenter, följer du anvisningarna i [replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md).
 
-Om du använder en statisk IP-adress kan ange du IP-adress som du vill att den virtuella datorn i avsnittet Network interface-kort i beräknings-och nätverksinställningar.
+Om du använder en statisk IP-adress kan ange du IP-adressen som du vill att den virtuella datorn ska börja. Om du vill ange IP-adress, gå till **beräknings- och nätverksinställningar inställningar** > **nätverkskort**.
 
-![Mål-IP](./media/site-recovery-sap/sap-static-ip.png)
+![Skärmbild som visar hur du ställer in en privat IP-adress i rutan Site Recovery Network interface card](./media/site-recovery-sap/sap-static-ip.png)
 
+## <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
+En återställningsplan stöder Sekvenseringen av olika nivåer i en flernivåapp under en växling vid fel. Sekvensering upprätthåller programkonsekvens. När du skapar en återställningsplan för ett webbprogram med flera nivåer fullständig steg som beskrivs i [skapa en återställningsplan med Site Recovery](site-recovery-create-recovery-plans.md).
 
-## <a name="creating-a-recovery-plan"></a>Skapa en återställningsplan
-En återställningsplan kan ordningsföljd för växling vid fel på olika nivåer i en flernivåapp, därför kan upprätthålla programkonsekvens. Följ stegen som beskrivs [här](site-recovery-create-recovery-plans.md) när du skapar en återställningsplan för ett webbprogram med flera nivåer.
-
-### <a name="adding-scripts-to-the-recovery-plan"></a>Att lägga till skript återställningsplanen
-Du kan behöva göra vissa åtgärder på virtuella Azure-datorer efter redundans/testa redundans för dina program ska fungera korrekt. Du kan automatisera efter redundansväxlingen, till exempel uppdatera DNS-post och ändra bindningar och anslutningar, genom att lägga till motsvarande skript i återställningsplanen som beskrivs i [i den här artikeln](site-recovery-how-to-add-vmmscript.md).
+### <a name="add-scripts-to-the-recovery-plan"></a>Lägga till skript i återställningsplanen
+Du kan behöva göra vissa åtgärder på de virtuella Azure-datorerna efter växling vid fel eller under ett redundanstest för dina program ska fungera korrekt. Du kan automatisera vissa åtgärder för postredundans. Du kan till exempel uppdatera DNS-post och ändra bindningar och anslutningar genom att lägga till motsvarande skript återställningsplanen.
 
 ### <a name="dns-update"></a>DNS-uppdatering
-Om DNS-servern har konfigurerats för dynamisk DNS-uppdatering och virtuella datorer vanligtvis uppdatera DNS med den nya IP när de startar. Om du vill lägga till ett explicit steg för att uppdatera DNS med den nya IP-adresser för virtuella datorer och lägger till detta [skript för att uppdatera IP-Adressen i DNS](https://aka.ms/asr-dns-update) som en post-åtgärd på recovery planeringsgrupper.  
+Om DNS är konfigurerat för dynamisk DNS-uppdatering, uppdatera virtuella datorer vanligtvis DNS med den nya IP-adressen när de startar. Om du vill lägga till ett explicit steg för att uppdatera DNS med de nya IP-adresserna för virtuella datorer, lägga till en [skript för att uppdatera IP-adressen i DNS-](https://aka.ms/asr-dns-update) som en postredundans-åtgärd på recovery planeringsgrupper.  
 
 ## <a name="example-azure-to-azure-deployment"></a>Exempel på Azure-Azure-distribution
-I diagrammet nedan Azure Site Recovery Azure till Azure DR illustreras scenariot:
-* Det primära Datacentrat finns i Singapore (Azure sydöstra Asien) och DR-datacenter Hongkong (Azure Östasien).  I det här scenariot som lokal hög tillgänglighet har två virtuella datorer som kör SQL Server AlwaysOn i synkront läge i Singapore.
-* Resurs-ASCS-fil kan användas för att tillhandahålla hög tillgänglighet för de SAP enskilda felpunkter. File Share ASCS kräver inte en delad klusterdisk och program, till exempel SIOS krävs inte.
-* DR-skydd för DBMS-lagret uppnås med hjälp av asynkron replikering.
-* Det här scenariot visar ”symmetrisk DR” – en term som används för att beskriva en DR-lösning som är en exakt replik av produktion, därför DR SQL Server-lösning har lokal hög tillgänglighet. Användning av symmetrisk DR är inte obligatoriskt för databas-lagret och många kunder utnyttja flexibiliteten hos molndistributioner att snabbt skapa en lokal nod för hög tillgänglighet efter en DR-händelse.
-* Diagrammet visar SAP NetWeaver ASCS och programmet server lagret replikeras av Azure Site Recovery.
+Följande diagram visar Site Recovery Azure till Azure-katastrofåterställning:
 
-![Scenario för replikering](./media/site-recovery-sap/sap-replication-scenario.png)
+![Diagram över ett scenario för Azure-Azure-replikering](./media/site-recovery-sap/sap-replication-scenario.png)
 
-## <a name="doing-a-test-failover"></a>Gör ett redundanstest
-Följ [vägledningen](azure-to-azure-walkthrough-test-failover.md) att göra ett redundanstest.
+* Det primära datacentret är i Singapore (Azure sydöstra Asien). Disaster recovery datacenter är i Hongkong (Azure Östasien). I det här scenariot tillhandahålls lokal hög tillgänglighet av två virtuella datorer som kör SQL Server AlwaysOn i synkront läge i Singapore.
+* Filresursen SAP ASCS ger hög tillgänglighet för de SAP enskilda felpunkter. Filresursen ASCS kräver inte en delad klusterdisk. Program som SIOS inte behövs.
+* Disaster recovery-skydd för DBMS-lagret uppnås med hjälp av asynkron replikering.
+* Det här scenariot visar ”symmetrisk katastrofåterställning”. Den här termen beskriver en lösning för katastrofåterställning som är en exakt replik av produktion. SQL Server-lösning för katastrofåterställning har lokal hög tillgänglighet. Symmetrisk katastrofåterställning är inte obligatoriska för databas-lagret. Många kunder kan utnyttja flexibiliteten hos molndistributioner snabbt skapa en lokal hög tillgänglighet nod efter en disaster recovery-händelse.
+* Diagrammet visar SAP NetWeaver ASCS och programnivå server som replikeras av Site Recovery.
 
-1.  Gå till Azure-portalen och välj Recovery Services-valvet.
-2.  Klicka på återställningsplan som skapats för SAP-program (s).
-3.  Klicka på Testa redundans.
-4.  Välj återställningspunkten och Azure-nätverk för att starta processen testa redundans.
-5.  Du kan utföra dina verifieringar när den sekundära miljön är upp.
-6.  När validering har slutförts klickar du på på Rensa test-redundans och för att rensa failover-miljö.
+## <a name="run-a-test-failover"></a>Köra ett redundanstest
 
-## <a name="doing-a-failover"></a>Genomför en redundansväxling enligt
-Följ [vägledningen](site-recovery-failover.md) när du gör en redundansväxling.
+1.  Välj Recovery Services-valvet i Azure-portalen.
+2.  Välj återställningsplanen som du skapade för SAP-program.
+3.  Välj **Redundanstestningen**.
+4.  Om du vill börja testa redundans, Välj återställningspunkten och virtuella Azure-nätverket.
+5.  När den sekundära miljön är in, utföra verifieringar.
+6.  När verifieringar har slutförts kan välja om du vill rensa failover-miljön **Rensa redundanstestet**.
 
-1.  Gå till Azure-portalen och välj Recovery Services-valvet.
-2.  Klicka på återställningsplan som skapats för SAP-program.
-3.  Klicka på 'Redundans'.
+Mer information finns i [testa redundans till Azure i Site Recovery](site-recovery-test-failover-to-azure.md).
+
+## <a name="run-a-failover"></a>Köra en redundansväxling
+
+1.  Välj Recovery Services-valvet i Azure-portalen.
+2.  Välj återställningsplanen som du skapade för SAP-program.
+3.  Välj **redundans**.
 4.  Välj återställningspunkt för att starta processen för växling vid fel.
 
-## <a name="next-steps"></a>Nästa steg
-Lär dig mer om hur du skapar en lösning för katastrofåterställning för SAP NetWeaver distributioner med hjälp av Azure Site Recovery i [rapporten](http://aka.ms/asr-sap). Vitboken diskuteras också rekommendationer för olika arkitekturer för SAP, visar vilka program som stöds och VM-typer för SAP på Azure och beskriver möjliga testplaner för din lösning för katastrofåterställning.
+Mer information finns i [redundans i Site Recovery](site-recovery-failover.md).
 
-Lär dig mer om [replikerar andra arbetsbelastningar](site-recovery-workload.md) med Site Recovery.
+## <a name="next-steps"></a>Nästa steg
+* Mer information om hur du skapar en lösning för katastrofåterställning för SAP NetWeaver distributioner med Site Recovery finns i nedladdningsbara faktabladet [SAP NetWeaver: skapa en lösning för katastrofåterställning med Azure Site Recovery](http://aka.ms/asr-sap). Vitboken beskriver rekommendationer för olika arkitekturer för SAP, visar vilka program som stöds och VM-typer för SAP på Azure och beskriver tester alternativ för din lösning för katastrofåterställning.
+* Lär dig mer om [replikerar andra arbetsbelastningar](site-recovery-workload.md) genom att använda Site Recovery.

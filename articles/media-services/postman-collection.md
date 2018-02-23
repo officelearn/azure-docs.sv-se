@@ -1,27 +1,14 @@
----
-title: Importera samlingen Postman
-description: "Den här artikeln innehåller en definition av samlingen Postman för Azure Media Services REST-anrop."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Importera samlingen Postman
+ ---
+Rubrik: importera Postman samlingen med strömning på begäran med Azure operations beskrivning: den här artikeln innehåller en definition av samlingen Postman för Azure Media Services REST-anrop.
+tjänster: media services dokumentationcenter: '' författare: Juliako manager: cfowler editor: ''
 
-Den här artikeln innehåller en definition av den **Postman** samling som innehåller grupperade HTTP-begäranden som anropar Media Services REST API: er. Den här definitionen används av den [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) kursen.
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importera en Postman samling med strömning på begäran-åtgärder
+
+Den här artikeln innehåller en definition av den **Postman** samling som innehåller grupperade HTTP-begäranden som anropar Azure Media Services REST API: er. Information om hur du konfigurerar **Postman** så att den kan användas för att anropa Media Services REST API: er, se [konfigurera Postman för Media Services REST API-anrop](media-rest-apis-with-postman.md) kursen.
 
 ```
 {

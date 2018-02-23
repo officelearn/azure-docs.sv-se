@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -29,7 +29,7 @@ Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [avise
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Visa körs och utlösa historik för din logikapp
 
-1. Hitta din logikapp i den [Azure-portalen](https://portal.azure.com), på Azure huvudmenyn, Välj **fler tjänster**. Hitta ”logic apps” i sökrutan och väljer **logikappar**.
+1. Hitta din logikapp i den [Azure-portalen](https://portal.azure.com), på Azure huvudmenyn, Välj **alla tjänster**. I sökrutan skriver du ”logikappar” och välj **logikappar**.
 
    ![Hitta din logikapp](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -109,7 +109,7 @@ Nu hittar du händelser och andra data för utlösaren händelser, kör händels
 
 Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händelser, kör händelser, och åtgärden händelser, Följ dessa steg.
 
-1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
+1. I den [Azure-portalen](https://portal.azure.com), Välj **alla tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
    ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

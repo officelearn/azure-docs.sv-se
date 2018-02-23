@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Lägg till Azure logganalys hanteringslösningar i arbetsytan
 
@@ -46,8 +46,7 @@ Du kan installera hanteringslösningar från Azure marketplace genom att klicka 
 
 ## <a name="add-a-management-solution"></a>Lägg till en lösning
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
-2. I den **ny** bladet under **Marketplace**väljer **övervakning + management**.
-3. I den **övervakning + management** bladet, klickar du på **se alla**.  
+2. Välj **skapar du en resurs** > **övervakning + Management** > **se alla**.  
     ![Övervaka + bladet hantering](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Till höger om **hanteringslösningar**, klickar du på **mer**.
 5. I den **hanteringslösningar** bladet Välj en hanteringslösning som du vill lägga till en arbetsyta.  

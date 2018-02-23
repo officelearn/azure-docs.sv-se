@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standardbehörigheterna för användare i Azure Active Directory
 
@@ -59,7 +59,7 @@ Möjligheten att registrera (skapa) program | Ange det här alternativet Nej fö
 Administratörer och användare med gästrollen bjuder in bjuda in gäster | Ange det här alternativet Nej förhindrar att alla användare uppmanar gästerna. Se Konfigurera standardbehörigheter för användare. Mer information finns i [appar, behörigheter och medgivande i Azure Active Directory](active-directory-apps-permissions-consent.md).
 Medlemmar kan bjuda in gäster | Ange detta till ingen förhindrar att användare uppmanar gästerna. Globala administratörer, användare Kontoadministratörer och Gäst Inviters kommer fortfarande att kunna bjuda in gäster. Mer information finns i [appar, behörigheter och medgivande i Azure Active Directory](active-directory-apps-permissions-consent.md).
 Begränsa åtkomst till Azure AD-administrationsportalen | Ange det här alternativet Nej förhindrar användare från att komma åt Azure Active Directory-portalen.
-Möjlighet att läsa andra användare | Mer information finns i [appar, behörigheter och medgivande i Azure Active Directory](active-directory-apps-permissions-consent.md).
+Möjlighet att läsa andra användare | Den här inställningen är endast tillgängligt i PowerShell. Att $false förhindrar att alla icke-administratörer läsa information för användare i katalogen. Detta förhindrar inte att läsa information för användare i andra Microsoft-tjänster som Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och inställningen detta $false inte rekommenderas.
 
 ## <a name="object-ownership"></a>Objektägarskap
 

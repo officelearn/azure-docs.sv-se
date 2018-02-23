@@ -2,30 +2,24 @@
 title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Node.js | Microsoft Docs"
 description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Node.js"
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Node.js
 
 I den här snabbstarten får du lära dig att använda Node.js för att ladda upp, ladda ned och lista blockblobar i Azure Blob Storage.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -109,9 +103,9 @@ Härnäst går vi igenom exempelkoden så att du kan förstå hur den fungerar.
 
 ### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
 
-Det första du ska göra är att skapa referenser till `BlobService` som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra – vart och ett används av nästa i listan.
+Det första du ska göra är att skapa referenser till **BlobService**-objektet som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra – vart och ett används av nästa i listan.
 
-* Skapa en instans av objektet **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, som pekar mot Blob Service i lagringskontot.
+* Skapa en instans av objektet [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor), som pekar mot Blob Service i lagringskontot.
 
 * Skapa en ny behållare och ange sedan behörigheter för behållaren så att blobarna är offentliga och går att komma åt med bara en URL. Behållaren börjar med **quickstartcontainer-**.
 
@@ -199,4 +193,4 @@ I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-nodejs-how-to-use-blob-storage.md)
 
-Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Information om Node.js-referensen för Azure Storage finns i [azure-storage-paketet](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

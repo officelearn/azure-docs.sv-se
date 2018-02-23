@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualisera sensordata i realtid från Azure IoT-hubben med hjälp av funktionen Web Apps i Azure App Service
 
@@ -49,7 +49,7 @@ I kursen får lära du att visualisera sensordata i realtid som din IoT-hubb som
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-1. I den [Azure-portalen](https://ms.portal.azure.com/), klickar du på **ny** > **webb + mobilt** > **Web App**.
+1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **skapar du en resurs** > **webb + mobilt** > **Web App**.
 2. Ange ett unikt jobbnamn, kontrollera prenumerationen, ange en resursgrupp och en plats, väljer **fäst på instrumentpanelen**, och klicka sedan på **skapa**.
 
    Vi rekommenderar att du väljer på samma plats som resursgruppen. Gör detta hjälper till med bearbetningshastigheten och minskar kostnaden för dataöverföring.

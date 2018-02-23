@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scope, behörigheter och medgivande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriseringsmodell som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats och ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för det här tillståndet modellen, inklusive scope, behörigheter och samtycke.
@@ -32,9 +32,9 @@ Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriser
 ## <a name="scopes-and-permissions"></a>Omfång och behörigheter
 Azure AD-implementerar den [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 är en metod som en app från tredje part kan komma åt webbaserat resurser för en användares räkning. Alla webbaserat resurser som kan integreras med Azure AD har ett resurs-ID eller *program-ID URI*. Till exempel omfattar vissa av Microsofts webbaserat resurser:
 
-* Office 365 enhetlig e API:`https://outlook.office.com`
-* Azure AD Graph-API:`https://graph.windows.net`
-* Microsoft Graph:`https://graph.microsoft.com`
+* Office 365 enhetlig e API: `https://outlook.office.com`
+* Azure AD Graph-API: `https://graph.windows.net`
+* Microsoft Graph: `https://graph.microsoft.com`
 
 Detsamma gäller för resurser från tredje part som har integrerat med Azure AD. Något av dessa resurser kan också definiera en uppsättning behörigheter som kan användas för att dela upp funktionerna i den här resursen i mindre segment. Exempelvis [Microsoft Graph](https://graph.microsoft.io) har definierat behörighet att utföra följande uppgifter, bland annat:
 
@@ -46,9 +46,9 @@ Genom att definiera typerna av behörigheter för har resursen detaljerad kontro
 
 I Azure AD och OAuth dessa typer av behörigheter kallas *scope*. De ibland också kallas *oAuth2Permissions*. Ett omfång representeras i Azure AD som ett strängvärde. Fortsättning på exemplet Microsoft Graph, är scope-värdet för varje behörighet:
 
-* Läsa användarens kalender med hjälp av`Calendars.Read`
-* Skriva till en användares kalendrar med hjälp av`Calendars.ReadWrite`
-* En användare med hjälp av genom att skicka e-post`Mail.Send`
+* Läsa användarens kalender med hjälp av `Calendars.Read`
+* Skriva till en användares kalendrar med hjälp av `Calendars.ReadWrite`
+* En användare med hjälp av genom att skicka e-post `Mail.Send`
 
 En app kan begära dessa behörigheter genom att ange scope i begäranden till v2.0-slutpunkten.
 
@@ -102,9 +102,9 @@ Om du vill begära godkännande för alla användare i en klient kan din app anv
 ## <a name="admin-restricted-scopes"></a>Begränsat scope
 Vissa höga behörigheter i Microsoft-ekosystemet kan anges till *begränsat*. Exempel på dessa typer av scope är följande behörigheter:
 
-* Läsa katalogdata i en organisation med hjälp av`Directory.Read`
-* Skriva data till en organisations katalog med hjälp av`Directory.ReadWrite`
-* Läsa säkerhetsgrupper i organisationens katalog med hjälp av`Groups.Read.All`
+* Läsa katalogdata i en organisation med hjälp av `Directory.Read`
+* Skriva data till en organisations katalog med hjälp av `Directory.ReadWrite`
+* Läsa säkerhetsgrupper i organisationens katalog med hjälp av `Groups.Read.All`
 
 Även om en konsument-användare kan ge ett programmet åtkomst till den här typen av data, begränsad organisationens användare från att bevilja åtkomst till samma uppsättning känsliga företagsdata. Om ditt program begär åtkomst till någon av dessa behörigheter från en organisations användare, får användaren ett felmeddelande som säger att de inte har behörighet att samtycka till appens behörigheter.
 
@@ -145,9 +145,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Directory-klient som du vill begära tillstånd från. Kan anges i GUID- eller format för eget namn. |
+| klient |Krävs |Directory-klient som du vill begära tillstånd från. Kan anges i GUID eller format för eget namn eller allmänt refereras till med ”gemensamma” som visas i exemplet. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
 | redirect_uri |Krävs |Omdirigerings-URI där du vill att svar skickas för att hantera din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen för registrering av app. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret. Det kan vara en sträng med innehåll. Använda läget för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
@@ -163,7 +163,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beskrivning |
 | --- | --- | --- |
-| Klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
+| klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
 | state |Ett värde som ingår i denna begäran som också kommer att returneras i token svaret. Det kan vara en sträng med innehåll. Tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | admin_consent |Kommer att ställas in **SANT**. |
 

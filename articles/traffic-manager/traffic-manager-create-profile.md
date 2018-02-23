@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1994c8374244b62e65b1a54234775d9a39f72bb3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
@@ -28,8 +28,8 @@ Två tidigare skapade Azure Web App slutpunkter är associerade till den nya Tra
 
 ### <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare. Om du inte redan har ett konto, kan du registrera en [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/free/). 
-2. På menyn **Hub** (Hubb) klickar du på **New** (Ny) > **Nätverk** > **See all** (Visa alla), klicka på **Traffic Manager**-profilen för att öppna bladet **Skapa Traffic Manager-profil** och sedan på **Skapa**.
-3. På bladet **Skapa Traffic Manager-profil** gör du följande:
+2. Klicka på **skapar du en resurs** > **nätverk** > **trafikhanterarprofil** > **skapa**.
+4. I den **skapa Traffic Manager-profilen**fullständig enligt följande:
     1. Ge profilen ett namn i **Namn**. Det här namnet måste vara unikt inom zonen trafficmanager.net och resulterar i DNS-namnet <name>, trafficmanager.net som används för att komma åt Traffic Manager-profilen.
     2. I **Routningsmetod** väljer du routningsmetoden **Priority** (Prioritet).
     3. I **Prenumeration** väljer du den prenumeration du vill skapa profilen under
@@ -43,28 +43,28 @@ Två tidigare skapade Azure Web App slutpunkter är associerade till den nya Tra
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till slutpunkter för Traffic Manager
 
 1. I portalens sökfältet, söker du efter den **trafikhanterarprofil** namn som du skapade i föregående avsnitt och klickar på traffic manager-profil i resultatet som de visade.
-2. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**.
-3. Klicka på **Lägg till** på bladet **Slutpunkter** som visas.
-4. Ange enligt anvisningarna på bladet **Lägg till slutpunkt**:
+2. I **trafikhanterarprofil**i den **inställningar** klickar du på **slutpunkter**.
+3. Klicka på **Lägg till**.
+4. Gör på följande sätt:
     1. Klicka på **Azure-slutpunkt** för **Typ**.
     2. Ange ett **Namn** som du vill använda för att identifiera den här slutpunkten.
     3. För **mål resurstypen**, klickar du på **Apptjänst**.
-    4. För **mål resurs**, klickar du på **väljer du en apptjänst** att visa en lista över Webbappar under samma prenumeration. I den **resurs** bladet som visas, Välj App service som du vill lägga till som första slutpunkt.
+    4. För **mål resurs**, klickar du på **väljer du en apptjänst** att visa en lista över Webbappar under samma prenumeration. I **resurs**, Välj App service som du vill lägga till som första slutpunkt.
     5. För **Prioritet**väljer du **1**. Detta resulterar i all trafik går igenom den här slutpunkten, förutsatt att den är felfri.
     6. Behåll **Lägg till som inaktiverad** som avmarkerat.
     7. Klicka på **OK**
 5.  Upprepa steg 3 och 4 för nästa Azure Web Apps slutpunkt. Se till att lägga till den med dess **Prioritet**-värde angivet som **2**.
-6.  När båda slutpunkterna har lagts till visas de på bladet **Traffic Manager-profil** tillsammans med dess övervakningsstatus som är **Online**.
+6.  När tillägg av båda slutpunkterna är klar, visas de i **trafikhanterarprofil** tillsammans med deras övervakning status som **Online**.
 
     ![Lägg till en Traffic Manager-slutpunkt](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Använd Traffic Manager-profilen
 1.  I portalens sökfältet, söker du efter den **trafikhanterarprofil** namn som du skapade i föregående avsnitt. I de resultat som visas, klickar du på trafikhanterarprofilen.
-2. I den **trafikhanterarprofil** bladet, klickar du på **översikt**.
-3. Den **trafikhanterarprofil** bladet visar DNS-namnet för nyskapade Traffic Manager-profilen. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) att hämta dirigeras till rätt slutpunkten som bestäms av typen routning. I det här fallet alla begäranden dirigeras till den första slutpunkten och om en Traffic Manager identifierar den felaktiga, trafiken växlar automatiskt till nästa slutpunkt.
+2. Klicka på **översikt**.
+3. Den **trafikhanterarprofil** visar DNS-namnet för nyskapade Traffic Manager-profilen. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) att hämta dirigeras till rätt slutpunkten som bestäms av typen routning. I det här fallet alla begäranden dirigeras till den första slutpunkten och om en Traffic Manager identifierar den felaktiga, trafiken växlar automatiskt till nästa slutpunkt.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
-Ta bort resursgruppen och Traffic Manager-profilen som du har skapat när de inte längre behövs. Om du vill göra det, välja en resursgrupp från den **trafikhanterarprofil** bladet och klicka på **ta bort**.
+Ta bort resursgruppen och Traffic Manager-profilen som du har skapat när de inte längre behövs. Om du vill göra det, välja en resursgrupp från den **trafikhanterarprofil** och klicka på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

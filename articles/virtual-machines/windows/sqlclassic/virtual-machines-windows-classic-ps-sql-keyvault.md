@@ -4,7 +4,7 @@ description: "Lär dig hur du kan automatisera konfigurationen av SQL Server-kry
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]
@@ -52,12 +52,12 @@ I följande tabell visas de parametrar som krävs för att köra PowerShell-skri
 
 | Parameter | Beskrivning | Exempel |
 | --- | --- | --- |
-| **$akvURL** |**Key vault-URL** |”https://contosokeyvault.vault.azure.net/” |
-| **$spName** |**Tjänstens huvudnamn** |”fde2b411 33d 5-4e11-af04eb07b669ccf2” |
-| **$spSecret** |**Tjänstens huvudnamn hemlighet** |”9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
-| **$credName** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |”mycred1” |
-| **$vmName** |**Namn på virtuell dator**: namnet på en tidigare skapad SQL-VM. |”myvmname” |
-| **$serviceName** |**Tjänstnamnet**: tjänsten till molnet namnet som associeras med SQL-VM. |”mycloudservicename” |
+| **$akvURL** |**Key vault-URL** |"https://contosokeyvault.vault.azure.net/" |
+| **$spName** |**Tjänstens huvudnamn** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Tjänstens huvudnamn hemlighet** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
+| **$credName** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |"mycred1" |
+| **$vmName** |**Namn på virtuell dator**: namnet på en tidigare skapad SQL-VM. |"myvmname" |
+| **$serviceName** |**Tjänstnamnet**: tjänsten till molnet namnet som associeras med SQL-VM. |"mycloudservicename" |
 
 ### <a name="enable-akv-integration-with-powershell"></a>Aktivera AKV-integreringen med PowerShell
 Den **ny AzureVMSqlServerKeyVaultCredentialConfig** cmdlet skapar ett konfigurationsobjekt för funktionen Azure Key Vault-integrering. Den **Set AzureVMSqlServerExtension** konfigurerar den här integreringen med den **KeyVaultCredentialSettings** parameter. Följande steg visar hur du använder dessa kommandon.

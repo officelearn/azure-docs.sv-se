@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ca7b7ca9435d1ba05a2cc0951f5bc88b51bf81b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Skapa och installera VPN klientkonfigurationsfiler för interna Azure certifikat autentisering punkt-till-plats-konfigurationer
 
@@ -66,6 +66,11 @@ Du kan generera client configuration-filer med hjälp av PowerShell eller med hj
 ## <a name="installwin"></a>Installera en konfiguration för Windows VPN-klientpaketet
 
 Du kan använda samma konfigurationspaketet för VPN-klienten på alla Windows-klientdatorer, förutsatt att versionen matchar arkitekturen för klienten. Lista över klientoperativsystem som stöds finns i avsnittet punkt-till-plats för den [VPN-Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
+
+>[!NOTE]
+>Du måste ha administratörsbehörighet på Windows-klientdator som du vill ansluta.
+>
+>
 
 Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten för autentisering med datorcertifikat:
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -31,6 +31,7 @@ I den här guiden får du lära dig hur man:
 > * Svara på ett larm
 > * Uppdatera den inbyggda programvaran i dina enheter
 > * Ordna dina tillgångar
+> * Stoppa och starta de simulerade enheterna
 
 Följande videoklipp visar en genomgång av den fjärranslutna övervakningslösning:
 
@@ -230,6 +231,16 @@ Du kan använda taggvärden för att skapa filter.
 
 Contoso-operatorn kan nu fråga enheter utifrån operativsystem teamet utan att behöva ändra något på enheter.
 
+## <a name="stop-simulated-devices"></a>Stoppa simulerade enheter
+
+Du kan använda inställningsmenyn för att stoppa simulerade enheter. Detta hjälper till att minska kostnaderna för att testa och utforska lösningen. Starta eller stoppa de simulerade enheterna:
+
+1. Välj den **inställningar** ikon.
+
+1. Sedan växla **kör** eller inaktivera:
+
+    ![Menyn Inställningar](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I kursen får du lärt dig att:
@@ -239,6 +250,7 @@ I kursen får du lärt dig att:
 > * Svara på ett larm
 > * Uppdatera den inbyggda programvaran i dina enheter
 > * Ordna dina tillgångar
+> * Stoppa och starta de simulerade enheterna
 
 Nu när du har gjort den fjärranslutna övervakningslösning är föreslagna nästa steg att lära dig om de avancerade funktionerna i den fjärranslutna övervakningslösning:
 

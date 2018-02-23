@@ -1,7 +1,7 @@
 1. Logga in på [Azure Portal][lnk-portal].
-1. Välj **Ny** > **Sakernas Internet** > **IoT Hub**.
+1. Välj **skapar du en resurs** > **Sakernas Internet** > **IoT-hubb**.
    
-    ![Jumpbar i Azure Portal][1]
+    ![Skärmbild av Azure portal navigering till IoT-hubb][1]
 
 1. I rutan **IoT-hubb** anger du följande information för IoT-hubben:
 
@@ -21,8 +21,8 @@
 
 1. Klicka på **Skapa**. Det kan ta några minuter innan IoT-hubben har skapats. Du kan övervaka förloppet i **meddelandefönstret**.
 <!-- Images -->
-[1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
+[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
+[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
 <!-- Links -->
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/

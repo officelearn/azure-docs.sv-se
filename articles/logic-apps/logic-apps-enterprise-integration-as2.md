@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-meddelanden för enterprise-integrering med logic apps
 
@@ -40,12 +40,12 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
 
 1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2.  I den vänstra menyn, Välj **fler tjänster**. I sökrutan anger **integrering** som filter. Välj i resultatlistan **Integrationskonton**.
+2.  I den vänstra menyn, Välj **alla tjänster**. I sökrutan anger **integrering** som filter. Välj i resultatlistan **Integrationskonton**.
 
     > [!TIP]
-    > Om du inte ser **fler tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
+    > Om du inte ser **alla tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
 
-    ![Fler tjänster, filtret på ”integration”, Välj ”Integrationskonton”](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    ![Alla tjänster som filtret på ”integration”, Välj ”Integrationskonton”](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. I den **Integrationskonton** bladet som öppnas väljer du det integration konto där du vill skapa avtal.
 Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-apps-enterprise-integration-accounts.md "om integrationskonton").  
@@ -68,11 +68,11 @@ Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-
     | --- | --- |
     | Namn |Avtalets namn |
     | Avtalstyp | Ska vara AS2 |
-    | Värd-Partner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
-    | Värdidentiteten |En identifierare för värdpartnern som |
-    | Gästen Partner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
-    | Gästen identitet |En identifierare för gäst-partner |
-    | Ta emot inställningarna |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
+    | Värdpartner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
+    | Värd-identitet |En identifierare för värdpartnern som |
+    | Gästpartner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
+    | Gästidentitet |En identifierare för gäst-partner |
+    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
     | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal handtag mottagna meddelanden
@@ -105,15 +105,15 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 | Egenskap | Beskrivning |
 | --- | --- |
 | Åsidosätt meddelandeegenskaper |Anger egenskaper i mottagna meddelanden som kan åsidosättas. |
-| Meddelandet måste vara signerade |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
-| Meddelandet ska krypteras |Kräver meddelanden som ska krypteras. Icke-krypterade meddelanden avvisas. Konfigurera värd partner privata certifikat för att dekryptera meddelanden.  |
-| Meddelandet som ska komprimeras |Kräver att meddelanden ska komprimeras. Icke-komprimerade meddelanden avvisas. |
-| MDN Text |I standard disposition meddelanden (MDN) som ska skickas till den som skickade meddelandet. |
+| Meddelandet ska vara signerat |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
+| Meddelandet ska vara krypterat |Kräver meddelanden som ska krypteras. Icke-krypterade meddelanden avvisas. Konfigurera värd partner privata certifikat för att dekryptera meddelanden.  |
+| Meddelandet ska vara komprimerat |Kräver att meddelanden ska komprimeras. Icke-komprimerade meddelanden avvisas. |
+| MDN-text |I standard disposition meddelanden (MDN) som ska skickas till den som skickade meddelandet. |
 | Skicka MDN |Kräver MDNs skickas. |
-| Skicka signerat MDN |Kräver MDNs signeras. |
-| MIC algoritm |Välj algoritmen som ska användas för signering av meddelanden. |
-| Skicka asynkront MDN | Kräver att meddelanden ska skickas asynkront. |
-| Webbadress | Ange URL: en var att skicka MDNs. |
+| Skicka signerad MDN |Kräver MDNs signeras. |
+| MIC-algoritm |Välj algoritmen som ska användas för signering av meddelanden. |
+| Skicka asynkron MDN | Kräver att meddelanden ska skickas asynkront. |
+| URL | Ange URL: en var att skicka MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurera hur ditt avtal skickar meddelanden
 
@@ -149,18 +149,18 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Aktivera Meddelandesignering |Kräver att alla meddelanden som skickas från avtalet signeras. |
-| MIC algoritm |Algoritmen som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet MIC algoritmen för att signera meddelanden. |
+| Aktivera meddelandesignering |Kräver att alla meddelanden som skickas från avtalet signeras. |
+| MIC-algoritm |Algoritmen som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet MIC algoritmen för att signera meddelanden. |
 | Certifikat |Välj certifikatet som ska användas för signering av meddelanden. Konfigurerar värden partner privata certifikat för signering av meddelanden. |
-| Aktivera kryptering av meddelanden |Kräver kryptering av alla meddelanden som skickas från det här avtalet. Konfigurerar gäst partner offentliga certifikat algoritm för kryptering av meddelanden. |
+| Aktivera meddelandekryptering |Kräver kryptering av alla meddelanden som skickas från det här avtalet. Konfigurerar gäst partner offentliga certifikat algoritm för kryptering av meddelanden. |
 | Krypteringsalgoritm |Krypteringsalgoritm som ska användas för kryptering av meddelanden. Konfigurerar gäst partner offentliga certifikat för kryptering av meddelanden. |
 | Certifikat |Certifikatet som du använder för att kryptera meddelanden. Konfigurerar gäst partner privat certifikat för kryptering av meddelanden. |
-| Aktivera komprimering för meddelandet |Kräver komprimering av alla meddelanden som skickas från det här avtalet. |
-| Vika HTTP-huvuden |Placerar HTTP innehållstyp-sidhuvud till en enda rad. |
-| Begäran MDN |Kräver en MDN för alla meddelanden som skickas från det här avtalet. |
-| Begäran signerade MDN |Kräver att alla MDNs som skickas till det här avtalet signeras. |
-| Asynkron MDN för begäran |Kräver asynkron MDNs skickas till det här avtalet. |
-| Webbadress |Ange URL: en var att skicka MDNs. |
+| Aktivera meddelandekomprimering |Kräver komprimering av alla meddelanden som skickas från det här avtalet. |
+| Vik ut HTTP-huvuden |Placerar HTTP innehållstyp-sidhuvud till en enda rad. |
+| Begär MDN |Kräver en MDN för alla meddelanden som skickas från det här avtalet. |
+| Begär signerad MDN |Kräver att alla MDNs som skickas till det här avtalet signeras. |
+| Begär asynkron MDN |Kräver asynkron MDNs skickas till det här avtalet. |
+| URL |Ange URL: en var att skicka MDNs. |
 | Aktivera NRR |Kräver oavvislighet mottogs (NRR) attributet kommunikation som ger bevis som data togs emot som åtgärdas. |
 | SHA2-algoritmformat |Välj algoritm format i MIC eller logga in utgående huvuden AS2-meddelande eller MDN |
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/21/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -29,10 +29,23 @@ Klientbibliotek är nödvändiga för program och verktyg att ansluta till Analy
 
 |Ladda ned  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+
+## <a name="amo-and-adomd-on-nuget"></a>AMO och ADOMD på NuGet
+
+Analysis Services AMO (Management Objects) och ADOMD klientbibliotek är tillgängliga som kan installeras paket från [NuGet.org](https://www.nuget.org/). 
+
+|Paket  |Version  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+
+Det rekommenderas att du migrerar till NuGet-referenser i stället för med hjälp av MSI installer. 
+
+NuGet-paketet sammansättningar AssemblyVersion följer semantiska versionshantering: större. LÄGRE. KORRIGERING. NuGet-referenser läsa in den förväntade versionen, även om det finns en annan version i den globala Sammansättningscachen (som härrör från MSI-installation). KORRIGERING ökas för varje version. AMO och ADOMD versioner hålls synkroniserad.
 
 ## <a name="understanding-client-libraries"></a>Förstå klientbibliotek
 
@@ -66,15 +79,16 @@ Klientbibliotek för klientanslutningar skiljer sig från dataleverantörer som 
  När du ansluter till en databas påminner om egenskaperna för anslutningssträngen för alla tre bibliotek. Nästan alla anslutningssträngen som du definierar för ADOMD.NET med [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) fungerar även för AMO och den Analysis Services OLE DB-providern (MSOLAP). Läs mer i [anslutningssträngsegenskaper &#40; Analysis Services &#41; ](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
-##  <a name="bkmk_LibUpdate"></a>Hur du fastställer biblioteket klientversion   
+##  <a name="bkmk_LibUpdate"></a> Hur du fastställer biblioteket klientversion   
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
 1.  Gå till `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. Om du har mer än en mapp väljer du den högre nummer.
   
-2.  Högerklicka på **msolap140.dll** > **egenskaper** > **information**.  
+2.  Högerklicka på **msolap.dll** > **egenskaper** > **information**. Om DLL-filen heter msolap140.dll, är äldre än den senaste versionen och bör uppgraderas.
     
     ![Information om biblioteket för klient](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 

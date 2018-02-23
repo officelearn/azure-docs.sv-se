@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Spara en klassisk virtuell Linux-dator som en avbildning
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Dessa instruktioner förutsätter att du redan skapat en virtuell Azure-dator me
     ```azurecli
     azure vm shutdown myVM
     ```
-   Om det behövs kan du visa en lista alla de virtuella datorerna i din prenumeration har skapat med hjälp`azure vm list`
+   Om det behövs kan du visa en lista alla de virtuella datorerna i din prenumeration har skapat med hjälp `azure vm list`
 
    > [!NOTE]
    > Om du använder Azure portal, Välj den virtuella datorn och klicka på **stoppa** att stänga av den virtuella datorn.
@@ -98,7 +98,7 @@ Dessa instruktioner förutsätter att du redan skapat en virtuell Azure-dator me
    azure vm image list
    ```
 
-   På den [Azure-portalen](http://portal.azure.com), den nya avbildningen visas i den **VM-avbildningar (klassisk)** som tillhör den **Compute** tjänster. Du kan komma åt **VM-avbildningar (klassisk)** genom att klicka på _fler tjänster_ längst ned i Azure service lista och sedan söker den **Compute** tjänster.   
+   På den [Azure-portalen](http://portal.azure.com), den nya avbildningen visas i den **VM-avbildningar (klassisk)** som tillhör den **Compute** tjänster. Du kan komma åt **VM-avbildningar (klassisk)** genom att klicka på **alla tjänster** tjänsten listan överst i Azure och titta sedan den **Compute** tjänster.   
 
    ![Avbildningen lyckades](./media/capture-image/VMCapturedImageAvailable.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Felsöka flöden med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Samma steg kan användas för att fastställa inkommande och utgående anslutnin
 Om du vill se sammanställd vägar som tillämpas på en virtuell dator, gör du följande:
 
 1. Logga in på Azure-portalen på https://portal.azure.com. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Klicka på **fler tjänster**, klicka på **virtuella datorer** som visas i listan.
+2. Klicka på **alla tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad.
 
@@ -97,7 +97,7 @@ Mer felsökning scenarier för Tvingad tunneltrafik och väg utvärdering läsa 
 Om flödet i nätverkstrafiken påverkas för ett visst nätverksgränssnitt (NIC), kan du visa en fullständig lista över giltiga vägar på ett nätverkskort direkt. Om du vill se sammanställd vägar som tillämpas på ett nätverkskort, gör du följande:
 
 1. Logga in på Azure-portalen på https://portal.azure.com.
-2. Klicka på **fler tjänster**, klicka på **nätverksgränssnitt**
+2. Klicka på **alla tjänster**, klicka på **nätverksgränssnitt**
 3. Sök i listan för namnet på ett nätverkskort eller välj i listan som visas. I det här exemplet **VM1 NIC1** är markerad.
 4. Välj **effektiva vägar** i den **nätverksgränssnittet** bladet som visas i följande bild:
 
@@ -117,7 +117,7 @@ Till exempel en UDR (*UDRoute*) har angetts i en routningstabell (*UDRouteTable*
 Om du vill se sammanställd vägar i en routningstabell, gör du följande:
 
 1. Logga in på Azure-portalen på https://portal.azure.com.
-2. Klicka på **fler tjänster**, klicka på **routningstabeller**
+2. Klicka på **alla tjänster**, klicka på **routningstabeller**
 3. Sök i listan för vägtabellen som du vill se sammanställd vägar för och markera den. I det här exemplet **UDRouteTable** är markerad. Ett blad för valda vägtabellen visas som i följande bild:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

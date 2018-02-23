@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user;seohack1
-ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbb82e125381a4307ed742294f880600612ffc52
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Registrera för återställning av lösenord med självbetjäning
 
@@ -31,7 +31,7 @@ Du kan återställa ditt lösenord eller låsa upp kontot själv om du använder
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrera eller bekräfta autentiseringsdata med SSPR
 
-1. Öppna webbläsaren på din enhet och gå till den [registreringssidan för lösenordsåterställning](http://aka.ms/ssprsetup).
+1. Öppna webbläsaren på din enhet och gå till den [registreringssidan för lösenordsåterställning](https://aka.ms/ssprsetup).
 2. Ange ditt användarnamn och lösenord som angetts av administratören.
 3. Beroende på hur IT-personalen har konfigurerat saker, är en eller flera av följande alternativ tillgängliga för dig att konfigurera och verifiera. Om administratören har din tillåtelse att använda din information, de kan fylla i vissa uppgifter du.
     * **Arbetstelefon**: endast administratören kan ange det här alternativet.
@@ -56,12 +56,12 @@ Dina administratörer kan kräva att bekräfta din autentiseringsmetoder efter e
 | --- | --- | --- |
 | En ”Kontakta din administratör” sida kommer när du har angett mitt användar-ID | Kontakta administratören. <br> <br> Vi har upptäckt att lösenordet till ditt användarkonto inte hanteras av Microsoft. Vi kan därför inte att återställa lösenordet automatiskt. <br> <br> Kontakta din IT-personal för att få hjälp. | Du se detta meddelande eftersom din IT-personal hanterar lösenordet i din lokala miljö och tillåter inte att återställa ditt lösenord från den **kan inte komma åt ditt konto** länk. <br> <br> Om du vill återställa ditt lösenord, kontakta din IT-personal direkt. Meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig.|
 | Jag felmeddelandet ”ditt konto har inte aktiverats för lösenordsåterställning” när du har angett mitt användar-ID | Ditt konto har inte aktiverats för återställning av lösenord. <br> <br> Vi beklagar, men din IT-personal inte har lagt upp ditt konto för användning med den här tjänsten. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du se detta meddelande eftersom din IT-personal inte har aktiverats för återställning av lösenord för din organisation från den **kan inte komma åt ditt konto** länkar eller har inte licensierats du om du vill använda funktionen. <br> <br> Om du vill återställa ditt lösenord, Välj den **kontakta en administratör** länk. Ett e-postmeddelande skickas till ditt företags IT-personal. E-postmeddelandet kan dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig. |
-| Jag felmeddelandet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Det gick inte att verifiera ditt konto. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du se detta meddelande eftersom du har aktiverat för återställning av lösenord, men du har inte registrerats för att använda tjänsten. Om du vill registrera dig för lösenordsåterställning, gå till den [registreringssidan för lösenordsåterställning](http://aka.ms/ssprsetup) när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, Välj den **kontakta en administratör** länken för att skicka ett e-postmeddelande till ditt företags IT-personal. |
+| Jag felmeddelandet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Det gick inte att verifiera ditt konto. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du se detta meddelande eftersom du har aktiverat för återställning av lösenord, men du har inte registrerats för att använda tjänsten. Om du vill registrera dig för lösenordsåterställning, gå till den [registreringssidan för lösenordsåterställning](https://aka.ms/ssprsetup) när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, Välj den **kontakta en administratör** länken för att skicka ett e-postmeddelande till ditt företags IT-personal. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ändra ditt lösenord med hjälp av lösenordsåterställning via självbetjäning](active-directory-passwords-update-your-own-password.md)
-* [Registreringssida för lösenordsåterställning](http://aka.ms/ssprsetup)
+* [Registreringssida för lösenordsåterställning](https://aka.ms/ssprsetup)
 * [Portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/)
 * [När du inte logga in till ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

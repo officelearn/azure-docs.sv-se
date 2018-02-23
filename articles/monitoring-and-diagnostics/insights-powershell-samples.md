@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure-Monitor PowerShell Snabbstart-exempel
-Den här artikeln innehåller exempel av PowerShell-kommandon som hjälper dig att komma åt Azure-Monitor funktioner. Azure-Monitor kan du Autoskala molntjänster, virtuella datorer och Web Apps. Du kan också skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
+Den här artikeln innehåller exempel av PowerShell-kommandon som hjälper dig att komma åt Azure-Monitor funktioner.
 
 > [!NOTE]
 > Azure övervakaren är det nya namnet för vad anropades ”Azure Insights” förrän den 25 september 2016. Dock namnområden och därmed följande kommandon fortfarande innehåller den ordet ”insikter”.
@@ -93,10 +93,10 @@ Följande kommando hämtar de senaste 1 000 händelserna från aktivitetsloggen:
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`har stöd för många parametrar. Finns det `Get-AzureRmLog` referens för mer information.
+`Get-AzureRmLog` har stöd för många parametrar. Finns det `Get-AzureRmLog` referens för mer information.
 
 > [!NOTE]
-> `Get-AzureRmLog`endast ger 15 dagar tidigare. Med hjälp av den **- MaxEvents** parameter kan du fråga de sista N händelserna efter 15 dagar. För åtkomst till händelser som är äldre än 15 dagar, använda REST API eller SDK (C#-exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, då är standardvärdet **EndTime** minus en timme. Om du inte inkluderar **EndTime**, och standardvärdet är aktuell tid. Det finns alltid i UTC.
+> `Get-AzureRmLog` endast ger 15 dagar tidigare. Med hjälp av den **- MaxEvents** parameter kan du fråga de sista N händelserna efter 15 dagar. För åtkomst till händelser som är äldre än 15 dagar, använda REST API eller SDK (C#-exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, då är standardvärdet **EndTime** minus en timme. Om du inte inkluderar **EndTime**, och standardvärdet är aktuell tid. Det finns alltid i UTC.
 > 
 > 
 
@@ -136,7 +136,7 @@ Hämta alla Varningsregler för en målresurs. Till exempel ange alla Varningsre
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`har stöd för andra parametrar. Se [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) för mer information.
+`Get-AzureRmAlertRule` har stöd för andra parametrar. Se [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) för mer information.
 
 ## <a name="create-metric-alerts"></a>Skapa mått aviseringar
 Du kan använda den `Add-AlertRule` för att skapa, uppdatera eller inaktivera en aviseringsregel.
@@ -145,17 +145,17 @@ Du kan skapa e-post och webhook-egenskaper med `New-AzureRmAlertRuleEmail` och `
 
 I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med ett mått.
 
-| Parametern | värde |
+| Parameter | värde |
 | --- | --- |
 | Namn |simpletestdiskwrite |
 | Platsen för den här varningsregeln |Östra USA |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName för aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Finns det `Get-MetricDefinitions` cmdlet om hur du hämtar de exakta mått namn |
 | Operatorn |GreaterThan |
 | Tröskelvärde (antal per sekund i för det här måttet) |1 |
 | Fönsterstorlek (format: mm: ss) |00:05:00 |
-| Aggregator (statistik på måttet, som använder Genomsnittligt antal i det här fallet) |Genomsnitt |
+| Aggregator (statistik på måttet, som använder Genomsnittligt antal i det här fallet) |Medel |
 | anpassad e-postmeddelanden (Strängmatrisen) |'foo@example.com','bar@example.com' |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 En fullständig lista över tillgängliga alternativ för `Get-AzureRmMetricDefinition` finns på [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Skapa och hantera aktivitetsloggen aviseringar
+Du kan använda den `Set-AzureRmActivityLogAlert` för att ange en aktivitetsloggen avisering. En avisering i aktivitetsloggen kräver att du först definiera dina villkor som en ordlista över villkor och sedan skapa en avisering som använder dessa villkor.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Ytterligare webhook-egenskaper är valfria. Du kan få tillbaka innehållet i en aktivitet loggen avisering med `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Skapa och hantera Autoskala inställningar
 En resurs (en webbapp, VM, molntjänst eller Skaluppsättning för virtuell dator) kan ha endast en autoskalningsinställning som konfigurerats för den.

@@ -1,6 +1,6 @@
 ---
 title: "Tjänstkarta integrering med System Center Operations Manager | Microsoft Docs"
-description: "Tjänstkarta är en Operations Management Suite-lösning som automatiskt identifierar programkomponenter på Windows- och Linux-system och mappar kommunikationen mellan tjänster. Den här artikeln beskrivs med hjälp av en Tjänstkarta att automatiskt skapa diagram för distribuerade program i Operations Manager."
+description: "Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln beskrivs med hjälp av en Tjänstkarta att automatiskt skapa diagram för distribuerade program i Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta integrering med System Center Operations Manager
   > [!NOTE]
   > Den här funktionen är tillgänglig som förhandsversion.
   > 
   
-Operations Management Suite Tjänstkarta automatiskt identifierar programkomponenter på Windows- och Linux-system och mappar kommunikationen mellan tjänster. Tjänstkarta kan du visa dina servrar på sätt som du betrakta dem som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med ingen konfiguration krävs förutom installation av en agent. Mer information finns i [Tjänstkarta dokumentationen](operations-management-suite-service-map.md).
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Tjänstkarta kan du visa dina servrar på sätt som du betrakta dem som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med ingen konfiguration krävs förutom installation av en agent. Mer information finns i [Tjänstkarta dokumentationen](operations-management-suite-service-map.md).
 
 Med den här integreringen mellan Tjänstkarta och System Center Operations Manager kan automatiskt skapa diagram för distribuerade program i Operations Manager som är baserade på dynamiskt beroende maps i Tjänstkartan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Operations Manager-hanteringsgrupp (2012 R2 eller senare) som kan hantera en uppsättning servrar.
-* En Operations Management Suite-arbetsyta med Tjänstkarta lösningen aktiverad.
+* En logganalys-arbetsytan med Tjänstkarta lösningen aktiverad.
 * En uppsättning servrar (minst) som hanteras av Operations Manager och skicka data till Tjänstkartan. Windows- och Linux-servrar stöds.
-* Ett huvudnamn för tjänsten med åtkomst till Azure-prenumerationen som är associerad med Operations Management Suite-arbetsyta. Mer information finns på [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
+* Ett huvudnamn för tjänsten med åtkomst till Azure-prenumerationen som är kopplad till logganalys-arbetsytan. Mer information finns på [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installera Tjänstkarta management pack
 Du kan aktivera integrering mellan Operations Manager och Tjänstkarta genom att importera det Microsoft.SystemCenter.ServiceMap management Pack (Microsoft.SystemCenter.ServiceMap.mpb). Du kan ladda ned det management Pack från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paketet innehåller följande hanteringspaket:
@@ -55,7 +55,7 @@ Om du vill konfigurera Tjänstkarta-integrering gör du följande:
 
     ![Fönstret anslutningskonfiguration](media/oms-service-map/scom-config-spn.png)
 
-3. I den **prenumeration markeringen** fönstret Välj Azure-prenumeration, Azure-resursgrupp (en som innehåller Operations Management Suite-arbetsyta) och Operations Management Suite-arbetsyta och klicka sedan på **Nästa**.
+3. I den **prenumeration markeringen** fönstret Välj Azure-prenumeration, Azure-resursgrupp (en som innehåller logganalys-arbetsytan) och logganalys-arbetsytan och klicka sedan på **nästa**.
 
     ![Operations Manager Configuration-arbetsyta](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Om du vill konfigurera Tjänstkarta-integrering gör du följande:
 
     ![Gruppen för Operations Manager-konfiguration](media/oms-service-map/scom-config-group.png)
 
-6. Valfritt: Välj resurspoolen hanteringsservern kan kommunicera med Operations Management Suite och klicka sedan på **lägger du till arbetsytan**.
+6. Valfritt: Välj resurspoolen hanteringsservern kan kommunicera med logganalys och klicka sedan på **lägger du till arbetsytan**.
 
     ![Operations Manager Configuration resurspoolen](media/oms-service-map/scom-config-pool.png)
 
-    Det kan ta någon minut att konfigurera och registrera Operations Management Suite-arbetsyta. När den har konfigurerats, initierar den första synkroniseringen Tjänstkarta från Operations Management Suite Operations Manager.
+    Det kan ta någon minut att konfigurera och registrera logganalys-arbetsytan. När den har konfigurerats, initierar den första synkroniseringen Tjänstkarta Operations Manager.
 
     ![Operations Manager Configuration resurspoolen](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Övervakare för Tjänstmappning
-När Operations Management Suite-arbetsyta är anslutet visas en ny mapp på Tjänstkartan, i den **övervakning** rutan i Operations Manager-konsolen.
+När logganalys-arbetsytan är anslutet visas en ny mapp på Tjänstkartan, i den **övervakning** rutan i Operations Manager-konsolen.
 
 ![Övervakning av Operations Manager-fönstret](media/oms-service-map/scom-monitoring.png)
 
 Mappen Tjänstkarta har fyra noder:
-* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikation mellan Operations Manager och Tjänstkartan.  Observera att dessa varningar inte är Operations Management Suite aviseringar som synkroniseras till Operations Manager. 
+* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikation mellan Operations Manager och Tjänstkartan.  Observera att dessa varningar inte logganalys aviseringar som synkroniseras till Operations Manager. 
 
 * **Servrar**: Visar de övervakade servrarna som är konfigurerade för synkronisering från Tjänstkartan.
 
@@ -103,7 +103,7 @@ Mappen Tjänstkarta har fyra noder:
     ![Diagram för Operations Manager-distribuerade program](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbetsytan
-Du kan redigera eller ta bort arbetsytan konfigurerade via den **översikt över tjänsten** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**). Du kan konfigurera en enda Operations Management Suite-arbetsyta för tillfället.
+Du kan redigera eller ta bort arbetsytan konfigurerade via den **översikt över tjänsten** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**). Du kan konfigurera en enda logganalys-arbetsytan nu.
 
 ![Redigera arbetsytan för Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, skapas för att regelbu
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
 Den aktuella designen innehåller följande problem och begränsningar:
-* Du kan bara ansluta till en enda Operations Management Suite-arbetsyta.
+* Du kan bara ansluta till en enda logganalys-arbetsyta.
 * Du kan lägga till servrar i kartan servrar tjänstgruppen manuellt via den **redigering** rutan kartor för servrarna synkroniseras inte omedelbart.  De kommer att synkroniseras från Tjänstkarta under nästa synkronisering cykel.
 * Om du gör några ändringar i diagrammet för distribuerade program som skapats av management pack ändringarna sannolikt att skrivas över på nästa synkronisering med Tjänstkartan.
 

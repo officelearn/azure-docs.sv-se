@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-applications-for-multiple-environments"></a>Hantera program för miljöer med flera
+# <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 
 Azure Service Fabric-kluster kan du skapa kluster med var som helst från ett till många tusentals datorer. I de flesta fall måste du själv behöva distribuera programmet över flera klusterkonfigurationer: din lokal utveckling, ett kluster med delad utveckling och produktion-klustret. Alla dessa kluster betraktas som olika miljöer måste köras på din kod. Programmet binärfiler kan köras utan ändringar i den här brett spektrum, men du vill ofta konfigurera programmet på olika sätt.
 
@@ -55,8 +55,8 @@ När du skapar en namngiven programinstanser i Service Fabric har du möjlighet 
 ## <a name="next-steps"></a>Nästa steg
 I följande artiklar beskriver hur du använder vissa av de begrepp som beskrivs här:
 
-- [Hur du anger miljövariabler för tjänster i Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Så här anger du portnumret för en tjänst med parametrar i Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Hur du anger miljövariabler för tjänster i Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Så här anger du portnumret för en tjänst med parametrar i Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [Parameteriserar konfigurationsfiler](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Variabeln miljöreferens](service-fabric-environment-variables-reference.md)

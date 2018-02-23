@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Aktivitetsloggen tidigare kallades ”granskningsloggar” eller ”operativa loggar” eftersom de administrativa kategorin rapporter kontroll-plan händelserna för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen omfattar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE” modellen.
@@ -73,9 +73,9 @@ Här följer några av de saker som du kan göra med aktivitetsloggen:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Frågan aktivitetsloggen i Azure-portalen
 Du kan visa din aktivitetsloggen på flera platser i Azure-portalen:
-* Den **aktivitetsloggen bladet**, du kan komma åt genom att söka efter aktivitetsloggen under ”fler tjänster” i det vänstra navigeringsfönstret.
-* Den **övervakaren bladet**, som visas som standard i det vänstra navigeringsfönstret. Aktivitetsloggen är en del av den här Azure-Monitor-bladet.
-* Alla resurser **resursbladet**, till exempel bladet konfigurationen för en virtuell dator. Aktivitetsloggen är vara något av avsnitten om de flesta av dessa resurs-blad och klicka på den automatiskt filtrerar händelser som rör specifika resursen.
+* Den **aktivitetsloggen** som du har åtkomst till genom att söka efter aktivitetsloggen under **alla tjänster** i det vänstra navigeringsfönstret.
+* **Övervakaren** visas som standard i det vänstra navigeringsfönstret. Aktivitetsloggen är en del av Azure-Monitor.
+* Alla resurser **resurs**, till exempel bladet konfigurationen för en virtuell dator. Aktivitetsloggen är vara något av avsnitten om de flesta av dessa resurs-blad och klicka på den automatiskt filtrerar händelser som rör specifika resursen.
 
 Du kan filtrera din aktivitetsloggen av fälten i Azure-portalen:
 * TimeSpan - tiden för start- och slutdatum för händelser.
@@ -113,7 +113,7 @@ De här inställningarna kan konfigureras via alternativet ”Export” i bladet
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Konfigurera loggen profiler med hjälp av Azure portal
 Du kan strömma aktivitetsloggen till en Händelsehubb eller lagra dem i ett Lagringskonto med hjälp av alternativet ”Export” i Azure-portalen.
 
-1. Navigera till den **aktivitetsloggen** blad med hjälp av menyn till vänster i portalen.
+1. Gå till **aktivitetsloggen** med hjälp av menyn till vänster i portalen.
 
     ![Navigera till aktivitetsloggen i portalen](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Klicka på den **exportera** längst upp på bladet.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -114,7 +114,16 @@ Du kan öka eller minska resurserna som är tillgängliga för en elastisk pool 
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Vad är det maximala antalet servrar och databaser?
 
-Det maximala antalet servrar per prenumeration per region är 21. Det maximala antalet databaser per server är 5 000. Dessa är mjuka gränser etablerade experimentellt baserat på nyttolast analys, logiska master telemetri samling analys och några andra aspekter. Du kan begära överskrider gränserna, under förutsättning att du håller dig inom DTU-kvot. Antal databaser och servrar blir stor kan är det problem som du kommer till stats resurssamling i logiska master och konkurrens på hanteringsåtgärder. Dessa problem är inte allvarligt; de ökar svarstiden.
+| Maximal | Värde |
+| :--- | :--- |
+| Databaser per server | 5000 |
+| Antal servrar per prenumeration per region | 21 |
+|||
+
+> [!IMPORTANT]
+> När antalet databaser som närmar sig gränsen per server, kan följande inträffa:
+> <br> • Öka svarstid i kör frågor mot master-databasen.  Detta inkluderar vyer av användningsstatistik för resurs, till exempel sys.resource_stats.
+> <br> • Ökad latens i hanteringsåtgärder och återgivning portal åsikter som rör uppräkning databaser på servern.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Vad händer när databasen och gränserna för elastiska poolen nås?
 

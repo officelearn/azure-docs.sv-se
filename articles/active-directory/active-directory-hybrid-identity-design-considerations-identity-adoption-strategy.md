@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
-I den här uppgiften definierar du införandestrategin för hybrid identity för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
+I den här uppgiften definierar du hybrid identity införandestrategin för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
 
 * [Fastställa affärsbehov](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Ange krav för directory-synkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Ange krav för multifaktorautentisering](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definiera behov affärsstrategi
-De första uppgift adresserna fastställa organisationer företag behöver.  Detta kan vara mycket bred och scope krypning kan inträffa om du inte är försiktig.  I början enkelhet men komma ihåg att planera för en design som ska anpassas och underlätta förändringen i framtiden.  Oavsett om det är en enkel design eller en extremt komplexa, är Azure Active Directory Microsoft Identity-plattform som stöder anpassade program för Office 365, Microsoft Online Services och molnet.
+De första uppgift adresserna fastställa organisationer företag behöver.  Detta kan vara mycket bred och scope krypning kan inträffa om du inte är försiktig.  Enkelhet i början, men komma ihåg att planera för en design som ska anpassas och underlätta förändringen i framtiden.  Oavsett om det är en enkel design eller en extremt komplexa, Azure Active Directory är Microsoft Identity-plattform som stöder Office 365, Microsoft Online Services och molnet medvetna program.
 
 ## <a name="define-an-integration-strategy"></a>Definiera en strategi för integrering
 Microsoft har tre huvudsakliga integrationsscenarier är molnidentiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera på införandet av en av dessa strategier för integrering.  Den strategi som du väljer kan variera och beslut att välja en kan innehålla vilken typ av användarupplevelse som du vill ge har du några av den befintliga infrastrukturen redan på plats och vad som är den mest kostnadseffektiva.  
@@ -47,26 +47,26 @@ Scenarier som definierades i ovan är:
 > 
 > 
 
-I följande tabell får hjälp för att fastställa fördelarna och nackdelarna med vart och ett av följande strategier:
+I följande tabell kan fastställa fördelarna och nackdelarna med vart och ett av följande strategier:
 
 | Strategi | Fördelar | Nackdelar |
 | --- | --- | --- |
-| **Molnidentiteter** |Enklare att hantera för små företag. <br> Inget att installera på-lokal-ingen ytterligare maskinvara krävs<br>Enkelt inaktiveras om användaren lämnar företaget |Användarna måste logga in vid åtkomst av arbetsbelastningar i molnet <br> Lösenord kan eller kan inte vara samma för molnet och lokala identiteter |
-| **Synkroniserade** |Lokala lösenordet autentiserar både lokalt och molnet kataloger <br>Enklare att hantera för små, medelstora eller stora organisationer <br>Användare kan ha enkel inloggning (SSO) för vissa resurser <br> Microsoft önskad metod för synkronisering <br> Enklare att hantera |Vissa kunder kan vara ovilliga att synkronisera sina kataloger med molnet på grund av ett visst företag polis |
-| **Federerad** |Användare kan ha enkel inloggning (SSO) <br>Om en användare lämnar avslutas och kontot kan inaktiveras omedelbart och behörighet återkallats<br> Har stöd för avancerade scenarier som får inte vara åstadkommas med synkroniserade |Flera steg för att installera och konfigurera <br> Högre Underhåll <br> Kan kräva ytterligare maskinvara för STS-infrastruktur <br> Kan kräva ytterligare maskinvara för att installera federationsservern. Det krävs ytterligare programvara om AD FS används <br> Kräv omfattande inställningar för enkel inloggning <br> Kritisk felpunkt om federationsservern är nere, användare kommer inte att kunna autentisera |
+| **Molnidentiteter** |Enklare att hantera för små företag. <br> Inget att installera på-lokal-ingen ytterligare maskinvara krävs<br>Enkelt inaktiveras om användaren lämnar företaget |Användare behöver logga in vid åtkomst av arbetsbelastningar i molnet <br> Lösenord kan eller kan inte vara samma för molnet och lokala identiteter |
+| **Synkroniserade** |Lokala lösenord autentiserar både lokalt och i molnet kataloger <br>Enklare att hantera för små, medelstora eller stora organisationer <br>Användare kan ha enkel inloggning (SSO) för vissa resurser <br> Microsoft önskad metod för synkronisering <br> Enklare att hantera |Vissa kunder kan vara ovilliga att synkronisera sina kataloger med molnet på grund av ett visst företag polis |
+| **Federerad** |Användare kan ha enkel inloggning (SSO) <br>Om en användare lämnar avslutas och kontot kan inaktiveras omedelbart och behörighet återkallats<br> Stöd för avancerade scenarier som kan utföras med synkroniserade |Flera steg för att installera och konfigurera <br> Högre Underhåll <br> Kan kräva ytterligare maskinvara för STS-infrastruktur <br> Kan kräva ytterligare maskinvara för att installera federationsservern. Det krävs ytterligare programvara om AD FS används <br> Kräv omfattande inställningar för enkel inloggning <br> Kritisk felpunkt om federationsservern är nere, användare kommer inte att kunna autentisera |
 
 ### <a name="client-experience"></a>Klientupplevelse
-Den strategi som du använder styr inloggning för användaren.  Följande tabeller ger dig information om sina erfarenheter ska förvänta dig vad användare.  Observera att inte alla federerade identitetsleverantörer stöder enkel inloggning i samtliga scenarier.
+Den strategi som du använder styr inloggning för användaren.  Följande tabeller ger dig information om sina erfarenheter ska förvänta dig vad användare.  Inte alla federerade identitetsleverantörer kan använda enkel inloggning i samtliga scenarier.
 
 **Ansluten till domänen och privata nätverksprogram**:
 
 |  | Synkroniserade identiteter | Federerade identiteter |
 | --- | --- | --- |
-| Webbläsare |Formulärbaserad autentisering |enkel inloggning på, ibland måste du ange organisations-ID |
+| Webbläsare |Formulärbaserad autentisering |enkel inloggning, ibland måste du ange organisations-ID |
 | Outlook |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
-| Skype för företag (Lync) |Fråga efter autentiseringsuppgifter |enkel inloggning på för Lync, ange autentiseringsuppgifter för Exchange |
-| SkyDrive Pro |Fråga efter autentiseringsuppgifter |enkel inloggning |
-| Office Pro Plus prenumeration |Fråga efter autentiseringsuppgifter |enkel inloggning |
+| Skype för företag (Lync) |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmanas att ange autentiseringsuppgifter för Exchange |
+| SkyDrive Pro |Fråga efter autentiseringsuppgifter |Enkel inloggning |
+| Office Pro Plus prenumeration |Fråga efter autentiseringsuppgifter |Enkel inloggning |
 
 **Externa eller ej betrodda källor**:
 
@@ -74,23 +74,23 @@ Den strategi som du använder styr inloggning för användaren.  Följande tabel
 | --- | --- | --- |
 | Webbläsare |Formulärbaserad autentisering |Formulärbaserad autentisering |
 | Outlook, Skype för företag (Lync) Skydrive Pro, Office-prenumeration |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
-| Exchange ActiveSync |Fråga efter autentiseringsuppgifter |enkel inloggning på för Lync, ange autentiseringsuppgifter för Exchange |
+| Exchange ActiveSync |Fråga efter autentiseringsuppgifter |enkel inloggning för Lync, uppmanas att ange autentiseringsuppgifter för Exchange |
 | Mobilappar |Fråga efter autentiseringsuppgifter |Fråga efter autentiseringsuppgifter |
 
-Om du har konstaterat från aktivitet 1 att du har en 3 part IdP eller är kommer att använda en för att tillhandahålla federation med Azure AD, måste du vara medveten om följande stöds:
+Om du har konstaterat från aktivitet 1 att du har en tredje parts IdP eller är kommer att använda en för att ge federation med Azure AD, måste du vara medveten om följande stöds:
 
 * SAML 2.0-providern som är godkända för SP-Lite profilen har stöd för autentisering till Azure AD och associerade program
-* Har stöd för passiv autentisering, vilket underlättar auth för OWA, SPO osv.
+* Har stöd för passiv autentisering, vilket underlättar autentisering till OWA, SPO osv.
 * Exchange Online-klienter kan användas via den SAML 2.0 förbättrad klienten profil (ECP)
 
 Du måste också vara medveten om vilka funktioner är inte tillgängliga:
 
-* Aktiva klienter bryts utan stöd för WS-Trust/Federation
+* Utan stöd för identitetsfederation-WS-Trust Bryt aktiva klienter
   * Det innebär att inga Lync-klienten, OneDrive-klient, Office-prenumeration, Office Mobile innan Office 2016
-* Övergången av Office till passiv autentisering för att stödja ren SAML 2.0 IdPs, men stöd kommer fortfarande att klienten av klient
+* Övergången av Office till passiv autentisering kan användas för att stödja ren SAML 2.0 IdPs, men stöd kommer fortfarande att klienten av klient
 
 > [!NOTE]
-> Läs artikeln http://aka.ms/ssoproviders för den mest uppdaterade listan.
+> Läs artikeln https://aka.ms/ssoproviders för den mest uppdaterade listan.
 > 
 > 
 
@@ -108,7 +108,7 @@ I den här uppgiften definierar du de verktyg som används för att synkronisera
 ### <a name="supported-topologies"></a>Topologier som stöds
 När du definierar en strategi för synkronisering, måste topologin som används bestämmas. Beroende på den information som fastställdes i steg bestämma 2 du vilka topologin är rätt som ska användas. Enkel skog, enkel topologi för Azure AD är de vanligaste och består av en Active Directory-skog och en enda instans av Azure AD.  Det här kommer att användas i en majoritet av scenarier och den förväntade topologin när du använder Azure AD Connect Snabbinstallation som visas i bilden nedan.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)En skog Scenario är det mycket vanligt att små och även stora organisationer att ha flera skogar, eftersom illustreras i bild 5.
+![](./media/hybrid-id-design-considerations/single-forest.png) En skog Scenario är det vanligt att små och även stora organisationer har flera skogar som visas i bild 5.
 
 > [!NOTE]
 > Mer information om olika lokalt och Azure AD-topologier med Azure AD Connect sync artikeln [topologier för Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
@@ -159,7 +159,7 @@ För att kunna göra detta på följande måste vara sant:
   * Gruppera återskrivning med standardkonfiguration
   * Tillbakaskrivning av enhet
 
-Tänk på att följande stöds inte och bör inte väljas som en implementering:
+Följande stöds inte och bör inte väljas som en implementering:
 
 * Det går inte för att ha flera servrar för Azure AD Connect-synkronisering ansluter till samma Azure AD-katalog, även om de är konfigurerade för att synkronisera ömsesidigt uteslutande uppsättning objekt
 * Den stöds inte för att synkronisera flera Azure AD-kataloger samma användare. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -127,7 +127,7 @@ Vi rekommenderar starkt att du utveckla den virtuella Hårddisken i molnet genom
 
 **Ansluta via RDP med hjälp av den [Microsoft Azure-portalen][link-azure-portal]**
 
-1. Välj **Bläddra** > **VMs**.
+1. Välj **alla tjänster** > **VMs**.
 2. Öppnar bladet för virtuella datorer. Kontrollera att den virtuella datorn som du vill ansluta med körs och markera den i listan med distribuerade virtuella datorer.
 3. Då öppnas ett blad som beskriver den valda virtuella datorn. Överst, klickar du på **Anslut**.
 4. Du uppmanas att ange användarnamn och lösenord som du angav under etableringen.
@@ -136,7 +136,7 @@ Vi rekommenderar starkt att du utveckla den virtuella Hårddisken i molnet genom
 
 Du kan hämta en remote desktop-fil till en lokal dator den [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Du måste känna till namnet på tjänsten och namnet på den virtuella datorn för att kunna använda denna cmdlet. Om du har skapat den virtuella datorn från den [Microsoft Azure-portalen][link-azure-portal], du kan hitta den här informationen under Egenskaper för Virtuella datorer:
 
-1. Välj i Microsoft Azure-portalen **Bläddra** > **VMs**.
+1. Välj i Microsoft Azure-portalen **alla tjänster** > **VMs**.
 2. Öppnar bladet för virtuella datorer. Välj den virtuella datorn som du har distribuerat.
 3. Då öppnas ett blad som beskriver den valda virtuella datorn.
 4. Klicka på **Egenskaper**.
@@ -214,7 +214,6 @@ Om du vill distribuera en virtuell dator från en användare VM-avbildning, du k
 
 1. Gå till **ny** > **Compute** > **virtuella** > **från galleriet**.
 
-    ![Rita][img-manage-vm-new]
 2. Gå till **Mina avbildningar**, och välj sedan VM-avbildning som du vill distribuera en virtuell dator:
 
    1. Var uppmärksam på vilken avbildning som du väljer, eftersom den **Mina avbildningar** visas både avbildningar av operativsystem och VM-avbildningar.
@@ -407,15 +406,15 @@ Nedan följer stegen för att generera SAS-URL genom att använda Microsoft Azur
 
     Genererade SAS-URL är för behållare nivå och nu behöver lägga till VHD-namn i den.
 
-    Format för behållare nivån SAS-URL:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Format för behållare nivån SAS-URL: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    Infoga VHD namn efter behållarens namn i SAS-URL som nedan`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Infoga VHD namn efter behållarens namn i SAS-URL som nedan `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Exempel:
 
     ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Se till att bilden filnamn och **”VHD”** i URI: N.
     - I mitten av signaturen, se till att **”sp = rl”** visas. Detta demonstrerar att läs- och åtkomst har angetts korrekt.
@@ -471,11 +470,11 @@ Nedan följer stegen för att generera SAS-URL med hjälp av Azure CLI
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Infoga VHD namn efter behållarens namn i SAS-URL som visas nedan`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Infoga VHD namn efter behållarens namn i SAS-URL som visas nedan `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Exempel:
 
-    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att
+    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn sedan VHD SAS-URL kommer att 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

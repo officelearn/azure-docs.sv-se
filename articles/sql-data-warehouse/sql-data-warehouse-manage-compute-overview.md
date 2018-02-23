@@ -1,6 +1,6 @@
 ---
-title: "Hantera datorkraft i Azure SQL Data Warehouse (översikt) | Microsoft Docs"
-description: "Prestanda skala ut funktioner i Azure SQL Data Warehouse. Skala ut genom att justera dwu: er eller pausa och återuppta beräkningsresurser för att spara kostnader."
+title: "Hantera beräkningsresurser i Azure SQL Data Warehouse | Microsoft Docs"
+description: "Mer information om prestanda skala ut funktioner i Azure SQL Data Warehouse. Skala ut genom att justera dwu: er eller lägre kostnader genom att pausa datalagret."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Hantera datorkraft i Azure SQL Data Warehouse (översikt)
-> [!div class="op_single_selector"]
-> * [Översikt](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>Hantera beräkning i Azure SQL Data Warehouse
+Lär dig mer om hur du hanterar beräkningsresurser i Azure SQL Data Warehouse. Lägre kostnader genom att pausa datalagret eller skala datalagret för att uppfylla krav på prestanda. 
 
-Arkitekturen för SQL Data Warehouse separerar lagring och beräkning, så att varje del kan skalas oberoende av varandra. Därför kan beräkning skalas för att uppfylla prestandakrav oberoende av mängden data. En naturlig följd av den här arkitekturen är att [fakturering] [ billed] för beräkning och lagring är desamma. 
+## <a name="what-is-compute-management"></a>Vad är beräkning management?
+Arkitekturen för SQL Data Warehouse separerar lagring och beräkning, så att varje del kan skalas oberoende av varandra. Därför kan du skala beräknings för att uppfylla prestandakrav oberoende av datalagring. Du kan också pausa och återuppta beräkningsresurser. En naturlig följd av den här arkitekturen är att [fakturering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) för beräkning och lagring är desamma. Om du inte behöver använda ditt data warehouse på ett tag, kan du spara kostnader för beräkning av pausa beräkning. 
 
-Den här översikten beskriver hur skala ut fungerar med SQL Data Warehouse och hur du använder pausa, återuppta och skala funktionerna i SQL Data Warehouse. 
+## <a name="scaling-compute"></a>Skala beräkning
+Du kan skala upp eller skala tillbaka beräkning genom att justera det [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) för ditt informationslager. Läser in och frågeprestanda kan öka linjärt när du lägger till flera informationslagerenheter. SQL Data Warehouse erbjuder [servicenivåer](performance-tiers.md#service-levels) för data warehouse-enheter som garanterar en tydlig förändring i prestanda när du skalar ut eller tillbaka. 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Beräkna hur hanteringsåtgärder fungerar i SQL Data Warehouse
-Arkitekturen för SQL Data Warehouse består av en control-noden, compute-noder och lagringsskikt sprids 60-distributioner. 
+Skalbar anvisningar finns i [Azure-portalen](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), eller [T-SQL](quickstart-scale-compute-tsql.md) Snabbstart. Du kan också utföra skalbar åtgärder med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Under normala aktiv session i SQL Data Warehouse systemets huvudnod hanterar metadata och innehåller distribuerad frågeoptimerare. Under den här huvudnod är compute-noder och lagring-lagret. Systemet har en huvudnod, fyra datornoder och lagringsskikt, som består av 60 distributioner för en DWU 400. 
+Om du vill utföra en skalningsåtgärden SQL Data Warehouse först stoppar alla inkommande förfrågningar och sedan återställer transaktioner för att säkerställa ett konsekvent tillstånd. Skalning inträffar bara när transaktionen återställningen är klar. För en skalningsåtgärden systemet kopplas från lagringsskikt från datornoderna, lägger till Compute-noderna och reattaches lagringsskikt beräknings-lagret. Varje datalagret lagras som 60-distributioner fördelas jämnt till Compute-noder. Om du lägger till flera datornoderna läggs mer datorkraft. När antalet datornoderna ökar, minskar antalet distributioner per beräkningsnod tillhandahåller mer datorkraft för dina frågor. På samma sätt minskar minskar informationslagerenheter antalet Compute-noder, vilket minskar beräkningsresurser för frågor.
 
-När du genomgå en skala eller pausa åtgärden systemet först stoppar alla inkommande förfrågningar och sedan återställer transaktioner för att säkerställa ett konsekvent tillstånd. För skala utförs skalning endast när den här transaktionella återställning har slutförts. En skala upp åtgärd system bestämmelserna extra önskat antal datornoder och startar sedan återansluta datornoderna lagring-lagret. För en skala ned åtgärd onödiga noderna släpps och återstående datornoderna återansluta sig själva till ett lämpligt antal distributioner. För en paus åtgärden beräkna alla noder släpps och datorn kommer att göras en mängd metadataåtgärder lämna slutliga systemet i ett stabilt tillstånd.
+Följande tabell visar hur många distributioner per Compute-nod ändringar som data warehouse enheter ändras.  DWU6000 ger 60 datornoder och ger mycket högre frågeprestanda än DWU100. 
 
-| DWU  | \#med beräkningsnoder | \#för distributioner per nod |
+| Informationslagerenheter  | \# med beräkningsnoder | \# för distributioner per nod |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ När du genomgå en skala eller pausa åtgärden systemet först stoppar alla in
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-Det finns tre grundläggande funktioner för hantering av beräkning:
 
-1. Pausa
-2. Återuppta
-3. Skala
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>Hitta rätt storlek för informationslagerenheter
 
-Var och en av dessa åtgärder kan ta flera minuter att slutföra. Om du är skalning/pausa/återupptar automatiskt, kanske du vill implementera logik för att säkerställa att vissa åtgärder har slutförts innan du fortsätter med en annan åtgärd. 
+Om du vill se prestandafördelarna med skalning, särskilt för större informationslagerenheter som du vill använda minst 1 TB data. Försök för att hitta bästa antalet informationslagerenheter för ditt informationslager, skala upp och ner. Köra några frågor med olika antal informationslagerenheter när data har lästs in. Eftersom det går snabbt att skala, kan du försöka olika prestandanivåer i en timme eller mindre. 
 
-Kontrollera databasens status via olika slutpunkter kan du implementera korrekt automatisering av dessa åtgärder. Portalen ger aviseringar när en åtgärd och databaserna aktuella tillstånd, men tillåter inte att programmatiskt kontroll av tillståndet. 
+Rekommendationer för att hitta det rekommenderade antalet data warehouse enheter:
 
->  [!NOTE]
->
->  Beräkna hanteringsfunktioner inte finns för alla slutpunkterna.
->
->  
+- Börja genom att välja ett mindre antal informationslagerenheter för ett datalager under utveckling.  En bra utgångspunkt är DW400 eller DW200.
+- Övervaka dina programprestanda sett antalet informationslagerenheter valt jämfört med prestanda du se.
+- Anta en linjär skala och avgöra hur mycket du behöver öka eller minska data warehouse-enheter. 
+- Fortsätt att göra justeringar tills du når nivån optimal prestanda för dina affärsbehov.
 
-|              | Pausa/Fortsätt | Skala | Kontrollera databasens status |
-| ------------ | ------------ | ----- | -------------------- |
-| Azure Portal | Ja          | Ja   | **Nej**               |
-| PowerShell   | Ja          | Ja   | Ja                  |
-| REST-API     | Ja          | Ja   | Ja                  |
-| T-SQL        | **Nej**       | Ja   | Ja                  |
+## <a name="when-to-scale-out"></a>När du ska skalas ut
+Skala ut informationslagerenheter påverkar dessa aspekter av prestanda:
 
+- Linjärt förbättrar prestanda för sökningar, aggregeringar och CTAS-uttryck.
+- Ökar antalet läsare och skrivare för att läsa in data.
+- Maximalt antal samtidiga frågor och samtidighet platser.
 
+Rekommendationer när du vill skala ut data warehouse enheter:
 
-<a name="scale-compute-bk"></a>
+- Innan du utför en tung datainläsnings- eller omvandlingsåtgärd åtgärd kan du skala upp så att data blir tillgängliga snabbare.
+- Skala ut för ett större antal samtidiga frågor under belastning kontorstid. 
 
-## <a name="scale-compute"></a>Skala bearbetning
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>Vad händer om skala ut förbättrar inte prestandan?
 
-Prestanda i SQL Data Warehouse mäts i [informationslagerenheter (dwu: er)] [-datalager enheter (dwu: er)] som är en abstracted mått på beräkningsresurser t.ex CPU, minne och i/o-bandbredd. En användare som vill skala sina systemets prestanda kan göra det på olika sätt, t.ex via portalen, T-SQL och REST API: er. 
+Lägger till informationslagerenheter öka parallellitet. Om arbetet delas jämnt mellan datornoderna, förbättrar ytterligare parallellitet frågeprestanda. Om skala ut inte ändras prestandan, finns det några orsaker till varför detta kan inträffa. Data kan vara förvrängd på distributioner eller frågor om stora mängder data flyttas. För att undersöka prestandaproblem för frågan finns [prestanda felsökning](sql-data-warehouse-troubleshoot.md#performance). 
 
-### <a name="how-do-i-scale-compute"></a>Hur skala beräkning?
-Beräkna power hanteras SQL Data Warehouse genom att ändra DWU-inställningen. Prestandan ökar linjärt när du lägger till flera DWU för vissa åtgärder.  Vi erbjuder DWU-erbjudanden som säkerställer att prestandan kommer att ändras märkbart när du skalar systemet upp eller ned. 
+## <a name="pausing-and-resuming-compute"></a>Pausa och återuppta beräkning
+Pausa beräkning gör lagringsskikt frånkoppling från Compute-noder. Beräkningsresurserna släpps från ditt konto. Du debiteras inte för beräkning medan beräkning har pausats. Återuppta beräkningen reattaches lagring till Compute-noderna och återupptar avgifter för beräkning. När du pausar ett datalager:
 
-Du kan använda någon av dessa enskilda metoder för att justera dwu: er.
+* Beräknings-och minnesresurser återgår till poolen med tillgängliga resurser i datacentret
+* Data warehouse kostnader är noll för pausen varaktighet.
+* Datalagring påverkas inte och dina data förblir intakt. 
+* SQL Data Warehouse avbryter alla åtgärder som körs eller står i kö.
 
-* [Skala datorkraft med Azure-portalen][Scale compute power with Azure portal]
-* [Skala datorkraft med PowerShell][Scale compute power with PowerShell]
-* [Skala datorkraft med REST API: er][Scale compute power with REST APIs]
-* [Skala datorkraft med TSQL][Scale compute power with TSQL]
+När du återupptar ett datalager:
 
-### <a name="how-many-dwus-should-i-use"></a>Hur många dwu: er ska jag använda?
+* SQL Data Warehouse hämtar beräknings-och minnesresurser för din informationslagerenheter inställningen.
+* Beräkna avgifter för dina data warehouse enheter återupptagning.
+* Dina data blir tillgängliga.
+* När datalagret är online, måste du starta om din arbetsbelastning frågor.
 
-För att ta reda på ditt optimala DWU-värde kan du testa att skala upp och ned och köra några frågor när du har läst in dina data. Eftersom det går snabbt att skala, kan du försöka olika prestandanivåer i en timme eller mindre. 
+Om du vill att ditt data warehouse tillgänglig kan du skala ned till den minsta storleken i stället för att pausa. 
 
-> [!Note] 
-> SQL Data Warehouse är utformat för att bearbeta stora mängder data. Om du vill visa dess true funktioner för skalning, speciellt vid större dwu: er som du vill använda en stor mängd data som närmar sig eller större än 1 TB.
+För pausa och återuppta steg, finns det [Azure-portalen](pause-and-resume-compute-portal.md), eller [PowerShell](pause-and-resume-compute-powershell.md) Snabbstart. Du kan också använda den [pausa REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) eller [återuppta REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
-Rekommendationer för att hitta den bästa DWU för din arbetsbelastning:
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Tömma transaktioner före pausning eller skalning
+Vi rekommenderar att tillåta att befintliga transaktioner ska slutföras innan du startar en paus eller skala åtgärd.
 
-1. Börja genom att välja en mindre DWU prestandanivå för ett datalager under utveckling.  En bra utgångspunkt är DW400 eller DW200.
-2. Övervakare för programmets prestanda, sett valt antal dwu: er jämfört med prestanda du se.
-3. Avgör hur mycket snabbare eller långsammare prestanda ska du når optimal prestanda för dina krav genom att överta linjär skala.
-4. Öka eller minska antalet dwu: er i förhållande till hur mycket snabbare eller långsammare du vill din arbetsbelastning att utföra. 
-5. Fortsätt att göra justeringar tills du når nivån optimal prestanda för dina affärsbehov.
+När du pausar eller skalar SQL Data Warehouse avbryts dina frågor i bakgrunden när du initierar paus- eller skalningsbegäran.  Att avbryta en enkel SELECT-fråga är en snabb åtgärd och påverkar nästan inte alls den tid det tar att pausa eller skala instansen.  Transaktionsfrågor, som ändrar data eller datastrukturen, kan däremot ta längre tid att stoppa.  **Transaktionsfrågor måste per definition slutföras i sin helhet eller så måste ändringarna återställas.**  Det kan ta lång tid att återställa arbetet som en transaktionsfråga har utfört, till och med längre tid än den ursprungliga ändringen som frågan tillämpade.  Om du till exempel avbryter en fråga som tog bort rader och som redan har körts i en timme, kan det ta en timme för systemet att lägga till de borttagna raderna igen.  Om du pausar eller skalar under pågående transaktioner kan det verka som åtgärden tar lång tid eftersom pausningen och skalningen måste vänta tills återställningen har slutförts innan de kan fortsätta.
 
-> [!NOTE]
->
-> Frågeprestanda ökar med mer parallellisering bara om arbetet som kan delas mellan beräkningsnoder. Om du upptäcker att skalning inte är ändra din prestanda, finns våra artiklar för att kontrollera om dina data fördelas ojämnt eller om du introducerar en stor mängd data movement för prestandajustering. 
+Se även [förstå transaktioner](sql-data-warehouse-develop-transactions.md), och [optimera transaktioner][optimera transaktioner](sql-data-warehouse-develop-best-practices-transactions.md).
 
-### <a name="when-should-i-scale-dwus"></a>När bör jag skala dwu: er?
-Skalning dwu: er ändrar följande viktiga scenarier:
+## <a name="automating-compute-management"></a>Automatisera hantering av beräkning
+För att automatisera hanteringen beräkning finns [hantera beräkning med Azure functions](manage-compute-with-azure-functions.md).
 
-1. Ändra linjärt prestanda för sökningar, aggregeringar och CTAS uttryck
-2. Öka antalet läsare och skrivare vid inläsning av med PolyBase
-3. Maximalt antal samtidiga frågor och samtidighet fack
+Var och en av skalbara, pausa och återuppta åtgärder kan ta flera minuter att slutföra. Om du skalning, pausa, eller återupptar automatiskt, rekommenderar vi att implementera logik för att säkerställa att har vissa åtgärder slutförts innan du fortsätter med en annan åtgärd. Kontrollera tillstånd för datalager via olika slutpunkter kan du implementera korrekt automatisering av dessa åtgärder. 
 
-Rekommendationer att skala dwu: er:
+Tillstånd för datalager finns i den [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) eller [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) Snabbstart. Du kan också kontrollera tillstånd för datalager med en [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-1. Innan du utför en tung datainläsnings- eller omvandlingsåtgärd åtgärd skala upp dwu: er så att dina data blir tillgängliga snabbare.
-2. Skala för att anpassa större antal samtidiga frågor under belastning kontorstid. 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Pausa beräkning
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Använd någon av dessa enskilda metoder för att pausa en databas.
-
-* [Pausa beräkning med Azure-portalen][Pause compute with Azure portal]
-* [Pausa beräkning med PowerShell][Pause compute with PowerShell]
-* [Pausa beräkning med REST API: er][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Återuppta beräkning
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Använd någon av dessa enskilda metoder för att återuppta en databas.
-
-* [Återuppta beräkning med Azure-portalen][Resume compute with Azure portal]
-* [Återuppta beräkning med PowerShell][Resume compute with PowerShell]
-* [Återuppta beräkning med REST API: er][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>Kontrollera databasens status 
-
-Använd någon av dessa enskilda metoder för att återuppta en databas.
-
-- [Kontrollera databasens status med T-SQL][Check database state with T-SQL]
-- [Kontrollera databasens status med PowerShell][Check database state with PowerShell]
-- [Kontrollera databasens status med REST API: er][Check database state with REST APIs]
 
 ## <a name="permissions"></a>Behörigheter
 
-Skalning databasen kräver behörigheterna som beskrivs i [ALTER DATABASE][ALTER DATABASE].  Pausa och återuppta kräver den [SQL DB-deltagare] [ SQL DB Contributor] behörighet, särskilt Microsoft.Sql/servers/databases/action.
+Skalning datalagret kräver behörigheterna som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Pausa och återuppta kräver den [SQL DB-deltagare](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) behörighet, särskilt Microsoft.Sql/servers/databases/action.
 
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar för att hjälpa dig förstå några ytterligare KPI-begrepp:
-
-* [Hantering av arbetsbelastning och samtidighet][Workload and concurrency management]
-* [Översikt över tabellen design][Table design overview]
-* [Tabell-distribution][Table distribution]
-* [Tabell indexering][Table indexing]
-* [Tabellpartitionering][Table partitioning]
-* [Tabellstatistik][Table statistics]
-* [Bästa praxis][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+En annan aspekt av hantering av beräkningsresurser allokerar olika beräkningsresurser för enskilda frågor. Mer information finns i [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md).

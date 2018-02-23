@@ -4,7 +4,7 @@ description: "Den här kursen visar hur du skapar en Always On-tillgänglighetsg
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always On-Tillgänglighetsgrupper i Azure Virtual Machines automatiskt: Resource Manager
 
@@ -63,8 +63,8 @@ I de här självstudierna Använd Azure portal:
 Azure tillhandahåller en bild i galleriet för hela lösningen. Leta upp mallen:
 
 1. Logga in på Azure-portalen med ditt konto.
-2. I Azure-portalen klickar du på **+ ny** att öppna den **ny** bladet.
-3. På den **ny** bladet, söka efter **AlwaysOn**.
+2. I Azure-portalen klickar du på **skapar du en resurs** att öppna den **ny** fönstret.
+3. På den **ny** rutan, söka efter **AlwaysOn**.
    ![Hitta AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Leta upp i sökresultaten **SQL Server AlwaysOn-kluster**.
    ![AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -197,7 +197,7 @@ Azure-portalen skapar resursgruppen och alla resurser.
 
 ![Instrumentpanelen för Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Ansluta till SQLServer
+## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
 Nya instanser av SQL Server körs på virtuella datorer som har internet-ansluten IP-adresser. Du kan fjärrskrivbord (RDP) direkt till varje virtuell dator med SQL Server.
 
 Följ dessa steg till RDP till en SQL Server:

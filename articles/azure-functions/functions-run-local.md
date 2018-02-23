@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -169,7 +169,7 @@ Om du vill skapa en funktion, kör du följande kommando:
 ```
 func new
 ``` 
-`func new`stöder följande valfria argument:
+`func new` stöder följande valfria argument:
 
 | Argumentet     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -197,7 +197,7 @@ För att köra ett funktioner projekt, kör du funktioner värden. Värden kan u
 func host start
 ```
 
-`func host start`stöder följande alternativ:
+`func host start` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -231,6 +231,9 @@ Om du vill starta värden och Ställ in JavaScript-felsökning, kör du:
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> För felsökning endast Node.js 8.x stöds. Node.js 9.x stöds inte. 
 
 I Visual Studio-koden i den **felsöka** väljer **ansluta till Azure Functions**. Du kan koppla brytpunkter inspektera variabler och stega igenom koden.
 
@@ -293,7 +296,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 Du kan även anropa en funktion direkt med hjälp av `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar kör en funktion med hjälp av den **Test** fliken i Azure-portalen. 
 
-`func run`stöder följande alternativ:
+`func run` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |

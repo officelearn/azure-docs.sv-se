@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Skydd av personuppgifter-dokument med Azure reporting verktyg
 
@@ -90,7 +90,7 @@ Besök den [Azure Active Directory audit API-referens](https://docs.microsoft.co
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) kan [samla in data från Azure-Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) att korrelera med andra data och tillhandahålla ytterligare analys. Azure övervakaren samlar in och analyserar övervakningsdata för Azure-miljön. 
+[Logga Analytics](https://azure.microsoft.com/services/log-analytics/) kan [samla in data från Azure-Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) att korrelera med andra data och tillhandahålla ytterligare analys. Azure övervakaren samlar in och analyserar övervakningsdata för Azure-miljön. 
 
 Analysverktyg i logganalys som loggen sökningar, vyer och lösningar arbeta mot alla insamlade data, vilket ger dig centraliserad analys av hela miljön. Logganalys kan sammanställa och analysera händelseloggarna för Windows, IIS-loggar och systemloggar som kan hjälpa dig att upptäcka potentiella överträdelser av personliga data som kan uttsätta personuppgifter till obehöriga användare.
 
@@ -144,7 +144,7 @@ Det finns ett antal sätt att använda data i aktivitetsloggen och andra Azure-M
 
 - Du kan fråga efter data med hjälp av Azure övervakaren REST API, CLI-kommandona [PowerShell](https://docs.microsoft.com/powershell/) cmdlets eller .NET SDK.
 
-Om du vill komma igång med Azure-Monitor, Välj **fler tjänster** i Azure-portalen.
+Om du vill komma igång med Azure-Monitor, Välj **alla tjänster** i Azure-portalen.
 
 1. Rulla ned till **övervakaren** i den **övervaka och hantera** avsnitt.
 

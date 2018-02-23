@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Skapa ett virtuellt nätverk med en Azure Resource Manager-mall
 
@@ -39,9 +39,9 @@ Den här artikeln förklaras hur du skapar ett VNet via Resource Manager-distrib
 - [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (klassisk)](virtual-networks-create-vnet-classic-cli.md)
 
-Du kommer lära dig hur man hämtar och ändrar en befintlig ARM-mall från GitHub och distribuerar mallen från GitHub, PowerShell och Azure CLI.
+Lär dig hur du hämtar och ändrar och befintlig Azure Resource Manager-mall från GitHub och distribuerar mallen från GitHub, PowerShell och Azure CLI.
 
-Om du bara distribuerar ARM-mallen direkt från GitHub utan ändringar, kan du hoppa till [distribuera en mall från github](#deploy-the-arm-template-by-using-click-to-deploy).
+Om du bara distribuerar Azure Resource Manager-mallen direkt från GitHub utan ändringar, går du till [distribuera en mall från github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Du kan hämta den befintliga mallen för att skapa ett VNet och två undernät f
 2. Klicka på **azuredeploy.json** och klicka sedan på **RAW**.
 3. Spara filen på en lokal mapp på datorn.
 4. Om du är bekant med mallar kan du gå vidare till steg 7.
-5. Öppna filen som du just har sparat och titta på innehållet i **parametrar** på rad 5. ARM-mallparametrarna agerar platshållare för värden som kan anges under distributionen.
+5. Öppna filen som du sparat och titta på innehållet i **parametrar** på rad 5. Azure Resource Manager-mallens parametrar fungerar som platshållare för värden som kan anges under distributionen.
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | **Plats** |Azure-region där VNet kommer att skapas |
+   | **Plats** |Azure-region där VNet har skapats |
    | **vnetName** |Namn för det nya VNet |
    | **addressPrefix** |Adressutrymmet för VNet, i CIDR-format |
    | **subnet1Name** |Namn för det första VNet |
@@ -71,7 +71,7 @@ Du kan hämta den befintliga mallen för att skapa ett VNet och två undernät f
 6. Kontrollera innehållet i **resurser** och observera följande:
    
    * **type**. Typ av resurs som skapas av mallen. I det här fallet **Microsoft.Network/virtualNetworks**, vilket motsvarar ett VNet.
-   * **name**. Namn på den virtuella resursen. Observera användningen av **[parameters('vnetName')]**, vilket betyder att namnet kommer att anges som indata från användaren eller en parameterfil vid distributionen.
+   * **name**. Namn på den virtuella resursen. Observera användningen av **[parameters('vnetName')]**, vilket betyder att namnet som angavs som indata från användaren eller en parameterfil under distributionen.
    * **properties**. Lista över egenskaper för resursen. Den här mallen använder adressutrymmet och undernätsegenskaperna vid skapandet av ett VNet.
 7. Gå tillbaks till [exempelmallsidan](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klicka på **azuredeploy-parameters.json** och klicka sedan på **RAW**.
@@ -231,7 +231,7 @@ Du kan återanvända fördefinierade Azure Resource Manager-mallar som har över
    
     ![Ikonen för Skicka in distribution i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. När installationen är klar i Azure portal klickar du på **fler tjänster**, typen *virtuella nätverk* i filterrutan och klicka sedan på virtuella nätverk för att se virtuella nätverk-bladet. I bladet, klickar du på *TestVNet*. I den *TestVNet* bladet, klickar du på **undernät** att se skapade undernät, som visas i följande bild:
+10. När installationen är klar i Azure portal klickar du på **alla tjänster**, typen *virtuella nätverk* i filterrutan och klicka sedan på virtuella nätverk för att se virtuella nätverk-bladet. I bladet, klickar du på *TestVNet*. I den *TestVNet* bladet, klickar du på **undernät** att se skapade undernät, som visas i följande bild:
     
      ![Skapa VNet i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

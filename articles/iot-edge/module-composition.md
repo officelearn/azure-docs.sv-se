@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
 
@@ -28,7 +28,7 @@ Den *distributionsmanifestet* är ett JSON-dokument som beskriver:
 
 I Azure IoT kant självstudier skapar du en distributionsmanifestet genom att gå via en guide i Azure IoT kant-portalen. Du kan också använda en distributionsmanifestet programmässigt med hjälp av REST- eller IoT-hubb Service SDK. Referera till [distribuera och övervaka] [ lnk-deploy] mer information om IoT kant-distributioner.
 
-Distributionsmanifestet konfigurerar önskade egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: Edge-agenten och kant-hubben.
+Distributionsmanifestet konfigurerar en modul dubbla egenskaper för IoT kant-moduler som har distribuerats på en IoT-enhet på en hög nivå. Två av dessa moduler finns alltid: Edge-agenten och kant-hubben.
 
 Manifestet följer den här strukturen:
 
@@ -96,10 +96,10 @@ Villkoret kan vara något villkor som stöds av den [IoT-hubb frågespråket] [ 
 
 Sink kan vara något av följande:
 
-| sink | Beskrivning |
+| Mottagare | Beskrivning |
 | ---- | ----------- |
 | `$upstream` | Skicka meddelandet till IoT-hubb |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Skicka meddelandet till indata `{input}` för modulen`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Skicka meddelandet till indata `{input}` för modulen `{moduleId}` |
 
 Det är viktigt att notera att Edge hubb tillhandahåller garantier för på-minst en gång, vilket innebär att meddelanden kommer att lagras lokalt om en väg går inte att leverera meddelandet till dess mottagare, t.ex. Edge-hubb kan inte ansluta till IoT-hubb eller mål-modulen är inte anslutet.
 
@@ -112,6 +112,8 @@ Distributionsmanifestet kan ange önskade egenskaper för modulen dubbla för va
 När egenskaperna har angetts i distributionsmanifestet över de eventuella egenskaper som finns i modulen dubbla.
 
 Om du inte anger en modul dubbla önskade egenskaper i distributionsmanifestet IoT-hubb kan inte ändra modulen dubbla på något sätt och du kommer att kunna ange de önskade egenskaperna programmässigt.
+
+Av samma metoder som gör det möjligt att ändra enheten twins används för att ändra modulen twins. Mer information finns i [enheten dubbla Utvecklarhandbok](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) för ytterligare information.   
 
 ### <a name="deployment-manifest-example"></a>Exempel på distribution manifest
 
@@ -209,12 +211,12 @@ Egenskaperna anges när du använder en distributionsmanifestet på en specifik 
 | systemModules.edgeHub.settings.image | URI för bilden på hubben kant. | Ja |
 | systemModules.edgeHub.settings.createOptions | En stringified JSON som innehåller alternativ för att skapa behållaren Edge hubb. [Docker skapa alternativ][lnk-docker-create-options] | Nej |
 | systemModules.edgeHub.configuration.id | ID för distributionen som distribueras den här modulen. | Detta har angetts i IoT Hub när manifestet tillämpas med hjälp av en distribution. Inte en del av en distributionsmanifestet. |
-| moduler. {moduleId} .version | En användardefinierad sträng som representerar versionen av den här modulen. | Ja |
+| modules.{moduleId}.version | En användardefinierad sträng som representerar versionen av den här modulen. | Ja |
 | moduler. {moduleId} .type | Måste vara ”docker” | Ja |
-| moduler. {moduleId} .restartPolicy | {”aldrig” \| ”på-misslyckades” \| ”på-ohälsosamt” \| ”always”} | Ja |
-| moduler. {moduleId}.settings.image | URI: N på modulen avbildningen. | Ja |
-| moduler. {moduleId}.settings.createOptions | En stringified JSON som innehåller alternativ för att skapa behållaren modulen. [Docker skapa alternativ][lnk-docker-create-options] | Nej |
-| moduler. {moduleId}.configuration.id | ID för distributionen som distribueras den här modulen. | Detta har angetts i IoT Hub när manifestet tillämpas med hjälp av en distribution. Inte en del av en distributionsmanifestet. |
+| modules.{moduleId}.restartPolicy | {”aldrig” \| ”på-misslyckades” \| ”på-ohälsosamt” \| ”always”} | Ja |
+| modules.{moduleId}.settings.image | URI: N på modulen avbildningen. | Ja |
+| modules.{moduleId}.settings.createOptions | En stringified JSON som innehåller alternativ för att skapa behållaren modulen. [Docker skapa alternativ][lnk-docker-create-options] | Nej |
+| modules.{moduleId}.configuration.id | ID för distributionen som distribueras den här modulen. | Detta har angetts i IoT Hub när manifestet tillämpas med hjälp av en distribution. Inte en del av en distributionsmanifestet. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Edge agent dubbla rapporterade egenskaper
 
@@ -236,25 +238,25 @@ Följande tabell innehåller inte information som kopieras från egenskaperna.
 | lastDesiredVersion | Den här int refererar till den senaste versionen av de egenskaper bearbetas av agenten kant. |
 | lastDesiredStatus.code | Detta är statuskoden hänvisar till senaste önskade egenskaper som setts av agenten kant. Tillåtna värden: `200` lyckades, `400` ogiltig konfiguration `412` ogiltig schemaversion `417` egenskaperna som är tomma, `500` misslyckades |
 | lastDesiredStatus.description | Beskrivning av status |
-| DeviceHealth | `healthy`Om Körningsstatus för alla moduler som är antingen `running` eller `stopped`, `unhealthy` annars |
-| configurationHealth. {deploymentId} .health | `healthy`Om Körningsstatus för alla moduler som anges av distributionen {deploymentId} är antingen `running` eller `stopped`, `unhealthy` annars |
+| DeviceHealth | `healthy` Om Körningsstatus för alla moduler som är antingen `running` eller `stopped`, `unhealthy` annars |
+| configurationHealth.{deploymentId}.health | `healthy` Om Körningsstatus för alla moduler som anges av distributionen {deploymentId} är antingen `running` eller `stopped`, `unhealthy` annars |
 | runtime.platform.OS | Rapportering av Operativsystemet som körs på enheten |
-| Runtime.Platform.Architecture | Rapporteringsarkitektur Processorn på enheten |
-| systemModules.edgeAgent.runtimeStatus | Status rapporteras av Edge agent: {”körs” \| ”Ogiltigt”} |
+| runtime.platform.architecture | Rapporteringsarkitektur Processorn på enheten |
+| systemModules.edgeAgent.runtimeStatus | Status rapporteras av Edge agent: {”körs” \| ”ohälsosamt”} |
 | systemModules.edgeAgent.statusDescription | Beskrivning av rapporterade statusen för agenten kant. |
-| systemModules.edgeHub.runtimeStatus | Aktuell status för kant-hubb: {”körs” \| ”stoppades” \| ”misslyckades” \| ”backoff” \| ”Ogiltigt”} |
+| systemModules.edgeHub.runtimeStatus | Aktuell status för kant-hubb: {”körs” \| ”stoppades” \| ”misslyckades” \| ”backoff” \| ”ohälsosamt”} |
 | systemModules.edgeHub.statusDescription | Beskrivning för den aktuella statusen för Edge hubb om feltillstånd. |
 | systemModules.edgeHub.exitCode | Om avslutades slutkoden som rapporterats av behållaren Edge-hubb |
 | systemModules.edgeHub.startTimeUtc | Tidpunkten då Edge hubb senast startades |
 | systemModules.edgeHub.lastExitTimeUtc | Tid när Edge hubb senast avslutades |
 | systemModules.edgeHub.lastRestartTimeUtc | När Edge hubb senast startades om |
 | systemModules.edgeHub.restartCount | Antal gånger som den här modulen startades som en del av principen för omstart. |
-| moduler. {moduleId} .runtimeStatus | Aktuell status för modulen: {”körs” \| ”stoppades” \| ”misslyckades” \| ”backoff” \| ”Ogiltigt”} |
+| modules.{moduleId}.runtimeStatus | Aktuell status för modulen: {”körs” \| ”stoppades” \| ”misslyckades” \| ”backoff” \| ”ohälsosamt”} |
 | moduler. {moduleId} .statusDescription | Beskrivning för den aktuella statusen för modulen om feltillstånd. |
-| moduler. {moduleId} .exitCode | Om avslutades slutkoden som rapporterats av modulen behållaren |
-| moduler. {moduleId} .startTimeUtc | Tidpunkten då modulen senast startades |
-| moduler. {moduleId} .lastExitTimeUtc | Tid när modulen senast avslutades |
-| moduler. {moduleId} .lastRestartTimeUtc | När modulen senast startades om |
+| modules.{moduleId}.exitCode | Om avslutades slutkoden som rapporterats av modulen behållaren |
+| modules.{moduleId}.startTimeUtc | Tidpunkten då modulen senast startades |
+| modules.{moduleId}.lastExitTimeUtc | Tid när modulen senast avslutades |
+| modules.{moduleId}.lastRestartTimeUtc | När modulen senast startades om |
 | moduler. {moduleId} .restartCount | Antal gånger som den här modulen startades som en del av principen för omstart. |
 
 ## <a name="reference-edge-hub-module-twin"></a>Referens: Edge hubb modulen dubbla
@@ -267,7 +269,7 @@ Egenskaperna anges när du använder en distributionsmanifestet på en specifik 
 | Egenskap | Beskrivning | Krävs i distributionsmanifestet |
 | -------- | ----------- | -------- |
 | schemaVersion | Måste vara ”1.0” | Ja |
-| vägar. {routeName} | En sträng som representerar en kant hubb väg. | Den `routes` elementet kan finnas men tomt. |
+| routes.{routeName} | En sträng som representerar en kant hubb väg. | Den `routes` elementet kan finnas men tomt. |
 | storeAndForwardConfiguration.timeToLiveSecs | Tid i sekunder som Edge hubb håller meddelanden vid frånkopplade routning slutpunkter, t.ex. kopplas bort från IoT-hubb eller lokala modul | Ja |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Edge hubb dubbla rapporterade egenskaper

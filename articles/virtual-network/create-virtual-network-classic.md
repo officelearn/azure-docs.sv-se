@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Skapa ett virtuellt nätverk (klassiskt) med flera undernät
 
@@ -39,10 +39,10 @@ Du kan skapa ett virtuellt nätverk (klassiskt) med hjälp av den [Azure-portale
 ## <a name="portal"></a>Portalen
 
 1. I en webbläsare går du till den [Azure-portalen](https://portal.azure.com). Logga in med ditt [Azure-konto](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Om du inte har ett Azure-konto, kan du registrera dig för en [kostnadsfri utvärdering](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Klicka på **+ ny** i portalen.
-3. Ange *för virtuella nätverk* i den **söka Marketplace** rutan längst upp i den **ny** bladet som visas.  Klicka på **för virtuella nätverk** när den visas i sökresultaten.
-4. Välj **klassiska** i den **Välj en distributionsmodell** rutan den **virtuellt nätverk** bladet som visas, klicka sedan på **skapa**. 
-5. Ange följande värden den **skapa virtuella nätverk (klassiska)** bladet och klicka sedan på **skapa**:
+2. Klicka på **skapar du en resurs** i portalen.
+3. Ange *för virtuella nätverk* i den **söka Marketplace** rutan längst upp i den **ny** fönstret som visas. Klicka på **för virtuella nätverk** när den visas i sökresultaten.
+4. Välj **klassiska** i den **Välj en distributionsmodell** rutan den **virtuellt nätverk** fönstret som visas, klicka sedan på **skapa**. 
+5. Ange följande värden den **skapa virtuella nätverk (klassiska)** rutan och klicka sedan på **skapa**:
 
     |Inställning|Värde|
     |---|---|
@@ -55,13 +55,13 @@ Du kan skapa ett virtuellt nätverk (klassiskt) med hjälp av den [Azure-portale
 
     Om du har använt Azure lär du dig mer om [resursgrupper](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), och [platser](https://azure.microsoft.com/regions) (kallas även *regioner*).
 4. Du kan skapa en enda undernät när du skapar ett virtuellt nätverk i portalen. I den här självstudiekursen skapar du ett andra undernät när du har skapat det virtuella nätverket. Senare kan du skapa Internet-tillgängliga resurser i den **offentliga** undernät. Du kan också skapa resurser som inte är tillgänglig från Internet i den **privata** undernät. För att skapa andra undernät, ange **myVnet** i den **söka resurser** rutan längst upp på sidan. Klicka på **myVnet** när den visas i sökresultaten.
-5. Klicka på **undernät** (i den **inställningar** avsnitt) på den **skapa virtuella nätverk (klassiska)** bladet som visas.
-6. Klicka på **+ Lägg till** på den **myVnet - undernät** bladet som visas.
-7. Ange **privata** för **namn** på den **Lägg till undernät** bladet. Ange **10.0.1.0/24** för **adressintervall**.  Klicka på **OK**.
-8. På den **myVnet - undernät** bladet hittar du den **offentliga** och **privata** undernät som du skapade.
+5. Klicka på **undernät** (i den **inställningar** avsnitt) på den **skapa virtuella nätverk (klassiska)** fönstret som visas.
+6. Klicka på **+ Lägg till** på den **myVnet - undernät** fönstret som visas.
+7. Ange **privata** för **namn** på den **Lägg till undernät** fönstret. Ange **10.0.1.0/24** för **adressintervall**.  Klicka på **OK**.
+8. På den **myVnet - undernät** rutan som du kan se den **offentliga** och **privata** undernät som du skapade.
 9. **Valfria**: när du är klar med den här kursen kan du vill ta bort de resurser som du har skapat, så att du inte betalar användningsavgifter:
-    - Klicka på **översikt** på den **myVnet** bladet.
-    - Klicka på den **ta bort** ikon på den **myVnet** bladet.
+    - Klicka på **översikt** på den **myVnet** fönstret.
+    - Klicka på den **ta bort** ikon på den **myVnet** fönstret.
     - Bekräfta borttagningen genom att klicka på **Ja** i den **ta bort virtuellt nätverk** rutan.
 
 ## <a name="azure-cli"></a>Azure CLI

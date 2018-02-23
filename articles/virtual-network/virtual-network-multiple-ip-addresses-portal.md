@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure portal
 
@@ -31,21 +31,21 @@ Den här artikeln förklaras hur du skapar en virtuell dator (VM) via Azure Reso
 
 ## <a name = "create"></a>Skapa en virtuell dator med flera IP-adresser
 
-Om du vill skapa en virtuell dator med flera IP-adresser eller en statisk privat IP-adress, måste du skapa den med hjälp av PowerShell eller Azure CLI. Klicka på PowerShell eller CLI alternativ överst i den här artikeln för att lära dig hur. Du kan skapa en virtuell dator med en dynamisk privat IP-adress och (valfritt) en offentlig IP-adress med hjälp av portalen genom att följa stegen i den [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md) eller [skapa ett Linux VM](../virtual-machines/linux/quick-create-portal.md) artiklar. När du har skapat den virtuella datorn kan du ändra IP-adress från dynamisk till statisk och lägga till ytterligare IP-adresser med hjälp av portalen genom att följa anvisningarna i den [Lägg till IP-adresser till en virtuell dator](#add) i den här artikeln.
+Om du vill skapa en virtuell dator med flera IP-adresser eller en statisk privat IP-adress, måste du skapa den med hjälp av PowerShell eller Azure CLI. Att lära dig hur du gör på PowerShell eller CLI alternativ överst i den här artikeln. Du kan skapa en virtuell dator med en dynamisk privat IP-adress och en offentlig IP-adress (valfritt). Använd portalen genom att följa stegen i den [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md) eller [skapa ett Linux VM](../virtual-machines/linux/quick-create-portal.md) artiklar. När du har skapat den virtuella datorn kan du ändra IP-adress från dynamisk till statisk och lägga till ytterligare IP-adresser med hjälp av portalen genom att följa anvisningarna i den [Lägg till IP-adresser till en virtuell dator](#add) i den här artikeln.
 
 ## <a name="add"></a>Lägg till IP-adresser till en virtuell dator
 
-Du kan lägga till privata och offentliga IP-adresser till ett nätverkskort genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario) i den här artikeln, men det är inte nödvändigt att du gör.
+Du kan lägga till privata och offentliga IP-adresser till ett nätverkskort genom att slutföra de steg som följer. Exemplen i avsnitten nedan förutsätter att du redan har en virtuell dator med de tre IP-konfigurationerna som beskrivs i den [scenariot](#Scenario), men det krävs inte.
 
 ### <a name="coreadd"></a>Grundläggande steg
 
 1. Bläddra till Azure-portalen på https://portal.azure.com och logga in, om det behövs.
 2. I portalen klickar du på **fler tjänster** > typen *virtuella datorer* i filterrutan och klicka sedan på **virtuella datorer**.
-3. I den **virtuella datorer** bladet, klickar du på den virtuella datorn som du vill lägga till IP-adresser till. Klicka på **nätverksgränssnitt** bladet som visas och välj sedan nätverksgränssnittet som du vill lägga till IP-adresser till på den virtuella datorn. I exemplet som visas i följande bild, nätverkskortet med namnet *myNIC* från den virtuella datorn med namnet *myVM* väljs:
+3. I den **virtuella datorer** klickar du på den virtuella datorn som du vill lägga till IP-adresser till. Klicka på **nätverksgränssnitt** fönstret som visas och välj sedan nätverksgränssnittet som du vill lägga till IP-adresser till på den virtuella datorn. I exemplet som visas i följande bild, nätverkskortet med namnet *myNIC* från den virtuella datorn med namnet *myVM* väljs:
 
     ![Nätverksgränssnitt](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-4. I bladet som visas för nätverkskort som du har valt klickar du på **IP-konfigurationer**.
+4. I fönstret som visas för nätverkskort som du har valt klickar du på **IP-konfigurationer**.
 
 Slutför stegen i något av avsnitten som följer, beroende på vilken typ av IP-adress som du vill lägga till.
 
@@ -54,14 +54,14 @@ Slutför stegen i något av avsnitten som följer, beroende på vilken typ av IP
 Utför följande steg för att lägga till en ny privat IP-adress:
 
 1. Utför stegen i den [viktiga steg](#coreadd) i den här artikeln.
-2. Klicka på **Lägg till**. I den **lägga till IP-konfiguration** bladet som visas, skapa en IP-konfiguration med namnet *IPConfig 4* med *10.0.0.7* som en *statiska* privata IP-adress och klicka sedan på **OK**.
+2. Klicka på **Lägg till**. I den **lägga till IP-konfiguration** fönstret som visas, skapa en IP-konfiguration med namnet *IPConfig 4* med *10.0.0.7* som en *statiska* privata IP-adress och klicka sedan på **OK**.
 
     > [!NOTE]
-    > När du lägger till en statisk IP-adress, måste du ange en oanvända, giltig adress på nätverkskortet är anslutet till undernätet. Om den adress som du väljer inte är tillgängligt på portalen visas ett X för IP-adress och måste du välja en annan.
+    > När du lägger till en statisk IP-adress, måste du ange en oanvända, giltig adress på nätverkskortet är anslutet till undernätet. Om den adress som du väljer inte är tillgänglig portalen visar ett X för IP-adress och du måste välja en annan.
 
-3. När du klickar på OK bladet stängs och du ser den nya IP-konfigurationen visas. Klicka på **OK** att stänga den **lägga till IP-konfiguration** bladet.
+3. När du klickar på OK fönstret stängs och du ser den nya IP-konfigurationen visas. Klicka på **OK** att stänga den **lägga till IP-konfiguration** fönstret.
 4. Du kan klicka på **Lägg till** lägga till ytterligare IP-konfigurationer och stänga alla öppna blad för att du har lagt till IP-adresser.
-5. Lägga till privata IP-adresser i Virtuella operativsystem genom att slutföra stegen för operativsystemet i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln.
+5. Lägg till de privata IP-adresserna till VM-operativsystem genom att slutföra stegen i den [lägga till IP-adresser till ett VM-operativsystem](#os-config) i den här artikeln.
 
 ### <a name="add-a-public-ip-address"></a>Lägg till en offentlig IP-adress
 
@@ -76,8 +76,8 @@ En offentlig IP-adress har lagts till genom att associera en offentlig IP-adress
 En offentlig IP-adress är en inställning för en offentlig IP-adressresurs. Om du har en offentlig IP-adressresurs som inte för närvarande är kopplad till en IP-konfiguration som du vill koppla till en IP-konfiguration kan hoppa över följande steg och slutför stegen i något av avsnitten som följer, som du behöver. Om du inte har en tillgänglig offentliga IP-adressresurs, utför följande steg för att skapa en:
 
 1. Bläddra till Azure-portalen på https://portal.azure.com och logga in, om det behövs.
-3. I portalen klickar du på **ny** > **nätverk** > **offentliga IP-adressen**.
-4. I den **skapa offentlig IP-adress** bladet som visas, ange en **namn**väljer en **IP-adresstilldelning** typ, en **prenumeration**, **resursgruppen**, och en **plats**, klicka på **skapa**som visas i följande bild:
+3. I portalen klickar du på **skapar du en resurs** > **nätverk** > **offentliga IP-adressen**.
+4. I den **skapa offentlig IP-adress** fönstret som visas, ange en **namn**, Välj en **IP-adresstilldelning** typ, en **prenumeration**, **Resursgruppen**, och en **plats**, klicka på **skapa**som visas i följande bild:
 
     ![Skapa en offentlig IP-adressresurs](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 
@@ -86,9 +86,9 @@ En offentlig IP-adress är en inställning för en offentlig IP-adressresurs. Om
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Koppla den offentliga IP-adressresursen till en ny IP-konfiguration
 
 1. Utför stegen i den [viktiga steg](#coreadd) i den här artikeln.
-2. Klicka på **Lägg till**. I den **lägga till IP-konfiguration** bladet som visas, skapa en IP-konfiguration med namnet *IPConfig 4*. Aktivera den **offentliga IP-adressen** och välj en befintlig, tillgängliga offentliga IP-adressresurs från den **Välj offentlig IP-adress** bladet som visas.
+2. Klicka på **Lägg till**. I den **lägga till IP-konfiguration** fönstret som visas, skapa en IP-konfiguration med namnet *IPConfig 4*. Aktivera den **offentliga IP-adressen** och välj en befintlig, tillgängliga offentliga IP-adressresurs från den **Välj offentlig IP-adress** fönstret som visas.
 
-    När du har markerat den offentliga IP-adressresursen, klickar du på **OK** och bladet stängs. Om du inte har en befintlig offentlig IP-adress, kan du skapa en genom att slutföra stegen i den [skapa en offentlig IP-adressresurs](#create-public-ip) i den här artikeln. 
+    När du har markerat den offentliga IP-adressresursen, klickar du på **OK** och stänger fönstret. Om du inte har en befintlig offentlig IP-adress, kan du skapa en genom att slutföra stegen i den [skapa en offentlig IP-adressresurs](#create-public-ip) i den här artikeln. 
 
 3. Granska den nya IP-konfigurationen. Även om en privat IP-adress har tilldelats tilldelades en automatiskt IP-konfiguration, eftersom alla IP-konfigurationer måste ha en privat IP-adress.
 4. Du kan klicka på **Lägg till** lägga till ytterligare IP-konfigurationer och stänga alla öppna blad för att du har lagt till IP-adresser.
@@ -98,9 +98,9 @@ En offentlig IP-adress är en inställning för en offentlig IP-adressresurs. Om
 
 1. Utför stegen i den [viktiga steg](#coreadd) i den här artikeln.
 2. Klicka på IP-konfiguration som du vill lägga till den offentliga IP-adressresursen till.
-3. Klicka på bladet IPConfig **IP-adress**.
-4. I den **Välj offentlig IP-adress** bladet som visas, Välj en offentlig IP-adress.
-5. Klicka på **spara** och bladen stängs. Om du inte har en befintlig offentlig IP-adress, kan du skapa en genom att slutföra stegen i den [skapa en offentlig IP-adressresurs](#create-public-ip) i den här artikeln.
+3. Klicka på i fönstret IPConfig **IP-adress**.
+4. I den **Välj offentlig IP-adress** som visas väljer du en offentlig IP-adress.
+5. Klicka på **spara** och stänga fönstren. Om du inte har en befintlig offentlig IP-adress, kan du skapa en genom att slutföra stegen i den [skapa en offentlig IP-adressresurs](#create-public-ip) i den här artikeln.
 3. Granska den nya IP-konfigurationen.
 4. Du kan klicka på **Lägg till** lägga till ytterligare IP-konfigurationer och stänga alla öppna blad för att du har lagt till IP-adresser. Lägg inte till den offentliga IP-adressen för operativsystemet.
 

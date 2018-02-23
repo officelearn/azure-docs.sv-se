@@ -1,6 +1,6 @@
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Börja längst upp till vänster och klicka på **Nytt > Beräkna > Windows Server 2016 Datacenter**.
+2. Starta i det övre vänstra hörnet, klickar du på **skapar du en resurs** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Gå till Azure VM-avbildningarna på portalen](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

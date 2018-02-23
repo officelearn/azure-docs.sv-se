@@ -1,10 +1,10 @@
 ---
 title: 'Skapa en anslutning mellan Vnet: klassiska: Azure-portalen | Microsoft Docs'
-description: "Så här ansluter du tillsammans med PowerShell och Azure-portalen virtuella Azure-nätverk."
+description: "Anslut Azure-nätverk som tillsammans med PowerShell och Azure-portalen."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera VNet-till-VNet-anslutning (klassisk)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Stegen i den här artikeln gäller för den klassiska distributionsmodellen och Azure portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
+Den här artikeln hjälper dig att skapa en VPN-gateway-anslutningen mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Stegen i den här artikeln gäller för den klassiska distributionsmodellen och Azure portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -54,7 +54,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
   * Du kan ange din egna geografiska replikering eller synkronisering med en säker anslutning, utan att passera några Internet-slutpunkter.
-  * Med Azure belastningsutjämnare och Microsoft eller tredje parts klustring teknik, kan du ställa in högtillgänglig arbetsbelastning med geo-redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera att SQL alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
+  * Med Azure belastningsutjämnare och Microsoft eller tredje parts klustring teknik, kan du ställa in högtillgänglig arbetsbelastning med geo-redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera SQL så att det alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
 * **Regional program på flera nivåer med stark isoleringsgräns**
 
   * I samma region, kan du konfigurera flera nivåer program med flera VNets anslutna tillsammans med stark isolering och kommunikationen mellan nivå.
@@ -102,7 +102,7 @@ Adressutrymmet: 10.11.0.0/16, 10.12.0.0/16 (valfritt)<br>
 Undernätnamnet: standard<br>
 Adressintervallet i undernätet: 10.11.0.1/24<br>
 Resursgrupp: ClassicRG<br>
-Plats: Östra USA<br>
+Plats: USA, östra<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Värden för TestVNet4**

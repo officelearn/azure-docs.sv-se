@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: dekapur;chackdan;maburlik
+ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server. Det innebär att distribuera och köra Service Fabric-program i en miljö som innehåller en uppsättning sammankopplade Windows Server-datorer, att den lokala eller med en molntjänstleverantör för. Service Fabric ger ett installationspaket för att skapa Service Fabric-kluster kallas det fristående installationspaketet för Windows Server.
@@ -36,7 +36,7 @@ Den här artikeln vägleder dig genom stegen för att skapa en fristående Servi
 * Fråga community om det fristående Service Fabric-paketet för Windows Server i den [Azure Service Fabric-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Skapa ett ärende för [Professional stöd för Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Mer information om Professional Support från Microsoft [här](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Du kan också få stöd för det här paketet som en del av [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Mer information, se [Azure Service Fabric supportalternativ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Mer information, se [Azure Service Fabric supportalternativ](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Om du vill samla in loggar för support, kör den [logginsamlaren för Service Fabric fristående](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -136,7 +136,7 @@ Nu du kan ansluta till klustret med Service Fabric Explorer antingen direkt frå
 Du kan lägga till eller ta bort noder i fristående Service Fabric-klustret när ditt företag behöver ändras. Se [lägga till eller ta bort noder i ett fristående Service Fabric-kluster](service-fabric-cluster-windows-server-add-remove-nodes.md) detaljerade anvisningar.
 
 <a id="removecluster" name="removecluster_anchor"></a>
-## <a name="remove-a-cluster"></a>Ta bort ett kluster
+## <a name="remove-a-cluster"></a>ta bort ett kluster.
 Om du vill ta bort ett kluster kör du PowerShell-skriptet *RemoveServiceFabricCluster.ps1* från paketmappen och lägger till sökvägen till JSON-konfigurationsfilen. Om du vill kan du ange en plats för loggen över borttagningen.
 
 Det här skriptet kan köras på en dator som har administratörsåtkomst till alla datorer som noder i klustret konfigurationsfilen. Den dator som det här skriptet körs på behöver inte vara en del av klustret.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Realtid Twitter-sentiment analys i Azure Stream Analytics
 
@@ -35,7 +35,7 @@ Ett företag som har en webbplats för Nyheter media är intresserad av att få 
 
 Företaget måste analys i realtid om tweet volym och sentiment för viktiga ämnen för att identifiera trender avsnitt i realtid på Twitter. Med andra ord är behovet av en sentiment analys analytics-motor som är baserad på den här sociala medier feed.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här kursen använder du ett klientprogram som ansluter till Twitter och söker efter tweets som har vissa hash-taggar (som du kan ange). För att köra programmet och analysera tweets med hjälp av Azure Streaming Analytics, måste du ha följande:
 
 * En Azure-prenumeration
@@ -51,7 +51,7 @@ Exempelprogrammet genererar händelser och skickar dem till en Azure-händelsehu
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Skapa en event hub namnområde och händelsehubb
 I den här proceduren du först skapa en event hub-namnområde och sedan lägga till en händelsehubb i detta namnområde. Event hub namnområden används för att gruppera relaterade händelser-bussen instanser. 
 
-1. Logga in på Azure portal och klicka på **ny** > **Sakernas Internet** > **Händelsehubb**. 
+1. Logga in på Azure portal och klicka på **skapar du en resurs** > **Sakernas Internet** > **Händelsehubb**. 
 
 2. I den **skapa namnområdet** bladet, ange ett namn för namnområdet som `<yourname>-socialtwitter-eh-ns`. Du kan använda valfritt namn för namnområdet, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
@@ -200,7 +200,7 @@ Följande procedur dokument båda metoderna.
 
 Nu när tweet händelser strömning i realtid från Twitter, kan du ställa in ett Stream Analytics-jobb att analysera dessa händelser i realtid.
 
-1. I Azure-portalen klickar du på **ny** > **Sakernas Internet** > **Stream Analytics-jobbet**.
+1. I Azure-portalen klickar du på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**.
 
 2. Namnge jobbet `socialtwitter-sa-job` och ange en prenumeration, resursgrupp och plats.
 

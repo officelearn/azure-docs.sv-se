@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
-Vi har fått många kunder berätta för oss att de vill anpassa inbjudan processen på ett sätt som passar bäst för deras organisationer. Du kan göra precis som med vårt API. [https://Developer.microsoft.com/Graph/docs/API-Reference/v1.0/Resources/Invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Vi har fått många kunder berätta för oss att de vill anpassa inbjudan processen på ett sätt som passar bäst för deras organisationer. Du kan göra precis som med vårt API. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funktionerna i inbjudan API
 API: et finns följande funktioner:
@@ -77,7 +77,7 @@ API: et kan köras i följande tillstånd lägen:
 I detta läge gäller den som använder API: N måste ha behörighet att skapa B2B inbjudningar.
 
 ### <a name="app-only-mode"></a>Appen läge
-Appen måste User.ReadWrite.All eller Directory.ReadWrite.All omfång för inbjudan ska lyckas i appen endast sammanhang.
+Appen måste User.Invite.All omfång för inbjudan ska lyckas i appen endast sammanhang.
 
 Mer information finns på: https://graph.microsoft.io/docs/authorization/permission_scopes
 

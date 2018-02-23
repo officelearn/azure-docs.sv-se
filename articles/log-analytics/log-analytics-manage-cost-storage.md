@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Hantera kostnaden för datalagring med logganalys-arbetsytan
 När du registrerar dig för Log Analytics, beroende på den plan som du väljer finns det en gräns för hur länge data som genereras av dina anslutna källor lagras på din arbetsyta.  Den här artikeln visar information som kan påverka kostnader för att behålla den här informationen för olika perioder tid och hur du konfigurerar gränsen.   
@@ -44,7 +44,7 @@ När du använder den *lediga* planera, om du hittar du konsekvent överskrider 
 ## <a name="change-the-data-retention-period"></a>Ändra Datalagringsperiod 
 
 1. Logga in på [Azure-portalen](http://portal.azure.com). 
-2. Klicka på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.
+2. Klicka på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj din arbetsyta för att ändra i listan i rutan logganalys prenumerationer.
 4. På sidan arbetsytan **kvarhållning** i den vänstra rutan.
 5. Flytta skjutreglaget att öka eller minska antalet dagar och klicka på fönstret med arbetsytans kvarhållning **spara**.  Om du är på den *ledigt* nivån du kommer inte att kunna ändra kvarhållningsperioden för data och du måste uppgradera till betald nivån för att styra den här inställningen.<br><br> ![Ändra inställningen för kvarhållning av arbetsytan data](media/log-analytics-manage-cost/manage-cost-change-retention.png)

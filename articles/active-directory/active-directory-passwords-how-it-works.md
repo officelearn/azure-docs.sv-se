@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 
@@ -78,7 +78,7 @@ Som standard synkroniseras endast molnet attribut arbetstelefon och mobiltelefon
 
 Användare kan bara återställa sina lösenord, om de har data som finns i de autentiseringsmetoder som administratören har aktiverat och kräver.
 
-Om användarna inte vill att deras mobiltelefonnummer som ska visas i katalogen, men de vill använda för återställning av lösenord, Administratörer bör inte att fylla det i katalogen. Användare bör sedan fylla i sina **telefon för autentisering** attributet den [registreringsportalen för lösenordsåterställning](http://aka.ms/ssprsetup). Administratörer kan se den här informationen i användarens profil, men publiceras inte någon annanstans.
+Om användarna inte vill att deras mobiltelefonnummer som ska visas i katalogen, men de vill använda för återställning av lösenord, Administratörer bör inte att fylla det i katalogen. Användare bör sedan fylla i sina **telefon för autentisering** attributet den [registreringsportalen för lösenordsåterställning](https://aka.ms/ssprsetup). Administratörer kan se den här informationen i användarens profil, men publiceras inte någon annanstans.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Antalet autentiseringsmetoder krävs
 
@@ -180,7 +180,7 @@ Om du vill aktivera det här alternativet måste en användare som har aktiverat
 * Federerade program
 * Anpassade program med hjälp av Azure AD
 
-När kräver registrering är inaktiverat kan användare fortfarande manuellt registrera kontaktuppgifter. De kan antingen besök [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) eller Välj den **registrera dig för lösenordsåterställning** länken under den **profil** fliken på åtkomstpanelen.
+När kräver registrering är inaktiverat kan användare fortfarande manuellt registrera kontaktuppgifter. De kan antingen besök [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) eller Välj den **registrera dig för lösenordsåterställning** länken under den **profil** fliken på åtkomstpanelen.
 
 > [!NOTE]
 > Användare kan stänga registreringsportalen för lösenordsåterställning genom att välja **Avbryt** eller genom att stänga fönstret. Men uppmanas de att registrera varje gång de loggar in förrän de har slutfört registreringen.

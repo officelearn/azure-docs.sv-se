@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Arbeta med hanteringslösningar i Azure (förhandsversion)
 > [!NOTE]
@@ -36,7 +36,7 @@ Det finns flera metoder för att hitta och installera lösningar som beskrivs i 
 Lösningar som tillhandahålls av Microsoft och tillförlitliga partners kan installeras från Azure Marketplace i Azure-portalen.
 
 1. Logga in på Azure Portal.
-2. I den vänstra rutan, Välj **fler tjänster**.
+2. I den vänstra rutan, Välj **alla tjänster**.
 3. Antingen rulla ned till **lösningar** eller typ *lösningar* till den **Filter** dialogrutan.
 4. Klicka på den **+ Lägg till** knappen.
 5. Sök efter lösningar som du är intresserad av antingen genom att bläddra, klicka på den **Filter** knappen eller skriva i den **Sök Everthing** rutan.
@@ -92,7 +92,7 @@ Du kan kontrollera länken mellan logganalys-arbetsytan och ett Automation-konto
 Använd följande procedur till att visa hanteringslösningarna i arbetsytorna länkad till din Azure-prenumeration.
 
 1. Logga in på Azure Portal.
-2. I den vänstra rutan, Välj **fler tjänster**.
+2. I den vänstra rutan, Välj **alla tjänster**.
 3. Antingen rulla ned till **lösningar** eller typ *lösningar* till den **Filter** dialogrutan.
 4. Lösningar som installerats i alla arbetsytor visas.
 

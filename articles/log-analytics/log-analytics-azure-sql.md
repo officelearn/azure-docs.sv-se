@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 3a87e491e43c141d0afb08aa455c0d9682828ea1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -60,7 +60,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 Utför följande steg för att lägga till Azure SQL Analytics lösningen till din arbetsyta.
 
 1. Lägg till Azure SQL Analytics-lösning till arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. I Azure-portalen klickar du på **ny** (den symbolen +), Välj i listan över resurser, **övervakning + Management**.  
+2. I Azure-portalen klickar du på **skapar du en resurs** > **övervakning + Management**.  
     ![Övervakning och hantering](./media/log-analytics-azure-sql/monitoring-management.png)
 3. I den **övervakning + Management** lista Klicka **se alla**.
 4. I den **rekommenderas** klickar du på **mer**, och sedan i den nya listan **Azure SQL Analytics (förhandsgranskning)** och markera den.  

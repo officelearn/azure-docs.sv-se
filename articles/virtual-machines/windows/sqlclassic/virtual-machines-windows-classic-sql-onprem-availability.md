@@ -4,7 +4,7 @@ description: "Den här kursen använder resurser som har skapats med den klassis
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka lokala Always On-Tillgänglighetsgrupper till Azure
 Always On-Tillgänglighetsgrupper ger hög tillgänglighet för grupper av databasen genom att lägga till sekundära repliker. De här replikeringarna tillåter inte att redundansväxla databaser om ett fel uppstår. Dessutom kan de användas att avlasta skrivskyddade arbetsbelastningar eller aktiviteter för säkerhetskopiering.
@@ -64,8 +64,8 @@ Det här avsnittet visar hur du använder den **guiden för Lägg till Azure-rep
    | **Administratörslösenord för VM** |Ange ett lösenord för det nya kontot |
    | **Bekräfta lösenord** |Bekräfta lösenordet för det nya kontot |
    | **Virtual Network** |Ange virtuella Azure-nätverket som den nya virtuella datorn ska använda. Mer information om virtuella nätverk finns [översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md). |
-   | **Undernät för virtuellt nätverk** |Ange det virtuella nätverket som den nya virtuella datorn ska använda |
-   | **Domän** |Bekräfta att värdet i förväg för domänen är korrekta |
+   | **Virtual Network Subnet** |Ange det virtuella nätverket som den nya virtuella datorn ska använda |
+   | **Domain** |Bekräfta att värdet i förväg för domänen är korrekta |
    | **Namnet på användaren** |Ange ett konto som tillhör gruppen lokala administratörer på de lokala klusternoderna |
    | **Lösenord** |Ange lösenordet för användarnamnet för domänen |
 8. Klicka på **OK** att verifiera distributionsinställningarna för.

@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric - Konfigurera övervakning med OMS Log Analytics | Microsoft Docs"
-description: "Lär dig hur du ställer in OMS för att visualisera och analysera händelser för övervakning av Azure Service Fabric-kluster."
+description: "Lär dig hur du konfigurerar Operations Management Suite för att visualisera och analysera händelser att övervaka dina Azure Service Fabric-kluster."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>Ställ in OMS Log Analytics för ett kluster
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Konfigurera Operations Management Suite Log Analytics för ett kluster
 
-Du kan ställa in en OMS-arbetsyta via Azure Resource Manager, PowerShell eller via Azure Marketplace. Om du behåller en uppdaterad Resource Manager-mall för din distribution använder du samma mall för att ställa in din OMS-miljö för framtida användning. Distribuera via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. I det fall att du inte har prenumerationen åtkomst för kontot som du distribuerar OMS, använda PowerShell eller distribuera via Resource Manager-mallen.
+Du kan ställa in en Operations Management Suite (OMS) arbetsyta via Azure Resource Manager, PowerShell eller Azure Marketplace. Om du sparar en uppdaterad Resource Manager-mall för distributionen för framtida användning kan använda samma mall för att ställa in din OMS-miljö. Distribution via Marketplace är enklare om du redan har ett kluster som distribueras med diagnostik aktiverad. Om du inte har prenumeration behörighet för kontot som du distribuerar OMS distribuera med hjälp av PowerShell eller Resource Manager-mallen.
 
 > [!NOTE]
-> Du måste ha diagnostik aktiverat för klustret för att visa klustret / platform händelser för att kunna ställa in OMS att kunna övervaka ditt kluster.
+> Om du vill konfigurera OMS att övervaka ditt kluster behöver du diagnostik aktiverad för att visa händelser för kluster- eller plattform-nivå.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Distribuera OMS med hjälp av Azure Marketplace
+## <a name="deploy-oms-by-using-azure-marketplace"></a>Distribuera OMS med hjälp av Azure Marketplace
 
-Om du vill lägga till en OMS-arbetsyta när du har distribuerat ett kluster, gå till Azure Marketplace (i portalen) och letar efter *”Service Fabric Analytics”.*
+Om du vill lägga till en OMS-arbetsyta när du har distribuerat ett kluster, gå till Azure Marketplace i portalen och Sök efter **Service Fabric Analytics**:
 
-1. Klicka på **ny** på den vänstra navigeringsmenyn. 
+1. Välj **ny** på den vänstra navigeringsmenyn. 
 
-2. Sök efter *Service Fabric Analytics*. Klicka på den resurs som visas.
+2. Sök efter **Service Fabric Analytics**. Välj den resurs som visas.
 
-3. Klicka på **skapa**
+3. Välj **Skapa**.
 
     ![OMS SA analyser i Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Klicka på i fönstret Service Fabric Analytics skapa **Välj en arbetsyta** för den *OMS-arbetsytan* fältet och sedan **skapa en ny arbetsyta**. Fyll i obligatoriska poster – det enda kravet är att prenumerationen för Service Fabric-kluster och OMS-arbetsytan ska vara samma. När posterna har validerats ska OMS-arbetsytan börja distribuera. Detta tar bara några minuter.
+4. I fönstret Service Fabric Analytics skapa Välj **Välj en arbetsyta** för den **OMS-arbetsytan** fältet och sedan **skapa en ny arbetsyta**. Fyll i posterna som krävs. Det enda kravet är att prenumerationen för Service Fabric-kluster och OMS-arbetsyta är samma. När posterna har validerats börjar distribuera din OMS-arbetsyta. Distributionen tar bara några minuter.
 
-5. När du är klar klickar du på **skapa** igen längst ned i fönstret Skapa Service Fabric Analytics. Kontrollera att den nya arbetsytan visas under *OMS-arbetsytan*. Lösningen läggs till på arbetsytan som du nyss skapade.
+5. När du är klar väljer **skapa** igen längst ned i fönstret Skapa Service Fabric Analytics. Kontrollera att den nya arbetsytan visas under **OMS-arbetsytan**. Den här åtgärden lägger till lösningen arbetsytans.
 
-Om du använder Windows, fortsätter du med följande steg för att koppla samman OMS till lagringskontot där din klusterhändelser lagras. Att aktivera den här upplevelsen korrekt för Linux-kluster är fortfarande pågår. Fram till dess, fortsätter du med att lägga till OMS-agenten i klustret.  
+Om du använder Windows, fortsätter du med följande steg för att ansluta OMS till lagringskontot där din klusterhändelser lagras. 
 
-1. Arbetsytan måste fortfarande vara anslutna till diagnostikdata från klustret. Navigera till den resursgrupp som du har skapat lösningen i Service Fabric Analytics. Du bör se en *ServiceFabric (\<nameOfOMSWorkspace\>)*. Klicka på lösningen att navigera till dess översiktssidan från där du kan ändra inställningar för lösning, arbetsytan inställningar, och navigera till OMS-portalen.
+>[!NOTE]
+>Aktivera upplevelsen för Linux-kluster är inte tillgänglig ännu. 
 
-2. I den vänstra navigeringsmenyn klickar du på **lagringskonton loggar**under *arbetsytan datakällor*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>Lägg till OMS-agenten i klustret 
 
-3. På den *Storage-konto loggar* klickar du på **Lägg till** högst upp att lägga till ditt kluster loggar till arbetsytan.
+1. Arbetsytan måste vara anslutna till diagnostikdata från klustret. Gå till den resursgrupp som du skapade Service Fabric Analytics-lösning. Välj **ServiceFabric\<nameOfOMSWorkspace\>**  och gå till dess översiktssidan. Därifrån kan du ändra inställningar för lösning, arbetsytan inställningar, och åtkomst till OMS-portalen.
 
-4. Klicka i **lagringskonto** att lägga till lämpligt konto som skapats i klustret. Om du använde standardnamnet för storage-konto med namnet *sfdg\<resourceGroupName\>*. Du kan också bekräfta detta genom att kontrollera Azure Resource Manager-mallen som används för att distribuera ditt kluster genom att kontrollera värdet för den `applicationDiagnosticsStorageAccountName`. Du kan också behöva rulla nedåt och klicka på **läsa in mer** om namnet inte visas. Klicka på rätt lagringskontonamnet dig för att välja den.
+2. På den vänstra navigeringsmenyn under **arbetsytan datakällor**väljer **lagringskonton loggar**.
 
-5. Därefter måste du ange den *datatyp*, som ska anges till **Service Fabric händelser**.
+3. På den **Storage-konto loggar** väljer **Lägg till** högst upp att lägga till ditt kluster loggar till arbetsytan.
 
-6. Den *källa* automatiskt ska anges till *WADServiceFabric\*EventTable*.
+4. Välj **lagringskonto** att lägga till lämpligt konto som skapats i klustret. Om du använde standardnamnet för lagringskontot är **sfdg\<resourceGroupName\>**. Du kan också bekräfta detta med hjälp av Azure Resource Manager-mallen som används för att distribuera ditt kluster genom att kontrollera det värde som används för **applicationDiagnosticsStorageAccountName**. Om namnet inte visas, bläddra nedåt och välj **läsa in mer**. Välj namnet på lagringskontot.
 
-7. Klicka på **OK** att ansluta din arbetsyta till ditt kluster loggar.
+5. Ange vilken datatyp. Ange det till **Service Fabric händelser**.
+
+6. Kontrollera att källan är automatiskt **WADServiceFabric\*EventTable**.
+
+7. Välj **OK** att ansluta din arbetsyta till ditt kluster loggar.
 
     ![Lägg till storage-konto loggar i OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-Kontot visas nu som en del av din *Storage-konto loggar* i din arbetsyta datakällor.
+Kontot visas nu som en del av ditt lagringskonto loggar i din arbetsyta datakällor.
 
-Du har nu lagt till Service Fabric Analytics-lösningen med den här i en OMS logganalys-arbetsyta som nu är korrekt ansluten till ditt kluster plattform och programmet tabell. Du kan lägga till ytterligare datakällor till arbetsytan på samma sätt.
+Du har lagt till Service Fabric Analytics-lösning i en OMS logganalys-arbetsyta som nu är korrekt ansluten till ditt kluster plattform och programmet tabell. Du kan lägga till ytterligare datakällor till arbetsytan på samma sätt.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>Distribuera OMS med hjälp av en Resource Manager-mall
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Distribuera OMS med hjälp av en Resource Manager-mall
 
-När du distribuerar ett kluster med en Resource Manager-mall mallen ska skapa en ny OMS-arbetsyta, lägga till Service Fabric-lösningen i den och konfigurera den för att läsa data från lämplig storage-tabeller.
+När du distribuerar ett kluster med hjälp av en Resource Manager-mall mallen skapar en ny OMS-arbetsyta, lägger till Service Fabric-lösningen till arbetsytan och konfigurerar den för att läsa data från lämplig storage-tabeller.
 
-[Här](https://azure.microsoft.com/resources/templates/service-fabric-oms/) är en exempelmall som du kan använda och ändra enligt kraven. Flera mallar som ger olika alternativ för hur du konfigurerar en OMS-arbetsyta finns på [Service Fabric och OMS mallar](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Du kan använda och ändra [exempel mallen](https://azure.microsoft.com/resources/templates/service-fabric-oms/) som uppfyller dina krav. Mallar som ger olika alternativ för hur du konfigurerar en OMS-arbetsyta finns på [Service Fabric och OMS mallar](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-De viktigaste ändringarna är följande:
-
-1. Lägg till `omsWorkspaceName` och `omsRegion` till parametrarna. Det innebär att lägga till följande kodavsnitt i de parametrar som definierats i din *template.json* fil. Du kan ändra standardinställningarna som du vill. Du bör också lägga till två nya parametrar i din *parameters.json* att definiera värden för resurs-distribution:
+Gör följande ändringar:
+1. Lägg till `omsWorkspaceName` och `omsRegion` till parametrarna genom att lägga till följande kodavsnitt de parametrar som definierats i din *template.json* fil. Du kan ändra standardinställningarna som du vill. Lägg även till två nya parametrar i din *parameters.json* filen för att definiera deras värden för resurs-distribution:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ De viktigaste ändringarna är följande:
     }
     ```
 
-    Den `omsRegion` värden måste överensstämma med en specifik uppsättning värden. Du bör välja det som är närmast distributionen av klustret.
+    Den `omsRegion` värden måste överensstämma med en specifik uppsättning värden. Välj det som är närmast distributionen av klustret.
 
-2. Om du kommer att skicka loggar programmet till OMS, kontrollerar du att den `applicationDiagnosticsStorageAccountType` och `applicationDiagnosticsStorageAccountName` ingår som parametrar i mallen. Om de inte kan läggas till avsnittet variables t.ex och redigera deras värden efter behov. Du kan även inkludera dem som parametrar, om du vill att följa formatet ovan.
+2. Om du skickar programmet loggar till OMS först bekräfta att den `applicationDiagnosticsStorageAccountType` och `applicationDiagnosticsStorageAccountName` ingår som parametrar i mallen. Om de inte ingår, lägga till dem i avsnittet variables och redigera deras värden efter behov. Du kan även inkludera dem som parametrar genom att följa formatet föregående.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ De viktigaste ändringarna är följande:
     "solutionName": "ServiceFabric"
     ```
 
-4. Lägger till följande i slutet av dina resurser i avsnittet efter där Service Fabric-klusterresursen har deklarerats.
+4. Lägg till följande i slutet av avsnittet dina resurser efter där Service Fabric-klusterresursen har deklarerats:
 
     ```json
     {
@@ -175,19 +179,19 @@ De viktigaste ändringarna är följande:
     > [!NOTE]
     > Om du har lagt till den `applicationDiagnosticsStorageAccountName` som en variabel, se till att alla referenser till den för att ändra `variables('applicationDiagnosticsStorageAccountName')` i stället för `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Distribuera mallen som en Resource Manager-uppgradering av klustret. Detta görs med hjälp av den `New-AzureRmResourceGroupDeployment` API i AzureRM PowerShell-modulen. Ett kommando är:
+5. Distribuera mallen som en Resource Manager-uppgradering av klustret med hjälp av den `New-AzureRmResourceGroupDeployment` API i AzureRM PowerShell-modulen. Ett kommando är:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Azure Resource Manager kommer att kunna identifiera att det här är en uppdatering för en befintlig resurs. Endast bearbetas ändringar mellan mallen föra den befintliga distributionen och den nya mallen som.
+    Azure Resource Manager upptäcker att det här kommandot är en uppdatering för en befintlig resurs. Endast bearbetas ändringar mellan mallen föra den befintliga distributionen och den nya mallen som.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Distribuera OMS med hjälp av Azure PowerShell
+## <a name="deploy-oms-by-using-azure-powershell"></a>Distribuera OMS med hjälp av Azure PowerShell
 
-Du kan också distribuera din OMS logganalys resurs via PowerShell. Detta uppnås med hjälp av den `New-AzureRmOperationalInsightsWorkspace` kommando. Kontrollera att du har installerat för att kunna göra detta [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Använd det här skriptet för att skapa en ny OMS logganalys-arbetsyta och lägga till Service Fabric-lösningen: 
+Du kan också distribuera din OMS logganalys resurs via PowerShell med hjälp av den `New-AzureRmOperationalInsightsWorkspace` kommando. Kontrollera att du har installerat om du vill använda den här metoden [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Använd det här skriptet för att skapa en ny OMS logganalys-arbetsyta och lägga till Service Fabric-lösningen: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,9 +215,9 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-När detta är slutfört om klustret är ett Windows-kluster, följer du stegen i avsnittet ovan för att koppla samman OMS logganalys till lämplig storage-konto.
+När du är klar följer du stegen i föregående avsnitt för att ansluta OMS logganalys till lämplig storage-konto.
 
-Du kan också lägga till andra lösningar eller göra andra ändringar i din OMS-arbetsyta med hjälp av PowerShell. Du kan läsa mer om det finns [hantera Log Analytics med hjälp av PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+Du kan också lägga till andra lösningar eller göra andra ändringar till OMS-arbetsyta med hjälp av PowerShell. Läs mer i [hantera Log Analytics med hjälp av PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera OMS-agenten](service-fabric-diagnostics-oms-agent.md) till noderna att samla in prestandaräknare och samla in docker statistik och loggfiler för behållarna

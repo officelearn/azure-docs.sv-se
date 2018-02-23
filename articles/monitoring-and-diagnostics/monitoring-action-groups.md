@@ -1,8 +1,8 @@
 ---
 title: "Skapa och hantera åtgärdsgrupper i Azure portal | Microsoft Docs"
 description: "Lär dig hur du skapar och hanterar åtgärdsgrupper i Azure-portalen."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 ## <a name="overview"></a>Översikt ##
 Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-portalen.
 
-Du kan konfigurera en lista med åtgärder med åtgärdsgrupper. Dessa grupper kan sedan användas när du definierar aktiviteten loggen aviseringar. Dessa grupper kan sedan återanvändas av varje aktivitet loggen aviseringen som du definierar, se till att samma åtgärder vidtas för varje gång som aktiviteten loggen avisering utlöses.
+Du kan konfigurera en lista med åtgärder med åtgärdsgrupper. Dessa grupper kan sedan användas av varje avisering som du definierar, se till att samma åtgärder vidtas för varje gång en avisering utlöses.
 
 En grupp kan ha upp till 10 för varje åtgärdstyp av. Varje åtgärd består av följande egenskaper:
 
@@ -56,7 +56,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
     a. **Namnet**: Ange en unik identifierare för den här åtgärden.
 
-    b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app, ITSM eller Automation-Runbook.
+    b. **Åtgärdstyp**: Välj Azure-e-post/SMS-appen, Webhook, ITSM eller Automation-Runbook.
 
     c. **Information om**: baserat på typen av Ange telefonnummer, e-postadress, webhook URI, Azure-app, ITSM anslutning eller Automation-runbook. Ange dessutom för ITSM åtgärd **arbetsobjekt** och andra fält ITSM-verktyget kräver.
 

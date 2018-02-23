@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Skapa en offentlig IP-adress i en zon för tillgänglighet med Azure-portalen
 
@@ -40,7 +40,7 @@ Logga in på Azure-portalen på https://portal.azure.com.
 
 ## <a name="create-a-zonal-public-ip-address"></a>Skapa en zonal offentliga IP-adress
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **skapar du en resurs** i det övre vänstra hörnet i Azure-portalen.
 2. Välj **nätverk**, och välj sedan **offentliga IP-adressen**.
 3. Ange eller Välj värden för följande inställningar, väljer din prenumeration, Godkänn standardinställningarna för de återstående inställningarna och sedan klicka på **skapa**:
 
@@ -50,7 +50,7 @@ Logga in på Azure-portalen på https://portal.azure.com.
     |Namn|Namnet måste vara unikt inom resursgruppen som du väljer.|
     |Resursgrupp|Klicka på Skapa nytt och ange myResourceGroup|
     |Plats|Västra Europa|
-    |Tillgänglighet zon|Om du har valt den **Standard** SKU, du kan välja *Zonredundant* om du vill att IP-adress för att hantera över zoner. Om du väljer den **grundläggande** SKU, IP-adressen inte är flexibel över zoner. Oavsett SKU som du väljer, kan du tilldela adressen till en viss zon, om du väljer. |
+    |Tillgänglighetszon|Om du har valt den **Standard** SKU, du kan välja *Zonredundant* om du vill att IP-adress för att hantera över zoner. Om du väljer den **grundläggande** SKU, IP-adressen inte är flexibel över zoner. Oavsett SKU som du väljer, kan du tilldela adressen till en viss zon, om du väljer. |
 
     Inställningarna visas i portalen, enligt följande bild:
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enskild klient fristående program som använder Azure SQL Database
 
@@ -47,9 +47,9 @@ Ytterligare självstudier kommer att släppas. De kan du utforska en mängd hant
 Distribuera appen för de tre angivna klienterna:
 
 1. Klicka på varje blå **till Azure** för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden. ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso samklang Hall**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso samklang Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Skogskornell Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
@@ -100,9 +100,7 @@ I en produktionsmiljö, vanligtvis skapar du en CNAME DNS-posten [ *peka företa
 Nu ska vi titta på några av de resurser som har distribuerats:
 
 1. I den [Azure-portalen](http://portal.azure.com), bläddra i listan över resursgrupper.
-2. Finns det **wingtip-sa-katalog -&lt;användare&gt;**  resursgruppen.
-    - I den här resursgruppen den **katalog-sa -&lt;användare&gt;**  server distribueras. Servern innehåller den **tenantcatalog** databas.
-    - Du bör också se resursgrupper tre klient.
+2. Du bör se resursgrupper tre klient.
 3. Öppna den **wingtip-sa-fabrikam -&lt;användare&gt;**  resursgruppen som innehåller resurser för Fabrikam Jazz en distribution.  Den **fabrikamjazzclub -&lt;användare&gt;**  server innehåller den **fabrikamjazzclub** databas.
 
 Varje klient-databasen är 50 DTU *fristående* databas.
@@ -131,6 +129,6 @@ I den här guiden har du lärt dig:
 > * Om servrar och databaser som ingår i appen.
 > * Ta bort resurser för att stoppa relaterade fakturering.
 
-Försök med den [etablera och katalogen](saas-standaloneapp-provision-and-catalog.md) kursen.
+Försök med den [etablera och katalogen](saas-standaloneapp-provision-and-catalog.md) självstudiekursen där du vill utforska användningen av en katalog med klienter som gör att en mängd mellan klient scenarier, till exempel schemat hantering och klient analytics.
  
 

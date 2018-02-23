@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure Database via Azure Blob Storage med hjälp av Azure Data Factory (ADM).
@@ -61,12 +61,12 @@ Den här kursen förutsätter att du har:
 >
 >
 
-## <a name="upload-data"></a>Ladda upp data till din lokala SQL Server
+## <a name="upload-data"></a> Ladda upp data till din lokala SQL Server
 Vi använder den [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) att demonstrera migreringsprocessen. NYC Taxi dataset är tillgängligt, enligt beskrivningen i det inlägget på Azure-blobblagring [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). Data har två filer, trip_data.csv-fil som innehåller information om kommunikation, och filen trip_far.csv, som innehåller information om avgiften betalat för varje resa. Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi resor Dataset beskrivning](sql-walkthrough.md#dataset).
 
 Du kan anpassa det förfarande som anges här till en uppsättning med dina egna data eller Följ stegen som beskrivs med NYC Taxi dataset. Överför NYC Taxi dataset till din lokala SQL Server-databas genom att följa proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en virtuell dator i Azure, men proceduren för att ladda upp till den lokala SQL Server är samma.
 
-## <a name="create-adf"></a>Skapa ett Azure Data Factory
+## <a name="create-adf"></a> Skapa ett Azure Data Factory
 Instruktioner för att skapa en ny Azure Data Factory och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa ett Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Namnge den nya instansen ADF *adfdsp* och kalla resursgruppen skapade *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Installera och konfigurera upp Data Management Gateway
@@ -105,7 +105,7 @@ JSON-baserade definitionerna i tabellerna använda följande namn:
 Tre tabelldefinitionerna krävs för den här ADF-pipelinen:
 
 1. [Lokal SQL-tabell](#adf-table-onprem-sql)
-2. [BLOB-tabell](#adf-table-blob-store)
+2. [BLOB-tabell ](#adf-table-blob-store)
 3. [SQL Azure-tabellen](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Tre tabelldefinitionerna krävs för den här ADF-pipelinen:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>Lokal SQL-tabell
+### <a name="adf-table-onprem-sql">Lokal SQL-tabell</a>
 Tabelldefinitionen för lokala SQL Server har angetts för följande JSON-fil:
 
         {
@@ -148,7 +148,7 @@ Kopiera JSON-definitionen av tabellen i en fil kallad *onpremtabledef.json* file
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>BLOB-tabell
+### <a name="adf-table-blob-store">BLOB-tabell </a>
 Definitionen för tabellen för platsen blob finns i följande (det här mappar infogade data från lokalt till Azure blob):
 
         {
@@ -178,7 +178,7 @@ Kopiera JSON-definitionen av tabellen i en fil kallad *bloboutputtabledef.json* 
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure-tabellen
+### <a name="adf-table-azure-sql">SQL Azure-tabellen</a>
 Definitionen för tabellen för SQL Azure utdata finns i följande (det här schemat mappar data från blob):
 
     {

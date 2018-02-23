@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -75,10 +75,10 @@ Följ instruktionerna för att kontrollera att du har aktiverat sömlös SSO kor
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Lansera funktionen
 
-Du måste lägga till följande Azure AD-webbadresser till användarnas intranätsinställningar för zonen med hjälp av Grupprincip i Active Directory för att lansera funktionen till dina användare:
+Du måste lägga till följande Azure AD-URL till användarnas intranätsinställningar för zonen med hjälp av Grupprincip i Active Directory för att lansera funktionen till dina användare:
 
-- https://AutoLogon.microsoftazuread-sso.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Dessutom måste du aktivera en intranät-zonen principinställningen kallas **tillåta uppdateringar av statusfältet via skript** via en Grupprincip. 
 
@@ -87,7 +87,7 @@ Dessutom måste du aktivera en intranät-zonen principinställningen kallas **ti
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas zonen intranätsinställningar?
 
-Som standard beräknas automatiskt rätt zonen Internet eller intranätet från en specifik URL i webbläsaren. Till exempel mappas ”http://contoso/” till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom den innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en molnslutpunkt som de två webbadresserna i Azure AD såvida du inte uttryckligen lägger URL: en webbläsarens intranätzonen.
+Som standard beräknas automatiskt rätt zonen Internet eller intranätet från en specifik URL i webbläsaren. Till exempel mappas ”http://contoso/” till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom den innehåller en punkt). Webbläsare kommer inte att skicka Kerberos-biljetter till en molnslutpunkt som Azure AD-URL, såvida inte du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
 
 ### <a name="detailed-steps"></a>Detaljerade steg
 
@@ -96,21 +96,17 @@ Som standard beräknas automatiskt rätt zonen Internet eller intranätet från 
 3. Bläddra till **Användarkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer** > **Internet på Kontrollpanelen** > **sidan säkerhet**. Välj sedan **plats till zon Tilldelningslista**.
     ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso6.png)
 4. Aktivera principen och ange följande värden i dialogrutan:
-   - **Värdenamn**: Azure AD-URL: er som Kerberos-biljetter vidarebefordras.
+   - **Värdenamn**: Azure AD-URL som Kerberos-biljetter vidarebefordras.
    - **Värdet** (Data): **1** anger zonen Intranät.
 
    Resultatet ser ut så här:
 
-    Värde: https://autologon.microsoftazuread-sso.com
+    Value: https://autologon.microsoftazuread-sso.com
   
-    Data: 1
-        
-   Värde: https://aadg.windows.net.nsatc.net
-
     Data: 1
 
    >[!NOTE]
-   > Om du vill neka vissa användare från att använda sömlös SSO (till exempel om dessa användare logga in på delade kiosker), anger ovanstående värden till **4**. Den här åtgärden lägger till URL: er för Azure AD begränsad zon och misslyckas sömlös SSO hela tiden.
+   > Om du vill neka vissa användare från att använda sömlös SSO (till exempel om dessa användare logga in på delade kiosker), anger ovanstående värden till **4**. Den här åtgärden lägger till Azure AD URL: en begränsad zon och misslyckas sömlös SSO hela tiden.
    >
 
 5. Välj **OK**, och välj sedan **OK** igen.
@@ -146,9 +142,9 @@ Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.o
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
 
-Google Chrome på Mac OS x och andra icke-Windows-plattformar finns i [av krom princip projektlista](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) för information om hur du godkända Azure AD-URL: er för integrerad autentisering.
+Google Chrome på Mac OS x och andra icke-Windows-plattformar finns i [av krom princip projektlista](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) information om hur till godkända Azure AD-URL: en för integrerad autentisering.
 
-Användning av Grupprincip i Active Directory tredjepartstillägg lansera URL: er för Azure AD Firefox och Google Chrome på Mac-användare ligger utanför omfånget för den här artikeln.
+Användning av Grupprincip i Active Directory tredjepartstillägg lansera Azure AD-URL till Firefox och Google Chrome på Mac-användare ligger utanför omfånget för den här artikeln.
 
 #### <a name="known-browser-limitations"></a>Kända webbläsare begränsningar
 

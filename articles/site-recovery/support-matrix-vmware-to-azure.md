@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -22,17 +22,17 @@ Den här artikeln sammanfattar stöds komponenter och inställningar för katast
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-**Scenario** | **Detaljer** 
---- | --- 
-**Virtuella VMware-datorer** | Du kan utföra katastrofåterställning till Azure för lokala virtuella VMware-datorer. Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
-**Fysiska servrar** | Du kan utföra katastrofåterställning till Azure för lokala Windows-/ Linux fysiska servrar. Du kan distribuera det här scenariot i Azure-portalen.
+**Scenario** | **Detaljer**
+--- | ---
+Virtuella VMware-datorer | Du kan utföra katastrofåterställning till Azure för lokala virtuella VMware-datorer. Du kan distribuera det här scenariot i Azure-portalen eller med hjälp av PowerShell.
+Fysiska servrar | Du kan utföra katastrofåterställning till Azure för lokala Windows-/ Linux fysiska servrar. Du kan distribuera det här scenariot i Azure-portalen.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringsservrar
 
-**Server** | **Krav** | **Detaljer**
+**Server** | Krav | **Detaljer**
 --- | --- | ---
 **VMware** | vCenter Server 6.5 6.0 eller 5.5 eller vSphere 6.5, 6.0, 5.5 | Vi rekommenderar att du använder en vCenter-server
-**Fysiska servrar** | Ej tillämpligt
+Fysiska servrar | Ej tillämpligt
 
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -55,7 +55,7 @@ Operativsystemets (Linux) | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel versions
 
 
-**Versionen som stöds** | **Mobilitetstjänstversionen** | **Kernel-version** |
+**Versionen som stöds** | **Mobilitetstjänstversionen** | Kernel-version |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-128-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-91-generic |
@@ -83,104 +83,105 @@ XFSv5 | XFSv5 funktioner på XFS filsystem, till exempel kontrollsumma metadata 
 
 ## <a name="network"></a>Nätverk
 
-**Komponent** | **Stöds** 
---- | --- 
+**Komponent** | **Stöds**
+--- | ---
 Värden nätverket NIC-teamindelning | Stöd för virtuella VMware-datorer <br/><br/>Stöds inte för replikeringen av den fysiska datorn
-Värd för nätverk VLAN | Ja 
-Värd för nätverket IPv4 | Ja 
-Värd för nätverket IPv6 | Nej 
-Gästen/server network NIC-teamindelning | Nej 
-Gäst-server-nätverk IPv4 | Ja 
-Gäst-server-nätverk IPv6 | Nej 
-Gästen/server network statiska IP-Adressen (Windows) | Ja 
+Värd för nätverk VLAN | Ja
+Värd för nätverket IPv4 | Ja
+Värd för nätverket IPv6 | Nej
+Gästen/server network NIC-teamindelning | Nej
+Gäst-server-nätverk IPv4 | Ja
+Gäst-server-nätverk IPv6 | Nej
+Gästen/server network statiska IP-Adressen (Windows) | Ja
 Gästen/server network statiska IP-Adressen (Linux) | Ja <br/><br/>Virtuella datorer är konfigurerade för att använda DHCP på återställning efter fel  
-Gästen/server network flera nätverkskort | Ja 
+Gästen/server network flera nätverkskort | Ja
 
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM-nätverk (efter växling vid fel)
 
-**Komponent** | **Stöds** 
---- | --- 
-Express Route | Ja 
-ILB | Ja 
-ELB | Ja 
-Traffic Manager | Ja 
-Flera nätverkskort | Ja 
-Reserverad IP-adress | Ja 
-IPv4 | Ja 
-Behåll källans IP-adress | Ja 
-Slutpunkter för virtuellt nätverk<br/><br/> (Azure storage brandväggar och Vnet) | Nej 
+**Komponent** | **Stöds**
+--- | ---
+Express Route | Ja
+ILB | Ja
+ELB | Ja
+Traffic Manager | Ja
+Flera nätverkskort | Ja
+Reserverad IP-adress | Ja
+IPv4 | Ja
+Behåll källans IP-adress | Ja
+Slutpunkter för virtuellt nätverk<br/><br/> (Azure storage brandväggar och Vnet) | Nej
 
 
 ## <a name="storage"></a>Lagring
 
 
-**Komponent** | **Stöds** 
---- | --- 
-Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar 
+**Komponent** | **Stöds**
+--- | ---
+Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
 SAN-nätverk (ISCSI) värd | Ja
 Värden Multipath (MPIO) | Ja - testats med: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM för CLARiiON
-Gästen/server VMDK | Ja 
-Gästen/server EFI/UEFI| Partiell (migrering till Azure för Windows Server 2012 och senare). </br></br> ** Se anmärkning i slutet av tabellen.
-Delad klusterdisk för gäst-server | Nej 
-Krypterade disk i gäst-server | Nej 
-Gästen/server NFS | Nej 
+Gästen/server VMDK | Ja
+Gästen/server EFI/UEFI| Partiell (migrering till Azure för Windows Server 2012 och senare VMware endast virtuella datorer). </br></br> ** Se anmärkning i slutet av tabellen.
+Delad klusterdisk för gäst-server | Nej
+Krypterade disk i gäst-server | Nej
+Gästen/server NFS | Nej
 Gästen/server SMB 3.0 | Nej
-Gästen/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar 
-Gästen/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB 
+Gästen/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
+Gästen/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB
 Gästen/server disk med 4K logisk och 4 k fysisk sektorstorlek | Ja
-Gästen/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja 
+Gästen/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja
 Gästen/server-volym med stripe disk > 4 TB <br><br/>Hantering av LVM logiska volymer | Ja
-Gästen/server - lagringsutrymmen | Nej 
-Gästen/server varm Lägg till/ta bort disken | Nej 
-Gästen/server - utelämna disk | Ja 
+Gästen/server - lagringsutrymmen | Nej
+Gästen/server varm Lägg till/ta bort disken | Nej
+Gästen/server - utelämna disk | Ja
 Gäst-server med flera sökvägar (MPIO) | Gäller inte
 
 > [!NOTE]
-> ** UEFI ** Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
+> ** UEFI ** Start VMware-datorer som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
 > - Endast migrering till Azure stöds. Återställning till det lokala VMware-platsen stöds inte.
 > - Servern bör inte ha fler än 4 partitioner på OS-disk.
 > - Kräver Azure Site Recovery mobilitetstjänstversionen 9.13 eller senare.
+> - Stöds inte för fysiska servrar.
 
 
 ## <a name="azure-storage"></a>Azure-lagring
 
-**Komponent** | **Stöds** 
---- | --- 
-LRS | Ja 
-GRS | Ja 
-RA-GRS | Ja 
-Lågfrekvent | Nej 
-Frekvent| Nej 
-Blockblob-objekt | Nej 
-Kryptering i rest(SSE)| Ja 
-Premium Storage | Ja 
-Import/export service | Nej 
-Slutpunkter för virtuellt nätverk<br/><br/> Azure storage brandväggar och Vnet som konfigurerats på mål-storage-cache lagringskontot (används för att lagra data för replikering) | Nej 
-Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej 
+**Komponent** | **Stöds**
+--- | ---
+LRS | Ja
+GRS | Ja
+RA-GRS | Ja
+Lågfrekvent | Nej
+Frekvent| Nej
+Blockblob-objekt | Nej
+Kryptering i rest(SSE)| Ja
+Premium Storage | Ja
+Import/export service | Nej
+Slutpunkter för virtuellt nätverk<br/><br/> Azure storage brandväggar och Vnet som konfigurerats på mål-storage-cache lagringskontot (används för att lagra data för replikering) | Nej
+Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej
 
 
 ## <a name="azure-compute"></a>Azure-beräkning
 
-**Featuree** | **Stöds** 
---- | --- 
-Tillgänglighetsuppsättningar | Ja 
+**Featuree** | **Stöds**
+--- | ---
+Tillgänglighetsuppsättningar | Ja
 HUB | Ja   
-Hanterade diskar | Ja 
+Hanterade diskar | Ja
 
 ## <a name="azure-vm-requirements"></a>Krav för Azure VM
 
 Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven för Azure VM som sammanfattas i den här tabellen.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | Krav | **Detaljer**
 --- | --- | ---
-**Gästoperativsystemet** | Kontrollera [operativsystem som stöds](#replicated machines) | Kravkontroll misslyckas om stöds inte.
+Gästoperativsystemet | Kontrollera [operativsystem som stöds](#replicated machines) | Kravkontroll misslyckas om stöds inte.
 **Gästen operativsystemets arkitektur** | 64-bitars | Kravkontroll misslyckas om stöds inte
 **Operativsystemdisken** | Upp till 2 048 GB | Kravkontroll misslyckas om stöds inte
 **Operativsystemet disk antal** | 1 | Kravkontrollen misslyckas om stöds inte.
 **Datadiskar** | 64 eller mindre om du replikerar **virtuella VMware-datorer till Azure**; 16 eller mindre om du replikerar **Hyper-V virtuella datorer till Azure** | Kravkontrollen misslyckas om stöds inte
 **Datadisken för virtuell Hårddisk** | Upp till 4095 GB | Kravkontroll misslyckas om stöds inte
-**Nätverkskort** | Flera nätverkskort som stöds | 
+**Nätverkskort** | Flera nätverkskort som stöds |
 **Delad virtuell Hårddisk** | Stöds inte | Kravkontroll misslyckas om stöds inte
 **FC-disk** | Stöds inte | Kravkontroll misslyckas om stöds inte
 **Format för hårddisk** | VHD <br/><br/> VHDX | Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
@@ -190,15 +191,15 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven fö
 
 ## <a name="vault-tasks"></a>Valvet uppgifter
 
-**Åtgärd** | **Stöds** 
---- | --- 
-Flytta valvet mellan resursgrupper<br/><br/> Inom och över prenumerationer | Nej 
-Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/> Inom och över prenumerationer | Nej 
+**Åtgärd** | **Stöds**
+--- | ---
+Flytta valvet mellan resursgrupper<br/><br/> Inom och över prenumerationer | Nej
+Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/> Inom och över prenumerationer | Nej
 
 
 ## <a name="mobility-service"></a>Mobilitetstjänsten
 
-**Namn** | **Beskrivning** | **Senaste versionen** | **Detaljer**
+**Namn** | **Beskrivning** | **senaste versionen** | **Detaljer**
 --- | --- | --- | --- | ---
 ** Azure Site Recovery enhetlig installation ** | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på lokal VMware-servrar | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 **Mobilitetstjänsten** | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera  | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)

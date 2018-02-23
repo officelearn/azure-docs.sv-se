@@ -1,6 +1,6 @@
 ---
-title: "Anpassa en Linux VM på första start i Azure | Microsoft Docs"
-description: "Lära sig använda molnet init och Key Vault till customze virtuella Linux-datorer första gången de startar i Azure"
+title: "Anpassa en virtuell Linux-dator vid första start i Azure | Microsoft Docs"
+description: "Lär dig att använda cloud-init och Key Vault för att anpassa virtuell Linux-datorer första gången de startas i Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,49 +16,49 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Så här anpassar du en virtuell Linux-dator vid den första starten
-I en tidigare kursen du lärt dig hur du vill SSH till en virtuell dator (VM) och manuellt installera NGINX. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt önskade vanligtvis någon form av automatisering. Ett vanligt sätt att anpassa en VM på första start är att använda [moln init](https://cloudinit.readthedocs.io). I den här självstudiekursen får du lära du dig att:
+# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Anpassa en virtuell Linux-dator vid första start
+I en tidigare självstudiekurs lärde du dig hur du anslöt till en virtuell dator med SSH och installerade NGINX manuellt. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt, kan det vara användbart med någon form av automatisering. Ett vanligt sätt att anpassa en virtuell dator första gången den startar är att använda [cloud-init](https://cloudinit.readthedocs.io). I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en konfigurationsfil för molnet initiering
-> * Skapa en virtuell dator som använder en moln-init-fil
-> * Visa en Node.js-app som körs när den virtuella datorn skapas
-> * Använda Nyckelvalv för att lagra certifikat på ett säkert sätt
-> * Automatisera säker distribution av NGINX med molnet initiering
+> * Skapa en cloud-init-konfigurationsfil
+> * Skapa en virtuell dator som använder en cloud-init-fil
+> * Visa en Node.js-app som körs efter att den virtuella datorn skapats
+> * Använda Key Vault för att förvara certifikat säkert
+> * Automatisera säker distribution av NGINX med cloud-init
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-init
-[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
 
-Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
+Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Vi arbetar med våra partner att hämta molnet initiering ingår och arbeta med bilder som skickas till Azure. I följande tabell beskrivs aktuella molnet init tillgängligheten på Azure-plattformen bilder:
+Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas och fungerar i de avbildningar de tillhandahåller till Azure. Den här tabellen beskriver den aktuella tillgängligheten när det gäller cloud-init på Azure plattformsavbildningar:
 
 | Alias | Utgivare | Erbjudande | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |senaste |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |senaste |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |senaste |
 | CoreOS |CoreOS |CoreOS |Stable |senaste |
-| | OpenLogic | CentOS | 7 CI | senaste |
-| | Redhat | RHEL | 7 RÅDATA CI | senaste
+| | OpenLogic | CentOS | 7-CI | senaste |
+| | Redhat | RHEL | 7-RAW-CI | senaste
 
 
-## <a name="create-cloud-init-config-file"></a>Skapa moln init-konfigurationsfil
-Skapa en virtuell dator som installerar NGINX och kör en enkel ”Hello World” Node.js-app för att se molnet initiering i åtgärden. Följande konfiguration i molnet init installeras de nödvändiga paketen, skapar en Node.js-app och sedan initiera och startar appen.
+## <a name="create-cloud-init-config-file"></a>Skapa en cloud-init-konfigurationsfil
+Om du vill se hur cloud-init fungerar i praktiken skapar du en virtuell dator som installerar NGINX och kör en enkel ”Hello World” Node.js-app. Den här cloud-init-konfigurationen installerar de paket som krävs, skapar en Node.js-app och initierar och startar appen.
 
-Skapa en fil med namnet i din aktuella shell *moln init.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloud-init.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
+I ditt nuvarande gränssnitt skapar du en fil med namnet *cloud-init.txt* och klistrar in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Du kan använda vilket redigeringsprogram som helst. Ange `sensible-editor cloud-init.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -102,16 +102,16 @@ runcmd:
   - nodejs index.js
 ```
 
-Mer information om molnet init konfigurationsalternativ finns [moln init config exempel](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
+Mer information om konfigurationsalternativ för cloud-init finns i [konfigurationsexempel för cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-Innan du kan skapa en virtuell dator, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAutomate* i den *eastus* plats:
+Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAutomate* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Nu skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create). Använd den `--custom-data` parametern för att skicka in din moln-init-konfigurationsfilen. Ange den fullständiga sökvägen till den *moln init.txt* config om du har sparat filen utanför arbetskatalogen finns. I följande exempel skapas en virtuell dator med namnet *myAutomatedVM*:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. Det här exemplet skapar en virtuell dator med namnet *minAutomatiseradeVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,34 +123,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Det tar några minuter för den virtuella datorn skapas, paket för att installera och starta appen. Det finns bakgrundsaktiviteter för att fortsätta att köras när Azure CLI återgår till Kommandotolken. Det kan vara en annan några minuter innan du kan komma åt appen. När den virtuella datorn har skapats, notera den `publicIpAddress` visas av Azure CLI. Den här adressen används för att komma åt Node.js-appen via en webbläsare.
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
 
-Tillåt Internet-trafik till den virtuella datorn genom att öppna port 80 från Internet med [az vm öppna port](/cli/azure/vm#open-port):
+För att låta webbtrafik nå din virtuella dator öppnar du port 80 från Internet med [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
-## <a name="test-web-app"></a>Testa webbprogram
-Nu kan du öppna en webbläsare och ange *http://<publicIpAddress>*  i adressfältet. Ange dina egna offentliga IP-adress från den virtuella datorn skapa processen. Node.js-appen visas som i följande exempel:
+## <a name="test-web-app"></a>Testa webbappen
+Nu kan du öppna en webbläsare och ange *http://<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Node.js-appen visas i det här exemplet:
 
-![Visa körs NGINX-webbplats](./media/tutorial-automate-vm-deployment/nginx.png)
+![Visa NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
-## <a name="inject-certificates-from-key-vault"></a>Mata in certifikat från Nyckelvalvet
-Det här valfria avsnittet visar hur du säkert lagra certifikat i Azure Key Vault och mata in dem under distribution av Virtuella datorer. I stället för att använda en anpassad avbildning som innehåller certifikaten inbyggd-modulen för den här processen säkerställer att de senaste certifikat är matas in till en virtuell dator på första start. Under processen certifikatet aldrig lämnar Azure-plattformen eller exponeras i ett skript, kommandoradsverktyget historik eller mall.
+## <a name="inject-certificates-from-key-vault"></a>Mata in certifikat från Key Vault
+Det här valfria avsnittet visar hur du kan lagra certifikat säkert i Azure Key Vault och mata in dem under distributionen av den virtuella datorn. Till skillnad från att använda en anpassad avbildning som innehåller certifikaten gör den här processen att de senaste certifikaten matas in i den virtuella datorn vid första start. Under processen lämnar certifikatet aldrig Azure-plattformen och exponeras inte i något skript, någon kommandoradshistorik eller mall.
 
-Azure Key Vault skyddar kryptografiska nycklar och hemligheter, till exempel certifikat eller lösenord. Key Vault hjälper till att effektivisera nyckelhanteringen och låter dig behålla kontrollen över nycklar som kommer åt och krypterar dina data. Det här scenariot beskriver vissa Key Vault-begrepp för att skapa och använda ett certifikat, men är inte en fullständig översikt över hur du använder Key Vault.
+Azure Key Vault skyddar krypteringsnycklar och hemligheter, som certifikat och lösenord. Key Vault förenklar nyckelhanteringen och låter dig behålla kontrollen över nycklar som kommer åt och krypterar data. Det här scenariot beskriver en del Key Vault-koncept som används för att skapa och använda ett certifikat, det är inte en utförlig beskrivning av hur du använder Key Vault.
 
 Följande steg visar hur du kan:
 
 - Skapa ett Azure Key Vault
-- Generera och överföra ett certifikat till Nyckelvalvet
-- Skapa en hemlighet från certifikat för att mata in i till en virtuell dator
+- Generera eller ladda upp ett certifikat till Key Vault
+- Skapa en hemlighet från certifikatet som kan matas in i en virtuell dator
 - Skapa en virtuell dator och mata in certifikatet
 
 ### <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
-Skapa först ett Nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera den för användning när du distribuerar en virtuell dator. Varje Key Vault kräver ett unikt namn och bör vara alla gemen. Ersätt *mykeyvault* i följande exempel med dina egna unika Key Vault-namn:
+Skapa först ett Key Vault med [az keyvault create](/cli/azure/keyvault#az_keyvault_create) och aktivera det för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt *mittkeyvault* i följande exempel med ditt eget unika Key Vault-namn:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -160,8 +160,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-### <a name="generate-certificate-and-store-in-key-vault"></a>Generera certifikat och lagra i Key Vault
-För produktion, ska du importera ett giltigt certifikat som signerats av en betrodd provider med [az keyvault certifikat import](/cli/azure/keyvault/certificate#import). Den här självstudiekursen i följande exempel visas hur du kan skapa ett självsignerat certifikat med [az keyvault certifikat skapa](/cli/azure/keyvault/certificate#create) som använder standardprincipen för certifikat:
+### <a name="generate-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
+För produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider med [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). För den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) som använder standardprincipen för certifikat:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -171,8 +171,8 @@ az keyvault certificate create \
 ```
 
 
-### <a name="prepare-certificate-for-use-with-vm"></a>Förbereda certifikat för användning med VM
-Använda certifikatet under den virtuella datorn Skapa process, Hämta ID för certifikatet med [az keyvault lista-versionerna](/cli/azure/keyvault/secret#list-versions). Den virtuella datorn måste certifikatet i ett visst format att injicera på Start, så konvertera certifikatet med [az vm format-hemlighet](/cli/azure/vm#format-secret). I följande exempel tilldelas resultatet av dessa kommandon till variabler för att underlätta användning i nästa steg:
+### <a name="prepare-certificate-for-use-with-vm"></a>Förbereda ett certifikat för användning med en virtuell dator
+För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Den virtuella datorn behöver få certifikatet i ett visst format för att det ska kunna matas in vid start. Du konverterar certifikatet med [az vm format-secret](/cli/azure/vm#az_vm_format_secret). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,10 +183,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>Skapa moln init config om du vill skydda NGINX
-När du skapar en virtuell dator, certifikat och nycklar lagras i den skyddade */var/lib/waagent/* directory. Du kan använda en uppdaterad molnet initiering config från föregående exempel för att automatisera lägger till certifikatet till den virtuella datorn och konfigurera NGINX.
+### <a name="create-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
+När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/*. Om du vill automatisera inmatningen av certifikatet i den virtuella datorn och konfigurera NGINX kan du använda en uppdaterad cloud-init-konfigurationsfil från föregående exempel.
 
-Skapa en fil med namnet *moln-init-secured.txt* och klistra in följande konfiguration. Om du använder molnet Shell skapa igen, molnet init-konfigurationsfilen finns det och inte på den lokala datorn. Använd `sensible-editor cloud-init-secured.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
+Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Kom ihåg att om du använder Cloud Shell så ska du skapa cloud-init-konfigurationsfilen där och inte på den lokala maskinen. Använd `sensible-editor cloud-init-secured.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -237,8 +237,8 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-secure-vm"></a>Skapa säker virtuell dator
-Nu skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create). Certifikatdata injekteras från Nyckelvalvet med den `--secrets` parameter. Som i föregående exempel du också ange finns i molnet init-config med den `--custom-data` parameter:
+### <a name="create-secure-vm"></a>Skapa en säker virtuell dator
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Certifikatdata matas in från Key Vault med parametern `--secrets`. Som i föregående exempel skickar du in cloud-init-konfigurationen med parametern `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -251,9 +251,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Det tar några minuter för den virtuella datorn skapas, paket för att installera och starta appen. Det finns bakgrundsaktiviteter för att fortsätta att köras när Azure CLI återgår till Kommandotolken. Det kan vara en annan några minuter innan du kan komma åt appen. När den virtuella datorn har skapats, notera den `publicIpAddress` visas av Azure CLI. Den här adressen används för att komma åt Node.js-appen via en webbläsare.
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att komma åt Node.js i en webbläsare.
 
-För att säkra Internet-trafik till den virtuella datorn ska du öppna port 443 från Internet med [az vm öppna port](/cli/azure/vm#open-port):
+För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 från Internet med [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -262,27 +262,27 @@ az vm open-port \
     --port 443
 ```
 
-### <a name="test-secure-web-app"></a>Testa säkra webbprogram
-Nu kan du öppna en webbläsare och ange *https://<publicIpAddress>*  i adressfältet. Ange dina egna offentliga IP-adress från den virtuella datorn skapa processen. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat:
+### <a name="test-secure-web-app"></a>Testa säker webbapp
+Nu kan du öppna en webbläsare och ange *https://<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
-![Acceptera web Säkerhetsvarning för webbläsare](./media/tutorial-automate-vm-deployment/browser-warning.png)
+![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Skyddad NGINX-platsen och Node.js app visas som i följande exempel:
+Din skyddade NGINX-webbplats och Node.js-appen visas sedan som i exemplet nedan:
 
-![Visa körs säker NGINX-webbplats](./media/tutorial-automate-vm-deployment/secured-nginx.png)
+![Visa skyddad NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får konfigurerat du virtuella datorer på första start med molnet initiering. Du har lärt dig att:
+I den här självstudien använde du cloud-init för att konfigurera virtuella datorer vid första start. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en konfigurationsfil för molnet initiering
-> * Skapa en virtuell dator som använder en moln-init-fil
-> * Visa en Node.js-app som körs när den virtuella datorn skapas
-> * Använda Nyckelvalv för att lagra certifikat på ett säkert sätt
-> * Automatisera säker distribution av NGINX med molnet initiering
+> * Skapa en cloud-init-konfigurationsfil
+> * Skapa en virtuell dator som använder en cloud-init-fil
+> * Visa en Node.js-app som körs efter att den virtuella datorn skapats
+> * Använda Key Vault för att förvara certifikat säkert
+> * Automatisera säker distribution av NGINX med cloud-init
 
-Gå vidare till nästa kurs att lära dig hur du skapar anpassade VM-avbildningar.
+Gå vidare till nästa självstudie där du får lära dig att skapa anpassade avbildningar för virtuella datorer.
 
 > [!div class="nextstepaction"]
 > [Skapa anpassade avbildningar av en virtuell dator](./tutorial-custom-images.md)

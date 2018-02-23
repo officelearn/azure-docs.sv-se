@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
 I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
@@ -87,6 +87,13 @@ Om du vill visa information om rekommendationen klickar du på namnet på den up
 > [!NOTE]
 > Säkerhetsrekommendationerna här är desamma som de som visas i alternativet **Rekommendationer**. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md). Ovanstående gäller inte bara för virtuella datorer och datorer, utan för alla resurser på panelen **Resource Health**.
 >
+
+#### <a name="unmonitored-vms"></a>Oövervakade virtuella datorer
+En virtuell dator övervakas inte av Security Center om den virtuella datorn inte kör tillägget Microsoft Monitoring Agent. En virtuell dator kan redan ha en lokal agent installerad, exempelvis OMS direktagent eller SCOM-agenten. Virtuella datorer med dessa agenter identifieras som oövervakade eftersom dessa agenter inte stöds fullt ut av Security Center. För att kunna utnyttja Security Center fullt ut krävs tillägget Microsoft Monitoring Agent.
+
+Det går att installera tillägget på den oövervakade virtuella datorn i tillägg till den lokala agent som redan är installerad. Konfigurera båda agenterna på samma sätt och anslut dem till samma arbetsyta. Det gör att Security Center kan interagera med tillägget Microsoft Monitoring Agent och samla in data.  I [Aktivera tillägget för virtuella datorer](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) finns anvisningar om hur du installerar tillägget Microsoft Monitoring Agent.
+
+Om du vill veta mer om varför Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk försörjning läser du i [Övervaka problem med hälsotillstånd](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 #### <a name="vms--computers-section"></a>Avsnittet för virtuella datorer och datorer
 I delen med virtuella datorer och datorer får du en överblick över alla virtuella datorer och datorer och rekommendationer för dessa. Varje kolumn representerar en uppsättning rekommendationer såsom visas på följande skärmbild:

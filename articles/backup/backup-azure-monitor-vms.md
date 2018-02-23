@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Övervaka varningar vid säkerhetskopiering av virtuella Azure-datorer
 Aviseringar är svar från tjänsten för att en händelse tröskelvärdet har uppnåtts eller överskridits. Att veta när problem start kan vara viktigt att som företag kostnaderna hålls nere. Aviseringar, vanligtvis sker inte enligt ett schema och därför är det bra att känna så snart som möjligt efter aviseringar. När en säkerhetskopiering eller återställning av jobbet misslyckas, till exempel visas en varning inom fem minuter till felet. I instrumentpanelen för valvet visas panelen Backup aviseringar kritiskt och varningsnivå händelser. Du kan visa alla händelser i inställningarna för säkerhetskopiering aviseringar. Men vad gör du om en varning visas när du arbetar på ett separat problem? Om du inte vet när aviseringen händer, kan det bero på en mindre besvär eller det kan äventyra data. Kontrollera att rätt personer är medvetna om en avisering - när det uppstår genom att konfigurera tjänsten för att skicka aviseringar via e-post. Mer information om hur du konfigurerar e-postaviseringar finns [konfigurera meddelanden](backup-azure-monitor-vms.md#configure-notifications).
@@ -43,7 +43,7 @@ Om du vill visa information om den händelse som utlöste en avisering, måste d
     ![Aviseringar om säkerhetskopiering panelen](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Om du vill visa detaljerad information om en viss avisering i listan över händelser, klickar du på aviseringen för att öppna dess **information** bladet.
 
-    ![Händelsebeskrivning](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Händelseinformation](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Om du vill anpassa de attribut som visas i listan finns [visa ytterligare händelse attribut](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
@@ -70,9 +70,9 @@ Att ställa in e-postmeddelanden för aviseringar
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Vilka aviseringstyper är tillgängliga för Azure IaaS-VM säkerhetskopiering?
    | Aviseringsnivå | Aviseringar skickas |
    | --- | --- |
-   | Kritiskt |Säkerhetskopieringen har misslyckats, Återställningsfel |
-   | Varning |Ingen |
-   | Information |Ingen |
+   | Kritiska | om säkerhetskopieringen har misslyckats, Återställningsfel |
+   | Varning | för säkerhetskopieringsjobb har slutförts med varningar (t.ex: vissa skrivare kunde inte skapa en ögonblicksbild) |
+   | Information | finns för närvarande inga informationsaviseringar för Virtuella Azure-säkerhetskopiering |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Finns det situationer där det inte skickas någon e-post, även om konfigurationen anger att avisering ska skickas?
 Det finns situationer där en avisering inte skickas, trots att meddelanden har konfigurerats korrekt. I följande situationer e-postmeddelande skickas inte meddelanden att undvika avisering brus:
@@ -99,7 +99,7 @@ Den **granskningsloggar** inställningen levereras med en fördefinierad uppsät
     ![Åtgärdsinformation](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
 3. Om du vill visa detaljerad information om en viss händelse i listan över händelser, klickar du på händelsen för att öppna dess **information** bladet.
 
-    ![Händelsebeskrivning](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+    ![Händelseinformation](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
     Händelsenivå informationen är detaljerad informationen hämtar. Om du hellre vill visa det här mycket information om varje händelse och vill lägga till det här mycket information till den **händelser** bladet finns i avsnittet [expanderande händelseinformation](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
@@ -152,7 +152,7 @@ Med hjälp av den **kolumner** knappen, kan du aktivera ytterligare händelse at
 | Resurstyp |Den interna resurstyp som används av Resource Manager |
 | Prenumerations-ID:t |Associerade prenumerations-ID |
 | Kategori |Kategori av händelsen |
-| Korrelations-ID |Vanliga ID för relaterade händelser |
+| Korrelations-id |Vanliga ID för relaterade händelser |
 
 ## <a name="use-powershell-to-customize-alerts"></a>Använd PowerShell för att anpassa aviseringar
 Du kan hämta anpassade aviseringar för jobben i portalen. Definiera PowerShell-baserade Varningsregler operativa loggar händelser för att få dessa jobb. Använd *PowerShell version 1.3.0 eller senare*.
@@ -209,7 +209,7 @@ Händelseloggar aktivera bra post före och gransknings-och stöd för säkerhet
 * Lägg till princip
 * Ta bort princip
 * Uppdatera principen
-* Avbryta jobb
+* Avbryt jobb
 
 En bred beskrivning av händelser och åtgärder och granskningsloggar i Azure-tjänster finns i artikeln [visa händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 

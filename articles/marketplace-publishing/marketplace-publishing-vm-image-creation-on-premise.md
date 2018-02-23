@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Utveckla en avbildning av virtuell dator lokalt för Azure Marketplace
 Vi rekommenderar starkt att du utveckla Azure virtuella hårddiskar (VHD) direkt i molnet genom att använda Remote Desktop Protocol. Om du måste går det att hämta en virtuell Hårddisk och utveckla genom att använda lokal infrastruktur.  
@@ -75,7 +75,7 @@ Förutom att använda Azure-portalen kan du använda den [spara AzureVhd](http:/
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Exempelvis spara AzureVhd-källa ”https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” - LocalFilePath ”C:\Users\Administrator\Desktop\baseimagevm.vhd” - StorageKey<String>
+For example, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\baseimagevm.vhd” -StorageKey <String>
 
 > [!NOTE]
 > **Spara-AzureVhd** har också en **NumberOfThreads** alternativ som kan användas för att öka parallellitet för att göra bästa användningen av bandbredd för hämtning.
@@ -92,7 +92,7 @@ Om du vill skapa ett lagringskonto som du kan använda den [Microsoft Azure-port
 
 **Skapa ett lagringskonto från Microsoft Azure-portalen**
 
-1. Klicka på **Ny**.
+1. Klicka på **skapar du en resurs**.
 2. Välj **lagring**.
 3. Fyll i lagringskontonamn och välj sedan en plats.
    
@@ -143,9 +143,9 @@ Använd den [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdl
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Överföra en virtuell Hårddisk med hjälp av kommandoradsverktyget för Mac- och Linux
-Med den [Linux kommandoradsverktyget](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), använder du följande: azure vm-avbildning skapa <image name> --plats <Location of the data center> --Operativsystemet Linux<LocationOfLocalVHD>
+Med den [Linux kommandoradsverktyget](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), använder du följande: azure vm-avbildning skapa <image name> --plats <Location of the data center> --Operativsystemet Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Skapa en avbildning av virtuell dator på Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Konfigurera Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

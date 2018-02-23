@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Arbeta med ögonblicksbilder för resursen (förhandsgranskning)
 En ögonblicksbild av en resurs (förhandsversion) är en skrivskyddad version av en resurs i Azure-filer som hämtas vid en tidpunkt. När en ögonblicksbild av en resurs har skapats kan kan den läsa, kopieras, eller tas bort, men inte har ändrats. En ögonblicksbild av en resurs kan du säkerhetskopiera resursen som det visas vid en tidpunkt. 
@@ -246,13 +246,12 @@ Utdata och ser du att innehållet i den hämta filen och dess egenskaper är ide
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Filresurs ögonblicksbild åtgärder i Azure PowerShell
 Du kan använda Azure Powershell för att utföra samma åtgärder som lista resursen ögonblicksbilder surfning dela ögonblicksbild innehåll, återställa eller hämta filer från resursen ögonblicksbild eller ta bort ögonblicksbilder för resursen.
 
 #### <a name="list-share-snapshots"></a>Lista resursen ögonblicksbilder
 
-Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av`Get-AzureStorageShare`
+Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av `Get-AzureStorageShare`
 
 ```powershell
 Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Ta bort Azure-filer dela ögonblicksbild
-=======
 ## <a name="delete-a-share-snapshot"></a>Ta bort en ögonblicksbild av en resurs
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Du kan ta bort resursen ögonblicksbilder med hjälp av Azure portal, PowerShell, CLI, REST-API eller alla Storage SDK: N. I följande avsnitt beskrivs hur du tar bort filresursen ögonblicksbilder med hjälp av Azure-portalen, CLI och PowerShell.
 

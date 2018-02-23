@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för beständig funktioner (Azure-funktioner)
 
@@ -42,8 +42,8 @@ När du skriver orchestrator-funktioner i skriptspråk (till exempel i Azure-por
 }
 ```
 
-* `orchestration`är namnet på orchestration. Detta är det värde som klienter måste använda när de vill börja nya instanser av den här funktionen för orchestrator. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
-* `version`är en versionsetikett för orchestration. Klienter som startar en ny instans av en orchestration måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information om versioner finns [versionshantering](durable-functions-versioning.md).
+* `orchestration` är namnet på orchestration. Detta är det värde som klienter måste använda när de vill börja nya instanser av den här funktionen för orchestrator. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
+* `version` är en versionsetikett för orchestration. Klienter som startar en ny instans av en orchestration måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information om versioner finns [versionshantering](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ange värden för `orchestration` eller `version` egenskaper rekommenderas inte just nu.
@@ -116,8 +116,8 @@ Om du använder Azure-portalen för utveckling, aktivitet utlösaren definieras 
 }
 ```
 
-* `activity`är namnet på aktiviteten. Detta är det värde som orchestrator-funktioner som använder för att anropa den här funktionen för aktiviteten. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
-* `version`är en versionsetikett för aktiviteten. Orchestrator-funktioner som anropar en aktivitet måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information finns i [versionshantering](durable-functions-versioning.md).
+* `activity` är namnet på aktiviteten. Detta är det värde som orchestrator-funktioner som använder för att anropa den här funktionen för aktiviteten. Den här egenskapen är valfri. Om inget anges används namnet på funktionen.
+* `version` är en versionsetikett för aktiviteten. Orchestrator-funktioner som anropar en aktivitet måste innehålla matchande versionsetiketten. Den här egenskapen är valfri. Om inget annat anges, används en tom sträng. Mer information finns i [versionshantering](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ange värden för `activity` eller `version` egenskaper rekommenderas inte just nu.
@@ -192,8 +192,8 @@ Om du använder skriptspråk (t.ex. *.csx* filer) för utveckling, orchestration
 }
 ```
 
-* `taskHub`– Används i scenarier där flera funktionen appar delar samma lagringskonto men måste isoleras från varandra. Om inget anges standardvärdet från `host.json` används. Det här värdet måste matcha det värde som används av orchestrator-funktioner för målet.
-* `connectionName`-Namnet på en appinställning som innehåller en anslutningssträng för storage-konto. Storage-kontot som representeras av den här anslutningssträngen måste vara samma som används av orchestrator-funktioner för målet. Om inget anges används standard konto lagringsanslutningssträngen för funktionen appen.
+* `taskHub` – Används i scenarier där flera funktionen appar delar samma lagringskonto men måste isoleras från varandra. Om inget anges standardvärdet från `host.json` används. Det här värdet måste matcha det värde som används av orchestrator-funktioner för målet.
+* `connectionName` -Namnet på en appinställning som innehåller en anslutningssträng för storage-konto. Storage-kontot som representeras av den här anslutningssträngen måste vara samma som används av orchestrator-funktioner för målet. Om inget anges används standard konto lagringsanslutningssträngen för funktionen appen.
 
 > [!NOTE]
 > I de flesta fall rekommenderar vi att du utelämnar dessa egenskaper och förlitar sig på standardbeteendet.

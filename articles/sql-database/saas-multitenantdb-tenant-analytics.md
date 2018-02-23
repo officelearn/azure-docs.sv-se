@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
@@ -68,7 +68,7 @@ Förstå hur konsekvent varje klient använder tjänsten ger en möjlighet att s
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -76,7 +76,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 - Wingtip SaaS-skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) laddas ned från GitHub. Se till att *avblockera zip-filen* innan du extraherar innehållet. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 - Power BI Desktop har installerats. [Hämta Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - I gruppen med ytterligare klienter har etablerats, finns det [ **etablera hyresgäster kursen**](saas-multitenantdb-provision-and-catalog.md).
-- Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- En agent för jobbet och jobbet agent-databas har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Skapa data för demonstrationen
 

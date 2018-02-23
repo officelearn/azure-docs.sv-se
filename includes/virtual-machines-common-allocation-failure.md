@@ -8,7 +8,7 @@ Dessa steg hjälper dig att lösa många buffertallokeringsfel på virtuella dat
 * Ändra storlek på den virtuella datorn till en annan VM-storlek.<br>
     Klicka på **Bläddra igenom alla** > **virtuella datorer (klassisk)** > din virtuella dator > **inställningar** > **storlek**. Detaljerade anvisningar finns i [ändra storlek på den virtuella datorn](https://msdn.microsoft.com/library/dn168976.aspx).
 * Ta bort alla virtuella datorer från Molntjänsten och skapa virtuella datorer.<br>
-    Klicka på **Bläddra igenom alla** > **virtuella datorer (klassisk)** > din virtuella dator > **ta bort**. Klicka på **ny** > **Compute** > [avbildning av virtuell dator].
+    Klicka på **Bläddra igenom alla** > **virtuella datorer (klassisk)** > din virtuella dator > **ta bort**. Klicka på **skapar du en resurs** > **Compute** > [avbildning av virtuell dator].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Felsöka vanliga Tilldelningsfel i Azure Resource Manager-distributionsmodellen
 Dessa steg hjälper dig att lösa många buffertallokeringsfel på virtuella datorer:
@@ -70,7 +70,7 @@ Om felet GeneralError *, är det troligt att typ av resurs (till exempel en viss
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allokering av scenario: starta om delvis stoppats (frigjorts) virtuella datorer
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till klustret fästning**
 
@@ -86,7 +86,7 @@ Om det går att använda en annan VIP, ta bort de stoppats (frigjorts) virtuella
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Allokering av scenario: starta om fullständigt stoppats (frigjorts) virtuella datorer
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till klustret fästning**
 
@@ -166,7 +166,7 @@ Om felet GeneralError *, är det troligt att typ av resurs (till exempel en viss
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allokering av scenario: starta om delvis stoppats (frigjorts) virtuella datorer
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till klustret fästning**
 
@@ -179,7 +179,7 @@ Stoppa alla virtuella datorer i tillgänglighetsuppsättning innan du startar om
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Allokering av scenario: starta om fullständigt stoppats (frigjorts)
 **Fel**
 
-GeneralError *
+GeneralError*
 
 **Orsaken till klustret fästning**
 

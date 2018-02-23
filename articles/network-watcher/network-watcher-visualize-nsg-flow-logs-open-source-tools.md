@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8b313b68be07da1a943748d21da68c169980cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG flödet loggar med öppen källkod verktyg
 
@@ -46,7 +46,7 @@ Genom att ansluta NSG flödet loggar med elastisk Stack kan skapa vi en instrume
 1. Elastisk stacken version 5.0 och senare kräver Java 8. Kör kommandot `java -version` att kontrollera din version. Om du inte har java installera, finns i dokumentationen till på [Oracles webbplats](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Hämta rätt binära paket för ditt system:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ Genom att ansluta NSG flödet loggar med elastisk Stack kan skapa vi en instrume
 
 1. Kontrollera att Elasticsearch körs med kommandot:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Du bör se ett svar som liknar detta:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Ytterligare information om installation elastisk Sök hänvisar till sidan [Inst
 
 1. Installera Logstash kör följande kommandon:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Nästa måste vi du konfigurera Logstash för åtkomst och parsa flödet loggarna. Skapa filen logstash.conf med:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -103,7 +103,7 @@ input {
          storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
          container => "insights-logs-networksecuritygroupflowevent"
          codec => "json"
-         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
          # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
          file_head_bytes => 12
          file_tail_bytes => 2
@@ -162,13 +162,13 @@ Ytterligare instruktioner om hur du installerar Logstash finns i den [officiella
 
 Den här Logstash plugin-program kan du få direkt åtkomst till flödet loggar från deras avsedda storage-konto. Om du vill installera den här plugin-programmet kör från Standardinstallationskatalogen Logstash (i det här fallet /usr/share/logstash/bin) du kommandot:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Om du vill starta Logstash köra kommandot:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Mer information om den här plugin-program finns i dokumentationen [här](https:
 
 1. Kör följande kommandon för att installera Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Om du vill köra Använd Kibana kommandon:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Om du vill visa dina Kibana webbgränssnitt, gå till`http://localhost:5601`
+1. Om du vill visa dina Kibana webbgränssnitt, gå till `http://localhost:5601`
 1. I det här scenariot är index mönstret som används för flödet loggar ”nsg-flöde-logs”. Du kan ändra indexet mönster i avsnittet ”utdata” i filen logstash.conf.
 
 1. Om du vill visa infopanelen Kibana via fjärranslutning, skapar du en inkommande NSG regel för att tillåta åtkomst till **port 5601**.
@@ -237,7 +237,7 @@ I exemplet på instrumentpanel innehåller flera visualiseringar flödet loggar:
 
 Med hjälp av fältet fråga överst på instrumentpanelen kan du filtrera ned instrumentpanelen med någon parameter av flöden, till exempel prenumerations-ID, resursgrupper, regel eller alla andra variabler av intresse. Mer information om Kibanas frågor och filter som avser den [officiella dokumentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Genom att kombinera Nätverkssäkerhetsgruppen flöde loggar med elastisk Stack, har vi kom fram till kraftfulla och anpassningsbara sätt att visualisera våra nätverkstrafik. Instrumentpanelerna kan du snabbt få och dela information om nätverkstrafik samt filter ned och undersöka på alla potentiella avvikelser. Med Kibana kan du anpassa instrumentpanelerna och skapa specifika grafik som uppfyller behoven för alla säkerhets-, gransknings- och kompatibilitet.
 

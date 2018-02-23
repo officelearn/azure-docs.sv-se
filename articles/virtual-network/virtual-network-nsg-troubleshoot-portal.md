@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Felsöka Nätverkssäkerhetsgrupper i Azure Portal
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Utför följande steg för att felsöka NSG: er för en virtuell dator:
 Du kan visa en fullständig lista över giltiga säkerhetsregler på ett nätverkskort från Virtuellt datorn. Du kan också lägga till, ändra och ta bort både nätverkskort och undernät NSG-regler från bladet effektiva regler om du har behörighet att utföra dessa åtgärder.
 
 1. Logga in på Azure-portalen på https://portal.azure.com med ett Azure-konto. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Klicka på **fler tjänster**, klicka på **virtuella datorer** som visas i listan.
+2. Klicka på **alla tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad. 
    
@@ -96,7 +96,7 @@ Du kan visa en fullständig lista över giltiga säkerhetsregler på ett nätver
 Om din VM trafikflöde påverkas för ett specifikt nätverkskort visa du en fullständig lista över gällande regler till nätverkskortet i nätverket gränssnitt kontexten genom att utföra följande steg:
 
 1. Logga in på Azure-portalen på https://portal.azure.com.
-2. Klicka på **fler tjänster**, klicka på **nätverksgränssnitt** som visas i listan.
+2. Klicka på **alla tjänster**, klicka på **nätverksgränssnitt** som visas i listan.
 3. Välj ett nätverksgränssnitt. I följande bild, ett nätverkskort med namnet *VM1 NIC1* är markerad.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ Om din VM trafikflöde påverkas för ett specifikt nätverkskort visa du en ful
 När du ändrar NSG-regler kan du vill granska effekten av de regler som läggs till på en viss virtuell dator. Du kan visa en fullständig lista över giltiga säkerhetsregler för alla nätverkskort som en given NSG tillämpas på, utan att växla kontext än det angivna NSG-bladet. Utför följande steg för att felsöka effektiva regler inom en NSG:
 
 1. Logga in på Azure-portalen på https://portal.azure.com.
-2. Klicka på **fler tjänster**, klicka på **Nätverkssäkerhetsgrupper** som visas i listan.
+2. Klicka på **alla tjänster**, klicka på **Nätverkssäkerhetsgrupper** som visas i listan.
 3. Välj en NSG. I följande bild, har en NSG som heter VM1 nsg valts.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

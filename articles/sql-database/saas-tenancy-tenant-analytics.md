@@ -1,5 +1,5 @@
 ---
-title: "Kör analytics frågor mot databaser | Microsoft Docs"
+title: "Kör mellan klient analytics med hjälp av data som extraheras | Microsoft Docs"
 description: "Mellan klient analytics-frågor med data som hämtats från flera databaser i Azure SQL Database."
 keywords: sql database tutorial
 services: sql-database
@@ -15,19 +15,19 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
-I den här kursen går igenom ett scenario med fullständig analytics. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som hämtats från databasen för varje klient kan använda du analytics och få insikter om klient beteende, inklusive deras användning av exempel Wingtip biljetter SaaS-program. Det här scenariot omfattar tre steg: 
+I den här kursen går igenom ett scenario med fullständig analytics. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som hämtats från databasen för varje klient kan använda du analytics och få insikter om klient beteende och program. Det här scenariot omfattar tre steg: 
 
-1.  **Extrahera data** från varje klient-databas till en butik analytics.
-2.  **Optimera extraherade data** för analytics-bearbetning.
-3.  Använd **Business Intelligence** verktyg för att rita ut användbar information som hjälper beslutsfattande. 
+1.  **Extrahera** data från varje klient-databasen och **belastningen** till en analytics-arkivet.
+2.  **Transformera data som extraheras** för analytics-bearbetning.
+3.  Använd **business intelligence** verktyg för att rita ut användbar information som hjälper beslutsfattande. 
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -42,33 +42,32 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Offline klient analytics mönster
 
-SaaS-program som du utvecklar har åtkomst till en mängd klientdata som lagras i molnet. Data innehåller en omfattande källa för insikter om drift och användning av programmet och beteendet för klienterna. Dessa insights hjälper funktionen utveckling, användbarhet förbättringar och andra investeringar i appen och plattform.
+Flera innehavare SaaS-program har vanligtvis mängder med klientdata som lagras i molnet. Dessa data innehåller en omfattande källa för insikter om åtgärden och användningen av ditt program och beteendet för dina klienter. Dessa insights hjälper funktionen utveckling, användbarhet förbättringar och andra investeringar i appen och plattform.
 
-Det är enkelt att komma åt data för alla klienter när alla data i en databas för flera innehavare. Men åtkomst är mer komplexa distribuerade i större skala över tusentals databaser. Ett sätt att Undvik komplexitet är att extrahera data till en analytics-databas eller ett datalager. Du kan sedan fråga arkivet analytics för att samla in information från biljetter data för alla klienter.
+Det är enkelt att komma åt data för alla klienter när alla data i en databas för flera innehavare. Men åtkomst är mer komplexa distribuerade i större skala över tusentals databaser. Ett sätt att Undvik komplexitet och för att minimera effekten av analytics frågor om transaktionsdata är att extrahera data till ett syfte som utformats för analytics-databasen eller data warehouse.
 
-Den här kursen behandlas en fullständig analytics scenario för det här exempelprogrammet för SaaS. Första, elastisk jobb används för att schemalägga extrahering av data från databasen för varje klient. Informationen som skickas till en butik analytics. Arkivet analytics kan antingen vara en SQL-databas eller ett SQL Data Warehouse. För stora data extrahering [Azure Data Factory](../data-factory/introduction.md) är commended.
+Den här kursen behandlas en fullständig analytics scenario för Wingtip biljetter SaaS-program. Första, *elastiska jobb* används för att extrahera data från varje klient-databas och läsa in det i mellanlagringstabellerna i en butik analytics. Arkivet analytics kan antingen vara en SQL-databas eller ett SQL Data Warehouse. För stora data extrahering [Azure Data Factory](../data-factory/introduction.md) rekommenderas.
 
-Därefter sammanställda data förstörs till en uppsättning [star-schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central faktatabell plus relaterade dimensionstabeller:
+Därefter sammanställda data omvandlas till en uppsättning [star-schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central faktatabell plus relaterade dimensionstabeller.  För Wingtip biljetter:
 
 - Central faktatabell i stjärnan-schemat innehåller biljett data.
-- Dimensionstabellerna innehåller data om handelsplatser, händelser, kunder och köpa datum.
+- Dimensionstabellerna beskriver handelsplatser, händelser, kunder och köpa datum.
 
-Tillsammans central och tabeller aktivera effektivt analytiska dimensionsbearbetning. Star-schema som används i den här självstudiekursen visas i följande bild:
+Central fakta- och dimensionstabeller tabellerna aktivera tillsammans effektivt analytisk bearbetning. Star-schema som används i den här självstudiekursen visas i följande bild:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Slutligen tillfrågas tabellerna star-schema. Resultatet av frågan visas visuellt för att fokusera på insikter om klient beteende och deras användning av programmet. Med det här star schemat kan du köra frågor som hjälp att identifiera objekt som liknar följande:
+Slutligen arkivet analytics efterfrågas med **PowerBI** om du vill markera insikter om klient beteende och deras användning av programmet Wingtip biljetter. Du kör frågor som:
+ 
+- Visa relativa popularitet för varje plats
+- Markera mönster i biljett sales för olika händelser
+- Visa relativa genomförandet av olika handelsplatser säljer ut sina händelse
 
-- Vem köpa biljetter och från vilken plats.
-- Dolda mönster och trender inom följande områden:
-    - Försäljningen av biljetter.
-    - Den relativa populariteten för varje plats.
-
-Förstå hur konsekvent varje klient använder tjänsten ger en möjlighet att skapa serviceplaner för att tillgodose deras behov. Den här kursen ger grundläggande exempel på insikter som kan vara uppnår från innehavaren data.
+Förstå hur varje klient använder tjänsten används för att utforska alternativ för monetizing tjänsten och förbättra tjänsten för att klienter ska lyckas bättre. Den här kursen ger grundläggande exempel på typerna av insikter som kan vara uppnår från innehavaren data.
 
 ## <a name="setup"></a>Konfiguration
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -76,7 +75,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 - Wingtip biljetter SaaS databas Per klient skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) laddas ned från GitHub. Se Hämta instruktioner. Se till att *avblockera zip-filen* innan du extraherar innehållet. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 - Power BI Desktop har installerats. [Hämta Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - I gruppen med ytterligare klienter har etablerats, finns det [ **etablera hyresgäster kursen**](saas-dbpertenant-provision-and-catalog.md).
-- Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Skapa data för demonstrationen
 

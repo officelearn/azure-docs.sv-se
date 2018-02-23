@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Konfigurera användaretablering till ett program för Azure AD-galleriet
 
@@ -31,7 +31,7 @@ I Azure-portalen på **etablering** fliken i det vänstra navigeringsfönstret f
 
 Om manuell är det enda läge som visas för ett visst program, innebär det att ingen automatisk Azure AD connector-etablering har skapats för appen ännu. Eller det innebär att appen inte har stöd för förutvärdering användaren management API som du vill skapa en automatisk etablering koppling.
 
-Om du vill begära stöd för automatisk etablering för en viss app kan du fylla i en begäran i <http://aka.ms/aadapprequest>.
+Om du vill begära stöd för automatisk etablering för en viss app kan du fylla i en begäran med hjälp av den [Azure Active Directory-programförfrågningar](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Konfigurera ett program för automatisk etablering
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM produkter eller tjänster och IT Service Management-koppling (ITSMC) i logganalys centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ Följande avsnitt innehåller information om hur du ansluter ServiceNow-produkte
 ### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: Djakarta, Istanbul, Helsingfors, Geneva
+- ServiceNow-versioner som stöds: Kingston, Djakarta, Istanbul, Helsingfors, Geneva.
 
 **ServiceNow Admins måste göra följande i sina instansen av ServiceNow**:
 - Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och Hemlig, finns följande information som krävs:
 
+    - [Konfigurera OAuth för Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [Konfigurera OAuth för Djakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Helsingfors](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Se till att följande krav är uppfyllda:
 - Installera appen användaren för Microsoft OMS-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Skapa integration användarroll för användaren appen är installerad. Information om hur du skapar användarrollen integration [här](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Proceduren för anslutning**
+### <a name="connection-procedure"></a>Proceduren för anslutning
 Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 

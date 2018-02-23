@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -rotation från slutpunkt till slutpunkt
 ## <a name="introduction"></a>Introduktion
@@ -255,12 +255,12 @@ Nästa steg är att [skapa en Azure Service Bus-kö](../service-bus-messaging/se
 
 1. Skapa en Service Bus-namnrymd (om du redan har en som du vill använda för detta, hoppar du till steg 2).
 2. Bläddra till service bus i Azure-portalen och markera det namnområde som du vill skapa kön i.
-3. Välj **ny** och välj **Service Bus > kön** och ange nödvändig information.
+3. Välj **skapar du en resurs**, **Enterprise Integration**, **Service Bus**, och ange nödvändig information.
 4. Välj information för Service Bus-anslutning genom att välja namnområdet och klicka på **anslutningsinformationen**. Du behöver den här informationen för nästa avsnitt.
 
 Nästa [skapa en Azure-funktion](../azure-functions/functions-create-first-azure-function.md) att avsöka nyckelvalv loggar i lagringskontot och hämta nya händelser. Det här är en funktion som utlöses enligt ett schema.
 
-Om du vill skapa en Azure-funktion, Välj **New > Funktionsapp** i Azure-portalen. Du kan använda en befintlig värd plan eller skapa en ny vid skapandet. Du kan också välja dynamisk värd. Mer information om funktionen som värd för alternativ finns på [så här skalar du Azure Functions](../azure-functions/functions-scale.md).
+Om du vill skapa en Azure-funktion, Välj **skapar du en resurs**, söka marketplace för _Funktionsapp_, och klicka på **skapa**. Du kan använda en befintlig värd plan eller skapa en ny vid skapandet. Du kan också välja dynamisk värd. Mer information om funktionen som värd för alternativ finns på [så här skalar du Azure Functions](../azure-functions/functions-scale.md).
 
 När funktionen Azure skapas, navigera till den och väljer en timer funktionen och C\#. Klicka på **skapa den här funktionen**.
 

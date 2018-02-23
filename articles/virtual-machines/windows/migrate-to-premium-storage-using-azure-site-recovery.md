@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 325ddb640e0cc10ae242e0a4ce2cc0d042dad320
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium-lagring med hjälp av Azure Site Recovery
 
@@ -80,7 +80,7 @@ Du kan använda Site Recovery för att migrera Azure IaaS-VM mellan regioner ell
 ### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: Skapa ett Recovery Services-valv
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **nya** > **Management** > **säkerhetskopiering** och **Site Recovery (OMS)**. Du kan också välja **Bläddra** > **Återställningstjänstvalvet** > **Lägg till**. 
+2. Välj **skapar du en resurs** > **Management** > **säkerhetskopiering** och **Site Recovery (OMS)**. Du kan också välja **Bläddra** > **Återställningstjänstvalvet** > **Lägg till**. 
 3. Ange en region som virtuella datorer kommer att replikeras till. Välj den region där din virtuella källdatorer och källa storage-konton är för migrering i samma region. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välja skyddsmål 

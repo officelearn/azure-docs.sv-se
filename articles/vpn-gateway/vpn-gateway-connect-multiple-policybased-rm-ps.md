@@ -1,6 +1,6 @@
 ---
 title: 'Anslut Azure VPN-gatewayer till flera lokala principbaserad VPN-enheter: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: "Den här artikeln beskriver hur du konfigurerar Azure ruttbaserad VPN-gateway för flera principbaserad VPN-enheter med Azure Resource Manager och PowerShell."
+description: "Konfigurera en Azure ruttbaserad VPN-gateway för flera principbaserad VPN-enheter med Azure Resource Manager och PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2017
+ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell
 
@@ -45,9 +45,9 @@ Azure stöder för närvarande, båda lägena för VPN-gatewayer: ruttbaserad VP
 
 |                          | **PolicyBased VPN-Gateway** | **RouteBased VPN-Gateway**               |
 | ---                      | ---                         | ---                                      |
-| **Azure Gateway-SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE-version**          | IKEv1                       | IKEv2                                    |
-| **Max. S2S-anslutningar** | **1**                       | Basic-standarden: 10<br> HighPerformance: 30 |
+| **Max. S2S-anslutningar** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
 
 Med den anpassade IPsec/IKE-principen, kan du nu konfigurera Azure ruttbaserad VPN-gatewayer för att använda prefix-baserad trafik väljare med alternativet ”**PolicyBasedTrafficSelectors**”, för att ansluta till lokal policy-baserad VPN-enheter. Den här funktionen kan du ansluta från Azure-nätverk och VPN-gateway till flera lokala principbaserad VPN-brandväggen enheter, ta bort den enda anslutningsgränsen från de aktuella Azure principbaserade VPN-gatewayerna.
@@ -67,7 +67,7 @@ I diagrammet visas har Azure VPN-gatewayen trafik väljare från det virtuella n
 
 Det här exemplet följer du anvisningarna i den här artikeln som beskrivs i [konfigurera IPsec/IKE-principen för S2S eller VNet-till-VNet-anslutningar](vpn-gateway-ipsecikepolicy-rm-powershell.md) att upprätta en S2S VPN-anslutning. Detta visas i följande diagram:
 
-![s2s-princip](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 Arbetsflödet för att aktivera den här anslutningen:
 1. Skapa virtuella nätverk, VPN-gateway och lokal nätverksgateway för anslutningen mellan platser
@@ -146,7 +146,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Du måste skapa en IPsec/IKE-princip för att aktivera alternativet ”UsePolicyBasedTrafficSelectors” på anslutningen.
 
 I följande exempel skapar en IPsec/IKE-princip med dessa algoritmer och parametrar:
-* IKEv2: AES256, SHA384 DHGroup24
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24 SA livstid 3600 sekunder & 2048KB
 
 ```powershell

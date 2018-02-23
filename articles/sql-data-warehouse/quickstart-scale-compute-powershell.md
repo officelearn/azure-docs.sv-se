@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: ff6c14ced42385d81f3c42b4b4bf1fd06464c0d1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala compute i Azure SQL Data Warehouse i PowerShell
 
-Skala bearbetning i Azure SQL Data Warehouse i PowerShell. Skala ut beräkning för bättre prestanda eller skala beräkna tillbaka om du vill spara kostnader. 
+Skala bearbetning i Azure SQL Data Warehouse i PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) tillbaka beräkning för att spara kostnader för bättre prestanda eller skalning. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -67,7 +67,7 @@ Följ dessa steg för att hitta platsen för ditt informationslager.
 4. Skriv ned namnet på datalager som ska användas som databasnamn på. Även Skriv ned namnet på servern och resursgruppen. Du använder dem i pausen och återuppta kommandon.
 5. Om din server är foo.database.windows.net Använd bara den första delen som servernamn i PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver 20171113.database.windows.net. Vi använder **newserver 20171113** som servernamn i PowerShell-cmdleten.
 
-## <a name="scale-compute"></a>Skala bearbetning
+## <a name="scale-compute"></a>Skala beräkning
 
 Du kan öka eller minska beräkningsresurser genom att justera informationslagerenheter i SQL Data Warehouse. Den [skapa och Connect - portal](create-data-warehouse-portal.md) skapade **mySampleDataWarehouse** och initieras med 400 dwu: er. Följande steg justera dwu: er för **mySampleDataWarehouse**.
 

@@ -1,10 +1,13 @@
 | **Resurs** | **Standardgräns** | **Övre gräns** |
 | --- | --- | --- |
-| Batch-konton per region per prenumeration | 3 |50 |
-| Dedikerad kärnor per Batch-kontot | 20 | N/A<sup>1</sup> |
-| Låg prioritet kärnor per Batch-kontot | 20 | EJ TILLÄMPLIGT<sup>2</sup> |
-| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-kontot | 20 | 5000<sup>4</sup> |
-| Pooler per Batch-konto | 20 | 2500 |
+| Batch-konton per region per prenumeration | 1 - 3 |50 |
+| Dedikerad kärnor per Batch-kontot | 10 - 100 | N/A<sup>1</sup> |
+| Låg prioritet kärnor per Batch-kontot | 10 - 100 | EJ TILLÄMPLIGT<sup>2</sup> |
+| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-kontot | 20 - 100 | 5000<sup>4</sup> |
+| Pooler per Batch-konto | 20 - 100 | 2500 |
+
+> [!NOTE]
+> Standardgränser varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnor kvoter som visas är för Batch-konton i batchläge för tjänsten.
 
 <sup>1</sup> kan du öka antalet dedicerade kärnor per Batch-kontot, men det maximala antalet är okänt. Kontakta Azure-supporten att diskutera öka alternativ.
 

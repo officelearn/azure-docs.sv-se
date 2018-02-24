@@ -4,13 +4,13 @@ description: "En översikt över assessment beräkningar i tjänsten Azure migre
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -35,7 +35,7 @@ Om du vill använda beroende visualiseringen måste hämta och installera agente
 
 ## <a name="do-i-need-to-pay-for-it"></a>Behöver jag betala för den?
 
-Ja. Logganalys-arbetsytan skapas som standard, men det inte används om du inte använder beroende visualisering i Azure migrera. Om du använder beroende visualiseringen (eller Använd arbetsytan utanför Azure migrera), debiteras du för användning i arbetsytan.  [Lär dig mer](https://azure.microsoft.com/pricing/details/insight-analytics/) om prissättningen för Tjänstkarta lösning. 
+Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hur hanterar arbetsytan?
 

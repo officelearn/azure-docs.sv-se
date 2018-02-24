@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -75,8 +75,8 @@ I följande tabell är en referens för andra dataformat stöder API: er.
 
 API | Standardformatet för Data | Andra format
 --------|---------------------|--------------
-/Instance | JSON | Text
-/scheduledevents | JSON | ingen
+/Instance | json | Text
+/scheduledevents | json | ingen
 
 Ange det begärda formatet som en querystring-parameter i begäran för att komma åt en icke-förvalt svarsformat. Exempel:
 
@@ -302,7 +302,7 @@ subnet/address | Undernätsadress av den virtuella datorn | 2017-04-02
 subnet/prefix | Undernätets prefix, exempel 24 | 2017-04-02 
 ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
 macAddress | VM mac-adress | 2017-04-02 
-scheduledevents | För närvarande i förhandsversion. Se [schemalagda händelser](scheduled-events.md) | 2017-03-01
+scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Exempelscenarier för användning  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [schemalagda händelser](scheduled-events.md) API **som förhandsversion** som tillhandahålls av tjänsten för instansen Metadata.
+- Lär dig mer om [schemalagda händelser](scheduled-events.md)

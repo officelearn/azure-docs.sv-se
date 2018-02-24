@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning experiment Service configuration-filer
 
@@ -36,7 +36,7 @@ Den här filen är en [conda miljö filen](https://conda.io/docs/using/envs.html
 
 Ange Python-paket som behöver för ditt skript för körning i den här filen. Azure ML experiment tjänsten skapar conda miljön i Docker-avbildningen enligt din lista över beroenden. Här listan paket måste kunna nås av motorn för körning. Därför måste paket som ska visas i kanaler:
 
-* [continuum.IO](https://anaconda.org/conda-forge/repo)
+* [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
 * en offentligt tillgänglig slutpunkt (URL)
 * eller en lokal filsökväg
@@ -128,8 +128,8 @@ Detta kommando skapar ett par filer baserat på den angivna beräkning måltypen
 _\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfiguration för beräknings-målet. Det är en lista över namn / värde-par. Följande är inställningarna som stöds.
 
 **typen**: typ av beräknings-miljö. Värden som stöds är:
-  - lokala
-  - Docker
+  - lokal
+  - docker
   - remotedocker
   - kluster
 
@@ -143,7 +143,7 @@ _\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfi
 
 **sharedVolumes**: flagga för att signalera att motorn för körning ska använda Docker delad volym funktionen att leverera projektfiler fram och tillbaka. Med den här flaggan aktiverat kan snabba upp körningen eftersom Docker kan komma åt projekt direkt utan att behöva kopiera dem. Det är bäst att ange _FALSKT_ om Docker-motorn körs på Windows eftersom volymen delning för Docker i Windows kan vara flaky. Ange det till _SANT_ om den körs på macOS- eller Linux.
 
-**nvidiaDocker**: den här flaggan när _SANT_, talar om tjänsten Azure ML försök att använda _nvidia docker_ kommandot, till skillnad från vanliga _docker_ kommandot för att starta Docker-bild. Den _nvidia docker_ motorn kan dockerbehållare åtkomst GPU maskinvara. Inställningen är obligatorisk om du vill köra GPU Docker-behållare. Har stöd för Linux-värd _nvidia docker_. Till exempel Linux-baserade DSVM i Azure levereras med _nvidia docker_. _NVIDIA docker_ från och med nu stöds inte i Windows.
+**nvidiaDocker**: den här flaggan när _SANT_, talar om tjänsten Azure ML försök att använda _nvidia docker_ kommandot, till skillnad från vanliga _docker_kommandot för att starta Docker-bild. Den _nvidia docker_ motorn kan dockerbehållare åtkomst GPU maskinvara. Inställningen är obligatorisk om du vill köra GPU Docker-behållare. Har stöd för Linux-värd _nvidia docker_. Till exempel Linux-baserade DSVM i Azure levereras med _nvidia docker_. _NVIDIA docker_ från och med nu stöds inte i Windows.
 
 **nativeSharedDirectory**: den här egenskapen anger baskatalogen (till exempel: _~/.azureml/share/_) där filer kan sparas för att delas mellan körs på samma mål för beräkning. Om den här inställningen används när körs på en dockerbehållare med _sharedVolumes_ måste anges till true. Annars misslyckas körning.
 
@@ -166,8 +166,8 @@ _”az ml experiment skicka foo.runconfig”_ automatiskt kör kommandot med _my
 **Miljövariabler**: det här avsnittet kan du ange miljövariabler som en del av deras körs. Användaren kan ange miljövariablerna med hjälp av namn / värde-par i följande format:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 De här miljövariablerna kan nås i användarens kod. Till exempel skrivs phyton koden miljövariabel som heter ”EXAMPLE_ENV_VAR”

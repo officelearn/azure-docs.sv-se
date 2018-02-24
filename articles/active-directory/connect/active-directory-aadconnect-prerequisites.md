@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect.
@@ -61,7 +61,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (enkel version av SQL Server Express) installeras som standard. SQL Server Express har en 10GB storleksgräns som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt måste du peka installationsguiden till en annan installation av SQL Server.
 * Om du använder en separat SQL Server, gäller dessa krav:
-  * Azure AD Connect har stöd för alla varianter av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2016 SP1. Microsoft Azure SQL Database är **stöds inte** som en-databas.
+  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2016 SP1. Microsoft Azure SQL Database är **stöds inte** som en-databas.
   * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering som identifieras av \_CS_ i sina namn.
   * Du kan bara ha en Synkroniseringsmotorn per SQL-instans. Det är **stöds inte** att dela en SQL-instans med FIM/MIM-synkronisering, DirSync eller Azure AD Sync.
 
@@ -149,13 +149,13 @@ Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för a
 När du använder Azure AD Connect för att distribuera Active Directory Federation Services eller Web Application Proxy, kontrollera dessa krav:
 
 * Om målservern är ansluten till en domän, kontrollera att Windows Remote hanteras är aktiverad
-  * I ett upphöjt PSH kommando-fönster kommandot`Enable-PSRemoting –force`
+  * I ett upphöjt PSH kommando-fönster kommandot `Enable-PSRemoting –force`
 * Om målservern är en icke-domänanslutna WAP-dator och det finns ett antal ytterligare krav
   * På måldatorn (WAP-dator):
     * Kontrollera att winrm (Windows Remote Management / WS-Management) tjänsten körs via snapin-modulen tjänster
-    * I ett upphöjt PSH kommando-fönster kommandot`Enable-PSRemoting –force`
+    * I ett upphöjt PSH kommando-fönster kommandot `Enable-PSRemoting –force`
   * På den dator där guiden körs (om måldatorn är icke-domän domänansluten eller ej betrodd domän):
-    * Använd kommandot i ett upphöjt PSH kommando-fönster`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * Använd kommandot i ett upphöjt PSH kommando-fönster `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * I Serverhanteraren:
       * Lägg till en värd i Perimeternätverket WAP datorpool (Serverhanteraren -> Hantera -> Lägg till servrar... Använd fliken DNS)
       * Fliken Serverhanteraren alla servrar: Högerklicka på server för WAP och välj Hantera som..., ange inloggningsuppgifter för lokala (inte domän) för WAP-dator

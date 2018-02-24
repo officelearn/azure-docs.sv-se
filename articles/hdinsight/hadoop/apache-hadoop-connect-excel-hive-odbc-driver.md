@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
@@ -46,7 +46,7 @@ Innan du börjar den här artikeln, måste du ha följande:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installera Microsoft Hive ODBC-drivrutin
 Hämta och installera Microsoft Hive ODBC-drivrutinen från den [Download Center][hive-odbc-driver-download].
 
-Den här drivrutinen kan installeras på 32-bitars eller 64-bitars versioner av Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 och Windows Server 2012. Drivrutinen tillåter anslutning till Azure HDInsight (version 1.6 och senare) och Azure HDInsight-emulatorn (v.1.0.0.0 och senare). Du kan installera den version som matchar versionen av programmet där du använder ODBC-drivrutinen. Den här självstudien används drivrutinen från Office Excel.
+Den här drivrutinen kan installeras på 32-bitars eller 64-bitars versioner av Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 och Windows Server 2012. Drivrutinen tillåter anslutning till Azure HDInsight. Du kan installera den version som matchar versionen av programmet där du använder ODBC-drivrutinen. Den här självstudien används drivrutinen från Office Excel.
 
 ## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
 Följande steg visar hur du skapar en Hive ODBC-datakällan.

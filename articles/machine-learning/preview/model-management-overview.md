@@ -3,18 +3,18 @@ title: "Översikt över Azure Machine Learning modellen Management | Microsoft D
 description: "Det här dokumentet beskriver begrepp för hantering av modellen för Azure Machine Learning."
 services: machine-learning
 author: nk773
-ms.author: neerajkh, padou
+ms.author: padou
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning-modellhantering
 

@@ -2,48 +2,32 @@
 title: "Konfigurera källmiljön (VMware till Azure) | Microsoft Docs"
 description: "Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikera virtuella VMware-datorer till Azure."
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/18/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ff927a4846ba63d3f00d0e81b8cb818af1441449
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Konfigurera källmiljön (VMware till Azure)
 > [!div class="op_single_selector"]
 > * [VMware till Azure](./site-recovery-set-up-vmware-to-azure.md)
 > * [Fysiska till Azure](./site-recovery-set-up-physical-to-azure.md)
 
-Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikering av virtuella datorer som körs på VMware till Azure.
+Den här artikeln beskriver hur du ställer in källfilerna lokala miljö att replikera virtuella datorer som körs på VMware till Azure. Den inkluderar steg för att välja replikering scenario kan ställa in en lokal dator som konfigurationsservern Site Recovery och automatiskt identifiera lokala virtuella datorer. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Artikeln förutsätter att du redan har skapat:
-- Recovery Services-ventilen i den [Azure-portalen](http://portal.azure.com "Azure-portalen").
-- Ett särskilt konto i din VMware vCenter som kan användas för [automatisk identifiering](./site-recovery-vmware-to-azure.md).
-- En virtuell dator som du vill installera konfigurationsservern.
+Artikeln förutsätter att du redan har:
+- [Ange resurser](tutorial-prepare-azure.md) i den [Azure-portalen](http://portal.azure.com).
+- [Konfigurera lokal VMware](tutorial-prepare-on-premises-vmware.md), inklusive ett särskilt konto för automatisk identifiering.
 
-## <a name="configuration-server-minimum-requirements"></a>Minimikrav för konfiguration av servern
-I följande tabell visar minimikrav för maskinvara, programvara och nätverkskraven för en konfigurationsserver.
 
-> [!IMPORTANT]
-> När du distribuerar en konfigurationsserver för att skydda virtuella VMware-datorer, rekommenderar vi att du distribuerar den som en **hög tillgänglighet (HA)** virtuella datorn.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> HTTPS-baserade proxyservrar stöds inte av konfigurationsservern.
 
 ## <a name="choose-your-protection-goals"></a>Välja skyddsmål
 
@@ -55,39 +39,21 @@ I följande tabell visar minimikrav för maskinvara, programvara och nätverkskr
 
     ![Välja mål](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
-Konfigurera källmiljön omfattar två huvudsakliga aktiviteter:
+## <a name="set-up-the-configuration-server"></a>Ställ in konfigurationsservern
 
-- Installera och registrera en konfigurationsserver med Site Recovery.
-- Identifiera dina lokala virtuella datorer genom att ansluta Site Recovery till din lokala VMware vCenter eller vSphere EXSi värdar.
+Du har skapat konfigurationsservern som en lokal VMware VM, använda en mall för Open Virtualization Format (OVF). [Lär dig mer](concepts-vmware-to-azure-architecture.md) om komponenter som ska installeras på VMware VM. 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>Steg 1: Installera och registrera en konfigurationsserver
+1. Lär dig mer om den [krav](how-to-deploy-configuration-server.md#prerequisites) för distribution av konfigurationsserver. [Kontrollera kapacitet siffror](how-to-deploy-configuration-server.md#capacity-planning) för distribution.
+2. [Hämta](how-to-deploy-configuration-server.md#download-the-template) och [importera](how-to-deploy-configuration-server.md#import-the-template-in-vmware) mallen OVF (how-till-distribuera-konfiguration – server.md) för att ställa in en lokal VMware virtuell dator som kör konfigurationsservern.
+3. Aktivera VM VMware och [registrera den](how-to-deploy-configuration-server.md#register-the-configuration-server) i Recovery Services-valvet.
 
-1. Klicka på **steg 1: förbereda infrastrukturen** > **källa**. I **Förbered källa**, om du inte har en konfigurationsservern och klicka på **+ konfigurationsservern** att lägga till ett.
 
-    ![Konfigurera källan](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. På den **Lägg till Server** bladet, kontrollera att **konfigurationsservern** visas i **servertyp**.
-4. Hämta installationsfilen för enhetlig installationsprogram för Site Recovery.
-5. Ladda ned valvregistreringsnyckeln. När du kör installationsprogrammet för enhetlig måste nyckeln för tjänstregistrering. Nyckeln är giltig i fem dagar efter att du har genererat den.
-
-    ![Konfigurera källan](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. På den dator som du använder som konfigurationsservern kör **Unified installationsprogram för Azure Site Recovery** att installera konfigurationsservern, processervern och huvudmålservern.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Kör Azure Site Recovery enhetlig installation
-
-> [!TIP]
-> Registrera för konfiguration av servern misslyckas om datorns system klocka skiljer sig från lokal tid med fler än fem minuter. Synkronisera systemklockan med en [tidsserver](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) innan du påbörjar installationen.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> Konfigurationsservern kan installeras via kommandoraden. Mer information finns i [installera konfigurationsservern med hjälp av kommandoradsverktyg](http://aka.ms/installconfigsrv).
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>Lägg till VMware-konto för automatisk identifiering
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>Lägg till VMware-konto för automatisk identifiering
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>Steg 2: Lägg till en vCenter
+## <a name="connect-to-the-vmware-server"></a>Ansluta till VMware-server
+
 Du måste ansluta VMware vCenter-servern eller vSphere ESXi-värdar med Site Recovery för att tillåta Azure Site Recovery att identifiera virtuella datorer som körs i din lokala miljö.
 
 Välj **+ vCenter** att starta ansluter en VMware vCenter-server eller en VMware vSphere ESXi-värd.

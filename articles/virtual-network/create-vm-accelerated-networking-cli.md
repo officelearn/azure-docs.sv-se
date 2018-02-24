@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -47,7 +47,7 @@ Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella d
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 * **Ubuntu 16.04**: 4.11.0-1013 eller större kernel-version
-* **SLES SP3**: 4.4.92-6.18 eller större kernel-version
+* **SLES 12 SP3**: 4.4.92-6.18 eller större kernel-version
 * **RHEL 7.4**: 7.4.2017120423 eller större kernel-version
 * **CentOS 7.4**: 7.4.20171206 eller större kernel-version
 
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Du måste välja en stöds Linux-region som anges i [Linux snabbare nätverk](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med ett undernät:
 
 ```azurecli
 az network vnet create \
@@ -117,7 +117,7 @@ az network nsg rule create \
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Skapa ett nätverksgränssnitt med snabbare nätverksfunktioner
 
-Skapa en offentlig IP-adress med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#az_network_public_ip_create). En offentlig IP-adress krävs inte om du inte åtkomst till den virtuella datorn från Internet, men för att slutföra stegen i den här artikeln, det är obligatoriskt.
+Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). En offentlig IP-adress krävs inte om du inte åtkomst till den virtuella datorn från Internet, men för att slutföra stegen i den här artikeln, det är obligatoriskt.
 
 ```azurecli
 az network public-ip create \

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 1e094c801ffc9bc51609d119b0e6ad80ff17a091
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använd interaktiva frågan med HDInsight
 Interaktiva fråga (kallas även Hive LLAP eller [Live långa och processen](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är en Azure HDInsight [kluster typen](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiva Query stöder cachelagra i minnet, vilket gör Hive-frågor snabbare och mycket mer interaktiva.
@@ -41,7 +41,7 @@ Information om hur du skapar ett HDInsight-kluster finns i [skapa Hadoop-kluster
 ## <a name="execute-hive-queries-from-interactive-query"></a>Köra Hive-frågor från interaktiva fråga
 Om du vill köra Hive-frågor, har du följande alternativ:
 
-* Använda Powerbi
+* Use Power BI
 
     Se [visualisera interaktiva frågan som Hive data med Power BI i Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) finns [visualisera stora data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
  
@@ -74,7 +74,7 @@ Hitta anslutningssträngen anslutningen JDBC (Java Database):
 2. Välj i den vänstra menyn **Hive**.
 3. Välj ikonen Urklipp för att kopiera URL-Adressen:
    
-   ![HDInsight Hadoop interaktiva frågan LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,18 +4,18 @@ description: "Azure Machine Learning modellen Management kommandoradsgränssnitt
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 219c61d1842369caadaf8e85dcb039242c37ef6c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referens för modellen management-kommandoradsgränssnittet
 
@@ -70,7 +70,7 @@ Lokala argument:
 
 **Konfigurera en miljö för distribution**
 
-Installationskommandot måste du ha deltagare åtkomst till prenumerationen. Om du inte har som behöver du minst deltagare åtkomst till den resursgrupp som du distribuerar till. Om du vill göra det senare, måste du ange resursgruppens namn som en del av installationen kommando med `-g` flaggan. 
+Installationskommandot måste du ha deltagare åtkomst till prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
 
 Det finns två alternativ för distributionen: *lokala* och *klustret*. Ange den `--cluster` (eller `-c`) flaggan gör Klusterdistribution som etablerar en ACS-kluster. Grundläggande inställningar syntax är följande:
 
@@ -110,7 +110,7 @@ Globala argument
     register
     show
 
-**Registrera en modell**
+Registrera en modell
 
 Kommandot för att registrera modellen.
 

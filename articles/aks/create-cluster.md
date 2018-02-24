@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3e884bc16680d74801911547045deb48246afccd
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-an-azure-container-service-aks-cluster"></a>Skapa ett kluster med Azure Container Service (AKS)
 
@@ -21,7 +21,7 @@ Ett Azure Container Service (AKS)-kluster kan skapas med Azure CLI eller Azure-p
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Använd den [az aks skapa] [ az-aks-create] kommando för att ta bort AKS-klustret.
+Använd den [az aks skapa] [ az-aks-create] kommando för att skapa klustret AKS.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster

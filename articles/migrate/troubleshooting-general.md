@@ -4,17 +4,17 @@ description: "En översikt över kända problem i tjänsten Azure migrera och fe
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
-## <a name="troubleshoot-common-errors"></a>Felsök vanliga fel
+## <a name="troubleshoot-common-errors"></a>Felsöka vanliga fel
 
 [Azure migrera](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Använd den här artikeln för att felsöka problem när du distribuerar och använder Azure migrera.
 
@@ -24,14 +24,14 @@ ms.lasthandoff: 12/12/2017
 Detta kan inträffa när den datorn som du använder är bakom en proxyserver. Kontrollera att du anger autentiseringsuppgifterna om proxyn måste en.
 Om du använder alla URL-baserade brandväggen proxy för att styra utgående anslutning, att kontrollera listan över godkända följande obligatoriska URL: er:
 
-**URL: EN** | **Syfte**  
+**URL** | **Purpose**  
 --- | ---
-*. portal.azure.com | Krävs för att kontrollera anslutningen till Azure-tjänsten och validera tidssynkronisering utfärdar.
-*. oneget.org | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul.
+*.portal.azure.com | Krävs för att kontrollera anslutningen till Azure-tjänsten och validera tidssynkronisering utfärdar.
+*.oneget.org | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul.
 
 **Insamlaren kan inte ansluta till projektet med projekt-ID och nyckel I kopieras från portalen.**
 
-Kontrollera att du har kopieras och klistras in rätt information. Felsök genom att installera Microsoft Monitoring Agent (MMA) på följande sätt:
+Kontrollera att du har kopieras och klistras in rätt information. Om du vill felsöka, installera Microsoft Monitoring Agent (MMA) och kontrollera om MMA kan ansluta till projektet på följande sätt:
 
 1. På insamlaren VM, ladda ned den [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Dubbelklicka på den hämta filen om du vill starta installationen.
@@ -67,15 +67,15 @@ Om du vill aktivera insamling av prestandadata för disk- och ändra statistik i
 
 ## <a name="troubleshoot-readiness-issues"></a>Felsökning av beredskapsproblem med
 
-**Problemet** | **Åtgärda**
+**Problemet** | **Fix**
 --- | ---
-Start-typ som inte stöds | Ändra BIOS innan du kör en migrering.
-Diskantalet överskrider gränsen | Ta bort oanvända diskar på datorn innan migreringen.
-Diskens storlek överskrider gränsen | Komprimera diskar till mindre än 4 TB innan migreringen. 
-Disk som är tillgänglig på den angivna platsen | Kontrollera att disken är i din målplats innan du migrerar.
-Disken är inte tillgänglig för den angivna redundansen | Disken bör använda redundans lagringstyp som definierats i assessment-inställningar (LRS som standard).
-Kunde inte avgöra disk lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen. 
-Virtuell dator med nödvändiga kärnor och minne som inte hittades | Azure kunde inte finjustering lämplig VM typ. Minska minne och antalet kärnor på den lokala datorn innan du migrerar. 
+Starttypen stöds inte | Azure stöder inte virtuella datorer med EFI-start. Det rekommenderas att konvertera typen Start till BIOS innan du kör en migrering. <br/><br/>Du kan använda [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) att göra migreringen av dessa virtuella datorer som den konverterar typen Start av den virtuella datorn till BIOS under migreringen.
+Antalet diskar överskrider gränsen | Ta bort oanvända diskar på datorn innan migreringen.
+Diskstorleken överskrider gränsen | Azure har stöd för diskar med upp till storleken 4 TB. Komprimera diskar till mindre än 4 TB innan migreringen. 
+Disken är inte tillgänglig på den angivna platsen | Kontrollera att disken är i din målplats innan du migrerar.
+Disken är ej tillgänglig för den angivna redundansen | Disken bör använda redundans lagringstyp som definierats i assessment-inställningar (LRS som standard).
+Det gick inte att fastställa diskens lämplighet pga ett internt fel | Försök att skapa en ny utvärdering för gruppen. 
+Det gick inte att hitta någon virtuell dator med nödvändiga kärnor och minne | Azure kunde inte finjustering lämplig VM typ. Minska minne och antalet kärnor på den lokala datorn innan du migrerar. 
 En eller flera olämpliga diskar. | Se till att lokala diskar är 4 TB eller under innan du kör en migrering.
 En eller flera olämpliga nätverkskort. | Ta bort oanvända nätverkskort på datorn innan migreringen.
 Kunde inte fastställa VM lämplighet på grund av ett internt fel. | Försök att skapa en ny utvärdering för gruppen. 
@@ -83,12 +83,15 @@ Kunde inte fastställa lämplighet för ett eller flera diskar på grund av ett 
 Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel. | Försök att skapa en ny utvärdering för gruppen.
 VM hittades inte för den obligatoriska lagringsprestanda. | Lagringsprestanda (IOPS/dataflöde) krävs för datorn överskrider Virtuella Azure-supporten. Minska utrymmeskraven för datorn innan migreringen.
 VM hittades för obligatoriskt nätverkets prestanda. | Nätverkets prestanda (in/ut) krävs för datorn överskrider Virtuella Azure-supporten. Minska nätverkskrav för datorn. 
-VM hittades inte för den angivna prisnivån. | Kontrollera inställningarna för prisnivå nivå. 
+VM hittades inte i angivna prisnivå. | Överväg att downsizing den virtuella datorn innan du migrerar till Azure om prisnivån är Standard. Om sizing nivån Basic kan du ändra prisnivån för bedömningen till Standard. 
 VM hittades inte i den angivna platsen. | Använd en annan målplats innan migreringen.
-Problem med stöd för Operativsystemet Linux | Kontrollera att du arbetar med 64-bitars med dessa stöds [operativsystem](../virtual-machines/linux/endorsed-distros.md).
-Windows-Operativsystemet stöder problem | Kontrollera att du kör ett operativsystem som stöds. [Läs mer](concepts-assessment-calculation.md#azure-suitability-analysis)
-Okänd operativsystem. | Kontrollera att det operativsystem som anges i vCenter är korrekt och upprepa processen för identifiering.
-Kräver Visual Studio-prenumeration. | Windows-klientoperativsystem stöds bara på Visual Studio (MSDN)-prenumerationer.
+Okänd operativsystem | Operativsystemet på den virtuella datorn har angetts som ”annan” i vCenter-servern på grund av som Azure migrera inte kan identifiera Azure beredskap för den virtuella datorn. Kontrollera att Operativsystemet som körs på datorn är [stöds](https://aka.ms/azureoslist) av Azure innan du migrerar datorn.
+Villkorligt stödda Windows-operativsystem | Operativsystemet har passerat slutet av stöd för datum och behöver en anpassad stöder avtal (CSA) för [stöd i Azure](https://aka.ms/WSosstatement), bör du uppgradera Operativsystemet innan du migrerar till Azure.
+Stöds inte av Windows OS | Azure har endast stöd för [valt Windows OS-versioner](https://aka.ms/WSosstatement), bör du uppgradera Operativsystemet på datorn innan du migrerar till Azure. 
+Villkorligt godkända Operativsystemet Linux | Azure godkänner endast [valt Linux OS-versioner](../virtual-machines/linux/endorsed-distros.md), bör du uppgradera Operativsystemet på datorn innan du migrerar till Azure.
+Unendorsed Linux OS | Datorn kan starta i Azure, men ingen OS-support tillhandahålls av Azure bör du överväga att uppgradera Operativsystemet till en [godkända Linux-version](../virtual-machines/linux/endorsed-distros.md) innan du migrerar till Azure
+OS-bitar som inte stöds | Virtuella datorer med 32-bitars operativsystem kan starta i Azure, men det rekommenderas att uppgradera Operativsystemet på den virtuella datorn från 32-bitars till 64-bitars innan du migrerar till Azure.
+Kräver Visual Studio-prenumeration. | Datorerna har Operativsystemet som körs i den som en Windows-klient stöds bara i Visual Studio-prenumeration.
 
 
 ## <a name="collect-logs"></a>Samla in loggar

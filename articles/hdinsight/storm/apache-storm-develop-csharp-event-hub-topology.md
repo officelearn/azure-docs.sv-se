@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Storm på HDInsight (C#)
 
-Lär dig hur du arbetar med Azure Event Hubs från Apache Storm på HDInsight. Det här dokumentet använder en C# Storm-topologi för att läsa och skriva data från Evbent Hubs
+Lär dig hur du arbetar med Azure Event Hubs från Apache Storm på HDInsight. Det här dokumentet använder en C# Storm-topologi för att läsa och skriva data från Händelsehubbar
 
 > [!NOTE]
 > En Java-version av det här projektet finns [bearbeta händelser från Azure Event Hubs med Storm på HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ Stegen i det här dokumentet använder SCP.NET NuGet-paketet som gör det enkelt
 > När stegen i det här dokumentet är beroende av en Windows-utvecklingsmiljö med Visual Studio, skickas kompilerade projektet till ett Storm på HDInsight-kluster som använder Linux. Linux-baserade kluster som skapas efter den 28 oktober 2016 stöder endast SCP.NET topologier.
 
 HDInsight 3.4 och större användning Mono för att köra C#-topologier. Exemplet i det här dokumentet fungerar med HDInsight 3,6. Om du planerar att skapa egna .NET-lösningar för HDInsight, kontrollerar den [monoljud kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) dokument för potentiella inkompatibiliteter.
-
-> [!WARNING]
-> Om du får problem i bygget projekt som använder SCP.NET version 1.0.0.x, kontakta Microsoft support om du behöver hjälp.
 
 ### <a name="cluster-versioning"></a>Klustret versionshantering
 
@@ -114,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 Du kan hämta en fullständig version av projektet har skapats i den här kursen från [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Du behöver dock fortfarande ange konfigurationsinställningarna genom att följa stegen i den här självstudiekursen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En [Apache Storm på HDInsight-kluster av version 3.5 eller 3,6](apache-storm-tutorial-get-started-linux.md).
 
@@ -142,11 +140,11 @@ Skapa en katalog med namnet `eventhubspout`, och spara filen i katalogen.
 
 Händelsehubbar är datakällan för det här exemplet. Använd informationen i avsnittet ”Skapa en händelsehubb” i [Kom igång med Händelsehubbar](../../event-hubs/event-hubs-create.md).
 
-1. När händelsehubben har skapats kan visa den **EventHub** bladet i Azure portal och välj **principer för delad åtkomst**. Välj **+ Lägg till** att lägga till följande principer:
+1. När händelsehubben har skapats kan visa den **EventHub** inställningar i Azure portal och välj **principer för delad åtkomst**. Välj **+ Lägg till** att lägga till följande principer:
 
    | Namn | Behörigheter |
    | --- | --- |
-   | Skrivare |Skicka |
+   | författare |Skicka |
    | läsare |Lyssna |
 
     ![Skärmbild av dela access principer fönster](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)

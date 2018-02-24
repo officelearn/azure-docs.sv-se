@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens - IoT-hubb kvoter och begränsning
 
@@ -31,6 +31,8 @@ SKU: N avgör också bandbreddsbegränsning gränserna som IoT-hubb tillämpar p
 
 ## <a name="operation-throttles"></a>Åtgärden begränsningar
 Åtgärden begränsningar har begränsningar för hastighet som används i minuters intervall och är avsedda att förhindra missbruk. IoT-hubben försöker att undvika att fel när det är möjligt, men startar returnerar undantag om begränsningen överskrids för länge.
+
+Samtidigt, kan du öka kvoter eller begränsning gränser genom att öka antalet etablerade enheter i en IoT-hubb.
 
 I följande tabell visas de tvingande begränsas. Värden finns i en enskild hubb.
 
@@ -50,15 +52,11 @@ I följande tabell visas de tvingande begränsas. Värden finns i en enskild hub
 
 <sup>1</sup>begränsning mätaren storlek är 8 KB
 
-> [!IMPORTANT]
-> Den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* begränsning inte styr det maximala antalet samtidigt anslutna enheter. Begränsningen beror på antalet enheter som tillhandahålls för IoT-hubb.
+Den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* begränsning inte styr det maximala antalet samtidigt anslutna enheter. Begränsningen beror på antalet enheter som tillhandahålls för IoT-hubb.
 
 Till exempel om du köper en S1 enhet kan få du en begränsning av 100 anslutningar per sekund. Det kan därför tar minst 1 000 sekunder (cirka 16 minuter) för att ansluta 100 000 enheter. Du kan dock ha så många samtidigt anslutna enheter som du har enheter som har registrerats i identitetsregistret.
 
 En detaljerad beskrivning av IoT-hubb begränsning beteende, finns i bloggposten [IoT-hubb begränsning och du][lnk-throttle-blog].
-
-> [!NOTE]
-> Samtidigt, kan du öka kvoter eller begränsning gränser genom att öka antalet etablerade enheter i en IoT-hubb.
 
 > [!IMPORTANT]
 > Identitet registret operations är avsedda för körning i hantering av enheter och etablerar scenarier. Läsning eller uppdatering av ett stort antal enheter identiteter stöds via [importera och exportera jobben][lnk-importexport].

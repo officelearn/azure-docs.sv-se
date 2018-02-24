@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med webbprogrammet för behållare
 
@@ -71,7 +71,7 @@ Kontrollera att du definierar omfattningen som lagringsplatsen som innehåller b
 
 När avbildningen uppdateras hämta webbprogrammet uppdateras automatiskt med den nya avbildningen.
 
-### <a name="docker-hub"></a>Docker-hubb
+### <a name="docker-hub"></a>Docker Hub
 
 På din hubb Docker klickar du på **Webhooks**, sedan **skapa en WEBHOOK**.
 
@@ -87,8 +87,8 @@ När avbildningen uppdateras hämta webbprogrammet uppdateras automatiskt med de
 
 * [Vad är Azure App Service på Linux?](./app-service-linux-intro.md)
 * [Azure-behållaren registret](https://azure.microsoft.com/services/container-registry/)
-* [Med .NET Core i Azure App Service på Linux](quickstart-dotnetcore.md)
-* [Med Ruby i Azure App Service på Linux](quickstart-ruby.md)
-* [Hur du använder en anpassad Docker-avbildning för webbprogrammet för behållare](quickstart-custom-docker-image.md)
-* [Azure App Service Webbapp för behållare vanliga frågor och svar](./app-service-linux-faq.md)
+* [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)
+* [Använda Ruby i Azure App Service i Linux](quickstart-ruby.md)
+* [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
+* [Azure App Service – Vanliga frågor om Web App for Containers](./app-service-linux-faq.md)
 * [Hantera webbprogram för behållare som använder Azure CLI 2.0](./app-service-linux-cli.md)

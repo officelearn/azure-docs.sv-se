@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuera och hantera Apache Storm-topologier på HDInsight
 
@@ -31,7 +31,7 @@ I detta dokument, lär du dig grunderna för att hantera och övervaka Storm-top
 > Mer information om distribuera och övervaka topologier på Windows-baserade HDInsight finns [distribuera och hantera Apache Storm-topologier på Windows-baserade HDInsight](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Linux-baserade Storm på HDInsight-kluster**: se [Kom igång med Apache Storm på HDInsight](apache-storm-tutorial-get-started-linux.md) anvisningar om hur du skapar ett kluster
 
@@ -86,7 +86,7 @@ HDInsight-verktyg kan användas för att skicka eller hybrid C#-topologier till 
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Detta kommando startar exempel WordCount-topologi i klustret. Den här topologin genererar meningar slumpmässigt och räknar förekomst av varje ord i meningarna.
+    Det här kommandot startar exempeltopologin för WordCount (ordräkning) på klustret. Den här topologin genererar meningar slumpmässigt och räknar förekomst av varje ord i meningarna.
 
    > [!NOTE]
    > När du skickar in topologin till klustret måste du först kopiera jar-filen som innehåller klustret innan du använder kommandot `storm`. Du kan använda för att kopiera filen till klustret i `scp` kommando. Till exempel, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -226,7 +226,7 @@ Du hittar det fullständigt kvalificerade domännamnet (FQDN) för klustrets huv
 
 * **Från en SSH-session**: Använd kommandot `headnode -f` från en SSH-session till klustret.
 * **Ambari Web**: Välj **Services** högst upp på sidan Välj **Storm**. Från den **sammanfattning** väljer **Storm UI Server**. FQDN för den nod som värd för Storm-Användargränssnittet och REST API visas överst på sidan.
-* **Från Ambari REST API**: Använd kommandot `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **lösenord** med administratörslösenordet för klustret. Ersätt **KLUSTERNAMN** med klustrets namn. I svaret innehåller posten ”värddatornamn” FQDN för noden.
+* **Från Ambari REST API**: Använd kommandot `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **KLUSTERNAMN** med klustrets namn. När du uppmanas, ange lösenordet för inloggningskontot (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
 
 ### <a name="authentication"></a>Autentisering
 

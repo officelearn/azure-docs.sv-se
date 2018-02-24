@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 93de6a574b306e3fd8959454709e84a57ee4fc10
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrera data från Data Lake Store i Azure Data Catalog
 I den här artikeln får du lära dig hur du integrerar Azure Data Lake Store med Azure Data Catalog att göra data synlig i en organisation genom att integrera med Data Catalog. Mer information om katalogiserar data finns [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Scenarier där du kan använda Data Catalog finns [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -78,7 +78,7 @@ Innan du påbörjar de här självstudierna måste du ha:
     * [Kommentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Dokumentdatakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kommentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Dokumentdatakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrera Data Lake Store med andra Azure-tjänster](data-lake-store-integrate-with-other-services.md)

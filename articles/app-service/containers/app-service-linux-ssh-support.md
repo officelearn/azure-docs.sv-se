@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
@@ -54,7 +54,7 @@ Dessa steg som visas i Azure App Service-databasen som [exempel](https://github.
 1. Inkludera den `openssh-server` installationen i [ `RUN` instruktion](https://docs.docker.com/engine/reference/builder/#run) i Dockerfile för avbildning och ange lösenordet för rot-kontot till `"Docker!"`.
 
     > [!NOTE]
-    > Den här konfigurationen tillåter inte externa anslutningar till behållaren. SSH kan endast nås via Kudu / SCM plats, vilket är autentiserad publishing autentiseringsuppgifter.
+    > Den här konfigurationen tillåter inga externa anslutningar till behållaren. SSH kan endast nås via Kudu / SCM plats, vilket är autentiserad publishing autentiseringsuppgifter.
 
     ```docker
     # ------------------------
@@ -69,14 +69,14 @@ Dessa steg som visas i Azure App Service-databasen som [exempel](https://github.
 
     > [!NOTE]
     > Den *sshd_config* filen måste innehålla följande eller om anslutningen misslyckas: 
-    > * `Ciphers`måste innehålla minst en av följande: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`måste innehålla minst en av följande: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` måste innehålla minst en av följande: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` måste innehålla minst en av följande: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Inkludera porten 2222 i den [ `EXPOSE` instruktion](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Även om rotlösenordet är känd kan port 2222 inte nås från internet. Det är ett internt endast port tillgänglig endast av behållare i bridge nätverk i ett privat virtuellt nätverk.
+1. Inkludera porten 2222 i den [ `EXPOSE` instruktion](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är ett internt endast port tillgänglig endast av behållare i bridge nätverk i ett privat virtuellt nätverk.
 
     ```docker
     EXPOSE 2222 80
@@ -101,9 +101,9 @@ Dockerfile använder den [ `CMD` instruktion](https://docs.docker.com/engine/ref
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande länkar för mer information om Web App för behållare. Du kan publicera frågor och funderingar på [vårt forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Se följande länkar för mer information om Web App för behållare. Du kan publicera frågor och funderingar i [vårt forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Hur du använder en anpassad Docker-avbildning för webbprogrammet för behållare](quickstart-custom-docker-image.md)
-* [Med .NET Core i Azure App Service på Linux](quickstart-dotnetcore.md)
-* [Med Ruby i Azure App Service på Linux](quickstart-ruby.md)
-* [Azure App Service Webbapp för behållare vanliga frågor och svar](app-service-linux-faq.md)
+* [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
+* [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)
+* [Använda Ruby i Azure App Service i Linux](quickstart-ruby.md)
+* [Azure App Service – Vanliga frågor om Web App for Containers](app-service-linux-faq.md)

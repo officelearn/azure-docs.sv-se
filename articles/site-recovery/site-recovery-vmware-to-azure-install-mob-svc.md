@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installera Mobilitetstjänsten (VMware eller fysisk till Azure)
 Azure Site Recovery-Mobilitetstjänsten samlar in dataskrivningar på en dator och vidarebefordrar dem till processervern. Distribuera Mobilitetstjänsten till varje dator (VMware VM eller fysiska server) som du vill replikera till Azure. Du kan distribuera Mobilitetstjänsten till servrar som du vill skydda med hjälp av följande metoder:
@@ -27,18 +27,18 @@ Azure Site Recovery-Mobilitetstjänsten samlar in dataskrivningar på en dator o
 
 
 >[!IMPORTANT]
-> Från och med version 9.7.0.0, på Windows-datorer (VM), Mobilitetstjänsten installerar installationsprogrammet också den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/windows/extensions-features.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn installationen av nödvändiga för att använda alla VM-tillägg.
+> Från och med version 9.7.0.0, på virtuella Windows-datorer, Mobilitetstjänsten installerar installationsprogrammet också den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/windows/extensions-features.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn installationen av nödvändiga för att använda alla VM-tillägg.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuellt på servern:
 1. Logga in på din server för konfiguration och öppna ett kommandotolksfönster som administratör.
-2. Ändra katalogen till bin-mappen och sedan skapa en lösenfras fil:
+2. Ändra katalogen till bin-mappen och sedan skapa en lösenfras-fil.
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     genpassphrase.exe -v > MobSvc.passphrase
     ```
-3. Lagra filen lösenfras på en säker plats. Du kan använda filen under installationen av Mobilitetstjänsten.
+3. Lagra filen lösenfras på en säker plats. Du kan använda filen vid installation av Mobilitetstjänsten.
 4. Mobility Service installationsprogram för alla operativsystem som stöds finns i mappen %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository.
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mobility-installationsprogram för operativsystem systemmappning
@@ -60,7 +60,7 @@ Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuel
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installera Mobilitetstjänsten manuellt med hjälp av det grafiska Användargränssnittet
 
 >[!IMPORTANT]
-> Om du använder en **konfigurationsservern** att replikera **Azure IaaS-virtuella datorer** från ett Azure prenumeration eller en Region till en annan sedan **använda kommandoradsbaserad Command-Line-baserad installation** metod
+> Om du använder en konfigurationsserver replikeras Azure IaaS-virtuella datorer från ett Azure-prenumeration eller en region till en annan, kan du använda metoden Kommandotolken Command-Line-baserad installation.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -74,7 +74,7 @@ Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuel
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Installera Mobilitetstjänsten genom push-installation från Azure Site Recovery
-Om du vill göra en push-installation av Mobilitetstjänsten genom att använda Site Recovery måste alla måldatorer uppfylla följande krav:
+Du kan göra en push-installation av Mobilitetstjänsten genom att använda Site Recovery. Alla måldatorer måste uppfylla följande krav.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -82,25 +82,26 @@ Om du vill göra en push-installation av Mobilitetstjänsten genom att använda 
 
 
 > [!NOTE]
-När Mobilitetstjänsten är installerad i Azure portal, väljer du den **+ replikera** knappen för att börja skydda dessa virtuella datorer.
+När Mobilitetstjänsten är installerad i Azure portal, väljer du **+ replikera** att börja skydda dessa virtuella datorer.
 
 ## <a name="update-mobility-service"></a>Uppdatera Mobilitetstjänsten
 
 > [!WARNING]
-> Se till att konfigurationsservern, skalbara servrar och alla Huvudmålet-servrar som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade servrar.
+> Kontrollera att konfigurationsservern, skalbara servrar och alla huvudmålservern-servrar som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade servrar.
 
-1. På Azure portal Bläddra till <Your Vault> -> Visa replikerade objekt.
-2. Om den **konfigurationsservern** redan har uppdaterats till den senaste versionen och sedan bör du se ett meddelande som läser *ny plats recovery replikering agentuppdatering är tillgänglig. Klicka för att installera*
+1. På Azure-portalen går du till den *namnet på ditt valv* > **replikerade objekt** vyn.
+2. Om konfigurationsservern har redan uppdaterats till den senaste versionen kan se du ett meddelande som läser du ”ny Site recovery replikering agentuppdatering är tillgänglig. Klicka om du vill installera ”.
 
-     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
-3. Klicka på meddelandet för att öppna sidan för val av virtuell dator.
-4. Välj de virtuella datorerna som du vill uppgradera mobilitetstjänsten på och klicka på OK-knappen.
+     ![Replikerade objekt fönster](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. Välj meddelandet för att öppna sidan för val av virtuell dator.
+4. Välj de virtuella datorerna som du vill uppgradera mobilitetstjänsten på och välj **OK**.
 
-     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
-5. Detta startar uppdateringen Mobilitetstjänsten jobbet för var och en av de valda virtuella datorerna.
+     ![Replikerade objekt VM lista](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+
+Uppdatera Mobilitetstjänsten jobbet startar för var och en av de valda virtuella datorerna.
 
 > [!NOTE]
-> [Läs mer](site-recovery-vmware-to-azure-manage-configuration-server.md) om hur du uppdaterar lösenordet för kontot som används för att installera Mobilitetstjänsten
+> [Läs mer](site-recovery-vmware-to-azure-manage-configuration-server.md) om hur du uppdaterar lösenordet för kontot som används för att installera Mobilitetstjänsten.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Avinstallera Mobilitetstjänsten på en dator med Windows Server
 Använd någon av följande metoder för att avinstallera Mobilitetstjänsten på en Windows Server.
@@ -113,15 +114,15 @@ Använd någon av följande metoder för att avinstallera Mobilitetstjänsten p�
 1. Öppna ett kommandotolksfönster som administratör.
 2. Om du vill avinstallera Mobilitetstjänsten, kör du följande kommando:
 
-```
-MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-```
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Avinstallera Mobilitetstjänsten på en Linux-dator
 1. Logga in på Linux-servern som en **rot** användare.
 2. Gå till /user/local/ASR i en terminal.
 3. Om du vill avinstallera Mobilitetstjänsten, kör du följande kommando:
 
-```
-uninstall.sh -Y
-```
+    ```
+    uninstall.sh -Y
+    ```

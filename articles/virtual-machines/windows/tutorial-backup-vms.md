@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 9638c7148d4347bb9cbc9e48022037ee6cb983d7
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Säkerhetskopiera Windows-datorer i Azure
 
@@ -46,7 +46,7 @@ När dataöverföringen har slutförts ögonblicksbilden tas bort och skapa en �
 ## <a name="create-a-backup"></a>Skapa en säkerhetskopia
 Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-valv. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Virtuella datorer** på menyn till vänster. 
 3. Välj en virtuell dator som du vill säkerhetskopiera i listan.
 4. På VM-blad i den **inställningar** klickar du på **säkerhetskopiering**. Den **Aktivera säkerhetskopiering** blad öppnas.
@@ -104,7 +104,7 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs mer information om övervakning av virtuella datorer.
 
 > [!div class="nextstepaction"]
-> [Övervaka virtuella datorer](tutorial-monitoring.md)
+> [Styr virtuella datorer](tutorial-govern-resources.md)
 
 
 

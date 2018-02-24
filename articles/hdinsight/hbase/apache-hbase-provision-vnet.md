@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa HBase-kluster i HDInsight i Azure-nätverk
 Lär dig hur du skapar Azure HDInsight HBase-kluster i en [Azure Virtual Network][1].
@@ -31,7 +31,7 @@ Med virtuell nätverksintegration kan HBase-kluster bara distribueras till samma
 * Bättre prestanda genom att inte låta trafiken gå över flera gateways och belastningsutjämnare.
 * Möjligheten att behandla känslig information på ett säkrare sätt utan att exponera en offentlig slutpunkt.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
 
 * **en Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -44,7 +44,7 @@ I det här avsnittet skapar du en Linux-baserade HBase-kluster med beroende Azur
 > Vissa egenskaper är hårdkodat i mallen. Exempel:
 >
 > * **Plats**: östra USA 2
-> * **Kluster av version**: 3,6
+> * **Klusterversion**: 3.6
 > * **Klustret worker nodsantalet**: 2
 > * **Storage-konto som standard**: en unik sträng
 > * **Virtuella nätverksnamnet**: &lt;klusternamn >-vnet

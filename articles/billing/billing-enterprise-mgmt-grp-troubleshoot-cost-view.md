@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Felsöka enterprise kostnad vyer 
 
 Det finns flera inställningar som kan orsaka användare inom registreringen ska inte kunna visa kostnader i enterprise-registreringar.  De här inställningarna hanteras av registrering administratör eller av partner om registreringen inte har köpt direkt med Microsoft.  Den här artikeln hjälper dig att förstå vilka inställningar som används och hur de påverkar registreringen. De här inställningarna är oberoende av den [Azure RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Den här funktionen är för tillfället i privat förhandsvisning. [Registrera dig här](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ha din registrering ansluta förhandsgranskningen.     
 
 ## <a name="enabling-access-to-costs"></a>Aktivera åtkomst till kostnader
 
-Är du ser ett meddelande obehörig, eller *”kostnaden vyer inaktiverade i din registrering”.* När du söker efter kostnadsinformation? ![obehörig](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Du ser ett meddelande obehörig, eller *”kostnaden vyer inaktiverade i din registrering”.* När du söker efter kostnadsinformation? ![obehörig](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Det kan bero på något av följande skäl:
 
@@ -43,8 +41,7 @@ Det kan bero på något av följande skäl:
 ## <a name="asset-is-unavailable"></a>Tillgångsinformation är inte tillgängligt? 
 Om du får ett felmeddelande ”den här tillgången är inte tillgänglig” när försöker få åtkomst till en prenumeration eller hantering av grupp och du har inte rätt roll för att visa det här objektet.  
 
-![tillgångsinformation inte hittades](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Kontakta administrera av prenumerationen eller hantering av grupper som ska få åtkomst.  
 * Prenumerationer, referera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokument för att få hjälp med rollen krävs.
-* För hanteringsgrupper, RBAC åtkomst är inte tillgänglig och kommer snart. Kontakta din enterprise portal administrera för åtkomst som tilldelats.   

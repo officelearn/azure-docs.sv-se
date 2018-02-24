@@ -4,17 +4,17 @@ description: "Det här dokumentet beskriver stegen och begrepp som är involvera
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -27,7 +27,7 @@ Du ska kunna ha din miljö för hantering av modellen har skapat och redo för a
 
 ## <a name="what-you-need-to-get-started"></a>Vad du behöver att komma igång
 Du bör ha ägare åtkomst till en Azure-prenumeration som du kan distribuera modeller till för att få ut mesta möjliga av den här guiden.
-CLI finns förinstallerat på Azure Machine Learning arbetsstationen och på [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+CLI finns förinstallerat på Azure Machine Learning arbetsstationen och på [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Med hjälp av CLI
 Om du vill använda kommandoradsverktyget-gränssnitt (CLIs) från arbetsstationen **filen** -] **öppna CommandLine gränssnittet**. 
@@ -38,7 +38,7 @@ Du skulle behöva installera CLIs på andra system.
 
 ### <a name="installing-or-updating-on-windows"></a>Installera (eller uppdatera) i Windows
 
-Installera Python från https://www.python.org/. Se till att du har valt för att installera pip.
+Install Python from https://www.python.org/. Se till att du har valt för att installera pip.
 
 Öppna Kommandotolken med hjälp av kör som administratör och kör följande kommandon:
 
@@ -107,7 +107,7 @@ Kommandot lokal miljö installationen skapar följande resurser i din prenumerat
 - En resursgrupp (om det angetts)
 - ett lagringskonto
 - En Azure-behållaren registret (ACR)
-- Programinsikter
+- Application Insights
 
 När installationen är klar kan du ange miljö som ska användas med följande kommando:
 
@@ -129,7 +129,7 @@ Kommandot cluster miljö installationen skapar följande resurser i din prenumer
 - ett lagringskonto
 - En Azure-behållaren registret (ACR)
 - En Kubernetes distribution i ett kluster med Azure Container Service (ACS)
-- Programinsikter
+- Application Insights
 
 Resursgrupp, storage-konto och ACR skapas snabbt. ACS-distribution kan ta upp till 20 minuter. 
 

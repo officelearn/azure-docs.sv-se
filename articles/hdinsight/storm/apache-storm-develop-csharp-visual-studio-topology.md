@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C#-topologier för Apache Storm med Data Lake-verktyg för Visual Studio
 
@@ -42,9 +43,6 @@ Om du vill använda en C#-topologi med en Linux-baserade kluster, måste du uppd
 
 > [!IMPORTANT]
 > C#-topologier på Linux-baserade kluster måste använda .NET 4.5 och använda Mono för att köra på HDInsight-klustret. Kontrollera [monoljud kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) för potentiella inkompatibiliteter.
-
-> [!WARNING]
-> Om du får problem i bygget projekt som använder SCP.NET version 1.0.0.x, kontakta Microsoft support om du behöver hjälp.
 
 ## <a name="install-visual-studio"></a>Installera Visual Studio
 
@@ -124,7 +122,7 @@ Data Lake-verktyg för Visual Studio innehåller följande mallar:
 | Storm-exempel |En grundläggande word count-topologi. |
 
 > [!WARNING]
-> Inte alla mallar för att fungera med Linux-baserade HDInsight. Nuget-paket som används av mallarna är kanske inte kompatibelt med Mono. Kontrollera den [monoljud kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentera och använda den [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) identifiera potentiella problem.
+> Inte alla mallar arbeta med Linux-baserade HDInsight. NuGet-paket som används av mallarna är kanske inte kompatibelt med Mono. Kontrollera den [monoljud kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentera och använda den [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) identifiera potentiella problem.
 
 I stegen i det här dokumentet använder du projekttypen grundläggande Storm-program för att skapa en topologi.
 
@@ -169,7 +167,7 @@ En exempeltopologi som använder den här komponenten och fungerar med Storm på
 
    * **Misslyckas** (endast transaktionella topologi): hanterar tupplar som misslyckas bearbetning av andra komponenter i topologin. Implementera en metod som misslyckas kan du generera tuppeln igen så att den kan bearbetas igen.
 
-2. Ersätt innehållet i den **prata** klassen med följande text. Den här kanal avger slumpmässigt en mening i topologin.
+2. Ersätt innehållet i den **prata** klassen med följande text: den här kanal avger slumpmässigt en mening i topologin.
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ En exempeltopologi som använder den här komponenten och fungerar med Storm på
     }
     ```
 
-5. Öppna **Counter.cs**, och Ersätt det klassen med följande:
+5. Öppna **Counter.cs**, och Ersätt det klassen med följande kod:
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Kanaler och bultar ordnas i ett diagram som definierar hur data flödar mellan k
 
 Meningar orsakat från kanal och distribueras till instanser av bulten delningslisten. Delningslisten bulten delar meningarna i ord, som har distribuerats till bulten räknaren.
 
-Eftersom ordräkning lagras lokalt i räknarinstansen, som vi vill se till att specifika ord flöda till samma bult räknarinstansen. Varje instans håller reda på specifika ord. Eftersom delningslisten bulten upprätthåller inget tillstånd, det verkligen spelar ingen roll vilken instans på delningslisten tar emot vilka meningen.
+Eftersom ordräkning lagras lokalt i räknarinstansen, som du vill kontrollera att specifika ord flöda till samma bult räknarinstansen. Varje instans håller reda på specifika ord. Eftersom delningslisten bulten upprätthåller inget tillstånd, det verkligen spelar ingen roll vilken instans på delningslisten tar emot vilka meningen.
 
 Öppna **Program.cs**. Metoden viktigt är **GetTopologyBuilder**, som används för att definiera topologin som skickas till Storm. Ersätt innehållet i **GetTopologyBuilder** med följande kod för att implementera topologin som beskrivs ovan:
 
@@ -472,16 +470,16 @@ Ett exempel på en hybrid-topologi, skapa ett projekt och välj **Storm Hybrid e
   > Den här versionen visas också hur du använder Clojure kod från en textfil som en Java-komponent.
 
 
-Du kan växla topologin som används när projektet har skickats genom att flytta den `[Active(true)]` instruktionen till i topologin som du vill använda, innan den skickas till klustret.
+Om du vill växla topologin som används när projektet har skickats flyttas det `[Active(true)]` instruktionen till i topologin som du vill använda, innan den skickas till klustret.
 
 > [!NOTE]
 > Alla Java-filer som krävs har angetts som en del av det här projektet i den **JavaDependency** mapp.
 
 Tänk på följande när du skapar och skickar en hybrid-topologi:
 
-* Du måste använda **JavaComponentConstructor** att skapa en instans av Java-klass för en kanal eller bultar.
+* Använd **JavaComponentConstructor** att skapa en instans av Java-klass för en kanal eller bultar.
 
-* Du bör använda **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** att serialisera data till eller från Java-komponenter från Java-objekt till JSON.
+* Använd **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** att serialisera data till eller från Java-komponenter från Java-objekt till JSON.
 
 * När du skickar in topologin till servern, måste du använda den **ytterligare konfigurationer** alternativet för att ange den **Java sökvägar**. Den angivna sökvägen ska vara den katalog som innehåller de JAR-filer som innehåller Java-klasser.
 
@@ -703,7 +701,7 @@ För Linux-baserade HDInsight-kluster, kontrollerar du att projektet använder b
 
 ### <a name="log-information"></a>Informationen i felloggen
 
-Du kan enkelt logga information från din topologi-komponenter med hjälp av `Context.Logger`. Följande skapar ett informationsmeddelande loggpost:
+Du kan enkelt logga information från din topologi-komponenter med hjälp av `Context.Logger`. Till exempel skapar följande kommando en informationsmeddelande loggpost:
 
 ```csharp
 Context.Logger.Info("Component started");

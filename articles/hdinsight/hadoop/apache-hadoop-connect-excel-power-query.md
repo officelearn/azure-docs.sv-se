@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1f5139f3fdb1cc73bb40828021256bed4290e1a2
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 21dfaa9b4d2bb59cb2e84006ad58fcb6ce3f81b4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Ansluta Excel till Hadoop med Power Query
 En nyckelfunktion i Microsofts lösning för stora data är integreringen av Microsoft business intelligence (BI)-komponenter med Hadoop-kluster i Azure HDInsight. En primär exempel är möjligheten att ansluta Excel till Azure Storage-konto som innehåller data som är associerade med Hadoop-kluster med hjälp av Microsoft Power Query för Excel-tillägg. Den här artikeln vägleder dig genom att ställa in och använda Power Query att fråga efter data som är associerade med ett Hadoop-kluster som hanteras med HDInsight.
@@ -66,7 +66,7 @@ Power Query-tillägget för Excel gör det enkelt att importera data från ditt 
 6. I den **Navigator** fönstret till vänster för frågeredigeraren Dubbelklicka på Blob storage behållarens namn. Behållarens namn är samma namn som klusternamnet som standard.
 7. Leta upp **HiveSampleData.txt** i den **namn** kolumn (mappsökvägen är **... / hive/datalager/hivesampletable/**), och klicka sedan på **binära** till vänster om HiveSampleData.txt. HiveSampleData.txt ingår i klustret. Du kan använda en egen fil.
    
-    ![HDI. PowerQuery.ImportData][image-hdi-powerquery-importdata]
+    ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Om du vill kan du byta namn på kolumnnamn. När du är klar klickar du på **Stäng & ladda**.  Data har lästs in till din arbetsbok:
    
     ![HDI. PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]

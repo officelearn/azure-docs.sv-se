@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -39,9 +39,10 @@ Om du planerar att köra produktionsarbetsbelastningar i Batch kan du behöva ö
 ## <a name="resource-quotas"></a>Resurskvoter
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Kvoter i användarläge för prenumeration
 
-Om du använde en tidigare version av Batch-API för att skapa ett batchkonto med poolen allokering inställd på **användarens prenumeration**, kvoter tillämpas på olika sätt. I det här läget, vilket rekommenderas inte längre skapas Batch virtuella datorer och andra resurser direkt i din prenumeration när poolen har skapats. Azure Batch kärnor kvoten gäller inte för ett konto som har skapats i det här läget. I stället kvoter i din prenumeration för regional compute kärnor och andra resurser används. Mer information om dessa kvoter i [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kvoter för kärnor i prenumerationen användarläge
+
+Om du har skapat ett Batch-konto med poolen allokering inställd på **användarens prenumeration**, kvoter tillämpas på olika sätt. I det här läget skapas Batch virtuella datorer och andra resurser direkt i din prenumeration när poolen har skapats. Azure Batch kärnor kvoter gäller inte för ett konto som har skapats i det här läget. I stället kvoter i din prenumeration för regional compute kärnor och andra resurser används. Mer information om dessa kvoter i [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Övriga begränsningar
 | **Resurs** | **Övre gräns** |
@@ -108,7 +109,7 @@ När du har skickat supportförfrågan Azure-supporten kommer att kontakta dig. 
 ## <a name="related-topics"></a>Relaterade ämnen
 * [Skapa ett Azure Batch-konto med Azure-portalen](batch-account-create-portal.md)
 * [Översikt av Azure Batch-funktion](batch-api-basics.md)
-* [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md)
+* [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

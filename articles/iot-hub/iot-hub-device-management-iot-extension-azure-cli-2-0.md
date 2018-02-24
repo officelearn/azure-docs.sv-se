@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Använd IoT-tillägg för Azure CLI 2.0 för hantering av Azure IoT Hub-enheter
 
@@ -66,7 +66,7 @@ Kör Azure CLI 2.0 och IoT-tillägget för Azure CLI 2.0 med olika hanteringsalt
 - Installera tillägget IoT. Det enklaste sättet är att köra `az extension add --name azure-cli-iot-ext`. [IoT-tillägget viktigt](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beskrivs flera olika sätt att installera tillägget.
 
 
-## <a name="login-to-your-azure-account"></a>Logga in på ditt Azure-konto
+## <a name="log-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
 Logga in på ditt Azure-konto genom att köra följande kommando:
 
@@ -74,13 +74,13 @@ Logga in på ditt Azure-konto genom att köra följande kommando:
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>Använd IoT-tillägg för Azure CLI 2.0 med direkta metoder
+## <a name="direct-methods"></a>Direkta metoder
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>Använd IoT-tillägg för Azure CLI 2.0 med dubblas egenskaper
+## <a name="device-twin-desired-properties"></a>Dubbla önskade egenskaper för enhet
 
 Ange ett intervall önskade egenskapen = 3000 genom att köra följande kommando:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Den här egenskapen kan läsas från enheten.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>Använd IoT-tillägg för Azure CLI 2.0 med dubblas rapporterade egenskaper
+## <a name="device-twin-reported-properties"></a>Enheten dubbla rapporterade egenskaper
 
 Hämta rapporterade egenskaperna för enheten genom att köra följande kommando:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 En av egenskaperna är $metadata. $lastUpdated som visar senast enheten skickar och tar emot ett meddelande.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>Använd IoT-tillägg för Azure CLI 2.0 med dubblas taggar
+## <a name="device-twin-tags"></a>Enheten dubbla taggar
 
 Visa taggar och egenskaper för enheten genom att köra följande kommando:
 
@@ -114,7 +114,7 @@ Lägga till en roll för fältet = temperatur & fuktighet till enheten genom att
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>Välj IoT-tillägg för Azure CLI 2.0 med enheten twins frågor
+## <a name="device-twin-queries"></a>Enheten dubbla frågor
 
 Fråga enheter med en tagg av rollen = 'temperatur- och fuktighetskonsekvens' genom att köra följande kommando:
 

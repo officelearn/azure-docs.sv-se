@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Självstudier: Azure Active Directory-integrering med Palo Alto nätverk - Admin UI
 
@@ -106,11 +106,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 3. På den **Palo Alto nätverk - URL: er och domänen för Admin-Användargränssnittet** avsnittet, utför följande steg:
 
-    ![Palo Alto nätverk - domänen för Admin-Användargränssnittet och URL: er enkel inloggning information](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
+    ![Palo Alto nätverk - domänen för Admin-Användargränssnittet och URL: er enkel inloggning information](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<Customer Firewall FQDN>/php/login.php`
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<Customer Firewall FQDN>/php/login.php`
-
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<Customer Firewall FQDN>/SAML20/SP`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    
+    c. I den **Reply URL** textruta skriver Assertion konsumenten Service (ACS) URL: en med hjälp av följande mönster: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Palo Alto nätverk - Användargränssnittet administratörsklient supportteamet](https://support.paloaltonetworks.com/support) att hämta dessa värden. 
@@ -163,13 +166,71 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 11. Utför följande åtgärder i fönstret Import
 
-    ![Konfigurera Palo Alto enkel inloggning](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Konfigurera Palo Alto enkel inloggning](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    a. I den **profilnamn** textruta, ange ett namn t.ex Azure AD Admin-Användargränssnittet.
+    a. I den **profilnamn** textruta, ange ett namn t.ex AzureAD Admin-Användargränssnittet.
     
     b. I **identitet providern Metadata**, klickar du på **Bläddra** och välj metadata.xml-fil som du har hämtat från Azure-portalen
     
-    c. Klicka på **OK**
+    c. Avmarkera ”**verifiera identitetscertifikat providern**”
+    
+    d. Klicka på **OK**
+    
+    e. Genomföra konfigurationerna för brandväggen genom att välja **genomför** knappen
+
+12. Välj **SAML-identitetsprovider** från det vänstra navigeringsfältet och klickar på på SAML identitet providern profilen (t.ex AzureAD Admin UI) skapade i föregående steg. 
+    
+  ![Konfigurera enkel inloggning på Palo Alto-nätverk](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+
+13. Utför följande åtgärder på den **SAML identitet providern Server-profil** fönster
+
+  ![Konfigurera Palo Alto nätverk enda logga ut](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+  
+  a. I den **identitet Provieder Servicenivåmål URL** textruta ta bort tidigare importerat Servicenivåmål URL och Lägg till följande URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+  
+  b. Klicka på **OK**
+
+
+14. Klicka på Palo Alto nätverk brandväggen Admin UI **enhet** och välj **administratörsroller**
+
+15. Klicka på den **Lägg till** knappen. Ange ett namn för rollen Administratör (t.ex. fwadmin) i fönstret Admin-profil för användarroller. Den här rollen Administratör namnet ska matcha administratörsroll för SAML-attributnamn som skickas av identitetsleverantören. Rollen Administratör namn och värde skapades i steg 5. 
+
+  ![Konfigurera Palo Alto administratörsroll för nätverk](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+  
+16. Klicka på i brandväggen Admin UI **enhet** och välj **autentiseringsprofil**
+
+17. Klicka på den **Lägg till** knappen. Utför följande åtgärder i fönstret autentiseringsprofil: 
+
+ ![Konfigurera Palo Alto nätverk autentiseringsprofil](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+   a. I den **namn** textruta, ange ett namn t.ex AzureSAML_Admin_AuthProfile
+    
+   b. I **typen** listrutan **SAML** 
+   
+   c. I listrutan IdP Server-profil väljer du den lämpliga SAML identitet Provider-Server-profilen (t.ex. AzureAD Admin UI)
+   
+   c. Välj ”**aktivera enkel logga ut**” kryssrutan
+    
+   d. Ange attributnamnet (t.ex. adminrole) i textrutan Admin Role-attributet. 
+   
+   e. Välj fliken Avancerat och klicka på **Lägg till** knappen i listan Tillåt rutan. Välj alla eller vissa användare och grupper som kan autentisera med den här profilen. När en användare autentiseras matchar brandväggen associerade användarnamn eller grupp mot posterna i listan. Om du inte lägga till poster, kan ingen användare autentiseras.
+   
+   ![Konfigurera Palo Alto nätverk autentiseringsprofil](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+   
+   f. Klicka på **OK**
+
+18. Om du vill aktivera administratörer att använda SAML SSO med Azure **enhet** och välj **installationsprogrammet**. Välj i rutan installationsprogrammet **Management** och klicka på ikonen Kugghjulet under **autentiseringsinställningar**. 
+
+ ![Konfigurera autentiseringsinställningar för Palo Alto-nätverk](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+
+19. Välj den profil för SAML-autentisering som skapades i steg 17. (e.g. AzureSAML_Admin_AuthProfile)
+
+ ![Konfigurera autentiseringsinställningar för Palo Alto-nätverk](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+
+20. Klicka på **OK**
+
+21. Spara konfigurationen genom att välja **genomför** knappen.
+
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

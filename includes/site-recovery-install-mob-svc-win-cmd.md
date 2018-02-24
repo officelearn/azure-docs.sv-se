@@ -27,13 +27,13 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parameter|Typ|Beskrivning|Möjliga värden|
 |-|-|-|-|
-|/ Roll|Obligatorisk|Anger om Mobility Service (MS) som ska installeras eller MasterTarget(MT) ska installeras|MS </br> MT|
-|/InstallLocation|Valfri|Plats där Mobilitetstjänsten är installerad|Vilken mapp på datorn som helst|
-|/ Platform|Obligatorisk|Anger plattformen där Mobilitetstjänsten komma installeras </br> </br>- **VMware** : Använd det här värdet om du installerar mobilitetstjänsten på en virtuell dator som körs på *vSphere VMware ESXi-värdar*, *Hyper-V-värdar* och *fysiska servrar* </br> - **Azure** : Använd det här värdet om du installerar agenten på en Azure IaaS-VM| VMware </br> Azure|
-|/ Tyst|Valfri|Anger att installationsprogrammet körs i tyst läge| Ej tillämpligt|
+|/ Roll|Obligatorisk|Anger om Mobility Service (MS) som ska installeras eller MasterTarget (Huvudmålservern) ska installeras.|MS </br> MT|
+|/InstallLocation|Valfri|Plats där Mobilitetstjänsten är installerad.|Vilken mapp på datorn som helst|
+|/ Platform|Obligatorisk|Anger plattformen Mobilitetstjänsten är installerad. </br> </br>- **VMware**: Använd det här värdet om du installerar Mobilitetstjänsten på en virtuell dator som körs på *VMware vSphere ESXi-värdar*, *Hyper-V-värdar*, och *fysiska servrar*. </br> - **Azure**: Använd det här värdet om du installerar en agent på en Azure IaaS-VM. | VMware </br> Azure|
+|/ Tyst|Valfri|Anger att installationsprogrammet körs i tyst läge.| Gäller inte|
 
 >[!TIP]
-> Installationsloggarna finns under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Installationsloggarna finns under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Tjänsten Mobility registrering kommandoradsargument
 
@@ -44,9 +44,9 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 
   | Parameter|Typ|Beskrivning|Möjliga värden|
   |-|-|-|-|
-  |/ CSEndPoint |Obligatorisk|IP-adress för konfigurationsservern| En giltig IP-adress|
-  |/PassphraseFilePath|Obligatorisk|Platsen för lösenfrasen |En giltig UNC- eller lokal filsökväg|
+  |/CSEndPoint |Obligatorisk|IP-adress för konfigurationsservern| En giltig IP-adress|
+  |/PassphraseFilePath|Obligatorisk|Platsen för lösenordet |En giltig UNC- eller lokal filsökväg|
 
 
 >[!TIP]
-> AgentConfiguration-loggar finns under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> Agentkonfiguration-loggar finns under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.

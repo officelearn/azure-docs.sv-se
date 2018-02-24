@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 365101fc6267a5a295462d7a9902e5fd25964086
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -59,7 +59,11 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK är inte kompatibel med den universella Windowsplattformen (UWP) appar ännu. Om du är intresserad av att .NET Core SDK som stöder UWP-appar kan skicka e-post till [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Fast återkommande SessionConsistency konkurrenstillstånd.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Fast regression där FeedOptions.MaxItemCount = -1 utlöste ett System.ArithmeticException: sidstorleken är negativt.
 * Lägga till en ny funktion ToString() QueryMetrics.
@@ -165,6 +169,7 @@ Om du har frågor som rör detta SDK, efter att [StackOverflow](http://stackover
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 februari 2018 |--- |
 | [1.8.1](#1.8.1) |05 februari 2018 |--- |
 | [1.7.1](#1.7.1) |16 november 2017 |--- |
 | [1.7.0](#1.7.0) |10 november 2017 |--- |

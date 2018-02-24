@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -109,28 +109,28 @@ Om sizing kriteriet är *som lokalt storlek*, Azure migrerar inte anser prestand
  
 ### <a name="confidence-rating"></a>Förtroende klassificering
 
-Varje bedömning i Azure migrera är associerad med en förtroende som går från 1 stjärna till 5 stjärnor (1 stjärna som lägsta och 5 stjärnor är högsta). Klassificeringen förtroende har tilldelats en bedömning baserat på tillgängligheten för datapunkter som behövs för att beräkna bedömningen. Det hjälper dig att beräkna storleken rekommendationer som tillhandahålls av Azure migrera tillförlitlighet. 
+Varje bedömning i Azure migrera är associerad med en klassificering för förtroende med ett intervall från 1 Stjärna 5 stjärnan (1 stjärna som det lägsta och 5 star som högst). Klassificeringen förtroende har tilldelats en bedömning baserat på tillgängligheten för datapunkter som behövs för att beräkna bedömningen. Förtroende-klassificering av en bedömning hjälper dig att beräkna storleken rekommendationer som tillhandahålls av Azure migrera tillförlitlighet. 
 
-Klassificering av förtroende är användbart när du gör *prestandabaserad storlek* som kanske inte alla datapunkter är tillgängliga. För *som lokalt storlek*, förtroende klassificeringen alltid är 5 stjärnor när Azure migrera har alla data som behövs för att ändra storlek på den virtuella datorn. 
+Klassificering av förtroende är användbart när du gör *prestandabaserad storlek* som Azure migrera inte kanske har tillräcklig datapunkter för att göra användning-baserade storlek. För *som lokalt storlek*, förtroende klassificeringen alltid är 5 stjärnor när Azure migrera har alla datapunkter som behövs för att ändra storlek på den virtuella datorn. 
 
-Prestandabaserad förstoras behöver Azure migrera användningsdata för CPU och minne. För varje disk som är ansluten till den virtuella datorn måste läsning och skrivning IOPS och genomströmning sköta prestandabaserad storlek. På samma sätt för varje nätverkskort som är kopplade till den virtuella datorn, måste migrera Azure nätverket in/ut gör prestandabaserad storlek. Om någon av siffrorna för senare användning inte är tillgängliga i vCenter Server kanske storlek rekommendationen genom Azure migrera inte tillförlitligt. Beroende på procentandelen datapunkter som är tillgängliga finns förtroende klassificering för bedömning:
+För prestandabaserad storleksändring av den virtuella datorn måste Azure migrera användningsdata för CPU och minne. Dessutom för varje disk som är ansluten till den virtuella datorn, den måste läsning och skrivning IOPS och genomflöde. På samma sätt för varje nätverkskort som är kopplade till den virtuella datorn, måste migrera Azure nätverket in/ut gör prestandabaserad storlek. Om någon av siffrorna för senare användning inte är tillgängliga i vCenter Server kanske storlek rekommendationen genom Azure migrera inte tillförlitligt. Beroende på procentandelen datapunkter som är tillgängliga finns förtroende klassificering för bedömning:
 
    **Tillgänglighet för datapunkter** | Förtroende klassificering
    --- | ---
    0%-20% | 1 stjärna
-   21%-40% | 2 stjärnor
-   41%-60% | 3 stjärnor
-   61%-80% | 4 stjärnor
-   81%-100% | 5 stjärnor
+   21%-40% | 2 stjärna
+   41%-60% | 3 stjärna
+   61%-80% | 4 stjärna
+   81%-100% | 5 Star
 
 En utvärdering kanske inte alla datapunkter som är tillgänglig på grund av något av följande skäl:
-- Statistik-inställningen i vCenter Server inte är inställt på nivå 3 och bedömningen har prestandabaserad storlek som kriteriet storlek. Om inställningen statistik i vCenter Server är lägre än nivå 3 samlas inte prestandadata för disk och nätverk från vCenter-servern. I detta fall är rekommendationen som tillhandahålls av Azure migrera för disk- och endast baserat på allokerades lokalt. För lagring rekommenderar Azure migrera standarddiskar som det inte går att identifiera om disken är hög IOPS/dataflöde och behöver premiumdiskar.
-- Inställningen statistik i vCenter Server har angetts till nivå 3 under en kort tid innan lanseras identifieringen. Om du ändrar statistik anger nivån till 3 idag och kick inaktivera upptäckt med anordningen insamlaren imorgon (efter 24 timmar) om du skapar en bedömning under en dag, har du till exempel alla datapunkter. Men om du ändrar varaktigheten prestanda i assessment egenskaper till en månad förtroende klassificering som kraschar som disken och nätverk prestandadata för den sista en månaden är inte tillgänglig. Om du vill att överväga prestandadata för senaste en månad, rekommenderas att du behåller vCenter Server statistik inställningen till nivå 3 för en månad innan du startar identifieringen. 
+- Statistik-inställningen i vCenter Server inte är inställt på nivå 3 och bedömningen har prestandabaserad storlek som kriteriet storlek. Om inställningen statistik i vCenter Server är lägre än nivå 3 samlas inte prestandadata för disk och nätverk från vCenter-servern. I det här fallet är rekommendationen som tillhandahålls av Azure migrera för disk- och inte baserat på användning. För lagring rekommenderar Azure migrera standarddiskar som utan att överväga IOPS/dataflöde på disken, migrera Azure inte kan identifiera om disken behöver en premium disk i Azure.
+- Inställningen statistik i vCenter Server har angetts till nivå 3 för en kortare varaktighet innan lanseras identifieringen. Nu ska vi titta exempelvis ett scenario där du kan ändra statistik anger nivån till 3 idag och kick inaktivera upptäckt med anordningen insamlaren imorgon (efter 24 timmar). Om du skapar en bedömning under en dag, du har alla datapunkter och förtroende klassificering av bedömningen skulle vara 5 stjärnor. Men om du ändrar varaktigheten prestanda i assessment egenskaper till en månad förtroende klassificering som kraschar som disken och nätverk prestandadata för den sista en månaden då inte användas. Om du vill att överväga prestandadata för senaste en månad, rekommenderas att du behåller vCenter Server statistik inställningen till nivå 3 för en månad innan du startar identifieringen. 
 - Några VMs stängdes av under den period som bedömningen beräknas. Om virtuella datorer har stängas av för vissa varaktigheten, vCenter-servern inte prestandadata för perioden. 
 - Några virtuella datorer har skapats mellan den period som bedömningen beräknas. Till exempel om du skapar en bedömning för prestandahistorik för senaste en månad, men några virtuella datorer har skapats i miljön endast en vecka tidigare. I sådana fall prestandahistorik för de nya virtuella datorerna inte det för hela den tid.
 
 > [!NOTE]
-> Om förtroende klassificering av en bedömning är lägre än 3 stjärnor, vi rekommenderar att du vill ändra vCenter servernivå statistik inställningar till 3, vänta tills den varaktighet som du vill överväga för (1 dag i en vecka/1 månad) och gör sedan identifiering och assessment. Om den föregående inte kan utföras, prestandabaserad storlek kanske inte är tillförlitliga och det rekommenderas att växla till *som lokalt storlek* genom att ändra egenskaperna assessment.
+> Om förtroende klassificering av en bedömning är lägre än 4 stjärnor, vi rekommenderar att du vill ändra vCenter servernivå statistik inställningar till 3, vänta tills den varaktighet som du vill överväga för (1 dag i en vecka/1 månad) och gör sedan identifiering och assessment. Om den föregående inte kan utföras, prestandabaserad storlek kanske inte är tillförlitliga och det rekommenderas att växla till *som lokalt storlek* genom att ändra egenskaperna assessment.
 
 ## <a name="monthly-cost-estimation"></a>Månatliga uppskattning
 

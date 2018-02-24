@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Hadoop med Microsoft Avro Library
 
@@ -48,7 +48,7 @@ Apache Avro-serialiseringsformatet används ofta i Azure HDInsight och andra Apa
 .NET-bibliotek för Avro stöder serialisering objekt på två sätt:
 
 * **reflektion** -JSON-schema för typer skapas automatiskt från data kontraktet attribut för .NET-typer för att kunna serialiseras.
-* **allmän post** -A JSON-schema är explicit i en post som representeras av den [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) klassen när det finns inga .NET-typer för att beskriva schemat för att data kan serialiserad.
+* **allmän post** -A JSON-schema är explicit i en post som representeras av den [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) klassen när det finns inga .NET-typer för att beskriva schemat för data som ska serialiseras.
 
 När dataschemat är känt både skrivare och reader strömmens, kan data skickas utan ett schema. I fall när en Avro objektet behållare fil används lagras schemat i filen. Andra parametrar, till exempel den codec som används för datakomprimering, kan anges. Dessa scenarier beskrivs i detalj och visas i följande kodexempel:
 
@@ -78,7 +78,7 @@ Microsoft Avro Library innehåller ett code generation verktyg som kan skapa C# 
 3. Gå till mappen C:\SDK\src\Microsoft.Hadoop.Avro.Tools och kör build.bat. (Filen anropar MSBuild från 32-bitars fördelningen av .NET Framework. Om du vill använda 64-bitarsversionen redigera build.bat, efter kommentarerna i filen.) Kontrollera att versionen har lyckats. (På vissa datorer MSBuild kan generera varningar. Dessa varningar påverkar inte verktyget så länge det finns inga build-fel.)
 4. Den kompilerade som finns i C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
-Om du vill bekanta dig med att kommandoradssyntaxen, kör du följande kommando från mappen där verktyget code generation finns:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Om du vill bekanta dig med att kommandoradssyntaxen, kör du följande kommando från mappen där verktyget code generation finns: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 Du kan skapa C#-klasser från JSON-schema exempelfilen medföljer källkoden för att testa verktyget. Kör följande kommando:
 

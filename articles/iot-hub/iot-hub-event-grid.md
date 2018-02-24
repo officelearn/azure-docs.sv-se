@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Ta hänsyn till IoT-hubb händelser med hjälp av händelse rutnätet att utlösaråtgärder - förhandsgranskning
 
@@ -28,14 +28,7 @@ Azure IoT-hubb kan integreras med Azure händelse rutnätet så att du kan skick
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Händelsen rutnätet integrering är tillgänglig som förhandsversion, så är tillgänglig i ett begränsat antal regioner. Integrationen fungerar för IoT-hubbar finns i följande områden:
-
-* Centrala USA
-* Östra USA
-* Östra USA 2
-* Västra centrala USA
-* Västra USA
-* Västra USA 2
+Händelsen rutnätet integrationen är tillgänglig för IoT-hubbar i regioner där händelsen rutnätet stöds. Den senaste listan över regioner finns [en introduktion till Azure händelse rutnätet][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Händelsetyper
 

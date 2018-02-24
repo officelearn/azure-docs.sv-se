@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -114,7 +114,7 @@ På den **Underhåll** kan du visa information om regeln som utlöste kylaggrega
 
     ![Underhåll visar listan över larm som har utlösts](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Första larmet i listan är det senaste. Klicka på den **kylaggregat trycket** larm visa associerade enheter och telemetri. Telemetrin visar en insamling minnesbelastning för kylaggregat:
+1. Första larmet i listan är det senaste. Klicka på den **kylaggregat tryck för hög** larm visa associerade enheter och telemetri. Telemetrin visar trycket toppar för kylaggregat:
 
     ![Underhåll visar telemetri för valda larm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Använd för att utföra nödvändiga enhetens hanteringsuppgifter i **enheter**
 
     ![Välj en enhet på enhetssidan](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Klicka på den **schema** knappen och välj sedan **Firmware-uppdatering**. Ange värden för **jobbnamn** och **Firmware URI**. Välj **tillämpa** att schemalägga jobbet ska köras nu:
+1. Klicka på den **schema** knappen och välj sedan **Firmware-uppdatering**. Ange värden för **jobbnamn**, **Version på inbyggd programvara**, och **Firmware URI**. Välj **tillämpa** att schemalägga jobbet ska köras nu:
 
     ![Schemalägga firmware-uppdatering på enheten](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Med de simulerade enheterna kan du använda valfri URL som du vill som den **Firmware URI** värde. Simulerade enheter inte kommer åt URL: en.
+    > Med de simulerade enheterna kan du använda valfri URL som du vill som den **Firmware URI** värde och ett värde för den **Version på inbyggd programvara**. Simulerade enheter inte kommer åt URL: en.
 
 1. Observera hur många enheter som påverkar jobbet och välja **Verkställ**:
 

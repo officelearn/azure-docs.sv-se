@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e246abaf8d1d7939765e1c878f6dfaf6375294f6
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Att säkra data som lagras i Azure Data Lake Store
 Skydda data i Azure Data Lake Store är en metod för tre steg.
@@ -30,7 +30,7 @@ Skydda data i Azure Data Lake Store är en metod för tre steg.
 
 Den här artikeln innehåller instruktioner om hur du använder Azure-portalen för att utföra uppgifterna som ovan. Detaljerad information om hur Data Lake Store implementerar säkerhet på kontot och data finns [säkerhet i Azure Data Lake Store](data-lake-store-security-overview.md). Djupgående information om hur ACL: er implementeras i Azure Data Lake Store, se [översikt över åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -150,7 +150,7 @@ När du tar bort säkerhetsgrupper ACL: er från Azure Data Lake Store-filsystem
    
     ![Tilldela behörigheter till gruppen](./media/data-lake-store-secure-data/adl.remove.acl.png "tilldela behörigheter till gruppen")
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Kopiera data från Azure Storage-Blobbar till Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

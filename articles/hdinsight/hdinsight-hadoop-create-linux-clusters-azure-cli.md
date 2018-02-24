@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -29,10 +29,11 @@ ms.lasthandoff: 12/11/2017
 Stegen i den här genomgången för dokument som skapar ett HDInsight 3.5-kluster med Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Det här avsnittet beskriver hur du skapar ett HDInsight-kluster med hjälp av Azure CLI 1.0. Den här versionen av CLI är föråldrad och stöd för att skapa HDInsight-kluster har inte lagts till Azure CLI 2.0.
+>
+> Du kan också använda Azure PowerShell för att skapa och hantera HDInsight-kluster. Mer information finns i [skapa HDInsight-kluster med hjälp av Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentet.
 
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,7 +42,7 @@ Stegen i den här genomgången för dokument som skapar ett HDInsight 3.5-kluste
 * **Azure CLI**. Stegen i det här dokumentet testades senast med Azure CLI version 0.10.14.
 
     > [!IMPORTANT]
-    > Stegen i det här dokumentet fungerar inte med Azure CLI 2.0. Azure CLI 2.0 stöder inte att skapa ett HDInsight-kluster.
+    > Azure CLI 1.0 är föråldrad och stöd för att skapa HDInsight-kluster har inte lagts till Azure CLI 2.0.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
@@ -139,7 +140,7 @@ Nu när du har skapat ett HDInsight-kluster med hjälp av Azure CLI, använder d
 
 ### <a name="hbase-clusters"></a>HBase-kluster
 
-* [Kom igång med HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Kom igång med HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Utveckla Java-program för HBase i HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-kluster

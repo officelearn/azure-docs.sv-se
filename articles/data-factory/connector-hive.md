@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -48,7 +48,7 @@ Följande egenskaper stöds för Hive länkade tjänsten:
 | värd | IP-adressen eller värdnamnet namnet på servern Hive åtskilda av ';' för flera värdar (endast när serviceDiscoveryMode har aktiverats).  | Ja |
 | port | TCP-porten som Hive-servern använder för att lyssna efter anslutningar.  | Nej |
 | serverType | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
-| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, ** HTTP ** | Nej |
+| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, **HTTP** | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | serviceDiscoveryMode | TRUE om du vill ange använder tjänsten ZooKeeper false inte.  | Nej |
 | zooKeeperNameSpace | Namnområdet på ZooKeeper under vilka Hive Server 2 noder har lagts till.  | Nej |

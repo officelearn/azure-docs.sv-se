@@ -1,11 +1,10 @@
 - name: Dokumentation om App Service
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Om Web Apps
       href: app-service-web-overview.md
-    - name: Om Web App for Containers
+    - name: Om App Service på Linux
       href: containers/app-service-linux-intro.md
     - name: Om App Service-miljöer
       href: environment/intro.md

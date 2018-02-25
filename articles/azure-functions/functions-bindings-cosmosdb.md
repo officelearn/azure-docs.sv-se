@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -127,7 +127,7 @@ Här är JavaScript-kod:
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utlösaren - konfiguration](#trigger---configuration). Här är en `CosmosDBTrigger` attributet exempel i en signatur:
 
@@ -150,8 +150,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** || måste anges till `cosmosDBTrigger`. |
-|**riktning** || måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|Typ || måste anges till `cosmosDBTrigger`. |
+|**Riktning** || måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller den anslutningssträng som används för att ansluta till Azure DB som Cosmos-kontot som övervakas. |
 |**databaseName**|**DatabaseName**  | Namnet på Azure DB som Cosmos-databasen med den samling som övervakas. |
@@ -207,7 +207,7 @@ Första, `Id` och `Maker` värden för en `CarReview` instans skickas till en k�
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -363,7 +363,7 @@ Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) so
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -445,25 +445,25 @@ Här är JavaScript-kod:
 
 ## <a name="input---attributes"></a>Indata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [konfigurationsavsnittet följande](#input---configuration). 
 
 ## <a name="input---configuration"></a>Indata - konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `DocumentDB` attribut.
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `CosmosDB` attribut.
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || måste anges till `documentdb`.        |
-|**riktning**     || måste anges till `in`.         |
+|Typ     || måste anges till `documentdb`.        |
+|**Riktning**     || måste anges till `in`.         |
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
 |**databaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på den samling som innehåller dokumentet. |
 |**id**    | **Id** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
-|**anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
-|**partitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
+|**Anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
+|**PartitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -500,7 +500,7 @@ Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) so
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -705,15 +705,15 @@ Här är JavaScript-kod:
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
-Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata - konfiguration](#output---configuration). Här är en `DocumentDB` attributet exempel i en signatur:
+Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata - konfiguration](#output---configuration). Här är en `CosmosDB` attributet exempel i en signatur:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -723,19 +723,19 @@ En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
-I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `DocumentDB` attribut.
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `CosmosDB` attribut.
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || måste anges till `documentdb`.        |
-|**riktning**     || måste anges till `out`.         |
+|Typ     || måste anges till `documentdb`.        |
+|**Riktning**     || måste anges till `out`.         |
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
 |**databaseName** | **DatabaseName**|Den databas som innehåller den samling där dokumentet har skapats.     |
 |**Samlingsnamn** |**Samlingsnamn**  | Namnet på den samling där dokumentet har skapats. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när det inte finns. Standardvärdet är *FALSKT* eftersom skapas nya samlingar med reserverat dataflöde, vilket har kostnad effekter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**partitionKey**|**PartitionKey** |När `CreateIfNotExists` är true, definierar partition Nyckelsökväg för samlingen som har skapats.|
+|**PartitionKey**|**PartitionKey** |När `CreateIfNotExists` är true, definierar partition Nyckelsökväg för samlingen som har skapats.|
 |**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är true, definierar den [genomströmning](../cosmos-db/set-throughput.md) för samlingen som har skapats.|
-|**anslutning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
+|**Anslutning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -750,7 +750,7 @@ När du skriver till Utdataparametern i din funktion skapas ett dokument i datab
 
 | Bindning | Referens |
 |---|---|
-| DocumentDB | [Felkoder för DocumentDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
+| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Nästa steg
 

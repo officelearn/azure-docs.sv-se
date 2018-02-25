@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Felsöka replikeringsproblem i lokal VMware/fysisk server
 Du kan få ett visst felmeddelande när du skyddar din virtuella VMware-datorer eller fysiska servrar med hjälp av Azure Site Recovery. Den här artikeln beskrivs några av de vanligaste felmeddelandena som uppstod, tillsammans med felsökning för att lösa dem.
@@ -83,11 +83,11 @@ Kontrollera om problemet beror på brandvägg eller proxyserver som beskrivs i n
 
   `*.backup.windowsazure.com:` Används för överföring av replikeringsdata och dirigering
 
-  `*.blob.core.windows.net:`Används för åtkomst till lagringskontot som lagrar replikerade data
+  `*.blob.core.windows.net:` Används för åtkomst till lagringskontot som lagrar replikerade data
 
   `*.hypervrecoverymanager.windowsazure.com:` Används för åtgärder för replikeringshantering och dirigering
 
-  `time.nist.gov`och `time.windows.com`: används för att kontrollera tidssynkronisering mellan system och global tid.
+  `time.nist.gov` och `time.windows.com`: används för att kontrollera tidssynkronisering mellan system och global tid.
 
 URL: er för **Azure Government molnet**:
 

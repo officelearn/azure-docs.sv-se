@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# skript (.csx) för utvecklare
 
@@ -191,32 +191,15 @@ public class Order
 
 Du kan använda en relativ sökväg med den `#load` direktiv:
 
-* `#load "mylogger.csx"`läser in en fil i mappen funktion.
-* `#load "loadedfiles\mylogger.csx"`läser in en fil i en mapp i mappen funktion.
-* `#load "..\shared\mylogger.csx"`läser in en fil i en mapp på samma nivå som funktionen mappen, som är direkt under *wwwroot*.
+* `#load "mylogger.csx"` läser in en fil i mappen funktion.
+* `#load "loadedfiles\mylogger.csx"` läser in en fil i en mapp i mappen funktion.
+* `#load "..\shared\mylogger.csx"` läser in en fil i en mapp på samma nivå som funktionen mappen, som är direkt under *wwwroot*.
 
 Den `#load` direktiv fungerar bara med *.csx* filer, inte med *.cs* filer.
 
 ## <a name="binding-to-method-return-value"></a>Bindning till metoden returvärde
 
-Du kan använda ett returvärde för metoden för en output-bindning med namnet `$return` i *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+Du kan använda ett returvärde för metoden för en output-bindning med namnet `$return` i *function.json*. Exempel finns i [utlösare och bindningar](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Skrivning av flera utdatavärden
 
@@ -236,7 +219,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 
 Om du vill logga utdata till din direktuppspelningsloggar i C#, innehålla ett argument av typen `TraceWriter`. Vi rekommenderar att du namnger den `log`. Undvik att använda `Console.Write` i Azure Functions. 
 
-`TraceWriter`har definierats i den [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Loggningsnivån för `TraceWriter` kan konfigureras i [host.json](functions-host-json.md).
+`TraceWriter` har definierats i den [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Loggningsnivån för `TraceWriter` kan konfigureras i [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -264,17 +247,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>Annullering token
 
-Vissa åtgärder kräver korrekt avslutning. Det är alltid bra att skriva kod som kan hantera kraschar, i fall där du vill hantera avstängning begäranden, definiera en [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) har angett argumentet.  En `CancellationToken` har angetts för att signalera att en värd avstängning utlöses.
+En funktion kan acceptera en [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parametern som gör operativsystemet för att meddela din kod när funktionen håller på att avslutas. Du kan använda det här meddelandet för att kontrollera att funktionen inte avslutas oväntat på ett sätt som lämnar data i ett inkonsekvent tillstånd.
+
+I följande exempel visas hur du kontrollerar att funktionen avslutning.
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## <a name="importing-namespaces"></a>Importera namnområden
@@ -432,7 +429,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`är .NET-attribut som definierar en bindning och `T` är en typ av inkommande eller utgående som stöds av denna bindning. `T`får inte vara en `out` parametertypen (exempelvis `out JObject`). Till exempel tabellen Mobile Apps spara bindningen stöder [sex utdata typer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) för `T`.
+`BindingTypeAttribute` är .NET-attribut som definierar en bindning och `T` är en typ av inkommande eller utgående som stöds av denna bindning. `T` får inte vara en `out` parametertypen (exempelvis `out JObject`). Till exempel tabellen Mobile Apps spara bindningen stöder [sex utdata typer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) för `T`.
 
 ### <a name="single-attribute-example"></a>Attribut-exempel
 

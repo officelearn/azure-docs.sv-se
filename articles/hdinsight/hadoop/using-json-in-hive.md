@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -151,7 +151,6 @@ Relaterade artiklar finns:
 * [Använda Hive och HiveQL med Hadoop i HDInsight för att analysera ett exempel Apache log4j-fil](../hdinsight-use-hive.md)
 * [Analysera svarta fördröjning data med hjälp av Hive i HDInsight](../hdinsight-analyze-flight-delay-data.md)
 * [Analysera Twitter-data med hjälp av Hive i HDInsight](../hdinsight-analyze-twitter-data.md)
-* [Kör ett Hadoop-jobb med hjälp av Azure Cosmos DB och HDInsight](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

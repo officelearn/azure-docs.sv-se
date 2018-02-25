@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric gör det enklare att skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Detta avsnitt:
@@ -45,7 +45,7 @@ Reliable Services ger en enkel, kraftfulla översta programmeringsmodell som hj�
 * En modell med pluggable kommunikation. Använda transport av du väljer, till exempel HTTP med [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, anpassade TCP-protokoll eller något annat. Reliable Services innehåller några bra out box-alternativ som du kan använda eller ange en egen.
 * För tillståndskänsliga tjänster programmeringsmiljö Reliable Services kan du konsekvent och tillförlitligt sätt lagra din tillstånd i din tjänst med hjälp av [tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md). Tillförlitliga samlingar är en enkel uppsättning hög tillgänglighet och tillförlitlig Samlingsklasser som är bekant för alla som har använt C#-samlingar. Traditionellt tjänster som krävs för externa system för tillståndshantering av tillförlitliga. Med tillförlitlig samlingar kan du lagra ditt tillstånd bredvid din beräkning med samma hög tillgänglighet och tillförlitlighet du förväntar dig från högtillgänglig externa butiker. Den här modellen förbättrar också latens eftersom du samordna beräknings- och tillstånd som behövs för att fungera.
 
-Det här videoklippet Microsoft Virtual Academy en översikt över Reliable services:<center>
+Det här videoklippet Microsoft Virtual Academy en översikt över Reliable services: <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>

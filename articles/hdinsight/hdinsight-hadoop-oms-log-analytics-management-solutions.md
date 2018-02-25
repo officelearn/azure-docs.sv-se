@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 9b2871a3dc7e8c3f36666d44e68c298f43fa6267
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f8a073fbf40feaef97053bb1165d63bbca3e3feb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Lägg till lösningar för hantering av HDInsight-klustret till logganalys
 
@@ -27,7 +27,7 @@ HDInsight tillhandahåller klusterspecifika hanteringslösningar som du kan läg
 
 I den här artikeln lär du dig att lägga till klusterspecifika hanteringslösningar till en Operations Management Suite-arbetsyta.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure logganalys. Instruktioner finns i [Använd Azure logganalys med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -45,9 +45,9 @@ I det här avsnittet kan du lägga till en hanteringslösning för HBase-kluster
 
 2. Klicka på något av följande ikoner i galleriet lösningar:
 
-    - HDInsight Hadoop övervakning
+    - HDInsight Hadoop Monitoring
     - HDInsight HBase övervakning (förhandsgranskning)
-    - HDInsight Kafka övervakning
+    - HDInsight Kafka Monitoring
     - HDInsight Storm övervakning
     - HDInsight Spark övervakning
 
@@ -63,7 +63,7 @@ I det här avsnittet kan du lägga till en hanteringslösning för HBase-kluster
 
 * [Frågan Azure Log Analytics för att övervaka HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Arbeta med Operations Management Suite logganalys](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Skapa Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md)

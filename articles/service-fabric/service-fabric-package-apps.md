@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0db49b9bd50c640175292671f813d23d960b52e1
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="package-an-application"></a>Paketera ett program
 Den här artikeln beskriver hur du paketerar ett Service Fabric-program och förbereda för distribution.

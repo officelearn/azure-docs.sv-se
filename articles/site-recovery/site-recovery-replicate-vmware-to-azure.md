@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replikera program som körs på virtuella VMware-datorer till Azure
 
 
 
 Den här artikeln beskriver hur du ställer in replikering av virtuella datorer (VM) som körs på VMware till Azure.
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har:
 
@@ -50,7 +50,7 @@ När du replikerar virtuella VMware-datorer:
 1. Klicka på **Steg 2: Replikera program** > **Källa**. När du har aktiverat replikering för första gången klickar du på **+Replikera** i valvet för att aktivera replikering för ytterligare datorer.
 2. I den **källa** sidan > **källa**, Välj konfigurationsservern.
 3. I **datorn typen**väljer **virtuella datorer** eller **fysiska datorer**.
-4. I **vCenter/vSphere-Hypervisor**väljer vCenter-servern som hanterar vSphere-värd, eller värden. Den här inställningen är inte relevant om du replikerar fysiska datorer.
+4. I **vCenter/vSphere Hypervisor** väljer du den vCenter-server som hanterar vSphere-värden, eller så väljer du värden. Den här inställningen är inte relevant om du replikerar fysiska datorer.
 5. Välj processervern, som kommer att namnet på konfigurationsservern om du inte har skapat några ytterligare servrar. Klicka sedan på **OK**.
 
     ![Aktivera källa för replikering](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ När du replikerar virtuella VMware-datorer:
     >    * Samla in virtuella datorer och fysiska servrar så att de speglar dina arbetsbelastningar. Aktivera konsekvens för flera kan påverka arbetsbelastningens prestanda. Använd bara om datorer kör samma arbetsbelastning och du behöver enhetlighet.
 
     ![Aktivera replikering](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Klicka på **Aktivera replikering**. Du kan följa förloppet för den **Aktivera skydd** jobb **inställningar** > **jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+14. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 > [!NOTE]
 > Om datorn är förberedd för push-installation, installeras komponenten Mobilitetstjänsten när skydd är aktiverat. När komponenten är installerad på datorn, startar ett jobb för att skydda och misslyckas. Efter fel måste du manuellt starta om varje dator. Efter omstarten skyddsjobbet börjar igen och inledande replikering.
@@ -119,7 +119,7 @@ Därefter måste kontrollera du egenskaperna för källdatorn. Kom ihåg att det
     Om en källdator har två nätverkskort och måldatorn stöder fyra har måldatorn två nätverkskort. Om källdatorn har två nätverkskort men målstorleken endast stöder ett har bara en kort med måldatorn.
     - Om den virtuella datorn har flera nätverkskort, ansluta alla till samma nätverk. Dessutom den första som visas i listan blir den *standard* nätverkskort i den virtuella Azure-datorn.
 
-### <a name="azure-hybrid-use-benefit"></a>Hybridrapportering i Azure används förmån
+### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 
 Microsoft Software Assurance-kunder kan använda Azure Hybrid använda fördelen att spara på licensieringskostnader för Windows Server-datorer som har migrerats till Azure eller att använda Azure för katastrofåterställning. Om du är berättigad att använda den Azure Hybrid använda dra kan ange du att den virtuella datorn som tilldelats den här funktionen är en Azure Site Recovery skapas om det finns en växling vid fel. Gör så här:
 - Gå till avsnittet beräknings- och egenskaper för den replikerade virtuella datorn.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -43,7 +43,7 @@ När du utvecklar funktioner genom att använda Visual Studio för att skapa en 
 
 Information om vilka bindningar finns i förhandsgranskningen eller godkänns för produktion finns [språk som stöds](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Exempel: kön utlösare och tabellen utdatabindning
+## <a name="example-trigger-and-binding"></a>Exempel utlösaren och bindning
 
 Anta att du vill skriva en ny rad till Azure Table storage när ett nytt meddelande visas i Azure Queue storage. Det här scenariot kan implementeras med hjälp av en Azure Queue storage utlösare och Azure-tabellagring utdatabindning. 
 
@@ -79,7 +79,7 @@ Visa och redigera innehållet i *function.json* i Azure-portalen klickar du på 
 > [!NOTE]
 > Värdet för `connection` är namnet på en appinställning som innehåller anslutningssträngen inte anslutningssträngen sig själv. Bindningar använder anslutningen strängar som lagras i appen inställningar för att tillämpa bäst rutin som *function.json* innehåller inte tjänsten hemligheter.
 
-Här är C# skriptkod som fungerar med den här utlösaren och bindning. Observera att namnet på den parameter som innehåller innehållet i kön meddelandet är `order`; det här namnet är obligatoriskt eftersom den `name` egenskapsvärde i *function.json* är`order` 
+Här är C# skriptkod som fungerar med den här utlösaren och bindning. Observera att namnet på den parameter som innehåller innehållet i kön meddelandet är `order`; det här namnet är obligatoriskt eftersom den `name` egenskapsvärde i *function.json* är `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -124,7 +124,7 @@ function generateRandomId() {
 }
 ```
 
-I en klassbiblioteket, samma utlösare och bindningsinformationen &mdash; kön och tabellen namn, storage-konton fungerar parametrar för ingående och utgående &mdash; tillhandahålls av attribut:
+I en klassbiblioteket, samma utlösare och bindningsinformationen &mdash; kön och tabellen namn, storage-konton fungerar parametrar för ingående och utgående &mdash; tillhandahålls av attribut i stället för en function.json-fil. Här är ett exempel:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -156,18 +156,59 @@ I en klassbiblioteket, samma utlösare och bindningsinformationen &mdash; kön o
 
 Alla utlösare och bindningar har en `direction` egenskap i den *function.json* fil:
 
-- För utlösare är riktningen alltid`in`
-- Inkommande och utgående bindningar använda `in` och`out`
+- För utlösare är riktningen alltid `in`
+- Inkommande och utgående bindningar använda `in` och `out`
 - Vissa bindningar stöd för en särskild riktning `inout`. Om du använder `inout`, endast den **redigeraren** är tillgängliga i den **integrera** fliken.
 
 När du använder [attribut i en klassbiblioteket](functions-dotnet-class-library.md) om du vill konfigurera utlösare och bindningar riktningen som anges i en attributkonstruktör eller härledas från parametertypen.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Använda Returtypen för funktionen för att returnera ett enda utflöde
+## <a name="using-the-function-return-value"></a>Med hjälp av returvärde för funktion
 
-Föregående exempel visar hur du använder funktionen returvärdet ge utdata till en bindning som anges i *function.json* med hjälp av särskilda värdet `$return` för den `name` egenskapen. (Detta stöds endast på språk som har ett returvärde, till exempel C# skript, JavaScript och F #.) Om en funktion har flera bindningar för utdata använder `$return` för endast en av bindningarna som utdata. 
+Språk som har ett returvärde binder du en output-bindning till det returnera värdet:
+
+* I en C#-klassbiblioteket, gäller utdata bindning-attribut för metoden returvärdet.
+* På andra språk, ange den `name` egenskap i *function.json* till `$return`.
+
+Om du behöver skriva mer än ett objekt kan använda en [insamlingsobjekt](functions-reference-csharp.md#writing-multiple-output-values) i stället för returvärdet. Om det finns flera utdata-bindningar, kan du använda det returnera värdet för en av dem.
+
+Finns i det språkspecifika:
+
+* [C#](#c-example)
+* [C#-skript (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>C#-exempel
+
+Här följer C#-kod som använder det returnera värdet för en bindning för utdata, följt av ett async-exempel:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Exempel på C#-skript
+
+Här är utdata-bindning den *function.json* fil:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +217,9 @@ Föregående exempel visar hur du använder funktionen returvärdet ge utdata ti
 }
 ```
 
-Exemplen nedan visar tillbaka hur typer som används med utdata bindningar i C# skript, JavaScript och F #.
+Här är den C# skriptkod, följt av ett async-exempel:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +229,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +237,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>F #-exempel
+
+Här är utdata-bindning den *function.json* fil:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Här är F #-kod:
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>JavaScript-exempel
+
+Här är utdata-bindning den *function.json* fil:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+I JavaScript, går det returnera värdet i den andra parametern för `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>DataType-egenskapen för bindning
@@ -232,13 +299,32 @@ Språk som skrivs dynamiskt, till exempel JavaScript, använda den `dataType` eg
 
 Andra alternativ för `dataType` är `stream` och `string`.
 
-## <a name="resolving-app-settings"></a>Lösa app-inställningar
+## <a name="binding-expressions-and-patterns"></a>Bindande uttryck och mönster
 
-Som bästa praxis, hemligheter och anslutningssträngar ska hanteras med app-inställningar i stället för konfigurationsfiler. Detta begränsar åtkomst till dessa hemligheter och gör det säkert att lagra *function.json* i en offentlig källkontroll.
+En av de viktigaste funktionerna i utlösare och bindningar är *bindningsuttryck*. I den *function.json* fil och parametrar och kod, du kan använda uttryck som matchar värden från olika källor.
+
+De flesta uttryck identifieras genom att omsluta dem i klammerparenteser. Till exempel i en kö Utlösarfunktion `{queueTrigger}` matchar meddelandetexten för kön. Om den `path` -egenskapen för en blob utdata bindning är `container/{queueTrigger}` och funktionen utlöses av ett kömeddelande `HelloWorld`, en blob med namnet `HelloWorld` skapas.
+
+Typer av bindande uttryck
+
+* [App-inställningar](#binding-expressions---app-settings)
+* [Utlösaren filnamn](#binding-expressions---trigger-file-name)
+* [Utlösaren metadata](#binding-expressions---trigger-metadata)
+* [JSON-nyttolaster](#binding-expressions---json-payloads)
+* [GUID för nytt](#binding-expressions---create-guids)
+* [Aktuellt datum och tid](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Bindande uttryck - app-inställningar
+
+Som bästa praxis, hemligheter och anslutningssträngar ska hanteras med app-inställningar i stället för konfigurationsfiler. Detta begränsar åtkomst till dessa hemligheter och gör det säkert att lagra filer som *function.json* i offentliga källa kontrollen databaser.
 
 Appinställningar är också användbara när du vill ändra konfigurationen baserat på miljön. I en testmiljö kan du vill övervaka en annan kö eller blob storage-behållare.
 
-Appinställningar är löst när ett värde som omges av procenttecken, `%MyAppSetting%`. Observera att den `connection` egenskapen för utlösare och bindningar är ett specialfall och löser automatiskt värden som app-inställningar. 
+Appen inställningen bindande uttryck identifieras annorlunda från andra bindande uttryck: de kapslas in i procenttecken snarare än klammerparenteser. Till exempel om bindningssökväg för blob-utdata är `%Environment%/newblob.txt` och `Environment` app Inställningsvärdet är `Development`, en blob som kommer att skapas i den `Development` behållare.
+
+När funktionen körs lokalt app inställningsvärden komma från den *local.settings.json* fil.
+
+Observera att den `connection` egenskapen för utlösare och bindningar är ett specialfall och automatiskt löser värden som app-inställningar, utan procenttecken. 
 
 Följande exempel är en Azure Queue Storage-utlösare som använder en appinställning `%input-queue-name%` att definiera kön att utlösa på.
 
@@ -268,9 +354,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Utlösaren metadataegenskaper
+### <a name="binding-expressions---trigger-file-name"></a>Bindande uttryck - utlösaren filnamn
 
-Ange ytterligare metadatavärden förutom datanyttolasten som tillhandahålls av en utlösare (till exempel kön meddelandet som utlöste en funktion) många utlösare. Dessa värden kan användas som indataparametrar i C# och F # eller egenskaper på den `context.bindings` objekt i JavaScript. 
+Den `path` för en Blob utlösare kan vara ett mönster som kan du referera till namnet på den utlösande blobben i andra bindningar och fungera kod. Mönstret kan även inkludera filtreringskriterier som anger vilka blobbar kan utlösa ett funktionsanrop.
+
+Till exempel i följande Blob-utlösaren bindning, den `path` mönstret är `sample-images/{filename}`, vilket skapar ett uttryck för bindning med namnet `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+Uttrycket `filename` kan sedan användas i en output-bindning för att ange namnet på blob som skapas:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Funktionskoden har åtkomst till den här samma värde med hjälp av `filename` som ett parameternamn:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+Samma möjligheten att använda bindande uttryck och mönster gäller attribut i klassbibliotek. I följande exempel konstruktorparametrarna attributet är samma `path` värden som den föregående *function.json* exempel: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+Du kan också skapa uttryck för delar av filnamn, till exempel tillägget. Mer information om hur du använder uttryck och mönster i Blob-sökvägen finns på [lagring bindning blobbreferens](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Bindande uttryck - utlösaren metadata
+
+Ange ytterligare metadatavärden förutom datanyttolasten som tillhandahålls av en utlösare (till exempel innehållet i kön meddelandet som utlöste en funktion), många utlösare. Dessa värden kan användas som indataparametrar i C# och F # eller egenskaper på den `context.bindings` objekt i JavaScript. 
 
 Till exempel stöder en Azure Queue storage-utlösare följande egenskaper:
 
@@ -304,112 +456,11 @@ Dessa metadata-värdena är tillgängliga i *function.json* filegenskaper. Anta 
 
 Information om metadataegenskaper för varje utlösare beskrivs i referensartikeln i fråga. Ett exempel finns [kö utlösaren metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Dokumentation är också tillgänglig i den **integrera** för portalen, i den **dokumentationen** avsnittet nedan konfigurationsområde bindning.  
 
-## <a name="binding-expressions-and-patterns"></a>Bindande uttryck och mönster
+### <a name="binding-expressions---json-payloads"></a>Bindande uttryck - JSON-nyttolaster
 
-En av de viktigaste funktionerna i utlösare och bindningar är *bindningsuttryck*. Du kan definiera mönster för uttryck som sedan kan användas i andra bindningar eller koden i konfigurationen för en bindning. Utlösaren metadata kan också användas i bindande uttryck som visas i föregående avsnitt.
+När en utlösare nyttolasten är JSON kan referera du till dess egenskaper i konfigurationen för andra bindningar i samma funktion och funktionskoden.
 
-Anta att du vill ändra storlek på bilder i en viss behållare för blob storage, liknar den **storleksändring av** mallen i den **nya funktionen** sidan i Azure-portalen (finns i **prover**  scenariot). 
-
-Här är den *function.json* definition:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Observera att den `filename` parameter används i både definition för blob-utlösare och blob-utdatabindning. Den här parametern kan också användas i funktionskod.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-Samma möjligheten att använda bindande uttryck och mönster gäller attribut i klassbibliotek. Här är till exempel en funktion i en klassbiblioteket för storleksändring:
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Skapa GUID
-
-Den `{rand-guid}` bindande uttryck skapar ett GUID. I följande exempel används en GUID för att skapa ett unikt blob-namn: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Aktuell tid
-
-Bindningsuttrycket `DateTime` matchar `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Binda till anpassade egenskaper för indata
-
-Bindande uttryck kan även referera till egenskaper som är definierade i utlösaren nyttolasten sig själv. Du kanske vill binda dynamiskt till en blob storage-fil från ett filnamn som anges i en webhook.
-
-Till exempel följande *function.json* använder en egenskap som kallas `BlobName` från nyttolasten utlösare:
+I följande exempel visas den *function.json* -filen för en webhook-funktion som tar emot ett blob-namn i JSON: `{"BlobName":"HelloWorld.txt"}`. Blob-indatabindning läser blob och HTTP utdata bindning returnerar blobbinnehållet i HTTP-svaret. Observera att Blob-indatabindning hämtar blobbnamnet av refererar direkt till den `BlobName` egenskap (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -424,7 +475,7 @@ Till exempel följande *function.json* använder en egenskap som kallas `BlobNam
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +487,7 @@ Till exempel följande *function.json* använder en egenskap som kallas `BlobNam
 }
 ```
 
-Om du vill åstadkomma detta i C# och F #, måste du definiera en POCO som definierar vilka fält som ska avserialiseras i nyttolasten för utlösare.
+Att arbeta i C# och F #, behöver du en klass som definierar de fält som ska avserialiseras som i följande exempel:
 
 ```csharp
 using System.Net;
@@ -458,7 +509,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-JSON-deserialisering utförs automatiskt i JavaScript, och du kan använda egenskaperna direkt.
+I JavaScript utförs automatiskt JSON-deserialisering.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +527,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Konfigurerar bindningsdata vid körning
+#### <a name="dot-notation"></a>Punktnotation
 
-I C# och andra .NET-språk, kan du använda en tvingande bindning mönster, till skillnad från deklarativ bindningar i *function.json* och attribut. Tvingande bindning är användbar när bindande parametrar måste beräknas vid körning i stället för design tidpunkt. Läs mer i [bindning under körning via tvingande bindningar](functions-reference-csharp.md#imperative-bindings) i C#-utvecklare.
+Om vissa av egenskaperna i JSON-nyttolast-objekt med egenskaper kan referera du till dem direkt med hjälp av punktnotation. Anta exempelvis att din JSON ser ut så här:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+Du kan gå direkt till `FileName` som `BlobName.FileName`. Med den här JSON-format, som här är vad den `path` egenskapen i föregående exempel skulle se ut:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+I C# behöver du två klasser:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Bindande uttryck - skapa GUID
+
+Den `{rand-guid}` bindande uttryck skapar ett GUID. Följande blob-sökväg i en `function.json` skapar en blob med ett namn, till exempel *50710cb5-84b9 - 4d 9 87 d 83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Bindande uttryck - aktuell tid
+
+Bindningsuttrycket `DateTime` matchar `DateTime.UtcNow`. Följande blob-sökväg i en `function.json` skapar en blob med ett namn, till exempel *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Bindning under körning
+
+I C# och andra .NET-språk, kan du använda en tvingande bindning mönster, till skillnad från deklarativ bindningar i *function.json* och attribut. Tvingande bindning är användbar när bindande parametrar måste beräknas vid körning i stället för design tidpunkt. Mer information finns i [C#-utvecklare](functions-dotnet-class-library.md#binding-at-runtime) eller [C# skript för utvecklare](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>schemat för Function.JSON
 

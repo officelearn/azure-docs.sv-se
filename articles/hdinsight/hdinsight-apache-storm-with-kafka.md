@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Använda Apache Kafka med Storm på HDInsight
 
@@ -36,7 +36,7 @@ Koden för exemplet i det här dokumentet finns på [https://github.com/Azure-Sa
 
 För att kompilera det här projektet, behöver du följande konfiguration för din utvecklingsmiljö:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) eller högre. HDInsight 3.5 eller högre krävs Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) eller högre. HDInsight 3.5 eller högre krävs Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ För att kompilera det här projektet, behöver du följande konfiguration för 
 
 Följande miljövariabler kan anges när du installerar Java och JDK på utvecklingsdatorn. Dock bör du kontrollera att de finns och att de innehåller rätt värden för ditt system.
 
-* `JAVA_HOME`-måste peka på den katalog där JDK har installerats.
-* `PATH`-bör innehålla följande sökvägar:
+* `JAVA_HOME` -måste peka på den katalog där JDK har installerats.
+* `PATH` -bör innehålla följande sökvägar:
   
-    * `JAVA_HOME`(eller motsvarande sökväg).
-    * `JAVA_HOME\bin`(eller motsvarande sökväg).
+    * `JAVA_HOME` (eller motsvarande sökväg).
+    * `JAVA_HOME\bin` (eller motsvarande sökväg).
     * Den katalog där Maven är installerat.
 
 ## <a name="create-the-clusters"></a>Skapa kluster
@@ -121,7 +121,7 @@ Det här projektet innehåller två topologier:
     Den här topologin använder Storm-HdfsBolt för att skriva data till standardlagring för Storm-kluster.
 ### <a name="flux"></a>Flux
 
-Topologierna definieras med hjälp av [som](https://storm.apache.org/releases/1.1.0/flux.html). Som introducerades i Storm-0.10.x och du kan avgränsa topologi konfigurationen från koden. Topologier som använder ramverket som definieras topologin i en YAML-fil. YAML-filen kan vara ingår i topologin. Det kan också vara en fristående fil som används när du skickar in topologin. Som stöder också variabeln ersättning vid körning, som används i det här exemplet.
+Topologierna definieras med hjälp av [som](https://storm.apache.org/releases/1.1.2/flux.html). Som introducerades i Storm-0.10.x och du kan avgränsa topologi konfigurationen från koden. Topologier som använder ramverket som definieras topologin i en YAML-fil. YAML-filen kan vara ingår i topologin. Det kan också vara en fristående fil som används när du skickar in topologin. Som stöder också variabeln ersättning vid körning, som används i det här exemplet.
 
 Följande parametrar anges vid körning för dessa topologier:
 
@@ -131,7 +131,7 @@ Följande parametrar anges vid körning för dessa topologier:
 
 * `${kafka.zookeeper.hosts}`: De värdar som Zookeeper körs på i Kafka-klustret.
 
-Mer information om topologier som finns [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Mer information om topologier som finns [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Hämta och kompileras projektet
 
@@ -255,7 +255,7 @@ Mer information om topologier som finns [https://storm.apache.org/releases/1.1.0
 
     * `--remote`: Skicka topologi och Nimbus. Topologi distribueras över arbetarnoder i klustret.
 
-    * `-R /writer.yaml`: Använd den `writer.yaml` filen om du vill konfigurera topologin. `-R`Anger att den här resursen ingår i jar-filen. Det är i roten av jar så `/writer.yaml` är sökvägen till den.
+    * `-R /writer.yaml`: Använd den `writer.yaml` filen om du vill konfigurera topologin. `-R` Anger att den här resursen ingår i jar-filen. Det är i roten av jar så `/writer.yaml` är sökvägen till den.
 
     * `--filter`: Fylla poster i den `writer.yaml` topologi med värdena i den `dev.properties` filen. Exempelvis värdet för den `kafka.topic` post i filen används för att ersätta den `${kafka.topic}` post i topologin definition.
 

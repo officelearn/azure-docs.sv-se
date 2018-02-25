@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight 
 
@@ -135,7 +135,11 @@ Kan du öppna den **00 - [läsa mig första] Spark Magic Kernel funktioner** bä
 
 ## <a name="where-are-the-notebooks-stored"></a>Var lagras de bärbara datorerna?
 
-Jupyter-anteckningsböcker sparas till storage-konto som är associerade med klustret under den **/HdiNotebooks** mapp.  Bärbara datorer, textfiler och mappar som du skapar från i Jupyter är tillgängliga från lagringskontot.  Till exempel om du skapar en mapp med Jupyter **MinMapp** och en bärbar dator **myfolder/mynotebook.ipynb**, du kan komma åt den bärbara på `/HdiNotebooks/myfolder/mynotebook.ipynb` inom lagringskonto.  Den gäller även omvänt, det vill säga om du överför en bärbar dator direkt till ditt lagringskonto på `/HdiNotebooks/mynotebook1.ipynb`, anteckningsboken är synlig från Jupyter samt.  Bärbara datorer finns kvar i lagringskontot även när klustret har tagits bort.
+Om klustret använder Azure Storage som standardkontot för lagring, Jupyter-anteckningsböcker sparas till lagringskontot under den **/HdiNotebooks** mapp.  Bärbara datorer, textfiler och mappar som du skapar från i Jupyter är tillgängliga från lagringskontot.  Till exempel om du skapar en mapp med Jupyter **MinMapp** och en bärbar dator **myfolder/mynotebook.ipynb**, du kan komma åt den bärbara på `/HdiNotebooks/myfolder/mynotebook.ipynb` inom lagringskonto.  Den gäller även omvänt, det vill säga om du överför en bärbar dator direkt till ditt lagringskonto på `/HdiNotebooks/mynotebook1.ipynb`, anteckningsboken är synlig från Jupyter samt.  Bärbara datorer finns kvar i lagringskontot även när klustret har tagits bort.
+
+> [!NOTE]
+> HDInsight-kluster med Azure Data Lake Store som standard storage lagrar inte bärbara datorer i associerade lagringsmedia.
+>
 
 Hur anteckningsböcker sparas till lagringskontot är kompatibelt med HDFS. Så, om du SSH till klustret som du kan använda filen management kommandon som visas i följande utdrag:
 
@@ -143,8 +147,7 @@ Hur anteckningsböcker sparas till lagringskontot är kompatibelt med HDFS. Så,
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-Om det finns problem med att komma åt lagringskontot för klustret, de bärbara datorerna sparas även på headnode `/var/lib/jupyter`.
+Oavsett om klustret använder Azure Storage eller Azure Data Lake Store som standardkontot för lagring, sparas även de bärbara datorerna på klustret headnode på `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Webbläsare som stöds
 

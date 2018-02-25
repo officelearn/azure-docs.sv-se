@@ -1,12 +1,12 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Shell för Azure-molnet är ett kostnadsfritt interaktiva skal som du kan använda för att köra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Klicka bara på den **kopiera** klistra in den i molnet Shell för att kopiera koden, och tryck sedan på RETUR för att köra den.  Det finns några olika sätt att starta molnet Shell:
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Klicka bara på den **kopiera** för att kopiera koden, klistrar in den i molnet Shell och tryck sedan på Ange för att köra den.  Det finns flera olika sätt att starta Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|
-| Klicka på **prova** i det övre högra hörnet av ett kodblock. | ![Moln-gränssnittet i den här artikeln](./media/cloud-shell-try-it/cli-try-it.png) |
-| Öppna moln-gränssnittet i webbläsaren. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Klicka på den **moln Shell** knappen på menyn i övre högra den [Azure-portalen](https://portal.azure.com). |    ![Molnet Shell i portalen](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Klicka på **Prova** i det övre högra hörnet av ett kodblock. | ![Cloud Shell i den här artikeln](./media/cloud-shell-try-it/cli-try-it.png) |
+| Öppna Cloud Shell i din webbläsare. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| Klicka på knappen **Cloud Shell** på menyn längst upp till höger i [Azure Portal](https://portal.azure.com). |    ![Cloud Shell i portalen](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 |  |  |
 

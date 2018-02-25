@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/22/2018
 ms.author: rajanaki
-ms.openlocfilehash: 504548abf00cf682c130af22eb29d47d0f47a82a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 67d9164fcf8fb3731c4e3a9d30ac5c38da5908c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med PowerShell och Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -284,7 +284,7 @@ Om du vill kontrollera åtgärden slutfördes, följer du stegen i [Övervakarak
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
-## <a name=monitor></a>Övervakaraktivitet
+## <a name=monitor></a> Övervakaraktivitet
 Du kan använda följande kommandon för att övervaka aktiviteten. Observera att du har ska vänta mellan jobb för bearbetning till slut.
 
     Do

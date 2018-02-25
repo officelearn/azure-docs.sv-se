@@ -1,25 +1,24 @@
 ---
-title: "Om nätverksmappningen för replikering av Hyper-V virtuella datorer i VMM-moln med Site Recovery | Microsoft Docs"
+title: "Om nätverksmappningen för Hyper-V-dator (med VMM) replikering till Azure med Site Recovery | Microsoft Docs"
 description: "Beskriver hur du ställer in nätverksmappningen för replikering av Hyper-V-datorer hanteras i VMM-moln med Azure Site Recovery."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Om nätverksmappningen för Hyper-V-dator med VMM-replikering 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
 
 
-Den här artikeln hjälper dig att förstå och planera för nätverksmappning under replikering av Hyper-V virtuella datorer i System Center Virtual Machine Manager (VMM) moln med hjälp av den [Azure Site Recovery-tjänsten](site-recovery-overview.md).
+Den här artikeln hjälper dig att förstå och förbereda för nätverksmappning när du replikerar virtuella Hyper-V-datorer i System Center Virtual Machine Manager (VMM)-moln till Azure eller till en sekundär plats med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
-Nätverksmappningen för att replikera virtuella Hyper-V-datorer hanteras i ett VMM-moln till en sekundär VMM-moln eller till Azure.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Förbereda nätverksmappningen för replikering till Azure
 
@@ -123,4 +122,5 @@ Nätverksmappningen för VMNetwork1 Chicago ändras. | VM-1 ansluts till nätver
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om](hyper-v-vmm-networking.md) IP-adresser efter växling till en sekundär plats för VMM.
+- [Lär dig mer om](hyper-v-vmm-networking.md) IP-adresser efter växling till en sekundär plats för VMM.
+- [Lär dig mer om](concepts-on-premises-to-azure-networking.md) IP-adresser efter en redundansväxling till Azure.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT-hubb enheten identiteter i grupp
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Att använda den **RegistryManager** klassen i C#-kod, lägga till den **Microsoft.Azure.Devices** NuGet-paket i projektet. Den **RegistryManager** klassen är i den **Microsoft.Azure.Devices** namnområde.
 
-Du kan använda den **RegistryManager** klassen för att fråga efter tillståndet för den **jobbet** med hjälp av den returnerade **JobProperties** metadata.
+Du kan använda den **RegistryManager** klassen för att fråga efter tillståndet för den **jobbet** med hjälp av den returnerade **JobProperties** metadata. Att skapa en instans av den **RegistryManager** klassen använder den **CreateFromConnectionString** metod:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Att hitta anslutningssträngen för din IoT-hubb i Azure-portalen:
+
+- Gå till din IoT-hubb.
+- Välj **principer för delad åtkomst**.
+- Välj en princip med hänsyn till de behörigheter som du behöver.
+- Kopiera connectionstring från panelen på höger sida av skärmen.
 
 Följande C# kodfragmentet visas hur du avsöker var femte sekund för att se om jobbet har slutförts körs:
 
@@ -240,7 +251,7 @@ Använd det valfria **ImportMode %** egenskap i serialiseringsdata import för v
 | --- | --- |
 | **createOrUpdate** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
 | **skapa** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
-| **Uppdatera** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **update** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
 | **updateIfMatchETag** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indata om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
 | **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indata om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan ange identiska data tillsammans med enhetsdata. Den dubbla etag bearbetas om anges separat från enhetens etag. Om det finns en felaktig matchning med befintliga dubbla etag, skrivs ett fel till loggfilen. |
 | **ta bort** |Om det finns redan en enhet med det angivna **id**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |

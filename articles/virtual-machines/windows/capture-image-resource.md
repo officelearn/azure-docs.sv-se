@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -55,7 +55,7 @@ Se till att serverroller som körs på datorn som stöds av Sysprep. Mer informa
 3. I **namn**, skriver du namnet som du vill använda för avbildningen.
 4. I **resursgruppen** Välj antingen **Skapa nytt** och ange ett namn eller välj **använda befintliga** och välja en resursgrupp i den nedrullningsbara listan.
 5. Om du vill ta bort den Virtuella källdatorn efter att avbildningen har skapats, Välj **automatiskt ta bort den här virtuella datorn när du har skapat avbildningen**.
-6. När du är klar klickar du på **skapa**.
+6. Klicka på **Skapa** när du är klar.
 16. När avbildningen har skapats visas den som en **bild** resurs i listan över resurser i resursgruppen.
 
 
@@ -65,7 +65,7 @@ Se till att serverroller som körs på datorn som stöds av Sysprep. Mer informa
 Skapa en avbildning direkt från den virtuella datorn ser du till att bilden innehåller alla diskar som är kopplade till den virtuella datorn, inklusive OS-disken och eventuella hårddiskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
 
-Innan du börjar bör du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. Kör följande kommando för att installera den.
+Innan du börjar bör du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. Kör följande kommando för att installera den. (Använd `Get-Module` att kontrollera vilken version du har.)
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0

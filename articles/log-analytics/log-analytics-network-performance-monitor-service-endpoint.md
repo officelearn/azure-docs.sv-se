@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7eb31b91480b6e57135581cfa2f5503de3189e10
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="service-endpoint-manager"></a>Service Endpoint Manager
+# <a name="service-endpoint-monitor"></a>Tjänsten Endpoint för övervakning
 
-Tjänsthanteraren för slutpunkt-funktionen i [Network Performance Monitor](log-analytics-network-performance-monitor.md) kan du övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port. Dessa slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
+Tjänsten Endpoint bildskärmar i [Network Performance Monitor](log-analytics-network-performance-monitor.md) kan du övervaka nätverksanslutning till någon slutpunkt som har en öppen TCP-port. Dessa slutpunkter är webbplatser, SaaS-program, PaaS-program och SQL-databaser. 
 
 Du kan utföra följande funktioner med **Endpoint Tjänstövervakare**: 
 

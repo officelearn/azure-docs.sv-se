@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Läs mer i [uppskatta dina genomströmning måste](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Eftersom Azure Cosmos DB är en databas med flera olika modeller, är det viktig
 ## <a name="request-units-and-request-charges"></a>Frågeenheter och kostnader för begäran
 Azure Cosmos-DB ger snabb och förutsägbar prestanda av *reservera* resurser för att uppfylla genomströmning för ditt program måste.  Eftersom program läsa in och komma åt mönster ändras över tiden, kan du enkelt öka eller minska mängden reserverat dataflöde som är tillgängliga för ditt program i Azure Cosmos DB.
 
-Med Azure Cosmos DB anges reserverat dataflöde som frågeenheter som bearbetades per sekund. Du kan se frågeenheter som dataflöde valuta, där du *reservera* en mängd garanterad frågeenheter som är tillgängliga för ditt program med utgångspunkt från per sekund.  Varje åtgärd i Azure DB som Cosmos - skriva ett dokument, utför en fråga, uppdatera ett dokument - förbrukar CPU, minne och IOPS.  Det vill säga varje åtgärd har en *begära kostnad*, som uttrycks i *programbegäran*.  Förstå de faktorer som påverkar begäran enhet kostnader, tillsammans med ditt program genomströmning krav, kan du köra programmet som kostnad effektiv som möjligt. Frågan explorer är också en fantastiska verktyg för att testa kärnan i en fråga.
+Med Azure Cosmos DB anges reserverat dataflöde som frågeenheter som bearbetades per sekund. Du kan se frågeenheter som dataflöde valuta, där du *reservera* en mängd garanterad frågeenheter som är tillgängliga för ditt program med utgångspunkt från per sekund.  Varje åtgärd i Azure DB som Cosmos - skriva ett dokument, utför en fråga, uppdatera ett dokument - förbrukar CPU, minne och IOPS.  Det vill säga varje åtgärd har en *begära kostnad*, som uttrycks i *programbegäran*.  Förstå de faktorer som påverkar begäran enhet kostnader, tillsammans med ditt program genomströmning krav, kan du köra programmet som kostnad effektiv som möjligt. Data Explorer i Azure-portalen är också en fantastiska verktyg för att testa kärnan i en fråga.
 
 Vi rekommenderar att komma igång med att titta på nedanstående video, där Aravind Ramachandran förklarar frågeenheter och förutsägbar prestanda med Azure Cosmos DB.
 
@@ -190,9 +190,7 @@ Med hjälp av verktyget är enkel:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Använd Azure Cosmos DB begäran kostnad-svarshuvud
-Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för begäran. Det här sidhuvudet är också tillgängligt via Azure Cosmos DB SDK. I .NET-SDK är RequestCharge en egenskap i objektet ResourceResponse.  För frågor finns Azure Cosmos DB frågan Explorer i Azure portal information om åtkomstbegäran kostnad för utförda frågor.
-
-![Undersöka RU avgifter i frågan Explorer][1]
+Varje svaret från tjänsten Azure Cosmos DB innehåller en anpassad rubrik (`x-ms-request-charge`) som innehåller frågeenheter som används för begäran. Det här sidhuvudet är också tillgängligt via Azure Cosmos DB SDK. I .NET-SDK är RequestCharge en egenskap i objektet ResourceResponse.  För frågor ger Azure Cosmos DB Data Explorer i Azure portal begäran kostnad information för utförda frågor.
 
 Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflöde som krävs för programmet att registrera begäran enhet tillägget som är associerade med körs vanliga åtgärder mot ett representativt objekt som används av ditt program och sedan uppskatta antal åtgärder som du vill utföra varje sekund.  Se till att mäta och innehåller vanliga frågor och Azure Cosmos DB skript samt användning.
 
@@ -304,7 +302,7 @@ I följande tabell visas ungefärlig begäran enhet kostnader för vanliga åtg�
 
 | Åtgärd | Begäran enhet kostnad |
 | --- | --- |
-| Skapa objekt |~ 15 RU |
+| Skapa objekt |~15 RU |
 | Läs objekt |~ 1 RU |
 | Frågan objekt-ID: t |~2.5 RU |
 
@@ -314,8 +312,8 @@ Den här tabellen visas dessutom ungefärliga begäran enhet avgifter för vanli
 | --- | --- | --- |
 | Välj mat-ID: t |~2.5 RU |1 |
 | Välj livsmedel per tillverkare |~ 7 RU |7 |
-| Välj av mat gruppen och ordning baserat på vikt |~ 70 RU |100 |
-| Välj översta 10 livsmedel i en Matgrupp |~ 10 RU |10 |
+| Välj av mat gruppen och ordning baserat på vikt |~70 RU |100 |
+| Välj översta 10 livsmedel i en Matgrupp |~10 RU |10 |
 
 > [!NOTE]
 > RU avgifter variera beroende på antalet objekt som returneras.
@@ -334,7 +332,7 @@ Med den här informationen kan du beräkna RU kraven för det här programmet f�
 
 I detta fall kan du förvänta dig en genomsnittlig genomströmning krav på 1,275 RU/s.  Avrundas till närmaste 100, skulle du etablera 1 300 RU/s för det här programmet samling.
 
-## <a id="RequestRateTooLarge"></a>Reserverat dataflöde överskreds i Azure Cosmos DB
+## <a id="RequestRateTooLarge"></a> Reserverat dataflöde överskreds i Azure Cosmos DB
 Kom ihåg att konsumtion av begäran enheten utvärderas som en sats per sekund om budget är tom. Begäranden till den samlingen har begränsats förrän frekvensen sjunker under nivån reserverade för program som överskrider etablerade begärandehastighet enhet för en behållare. När en begränsning inträffar servern förebyggande syfte slutar begäran med RequestRateTooLargeException (HTTP-statuskod 429) och returnerar x-ms-retry-efter-ms-huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök i begäran.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall
 
 Om du har mer än en klient kumulativt drift ovan förfrågningar, försök standardbeteendet finns tillräckligt inte och klienten genereras en DocumentClientException med statuskoden 429 till programmet. I sådana fall, kan du hantera försök beteende och logik i ditt program fel hantering rutiner eller att öka reserverat dataflöde för behållaren.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>Överskrider reserverat dataflöde gränser i API för MongoDB
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Överskrider reserverat dataflöde gränser i API för MongoDB
 Program som överskrider de etablerade frågeenheter för en samling kommer att begränsas förrän frekvensen sjunker under nivån reserverade. När en begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en *16500* felkoden - *för många begäranden*. Som standard API för MongoDB kommer automatiskt att försöka upp till 10 gånger innan det returneras en *för många begäranden* felkoden. Om du tar emot många *för många begäranden* felkoder, kan du antingen lägga till försök beteende i ditt program felhantering rutiner eller [öka reserverat dataflöde för samlingen](set-throughput.md).
 
 ## <a name="next-steps"></a>Nästa steg
@@ -358,7 +356,6 @@ Mer information om Azure Cosmos DB finns Azure Cosmos DB [dokumentationen](https
 
 Om du vill komma igång med skalning och prestandatester med Azure Cosmos DB, se [prestanda och Skalningstester med Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: f6072e4e8a9ab72f677c35e498e31b5218579f1b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Loggen aviseringar i Azure-Monitor - aviseringar (förhandsgranskning)
 Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure varningar (förhandsversion) och beskrivs skillnaderna mellan olika typer av loggen Varningsregler.
@@ -27,11 +27,20 @@ För närvarande Azure aviseringar (förhandsversion) stöder Logga varningar p�
 
 > [!WARNING]
 
-> Loggen aviseringar i Azure aviseringar (förhandsversion) stöder för närvarande inte mellan arbetsytan eller mellan appar frågor.
+> Loggen avisering i Azure aviseringar (förhandsversion) stöder för närvarande inte mellan arbetsytan eller mellan appar frågor.
+
+Användare kan också perfekt deras frågor i Analytics platform valt i Azure och sedan *importera dem för användning i aviseringar (förhandsgranskning) genom att spara frågan*. Steg att följa:
+- För Application Insights: Gå till Analytics-portalen Validera frågan och dess resultat. Spara med unika namn i *delade frågor*.
+- För Log Analytics: Gå till loggen sökning, verifiera frågan och dess resultat. Använder sedan spara med det unika namnet i en kategori.
+
+Sedan när [skapar en avisering om loggen i aviseringar (förhandsgranskning)](monitor-alerts-unified-usage.md), visas den sparade fråga som signaltypen **logg (sparad fråga)**; som visas i exemplet nedan: ![sparad fråga importeras till aviseringar](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+
+> [!NOTE]
+> Med hjälp av **logg (sparad fråga)** resulterar i en import till aviseringar. Alla ändringar som gjorts efter i Analytics kommer därför inte att reflekterande i sparade Varningsregler och vice versa.
 
 ## <a name="log-alert-rules"></a>Logga Varningsregler
 
-Aviseringar skapas med Azure-aviseringar (förhandsgranskning) automatiskt köra loggen frågor med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som att köra runbooks, med [åtgärdsgrupper](monitoring-action-groups.md).  Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
+Aviseringar skapas med Azure-aviseringar (förhandsgranskning) automatiskt köra loggen frågor med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som skickar data till externt program med hjälp av [json-baserade webhook](monitor-alerts-unified-log-webhook.md)med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
 
 Varningsregler definieras av följande information:
 
@@ -47,24 +56,26 @@ Varje avisering regel i Log Analytics är en av två typer.  De olika typerna be
 
 Skillnaderna mellan varningsregeln typer är som följer.
 
-- **Antalet resultat** varningsregeln skapar alltid en enda avisering stund **mått mätning** varningsregeln skapar en avisering för varje objekt som överstiger tröskelvärdet.
+- ** Antalet resultat Varningsregler skapas alltid en enda avisering stund **mått mätning** varningsregeln skapar en avisering för varje objekt som överstiger tröskelvärdet.
 - **Antalet resultat** Varningsregler skapar en avisering när tröskelvärdet överskrids en gång. **Mått mätning** Varningsregler kan skapa en avisering när tröskelvärdet överskrids ett visst antal gånger under ett visst tidsintervall.
 
 ## <a name="number-of-results-alert-rules"></a>Antalet resultat Varningsregler
-**Antalet resultat** Varningsregler skapar en avisering när antalet poster som returneras av frågan överskrider det angivna tröskelvärdet.
+**Antalet resultat** Varningsregler skapar en avisering när antalet poster som returneras av frågan överskrider det angivna tröskelvärdet. Den här typen av regel för varning är idealiskt för att arbeta med händelser, t.ex Windows-händelseloggar, Syslog, WebApp svar och anpassade loggar.  Du kanske vill skapa en avisering när en viss felhändelse skapas eller när flera felhändelser skapas inom ett visst tidsintervall.
 
-**Tröskelvärde för**: tröskelvärdet för en **antalet resultat** varningsregeln är större än eller mindre än ett visst värde.  Om antalet poster som returneras av loggen sökningen matchar det här villkoret, skapas en avisering.
+**Tröskelvärde för**: tröskelvärdet för en ** antalet resultat Varningsregler är större eller mindre än ett visst värde.  Om antalet poster som returneras av loggen sökningen matchar det här villkoret, skapas en avisering.
 
-### <a name="scenarios"></a>Scenarier
-
-#### <a name="events"></a>Händelser
-Den här typen av regel för varning är idealisk för att arbeta med händelser, t.ex Windows-händelseloggar Syslog, och anpassade loggar.  Du kanske vill skapa en avisering när en viss felhändelse skapas eller när flera felhändelser skapas inom ett visst tidsintervall.
-
-Ange antalet resultat för att Avisera om en enskild händelse med större än 0 och både frekvens och tid till fem minuter.  Som kör frågan var fem minuter och Sök efter en enskild händelse som har skapats sedan den senaste gången frågan kördes.  En längre frekvens kan fördröja tiden mellan händelser som samlas in och den avisering som skapas.
-
-Vissa program får logga in ett tillfälligt fel som inte nödvändigtvis rera en avisering.  Programmet kan till exempel gör processen som skapade felhändelsen och lyckas nästa gång.  I det här fallet kan du inte vill skapa en avisering om flera händelser skapas inom ett visst tidsintervall.  
+Ange antalet resultat till större än 0 för att Avisera om en enskild händelse och Sök efter en enskild händelse som har skapats sedan den senaste gången frågan kördes. Vissa program får logga in ett tillfälligt fel som inte nödvändigtvis rera en avisering.  Programmet kan till exempel gör processen som skapade felhändelsen och lyckas nästa gång.  I det här fallet kan du inte vill skapa en avisering om flera händelser skapas inom ett visst tidsintervall.  
 
 I vissa fall kanske du vill skapa en avisering om en händelse.  En process kan till exempel logga regelbundna händelser som indikerar att den fungerar korrekt.  Om det inte logga en av dessa händelser inom ett visst tidsintervall, ska en avisering skapas.  I det här fallet kan du ange ett tröskelvärde **mindre än 1**.
+
+### <a name="example"></a>Exempel
+Överväg ett scenario där du vill veta när en webbaserad App ger ett svar för användare med kod 500 (det vill säga) internt serverfel. Du kan skapa en aviseringsregel med följande information:  
+**Fråga:** begäranden | där resultCode == ”500”<br>
+**Tidsfönstret:** 30 minuter<br>
+**Varna frekvens:** fem minuter<br>
+**Tröskelvärde:** bra än 0<br>
+
+Sedan körs aviseringen frågan var femte minut med 30 minuter data - att leta efter en post där Resultatkod var 500. Om även en post hittas utlöses aviseringen och utlösare åtgärd som konfigurerats.
 
 ## <a name="metric-measurement-alert-rules"></a>Mått mätning Varningsregler
 
@@ -74,7 +85,7 @@ I vissa fall kanske du vill skapa en avisering om en händelse.  En process kan 
 
 > [!NOTE]
 
-> Mängdfunktion i fråga måste vara namnet/kallas: AggregatedValue och ange ett numeriskt värde.
+> Mängdfunktion i fråga måste vara namnet/kallas: AggregatedValue och ange ett numeriskt värde. 
 
 
 **Gruppera fältet**: en post med ett insamlat värde skapas för varje instans av det här fältet och en avisering genereras för varje.  Till exempel om du vill generera en avisering för varje dator du vill använda **per dator**   
@@ -84,6 +95,8 @@ I vissa fall kanske du vill skapa en avisering om en händelse.  En process kan 
 > Du kan ange fältet för att gruppera data för mått mätning Varningsregler som baseras på Application Insights. Det gör du genom att använda den **sammanställd på** alternativet i Regeldefinitionen.   
 
 **Intervallet**: definierar det tidsintervall under vilken data sammanställs.  Till exempel om du har angett **fem minuter**, skapas en post för varje instans av fältet samman med 5 minuters intervall under tidsfönster som angetts för aviseringen.
+> [!NOTE]
+> Bin-funktionen måste användas i frågan. Om olika tidsintervall produceras för tidsfönster med hjälp av funktionen Bin - kommer avisering i stället använda bin_at-funktionen i stället att säkerställa att en fast punkt
 
 **Tröskelvärde för**: tröskelvärdet för mått mätning Varningsregler definieras av ett samlat värde och ett antal intrång.  Om varje datapunkt i loggen sökningen överskrider detta värde, anses det har ett intrång.  Om antalet överträdelser i för alla objekt i resultaten överskrider det angivna värdet, skapas en avisering för objektet.
 
@@ -104,6 +117,8 @@ I det här exemplet skulle separata aviseringar skapas för srv02 och srv03 efte
 
 
 ## <a name="next-steps"></a>Nästa steg
+* Förstå [Webhook-åtgärder för logg-aviseringar](monitor-alerts-unified-log-webhook.md)
 * [Få en översikt över Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
 * Lär dig mer om [med aviseringar i Azure (förhandsversion)](monitor-alerts-unified-usage.md)
+* Lär dig mer om [Application Insights](../application-insights/app-insights-analytics.md)
 * Lär dig mer om [logganalys](../log-analytics/log-analytics-overview.md).    

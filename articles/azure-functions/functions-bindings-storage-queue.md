@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage bindningar för Azure Functions
 
@@ -213,11 +213,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas| måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning**| Saknas | I den *function.json* filen endast. måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|Typ | Saknas| måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning**| Saknas | I den *function.json* filen endast. måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas |Namnet på variabeln som representerar kön i funktionskoden.  | 
 |**queueName** | **Könamn**| Namnet på kön avsöker. | 
-|**anslutning** | **Anslutning** |Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**Anslutning** | **Anslutning** |Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,16 +234,16 @@ I JavaScript, använda `context.bindings.<name>` att komma åt nyttolasten för 
 
 ## <a name="trigger---message-metadata"></a>Utlösaren - meddelande metadata
 
-Kö utlösaren innehåller flera metadataegenskaper för. De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Värden har samma semantik som [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Kö utlösaren innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Värden har samma semantik som [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Nyttolasten i kön (om det är en giltig sträng). Om kön meddelandet nyttolast som en sträng, `QueueTrigger` har samma värde som namnges av variabeln i `name` egenskap i *function.json*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har har tagits bort.|
-|`ExpirationTime`|`DateTimeOffset?`|Den tid då meddelandet upphör att gälla.|
+|`ExpirationTime`|`DateTimeOffset`|Den tid då meddelandet upphör att gälla.|
 |`Id`|`string`|Kön meddelande-ID.|
-|`InsertionTime`|`DateTimeOffset?`|Den tidpunkt som meddelandet har lagts till i kön.|
-|`NextVisibleTime`|`DateTimeOffset?`|Den tidpunkt som meddelandet visas bredvid.|
+|`InsertionTime`|`DateTimeOffset`|Den tidpunkt som meddelandet har lagts till i kön.|
+|`NextVisibleTime`|`DateTimeOffset`|Den tidpunkt som meddelandet visas bredvid.|
 |`PopReceipt`|`string`|Meddelandets pop inleverans.|
 
 ## <a name="trigger---poison-messages"></a>Utlösaren - förgiftade meddelanden
@@ -251,6 +251,18 @@ Kö utlösaren innehåller flera metadataegenskaper för. De här egenskaperna k
 När en kö Utlösarfunktion inte återförsök Azure Functions funktionen upp till fem gånger för en viss kö-meddelande, inklusive första försöket. Om alla fem försök misslyckas, functions-runtime läggs ett meddelande till en kö med namnet  *&lt;originalqueuename >-skadligt*. Du kan skriva en funktion för att bearbeta meddelanden från skadligt kön av loggning av dem eller skicka ett meddelande till den manuella åtgärder krävs.
 
 Om du vill hantera förgiftade meddelanden manuellt, kontrollera den [dequeueCount](#trigger---message-metadata) i kön meddelandet.
+
+## <a name="trigger---polling-algorithm"></a>Utlösaren - avsökning algoritm
+
+Kö utlösaren implementerar en exponentiell tillbaka av algoritmen för att minska effekten av inaktiv-kön avsökning på transaktion lagringskostnader.  När ett meddelande hittas körningsmiljön väntar två sekunder och söker efter en annan message; När det finns inget meddelande, väntar på fyra sekunder innan du försöker igen. Väntetiden fortsätter att öka tills väntetiden, där standardinställningen är en minut efter efterföljande misslyckade försök att få ett meddelande i kön. Väntetiden kan konfigureras via den `maxPollingInterval` egenskap i den [host.json filen](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Utlösaren - samtidighet
+
+När det finns flera meddelanden i kö väntar, kö-utlösaren hämtar en grupp med meddelanden och anropar funktionen instanser samtidigt för att bearbeta dem. Som standard är batchstorleken 16. När antalet bearbetas hämtar till 8, hämtar en annan batch körningsmiljön och påbörjar bearbetningen av dessa meddelanden. Därför är det maximala antalet samtidiga meddelanden som bearbetas per funktion på en virtuell dator (VM) 24. Den här gränsen gäller separat för varje funktion som utlöses av kö på varje virtuell dator. Om appen funktionen skalas ut till flera virtuella datorer, vänta utlösare varje virtuell dator och försök att köra funktioner. Om en funktionsapp skalas ut till 3 virtuella datorer, är standard maxantalet samtidiga instanser av en funktion som utlöses av kön 72.
+
+Batchstorleken och tröskelvärdet för att hämta en ny batch kan konfigureras i den [host.json filen](functions-host-json.md#queues). Om du vill minimera parallell körning för kö-utlösta funktioner i en funktionsapp, kan du ange batchstorleken till 1. Den här inställningen eliminerar samtidighet endast så länge funktionen appen körs på en enskild virtuell dator (VM). 
+
+Kö utlösaren förhindrar automatiskt en funktion från att bearbeta ett kömeddelande flera gånger. funktioner har inte att skrivas till vara idempotent.
 
 ## <a name="trigger---hostjson-properties"></a>Utlösaren - host.json egenskaper
 
@@ -435,11 +447,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|Typ | Saknas | måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön i funktionskoden. Ange till `$return` att referera till returvärde för funktion.| 
 |**queueName** |**Könamn** | Namnet på kön. | 
-|**anslutning** | **Anslutning** |Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**Anslutning** | **Anslutning** |Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

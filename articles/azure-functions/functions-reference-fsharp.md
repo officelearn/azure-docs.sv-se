@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F # för utvecklare
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -172,7 +172,7 @@ En redigerare som stöder F #-kompilatorn Services är inte medveten om namnomr�
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ När Azure Functions utförs koden, bearbetar den källa med `COMPILED` definier
 <a name="package"></a>
 
 ## <a name="package-management"></a>Hantering av paketet
-Använd NuGet-paket i en F #-funktionen genom att lägga till en `project.json` filen till den funktionens mapp i appen funktionen filsystem. Här är ett exempel `project.json` -fil som lägger till en NuGet-paketet referens till `Microsoft.ProjectOxford.Face` version 1.1.0:
+Använd NuGet-paket i en F #-funktionen genom att lägga till en `project.json` -filen till den funktionen mapp i appen funktionen filsystem. Här är ett exempel `project.json` -fil som lägger till en NuGet-paketet referens till `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {
@@ -258,9 +258,9 @@ let mylog(log: TraceWriter, text: string) =
 
 Sökvägar som förser de `#load` direktivet är i förhållande till platsen för din `.fsx` fil.
 
-* `#load "logger.fsx"`läser in en fil i mappen funktion.
-* `#load "package\logger.fsx"`läser in en fil i den `package` mappen i mappen funktion.
-* `#load "..\shared\mylogger.fsx"`läser in en fil i den `shared` mappen på samma nivå som funktionen mappen, som är direkt under `wwwroot`.
+* `#load "logger.fsx"` läser in en fil i mappen funktion.
+* `#load "package\logger.fsx"` läser in en fil i den `package` mappen i mappen funktion.
+* `#load "..\shared\mylogger.fsx"` läser in en fil i den `shared` mappen på samma nivå som funktionen mappen, som är direkt under `wwwroot`.
 
 Den `#load` direktiv fungerar bara med `.fsx` (F #) skriptfiler och inte med `.fs` filer.
 

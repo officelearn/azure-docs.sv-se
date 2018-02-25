@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replikera en flera nivåer Citrix XenApp XenDesktop distribution och använda Azure Site Recovery
 
@@ -32,7 +32,7 @@ En bra lösning för haveriberedskap, ska tillåta modellering av återställnin
 Det här dokumentet innehåller stegvisa anvisningar för att skapa en lösning för katastrofåterställning för dina lokala Citrix XenApp distributioner på Hyper-V och VMware vSphere-plattformar. Det här dokumentet beskriver också hur du utför ett redundanstest (disaster recovery-test) och en oplanerad redundansväxling till Azure med hjälp av återställningsplaner, konfigurationer som stöds och förutsättningar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du känna till följande:
 
@@ -60,7 +60,7 @@ Citrix-distributioner på virtuella VMware-datorer som hanteras av vSphere 6.0 e
 
 ### <a name="source-and-target"></a>Källa och mål
 
-**Scenario** | **Till en sekundär plats** | **Till Azure**
+**Scenario** | Till en sekundär plats | **Till Azure**
 --- | --- | ---
 **Hyper-V** | Inte i omfånget | Ja
 **VMware** | Inte i omfånget | Ja

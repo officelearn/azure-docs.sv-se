@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+Strängen `{name}` i utlösaren blobbsökvägen `samples-workitems/{name}` skapar en [bindande uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden åtkomst till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+
 Mer information om den `BlobTrigger` attribut, se [utlösaren - attribut](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
@@ -79,14 +81,16 @@ Här är de bindande data den *function.json* fil:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
+Strängen `{name}` i utlösaren blobbsökvägen `samples-workitems/{name}` skapar en [bindande uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden åtkomst till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+
+Mer information om *function.json* filegenskaper, finns det [Configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är C# skriptkod som binder till en `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Utlösaren - JavaScript-exempel
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil- och [JavaScript-kod] (funktioner-referens-node.md) som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
 
 Här är den *function.json* fil:
 
@@ -124,14 +128,16 @@ Här är den *function.json* fil:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
+Strängen `{name}` i utlösaren blobbsökvägen `samples-workitems/{name}` skapar en [bindande uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden åtkomst till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+
+Mer information om *function.json* filegenskaper, finns det [Configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
 
@@ -204,7 +210,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|Typ | Saknas | måste anges till `blobTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**Riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
 |**Sökväg** | **BlobPath** |Behållare för övervakning.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
@@ -214,12 +220,13 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
 
-Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter som `T paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+I C# och C#-skript, kan du använda följande parametertyper för utlösande blob:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* En POCO serialiserbara som JSON
 * `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
 * `CloudBlockBlob` (kräver ”inout” bindning riktning i *function.json*)
 * `CloudPageBlob` (kräver ”inout” bindning riktning i *function.json*)
@@ -227,9 +234,9 @@ Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter 
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 
-Om texten blobbar förväntas, du kan binda till den `string` typen. Detta rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) senare i den här artikeln.
+Bindning till `string`, `Byte[]`, eller POCO rekommenderas endast om blobbstorleken är liten, som hela blob innehållet är inlästa i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) senare i den här artikeln.
 
-I JavaScript, åt inkommande blobbdata med hjälp av `context.bindings.<name>`.
+I JavaScript, åt inkommande blobbdata med hjälp av `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Utlösaren - mönster för blob-namn
 
@@ -242,7 +249,7 @@ I följande exempel visas hur du binda till blob-filnamnet och filnamnstillägge
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
-Om blob heter *ursprungliga Blob1.txt*, värdet för den `blobname` och `blobextension` variabler i Funktionskoden är *ursprungliga Blob1* och *txt*.
+Om blob heter *ursprungliga Blob1.txt*, värdena för den `blobname` och `blobextension` variabler i Funktionskoden är *ursprungliga Blob1* och *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtrera efter blobbnamnet
 
@@ -276,13 +283,28 @@ Om blob heter *{20140101}-soundfile.mp3*, `name` variabelvärdet i Funktionskode
 
 Blob-utlösare innehåller flera metadataegenskaper för. De här egenskaperna kan användas som en del av bindande uttryck i andra bindningar eller parametrar i din kod. Dessa värden har samma semantik som den [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) typen.
 
-
 |Egenskap  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Sökvägen till den utlösande blobben.|
 |`Uri`|`System.Uri`|Den blob-URI för den primära platsen.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Blobens Systemegenskaper. |
 |`Metadata` |`IDictionary<string,string>`|Användardefinierade metadata för blob.|
+
+Följande C#-skript och JavaScript-exempel loggar du bara sökvägen till den utlösande blob, inklusive behållaren:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Utlösaren - blob kvitton
 
@@ -316,9 +338,9 @@ Blob-utlösaren använder en kö internt, så det maximala antalet samtidiga fun
 
 [Plan för förbrukning](functions-scale.md#how-the-consumption-plan-works) begränsar en funktionsapp på en virtuell dator (VM) till 1,5 GB minne. Minne används av varje samtidigt köra funktionen och Functions-runtime sig själv. Om en funktion som utlöses av blob läser in hela blob i minnet, den maximala mängd minne som används av funktionen för blobbar är 24 * maximala blob-storlek. Till exempel en funktionsapp med tre blob-utlösta funktioner och standardinställningar skulle ha en maximal per VM samtidighet på 3 * 24 = 72 fungera anrop.
 
-JavaScript-funktioner läsa hela blob i minnet och C#-funktioner göra det om du binder till `string`.
+JavaScript-funktioner läsa hela blob i minnet och C#-funktioner göra det om du binder till `string`, `Byte[]`, eller POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Utlösaren - avsökning för stora behållare
+## <a name="trigger---polling"></a>Utlösa - avsökning
 
 Om blob-behållaren som övervakas innehåller fler än 10 000 blobbar, loggfiler funktioner runtime genomsökningar kan du titta på för nya eller ändrade BLOB. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre efter blob skapas. Dessutom [lagring loggfiler skapas på ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser fångas. Loggar under vissa förhållanden kan missas. Om du behöver snabbare och mer tillförlitlig blob-bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blob. Använd sedan en [kö utlösaren](functions-bindings-storage-queue.md) i stället för en blob-trigger för att bearbeta blob. Ett annat alternativ är att använda händelsen rutnät. Se Självstudierna [automatisera storleksändring upp bilder med hjälp av händelse rutnätet](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -487,7 +509,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | måste anges till `blob`. |
+|Typ | Saknas | måste anges till `blob`. |
 |**Riktning** | Saknas | måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
 |**Sökväg** |**BlobPath** | Sökvägen till blob. | 
@@ -498,12 +520,12 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="input---usage"></a>Indata - användning
 
-I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+I C# och C#-skript, kan du använda följande parametertyper för blob-indatabindning:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (kräver ”inout” bindning riktning i *function.json*)
@@ -513,9 +535,9 @@ I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metod
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 
-Om du läser text blobbar, du kan binda till en `string` typen. Den här typen rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen.
+Bindning till `string` eller `Byte[]` rekommenderas endast om blobbstorleken är liten, eftersom hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) tidigare i den här artikeln.
 
-I JavaScript, få åtkomst till blob-data med `context.bindings.<name>`.
+I JavaScript, få åtkomst till blob-data med `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Resultat
 
@@ -698,7 +720,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | måste anges till `blob`. |
+|Typ | Saknas | måste anges till `blob`. |
 |**Riktning** | Saknas | Måste anges till `out` för en bindning för utdata. Undantag anges i den [användning](#output---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange till `$return` att referera till returvärde för funktion.|
 |**Sökväg** |**BlobPath** | Sökvägen till blob. | 
@@ -709,7 +731,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+I C# och C#-skript kan du använda följande parametertyper för blob-utdatabindning:
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metod
 
 Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
 
-Om du läser text blobbar, du kan binda till en `string` typen. Den här typen rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen.
+I async-funktion, använder du det returnera värdet eller `IAsyncCollector` i stället för en `out` parameter.
 
-I JavaScript, få åtkomst till blob-data med `context.bindings.<name>`.
+Bindning till `string` eller `Byte[]` rekommenderas endast om blobbstorleken är liten, eftersom hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen. Mer information finns i [samtidighet och minnesanvändning](#trigger---concurrency-and-memory-usage) tidigare i den här artikeln.
+
+
+I JavaScript, få åtkomst till blob-data med `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 

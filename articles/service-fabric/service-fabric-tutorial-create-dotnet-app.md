@@ -1,11 +1,11 @@
---Rubrik: skapa ett .NET-program för Service Fabric | Microsoft Docs beskrivning: Lär dig hur du skapar ett program med en ASP.NET Core frontend och en tillförlitlig tjänst tillståndskänslig backend- och distribuera programmet till ett kluster.
+--Rubrik: skapa ett .NET-program för Service Fabric | Microsoft Docs beskrivning: I kursen får du lära dig hur du skapar ett program med en ASP.NET Core frontend och en tillförlitlig tjänst tillståndskänslig backend- och distribuera programmet till ett kluster.
 tjänster: service fabric dokumentationcenter: .net författare: rwike77 manager: timlt editor: ''
 
 MS.AssetID: ms.service: service fabric ms.devlang: dotNet ms.topic: självstudiekurs ms.tgt_pltfrm: NA ms.workload: NA ms.date: 2018-01/29 ms.author: ryanwi ms.custom: mvc
 
 ---
 
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudier: skapa och distribuera ett program med en webb-API för ASP.NET Core frontend-tjänst och en tillståndskänslig backend-tjänst
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).
 
 ![Diagram över programmet](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)

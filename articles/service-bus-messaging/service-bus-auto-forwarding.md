@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Länkning Service Bus-entiteter med automatisk vidarebefordring
 
 Service Bus *automatisk vidarebefordring* funktionen kan du kopplar en kö eller en prenumeration på en annan kö eller ett ämne som ingår i samma namnområde. När automatisk vidarebefordring är aktiverat, tar bort meddelanden som placerats i den första kön eller prenumeration (källa) automatiskt i Service Bus och placerar dem i den andra kö eller ett ämne (mål). Observera att det är fortfarande möjligt att skicka ett meddelande direkt till enheten som mål. Du är inte möjligt att en underkö, till exempel en obeställbara meddelanden till en annan kö eller ett ämne.
 
 ## <a name="using-auto-forwarding"></a>Med hjälp av automatisk vidarebefordring
-Du kan aktivera automatisk vidarebefordring genom att ange den [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] eller [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] Egenskaper för den [QueueDescription] [ QueueDescription] eller [SubscriptionDescription] [ SubscriptionDescription] objekt för datakällan, som i den följande exempel.
+
+Du kan aktivera automatisk vidarebefordring genom att ange den [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] eller [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] Egenskaper för den [QueueDescription] [ QueueDescription] eller [SubscriptionDescription] [ SubscriptionDescription] objekt för datakällan, som i den följande exempel:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 Entiteten målet måste finnas samtidigt källentiteten har skapats. Om mål-entiteten inte finns, returnerar ett undantag när du uppmanas att skapa källentiteten Service Bus.
 
-Du kan använda automatisk vidarebefordring för att skala ut enskilda avsnitt. Service Bus-gränser i [antalet prenumerationer på ett visst ämne](service-bus-quotas.md) till 2 000. Du kan hantera ytterligare prenumerationer genom att skapa andra nivån avsnitt. Observera att även om du inte är bunden av Service Bus-begränsning för antalet prenumerationer, lägga till en andra nivå av ämnen kan förbättra det totala genomflödet i ditt ämne.
+Du kan använda automatisk vidarebefordring för att skala ut enskilda avsnitt. Service Bus-gränser i [antalet prenumerationer på ett visst ämne](service-bus-quotas.md) till 2 000. Du kan hantera ytterligare prenumerationer genom att skapa andra nivån avsnitt. Även om du inte är bunden av Service Bus-begränsning för antalet prenumerationer, kan lägga till en andra nivå av ämnen förbättra det totala genomflödet i ditt ämne.
 
 ![Automatisk vidarebefordring scenario][0]
 
@@ -47,7 +48,7 @@ Om Alice går på semester, sitt personliga kön i stället ERP-avsnittet, fylls
 
 ## <a name="auto-forwarding-considerations"></a>Automatisk vidarebefordring överväganden
 
-Om mål-entiteten ackumulerar för många meddelanden och överskrider kvoten eller mål-entiteten är inaktiverad, källentiteten lägger till meddelandena till dess [kö med olevererade brev](service-bus-dead-letter-queues.md) tills det finns utrymme i målet (eller entiteten aktiveras på nytt). Dessa meddelanden fortsätter ska behållas i kö med olevererade brev, så du måste uttryckligen får och behandlar dem från kö för obeställbara meddelanden.
+Om mål-entiteten ackumulerar för många meddelanden och överskrider kvoten eller mål-entiteten är inaktiverad, källentiteten lägger till meddelandena till dess [kö med olevererade brev](service-bus-dead-letter-queues.md) tills det finns utrymme i målet (eller entiteten aktiveras på nytt). Dessa meddelandena ska behållas i kö med olevererade brev, så du måste uttryckligen får och behandlar dem från kö för obeställbara meddelanden.
 
 När länkning ihop enskilda avsnitt för att erhålla ett sammansatt ämne med många prenumerationer, rekommenderas att du har ett Måttligt antal prenumerationer på första nivån avsnittet och många prenumerationer på andra nivån-avsnitt. Till exempel kan en första nivån avsnittet med 20 prenumerationer, var och en av dem att härleda till ett andra nivån avsnitt med 200 prenumerationer ger bättre genomströmning än en första nivån avsnittet med 200 prenumerationer varje sammankedjade till en andra nivå avsnittet med 20 prenumerationer.
 

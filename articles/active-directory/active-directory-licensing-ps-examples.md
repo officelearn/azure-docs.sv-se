@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-exemplen för gruppbaserade licensiering i Azure AD
 
@@ -27,6 +27,9 @@ Alla funktioner för gruppbaserade licensiering är tillgänglig via den [Azure-
 
 > [!NOTE]
 > Innan du kör cmdlet: ar, se till att du ansluter till din klient först genom att köra den `Connect-MsolService` cmdlet.
+
+>[!WARNING]
+>Den här koden har angetts som ett exempel i exempelsyfte. Du kan testa den först i liten skala, eller i en separat Testklient om du tänker använda den i din miljö. Du kan behöva justera koden för att uppfylla de specifika behoven i din miljö.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Visa produktlicenser tilldelas en grupp
 Den [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan användas för att hämta gruppobjektet och kontrollera den *licenser* egenskap: visas en lista med alla licenser som tilldelats gruppen.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Få statistik för grupper med licenser
-Du kan rapportera statistik för grupper med licenser. Exemplet nedan listas antalet Totalt antal användare, antal användare med licenser som redan har tilldelats av gruppen och antal användare för vilka licenser inte gick att tilldela av gruppen.
+Du kan rapportera statistik för grupper med licenser. I exemplet nedan visar skriptet antalet Totalt antal användare, antal användare med licenser som redan har tilldelats av gruppen och antal användare för vilka licenser inte gick att tilldela av gruppen.
 
 ```
 #get all groups with licenses
@@ -141,7 +144,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Hämta alla användare med licens fel i en grupp
 
-Beroende på en grupp som innehåller vissa licens relaterade fel, kan du nu visa alla användare som påverkas av felen. En användare kan ha fel från andra grupper för. Men i det här exemplet vi begränsa resultatet bara till fel som är relevanta för den aktuella gruppen genom att kontrollera den **ReferencedObjectId** -egenskapen för varje **IndirectLicenseError** transaktionen på användaren.
+En grupp som innehåller licens-relaterade fel får visa du nu alla användare som påverkas av felen. En användare kan ha fel från andra grupper för. Men i det här exemplet vi begränsa resultatet bara till fel som är relevanta för den aktuella gruppen genom att kontrollera den **ReferencedObjectId** -egenskapen för varje **IndirectLicenseError** transaktionen på användaren.
 
 ```
 #a sample group with errors
@@ -167,10 +170,10 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Hämta alla användare med licens fel i hela klient
 
-Om du vill visa en lista över alla användare som har licens fel från en eller flera grupper, kan du använda följande skript. Det här skriptet visar en lista över en rad per användare / licensfel där du kan identifiera källan till varje fel.
+Följande skript kan användas för att hämta alla användare som har licens fel från en eller flera grupper. Skriptet skriver ut en rad per användare / licensfel där du kan identifiera källan till varje fel.
 
 > [!NOTE]
-> Det här skriptet kommer räkna upp alla användare i klienten, vilket inte kanske är optimala för stora klienter.
+> Det här skriptet räknar upp alla användare i klienten, vilket inte kanske är optimala för stora klienter.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Ta bort direkt licenser för användare med grupp-licenser
 Syftet med det här skriptet är att ta bort onödiga direkt licenser från användare som redan ärver samma licens från en grupp. till exempel som en del av en [övergång till gruppbaserade licensiering](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Det är viktigt att först verifiera att inte aktivera direkt licenser tas bort fler service funktioner än de ärvda licenserna. Annars kan tar du bort direkt licensen inaktivera åtkomst till data och tjänster för användare. För närvarande går det inte att kontrollera via PowerShell tjänster som aktiveras via ärvda licenser vs direkt. I skriptet kommer vi att ange lägsta nivå av tjänster Vi vet ärvs från grupper och vi kontrollerar mot som.
+> Det är viktigt att först verifiera att inte aktivera direkt licenser tas bort fler service funktioner än de ärvda licenserna. Annars kan tar du bort direkt licensen inaktivera åtkomst till data och tjänster för användare. För närvarande går det inte att kontrollera via PowerShell tjänster som aktiveras via ärvda licenser vs direkt. I skriptet ange det lägsta nivå av tjänster Vi vet ärvs från grupper och kontrollera mot att för att se till att användare inte oväntat förlorar åtkomst till tjänster.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om funktionerna i licenshantering via grupper finns i följande avsnitt:
+Mer information om funktionen för hantering av programvarulicenser genom grupper finns i följande artiklar:
 
 * [Vad är gruppbaserade licensiering i Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Tilldela licenser till en grupp i Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)

@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -127,6 +127,8 @@ Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what
 ## <a name="limitations"></a>Begränsningar
 
 För Azure SQL Database har funktionen virtuellt nätverk regler följande begränsningar:
+
+- Ett webbprogram kan mappas till en privat IP-adress i ett VNet/undernät. Även om Tjänsteslutpunkter är aktiverade från det angivna VNet/undernätet, har anslutningar från Webbappen till servern en Azure offentliga IP-källa, inte en VNet /-undernätet källa. Om du vill tillåta anslutningar från en Webbapp till en server som har brandväggsregler för virtuella nätverk måste du **ge alla Azure-tjänster** på servern.
 
 - Varje virtuellt nätverk regel refererar till ett undernät i brandväggen för SQL-databas. Dessa refererade undernät måste finnas i samma geografiska region som är värd för SQL-databasen.
 

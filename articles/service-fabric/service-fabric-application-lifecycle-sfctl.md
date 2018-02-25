@@ -2,23 +2,23 @@
 title: "Hantera Azure Service Fabric-program med hjälp av Azure Service Fabric CLI"
 description: "Lär dig hur du distribuerar och ta bort program från ett Azure Service Fabric-kluster med hjälp av Azure Service Fabric CLI"
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Hantera ett Azure Service Fabric-program med hjälp av Azure Service Fabric CLI
 
 Lär dig mer om att skapa och ta bort program som körs i ett Azure Service Fabric-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera Service Fabric CLI. Välj sedan Service Fabric-klustret. Mer information finns i [komma igång med Service Fabric CLI](service-fabric-cli.md).
 
@@ -75,7 +75,7 @@ Om du vill ta bort programmet paketet från avbildningsarkivet, använder du fö
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`måste vara namnet på den katalog som du överfört när du skapade programmet.
+`content-path` måste vara namnet på den katalog som du överfört när du skapade programmet.
 
 ### <a name="create-an-application-from-an-application-type"></a>Skapa ett program från en typ av program
 
@@ -85,7 +85,7 @@ När du distribuera programmet, använder du följande kommando att namnge och s
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`är det namn som du vill använda för programinstansen. Du kan få ytterligare parametrar från tidigare etablerade programmanifestet.
+`app-name` är det namn som du vill använda för programinstansen. Du kan få ytterligare parametrar från tidigare etablerade programmanifestet.
 
 Programnamnet måste börja med prefixet `fabric:/`.
 

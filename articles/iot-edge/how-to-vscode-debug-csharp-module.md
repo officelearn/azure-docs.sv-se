@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Använda Visual Studio-koden för att felsöka C#-modulen med Azure IoT kant
 Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att felsöka dina Azure IoT kant-moduler.
@@ -47,7 +47,7 @@ Du bör ha följande till hands när du har slutfört föregående kursen:
 
 2. I `launch.json`, bläddra till den **felsöka IoT kant anpassad modul (.NET Core)** avsnitt. Under **pipeArgs**, Fyll i den `<container_name>`. Det bör vara `filtermodule` i den här självstudiekursen.
 
-    ![Skärmbild av VS kod felsökningsfönstret](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Skärmbild av VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Bläddra till **Program.cs**. Lägga till en brytpunkt i den `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Tryck på **F5** igen, och välj den process för att ansluta till. I den här självstudiekursen processens namn bör vara `FilterModule.dll`.

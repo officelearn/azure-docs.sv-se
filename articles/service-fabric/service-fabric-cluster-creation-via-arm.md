@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e5dd1ebd290c950c7f2bda3dae088f3ee7f836fd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Om du vill hantera dessa ändamål måste certifikatet uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel. De här certifikaten har vanligtvis tillägg PFX- eller .pem  
 * Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en Personal Information Exchange (.pfx)-fil.
-* Den **certifikatets ämnesnamn måste matcha den domän som du använder för att få åtkomst till Service Fabric-klustret**. Den här matchar krävs att tillhandahålla en SSL för klustrets HTTPS-slutpunkt för hantering och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för den *. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
+* Den **certifikatets ämnesnamn måste matcha den domän som du använder för att få åtkomst till Service Fabric-klustret**. Den här matchar krävs att tillhandahålla en SSL för klustrets HTTPS-slutpunkt för hantering och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för den *. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
 
 ### <a name="set-up-azure-active-directory-for-client-authentication-optional-but-recommended"></a>Konfigurera Azure Active Directory för klientautentisering (valfritt men rekommenderas)
 
@@ -127,12 +127,12 @@ $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
 $certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
 
 ```
 
@@ -144,7 +144,7 @@ declare vaultResourceGroupName="myvaultrg"
 declare vaultName="myvault"
 declare CertSubjectName="mylinux.westus.cloudapp.azure.com"
 declare vmpassword="Password!1"
-declare certpassword="Password!1"
+declare certpassword="Password!4321"
 declare vmuser="myadmin"
 declare vmOs="UbuntuServer1604"
 declare certOutputFolder="c:\certificates"
@@ -232,11 +232,11 @@ $resourceGroupName="mylinux"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword=("Password!1" | ConvertTo-SecureString -AsPlainText -Force) 
+$vmpassword=("Password!4321" | ConvertTo-SecureString -AsPlainText -Force) 
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
 
 ```
 
@@ -292,7 +292,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
 
 ```
 
@@ -375,7 +375,7 @@ Klusternamn används som prefix i Azure AD-program som skapats av skriptet. Det 
 
 WebApplicationReplyUrl är standardslutpunkten som Azure AD tillbaka till användarna när de har loggat in. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för klustret, vilket som standard är:
 
-https://&lt;cluster_domain&gt;: 19080/Explorer
+https://&lt;cluster_domain&gt;:19080/Explorer
 
 Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
 

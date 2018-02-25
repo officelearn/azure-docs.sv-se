@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
@@ -43,7 +43,7 @@ I standardinställningar begär installationsguiden autentiseringsuppgifter som 
 
 | Sidan i guiden | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Saknas |Användaren som kör installationsguiden |Administratör på den lokala servern |<li>Skapar det lokala kontot som används som den [synkronisera motorn tjänstkonto](#azure-ad-connect-sync-service-account). |
+| Gäller inte |Användaren som kör installationsguiden |Administratör på den lokala servern |<li>Skapar det lokala kontot som används som den [synkronisera motorn tjänstkonto](#azure-ad-connect-sync-service-account). |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-kontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory-autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar en [konto](#active-directory-account) i Active Directory och ger behörighet till den. Skapa kontot används för att läsa och skriva kataloginformation under synkroniseringen.</li> |
 
@@ -70,14 +70,14 @@ Azure AD Connect version 1.1.524.0 och senare har alternativet för att låta Az
 
 | Sidan i guiden | Autentiseringsuppgifter samlas in | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Saknas |Användaren som kör installationsguiden |<li>Administratör på den lokala servern</li><li>Om du använder en fullständig SQL Server, måste användaren vara systemadministratörskontot (SA) i SQL</li> |Som standard skapar du det lokala kontot som används som den [synkronisera motorn tjänstkonto](#azure-ad-connect-sync-service-account). Kontot skapas endast när administratören inte anger ett visst konto. |
+| Gäller inte |Användaren som kör installationsguiden |<li>Administratör på den lokala servern</li><li>Om du använder en fullständig SQL Server, måste användaren vara systemadministratörskontot (SA) i SQL</li> |Som standard skapar du det lokala kontot som används som den [synkronisera motorn tjänstkonto](#azure-ad-connect-sync-service-account). Kontot skapas endast när administratören inte anger ett visst konto. |
 | Installera synkroniseringstjänsterna kontoalternativet för tjänsten |AD eller autentiseringsuppgifter för lokal användare |Användare, behörigheter beviljas av installationsguiden |Om administratören anger ett konto, används det här kontot som tjänstkontot för sync-tjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-kontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory-autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna som beror på vilka funktioner du aktiverar och finns i [skapa AD DS-konto](#create-the-ad-ds-account) |Det här kontot används för att läsa och skriva kataloginformation under synkroniseringen. |
 | AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
-| Webbprogramsproxyservrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
+| Webbprogramproxyservrarna |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
 | Autentiseringsuppgifter för proxyförtroende |Federationstjänsten förtroende autentiseringsuppgifter (autentiseringsuppgifter proxyn använder för att registrera ett betrodda certifikat från en FS |Domänkonto som är lokal administratör på AD FS-servern |Första registreringen av FS WAP betrott certifikat. |
-| Sidan för AD FS-tjänstkontot, ”använda kontoalternativet en domän användare” |Autentiseringsuppgifter för användarkontot AD |Domänanvändare |AD-användarkontot vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
+| Sidan för AD FS-tjänstkontot, ”använda kontoalternativet en domän användare” |Autentiseringsuppgifter för användarkontot AD |Domain user |AD-användarkontot vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-account"></a>Skapa AD DS-konto
 Kontot du anger på den **Anslut dina kataloger** sidan måste finnas i Active Directory före installationen.  Det måste också ha beviljats behörighet. Installationsguiden verifierar inte behörigheterna och eventuella problem endast hittades under synkroniseringen.
@@ -98,7 +98,7 @@ Vilka behörigheter som du behöver beror på de valfria funktionerna aktiveras.
 När du uppgraderar från en version av Azure AD Connect på en ny version, måste följande behörigheter:
 
 >[!IMPORTANT]
->Från och med version 1.1.484, introducerade Azure AD Connect en regression bugg som kräver sysadmin-behörighet för att uppgradera den SQL-databasen.  Det här felet är fortfarande kvar i den senaste versionen 1.1.614.  Om du uppgraderar till den här versionen måste sysadmin-behörighet.  Dbo-behörigheter är inte tillräcklig.  Om du försöker uppgradera Azure AD Connect utan att ha sysadmin-behörighet uppgraderingen misslyckas och Azure AD Connect kommer inte längre att fungera korrekt efteråt.  Microsoft är medvetna om detta och arbetar för att åtgärda detta.
+>Från och med version 1.1.484, introducerade Azure AD Connect en regression bugg som kräver sysadmin-behörighet för att uppgradera den SQL-databasen.  Det här felet är åtgärdat i build 1.1.647.  Om du uppgraderar till den här versionen måste sysadmin-behörighet.  Dbo-behörigheter är inte tillräcklig.  Om du försöker uppgradera Azure AD Connect utan att ha sysadmin-behörighet uppgraderingen misslyckas och Azure AD Connect kommer inte längre att fungera korrekt efteråt.  Microsoft är medvetna om detta och arbetar för att åtgärda detta.
 
 
 | Huvudkonto | Behörigheter som krävs | Används för |
@@ -146,8 +146,8 @@ Förklaringen:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
 | **fristående eller arbetsgrupp datorn** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
-| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA gMSA | **gMSA**</br>Domänkonto |
-| **Domänkontrollant** | **Domänkonto** | *gMSA*</br>**Domänkonto**</br>sMSA| *gMSA*</br>**Domänkonto**|
+| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
+| **Domänkontrollant** | Domänkonto | *gMSA*</br>Domänkonto</br>sMSA| *gMSA*</br>Domänkonto|
 
 #### <a name="virtual-service-account"></a>Virtuella tjänstkonto
 En virtuell tjänstkontot är en särskild typ av konto som inte har ett lösenord och hanteras av Windows.
@@ -191,9 +191,9 @@ Namnet på kontot som används på servern kan identifieras i den andra delen av
 
 Kontot har skapats med ett långt komplexa lösenord som inte upphör. Det har beviljats en särskild roll **synkronisering Katalogkonton** som har endast behörighet att utföra uppgifter för directory-synkronisering. Den här särskilda inbyggda rollen kan inte ges utanför Azure AD Connect-guiden. Azure-portalen visar det här kontot med rollen **användaren**.
 
-Det finns en gräns på 20 tjänstkonton för synkronisering i Azure AD. Om du vill hämta en lista över befintliga konton i Azure AD-tjänsten i din Azure AD, kör du följande Azure AD PowerShell-cmdlet:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Det finns en gräns på 20 tjänstkonton för synkronisering i Azure AD. Om du vill hämta en lista över befintliga konton i Azure AD-tjänsten i din Azure AD, kör du följande Azure AD PowerShell-cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Ta bort oanvända Azure AD-tjänstkonton, kör du följande Azure AD PowerShell-cmdlet:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Ta bort oanvända Azure AD-tjänstkonton, kör du följande Azure AD PowerShell-cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](../active-directory-aadconnect.md).

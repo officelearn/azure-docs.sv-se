@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -56,6 +56,8 @@ public static void Run(
 }
 ```
 
+Det här exemplet är för Azure Functions version 1.x; för 2.x [utelämna parametern åtkomst rättigheter](#trigger---configuration).
+ 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
 I följande exempel visas en Service Bus-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar meddelandet Service Bus-kö.
@@ -150,7 +152,9 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  Attributets konstruktorn har namnet på kön eller ämnet och prenumerationen. Du kan också ange åtkomstbehörigheter för den anslutningen. Om du inte anger åtkomsträttigheter standardvärdet är `Manage`. Förklaras hur du väljer de åtkomstbehörigheter som inställningen i den [utlösaren - konfiguration](#trigger---configuration) avsnitt. Här är ett exempel som visar det attribut som används med en strängparameter:
+  Attributets konstruktorn har namnet på kön eller ämnet och prenumerationen. I Azure Functions version 1.x, du kan också ange åtkomstbehörigheter för den anslutningen. Om du inte anger åtkomsträttigheter standardvärdet är `Manage`. Mer information finns i [utlösaren - konfiguration](#trigger---configuration) avsnitt.
+
+  Här är ett exempel som visar det attribut som används med en strängparameter:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -207,26 +211,27 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till ”serviceBusTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|Typ | Saknas | Måste anges till ”serviceBusTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller avsnittet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
 |**queueName**|**Könamn**|Namnet på den kö som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
-|**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om övervakning av ett ämne, inte för en kö.|
+|topicName|**topicName**|Namnet på avsnittet om du vill övervaka. Ange endast om övervakning av ett ämne, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om övervakning av ett ämne, inte för en kö.|
-|**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne. |
-|**accessRights**|**Åtkomst**|Behörighet som krävs för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** , behörighetsgrupp `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter.|
+|**Anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne. |
+|**accessRights**|**Åtkomst**|Behörighet som krävs för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** , behörighetsgrupp `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2.x kan den här egenskapen är inte tillgänglig eftersom den senaste versionen av Storage SDK: N inte stöder hantera åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
 
-I C# och C#-skript kan komma åt meddelandet kö eller ett ämne med hjälp av en metodparameter som `string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan använda någon av följande typer i stället för `string`:
+I C# och C#-skript kan använda du följande parametertyper för kö eller ett ämne meddelandet:
 
-* `byte[]`-Användbart för binära data.
+* `string` – Om meddelandet är text.
+* `byte[]` -Användbart för binära data.
 * En anpassad typ - om meddelandet innehåller JSON, Azure Functions görs ett försök att deserialisera JSON-data.
-* `BrokeredMessage`– Ger dig avserialiserat meddelandet med den [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metod.
+* `BrokeredMessage` – Ger dig avserialiserat meddelandet med den [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) metod.
 
-Få åtkomst till kö eller ett ämne meddelandet i JavaScript, med hjälp av `context.bindings.<name>`. `<name>`är värdet som angetts i den `name` -egenskapen för *function.json*. Service Bus-meddelande skickas till funktionen som en sträng eller en JSON-objekt.
+Få åtkomst till kö eller ett ämne meddelandet i JavaScript, med hjälp av `context.bindings.<name from function.json>`. Service Bus-meddelande skickas till funktionen som en sträng eller en JSON-objekt.
 
 ## <a name="trigger---poison-messages"></a>Utlösaren - förgiftade meddelanden
 
@@ -445,29 +450,32 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till ”serviceBus”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till ”out”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|Typ | Saknas | Måste anges till ”serviceBus”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Riktning** | Saknas | Måste anges till ”out”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön eller -avsnittet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. | 
 |**queueName**|**Könamn**|Namnet på kön.  Ange endast om att skicka meddelanden till kön, inte för ett ämne.
-|**topicName**|**TopicName**|Namnet på avsnittet om du vill övervaka. Ange endast om avsnittet meddelanden, inte för en kö.|
+|topicName|**topicName**|Namnet på avsnittet om du vill övervaka. Ange endast om avsnittet meddelanden, inte för en kö.|
 |**subscriptionName**|**SubscriptionName**|Namnet på prenumerationen du övervakar. Ange endast om avsnittet meddelanden, inte för en kö.|
-|**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne.|
-|**accessRights**|**Åtkomst** |Behörighet som krävs för anslutningssträngen. Tillgängliga värden är ”hantera” och ”lyssna”. Standardvärdet är ”hantera”, vilket betyder att anslutningen har **hantera** behörigheter. Om du använder en anslutningssträng som inte har **hantera** ange behörigheter, `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter.|
+|**Anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträng för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Till exempel om du ställer in `connection` för ”MyServiceBus” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom Functions-runtime använder standard Service Bus-anslutningssträng i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutningssträng att följa anvisningarna på [hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Anslutningssträngen måste vara för Service Bus-namnrymd inte begränsat till en särskild kö eller ett ämne.|
+|**accessRights**|**Åtkomst**|Behörighet som krävs för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** , behörighetsgrupp `accessRights` ”lyssna”. Annars kan hantera funktionerna runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2.x kan den här egenskapen är inte tillgänglig eftersom den senaste versionen av Storage SDK: N inte stöder hantera åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# och C# skript, få åtkomst till den kö eller ett ämne med hjälp av en metodparameter som `out string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan använda någon av följande parameter:
+I Azure Functions 1.x, körningsmiljön skapar kön om det inte finns och att du har angett `accessRights` till `manage`. I funktion version måste 2.x, kö eller avsnittet redan finnas; funktionen kommer att misslyckas om du anger en kö eller ett ämne som inte finns. 
 
-* `out T paramName` - `T`kan vara JSON-serialiserbara typer. Om parametervärdet är null när funktionen avslutas skapar funktioner meddelandet med ett null-objekt.
-* `out string`-Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
-* `out byte[]`-Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
-* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
+I C# och C#-skript kan använda du följande parametertyper för bindningen utdata:
 
-Du kan använda för att skapa flera meddelanden i en C# eller C#-skriptfunktion `ICollector<T>` eller `IAsyncCollector<T>`. Skapa ett meddelande när du anropar den `Add` metoden.
+* `out T paramName` - `T` kan vara JSON-serialiserbara typer. Om parametervärdet är null när funktionen avslutas skapar funktioner meddelandet med ett null-objekt.
+* `out string` -Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
+* `out byte[]` -Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
+* `out BrokeredMessage` -Om parametervärdet är null när funktionen avslutas funktioner inte att skapa ett meddelande.
+* `ICollector<T>` eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Skapa ett meddelande när du anropar den `Add` metoden.
 
-I JavaScript, få åtkomst till den kö eller ett ämne med hjälp av `context.bindings.<name>`. `<name>`är värdet som angetts i den `name` -egenskapen för *function.json*. Du kan tilldela en sträng, en bytematris eller ett Javascript-objekt (deserialisera till JSON) `context.binding.<name>`.
+I async-funktion, använder du det returnera värdet eller `IAsyncCollector` i stället för en `out` parameter.
+
+I JavaScript, få åtkomst till den kö eller ett ämne med hjälp av `context.bindings.<name from function.json>`. Du kan tilldela en sträng, en bytematris eller ett Javascript-objekt (deserialisera till JSON) `context.binding.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 

@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Compute-kontexten alternativ för R Server på HDInsight
 
 Microsoft R Server på Azure HDInsight styr hur anropen genom att ange beräknings-kontexten. Den här artikeln beskrivs de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster.
 
-Edge-nod i ett kluster ger en lämplig plats att ansluta till klustret och köra R-skript. Med en kantnod har möjlighet att köra parallelized distribuerade funktioner ScaleR över kärnor på noden gränsservern. Du kan också köra dem mellan noder i klustret med hjälp av Scaler's Hadoop kartan minska eller compute kontexter för Spark.
+Edge-nod i ett kluster ger en lämplig plats att ansluta till klustret och köra R-skript. Med en kantnod har möjlighet att köra parallelized distribuerade funktioner RevoScaleR över kärnor på noden gränsservern. Du kan också köra dem mellan noder i klustret med hjälp av Revoscaler's Hadoop kartan minska eller compute kontexter för Spark.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server på Azure HDInsight
-[Microsoft R Server på Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för analys av R-baserade. Det kan använda data som lagras i en HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom R Server bygger på öppen källkod R gäller R-baserade program som du skapar öppen källkod R-paket 8000 +. De kan också använda rutiner i [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), Microsofts big analytics datapaketet som ingår i R Server.  
+[Microsoft R Server på Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för analys av R-baserade. Det kan använda data som lagras i en HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom R Server bygger på öppen källkod R gäller R-baserade program som du skapar öppen källkod R-paket 8000 +. De kan också använda rutiner i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts big analytics datapaketet som ingår i R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Beräkna kontexter för en kantnod
-I allmänhet körs ett R-skript som körs i R Server på kantnoden inom R-tolken på noden. Undantagen är de steg som anropar en ScaleR funktion. ScaleR anropen köras i en miljö för beräkning som bestäms av hur du ställer in ScaleR beräknings-kontexten.  När du kör din R-skriptet från en kantnod är beräknings-kontexten möjliga värden:
+I allmänhet körs ett R-skript som körs i R Server på kantnoden inom R-tolken på noden. Undantagen är de steg som anropar en RevoScaleR funktion. RevoScaleR anropen köras i en miljö för beräkning som bestäms av hur du ställer in RevoScaleR beräknings-kontexten.  När du kör din R-skriptet från en kantnod är beräknings-kontexten möjliga värden:
 
 - lokal sekventiella (*lokala*)
 - lokala parallell (*localpar*)
 - Minska karta
 - Spark
 
-Den *lokala* och *localpar* alternativ skiljer sig i hur **rxExec** anropen. De båda köra andra rx funktionsanrop på ett sätt som parallellt över alla tillgängliga kärnor om inget annat anges med hjälp av ScaleR **numCoresToUse** alternativ, till exempel `rxOptions(numCoresToUse=6)`. Parallell körning alternativ ger optimala prestanda.
+Den *lokala* och *localpar* alternativ skiljer sig i hur **rxExec** anropen. De båda köra andra rx funktionsanrop på ett sätt som parallellt över alla tillgängliga kärnor om inget annat anges med hjälp av RevoScaleR **numCoresToUse** alternativ, till exempel `rxOptions(numCoresToUse=6)`. Parallell körning alternativ ger optimala prestanda.
 
 I följande tabell sammanfattas de olika beräkning kontext alternativen för att ange hur anropen:
 
@@ -65,18 +65,18 @@ I följande avsnitt erbjuder ges dessa principer vissa allmänna råden för att
 * Om mängden data att analysera är liten och kräver inte upprepade analys, sedan strömmas direkt i den analysis rutinunderhåll med hjälp av *lokala* eller *localpar*.
 * Om mängden data att analysera är liten eller medelstor och kräver upprepade analys, sedan kopiera den till det lokala filsystemet, importera den till XDF och analysera den via *lokala* eller *localpar*.
 
-### <a name="hadoop-spark"></a>Hadoop, Spark
+### <a name="hadoop-spark"></a>Hadoop Spark
 * Om mängden data att analysera är stor kan sedan importera det till ett Spark-DataFrame med **RxHiveData** eller **RxParquetData**, eller XDF i HDFS (om inte lagring är ett problem), och analysera den med hjälp av Spark-beräkning kontexten.
 
 ### <a name="hadoop-map-reduce"></a>Minska Hadoop-karta
 * Använda context kartan minska beräkning endast om det uppstår ett oöverstigliga problem med Spark beräkning kontexten eftersom det är vanligtvis långsammare.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Infogade hjälp om rxSetComputeContext
-Mer information och exempel på ScaleR beräkning kontexter finns infogat hjälp i R om metoden rxSetComputeContext, till exempel:
+Mer information och exempel på RevoScaleR beräkning kontexter finns infogat hjälp i R om metoden rxSetComputeContext, till exempel:
 
     > ?rxSetComputeContext
 
-Du kan också gå till den [ScaleR distribuerad datoranvändning guiden](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) som är tillgängliga från den [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) bibliotek.
+Du kan också gå till den [distribuerad databehandling översikt](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster. Mer information om hur du använder R Server med HDInsight-kluster finns i följande avsnitt:

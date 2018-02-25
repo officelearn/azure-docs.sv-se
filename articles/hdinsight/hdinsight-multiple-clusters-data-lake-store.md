@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto
 
@@ -42,9 +42,9 @@ Om du vill aktivera den här mappstrukturen att användas av HDInsight-kluster m
 
 |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngiven användarbehörighet | Namngiven grupp | Namngivna gruppbehörigheter |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |Admin |Admin  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
-|/Clusters | rwxr-x--x |Admin |Admin |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
-|/ kluster/ekonomi | rwxr-x--t |Admin |FINGRP  |Tjänstens huvudnamn |rwx  |-  |-     |
+|/ | rwxr-x--x  |administratör |administratör  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |administratör |administratör |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
+|/ kluster/ekonomi | rwxr-x--t |administratör |FINGRP  |Tjänstens huvudnamn |rwx  |-  |-     |
 
 I tabellen
 
@@ -63,7 +63,7 @@ Några viktiga saker att tänka på.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Namngiven användarbehörighet | Namngiven grupp | Namngivna gruppbehörigheter |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/Clusters/finanace/fincluster01 | rwxr x---  |Tjänstens huvudnamn |FINGRP  |- |-  |-   |-  | 
+    |/Clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -96,7 +96,7 @@ Enligt informationen i YARN-JIRA länkade tidigare under lokaliseringen offentli
 #### <a name="workaround"></a>Lösning
 Ange Läs-körningsbehörighet **andra** via hierarkin, till exempel på  **/** , **/kluster** och **/kluster/ekonomi** som visas i tabellen ovan.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Skapa ett HDInsight-kluster med Data Lake Store som lagring](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 

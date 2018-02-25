@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsökning av problem med Virtuella Azure-Azure-replikering
 
@@ -22,7 +22,7 @@ Den här artikeln beskrivs hur du felsöker dem beskrivs vanliga problem i Azure
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problem med Azure-resurs kvoten (felkod 150097)
 Din prenumeration måste vara aktiverat för att skapa virtuella Azure-datorer i mål-region som du tänker använda som disaster recovery region. Din prenumeration bör också ha tillräcklig kvot aktiverad för att skapa virtuella datorer i en viss storlek. Som standard hämtar Site Recovery för mål VM samma storlek som den Virtuella källdatorn. Om matchande storlek inte är tillgänglig, hämtas den närmaste möjliga storleken automatiskt. Om det finns ingen matchande storlek som stöder VM-konfiguration för datakällan, visas detta felmeddelande:
 
-Felkod | **Möjliga orsaker** | Rekommendation
+**Felkod** | **Möjliga orsaker** | **Rekommendation**
 --- | --- | ---
 150097<br></br>**Meddelandet**: Det gick inte att aktivera replikering för den virtuella datorn VmName. | -Ditt prenumerations-ID kanske inte är aktiverat för att skapa virtuella datorer på målplatsen region.</br></br>-Ditt prenumerations-ID kanske inte är aktiverat eller har inte tillräcklig kvot för att skapa specifika VM-storlekar på målplatsen region.</br></br>-Ett lämpligt mål VM-storlek som matchar källan VM NIC antalet (2) inte kan hittas för prenumerations-ID på målplatsen region.| Kontakta [Azure faktureringssupporten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) att skapa en virtuell dator för nödvändiga VM-storlekar på målplatsen för din prenumeration. Försök igen när den har aktiverats.
 
@@ -35,7 +35,7 @@ Om platsen har en begränsning för kapacitet, inaktivera replikering och aktive
 
 Om alla de senaste betrodda rotcertifikat inte finns på den virtuella datorn kan utskriften ”Aktivera replikering” misslyckas. Utan certifikat misslyckas autentisering och auktorisering av Site Recovery-anrop från den virtuella datorn. Felmeddelandet för det misslyckade jobbet för ”Aktivera replikering” Site Recovery visas:
 
-Felkod | **Möjlig orsak** | **Rekommendationer**
+**Felkod** | **Möjlig orsak** | **Rekommendationer**
 --- | --- | ---
 151066<br></br>**Meddelandet**: Site Recovery-konfigurationen misslyckades. | Det obligatoriska betrodda rotcertifikat som används för auktorisering och autentisering inte finns på datorn. | – För en virtuell dator som kör Windows operativsystem, se till att de betrodda rotcertifikat finns på datorn. Mer information finns i [konfigurera betrodda rotcertifikat och otillåtna certifikat](https://technet.microsoft.com/library/dn265983.aspx).<br></br>– För en virtuell dator som kör Linux-operativsystem, följer du anvisningarna för betrodda rotcertifikat som publicerats av Linux operativsystem version distributören.
 
@@ -161,7 +161,7 @@ Att godkända [i URL: erna](azure-to-azure-about-networking.md#outbound-connecti
 
 En ny disk ansluten till den virtuella datorn måste initieras.
 
-Felkod | **Möjliga orsaker** | **Rekommendationer**
+**Felkod** | **Möjliga orsaker** | **Rekommendationer**
 --- | --- | ---
 150039<br></br>**Meddelandet**: Azure-datadisk (DiskName) (DiskURI) med logiska enhetsnummer (LUN) (LUNValue) inte har kopplats till en motsvarande disk som har rapporterats från den virtuella datorn som har samma LUN-värdet. | -En ny datadisk har kopplats till den virtuella datorn, men det fanns inte initierats.</br></br>-Datadisken inuti den virtuella datorn är inte rapporterar LUN-värdet som disken var kopplad till den virtuella datorn.| Kontrollera att datadiskar som har initierats och försök sedan igen.</br></br>För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>För Linux: [initierar en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

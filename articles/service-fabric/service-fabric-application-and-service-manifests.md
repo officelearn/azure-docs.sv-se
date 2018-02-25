@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e0cf78aef7e973188ce9581ec94f012f6ecde90
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-programmet och service manifest
 Den här artikeln beskrivs hur Service Fabric-program och tjänster som är definierat och en version med ApplicationManifest.xml och ServiceManifest.xml-filer.  XML-schemat för dessa manifestfiler dokumenteras i [ServiceFabricServiceModel.xsd schemadokumentationen](service-fabric-service-model-schema.md).
@@ -159,7 +159,7 @@ Som service manifest **Version** attribut är Ostrukturerade strängar och inte 
 
 **Certifikat** (inte anges i föregående exempel) deklarerar de certifikat som används för att [konfigurera HTTPS-slutpunkter](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) eller [kryptera hemligheter i programmanifestet](service-fabric-application-secret-management.md).
 
-**Principer** (inte anges i föregående exempel) beskriver Logginsamling, [standard kör som-](service-fabric-application-runas-security.md), [hälsa](service-fabric-health-introduction.md#health-policies), och [säkerhetsåtkomst](service-fabric-application-runas-security.md) principer för att ställa in på programnivå.
+**Principer** (inte anges i föregående exempel) beskriver Logginsamling, [standard kör som-](service-fabric-application-runas-security.md), [hälsa](service-fabric-health-introduction.md#health-policies), och [säkerhetsåtkomst](service-fabric-application-runas-security.md) principer för att ställa in på den programnivå.
 
 **Säkerhetsobjekt** (inte anges i föregående exempel) beskriver de säkerhetsobjekt (användare eller grupper) som krävs för att [kör tjänster och resurser på säkra tjänsten](service-fabric-application-runas-security.md).  Säkerhetsobjekt som refereras till i den **principer** avsnitt.
 

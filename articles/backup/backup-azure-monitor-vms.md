@@ -1,6 +1,6 @@
 ---
-title: "Övervakaren Resource Manager distribuerade virtuella datorsäkerhetskopieringar | Microsoft Docs"
-description: "Övervaka händelser och aviseringar från säkerhetskopiering för Resource Manager distribuerade virtuella datorer. Skicka e-post baserat på aviseringar."
+title: "Övervaka aviseringar om säkerhetskopiering för virtuella datorer i Azure | Microsoft Docs"
+description: "Övervaka händelser och aviseringar från virtuell dator i Azure säkerhetskopieringsjobb. Skicka e-post baserat på aviseringar."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Övervaka varningar vid säkerhetskopiering av virtuella Azure-datorer
 Aviseringar är svar från tjänsten för att en händelse tröskelvärdet har uppnåtts eller överskridits. Att veta när problem start kan vara viktigt att som företag kostnaderna hålls nere. Aviseringar, vanligtvis sker inte enligt ett schema och därför är det bra att känna så snart som möjligt efter aviseringar. När en säkerhetskopiering eller återställning av jobbet misslyckas, till exempel visas en varning inom fem minuter till felet. I instrumentpanelen för valvet visas panelen Backup aviseringar kritiskt och varningsnivå händelser. Du kan visa alla händelser i inställningarna för säkerhetskopiering aviseringar. Men vad gör du om en varning visas när du arbetar på ett separat problem? Om du inte vet när aviseringen händer, kan det bero på en mindre besvär eller det kan äventyra data. Kontrollera att rätt personer är medvetna om en avisering - när det uppstår genom att konfigurera tjänsten för att skicka aviseringar via e-post. Mer information om hur du konfigurerar e-postaviseringar finns [konfigurera meddelanden](backup-azure-monitor-vms.md#configure-notifications).

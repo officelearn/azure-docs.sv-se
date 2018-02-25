@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -27,7 +27,7 @@ Azure AD Application Proxy gör dina lokala appar tillgängliga för användare 
 
 Det bästa sättet att se till att länkarna fungerar på samma sätt både inom och utanför företagets nätverk är att konfigurera de externa URL: er för dina appar för att vara samma som deras interna URL: er. Använd [anpassade domäner](active-directory-application-proxy-custom-domains.md) att konfigurera externa URL: er om du vill att företagets domännamn i stället för standarddomänen proxy.
 
-Om du inte kan använda anpassade domäner i din klientorganisation, behålls funktionen länken översättning av Application Proxy länkarna fungerar oavsett var dina användarna finns. När du har appar som pekar direkt på interna slutpunkter eller portar, kan du mappa dessa interna URL: er publicerade externa Application Proxy URL: er. När länköversättning är aktiverat och programproxy söker igenom HTML, CSS och välj JavaScript-taggar för publicerade interna länkar. Sedan översätter tjänsten Application Proxy dem så att användarna får en oavbruten upplevelse.
+Om du inte kan använda anpassade domäner i din klientorganisation, behålls funktionen länken översättning av Application Proxy länkarna fungerar oavsett var dina användarna finns. När du har appar som pekar direkt på interna slutpunkter eller portar, kan du mappa dessa interna URL: er publicerade externa Application Proxy URL: er. När länköversättning är aktiverat och programproxy söker igenom HTML- och CSS för publicerade interna länkar, tjänsten Application Proxy översätter dem så att användarna får en oavbruten upplevelse.
 
 >[!NOTE]
 >Länken översättningsfunktionen är för klienter som av något skäl inte kan använda anpassade domäner har samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen finns om [anpassade domäner i Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) du kan använda.
@@ -64,7 +64,7 @@ När du aktiverar länken översättningen av fördelar appen länkar till kostn
 För att förbättra prestanda och säkerhet, inte är vissa länkar översatt:
 
 - Länkar inte inuti kodtaggar. 
-- Länkar inte i HTML-, CSS- eller JavaScript. 
+- Länkar inte i HTML- eller CSS. 
 - Interna länkar öppnas från andra program. Att kommer inte översätta länkar skickas via e-post eller snabbmeddelande eller ingår i andra dokument. Användarna behöver veta för att gå till den externa Webbadressen.
 
 Om du behöver stöd för något av dessa två scenarier kan du använda samma interna och externa URL: er i stället för länköversättning.  
@@ -84,7 +84,7 @@ När användarna har åtkomst till det här programmet ska nu proxyn automatiskt
 
 ## <a name="send-feedback"></a>Skicka feedback
 
-Vi vill du att den här funktionen fungerar för alla dina appar. Vi söka över 30 taggar i HTML- och CSS och överväger som JavaScript fall för att stödja. Om du har ett exempel på genererade länkar som inte är som översätts skickar du ett kodstycke till [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
+Vi vill du att den här funktionen fungerar för alla dina appar. Vi söker efter 30 taggar i HTML- och CSS. Om du har ett exempel på genererade länkar som inte är som översätts skickar du ett kodstycke till [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Nästa steg
 [Använda anpassade domäner med Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md) ska ha samma interna och externa URL: en

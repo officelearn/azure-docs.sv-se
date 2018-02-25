@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Självstudier: Azure Active Directory-integrering med ADP federerad enkel inloggning
 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och ADP federerad enkel inloggning domän med enkel inloggning information](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    I den **identifierare** textruta, ange ett URL-Adressen:`https://fed.adp.com/` 
+    I den **identifierare** textruta, ange ett URL-Adressen: `https://fed.adp.com/` 
     
 5. Programmet ADP federerad enkel inloggning förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Följande skärmbild visar ett exempel för det här. Anspråkets namn kommer alltid att **”PersonImmutableID”** och värdet som vi har mappats till **employeeid**. 
 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | PersonImmutableID | User.EmployeeID |
     
@@ -197,9 +197,8 @@ Konfigurera ADP tjänster och tilldela/hantera användare att styra användarnas
     ![Konfigurera enkel inloggning länk][4]
 
 7. På den **enkel inloggning** markerar **läge** som **inloggning länkade** att länka programmet till **ADP federerad enkel inloggning**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Enkel inloggning länkade](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Navigera till den **konfigurera inloggnings-URL** avsnittet, utför följande steg:
 

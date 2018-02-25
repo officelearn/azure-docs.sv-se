@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Store för stordata krav
 Det finns fyra viktiga steg i stort databearbetning:
@@ -40,7 +40,7 @@ Representerar mindre datauppsättningar som används för prototyper ett stort p
 
 | Datakälla | Mata in den med hjälp av |
 | --- | --- |
-| Lokal dator |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure plattformsoberoende CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Med hjälp av Data Lake-verktyg för Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Lokal dator |<ul> <li>[Azure-portalen](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Med hjälp av Data Lake-verktyg för Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp som körs på HDInsight-kluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Direktuppspelat data
@@ -52,7 +52,7 @@ Följande är ett verktyg som du kan använda:
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) -du kan skriva data till Data Lake Store direkt från Storm-kluster.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – du kan ta emot händelser från Event Hubs och skriver den till Data Lake Store med hjälp av den [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-### <a name="relational-data"></a>Relationella data
+### <a name="relational-data"></a>Relationsdata
 Du kan också styra data från relationsdatabaser. Samla in stora mängder data som kan ge viktiga insikter om bearbetas via en pipeline för stordata under en viss tidsperiod relationsdatabaser. Du kan använda följande verktyg för att flytta dessa data till Data Lake Store.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -61,7 +61,7 @@ Du kan också styra data från relationsdatabaser. Samla in stora mängder data 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Loggdata för Web server (överföringen med hjälp av anpassade program)
 Den här typen av datauppsättning framhävs specifikt eftersom analys av loggdata för web server är ett vanligt användningsfall för stordataprogram och kräver stora volymer av loggfiler som ska överföras till Data Lake Store. Du kan använda någon av följande verktyg för att skriva egna skript eller program för att överföra dessa data.
 
-* [Azure plattformsoberoende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -121,7 +121,7 @@ I sådana fall kan använda du någon av följande alternativ:
 
 Du kan också använda följande metoder för att skriva egna skript/program för att hämta data från Data Lake Store.
 
-* [Azure plattformsoberoende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 

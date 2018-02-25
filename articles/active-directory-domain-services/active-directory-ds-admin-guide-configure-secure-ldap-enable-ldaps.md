@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -41,7 +41,7 @@ Utför följande konfigurationssteg för att aktivera säker LDAP:
 
 3. Klicka på **säker LDAP** i navigeringsfönstret.
 
-    ![DS - säker LDAP-sida](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - Secure LDAP page](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. Säker LDAP-åtkomst till din hanterade domän är inaktiverat som standard. Växla **säkert LDAP** till **aktivera**.
 
@@ -113,7 +113,6 @@ I följande tabell visas ett exempel på en NSG som du kan konfigurera för att 
 ## <a name="troubleshooting"></a>Felsökning
 Om du har problem att ansluta till den hanterade domänen med säker LDAP, utför du följande felsökningssteg:
 * Se till att utfärdaren kedjan för säker LDAP-certifikatet är betrott på klienten. Du kan välja att lägga till rotcertifikatutfärdaren certifikatarkivet för betrodda rotcertifikatutfärdare på klienten att upprätta förtroendet.
-* Kontrollera att säker LDAP-certifikatet inte är utfärdat av en mellanliggande certifikatutfärdare som inte är betrodd som standard på en ny windows-dator.
 * Kontrollera att LDAP-klient (till exempel ldp.exe) ansluter till den säkra LDAP-slutpunkten med hjälp av ett DNS-namn inte IP-adress.
 * Kontrollera DNS-namnet för LDAP-klient ansluter till den offentliga IP-adressen matchar för säkra LDAP på den hanterade domänen.
 * Verifiera det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i ett ämne eller Alternativt ämnesnamn attributet.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
 
@@ -71,7 +71,7 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
 2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Skapa ett undernät](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Skapa undernät](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
@@ -120,7 +120,7 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
 
 1. Klicka på **alla resurser** och klicka sedan på **myAppGateway**.
-2. Klicka på **serverdelspooler**. En standardadresspool skapas automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+2. Klicka på **serverdelspooler**. En standardadresspool skapas automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
 3. Klicka på **Lägg till mål** att lägga till *myVM1* till appGatewayBackendPool.
 
     ![Lägg till backend-servrar](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)

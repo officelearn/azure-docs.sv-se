@@ -3,7 +3,7 @@ title: "Så här installerar du en Linux huvudmålserver för redundans från Az
 description: "Innan du skydda en Linux-dator, måste en Linux huvudmålserver. Lär dig hur du installerar en."
 services: site-recovery
 documentationcenter: 
-author: rajani-janaki-ram
+author: nsoneji
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/22/2017
-ms.author: rajanaki
-ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: nisoneji
+ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installera en Linux huvudmålserver
 När du växlar över dina virtuella datorer till Azure kan du växla tillbaka de virtuella datorerna till den lokala platsen. För att växla tillbaka måste att skydda den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du en lokal huvudmålserver att ta emot trafik. 
@@ -265,7 +265,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     Välj **infoga** att börja redigera filen. Skapa en ny rad och Lägg till följande text. Redigera disk multipath-ID baserat på den markerade multipath ID från det föregående kommandot.
 
-    **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
+     **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
 
     Välj **Esc**, och skriv sedan **: wq** (skriva och avsluta) att stänga fönstret redigeraren.
 

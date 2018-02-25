@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -52,7 +52,7 @@ Du kan klicka på en kategori om du vill visa en lista över rekommendationerna 
 
 Välj den rekommenderade åtgärden för en rekommendation att implementera denna rekommendation.  Ett enkelt gränssnitt öppnas där du kan följa rekommendationen eller avser dokumentation som hjälper dig med implementering.  När du implementerar en rekommendation, kan det ta upp till en dag för Advisor att identifiera som.
 
-Om du inte tänker vidta omedelbara åtgärder på en rekommendation du viloläge för en angiven tidsperiod eller stänga den.  Om du inte vill få rekommendationer för en viss prenumeration eller resursgrupp kan du konfigurera Advisor för att endast skapa rekommendationer för angivna prenumerationer och resursgrupper.
+Om du inte tänker vidta omedelbara åtgärder på en rekommendation du skjuta upp den för en angiven tidsperiod eller stänga den.  Om du inte vill få rekommendationer för en viss prenumeration eller resursgrupp kan du konfigurera Advisor för att endast skapa rekommendationer för angivna prenumerationer och resursgrupper.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -69,9 +69,9 @@ Du måste först registrera prenumerationen med Advisor för att erhålla Adviso
 
 Advisor innehåller rekommendationer för virtuella datorer, tillgänglighetsuppsättningar, programgatewayer, Apptjänster, SQL-servrar, SQL-databaser och Redis-Cache.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Kan jag viloläge eller ignorera en rekommendation?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan jag vänta eller stänga en rekommendation?
 
-Viloläge eller ignorera en rekommendation genom att klicka på den **viloläge** länk. Du kan ange en tid för viloläge period eller välja **aldrig** stänga rekommendationen.
+Om du vill skjuta upp eller ignorera en rekommendation klickar du på den **Skjut upp** länk. Du kan ange en Skjut upp period eller välja **aldrig** stänga rekommendationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

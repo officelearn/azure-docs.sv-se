@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 61100b9786245204502686a47e5aae2a6d210259
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b1dbe96b9f522474cd2eeb2b63f3429f9ea4d8ed
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Skapa ett virtuellt nätverk med Azure Portal
 
-I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk. När du har skapat ett virtuellt nätverk, distribuerar två virtuella datorer till det virtuella nätverket och kommunicera privat mellan dem.
+I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk. När du har skapat ett virtuellt nätverk distribuerar du två virtuella datorer i det virtuella nätverket för att testa privata nätverkskommunikation mellan dem.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,39 +34,41 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Klicka på **+ ny** på det övre vänstra hörnet i Azure-portalen.
+1. Välj **+ ny** på det övre vänstra hörnet i Azure-portalen.
 
 2. Välj **nätverk**, och välj sedan **för virtuella nätverk**.
 
-3. I följande bild visas anger *myVirtualNetwork* för **namn**, *myResourceGroup* för **resursgruppen**, Välj en  **Plats** och **prenumeration**återstående standardvärdena och klicka sedan på **skapa**. 
+3. I följande bild visas anger *myVirtualNetwork* för **namn**, *myResourceGroup* för **resursgruppen**, Välj en  **Plats** och **prenumeration**återstående standardvärdena och välj sedan **skapa**. 
 
     ![Ange grundläggande information om ditt virtuella nätverk](./media/quick-create-portal/virtual-network.png)
 
     Den **adressutrymmet** anges i CIDR-notering. Ett virtuellt nätverk innehåller noll eller flera undernät. Standard-undernätet **adressintervall** 10.0.0.0/24 används hela adressintervallet för det virtuella nätverket och inte går att skapa ett annat undernät i det virtuella nätverket med hjälp av standard-adressutrymme och intervall. Det angivna adressintervallet innehåller 10.0.0.0-10.0.0.254 för IP-adresser. Endast 10.0.0.4-10.0.0.254 finns dock eftersom Azure reserverar de första fyra adresserna (0-3) och den sista adressen i varje undernät. Tillgängliga IP-adresser tilldelas resurser har distribuerats inom ett virtuellt nätverk.
 
-## <a name="create-virtual-machines"></a>Skapa virtuella datorer
+## <a name="test-network-communication"></a>Testa nätverkskommunikation
 
-Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser till privat kommunicera med varandra. En typ av resurs som du kan distribuera till ett virtuellt nätverk är en virtuell dator. Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera och förstå hur kommunikation mellan virtuella datorer i ett virtuellt nätverk fungerar i ett senare steg.
+Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser till privat kommunicera med varandra. En typ av resurs som du kan distribuera till ett virtuellt nätverk är en virtuell dator. Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera privata kommunikationen mellan dem i ett senare steg.
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+### <a name="create-virtual-machines"></a>Skapa virtuella datorer
+
+1. Välj knappen **New** (Nytt) längst upp till vänster i Azure Portal.
 
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
 
-3. Ange information om virtuella datorn visas i bilden nedan. Den **användarnamn** och **lösenord** du anger används för att logga in på den virtuella datorn i ett senare steg. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Välj din **prenumeration**, välja att använda det befintliga *myResourceGroup* resurs gruppen och kontrollerar att den **plats** valts är på samma plats som du skapade den virtuellt nätverk i. När du är klar klickar du på **OK**.
+3. Ange information om virtuella datorn visas i bilden nedan. Den **användarnamn** och **lösenord** du anger används för att logga in på den virtuella datorn i ett senare steg. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Välj din **prenumeration**, välja att använda det befintliga *myResourceGroup* resurs gruppen och kontrollerar att den **plats** valts är på samma plats som du skapade den virtuellt nätverk i. När du är klar väljer **OK**.
 
     ![Ange grundläggande information om en virtuell dator](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. Välj en storlek för den virtuella datorn och klicka sedan på **Välj**. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. De storlekar som du kan skilja sig i följande exempel: 
+4. Välj en storlek för den virtuella datorn och välj sedan **Välj**. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. De storlekar som du kan skilja sig i följande exempel: 
 
     ![Välj en storlek för en virtuell dator](./media/quick-create-portal/virtual-machine-size.png)
 
-5. Under **inställningar**, *myVirtualNetwork* bör redan vara markerad för **för virtuella nätverk**, men om det inte är det, klickar du på **för virtuella nätverk**, Välj sedan *myVirtualNetwork*. Lämna *standard* markerade för **undernät**, och klicka sedan på **OK**.
+5. Under **inställningar**, *myVirtualNetwork* bör redan vara markerad för **för virtuella nätverk**, men om det inte välja **för virtuella nätverk** , välj sedan *myVirtualNetwork*. Lämna *standard* markerade för **undernät**, och välj sedan **OK**.
 
     ![Välj ett virtuellt nätverk](./media/quick-create-portal/virtual-machine-network-settings.png)
 
-6. På den **sammanfattning** klickar du på **skapa** att starta distributionen av virtuella datorer. 
+6. På den **sammanfattning** väljer **skapa** att starta distributionen av virtuella datorer. 
 
-7. Det tar några minuter att skapa den virtuella datorn. Den virtuella datorn är fäst på instrumentpanelen för Azure-portalen och sammanfattning för virtuell dator öppnas automatiskt när den har skapats. Klicka på **nätverk**.
+7. Det tar några minuter att skapa den virtuella datorn. Den virtuella datorn är fäst på instrumentpanelen för Azure-portalen och sammanfattning för virtuell dator öppnas automatiskt när den har skapats. Välj **nätverk**.
 
     ![Virtuella nätverksinformation](./media/quick-create-portal/virtual-machine-networking.png)
 
@@ -76,19 +78,19 @@ Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser till
 
 8. Slutför steg 1-7 igen, men i steg 3, namnge den virtuella datorn *myVm2*. 
 
-9. När den virtuella datorn har skapats klickar du på **nätverk**, som du i steg 7. Du ser den **privat IP** adressen är *10.0.0.5*. Eftersom Azure tidigare tilldelats den första adressen som kan användas av *10.0.0.4* i undernätet i *myVm1* virtuell dator kan tilldelas den *10.0.0.5* till den  *myVm2* virtuella datorn eftersom den var den nästa tillgängliga adressen i undernätet.
+9. När den virtuella datorn har skapats, Välj **nätverk**, som du i steg 7. Du ser den **privat IP** adressen är *10.0.0.5*. Eftersom Azure tidigare tilldelats den första adressen som kan användas av *10.0.0.4* i undernätet i *myVm1* virtuell dator kan tilldelas den *10.0.0.5* till den  *myVm2* virtuella datorn eftersom den var den nästa tillgängliga adressen i undernätet.
 
-## <a name="connect-to-a-virtual-machine"></a>Ansluta till en virtuell dator
+### <a name="connect-to-a-virtual-machine"></a>Ansluta till en virtuell dator
 
-1. Fjärransluta till den *myVm1* virtuella datorn. Längst upp i Azure-portalen, ange *myVm1*. När **myVm1** visas i sökresultaten klickar du på den. Klicka på den **Anslut** knappen.
+1. Fjärransluta till den *myVm1* virtuella datorn. Längst upp i Azure-portalen, ange *myVm1*. När **myVm1** visas i sökresultaten väljer den. Välj den **Anslut** knappen.
 
     ![Översikt över virtuella datorer](./media/quick-create-portal/virtual-machine-overview.png)
 
+2. När du har valt den **Anslut** knapp och en Remote Desktop Protocol (RDP)-fil skapas och hämtas till datorn.  
 
-2. När du klickar på den **Anslut** knapp och en Remote Desktop Protocol (RDP)-fil skapas och hämtas till datorn.  
-3. Öppna hämtade rdp-filen. Om du uppmanas till detta klickar du på **Anslut**. Ange användarnamn och lösenord som du angav när du skapar den virtuella datorn och klicka sedan på **OK**. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
+3. Öppna hämtade rdp-filen. Välj **Anslut**. Ange användarnamn och lösenord som du angav när du skapar den virtuella datorn och välj sedan **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** att fortsätta med anslutningen.
 
-## <a name="validate-communication"></a>Validera kommunikation
+### <a name="validate-communication"></a>Validera kommunikation
 
 Försök att pinga en Windows virtuell dator misslyckas eftersom ping inte tillåts via Windows-brandväggen som standard. Att tillåta ping till *myVm1*, anger du följande kommando från en kommandotolk:
 
@@ -114,16 +116,17 @@ Ping lyckas eftersom du tillåts via Windows-brandväggen på den *myVm1* virtue
 ping bing.com
 ```
 
-Du får fyra svar från bing.com. Som standard kan en virtuell dator i ett virtuellt nätverk kommunicera utgående till Internet.
+Du får fyra svar från bing.com. Som standard kan en virtuell dator i ett virtuellt nätverk kommunicera utgående till Internet. 
+
+Avsluta fjärrskrivbords-sessionen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen och allt dess innehåll när de inte längre behövs. Längst upp i Azure-portalen, ange *myResourceGroup*. När **myResourceGroup** visas i sökresultaten klickar du på den. Klicka på **Ta bort**.
+Ta bort resursgruppen och allt dess innehåll när de inte längre behövs. Längst upp i Azure-portalen, ange *myResourceGroup*. När **myResourceGroup** visas i sökresultaten väljer den. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat en standard-nätverk med ett undernät och två virtuella datorer i den här artikeln. Information om hur du skapar anpassade virtuella nätverk med flera undernät och utföra grundläggande hanteringsuppgifter, även i fortsättningen självstudierna för att skapa egna virtuella nätverk och hantera den.
-
+Du har distribuerat en standard virtuellt nätverk med ett undernät i den här artikeln. Mer information om hur du skapar en anpassad virtuellt nätverk med flera undernät, även fortsättningsvis självstudierna för att skapa egna virtuella nätverk.
 
 > [!div class="nextstepaction"]
-> [Skapa egna virtuella nätverk och hantera den](virtual-networks-create-vnet-arm-pportal.md#portal)
+> [Skapa en anpassad virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md#portal)

@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -51,6 +51,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [BizTalk-deltagare](#biztalk-contributor) |Kan hantera BizTalk-tjänst |
 | [ClearDB MySQL DB-deltagare](#cleardb-mysql-db-contributor) |Kan hantera ClearDB MySQL-databaser |
 | [Deltagare](#contributor) |Kan hantera allt utom åtkomst. |
+| [Rollen för läsare av cosmos DB-konto](#cosmos-db-account-reader-role) |Kan läsa data i Azure DB som Cosmos-konto |
 | [Data Factory deltagare](#data-factory-contributor) |Kan skapa och hantera datafabriker och underordnade resurser i dem. |
 | [DevTest Labs användare](#devtest-labs-user) |Kan visa allt och ansluta, starta, -omstart och -avstängning virtuella datorer |
 | [DNS-zonen deltagare](#dns-zone-contributor) |Kan hantera DNS-zoner och poster |
@@ -307,10 +308,23 @@ Kan hantera allt utom åtkomst
 | --- | --- |
 | * |Skapa och hantera resurser av alla typer av |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Det går inte att ta bort roller och rolltilldelningar |
 | Microsoft.Authorization/*/Write |Det går inte att skapa roller och rolltilldelningar |
+
+### <a name="cosmos-db-account-reader-role"></a>Läsarroll för Cosmos DB-konto
+Kan läsa Azure Cosmos DB kontodata. Se [DocumentDB-konto deltagare](#documentdb-account-contributor) för att hantera Azure DB som Cosmos-konton.
+
+| **Åtgärder** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Läs roller och rolltilldelningar kan läsbehörighet till alla användare|
+|Microsoft.DocumentDB/*/read|Läs en samling|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Läsa fönstret readonly-nycklar|
+|Microsoft.Insights/Metrics/read|Läsa måtten för kontot|
+|Microsoft.Insights/MetricDefinitions/read|Läs mått definitioner|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Läs resursgrupper|
+|Microsoft.Support/*|Skapa och hantera supportärenden|
 
 ### <a name="data-factory-contributor"></a>Data Factory-deltagare
 Skapa och hantera datafabriker och underordnade resurser i dem.
@@ -677,7 +691,7 @@ Kan hantera SQL-databaser, men inte deras säkerhetsrelaterade principer
 | Microsoft.Sql/servers/read |Läsa SQL-servrar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Det går inte att redigera granskningsprinciper |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Det går inte att redigera granskningsinställningar |
@@ -727,7 +741,7 @@ Kan hantera SQL-servrar och databaser, men inte deras säkerhetsrelaterade princ
 | Microsoft.Sql/servers/* |Skapa och hantera SQL-servrar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |Det går inte att redigera SQL server-granskningsprinciper |
 | Microsoft.Sql/servers/auditingSettings/* |Det går inte att redigera SQL server-granskningsinställningar |

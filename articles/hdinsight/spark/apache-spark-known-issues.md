@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7faa1fa1537dd71bdf0493d92f26ddda2ae59264
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem med Apache Spark-kluster i HDInsight
 
@@ -29,7 +29,7 @@ Det här dokumentet håller reda på kända problem för HDInsight Spark public 
 ## <a name="livy-leaks-interactive-session"></a>Livius läcker interaktiva sessionen
 När Livius startas (från Ambari eller på grund av headnode 0 virtuella omstart) med en interaktiv session fortfarande lever har en interaktiv jobbet session läckts. Därför nya jobb kan ha fastnat i tillståndet godkända och kan inte startas.
 
-Lösning:
+**Lösning:**
 
 Använd följande procedur för att lösa problemet:
 
@@ -49,14 +49,14 @@ Nya jobb startas.
 ## <a name="spark-history-server-not-started"></a>Spark historik Server inte har startats
 Spark historik Server startas inte automatiskt efter ett kluster skapas.  
 
-Lösning: 
+**Lösning:** 
 
 Starta servern historik manuellt från Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problem i Spark loggkatalogen
 När hdiuser skickar ett jobb med spark-submit, det finns ett fel java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (behörighet nekas) och drivrutin loggfilerna skrivs inte. 
 
-Lösning:
+**Lösning:**
 
 1. Lägga till hdiuser i Hadoop-gruppen. 
 2. Ange 777 behörigheter på /var/log/spark när klustret skapas. 
@@ -67,7 +67,7 @@ Lösning:
 
 Spark Phoenix anslutningen stöds för närvarande inte med ett HDInsight Spark-kluster.
 
-Lösning:
+**Lösning:**
 
 I stället måste du använda Spark-HBase-anslutningen. Instruktioner finns i avsnittet [använda Spark HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
@@ -80,7 +80,7 @@ Jupyter-anteckningsböcker som kan användas i HDInsight Spark-kluster ska inte 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fel vid inläsning av bärbara datorer av större storlek
 Ett fel kan uppstå  **`Error loading notebook`**  när du läser in anteckningsböcker som är större.  
 
-Lösning:
+**Lösning:**
 
 Om du får det här felet kan innebär det inte dina data är skadad eller förlorade.  Dina anteckningsböcker finns kvar på disken i `/var/lib/jupyter`, och du kan SSH i klustret för att komma åt dem. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 

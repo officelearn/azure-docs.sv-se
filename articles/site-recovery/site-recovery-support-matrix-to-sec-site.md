@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Stöd matrix för replikering till en sekundär plats med Azure Site Recovery
 
@@ -90,8 +90,8 @@ Flera nätverkskort | Ja | Ja
 
 **Lagring (värd)** | **VMware/fysisk server** | **Hyper-V (med VMM)**
 --- | --- | ---
-NFS | Ja | Saknas
-SMB 3.0 | Saknas | Ja
+NFS | Ja | Gäller inte
+SMB 3.0 | Gäller inte | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO) | Ja | Ja
 
@@ -99,21 +99,21 @@ Multipath (MPIO) | Ja | Ja
 
 **Konfiguration** | **VMware/fysisk server** | **Hyper-V (med VMM)**
 --- | --- | ---
-VMDK | Ja | Saknas
-VHD-ELLER VHDX | Saknas | Ja (upp till 16 diskar)
-Generation 2 VM | Saknas | Ja
+VMDK | Ja | Gäller inte
+VHD/VHDX | Gäller inte | Ja (upp till 16 diskar)
+Generation 2 VM | Gäller inte | Ja
 Delad klusterdisk | Ja  | Nej
 Krypterade disk | Nej | Nej
-UEFI| Ja | Saknas
+UEFI| Ja | Gäller inte
 NFS | Nej | Nej
 SMB 3.0 | Nej | Nej
-RDM | Ja | Saknas
+RDM | Ja | Gäller inte
 Disk > 1 TB | Ja | Ja
 Volymen med stripe disk > 1 TB<br/><br/> LVM | Ja | Ja
 Lagringsutrymmen | Nej | Ja
 Varm Lägg till/ta bort disken | Ja | Nej
 Uteslut disk | Ja | Ja
-Multipath (MPIO) | Saknas | Ja
+Multipath (MPIO) | Gäller inte | Ja
 
 ## <a name="vaults"></a>Valv
 
@@ -124,10 +124,10 @@ Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper (inom el
 
 ## <a name="provider-and-agent"></a>Provider och agent
 
-**Namn** | **Beskrivning** | **Senaste versionen** | **Detaljer**
+**Namn** | **Beskrivning** | **senaste versionen** | **Detaljer**
 --- | --- | --- | --- | ---
-**Azure Site Recovery-providern** | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Installeras på lokal VMM-servrar, eller på Hyper-V-servrar om det finns ingen VMM-server | 5.1.19 ([tillgänglig från portalen](http://aka.ms/downloaddra)) | [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/kb/3155002)
-**Mobilitetstjänsten** | Samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera  | Ej tillämpligt (tillgänglig från portalen) | Saknas
+**Azure Site Recovery Provider** | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Installeras på lokal VMM-servrar, eller på Hyper-V-servrar om det finns ingen VMM-server | 5.1.19 ([tillgänglig från portalen](http://aka.ms/downloaddra)) | [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/kb/3155002)
+**Mobilitetstjänsten** | Samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera  | Ej tillämpligt (tillgänglig från portalen) | Gäller inte
 
 
 ## <a name="next-steps"></a>Nästa steg

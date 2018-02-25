@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Distribuera mobilitetstjänsten med Azure Automation DSC för replikering av virtuell dator
 I Operations Management Suite ger vi dig en omfattande säkerhetskopiering och haveriberedskapslösning som du kan använda som en del av en kontinuitetsplan.
@@ -47,7 +47,7 @@ Den här artikeln innehåller ett exempel på hur du kan använda Azure Automati
 * Mobilitetstjänstversionen och Virtuella Azure-agenten distribueras till de Windows-datorer som du vill skydda.
 * Mobilitetstjänstversionen och Virtuella Azure-agenten körs alltid när Azure är replikeringsmålet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En databas för lagring av de nödvändiga inställningarna
 * En databas för att lagra nödvändiga lösenfrasen registreras hos management server
 
@@ -66,11 +66,11 @@ Mobilitetstjänsten kan installeras via kommandoraden och tar flera argument. D�
 ## <a name="step-1-extract-binaries"></a>Steg 1: Extrahera binärfiler
 1. Bläddra till följande katalog på hanteringsservern för att extrahera filerna som du behöver för den här installationen:
 
-    **\Microsoft azure Site Recovery\home\svsystems\pushinstallsvc\repository**
+    **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
     I den här mappen bör du se en MSI-fil med namnet:
 
-    **Microsoft ASR_UA_version_Windows_GA_date_Release.exe**
+    **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
 
     Använd följande kommando för att extrahera installationsprogrammet:
 
@@ -355,7 +355,7 @@ Du kan initiera en egen hämtningsservern för DSC i din miljö för att ge i st
 
 Observera att i det här exemplet finns det en extra parameter för namnet på datorn. Fjärråtkomst filerna finns nu på en fjärresurs som ska kunna nås av datorer som du vill skydda. I slutet av skriptet utfärdar konfigurationen och startar sedan tillämpa DSC-konfigurationen på måldatorn.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Se till att xPSDesiredStateConfiguration PowerShell-modulen är installerad. För Windows-datorer där WMF 5.0 är installerat, kan du installera modulen xPSDesiredStateConfiguration genom att köra följande cmdlet på måldatorer:
 
 ```powershell

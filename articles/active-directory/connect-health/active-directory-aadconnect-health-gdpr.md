@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>BNPR efterlevnad och Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health hamnar i den **dataprocessor** kategori av BNPR klassifi
 
 ## <a name="data-retention-policy"></a>Datakvarhållningsprincip
 Azure AD Connect Health inte generera rapporter, utföra analyser eller ger inblick i efter 30 dagar. Därför Azure AD Connect Health inte lagra, bearbeta eller behålla alla data efter 30 dagar. Den här designen är kompatibel med BNPR förordningar, Microsoft sekretessbestämmelser efterlevnad och datakvarhållningsprinciper i Azure AD. 
+
+Servrar med aktiv **hälsotjänstinformationen är inte uppdaterad** **fel** aviseringar för över 30 dagar i följd föreslår att inga data har nått Connect Health under det angivna tidsintervallet. Dessa servrar ska inaktiveras och visas inte i Connect Health-portalen. Om du vill återaktivera servrar, måste du avinstallera och [återinstallera hälsoagenten](active-directory-aadconnect-health-agent-install.md). Observera att detta inte gäller för **varningar** med samma aviseringstyp. Varningar visar att ofullständiga data saknas från den server som du får notifieringar för. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Inaktivera insamling av data och övervakning i Azure AD Connect Health
 Azure AD Connect Health kan du stoppa datainsamlingen för övervakade servrarna eller för en instans av en övervakad tjänst. Du kan exempelvis stoppa datainsamling för enskilda servrar i AD FS (Active Directory Federation Services) som övervakas med hjälp av Azure AD Connect Health. Du kan också avbryta datainsamling för en hel ADFS-instans som övervakas med hjälp av Azure AD Connect Health. När du väljer att göra det tas motsvarande servrar bort från Azure AD Connect Health-portalen när du har stoppat datainsamlingen. 
@@ -53,7 +55,7 @@ Om du avbryter insamling av data och övervakning för en enskild övervakade se
 - Alla data som tillhör instansen på den övervakade tjänsten tas bort enligt policyn för datalagring i Microsoft Azure.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Inaktivera insamling av data och övervakning för övervakade servern
-Se [ta bort en server från Azure AD Connect Health](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Se [ta bort en server från Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Inaktivera insamling av data och övervakning för en instans av en övervakad tjänst
 Se [ta bort en instans av tjänsten från Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Frågan Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -29,7 +29,7 @@ Läs om några grundläggande scenarier för hur du använder Azure Log Analytic
 * [Sök efter specifika loggmeddelanden](#search-for-specific-log-messages)
 * [Skapa aviseringar](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure logganalys. Instruktioner finns i [Använd Azure logganalys med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -150,7 +150,7 @@ Du kan använda en fråga som du vill skapa en avisering.
 
 6. Från den **inställningar** klickar du på **aviseringar** så visas aviseringarna som du har skapat. Du kan också aktivera eller inaktivera en avisering, redigera eller ta bort den. Mer information finns i [arbeta med Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Arbeta med Operations Management Suite logganalys](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Skapa Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -99,7 +99,7 @@ Som standard beräknas automatiskt rätt zonen Internet eller intranätet från 
    - **Värdenamn**: Azure AD-URL som Kerberos-biljetter vidarebefordras.
    - **Värdet** (Data): **1** anger zonen Intranät.
 
-   Resultatet ser ut så här:
+    Resultatet ser ut så här:
 
     Value: https://autologon.microsoftazuread-sso.com
   
@@ -125,11 +125,11 @@ Som standard beräknas automatiskt rätt zonen Internet eller intranätet från 
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alla plattformar)
 
-Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje användare måste manuellt lägga till URL: er för Azure AD att deras Firefox inställningar med hjälp av följande steg:
+Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje användare måste manuellt lägga till Azure AD-URL till deras Firefox inställningar med hjälp av följande steg:
 1. Kör Firefox och ange `about:config` i adressfältet. Ignorera alla meddelanden som visas.
 2. Sök efter den **network.negotiate-auth.trusted-URI: er** inställningar. Den här inställningen visar Firefoxs betrodda platser för Kerberos-autentisering.
 3. Högerklicka och välj **ändra**.
-4. Ange https://autologon.microsoftazuread-sso.com https://aadg.windows.net.nsatc.net i fältet.
+4. Ange https://autologon.microsoftazuread-sso.com i fältet.
 5. Välj **OK** och sedan öppna webbläsaren.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Se till att datorn som kör Mac OS är ansluten till Azure AD. Anvisningar för 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL: er (https:// AutoLogon.microsoftazuread sso.com och https://aadg.windows.net.nsatc.net) till dem också.
+Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) dem också.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
 

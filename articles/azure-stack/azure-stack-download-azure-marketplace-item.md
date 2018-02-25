@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure-stacken
 
@@ -44,7 +44,7 @@ Som du bestämmer vilket innehåll som ska ingå i din Azure-stacken marketplace
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Välj ett objekt i listan och klickar sedan på **hämta**. Detta startar hämta VM-avbildning för det valda objektet. Hämtningstider variera.
+5. Välj ett objekt i listan och klickar sedan på **hämta**. VM-avbildning för det valda startar att hämta objektet. Hämtningstider variera.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
 
 1. Öppna ett PowerShell-konsolen som administratör och [installera PowerShell-moduler med Azure-stacken specifika](azure-stack-powershell-install.md). Kontrollera att du installerar **PowerShell version 1.2.11 eller högre**.  
 
-2. Lägg till Azure-konto som du använde för att registrera Azure stacken. Det gör du genom att köra den **Add-AzureRmAccount** cmdlet utan några parametrar. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.  
+2. Lägg till Azure-konto som du använde för att registrera Azure stacken. Lägg till kontot genom att köra den **Add-AzureRmAccount** cmdlet utan några parametrar. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.  
 
 3. Om du har flera prenumerationer kör du följande kommando för att markera det som du har använt för registrering:  
 
@@ -75,16 +75,16 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
 
    ![Azure Marketplace objekt popup](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Välj den avbildning som du vill hämta (du kan välja flera avbildningar genom att hålla Ctrl-tangenten) och anteckna image-version kan du använda den här versionen så här importerar du bilden i nästa avsnitt > klickar du på **Ok** > godkänner du de juridiska villkoren genom att klicka på **Ja**. Du kan också filtrera listan över bilder med hjälp av den **lägga till villkor** alternativet. Hämtningen tar ett tag beroende på storleken på bilden. En gång bilder hämtas, den är tillgänglig i den målsökväg som du angav tidigare. Hämtningen innehåller VHD-filen och galleriet objekt i formatet Azpkg.  
+7. Välj den avbildning som du vill hämta och anteckna Avbildningsversion. Du kan välja flera avbildningar genom att hålla Ctrl-tangenten. Du kan använda den bildversionen för att importera bilden i nästa avsnitt.  Klicka sedan på **Ok**, och acceptera de juridiska villkoren genom att klicka på **Ja**. Du kan också filtrera listan över bilder med hjälp av den **lägga till villkor** alternativet. 
+
+   Hämtningen tar ett tag beroende på storleken på bilden. En gång bilder hämtas, den är tillgänglig i den målsökväg som du angav tidigare. Hämtningen innehåller VHD-filen och galleriet objekt i formatet Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importera avbildningen och publicera den på Azure-stacken marketplace
 
-1. När du har hämtat det bild & galleri paketet spara dem och innehållet i en flyttbar diskenhet AzureStack-verktyg-vnext-mappen och kopiera den till Azure Stack-miljö (du kan kopiera den till lokalt till valfri plats som: ”C:\MarketplaceImages”.)   
+1. När du har laddat ned avbildningen och galleriet paketet spara dem och innehållet i en flyttbar diskenhet AzureStack verktyg master-mappen och kopiera den till Azure Stack-miljö (du kan kopiera den lokalt till valfri plats som: ”C:\MarketplaceImages”).   
 
 2. Innan du importerar avbildningen måste du ansluta till Azure Stack-operatorn miljö med hjälp av stegen som beskrivs i [konfigurera Azure Stack operatorn PowerShell-miljö](azure-stack-powershell-configure-admin.md).  
 
-3. Importera avbildningen till Azure-stacken genom att använda Lägg till AzsVMImage cmdlet. När du använder denna cmdlet, se till att ersätta utgivare, erbjudande och andra parametervärden med värden för den bild som du importerar. Du kan hämta ”publisher”, ”erbjudande” och ”sku” värden av bilden från imageReference objekt av den Azpkg-fil som du hämtade tidigare och ”version”-värdet från steg 6 i föregående avsnitt.
+3. Importera avbildningen till Azure-stacken genom att använda Lägg till AzsVMImage cmdlet. När du använder denna cmdlet, se till att ersätta den *publisher*, *erbjuder*, och andra parametervärden med värden för den bild som du importerar. Du kan hämta den *publisher*, *erbjuder*, och *sku* värden av bilden från imageReference objekt av den Azpkg-fil som du hämtade tidigare och  *version* värdet från steg 6 i föregående avsnitt.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

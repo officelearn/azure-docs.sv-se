@@ -1,9 +1,9 @@
 # Översikt
-
 ## [Vad är Resource Manager?](resource-group-overview.md)
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
 ## [Prenumerationsåtgärder](resource-manager-subscription-governance.md)
+## [Ordna resurser med hanteringsgrupper](management-groups-overview.md)
 
 # Kom igång
 ## [Skapa och distribuera mall](resource-manager-create-first-template.md)
@@ -46,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
-### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Skapa hanteringsgrupper](management-groups-create.md)
+### [Hantera dina hanteringsgrupper](management-groups-manage.md)
 ### [Styrningsexempel](resource-manager-subscription-examples.md)
 ### [Hanterade program](../managed-applications/overview.md)
 

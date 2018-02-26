@@ -36,11 +36,9 @@
 #### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
 ### [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 ## [Konfigurera Postman](media-rest-apis-with-postman.md)
-### Strömning på begäran
-#### [Miljö](postman-environment.md)
-#### [Samling](postman-collection.md)
-### Liveuppspelning
-#### [Samling](postman-live-streaming-collection.md)
+### [Samling för strömning på begäran](postman-collection.md)
+### [Samling för liveuppspelning](postman-live-streaming-collection.md)
+### [Miljö](postman-environment.md)
 ## Överföra innehåll
 ### Överföra filer till ett konto
 #### [Azure-portalen](media-services-portal-upload-files.md)

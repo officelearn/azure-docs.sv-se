@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Stream Analytics?](stream-analytics-introduction.md)
 ## [Jämför Storm och Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -63,6 +62,7 @@
 ### [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
 ### [Läsbegränsningar för händelsehubb](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
+### [Hämta felaktigt utformade händelser](stream-analytics-malformed-events.md)
 
 ## Automatisera
 ### [Använd Management .NET SDK](stream-analytics-dotnet-management-sdk.md)

@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Om Azure-nätverk](networking-overview.md)
 ## Arkitektur
 ### [Virtuella datacenter](networking-virtual-datacenter.md)
@@ -23,6 +22,7 @@
 ### [DNS-baserad trafikdistribution](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut lokalt – VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut lokalt – särskilda](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 
 # Kom igång
 ## [Skapa ditt första virtuella nätverk](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -48,6 +48,7 @@
 ### [Hantera paketinsamling](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Fastställ nästa routningshopp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Kontrollera ip-flöden för en virtuell dator](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Översikt över nätverksövervakning](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Exempelskript
 ### [Azure CLI](cli-samples.md)

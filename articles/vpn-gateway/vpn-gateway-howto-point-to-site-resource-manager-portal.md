@@ -1,10 +1,10 @@
 ---
 title: "Ansluta en dator till ett virtuellt Azure-nätverk med punkt-till-plats och intern Azure-certifikatautentisering: Azure Portal | Microsoft Docs"
-description: "Anslut en dator till ditt virtuella Azure-nätverk på ett säkert sätt genom att skapa en VPN-gatewayanslutning för punkt-till-plats med certifikatautentisering. Den här artikeln gäller Resource Manager-distributionsmodellen och använder Azure-portalen."
+description: "Ansluta Windows- och Mac OS X-klienter på ett säkert sätt till ett virtuellt Azure-nätverk med P2S och självsignerade certifikat eller certifikat som är utfärdade av certifikatutgivare. Den här artikeln använder Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
@@ -13,50 +13,29 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cc387fafb2771577b55f57f79cc8b3a6ee8cfa9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a8af5fb2279f035d305ffc427ad831b0d5bf0cd4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure-portalen
 
-Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i Resource Manager-distributionsmodellen med Azure Portal. Den här konfigurationen använder certifikat för autentisering. I den här konfigurationen utförs certifikatverifieringen av Azure VPN-gatewayen, i stället för en RADIUS-server. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
-
-Med en VPN-gateway med P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. En P2S-VPN-anslutning är också en bra lösning att använda i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. En P2S VPN-anslutning startas från Windows- och Mac-enheter.
-
-Anslutande klienter kan använda följande autentiseringsmetoder:
-
-* RADIUS-server
-* Intern Azure-certifikatautentisering med VPN-gateway
-
-Den här artikeln beskriver hur du konfigurerar en P2S-konfiguration med autentisering med hjälp av Azures interna certifikatautentisering. Om du vill använda RADIUS för att autentisera användare som ansluter läser du [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S med RADIUS-autentisering).
+Den här artikeln hjälper dig att ansluta enskilda klienter som kör Windows eller Mac OS X till ett Azure VNet på ett säkert sätt. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. Du kan också använda P2S i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via SSTP (Secure Socket Tunneling Protocol) eller IKEv2. Mer information om punkt-till-plats-VPN finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
 ![Ansluta en dator till Azure VNet – punkt-till-plats-anslutningsdiagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via SSTP (Secure Socket Tunneling Protocol) eller IKEv2.
 
-* SSTP är en SSL-baserad VPN-tunnel som endast stöds på Windows-klientplattformar. Den kan ta sig förbi brandväggar, vilket gör den till ett utmärkt alternativ för att ansluta till Azure var som helst. På serversidan stöder vi SSTP version 1.0, 1.1 och 1.2. Klienten avgör vilken version som ska användas. För Windows 8.1 och senare, använder SSTP version 1.2 som standard.
+## <a name="architecture"></a>Arkitektur
 
-* IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
-
-Punkt-till-plats-anslutningar med intern Azure-certifikatautentisering kräver följande:
+Ursprungliga autentiseringsanslutningar för Azure-certifikat från punkt-till-plats använder följande objekt, som du konfigurerar i den här övningen:
 
 * En RouteBased VPN-gateway.
 * Den offentliga nyckeln (CER-fil) för ett rotcertifikat, som överförts till Azure. När certifikatet har laddats upp betraktas det som betrott och används för autentisering.
-* Ett klientcertifikat som genereras från rotcertifikatet och installeras på varje klientdator som ska ansluta till det virtuella nätverket. Det här certifikatet används för klientautentisering.
+* Ett klientcertifikat som genereras från rotcertifikatet. Klientcertifikatet installeras på varje klientdator som ska ansluta till VNet. Det här certifikatet används för klientautentisering.
 * En VPN-klientkonfiguration. VPN-klientkonfigurationsfilerna innehåller all information som krävs för att klienten ska kunna ansluta till det virtuella nätverket. Filerna konfigurerar den befintliga VPN-klienten som är inbyggd i operativsystemet. Alla klienter som ansluter måste vara konfigurerade med inställningarna i konfigurationsfilerna.
-
-Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site connections](point-to-site-about.md) (Om punkt-till-plats-anslutningar).
 
 #### <a name="example"></a>Exempelvärden
 
@@ -115,27 +94,45 @@ Certifikat används av Azure för att autentisera klienter som ansluter till ett
 
 Klientens adresspool är ett intervall med privata IP-adresser som du anger. Klienterna som ansluter via en VPN-anslutning dynamiskt från punkt till plats får en IP-adress från det här intervallet. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till.
 
-1. När den virtuella nätverksgatewayen har skapats går du till avsnittet **Inställningar** på sidan för den virtuella nätverksgatewayen. I avsnittet **Inställningar** klickar du på **Punkt-till-plats-konfiguration** så att sidan **Konfiguration** öppnas.
+1. När den virtuella nätverksgatewayen har skapats går du till avsnittet **Inställningar** på sidan för den virtuella nätverksgatewayen. I avsnittet **Inställningar** klickar du på **Punkt-till-plats-konfiguration**.
 
-  ![Sidan Punkt-till-plats](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. På sidan **Punkt-till-plats-konfiguration** kan du ta bort det automatiskt ifyllda intervallet och sedan lägga till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Validera och spara inställningen genom att klicka på **Spara**.
+  ![Sidan Punkt-till-plats](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+2. Klicka på **Konfigurera nu** för att öppna konfigurationssidan.
 
-  ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
+  ![Konfigurera nu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Validera och spara inställningen genom att klicka på **Spara**.
 
-## <a name="uploadfile"></a>7. Ladda upp offentliga certifikatdata från rotcertifikatet
+  ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-När gatewayen har skapats laddar du upp informationen om den offentliga nyckeln till Azure. När informationen har laddats upp kan Azure använda den för att autentisera klienter som har ett installerat klientcertifikat skapat från det betrodda rotcertifikatet. Du kan ladda upp totalt ytterligare 20 stycken betrodda rotcertifikat.
+## <a name="tunneltype"></a>7. Konfigurera tunneltyp
 
-1. Certifikat läggs till på sidan **Punkt-till-plats-konfiguration** i avsnittet **Rotcertifikat**.  
+Du kan välja tunneltyp. De två tunnelalternativen är SSTP och IKEv2. StrongSwan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta. Du kan välja att aktivera den ena typen eller båda. Markera de kryssrutor som din lösning kräver.
+
+![Tunneltyp](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
+
+## <a name="authenticationtype"></a>8. Konfigurera autentiseringstyp
+
+Välj **Azure-certifikat**.
+
+  ![Tunneltyp](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authenticationtype.png)
+
+## <a name="uploadfile"></a>9. Ladda upp offentliga certifikatdata från rotcertifikatet
+
+Du kan ladda upp totalt ytterligare 20 stycken betrodda rotcertifikat. När informationen har laddats upp kan Azure använda den för att autentisera klienter som har ett installerat klientcertifikat skapat från det betrodda rotcertifikatet. Överför informationen om den offentliga nyckeln för rotcertifikatet till Azure.
+
+1. Certifikat läggs till på sidan **Punkt-till-plats-konfiguration** i avsnittet **Rotcertifikat**.
 2. Kontrollera att du har exporterat rotcertifikatet som en Base64-kodad X.509-fil (.cer). Du behöver exportera certifikatet i det här formatet så att du kan öppna certifikatet med textredigerare.
 3. Öppna certifikatet med en textredigerare, till exempel Anteckningar. När du kopierar certifikatdata ska du se till att kopiera texten som en kontinuerlig rad utan vagnreturer och radmatningar. Du kan behöva ändra vyn i textredigeraren till ”Visa symbol/Visa alla tecken” så att vagnreturer och radmatningar visas. Kopiera enbart följande avsnitt som en kontinuerlig rad:
 
-  ![Certifikatdata](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
+  ![Certifikatdata](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Klistra in certifikatdata i fältet **Offentliga certifikatdata**. Ge certifikatet ett **Namn** och klicka sedan på **Spara**. Du kan lägga till upp till 20 betrodda rotcertifikat.
 
-  ![Certifikatuppladdning](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
+  ![Certifikatuppladdning](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+5. Klicka på **Spara** överst på sidan för att spara alla konfigurationsinställningar.
 
-## <a name="installclientcert"></a>8. Installera ett exporterat klientcertifikat
+  ![Spara](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+
+## <a name="installclientcert"></a>10. Installera ett exporterat klientcertifikat
 
 Om du vill skapa en P2S-anslutning från en annan klientdator än den som du använde för att generera klientcertifikat, måste du installera ett klientcertifikat. När du installerar ett klientcertifikat behöver du lösenordet som skapades när klientcertifikatet exporterades.
 
@@ -143,13 +140,18 @@ Kontrollera att klientcertifikatet har exporterats som PFX-fil tillsammans med h
 
 Installationsanvisningar finns i [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Installera ett klientcertifikat).
 
-## <a name="clientconfig"></a>9. Skapa och installera VPN-klientkonfigurationspaketet
+## <a name="clientconfig"></a>11. Skapa och installera VPN-klientkonfigurationspaketet
 
 VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera enheter så att de ansluter till ett virtuellt nätverk via en P2S-anslutning. Anvisningar som beskriver hur du genererar och installerar VPN-klientkonfigurationsfiler finns i [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Skapa och installera VPN-klientkonfigurationsfiler för intern Azure-certifikatautentisering med P2S-konfigurationer).
 
-## <a name="connect"></a>10. Anslut till Azure
+## <a name="connect"></a>12. Anslut till Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Så här ansluter du från en Windows VPN-klient
+
+>[!NOTE]
+>Du måste ha administratörsbehörigheter på den Windows-klientdator som du använder för att ansluta.
+>
+>
 
 1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. Klicka på **Fortsätt** för att använda utökade privilegier.
 
@@ -210,7 +212,7 @@ Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. Me
 2. I avsnittet **Rotcertifikat** letar du upp det certifikat som du vill ta bort.
 3. Klicka på ellipsen bredvid certifikatet och klicka sedan på Ta bort.
 
-## <a name="revokeclient"></a>Så här återkallar du ett klientcertifikat
+## <a name="revokeclient"></a>Återkalla ett klientcertifikat
 
 Du kan återkalla certifikat. Du kan använda listan över återkallade certifikat för att selektivt neka punkt-till-plats-anslutningar baserat på enskilda klientcertifikat. Det här skiljer sig från att ta bort ett betrott rotcertifikat. Om du tar bort CER-filen för ett betrott rotcertifikat i Azure återkallas åtkomsten för alla klientcertifikat som genererats/signerats med det återkallade rotcertifikatet. När du återkallar ett klientcertifikat, snarare än rotcertifikatet, så kan de andra certifikat som har genererats från rotcertifikatet fortfarande användas för autentisering.
 
@@ -234,3 +236,5 @@ Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i list
 
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+
+Information om P2S-felsökning finns i [Felsöka punkt-till-plats-anslutningar i Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

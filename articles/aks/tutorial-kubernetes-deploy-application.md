@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e11ded2421d24b68116e8b25edc4a23e15a37a46
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Köra program i Azure Container Service (AKS)
 
@@ -104,6 +104,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 Bläddra till den externa IP-adressen för att visa programmet.
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+
+Om det inte gick att läsa in programmet kan det bero på ett auktoriseringsproblem med avbildningsregistret.
+
+Följ dessa steg om du vill [tillåta åtkomst via en Kubernetes-hemlighet](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Nästa steg
 

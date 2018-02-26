@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Etablera en Azure-SSIS-integreringskörning med Azure Data Factory-användargränssnittet
 Den här självstudien innehåller steg för att använda Azure Portal för att distribuera en Azure SSIS-integreringskörning (IR) i Azure Data Factory. Sedan kan du använda SQL Server Data Tools eller SQL Server Management Studio för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure. Begreppsrelaterad information om Azure-SSIS IR finns i [översikten över Azure SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -26,7 +26,7 @@ I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa och starta en Azure-SSIS-integreringskörning.
+> * Etablering av en Azure-SSIS-integreringskörning.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -35,14 +35,19 @@ I den här självstudien gör du följande:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 - **Azure SQL Database-server**. Om du inte redan har en databasserver kan du skapa en i Azure-portalen innan du börjar. Azure Data Factory skapar SSIS-katalogen (SSISDB-databasen) på den här databasservern. Vi rekommenderar att du skapar databasservern i samma Azure-region som Integration Runtime. Den här konfigurationen gör att Integration Runtimes skrivkörning loggas till SSISDB-databasen utan att korsa Azure-regioner. 
-   - Bekräfta att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för databasservern. Mer information finns i [säkra din Azure SQL-databas](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Om du vill aktivera den här inställningen med hjälp av PowerShell, se [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
-   - Lägg till IP-adressen för klientdatorn eller ett intervall med IP-adresser som innehåller IP-adressen för klientdatorn till klientens IP-adresslista i brandväggsinställningarna för databasservern. För mer information, se [Azure SQL Database-brandväggsregler på servernivå och databasnivå](../sql-database/sql-database-firewall-configure.md).
-   - Bekräfta att din Azure SQL Database-server inte har någon SSIS-katalog (SSISDB-databas). När du ska etablera en Azure-SSIS IR kan du inte ha någon befintlig SSIS-katalog.
- 
+- Bekräfta att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för databasservern. Mer information finns i [säkra din Azure SQL-databas](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Om du vill aktivera den här inställningen med hjälp av PowerShell, se [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+- Lägg till IP-adressen för klientdatorn eller ett intervall med IP-adresser som innehåller IP-adressen för klientdatorn till klientens IP-adresslista i brandväggsinställningarna för databasservern. För mer information, se [Azure SQL Database-brandväggsregler på servernivå och databasnivå](../sql-database/sql-database-firewall-configure.md).
+- Bekräfta att din Azure SQL Database-server inte har någon SSIS-katalog (SSISDB-databas). När du ska etablera en Azure-SSIS IR kan du inte ha någon befintlig SSIS-katalog.
+
+> [!NOTE]
+> - Du kan skapa en datafabrik med version 2 i följande regioner: USA, östra; USA, östra 2; Asien, sydöstra och Europa, västra. 
+> - Du kan skapa en integreringskörning för Azure-SSIS i följande regioner: USA, östra; USA, östra 2; USA, centrala; Europa, norra; Europa, västra och Australien, östra. 
+
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).    
-2. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+2. Logga in på [Azure-portalen](https://portal.azure.com/).    
+3. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. På sidan **Ny datafabrik** anger du **MyAzureSsisDataFactory** under **Namn**. 
@@ -69,7 +74,7 @@ I den här självstudien gör du följande:
 11. När datafabriken har skapats visas sidan **Datafabrik**.
    
    ![Datafabrikens startsida](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Välj **Övervaka och hantera** för att öppna användargränssnittet för Data Factory på en separat flik. 
+12. Välj **Författa och övervaka** för att öppna användargränssnittet för Data Factory på en separat flik. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Etablering av en Azure-SSIS-integreringskörning
 
@@ -160,7 +165,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa och starta en Azure-SSIS-integreringskörning.
+> * Etablering av en Azure-SSIS-integreringskörning.
 
 Fortsätt till nästa självstudie om du vill lära dig att kopiera data från en lokal plats till molnet: 
 

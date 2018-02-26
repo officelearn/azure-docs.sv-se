@@ -1,45 +1,42 @@
 ---
-title: "Säker åtkomst till data för ett program i molnet med Azure Storage | Microsoft Docs"
-description: "Använd SAS-token, kryptering och HTTPS för att skydda dina programdata i molnet"
+title: "Skydda åtkomsten till ett programs data i molnet med Azure Storage | Microsoft Docs"
+description: Skydda ditt programs data i molnet med SAS-token, kryptering och HTTPS
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Säker åtkomst till data i ett program i molnet
+# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Skydda åtkomsten till ett programs data i molnet
 
-Den här kursen ingår tre i en serie. Du lär dig att skydda åtkomst till lagringskontot. 
+Den här självstudiekursen är den tredje delen i en serie. Du lär dig hur du skyddar åtkomsten till lagringskontot. 
 
-I del tre av serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig hur du:
 
 > [!div class="checklist"]
-> * Använd SAS-token till miniatyrbilder
-> * Aktivera kryptering på serversidan
-> * Aktivera endast HTTPS-transport
+> * Använder SAS-token för att komma åt miniatyrbilder
+> * Aktiverar kryptering på serversidan
+> * Aktiverar endast HTTPS-transport
 
-[Azure-blobblagring](../common/storage-introduction.md#blob-storage) innehåller en robust tjänst för att lagra filer för program. Den här självstudiekursen utökar [föregående] [ previous-tutorial] att visa hur få säker åtkomst till ditt lagringskonto från ett webbprogram. När du är klar avbildningar krypteras och webbprogrammet använder säker SAS-token för åtkomst till miniatyrbilder.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. Den här självstudiekursen kompletterar [det föregående avsnittet ][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagringskonto från ett webbprogram. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudiekursen du måste ha slutfört föregående lagring kursen: [automatisera storleksändring upp bilder med hjälp av händelse rutnätet][previous-tutorial]. 
+För att kunna utföra den här kursen måste du ha slutfört den föregående Storage-självstudiekursen: [Automatisera storleksändring av överförda bilder med Event Grid][previous-tutorial]. 
 
-## <a name="set-container-public-access"></a>Ange behållaren allmän åtkomst
+## <a name="set-container-public-access"></a>Ange offentlig åtkomst till behållare
 
-I den här delen av kursen serien används SAS-token för att komma åt miniatyrerna. I det här steget kan du ange den offentliga åtkomsten till den _tummen_ behållare till `off`.
+I den här delen av kursserien används SAS-token för att få åtkomst till miniatyrbilder. I det här steget anger du offentlig åtkomst för _thumbs_-behållaren till `off`.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -51,13 +48,13 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 --public-access off
 ``` 
 
-## <a name="configure-sas-tokens-for-thumbnails"></a>Konfigurera SAS-token för miniatyrer
+## <a name="configure-sas-tokens-for-thumbnails"></a>Konfigurera SAS-token för miniatyrbilder
 
-Webbprogrammet har visar avbildningar från en offentlig behållare för del i den här självstudiekursen serie. I den här delen av serien kan du använda [säker signatur åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens för att hämta miniatyrbilder. SAS-token kan du ge begränsad åtkomst till en behållare eller blob baserat på IP, protokoll, tidsintervall eller rättigheter.
+I den första delen i den här kursserien visade webbprogrammet bilder från en offentlig behållare. I den här delen använder du [SAS-token](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) (signatur för delad åtkomst) för att hämta minatyrbilderna. SAS-token ger dig begränsad åtkomst till en behållare eller blob baserat på IP-protokoll, tidsintervall eller rättigheter.
 
-I det här exemplet kod källdatabasen använder den `sasTokens` filial som har en uppdaterad kodexempel. Ta bort den befintliga GitHub-distributionen med den [az webapp distribution källa delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Konfigurera sedan GitHub distribution till webbprogram med den [az webapp källa distributionskonfiguration](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) kommando.  
+I det här exemplet använder lagringsplatsen för källkod `sasTokens`-grenen, som har ett uppdaterat kodexempel. Ta bort den befintliga GitHub-distributionen med [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Konfigurera sedan GitHub-distributionen till webbappen med kommandot [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config).  
 
-I följande kommando, `<web-app>` är namnet på ditt webbprogram.  
+I följande kommando är `<web-app>` namnet på din webbapp.  
 
 ```azurecli-interactive 
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
@@ -67,7 +64,7 @@ az webapp deployment source config --name <web_app> \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ``` 
 
-Den `sasTokens` gren av databasen uppdateringar av `StorageHelper.cs` fil. Ersätter den `GetThumbNailUrls` aktivitet med exemplet nedan. Uppdaterade aktiviteten hämtar miniatyren URL: er genom att ange en [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) Ange starttid, förfallotiden och behörigheter för SAS-token. När webbappen har distribuerats hämtar nu miniatyrbilderna med en URL med en SAS-token. Uppdaterade aktiviteten visas i följande exempel:
+`sasTokens`-grenen av lagringsplatsen uppdaterar filen `StorageHelper.cs`. Den ersätter aktiviteten `GetThumbNailUrls` med kodexemplet nedan. Den uppdaterade aktiviteten hämtar URL:erna för miniatyrbilderna genom att ange en [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) för starttid, förfallotid och behörigheter för SAS-token. När webbappen har distribuerats hämtas nu miniatyrbilderna med en URL med hjälp av en SAS-token. Den uppdaterade aktiviteten visas i följande exempel:
     
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
@@ -133,7 +130,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 }
 ```
 
-Följande klasser, egenskaper och metoder som används i den föregående aktiviteten:
+Följande klasser, egenskaper och metoder används i den föregående aktiviteten:
 
 |Klass  |Egenskaper| Metoder  |
 |---------|---------|---------|
@@ -142,23 +139,23 @@ Följande klasser, egenskaper och metoder som används i den föregående aktivi
 |[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     | |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobClient_GetContainerReference_System_String_)         |
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)     | |[SetPermissionsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) <br> [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmentedAsync_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)       |
 |[BlobContinuationToken](/dotnet/api/microsoft.windowsazure.storage.blob.blobcontinuationtoken?view=azure-dotnet)     |         |
-|[BlobResultSegment](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment?view=azure-dotnet)    | [Resultat](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment.results?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobResultSegment_Results)         |
+|[BlobResultSegment](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment?view=azure-dotnet)    | [Results](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment.results?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobResultSegment_Results)         |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)    |         | [GetSharedAccessSignature](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_GetSharedAccessSignature_Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_)
 |[SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet)     | [SharedAccessStartTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessStartTime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessExpiryTime)<br>[Behörigheter](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.permissions?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_Permissions) |        |
 
 ## <a name="server-side-encryption"></a>Kryptering på serversidan
 
-[Azure Storage Service kryptering (SSE)](../common/storage-service-encryption.md) hjälper dig att skydda och skydda dina data. SSE krypterar data i vila, hantering av kryptering, dekryptering och hantering av nycklar. Krypteras alla data med hjälp av 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blocket chiffer tillgängliga.
+[Azure Storage Service Encryption (SSE)](../common/storage-service-encryption.md) hjälper dig att skydda dina data. SSE krypterar vilande data och hanterar kryptering, dekryptering och nycklar. Alla data krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns.
 
-I följande exempel aktiverar kryptering för blobbar. Befintlig blob som skapats innan du aktiverar kryptering krypteras inte. Den `x-ms-server-encrypted` sidhuvud på en begäran om en blob visar krypteringsstatus för blob.
+I följande exempel aktiverar du kryptering för blobar. Befintliga blobar, som skapats innan du aktiverar krypteringen, krypteras inte. I `x-ms-server-encrypted`-rubriken för en begäran för en blob kan du se krypteringsstatus för bloben.
 
 ```azurecli-interactive
 az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
 ```
 
-Ladda upp en ny avbildning till webbprogrammet nu när kryptering är aktiverat.
+Ladda upp en ny bild till webbprogrammet nu när krypteringen är aktiverad.
 
-Med hjälp av `curl` med växeln `-I` ersätta egna värden för att hämta endast rubriker `<storage-account-name>`, `<container>`, och `<blob-name>`.  
+Använd `curl` med växeln `-I` för att hämta endast rubrikerna och ange egna värden för `<storage-account-name>`, `<container>` och `<blob-name>`.  
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -173,7 +170,7 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
 ```
 
-Observera i svaret, den `x-ms-server-encrypted` huvud visar `true`. Det här huvudet identifierar att informationen är krypterad med SSE nu.
+Observera att `x-ms-server-encrypted`-rubriken nu visar `true` i svaret. I rubriken kan du se att data nu krypteras med SSE.
 
 ```
 HTTP/1.1 200 OK
@@ -194,19 +191,19 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Aktivera endast HTTPS
 
-Du kan begränsa endast begäranden till HTTPS för att säkerställa att begäranden om data till och från ett lagringskonto är säkra. Uppdatera protokollet storage-konto krävs med hjälp av den [az lagring uppdatering](/cli/azure/storage/account#az_storage_account_update) kommando.
+Du kan se till att begäranden om data till och från ett lagringskonto skyddas genom att begäranden begränsas till endast HTTPS. Uppdatera protokollet som krävs för lagringskontot med kommandot [az storage account update](/cli/azure/storage/account#az_storage_account_update).
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
 ```
 
-Testa en anslutning med hjälp av `curl` med hjälp av den `HTTP` protokoll.
+Testa anslutningen med hjälp av `curl` med protokollet `HTTP`.
 
 ```azurecli-interactive
 curl http://<storage-account-name>.blob.core.windows.net/<container>/<blob-name> -I
 ```
 
-Nu när säker överföring krävs, visas följande meddelande:
+Nu när säker överföring krävs får du följande meddelande:
 
 ```
 HTTP/1.1 400 The account being accessed does not support http.
@@ -214,16 +211,16 @@ HTTP/1.1 400 The account being accessed does not support http.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Del tre seriens berättat hur du skyddar åtkomsten till lagringskontot, till exempel att:
+I den tredje delen i serien fick du lära dig hur du skyddar åtkomsten till lagringskontot, till exempel hur du:
 
 > [!div class="checklist"]
-> * Använd SAS-token till miniatyrbilder
-> * Aktivera kryptering på serversidan
-> * Aktivera endast HTTPS-transport
+> * Använder SAS-token för att komma åt miniatyrbilder
+> * Aktiverar kryptering på serversidan
+> * Aktiverar endast HTTPS-transport
 
-Gå vidare till steg fyra i serien att lära dig att övervaka och felsöka ett moln storage-program.
+Gå vidare till den fjärde delen i serien där du får lära dig hur du övervakar och felsöker ett molnlagringsprogram.
 
 > [!div class="nextstepaction"]
-> [Övervaka och felsöka program molnlagring program](storage-monitor-troubleshoot-storage-application.md)
+> [Övervaka och felsöka molnlagringsprogram](storage-monitor-troubleshoot-storage-application.md)
 
 [previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

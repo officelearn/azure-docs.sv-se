@@ -116,7 +116,7 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 | * / 1886 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Krävs för att publicera hälsostatus till Resurshälsa |Externa och interna |
 | * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-Relay för att skicka e-post |Externa och interna |
 | * / 6381 - 6383 |Inkommande och utgående |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Åtkomst till Redis-cacheinstanser mellan RoleInstances |Externa och interna |
-| * / * | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |Externa och interna |
+| * / \* | Inkommande |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |Externa och interna |
 
 >[!IMPORTANT]
 > Portar som de *syfte* är **fetstil** krävs för API Management-tjänsten distribueras. De andra portarna blockeras kommer men försämras i möjligheten att använda och övervaka tjänsten körs.

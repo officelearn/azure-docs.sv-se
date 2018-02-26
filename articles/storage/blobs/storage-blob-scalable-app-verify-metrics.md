@@ -1,84 +1,81 @@
 ---
-title: "Kontrollera genomflöde och svarstid mått för ett lagringskonto i Azure portal | Microsoft Docs"
-description: "Lär dig hur du verifierar genomflöde och svarstid mått för ett lagringskonto i portalen."
+title: "Kontrollera måtten för dataflöde och svarstid för ett lagringskonto i Azure Portal | Microsoft Docs"
+description: "Lär dig hur du kontrollerar måtten för dataflöde och svarstid för ett lagringskonto i Portal."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Kontrollera genomflöde och svarstid mått för ett lagringskonto
+# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Kontrollera måtten för dataflöde och svarstid för ett lagringskonto
 
-Den här kursen är en del fyra och den sista delen av en serie. I tidigare självstudiekurser du lärt dig hur du ladda upp och hämta larges mängder slumpmässiga data till ett Azure storage-konto. Den här kursen visar hur du kan använda mått för att visa genomflöde och svarstid i Azure-portalen.
+Den här kursen är den fjärde och sista delen i en serie. I tidigare självstudiekurser har du lärt dig hur du laddar upp och hämtar stora mängder slumpmässiga data till ett Azure-lagringskonto. I den här kursen visar vi hur du kan använda mått för att visa dataflöde och svarstid i Azure Portal.
 
-I del fyra av serien får du lära dig hur du:
+I del fyra i serien lär du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera diagram i Azure-portalen
+> * Konfigurera diagram i Azure Portal
 > * Verifiera mått för dataflöde och svarstid
 
-[Azure storage-mätvärden](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) använder Azure Övervakaren för att ge en enhetlig överblick över prestanda och tillgänglighet för ditt lagringskonto.
+För [Azure-lagringsmått](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) använder du Övervaka i Azure som ger en enhetlig vy över prestanda och tillgänglighet för ditt lagringskonto.
 
 ## <a name="configure-metrics"></a>Konfigurera mått
 
-Gå till **mått (förhandsgranskning)** under **inställningar** i ditt lagringskonto.
+Navigera till **Mått (förhandsgranskning)** under **INSTÄLLNINGAR** i ditt lagringskonto.
 
-Välj Blob från den **SUB SERVICE** listrutan.
+Välj Blob i listrutan **UNDERORDNAD TJÄNST**.
 
-Under **mått**, väljer du något av de mätvärden som finns i följande tabell:
+Under **MÅTT** väljer du något av de mått som finns i följande tabell:
 
-Följande mått ger dig en uppfattning om den latens och genomflöde. Mått som du konfigurerar i portalen finns i genomsnitt 1 minut. Om en transaktion klar mitt i en minut är att minut data halfed för medelvärdet. Åtgärderna överföring och hämtning har tid och under förutsättning att du utdata för den faktiska mängden tid det tog att ladda upp och hämta filer i programmet. Den här informationen kan användas tillsammans med portalen mått till fullo vara införstådd genomflöde.
+Följande mått ger dig en uppfattning om programmets svarstid och dataflöde. De mått som du konfigurerar i Portal har minutmedelvärden. Om en transaktion slutförs mitt i en minut halveras minutens data för medelvärdet. I programmet registreras tiden det tar att ladda upp och hämta data och detta visas i utdata så att du kan se den faktiska tid det tog att ladda upp och ladda ned filerna. Du kan använda den här informationen med måtten i portalen för att få en full förståelse av dataflödet.
 
 |Mått|Definition|
 |---|---|
-|**Lyckade E2E-svarstid**|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|
-|**Lyckade Server svarstid**|Genomsnittlig tid som används för att bearbeta en begäran om lyckade av Azure Storage. Det här värdet inkluderar inte Nätverksfördröjningen som anges i SuccessE2ELatency. |
-|**Transaktioner**|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerade fel. I det här exemplet blockstorleken har ställts in till 100 MB. I det här fallet varje block med 100 MB betraktas som en transaktion.|
-|**Ingång**|Mängden ingång data. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure. |
-|**Utgång**|Mängden utgående data. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång. |
+|**Lyckad E2E-svarstid**|Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret.|
+|**Lyckad serversvarstid**|Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. |
+|**Transaktioner**|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. Det här värdet innefattar lyckade och misslyckade begäranden samt begäranden som genererat fel. I det här exemplet angavs blockstorleken till 100 MB. I det här fallet betraktas varje block på 100 MB som en transaktion.|
+|**Inkommande**|Mängden inkommande data. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure. |
+|**Utgående**|Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. |
 
-Välj **senaste 24 timmarna (automatisk)** bredvid **tid**. Välj **senaste timmen** och **minut** för **tidskornighet**, klicka på **tillämpa**.
+Välj **Senaste 24 timmarna (automatisk)** bredvid **Tid**. Välj **Senaste timmen** och **Minut** för **Tidskornighet** och klicka sedan på **Tillämpa**.
 
-![Storage-konto mått](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
+![Mått för lagringskonto](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-Diagram kan ha fler än ett mått som har tilldelats, men tilldela fler än ett mått inaktiverar möjligheten att gruppen dimensioner.
+Diagram kan ha fler än ett mått tilldelade till dem, men om du tilldelar fler än ett mått inaktiveras möjligheten till gruppering efter dimension.
 
-## <a name="dimensions"></a>Mått
+## <a name="dimensions"></a>Dimensioner
 
-[Dimensioner](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) används för att titta djupare diagrammen och få mer information. Olika mått har olika dimensioner. En dimension som är tillgänglig är det **API-namnet** dimension. Den här dimensionen bryts till schemat i varje separat API-anrop. Den första bilden nedan visas ett exempeldiagram av totala transaktioner för ett lagringskonto. Den andra bilden visar samma diagram men namnet dimension som har markerats med API. Som du ser visas varje transaktion ger mer information i hur många anrop gjordes av API-namnet.
+[Dimensioner](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) används för att få en djupare inblick i diagrammen och få mer detaljerad information. Olika mått har olika dimensioner. En dimension som du kan använda är **API-namn**. Den här dimensionen delar upp diagrammet i varje separat API-anrop. Den första bilden nedan visar ett exempeldiagram över det totala antalet transaktioner för ett lagringskonto. Den andra bilden visar samma diagram, men med dimensionen API-namn vald. Som du ser visas varje transaktion med mer detaljerad information om hur många anrop som har gjorts per API-namn.
 
-![Storage-mätvärden för konto - transaktioner utan en dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
+![Mått för lagringskonto – transaktioner utan dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
-![Storage-mätvärden för konto - transaktioner](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
+![Mått för lagringskonto – transaktioner](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Gör du genom att välja en resursgrupp för den virtuella datorn och klicka på Ta bort.
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för den virtuella datorn och klicka på Ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I steg fyra i serien du lärt dig om hur du visar mätvärden för exempellösning, till exempel att:
+I den fjärde delen i serien lärde dig hur du visar mått för exempellösningen. Du fick till exempel lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera diagram i Azure-portalen
+> * Konfigurera diagram i Azure Portal
 > * Verifiera mått för dataflöde och svarstid
 
-Den här länken om du vill se förskapad lagring prover.
+Följ den här länken om du vill se inbyggda lagringsexempel.
 
 > [!div class="nextstepaction"]
-> [Azure storage skriptexempel](storage-samples-blobs-cli.md)
+> [Azure Storage-skriptexempel](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-blob-scalable-app-download-files.md

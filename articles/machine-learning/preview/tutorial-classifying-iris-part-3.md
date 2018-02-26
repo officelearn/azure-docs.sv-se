@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -198,7 +198,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
    * `-n`: Appnamnet som måste skrivas med små bokstäver.
    * `-f`: Namnet på bedömningsskriptet.
    * `--model-file`: Modellfilen. I det här fallet är det pickle-filen model.pkl.
-   * `-r`: Typ av modell. I det här fallet är det en Python-modell.
+   * `-r`: Körning av modellen. I det här fallet är det en Python-modell. Giltiga körningar är `python` och `spark-py`.
    * `--collect-model-data true`: Det här aktiverar datainsamling.
    * `-c`: Sökvägen till filen conda-beroenden där ytterligare paket har angetts.
 
@@ -285,7 +285,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Leta rätt på dina lagringskonton. Det gör du genom att välja **Fler tjänster**.
+2. Leta rätt på dina lagringskonton. Det gör du genom att välja **Alla tjänster**.
 
 3. I sökrutan skriver du **Lagringskonton** och sedan trycker du på **Retur**.
 

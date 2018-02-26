@@ -1,43 +1,41 @@
 ---
-title: "Hämta stora mängder slumpmässiga data från Azure Storage | Microsoft Docs"
-description: "Lär dig hur du använder Azure SDK för att hämta stora mängder slumpmässiga data från ett Azure Storage-konto"
+title: "Ladda ned stora mängder slumpmässiga data från Azure Storage  | Microsoft Docs"
+description: "Lär dig hur du använder Azure SDK för att ladda ned stora mängder slumpmässiga data från ett Azure Storage-konto"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Hämta stora mängder slumpmässiga data från Azure storage
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
 
-Den här kursen ingår tre i en serie. Den här kursen visar hur du hämtar stora mängder data från Azure storage.
+Den här självstudiekursen är den tredje delen i en serie. Den här kursen visar hur du laddar ned stora mängder data från Azure Storage.
 
-I del tre av serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet
 > * Köra programmet
-> * Validera antalet anslutningar
+> * Verifiera antalet anslutningar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här kursen du måste ha slutfört föregående lagring kursen: [överför stora datamängder slumpmässiga parallellt med Azure storage][previous-tutorial].
+För att kunna slutföra den här kursen måste du ha slutfört den tidigare lagringskursen: [Överföra stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Fjärråtkomst till den virtuella datorn
+## <a name="remote-into-your-virtual-machine"></a>Fjärranslut till din virtuella dator
 
- Om du vill skapa en fjärrskrivbords-session med den virtuella datorn använder du följande kommando på den lokala datorn. Ersätt IP-adress med publicIPAddress för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
+ Använd följande kommando på den lokala datorn för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med publicIPAddress för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +43,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>Uppdatera programmet
 
-I föregående självstudierna överföra du bara filer till lagringskontot. Öppna `D:\git\storage-dotnet-perf-scale-app\Program.cs` i en textredigerare. Ersätt den `Main` metoden med följande exempel. Det här exemplet kommentarer ut aktiviteten överföringen och uncomments på download och aktiviteten Ta bort innehållet i lagringskontot när du är klar.
+I föregående kurs överförde du bara filer till lagringskontot. Öppna `D:\git\storage-dotnet-perf-scale-app\Program.cs` i en textredigerare. Ersätt metoden `Main` med följande exempel. Det här exemplet kommentarer ut överföringsaktiviteten och tar bort kommentarstecknen för nedladdningsaktiviteten och aktiviteten för att ta bort innehåll i lagringskontot vid slutförandet.
 
 ```csharp
 public static void Main(string[] args)
@@ -85,7 +83,7 @@ public static void Main(string[] args)
 }
 ```
 
-När programmet har uppdaterats, måste du skapa programmet igen. Öppna en `Command Prompt` och navigera till `D:\git\storage-dotnet-perf-scale-app`. Återskapa programmet genom att köra `dotnet build` som visas i följande exempel:
+När programmet har uppdaterats måste du bygga programmet på nytt. Öppna en `Command Prompt` och navigera till `D:\git\storage-dotnet-perf-scale-app`. Bygg om programmet genom att köra `dotnet build` som i följande exempel:
 
 ```
 dotnet build
@@ -93,23 +91,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Nu när programmet har återskapats är det dags att köra programmet med den uppdaterade koden. Om det inte är redan öppen, öppnar du en `Command Prompt` och navigera till `D:\git\storage-dotnet-perf-scale-app`.
+Nu när programmet har byggts om är det dags att köra programmet med den uppdaterade koden. Öppna en `Command Prompt`, om den inte redan är öppen, och navigera till `D:\git\storage-dotnet-perf-scale-app`.
 
-Typen `dotnet run` att köra programmet.
+Skriv `dotnet run` för att köra programmet.
 
 ```
 dotnet run
 ```
 
-Programmet läser de behållare som finns i lagringskontot som anges i den **storageconnectionstring**. Den går igenom blobbar 10 på en gång med hjälp av den [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metod i behållare och hämtningsbara filer dem till lokalt datorn med hjälp av den [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metod.
-I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) som är definierade för varje blob som hämtas.
+Programmet läser de behållare i lagringskontot som anges i **storageconnectionstring**. Den går igenom 10 blobar åt gången med hjälp av metoden [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) i behållare och laddar ned dem till den lokala datorn med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) som har definierats för varje blob när den hämtas.
 
 |Egenskap|Värde|Beskrivning|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| sant| Den här egenskapen inaktiverar kontrollerar MD5-hash för det innehåll som överförs. Inaktiverar MD5 validering producerar en snabbare överföring. Men inte bekräftar giltigheten eller integriteten för filer som överförs. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| falskt| Den här egenskapen anger om en MD5-hash är beräknad och lagras.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas.   |
 
-Den `DownloadFilesAsync` aktiviteten visas i följande exempel:
+Aktiviteten `DownloadFilesAsync` visas i följande exempel:
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -193,9 +191,9 @@ private static async Task DownloadFilesAsync()
 }
 ```
 
-### <a name="validate-the-connections"></a>Validera anslutningar
+### <a name="validate-the-connections"></a>Verifiera anslutningarna
 
-När filerna laddas ned, kan du kontrollera antalet samtidiga anslutningar till ditt lagringskonto. Öppna en `Command Prompt` och skriv `netstat -a | find /c "blob:https"`. Det här kommandot visar antalet anslutningar som för närvarande öppnas med hjälp av `netstat`. I följande exempel visas en liknande utdata till vad som visas när du kör guiden dig själv. Som du ser i exemplet var över 280 anslutningar öppna när du hämtar slumpmässigt filer från lagringskontot.
+När filerna laddas ned kan du verifiera antalet samtidiga anslutningar till lagringskontot. Öppna en `Command Prompt` och skriv `netstat -a | find /c "blob:https"`. Det här kommandot visar antalet anslutningar som för närvarande öppnas med hjälp av `netstat`. Följande exempel visar utdata som ser ut ungefär som när du kör kursen själv. Som du ser i exemplet var mer än 280 anslutningar öppna när de slumpmässiga filerna laddades ned från lagringskontot.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -206,15 +204,15 @@ C:\>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Del tre seriens du lärt dig om att hämta stora mängder slumpmässiga data från ett lagringskonto, till exempel att:
+I den tredje delen i serien lärde du dig hur du laddar ned stora mängder slumpmässiga data från ett lagringskonto. Du fick till exempel veta hur du gör för att:
 
 > [!div class="checklist"]
 > * Köra programmet
-> * Validera antalet anslutningar
+> * Verifiera antalet anslutningar
 
-Gå vidare till steg fyra i serien att verifiera genomflöde och svarstid mått i portalen.
+Gå vidare till den fjärde delen i serien och lär dig hur du kontrollerar mått för dataflöde och svarstid i Portal.
 
 > [!div class="nextstepaction"]
-> [Kontrollera genomflöde och svarstid mått i portalen](storage-blob-scalable-app-verify-metrics.md)
+> [Verifiera mått för dataflöde och svarstid i Portal](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

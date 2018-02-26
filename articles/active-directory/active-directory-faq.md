@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -29,7 +29,7 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
 **F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Microsoft Azure Active Directory på Azure-portalen?**
 
-**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [http://aka.ms/accessAAD](http://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [https://aka.ms/accessAAD](https://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
 
 Mer information finns i:
 

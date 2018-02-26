@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 Den här självstudien ingår i en serie. Du får lära dig att distribuera ett Windows Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) och en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) med PowerShell och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till.  Om du vill skapa ett Linux-kluster med Azure CLI kan du läsa [Skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -33,13 +33,13 @@ I den här guiden får du lära dig hur man:
 > * skapa ett nyckelvalv och ladda upp ett certifikat
 > * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
 > * skydda klustret med ett X.509-certifikat
-> * ansluta till klustret med PowerShell
+> * Ansluta till klustret med PowerShell
 > * ta bort ett kluster.
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * skapa ett säkert kluster i Azure
-> * [skala upp eller ned ett kluster](/service-fabric-tutorial-scale-cluster.md)
+> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
@@ -66,7 +66,7 @@ Klustercertifikatet måste:
 
 Azure Key Vault används till att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure hämtar Azure-resursprovidern som ansvarar för att skapa Service Fabric-kluster certifikat från Key Vault och installerar dem på klustrets virtuella datorer.
 
-I den här självstudien distribueras ett kluster med fem noder av en enda nodtyp. Vid distribution av kluster till produktion är det emellertid viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). Här är några saker att tänka på i samband med den här processen.
+I den här självstudien visas ett kluster med fem noder i en enda nodtyp. Vid distribution av kluster till produktion är det emellertid viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). Här är några saker att tänka på i samband med den här processen.
 
 - Antalet noder och nodtyper som behövs i klustret 
 - Egenskaperna för respektive nodtyp (exempelvis storlek, primär, offentlig och antal virtuella datorer)
@@ -93,7 +93,7 @@ Ett Windows-kluster distribueras med följande egenskaper:
 - slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
 
 ### <a name="azure-load-balancer"></a>Azure-belastningsutjämnare
-En belastningsutjämnare distribueras som söker av och reglerar följande portar:
+En belastningsutjämnare distribueras och avsökningar och regler konfigureras för följande portar:
 - klientanslutningsslutpunkt: 19000
 - HTTP-gatewayslutpunkt: 19080 
 - programport: 80
@@ -244,7 +244,7 @@ I den här självstudiekursen lärde du dig att:
 > * skapa ett nyckelvalv och ladda upp ett certifikat
 > * skapa ett säkert Service Fabric-kluster i Azure med hjälp av PowerShell
 > * skydda klustret med ett X.509-certifikat
-> * ansluta till klustret med PowerShell
+> * Ansluta till klustret med PowerShell
 > * ta bort ett kluster.
 
 Fortsätt sedan till följande självstudie för att lära dig att skala klustret.

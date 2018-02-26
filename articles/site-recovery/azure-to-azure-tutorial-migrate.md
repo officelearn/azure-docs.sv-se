@@ -1,136 +1,136 @@
 ---
-title: "Migrera virtuella datorer i Azure mellan Azure-regioner med hjälp av Azure Site Recovery | Microsoft Docs"
-description: "Använd Azure Site Recovery för att migrera Azure IaaS-VM från en Azure-region till en annan."
+title: Migrera virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
+description: "Använd Azure Site Recovery för att migrera virtuella IaaS-datorer i Azure från en Azure-region till en annan."
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
-Förutom att använda den [Azure Site Recovery](site-recovery-overview.md) -tjänsten för att hantera och samordna haveriberedskap för lokala datorer och virtuella Azure-datorer för affärskontinuitet och haveriberedskap (BCDR) du kan också använda plats Återställning för att hantera migreringen av virtuella Azure-datorer till en sekundär region. För att migrera virtuella datorer i Azure måste du aktivera replikering för dem och dem över från den primära regionen till den sekundära regionen önskat.
+Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av virtuella Azure-datorer till en sekundär region. För att migrera virtuella datorer i Azure måste du aktivera replikering för dem, och redundansväxla dem från den primära regionen till den sekundära regionen du önskar.
 
-Den här kursen visar hur du migrerar virtuella Azure-datorer till en annan region. I den här guiden får du lära dig hur man:
+I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Skapa ett Recovery services-valv
+> * Skapa ett Recovery Services-valv
 > * Aktivera replikering för en virtuell dator
-> * Kör en redundansväxling för att migrera den virtuella datorn
+> * Köra redundans för att migrera den virtuella datorn
 
-Den här kursen förutsätter att du redan har en Azure-prenumeration. Om du inte, skapar en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+I den här självstudien förutsätts att du redan har en Azure-prenumeration. Om du inte har det kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 >[!NOTE]
 >
-> Site Recovery replikering för virtuella datorer i Azure är för närvarande under förhandsgranskning.
+> Site Recovery-replikering för virtuella Azure-datorer är nu i förhandsversion.
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här kursen behöver du Azure virtuella datorer i en Azure-region som du vill migrera. Dessutom finns många inställningar som du bör kontrollera innan du börjar.
-
-
-### <a name="verify-target-resources"></a>Kontrollera target-resurser
-
-1. Kontrollera att din Azure-prenumeration kan du skapa virtuella datorer i målregionen som används för katastrofåterställning. Kontakta supporten om du vill aktivera kvoten som krävs.
-
-2. Kontrollera att din prenumeration har tillräckligt med resurser för att stödja virtuella datorer med storlekar som matchar dina virtuella källdatorer. Site Recovery hämtar samma storlek eller den närmaste möjliga storleken för mål VM.
+För att slutföra den här självstudien måste du ha virtuella Azure-datorer i en Azure-region som du vill migrera från. Det finns dessutom ett antal inställningar du ska kontrollera innan du börjar.
 
 
-### <a name="verify-account-permissions"></a>Kontrollera behörigheter
+### <a name="verify-target-resources"></a>Verifiera målresurser
 
-Om du just har skapat din kostnadsfria Azure-konto är du administratör för din prenumeration. Om du inte är administratör för prenumerationen kan du arbeta med administratören att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator, måste du ha:
+1. Verifiera att Azure-prenumerationen låter dig skapa virtuella datorer i målregionen för haveriberedskap. Kontakta supporten och aktivera den kvot som krävs.
 
-1. Behörighet att skapa en virtuell dator i Azure-resurser. Virtual Machine-deltagare inbyggda rollen har de behörigheter som omfattar:
+2. Se till att din prenumeration har tillräckligt med resurser för att hantera virtuella datorer med de storlekar som de virtuella källdatorerna har. Site Recovery väljer samma storlek eller närmaste möjliga storlek för den virtuella måldatorn.
+
+
+### <a name="verify-account-permissions"></a>Verifiera kontobehörighet
+
+Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för prenumerationen. Om du inte är administratör för prenumerationen kan du arbeta med administratören för att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator måste du ha:
+
+1. Behörighet att skapa en virtuell dator i Azure-resurser. Den inbyggda rollen ”Virtuell datordeltagare” har dessa behörigheter, som omfattar:
     - Behörighet att skapa en virtuell dator i den valda resursgruppen
     - Behörighet att skapa en virtuell dator i det valda virtuella nätverket
     - Behörighet att skriva till det valda lagringskontot
 
-2. Du måste också behörighet att hantera Azure Site Recovery-åtgärder. Site Recovery-deltagare rollen har alla behörigheter som krävs för att hantera Site Recovery-åtgärder i Recovery Services-valvet.
+2. Du behöver också behörighet för att hantera åtgärder i Azure Site Recovery. Rollen Site Recovery-bidragsgivare har alla behörigheter som krävs för att hantera Site Recovery-åtgärder i ett Recovery Services-valv.
 
 
-### <a name="verify-vm-outbound-access"></a>Kontrollera VM utgående åtkomst
+### <a name="verify-vm-outbound-access"></a>Verifiera utgående åtkomst till VM
 
-1. Kontrollera att du inte använder en autentiseringsproxy för att kontrollera nätverksanslutningen för virtuella datorer du vill migrera. 
-2. För den här kursen antar vi att de virtuella datorerna som du vill migrera kan ansluta till internet och inte använder en en brandväggen proxy för utgående åtkomstkontroll. Om du kan kontrollera kraven [här](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Använd inte en autentiseringsproxy för att kontrollera nätverksanslutningen för virtuella datorer som du vill migrera. 
+2. För den här självstudien antar vi att de virtuella datorer du vill migrera kan ansluta till internet, och att de inte använder en brandväggsproxy för att kontrollera utgående åtkomst. Om du gör det kan du läsa kraven [här](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
-### <a name="verify-vm-certificates"></a>Verifiera certifikat för VM
+### <a name="verify-vm-certificates"></a>Verifiera certifikat för virtuella datorer
 
-Kontrollera att de senaste rotcertifikat finns på Azure virtuella datorer som du vill migrera. Om de senaste rotcertifikat inte kan inte den virtuella datorn registreras till Site Recovery på grund av säkerhetsbegränsningar.
+Kontrollera att alla de senaste rotcertifikaten finns på de virtuella datorer med Azure som du vill migrera. Om de senaste rotcertifikaten inte finns kan de virtuella datorerna inte registreras i Site Recovery på grund av säkerhetsbegränsningar.
 
-- Installera de senaste uppdateringarna på den virtuella datorn för virtuella Windows-datorer, så att alla betrodda rotcertifikat som finns på datorn. I en frånkopplad miljö Följ standard Windows Update och certifikatet update processer för din organisation.
-- För Linux virtuella datorer, följer du de riktlinjer som tillhandahålls av din Linux-distributören att hämta den senaste betrodda rotcertifikat och listan över återkallade certifikat på den virtuella datorn.
+- I virtuella datorer med Windows installerar du alla de senaste uppdateringarna så att alla betrodda rotcertifikat finns på datorn. I en frånkopplad miljö använder du organisationens vanliga processer för Windows Update och certifikatuppdatering.
+- I virtuella datorer med Linux följer du de riktlinjer du fått från Linux-distributören för att hämta de senaste betrodda rotcertifikaten och listan över återkallade certifikat till den virtuella datorn.
 
 
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-Skapa valvet i varje region, utom området källa.
+Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
-2. Klicka på **Nytt** > **Övervakning + hantering** > **Backup och Site Recovery**.
-3. I **namn**, ange det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du en.
+2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
+3. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp **ContosoRG**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. För att snabbt komma åt valvet från instrumentpanelen, klickar du på **fäst på instrumentpanelen** och klicka sedan på **skapa**.
+6. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
 
    ![Nytt valv](./media/tutorial-migrate-azure-to-azure/azure-to-azure-vault.png)
 
-Det nya valvet har lagts till i den **instrumentpanelen** under **alla resurser**, och på primära **Recovery Services-valv** sidan.
+Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
 
 
 
 
 
 
-## <a name="select-the-source"></a>Välj källa
+## <a name="select-the-source"></a>Välj källan
 
-1. Klicka på Recovery Services-valv **ConsotoVMVault** > **+ replikera**.
-2. I **källa**väljer **Azure - PREVIEW**.
-3. I **datakällplats**, väljer du den Azure-region där din virtuella dator körs för närvarande.
-4. Välj distributionsmodell hanteraren för filserverresurser. Välj sedan den **källresursgruppen**.
+1. I Recovery Services-valven klickar du på **ConsotoVMVault** > **+Replikera**.
+2. I **Källa** väljer du **Azure – FÖRHANDSVERSION**.
+3. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
+4. Välj Resource Manager-distributionsmodellen. Välj sedan **källresursgrupp**.
 5. Spara inställningarna genom att klicka på **OK**.
 
 
 ## <a name="enable-replication-for-azure-vms"></a>Aktivera replikering för virtuella Azure-datorer
 
-Site Recovery hämtar en lista över de virtuella datorerna som är associerade med prenumerationen och resursgruppen.
+Site Recovery hämtar en lista med de virtuella datorer som är kopplade till prenumerationen och resursgruppen.
 
 
-1. I Azure-portalen klickar du på **virtuella datorer**.
-2. Välj den virtuella datorn som du vill migrera. Klicka sedan på **OK**.
-3. I **inställningar**, klickar du på **Disaster recovery (förhandsgranskning)**.
-4. I **konfigurera katastrofåterställning** > **målregionen** väljer du den mål-region som du replikerar.
-5. Acceptera de andra standardinställningarna för den här kursen.
-6. Klicka på **Aktivera replikering**. Detta startar ett jobb för att aktivera replikering för den virtuella datorn.
+1. Klicka på **Virtuella datorer** på Azure-portalen.
+2. Välj den virtuella dator du vill migrera. Klicka sedan på **OK**.
+3. I **Inställningar** klickar du på **Haveriberedskap (förhandsversion)**.
+4. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion som du ska replikera till.
+5. I den här självstudiekursen accepterar du de andra standardinställningarna.
+6. Klicka på **Aktivera replikering**. Ett jobb startas som aktiverar replikering för den virtuella datorn.
 
-    ![Aktivera replikering](media/tutorial-migrate-azure-to-azure/settings.png)
+    ![aktivera replikering](media/tutorial-migrate-azure-to-azure/settings.png)
 
 >[!NOTE]
   >
-  > Replikering av virtuella Azure-datorer med hanterade diskar stöds för närvarande inte. 
+  > För närvarande finns inga funktioner för replikering av virtuella Azure-datorer med hanterade diskar. 
 
 ## <a name="run-a-failover"></a>Köra en redundansväxling
 
-1. I **inställningar** > **replikerade objekt**, klicka på datorn och klicka sedan på **redundans**.
-2. I **redundans**väljer **senaste**. Krypteringsinställningen inte är relevanta för det här scenariot.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den Virtuella källdatorn innan växling vid fel. Redundans fortsätter även om avstängning misslyckas. Du kan följa förloppet för växling vid fel på den **jobb** sidan.
+1. I **Inställningar** > **Replikerade objekt** klickar du på datorn och sedan på **Redundans**.
+2. I **Redundans** väljer du **Senaste**. Inställningen för krypteringsnyckeln är inte relevant för det här scenariot.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
-5. I **replikerade objekt**, högerklicka på den virtuella datorn > **slutföra migreringen**. Detta avslutar migreringsprocessen och stoppar replikering för den virtuella datorn.
+5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det slutför migreringsprocessen och avslutar replikeringen för den virtuella datorn.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerat du en virtuell Azure-dator till en annan Azure-region. Du kan nu konfigurera katastrofåterställning för den migrerade virtuella datorn.
+I den här självstudien har du migrerat en virtuell Azure-dator till en annan Azure-region. Nu kan du konfigurera haveriberedskap för den migrerade virtuella datorn.
 
 > [!div class="nextstepaction"]
-> [Ställ in återställning efter migreringen](azure-to-azure-quickstart.md)
+> [Konfigurera haveriberedskap efter migrering](azure-to-azure-quickstart.md)
 

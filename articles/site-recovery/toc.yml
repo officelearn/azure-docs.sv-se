@@ -87,28 +87,28 @@
           href: site-recovery-migrate-to-azure.md
     - name: Rollbaserade åtkomstbehörigheter
       href: site-recovery-role-based-linked-access-control.md
+    - name: Azure Traffic Manager med Azure Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: site-recovery-faq.md
 - name: Instruktionsguider
   items:
     - name: Nätverk
       items:
-        - name: Konfigurera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+        - name: Hantera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
           href: azure-to-azure-about-networking.md
-        - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+        - name: Förbereda nätverksmappning i haveriberedskap för virtuella Azure-datorer
           href: azure-to-azure-network-mapping.md
-        - name: Konfigurera nätverksmappningsreplikering av virtuella Hyper-V-datorer i VMM
-          href: hyper-v-vmm-network-mapping.md
-        - name: Kvarhålla IP för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+        - name: Konfigurera IP-adresser efter redundansväxling av virtuella Azure-datorer
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
-          href: site-recovery-network-mapping.md
-        - name: Konfigurera IP-adresser för åtkomst till Azure efter redundansväxling
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Konfigurera IP-adresser för åtkomst till en sekundär webbplats efter redundansväxling
-          href: hyper-v-vmm-networking.md
-        - name: Hantering av nätverksgränssnitt för lokala till Azure-scenarier
+        - name: Hantera nätverksgränssnitt för haveriberedskap från lokal plats till Azure
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+        - name: Förbereda nätverksmappning för haveriberedskap för virtuella Hyper-V-datorer
+          href: hyper-v-vmm-network-mapping.md
+        - name: Konfigurera IP-adresser efter redundansväxling till Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Konfigurera IP-adresser efter redundansväxling till en sekundär plats
+          href: hyper-v-vmm-networking.md
     - name: Haveriberedskap
       items:
         - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure

@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/16/2018
+ms.author: carlrab
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
@@ -38,7 +38,7 @@ Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagri
 
 Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure Works LT-exempeldata.
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
@@ -84,7 +84,7 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
    >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: Australien, östra, Australien, sydöstra, Brasilien, södra, Kanada, centrala, Kanada, östra, USA, centrala, Frankrike, centrala, Tyskland, centrala, Japan, östra, Japan, västra, Korea, centrala, USA, norra centrala, Nordeuropa, USA, södra centrala, Sydostasien, Storbritannien, södra, Storbritannien, västra, USA, östra 2, USA, västra, Virginia (USA-förvaltad region) och Europa, västra. Se [sidan 11-15 i Aktuella begränsningar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. För den här snabbstartsguiden väljer du tjänstenivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
+7. För den här snabbstartsguiden väljer du tjänstenivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
 
    ![skapa databas-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Se
 
 Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda frågeverktyget på Azure Portal till att bekräfta att du kan ansluta till databasen och fråga efter data.
 
-1. På SQL Database-sidan för din databas letar du reda på och klickar på **Datautforskaren (förhandsversion)** på den vänstra menyn
+1. På SQL Database-sidan för din databas klickar du på **Frågeredigerare (förhandsversion)** i den vänstra menyn och sedan på **Logga in**.
 
-   ![hitta frågeredigerare](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![inloggning](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Klicka på **Logga in**, läs inloggningsinformationen och klicka sedan på **OK** för att logga in med SQL Server-autentisering med inloggningen för serveradministratör och lösenordet du skapade tidigare.
+2. Välj SQL Server-autentisering, ange den nödvändiga inloggningsinformationen och klicka sedan på **OK** för att logga in.
 
-   ![inloggning](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Logga in genom att klicka på **OK**.
-
-4. När du är autentiserad som **ServerAdmin** skriver du följande fråga i fönstret för frågeredigeraren.
+3. När du är autentiserad som **ServerAdmin** skriver du följande fråga i fönstret för frågeredigeraren.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda fr�
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Klicka på **Kör** och granska frågeresultaten i fönstret **Resultat**.
+4. Klicka på **Kör** och granska frågeresultaten i fönstret **Resultat**.
 
    ![resultat från frågeredigeraren](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Stäng sidan **Datautforskaren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
+5. Stäng sidan **Datautforskaren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

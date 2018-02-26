@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
@@ -61,7 +61,7 @@ Många kunder tycker att det enklaste sättet att få användarna att använda S
 Många kunder väljer att själva agera värd för webbsidan och skapa en DNS-rot, till exempel https://passwords.contoso.com. De fyller den här sidan med länkar till följande information:
 
 * [Portal för Azure AD-lösenordsåterställning – https://aka.ms/sspr](https://aka.ms/sspr)
-* [Registreringsportal för Azure AD-lösenordsåterställning – http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Registreringsportal för Azure AD-lösenordsåterställning – https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Portal för ändring av Azure AD-lösenord – https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Annan information som är specifik för organisationen
 

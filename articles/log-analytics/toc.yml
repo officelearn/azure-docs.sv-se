@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: Övergång från äldre språk
           href: log-analytics-log-search-transition.md
-        - name: Sökningar över arbetsytor
+        - name: Sökningar mellan resurser
           href: log-analytics-cross-workspace-search.md
         - name: Utför åtgärder från sökresultat
           href: log-analytics-log-search-takeaction.md

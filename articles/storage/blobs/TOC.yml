@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: Utforma för hög tillgänglighet i molnlagring
       items:
-        - name: Skapa hög tillgänglighet för ditt program
+        - name: 1 – Skapa hög tillgänglighet för ditt program
           href: storage-create-geo-redundant-storage.md
-        - name: Simulera ett fel med RA-GRS-lagring
+        - name: 2 – Simulera ett fel med RA-GRS-lagring
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Migrera lokala data till molnet med AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: Optimera prestanda och skalbarhet för lagringsprogram
       items:
-        - name: Skapa en virtuell dator och ett lagringskonto
+        - name: 1 – Skapa en virtuell dator och ett lagringskonto
           href: storage-blob-scalable-app-create-vm.md
-        - name: Ladda upp stora datamängder till ett Azure-lagringskonto
+        - name: 2 – Ladda upp stora data till ett Azure-lagringskonto
           href: storage-blob-scalable-app-upload-files.md
-        - name: Ladda ned stora datamängder från ett Azure-lagringskonto
+        - name: 3 – Ladda ned stora data från ett Azure-lagringskonto
           href: storage-blob-scalable-app-download-files.md
-        - name: Verifiera mått för dataflöde och svarstid
+        - name: 4 – Verifiera dataflöde och mått för svarstid
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Exempel
   items:

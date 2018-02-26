@@ -19,6 +19,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [Ladda ned konfigurationsskript för VPN-enheten](vpn-gateway-download-vpndevicescript.md)
+
 ## Konfigurera punkt-till-plats-anslutningar – ursprunglig Azure-certifikatautentisering
 ### Konfigurera ett virtuellt privat P2S-nätverk
 #### [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

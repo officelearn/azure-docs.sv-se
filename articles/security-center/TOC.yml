@@ -1,7 +1,6 @@
 - name: Dokumentation om Security Center
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Om Security Center
       href: security-center-intro.md
@@ -49,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Säkerhetsprincip med Azure-princip
           href: security-center-azure-policy.md
-    - name: Övervaka säkerhetshälsa
-      href: security-center-monitoring.md
-    - name: Identitet och åtkomst
-      href: security-center-identity-access.md
     - name: Implementera säkerhetsrekommendationer
       href: security-center-recommendations.md
-    - name: Compute-säkerhet
-      href: security-center-virtual-machine-recommendations.md
+    - name: Övervaka säkerhetshälsa
+      href: security-center-monitoring.md
       items:
-        - name: Tillämpa diskkryptering
-          href: security-center-apply-disk-encryption.md
-        - name: Tillämpa systemuppdateringar
-          href: security-center-apply-system-updates.md
-        - name: Aktivera kryptering för lagringskonto
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Aktivera VM-Agent
-          href: security-center-enable-vm-agent.md
-        - name: Installera slutpunktsskydd
-          href: security-center-install-endpoint-protection.md
-        - name: Starta om datorn efter uppdateringarna
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Åtgärda säkerhetskonfigurationer
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Uppdatera OS-versionen
-          href: security-center-update-os-version.md
-        - name: Sårbarhetsbedömning inte installerad
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Nätverkssäkerhet
-      href: security-center-network-recommendations.md
-      items:
-        - name: Lägg till en nästa generations brandvägg
-          href: security-center-add-next-generation-firewall.md
-        - name: Aktivera nätverkssäkerhetsgrupper
-          href: security-center-enable-network-security-groups.md
-        - name: Begränsa åtkomst via Internet-riktade slutpunkter
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Dirigera trafiken endast via NGFW
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Lagring och datasäkerhet
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: Aktivera granskning och hotidentifiering på SQL-databaser
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Aktivera granskning och hotidentifiering på SQL-servrar
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Aktivera transparent datakryptering
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Programsäkerhet
-      href: security-center-application-recommendations.md
-      items:
-        - name: Lägg till en brandvägg för webbappar
-          href: security-center-add-web-application-firewall.md
-        - name: Slutföra programskydd
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Molnskydd
+        - name: Compute-säkerhet
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Tillämpa diskkryptering
+              href: security-center-apply-disk-encryption.md
+            - name: Tillämpa systemuppdateringar
+              href: security-center-apply-system-updates.md
+            - name: Aktivera kryptering för lagringskonto
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: Aktivera VM-Agent
+              href: security-center-enable-vm-agent.md
+            - name: Installera slutpunktsskydd
+              href: security-center-install-endpoint-protection.md
+            - name: Starta om datorn efter uppdateringarna
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Åtgärda säkerhetskonfigurationer
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: Uppdatera OS-versionen
+              href: security-center-update-os-version.md
+            - name: Sårbarhetsbedömning inte installerad
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Nätverkssäkerhet
+          href: security-center-network-recommendations.md
+          items:
+            - name: Lägg till en nästa generations brandvägg
+              href: security-center-add-next-generation-firewall.md
+            - name: Aktivera nätverkssäkerhetsgrupper
+              href: security-center-enable-network-security-groups.md
+            - name: Begränsa åtkomst via Internet-riktade slutpunkter
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Dirigera trafiken endast via NGFW
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Lagring och datasäkerhet
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: Aktivera granskning och hotidentifiering på SQL-databaser
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: Aktivera granskning och hotidentifiering på SQL-servrar
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Aktivera transparent datakryptering
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Programsäkerhet
+          href: security-center-application-recommendations.md
+          items:
+            - name: Lägg till en brandvägg för webbappar
+              href: security-center-add-web-application-firewall.md
+            - name: Slutföra programskydd
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Identitet och åtkomst
+          href: security-center-identity-access.md
+    - name: Tillämpa molnskydd
       items:
         - name: Just-in-time-åtkomst
           href: security-center-just-in-time.md
@@ -137,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Undersökning
           href: security-center-investigation.md
-    - name: Automatisera och samordna
+    - name: Automatisera säkerhetsarbetsflöden
       items:
         - name: Logic Apps-spelböcker
           href: security-center-playbooks.md

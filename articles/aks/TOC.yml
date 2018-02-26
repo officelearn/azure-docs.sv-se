@@ -55,6 +55,8 @@
       items:
         - name: Statisk IP-adress
           href: static-ip.md
+        - name: Ingångshändelser och TLS
+          href: ingress.md
     - name: Säkerhet och autentisering
       items:
         - name: Skapa tjänstens huvudnamn

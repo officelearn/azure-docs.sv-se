@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Instruktionsguider
   items:
+    - name: Skicka till anpassat ämne
+      href: post-to-custom-topic.md
     - name: Ta emot händelser till en HTTP-slutpunkt
       href: receive-events.md
     - name: Strömma data från Event Hubs till informationslager
       href: event-grid-event-hubs-integration.md
     - name: Skicka meddelanden om IoT Hub-händelser
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Skicka till anpassat ämne
-      href: post-to-custom-topic.md
+    - name: Lyssna på Service Bus-händelser med Functions och Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Mallar för händelseprenumerationer
       href: event-subscription-template.md
     - name: Övervaka händelseleverans

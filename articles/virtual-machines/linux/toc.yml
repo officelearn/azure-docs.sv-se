@@ -1,6 +1,6 @@
 - name: Dokumentation för virtuella Linux-datorer
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Virtual Machines
       href: overview.md
@@ -33,21 +33,23 @@
       href: tutorial-virtual-network.md
     - name: 9 – Säkerhetskopiera virtuella datorer
       href: tutorial-backup-vms.md
-    - name: 10 – Övervaka och uppdatera virtuella datorer
+    - name: 10 – Styra virtuella datorer
+      href: tutorial-govern-resources.md
+    - name: 11 – Övervaka och uppdatera virtuella datorer
       href: tutorial-monitoring.md
-    - name: 11 – Hantera säkerhet för virtuella datorer
+    - name: 12 – Hantera VM-säkerhet
       href: tutorial-azure-security.md
-    - name: 12 – Distribuera Jenkins
+    - name: 13 – Distribuera Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13 – CI/CD med Team Services
+    - name: 14 – CI/CD med Team Services
       href: tutorial-build-deploy-jenkins.md
-    - name: 14a – Skapa LAMP-stack
+    - name: 15a – Skapa LAMP-stack
       href: tutorial-lamp-stack.md
-    - name: 14a – Skapa LEMP-stack
+    - name: 15b – Skapa LEMP-stack
       href: tutorial-lemp-stack.md
-    - name: 14a – Skapa MEAN-stack
+    - name: 15c – Skapa MEAN-stack
       href: tutorial-mean-stack.md
-    - name: 15 – Säker webbserver med SSL
+    - name: 16 – Säker webbserver med SSL
       href: tutorial-secure-web-server.md
 - name: Exempel
   items:
@@ -191,7 +193,7 @@
               href: update-infrastructure-redhat.md
         - name: Virtuell Azure-datoragent
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: agent-user-guide.md
             - name: Agentuppdatering
               href: update-agent.md
@@ -300,7 +302,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: "Översikt\r\n"
+            - name: Översikt
               href: cloudfoundry-get-started.md
             - name: Distribuera din första app
               href: cloudfoundry-deploy-your-first-app.md

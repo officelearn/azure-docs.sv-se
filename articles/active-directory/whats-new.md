@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -219,7 +219,7 @@ Mer information finns i [färre inloggning prompter: ”Jag vill förbli inlogga
 
 **Typ:** ny funktion  
 **Tjänstekategori:** villkor för användning  
-**Produkten kapaciteten:** styrning
+**Produkten kapaciteten:** styrning/kompatibilitet
  
 Ett alternativ för administratörer kräver användarna att expandera användningsvillkoren innan du godkänner villkoren.
 
@@ -494,7 +494,7 @@ Du kan nu inkludera (eller exkludera) macOS som en enhet plattform villkor i din
 
 Mer information finns i:
 
-- [Skapa en enhetsefterlevnadsprincip för macOS enheter med Intune](https://aka.ms/macoscompliancepolicy)
+- [Skapa en princip för enhetsefterlevnad för macOS-enheter med Intune](https://aka.ms/macoscompliancepolicy)
 - [Villkorlig åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
@@ -666,7 +666,7 @@ Mer information finns i [referens för rapportering av MFA i Azure portal](https
 
 **Typ:** ny funktion  
 **Tjänstekategori:** villkor för användning  
-**Produkten kapaciteten:** styrning  
+**Produkten kapaciteten:** styrning/kompatibilitet  
 
 
 
@@ -709,7 +709,7 @@ Mer information finns i [Privileged Identity Management för Azure-resurser](htt
 
 **Typ:** ny funktion  
 **Tjänstekategori:** åtkomst till granskningar  
-**Produkten kapaciteten:** styrning  
+**Produkten kapaciteten:** styrning/kompatibilitet  
 
 
 

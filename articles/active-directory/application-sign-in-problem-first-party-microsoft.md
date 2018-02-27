@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 880be5f27ca4198004511e01e63cdb3d72f107d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problem med att logga till en Microsoft-program
 
@@ -35,7 +35,7 @@ Om du vill felsöka problemet, börja med den [allmänna problemområden med pro
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Allmänna problemområden med programåtkomst att tänka på
 
-Nedan visas en lista över allmänna problemområden som du kan detaljerat om du har en uppfattning om var du startar, men vi rekommenderar att du läser den här genomgången för att komma igång snabbt: [genomgång: steg för att felsöka Microsoft Application åtkomst](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Följande är en lista över allmänna problemområden som du kan detaljerat om du har en uppfattning om var du startar, men vi rekommenderar att du läser den här genomgången för att komma igång snabbt: [genomgång: steg för att felsöka Microsoft Application åtkomst](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problem med användarkontot](#problems-with-the-users-account)
 
@@ -47,7 +47,7 @@ Nedan visas en lista över allmänna problemområden som du kan detaljerat om du
 
 ## <a name="steps-to-troubleshoot-microsoft-application-access"></a>Steg för att felsöka Microsoft Application åtkomst
 
-Nedan är några vanliga problem avdelningen stöter på när användarna inte logga in i ett Microsoft-program.
+Följande är några vanliga problem avdelningen stöter på när användarna inte logga in i ett Microsoft-program.
 
 -   Allmänna problem med att kontrollera först
 
@@ -89,7 +89,7 @@ Nedan är några vanliga problem avdelningen stöter på när användarna inte l
 
 ## <a name="problems-with-the-users-account"></a>Problem med användarkontot
 
-Programåtkomst blockeras på grund av ett problem med en användare som har tilldelats programmet. Här följer några metoder som du kan felsöka och lösa problem med användare och deras kontoinställningar:
+Programåtkomst blockeras på grund av ett problem med en användare som har tilldelats programmet. Följande är några metoder som du kan felsöka och lösa problem med användare och deras kontoinställningar:
 
 -   [Kontrollera om det finns ett konto i Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -111,11 +111,11 @@ Programåtkomst blockeras på grund av ett problem med en användare som har til
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Kontrollera om det finns ett konto i Azure Active Directory
 
-Följ stegen nedan om du vill kontrollera om det finns ett användarkonto:
+Följ dessa steg för att kontrollera om det finns ett användarkonto:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -129,11 +129,11 @@ Följ stegen nedan om du vill kontrollera om det finns ett användarkonto:
 
 ### <a name="check-a-users-account-status"></a>Kontrollera status för en användare
 
-Följ stegen nedan om du vill kontrollera status för en användare:
+Följ dessa steg för att kontrollera status för en användare:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -149,11 +149,11 @@ Följ stegen nedan om du vill kontrollera status för en användare:
 
 ### <a name="reset-a-users-password"></a>Återställa en användares lösenord
 
-Följ stegen nedan om du vill återställa en användares lösenord:
+Följ dessa steg om du vill återställa en användares lösenord:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -163,9 +163,9 @@ Följ stegen nedan om du vill återställa en användares lösenord:
 
 6.  **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på den **Återställ lösenord** längst upp på bladet för användaren.
+7.  Klicka på den **Återställ lösenord** längst upp i fönstret för användaren.
 
-8.  Klicka på den **Återställ lösenord** knappen på den **Återställ lösenord** bladet som visas.
+8.  Klicka på den **Återställ lösenord** knappen på den **Återställ lösenord** fönstret som visas.
 
 9.  Kopiera den **tillfälligt lösenord** eller **ange ett nytt lösenord** för användaren.
 
@@ -181,11 +181,11 @@ Om du vill aktivera lösenordsåterställning via självbetjäning åtgärderna 
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Kontrollera status för multifaktorautentisering för en användare
 
-Följ stegen nedan om du vill kontrollera status för multifaktorautentisering för en användare:
+Följ dessa steg om du vill kontrollera status för multifaktorautentisering för en användare:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -193,7 +193,7 @@ Följ stegen nedan om du vill kontrollera status för multifaktorautentisering f
 
 5.  Klicka på **alla användare**.
 
-6.  Klicka på den **Multifaktorautentisering** längst upp på bladet.
+6.  Klicka på den **Multifaktorautentisering** längst upp i fönstret.
 
 7.  En gång i **Multi-Factor Authentication-administrationsportalen** belastning, kontrollera att du är på den **användare** fliken.
 
@@ -205,11 +205,11 @@ Följ stegen nedan om du vill kontrollera status för multifaktorautentisering f
 
 ### <a name="check-a-users-authentication-contact-info"></a>Kontrollera en användares kontaktinformation för autentisering
 
-Följ stegen nedan om du vill kontrollera en användares autentisering kontaktinformation som användes för multifaktorautentisering, villkorlig åtkomst, identitetsskydd och återställning av lösenord:
+Följ dessa steg om du vill kontrollera en användares autentisering kontaktinformation som användes för multifaktorautentisering, villkorlig åtkomst, identitetsskydd och återställning av lösenord:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -227,11 +227,11 @@ Följ stegen nedan om du vill kontrollera en användares autentisering kontaktin
 
 ### <a name="check-a-users-group-memberships"></a>Kontrollera en användares gruppmedlemskap
 
-Följ stegen nedan om du vill kontrollera en användares gruppmedlemskap:
+Följ dessa steg om du vill kontrollera en användares gruppmedlemskap:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -245,11 +245,11 @@ Följ stegen nedan om du vill kontrollera en användares gruppmedlemskap:
 
 ### <a name="check-a-users-assigned-licenses"></a>Kontrollera en användares tilldelade licenser
 
-Följ stegen nedan om du vill kontrollera en användares tilldelade licenser:
+Följ dessa steg om du vill kontrollera en användares tilldelade licenser:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -263,11 +263,11 @@ Följ stegen nedan om du vill kontrollera en användares tilldelade licenser:
 
 ### <a name="assign-a-user-a-license"></a>Tilldela en användare en licens 
 
-Följ stegen nedan om du vill tilldela en licens till en användare:
+Följ dessa steg om du vill tilldela en licens till en användare:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -289,7 +289,7 @@ Följ stegen nedan om du vill tilldela en licens till en användare:
 
 ## <a name="problems-with-groups"></a>Problem med grupper
 
-Programåtkomst blockeras på grund av ett problem med en grupp som har tilldelats programmet. Här följer några metoder som du kan felsöka och lösa problem med grupper och gruppmedlemskap:
+Programåtkomst blockeras på grund av ett problem med en grupp som har tilldelats programmet. Följande är några metoder som du kan felsöka och lösa problem med grupper och gruppmedlemskap:
 
 -   [Kontrollera medlemskapet för en grupp](#check-a-groups-membership)
 
@@ -303,11 +303,11 @@ Programåtkomst blockeras på grund av ett problem med en grupp som har tilldela
 
 ### <a name="check-a-groups-membership"></a>Kontrollera medlemskapet för en grupp
 
-Följ stegen nedan om du vill kontrollera en grupps medlemskap:
+Följ dessa steg om du vill kontrollera en grupps medlemskap:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -321,11 +321,11 @@ Följ stegen nedan om du vill kontrollera en grupps medlemskap:
 
 ### <a name="check-a-dynamic-groups-membership-criteria"></a>Kontrollera kriterier för medlemskap i en dynamisk grupp 
 
-Följ stegen nedan om du vill kontrollera kriterier för medlemskap i en dynamisk grupp:
+Följ dessa steg om du vill kontrollera kriterier för medlemskap i en dynamisk grupp:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -341,11 +341,11 @@ Följ stegen nedan om du vill kontrollera kriterier för medlemskap i en dynamis
 
 ### <a name="check-a-groups-assigned-licenses"></a>Kontrollera tilldelade licenser för en grupp
 
-Följ stegen nedan om du vill kontrollera tilldelade licenser för en grupp:
+Följ dessa steg om du vill kontrollera tilldelade licenser för en grupp:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -359,11 +359,11 @@ Följ stegen nedan om du vill kontrollera tilldelade licenser för en grupp:
 
 ### <a name="reprocess-a-groups-licenses"></a>Ombearbeta licenser för en grupp
 
-Följ stegen nedan för att Ombearbeta tilldelade licenser för en grupp:
+Följ dessa steg för att Ombearbeta tilldelade licenser för en grupp:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -384,11 +384,11 @@ Följ stegen nedan för att Ombearbeta tilldelade licenser för en grupp:
 
 ### <a name="assign-a-group-a-license"></a>Tilldela en licens för en grupp
 
-Följ stegen nedan om du vill tilldela en licens till en grupp:
+Följ dessa steg om du vill tilldela en licens till en grupp:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -419,9 +419,9 @@ Följ stegen nedan om du vill tilldela en licens till en grupp:
 
 Kontrollera eller validera en princip för enskild villkorlig åtkomst:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -442,9 +442,9 @@ Kontrollera eller validera en princip för enskild villkorlig åtkomst:
 
 Om du vill kontrollera eller verifiera ett enda program för tillfället konfigurerade principen för villkorlig åtkomst:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -474,9 +474,9 @@ Om du vill kontrollera eller verifiera ett enda program för tillfället konfigu
 
 Kontrollera eller validera en princip för enskild villkorlig åtkomst:
 
-1.  Öppna den [ **Azure Portal** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **fler tjänster** längst ned i den huvudsakliga vänstra navigeringsmenyn.
+2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
 3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
@@ -490,7 +490,7 @@ Kontrollera eller validera en princip för enskild villkorlig åtkomst:
 
 ## <a name="problems-with-application-consent"></a>Problem med programmet medgivande
 
-Programåtkomst blockeras eftersom åtkomstbehörighet medgivande åtgärden inte har inträffat. Här följer några metoder som du kan felsöka och lösa problem med programmet medgivande:
+Programåtkomst blockeras eftersom åtkomstbehörighet medgivande åtgärden inte har inträffat. Följande är några metoder som du kan felsöka och lösa problem med programmet medgivande:
 
 -   [Utföra en åtgärd på användarnivå medgivande](#perform-a-user-level-consent-operation)
 
@@ -514,13 +514,13 @@ Programåtkomst blockeras eftersom åtkomstbehörighet medgivande åtgärden int
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Utföra administratörsnivå medgivande för en enskild klient-program
 
--   För **program enkel klienter** som begär behörighet (till exempel de som du utvecklar eller äger i din organisation), kan du utföra en **administrativ nivå medgivande** åtgärden för alla användare genom att logga in som Global administratör och klicka på den **bevilja behörigheter** längst upp i den **programmet registret -&gt; alla program -&gt; Välj en App -&gt; Nödvändiga behörigheter** bladet.
+-   För **program enkel klienter** som begär behörighet (till exempel de som du utvecklar eller äger i din organisation), kan du utföra en **administrativ nivå medgivande** åtgärden för alla användare genom att logga in som Global administratör och klicka på den **bevilja behörigheter** längst upp i den **programmet registret -&gt; alla program -&gt; Välj en App -&gt; Nödvändiga behörigheter** fönstret.
 
 -   För **alla program som utvecklats med programmodell V1 eller V2**, kan du använda den här nivån administratör medgivande till uppstå genom att följa anvisningarna under den **begära behörigheter från en katalogadministratör**  avsnitt i [med medgivande adminslutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Utföra administratörsnivå medgivande för ett program med flera innehavare
 
--   För **program med flera klienter** som begär behörighet (t.ex. ett program en tredje part eller Microsoft, utvecklar), kan du utföra en **administrativ nivå medgivande** igen. Logga in som Global administratör och klicka på den **bevilja behörigheter** knappen den **företagsprogram -&gt; alla program -&gt; Välj en App -&gt; behörigheter**  bladet (tillgänglig snart).
+-   För **program med flera klienter** som begär behörighet (t.ex. ett program en tredje part eller Microsoft, utvecklar), kan du utföra en **administrativ nivå medgivande** igen. Logga in som Global administratör och klicka på den **bevilja behörigheter** knappen den **företagsprogram -&gt; alla program -&gt; Välj en App -&gt; behörigheter**  fönstret (tillgänglig snart).
 
 -   Kan du också använda den här nivån administratör medgivande inträffar genom att följa anvisningarna i avsnittet den **begära behörigheter från en katalogadministratör** avsnitt i [med medgivande adminslutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

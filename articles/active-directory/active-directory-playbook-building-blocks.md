@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 | **Identity-arkitektur / Utvecklingsteamet** | Teamet är vanligtvis den som designerna lösningen, implementerar prototyper, godkännanden-enheter och slutligen lämnar till åtgärder | De ger miljöerna och som utvärderar olika scenarier ur hanterbarhet |
 | **Lokal identitet driftteamet** | Hanterar annan identitet källor lokal: Active Directory-skogar, LDAP-kataloger, HR-system och Federation identitetsleverantörer. | Ge åtkomst till lokala resurser som krävs för PoC-scenarier.<br/>De bör vara inblandade så lite som möjligt|
 | **Tekniska ägare** | Tekniska ägare av olika molnappar och tjänster som ska integreras med Azure AD | Innehåller detaljerad information om SaaS-program (potentiellt instanser för att testa) |
-| **Global administratör för Azure AD** | Hanterar Azure AD-konfiguration | Ange autentiseringsuppgifter för att konfigurera synkroniseringstjänsten. Vanligtvis samma team som identitet arkitektur under PoC men avgränsa under fasen åtgärder|
+| **Azure AD Global Admin** | Hanterar Azure AD-konfiguration | Ange autentiseringsuppgifter för att konfigurera synkroniseringstjänsten. Vanligtvis samma team som identitet arkitektur under PoC men avgränsa under fasen åtgärder|
 | **Databas-teamet** | Ägarna av databasinfrastruktur | Ge åtkomst till SQL-miljö (AD FS eller Azure AD Connect) för specifik situation förberedelser.<br/>De bör vara inblandade så lite som möjligt |
 | **Nätverk-teamet** | Ägarna av nätverkets infrastruktur | Ange nödvändiga åtkomsten på nätverksnivån för synkroniseringsservrar att korrekt åtkomst till datakällor och molntjänster (brandväggsregler, öppnade portar, IPSec-regler osv.) |
 | **Säkerhetsteamet** | Definierar säkerhetsstrategi, analyserar säkerhetsrapporter från olika källor och följer på resultat. | Ange mål säkerhet utvärdering scenarier |
@@ -314,7 +314,7 @@ Ungefärlig tid till slutförd: 10 minuter
 
 | Steg | Resurser |
 | --- | --- |
-| Identifiera den grupp som har beviljats åtkomst till programmet och konfigurera ägare av given grupp| [Hantera inställningar för en grupp i Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
+| Identifiera den grupp som har beviljats åtkomst till programmet och konfigurera ägare av given grupp| [Hantera inställningar för en grupp i Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
 | Logga in som gruppägare, se medlemskap i grupper-fliken i åtkomstpanelen | [Azure Active Directory-grupper Management-sidan](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Lägg till informationsarbetare som du vill testa |  |
 | Logga in som informationsanställda, bekräfta panelen är tillgängligt | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
@@ -391,7 +391,7 @@ Ungefärlig tid till slutförd: 15 minuter
 | Gå till Azure AD-hanteringsportalen: återställning av lösenord | [Hanteringsportalen för Azure AD: Lösenordsåterställning via](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Kontrollera att principen för återställning av lösenord. POC ändamål, du kan använda för telefonsamtal och Q & A. Det rekommenderas att aktivera registrering krävs vid logga in på åtkomstpanelen |  |
 | Logga ut och logga in som en informationsanställd |  |
-| Ange data för självbetjäning av återställning av lösenord som konfigurerats per steg 2 | http://aka.MS/ssprsetup |
+| Ange data för självbetjäning av återställning av lösenord som konfigurerats per steg 2 | https://aka.ms/ssprsetup |
 | Stäng webbläsaren |  |
 | Börja om från början inloggningen som informationsarbetare som du använde i steg 4 |  |
 | Återställa lösenordet | [Uppdatera ditt eget lösenord: återställa mitt lösenord](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Ungefärlig tid till slutförd: 10 minuter
 | SaaS-program har redan konfigurerats |  |
 | PoC användare har redan tilldelats till programmet |  |
 | Autentiseringsuppgifterna för användaren POC är tillgängliga |  |
-| POC användare är registrerad för Multifaktorautentisering. Använda en telefon med mottagning | http://aka.MS/ssprsetup |
+| POC användare är registrerad för Multifaktorautentisering. Använda en telefon med mottagning | https://aka.ms/ssprsetup |
 | Enheter i det interna nätverket. IP-adress som konfigurerats i det interna adressintervallet | Hitta ip-adress: https://www.bing.com/search?q=what%27s+my+ip |
 | Enhet i det externa nätverket (kan vara en telefon med hjälp av en operatör mobila nätverk) |  |
 
@@ -508,7 +508,7 @@ Ungefärlig tid till slutförd: 20 minuter
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Logga in till https://myapps.microsoft.com med POC-användarkonto | [Azure Active Directory-identitetsskydd playbook: simulering av riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Vänta 5-7 minuter |  |
-| Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.MS/aadipgetstarted |
+| Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
 | Öppna bladet risk händelser. Du bör se en post under ”inloggningar från anonyma IP-adresser”  | [Azure Active Directory-identitetsskydd playbook: simulering av riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Överväganden
@@ -532,8 +532,8 @@ Ungefärlig tid till slutförd: 10 minuter
 
 | Steg | Resurser |
 | --- | --- |
-| Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.MS/aadipgetstarted |
-| Aktivera inloggning riskprincipen på följande sätt:<br/>-Tilldelad till: POC användare<br/>-Villkor: Logga in risk medelhög eller högre (logga in från anonyma plats anses som en medelhög risknivå)<br/>-Kontroller: Kräva MFA | [Azure Active Directory-identitetsskydd playbook: Logga in risk](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
+| Aktivera inloggning riskprincipen på följande sätt:<br/>-Tilldelad till: POC användare<br/>-Villkor: Logga in risk medelhög eller högre (logga in från anonyma plats anses som en medelhög risknivå)<br/>-Kontroller: Kräva MFA | [Azure Active Directory-identitetsskydd playbook: Logga in risk](active-directory-identityprotection-playbook.md) |
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Logga in till https://myapps.microsoft.com med PoC-användarkonto |  |
 | Lägg märke till MFA-kontrollen | [Logga in som inträffar med Azure AD Identity Protection: riskfyllda inloggning återställning](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

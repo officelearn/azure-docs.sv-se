@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 37310689881e403aa5e3f4f4d4a18180cbccc05d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresursen i Azure Container instanser
 
@@ -74,8 +74,8 @@ Ange om du vill montera en Azure-filresurs som en volym i en behållare, resurs 
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
@@ -83,12 +83,14 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
+Den `--dns-name-label` värdet måste vara unikt i Azure-regionen du skapar behållaren-instans. Uppdatera värdet i kommandot ovan om du får en **DNS-namnetikett** felmeddelande när du kör kommandot.
+
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer i monterade volymer
 
-När behållaren startar, kan du använda en enkel webbapp som distribueras den [aci/seanmckenna-hellofiles] [ aci-hellofiles] bilden för att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Skaffa IP-adressen för webbprogrammet med den [az behållaren visa] [ az-container-show] kommando:
+När behållaren startar, kan du använda en enkel webbapp som distribueras den [aci/microsoft-hellofiles] [ aci-hellofiles] bilden för att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Hämta webbappens fullständigt kvalificerade domännamnet (FQDN) med den [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 Du kan använda den [Azure-portalen] [ portal] eller ett verktyg som den [Microsoft Azure Lagringsutforskaren] [ storage-explorer] att hämta och granska filen skrivs till filresursen.
@@ -142,7 +144,7 @@ Lär dig hur du monterar andra volymtyper av i Azure Container instanser:
 * [Montera en hemlig volym i Azure Container instanser](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

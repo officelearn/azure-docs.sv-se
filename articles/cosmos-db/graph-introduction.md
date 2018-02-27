@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -107,22 +107,14 @@ Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Az
 
 I följande tabell visas populära Gremlin drivrutiner som du kan använda mot Azure Cosmos DB:
 
-| Ladda ned | Dokumentation |
-| --- | --- |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) |
-| [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript på Github](https://github.com/jbmusso/gremlin-javascript) |
-| [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
-
-Azure Cosmos-DB tillhandahåller också ett .NET-bibliotek som har Gremlin tilläggsmetoder ovanpå det [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) via NuGet. Det här biblioteket innehåller en Gremlin ”pågående”-server som du kan använda för att ansluta direkt till datapartitioner.
-
-| Ladda ned | Dokumentation |
-| --- | --- |
-| [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
-
-Med hjälp av den [Azure Cosmos DB emulatorn](local-emulator.md), du kan använda .NET Graph API ovan för att utveckla och testa lokalt utan att skapa en Azure-prenumeration eller kostnader. När du är nöjd med hur programmet fungerar i emulatorn kan växla du till med ett Azure DB som Cosmos-konto i molnet.
-
-> [!NOTE]
-> Stöd för att validera Gremlin frågor mot [Azure Cosmos DB emulatorn](local-emulator.md) är bara tillgängliga via .NET Graph API.
+| Ladda ned | Dokumentation | Komma igång |
+| --- | --- | --- |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med hjälp av .NET](create-graph-dotnet.md) |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin JavaScript på Github](https://github.com/jbmusso/gremlin-javascript) | [Skapa diagram med Node.js](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin Python på Github](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Skapa diagram med hjälp av Python](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin PHP på GitHub](https://github.com/PommeVerte/gremlin-php) | [Skapa diagram med hjälp av PHP](create-graph-php.md) |
+| [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) | [TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Skapa diagram med Gremlin-konsolen](create-graph-gremlin-console.md) |
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scenarier för diagram stöd för Azure Cosmos DB
 Här följer några scenarier där diagrammet stöd för Azure Cosmos DB kan användas:
@@ -131,7 +123,7 @@ Här följer några scenarier där diagrammet stöd för Azure Cosmos DB kan anv
 
  Genom att kombinera data om dina kunder och deras interaktioner med andra personer kan du utveckla anpassade upplevelser, förutsäga kunden beteende eller ansluter personer med andra med liknande intressen. Azure Cosmos-DB kan användas för att hantera sociala nätverk och spåra kundinställningar och data.
 
-* Rekommendation motorer
+* Rekommendationsmotorer
 
  Det här scenariot används ofta i detaljhandel. Du kan skapa anpassade rekommendationer genom att kombinera information om produkter, användare och användarinteraktioner som köp, bläddra eller klassificeringen av ett objekt. Låg latens, elastisk skalbarhet och intern diagrammet stöd för Azure Cosmos DB är idealisk för modellering dessa interaktioner.
 

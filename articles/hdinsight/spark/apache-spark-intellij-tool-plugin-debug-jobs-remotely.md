@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a87f1c6ba82edc0a762d9e02542a7756383ed82
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använda Azure Toolkit för IntelliJ för att felsöka Spark-program från en fjärrdator i HDInsight via VPN-anslutning
 
-Vi rekommenderar att felsöka spark-program via fjärranslutning via SSH. Instruktioner finns i [felsöka Spark-program på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Vi rekommenderar att felsöka spark-program via fjärranslutning via SSH. Instruktioner finns i [felsöka Spark-program på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 Den här artikeln innehåller stegvisa anvisningar om hur du använder HDInsight-verktyg i Azure Toolkit för IntelliJ att skicka ett Spark-jobb på ett HDInsight Spark-kluster och felsöka den via fjärranslutning från din dator. Om du vill utföra dessa uppgifter, måste du utföra följande anvisningar:
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller stegvisa anvisningar om hur du använder HDInsight
 4. Skapa en Scala-program i IntelliJ IDEA och konfigurera den för fjärrfelsökning.
 5. Kör och felsöka programmet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Mer information finns i [skaffa en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Ett Apache Spark-kluster i HDInsight**. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java development kit**. Du kan installera det från den [Oracle webbplats](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -94,7 +94,7 @@ Vi rekommenderar att du också skapa ett Apache Spark-kluster i Azure HDInsight 
 
     a. Välj **HDInsight** > **Spark i HDInsight (Scala)**.
 
-    b. Välj **nästa**.
+    b. Välj **Nästa**.
 2. I nästa **nytt projekt** dialogrutan gör du följande och välj sedan **Slutför**:
 
     - Ange ett namn och plats.
@@ -275,7 +275,6 @@ Vi rekommenderar att du också skapa ett Apache Spark-kluster i Azure HDInsight 
 * [Spark med BI: utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att skapa realtid strömmade program](apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program

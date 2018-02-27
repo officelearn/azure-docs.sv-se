@@ -3,7 +3,7 @@ title: "Felsökning av Kerberos-begränsad delegering konfigurationer för Appli
 description: "Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy."
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsökning av Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -33,7 +34,7 @@ Den här artikeln gör följande antaganden:
 
 -   Publicerade målprogrammet baseras på IIS och Microsofts implementering av Kerberos.
 
--   Server- och värdar placeras i en enda Active Directory-domän. Detaljerad information om mellan domäner och skogar scenarier kan hittas i den [KCD whitepaper](http://aka.ms/KCDPaper).
+-   Server- och värdar placeras i en enda Active Directory-domän. Detaljerad information om mellan domäner och skogar scenarier kan hittas i den [KCD whitepaper](https://aka.ms/KCDPaper).
 
 -   Programmet har publicerats i en Azure-klient med förautentisering aktiverade och användare förväntas att autentisera till Azure via formulärbaserad autentisering. Rich-klient autentiseringsscenarier omfattas inte av den här artikeln, men läggas på någon punkt i framtiden.
 
@@ -51,7 +52,7 @@ Särskilt avsnittet om hur du konfigurerar KCD på 2012R2, eftersom det använde
 
 -   Om möjligt bör bör du inte släpps alla aktiva IP-adresser/ID: N mellan värddatorer för anslutningen och domänkontrollanter, eftersom dessa ibland över påträngande och störa core RPC-trafik
 
-Det rekommenderas att testa delegering i den enklaste av scenarier. Flera variabler du införa, Ju mer du kan behöva tävla med. Till exempel begränsa testningen till en enskild koppling kan spara värdefull tid och ytterligare kopplingar kan läggas till efter problemen har lösts.
+Du bör testa delegering i enklaste scenarier. Flera variabler du införa, Ju mer du kan behöva tävla med. Till exempel begränsa testningen till en enskild koppling kan spara värdefull tid och ytterligare kopplingar kan läggas till efter problemen har lösts.
 
 Vissa miljöfaktorer kan även bidra till ett ärende. Enklare att arkitekturen minsta att undvika dessa miljöfaktorer under testningen. Till exempel felkonfigurerad intern brandvägg ACL: er är inte ovanliga, om möjligt har all trafik från en koppling får rakt igenom domänkontrollanter och backend-programmet. 
 
@@ -79,7 +80,7 @@ Om du har den här långt, sedan viktigaste problemet definitivt finns. Starta g
 
 **Förautentisering av klient** – den externa användaren autentiserar till Azure via en webbläsare.
 
-Att kunna autentisera före till Azure är absolut nödvändigt för KCD SSO till funktionen. Detta bör testas och åtgärdas först om det uppstår några problem. Mellanlagring av förautentisering har ingen relation till KCD eller publicerade program. Det bör vara ganska enkelt att korrigera skillnader genom förstånd kontrollerar ämne kontot finns i Azure och att det har inaktiverats/inte blockeras. Felsvar i webbläsaren är vanligtvis tillräckligt beskrivande att förstå orsaken. Du kan också kontrollera vår andra felsöka dokumentation för att kontrollera om du är osäker.
+Att kunna autentisera före till Azure är absolut nödvändigt för KCD SSO till funktionen. Du bör testa och lösa det om det uppstår några problem. Mellanlagring av förautentisering har ingen relation till KCD eller publicerade program. Det bör vara ganska enkelt att korrigera skillnader genom förstånd kontrollerar ämne kontot finns i Azure och att det har inaktiverats/inte blockeras. Felsvar i webbläsaren är vanligtvis tillräckligt beskrivande att förstå orsaken. Du kan också kontrollera vår andra felsöka dokumentation för att kontrollera om du är osäker.
 
 **Delegering service** – Azure Proxy-anslutningen att få en Kerberos-tjänstbiljett från en KDC (Kerberos Distribution Center) åt användare.
 
@@ -103,13 +104,13 @@ Och motsvarande poster visas i händelseloggen skulle ses som händelser 13019 e
 
 -   Kontrollera om en domänprincip tillämpas för att begränsa den [max storlek på utfärdade token för Kerberos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/)eftersom detta förhindrar anslutningen från att erhålla ett token om att hitta överdriven
 
-En spårning i nätverket som avbildar utbyten mellan connector-värd och en domän KDC blir bästa nästa steg att få låg nivå detalj på problemen. Mer information finns [ingående felsöka papper](https://aka.ms/proxytshootpaper).
+En spårning i nätverket som avbildar utbyten mellan connector-värd och en domän KDC blir bästa nästa steg att få låg nivå detalj på problemen. Mer information finns i, [ingående felsöka papper](https://aka.ms/proxytshootpaper).
 
-Du bör se en händelse i loggarna om att autentiseringen misslyckades på grund av det program som returnerar ett 401 om biljetter ser bra ut. Detta tyder oftast som målprogrammet avvisa din biljett, så gå vidare med följande nästa steg.
+Du bör se en händelse i loggarna om att autentiseringen misslyckades på grund av det program som returnerar ett 401 om biljetter ser bra ut. Detta tyder oftast som målprogrammet avvisa din biljett, så gå vidare med följande nästa steg:
 
 **Målprogrammet** -konsumenter av Kerberos-biljetten som tillhandahålls av kopplingen
 
-I det här skedet kopplingen förväntas har skickat en Kerberos-tjänsten biljetten serverdelen, som en rubrik i den första programbegäran.
+I det här skedet förväntas kopplingen har skickat en Kerberos-tjänstbiljett till serverdelen, som en rubrik i den första programbegäran.
 
 -   Med hjälp av programmets Intern URL som definierats i portalen, verifiera att programmet är tillgänglig direkt från webbläsaren på värden för anslutningen. Du kan logga sedan in korrekt. Information om hur du gör detta finns på sidan connector felsökning.
 
@@ -125,7 +126,7 @@ I det här skedet kopplingen förväntas har skickat en Kerberos-tjänsten bilje
 
 2.  Ta bort NTLM tillfälligt från listan med providers på IIS-webbplats och åtkomst app direkt från Internet Explorer på värden för anslutningen. Du ska kunna komma åt programmet med hjälp av Kerberos endast med NTLM inte längre i listan med providers. Om detta misslyckas sedan som tyder på att det finns ett problem med programmets konfiguration och Kerberos-autentisering fungerar inte.
 
-Om Kerberos inte finns, är Kontrollera programmets autentiseringsinställningarna i IIS för att se till att förhandla listas översta med NTLM under den. (Inte förhandla: kerberos eller Negotiate: PKU2U). Fortsätt bara om Kerberos fungerar.
+Om Kerberos inte finns, är Kontrollera programmets autentiseringsinställningarna i IIS för att se till att förhandla listas översta med NTLM under den. (Inte förhandla: Kerberos eller Negotiate: PKU2U). Fortsätt bara om Kerberos fungerar.
 
    ![Windows autentiseringsproviders](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -141,17 +142,27 @@ Om Kerberos inte finns, är Kontrollera programmets autentiseringsinställningar
 
     ![IIS-konfigurationsfönstret](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-    När du känner till identiteten konfigureras definitivt problemet följande från en kommandotolk för att se till att det här kontot med SPN i fråga. Till exempel`setspn –q http/spn.wacketywack.com`
+    När du känner till identiteten konfigureras definitivt problemet följande från en kommandotolk för att se till att det här kontot med SPN i fråga. Till exempel  `setspn –q http/spn.wacketywack.com`
 
     ![SetSPN-kommandofönster](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 
 -   Kontrollera att SPN definieras programinställningar i portalen är samma SPN konfigurerats mot AD-målkontot som används av programpoolen app
 
-   ![SPN-konfigurationen i Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![SPN-konfigurationen i Azure-portalen](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Gå till IIS och välj den **Konfigurationsredigeraren** för programmet och gå till **system.webServer/security/authentication/windowsAuthentication** att kontrollera att värdet **UseAppPoolCredentials** är **SANT**
 
    ![IIS-konfiguration app pooler autentiseringsuppgifter alternativet](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+När du har ändrat värdet till **SANT**, alla cachelagrade Kerberos-biljetter måste tas bort från backend-servern. Du kan göra detta genom att köra följande kommando:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Mer information finns i [Rensa Kerberos-biljetten klientcachen för alla sessioner](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 När är användbart i bättre prestanda för Kerberos-åtgärder, lämnar Kernel-läge har aktiverats även gör biljett för den begärda tjänsten som ska dekrypteras med hjälp av datorkontot. Detta kallas även det lokala systemet så har det angetts till true break KCD när programmet ligger över flera servrar i en grupp.
 

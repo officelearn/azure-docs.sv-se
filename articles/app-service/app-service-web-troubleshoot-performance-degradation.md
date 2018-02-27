@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Felsöka problem med långsam web app prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam web app prestanda i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du även filen en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och klicka på **Get Support**.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 När du bläddrar webbprogrammet sidor belastningen långsamt och ibland timeout.
 
 ## <a name="cause"></a>Orsak
@@ -58,10 +58,10 @@ Det här alternativet kan du ta reda på om ditt program är har problem. I din 
 
 Några av de mått som du kanske vill övervaka för webbappen
 
-* Genomsnittlig minne arbetsminne
+* Genomsnittligt arbetsminne
 * Genomsnittlig svarstid
 * CPU-tid
-* Arbetsminnet för minne
+* Arbetsminne
 * Begäranden
 
 ![övervaka prestanda för web app](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
@@ -83,18 +83,14 @@ Om du vill konfigurera, se [övervaka appar i Azure App Service](web-sites-monit
 Se även [hålla Azure-webbplatser in plus Slutpunktsövervakning - med Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) en video om slutpunktsövervakning.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Övervakning av programprestanda med tillägg
-Du kan också övervaka programmets prestanda genom att använda *plats tillägg*.
+Du kan också övervaka programmets prestanda genom att använda en *plats tillägget*.
 
 Varje App Service webbapp tillhandahåller en utökningsbar management-slutpunkt som du kan använda en kraftfull uppsättning av verktyg som distribueras som webbplatstillägg. Tillägg är: 
 
 - Källan kod redigerare som [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Hanteringsverktyg för anslutna resurser, till exempel en MySQL-databas som är ansluten till ett webbprogram.
 
-[Azure Application Insights](/services/application-insights/) och [New Relic](/marketplace/partners/newrelic/newrelic/) finns två webbplatstillägg som är tillgängliga för prestandaövervakning. För att använda New Relic måste installera du en agent vid körning. Om du vill använda Azure Application Insights du återskapar din kod med en SDK och du kan också installera ett tillägg som ger åtkomst till ytterligare data. SDK kan du skriva kod för att övervaka användningen och prestanda för din app i detalj.
-
-Om du vill använda Application Insights finns [övervaka prestanda i webbprogram](../application-insights/app-insights-web-monitor-performance.md).
-
-Om du vill använda New Relic finns [nya Relic prestanda programhantering på Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) är en plats-tillägg som är också tillgängligt för prestandaövervakning. Om du vill använda Application Insights återskapa din kod med en SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. SDK kan du skriva kod för att övervaka användningen och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webbprogram](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -53,7 +53,7 @@ Ger användare åtkomst till en mängd olika appar och tjänster med endast en u
 | Artikel Guide |  |
 |:---:| --- |
 | En introduktion till federation och andra typer av inloggning |[Enkel inloggning med Azure AD](active-directory-appssoaccess-whatis.md) |
-| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](http://aka.ms/aadfederatedapps)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
+| SaaS-appar som redan är integrerade med Azure AD med tusentals förenklad enkel inloggning konfigurationssteg |[Komma igång med Azure AD application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](active-directory-saas-tutorial-list.md)<br /><br />[Lägga till din App i Appgalleriet för Azure AD](active-directory-app-gallery-listing.md) |
 | Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), och mycket mer |[Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Hur du manuellt konfigurera och anpassa din konfiguration för enkel inloggning |[Hur att konfigurera federerad enkel inloggning för appar som inte ingår i Azure Active Directory-Programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md) |
 | Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md) |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
-ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd5ef0ffbaaa78ae4c968fdd208916825d0398a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure övervakaren partner integreringar
 | Partner |  |  |
@@ -26,16 +26,16 @@ ms.lasthandoff: 10/11/2017
 | [![Samarbeta logotypen][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Samarbeta logotypen][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Samarbeta logotypen][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Samarbeta logotypen][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Samarbeta logotypen][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Samarbeta logotypen][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
 | [![Samarbeta logotypen][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Samarbeta logotypen][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Samarbeta logotypen][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
-| [![Samarbeta logotypen][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Samarbeta logotypen][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Samarbeta logotypen][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Samarbeta logotypen][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Samarbeta logotypen][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Samarbeta logotypen][sumologic-logo]<br/>**Sumo logik**][sumologic-anchor] | |
+| [![Samarbeta logotypen][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Samarbeta logotypen][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Samarbeta logotypen][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor]  |
+| [![Samarbeta logotypen][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Samarbeta logotypen][sumologic-logo]<br/>**Sumo logik**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Logghanteraren
-Aviseringen logik Logghanteraren samlar in VM, program och Azure-plattformen loggar för säkerhetsanalys och kvarhållning, inklusive Azure-aktivitetsloggen via Azure-Monitor-API.  Den här informationen används för att identifiera malfeasance och uppfylla efterlevnadskrav.
+Aviseringen logik Logghanteraren samlar in VM, program och Azure-plattformen loggar för säkerhetsanalys och lagring. Azure-aktivitetsloggen via API: T för Azure-Monitor samlar även in. Den här informationen används för att identifiera malfeasance och uppfylla efterlevnadskrav.
 
 [Gå till dokumentationen.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics program Management (APM) gör det möjligt att snabbt felsöker prestandaflaskhalsar och optimera prestanda för de program som körs i Azure-miljön. AppDynamics APM är sömlöst integrerad med Azure Marketplace och kan övervaka Azure Cloud Services (PaaS) (inklusive webb & worker roller), virtuella datorer (IaaS), med hjälp av identifiering till tjänsten (Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote-tjänster (Azure Blob), Azure Queue (Microsoft Service Bus), datalagring, Microsoft Azure Blob Storage.
+AppDynamics program Management (APM) gör det möjligt att snabbt felsöker prestandaflaskhalsar och optimera prestanda för de program som körs i Azure-miljön. Kan övervaka Azure Cloud Services (PaaS), webb & worker roller, virtuella datorer (IaaS), med hjälp av identifiering till tjänsten (Microsoft Azure Service Bus), Microsoft Azure Queue, Microsoft Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Lagring och Microsoft Azure Blob Storage. AppDynamics APM är tillgängligt i Azure Marketplace.
 
 [Gå till dokumentationen.][appdynamics-doc]
 
@@ -45,50 +45,47 @@ Du kan skapa JIRA biljetter på Azure övervaka aviseringar.
 [Gå till dokumentationen.][atlassian-doc]
 
 ## <a name="circonus"></a>Circonus
-Circonus är en mikrotjänster övervakning och analytics platform bygger för på lokala eller SaaS-distribution. Dess fullständigt automatable API till Central plattform är mer skalbar och tillförlitlig än system som övervakas. Utvecklats för DevOps levererar Circonus percentil-baserade aviseringar, diagram, instrumentpaneler och maskininlärning intelligence som gör att företag optimering. Circonus övervakar dina Microsoft Azure-molnresurser och sina program i realtid. Du kan använda Circonus för att samla in och spåra mätvärden för variabler som du vill mäta för dina resurser och program. Med Circonus få systemomfattande insyn i Azures resursutnyttjande programprestanda och driftstatusen.
+Circonus är en mikrotjänster övervakning och analytics platform bygger för på lokala eller SaaS-distribution. Det är helt automatable API till Central plattformen är mer skalbar och tillförlitlig än system som övervakas. Utvecklats för DevOps levererar Circonus percentil-baserade aviseringar, diagram, instrumentpaneler och maskininlärning intelligence som gör att företag optimering. Circonus övervakar dina Microsoft Azure-molnresurser och sina program i realtid. Du kan använda Circonus för att samla in och spåra mätvärden för variabler som du vill mäta för dina resurser och program. Med Circonus få systemomfattande insyn i Azures resursutnyttjande programprestanda och driftstatusen.
 
 [Gå till dokumentationen.][circonus-doc]
 
 ## <a name="cloudhealth"></a>CloudHealth
-Förena och automatisera ditt moln med en plattform för att spara allvarliga tid och pengar. Med enastående synlighet, intuitiva optimering och stabila styrning praxis CloudHealth omdefiniering molnhantering av. Cloudhealth-plattformen gör det möjligt för företag och MSPs att maximera avkastning på investeringar i molnet och säker på beslutar runt kostnader, förbrukning, prestanda och säkerhet.
+Förena och automatisera ditt moln med en plattform för att spara tid och pengar. CloudHealth ger synlighet och intuitiv optimering stabila styrning metoder för molnhantering av. Cloudhealth-plattformen gör det möjligt för företag och MSPs för maximal avkastning på investeringar i molnet. Säker beslutar runt kostnader, förbrukning, prestanda och säkerhet.
 
 [Lära sig mer.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
-CloudMonix erbjuder övervakning, automatisering och självläkande tjänster för Microsoft Azure-plattformen.
+CloudMonix erbjuder övervakning, automatisering och självåterställning tjänster för Microsoft Azure-plattformen.
 
 [Gå till dokumentationen.][cloudmonix-doc]
 
 ## <a name="cloudyn"></a>Cloudyn
-Cloudyn hanterar och optimerar flera plattformar, molnet hybriddistributioner företag behöver fullständigt inser sina möjliga moln. SaaS-lösningen ger inblick i användning, prestanda och kostnad, tillsammans med insikter och tillämplig rekommendationer för smart optimering och molnet styrningen. Cloudyn kan accountability genom korrekt återbetalning och hierarkiska kostnaden allokering hantering. Cloudyn är integrerad med Azure-övervakning för att ge insikter samt rekommenderade åtgärder för att optimera din Azure-distribution.
+Cloudyn hanterar och optimerar flera plattformar, molnet hybriddistributioner företag behöver fullständigt inser sina möjliga moln. SaaS-lösningen ger inblick i användning, prestanda och kostnad. Det ger insikter och tillämplig rekommendationer för smart optimering och molnet styrningen. Cloudyn kan accountability genom korrekt återbetalning och hierarkiska kostnaden allokering hantering. Cloudyn är integrerad med Azure-övervakning att ge insikter och tillämplig rekommendationer för att optimera din Azure-distribution.
 
 [Gå till dokumentationen.][cloudyn-doc]
 
 ## <a name="datadog"></a>Datadog
-Datadog är världens inledande övervakningstjänsten för skalbar molnlagring program samman data från servrar, databaser, verktyg och tjänster för att presentera en samlad bild av hela traven. Dessa funktioner finns på en SaaS-baserade analytics dataplattform som gör att Dev och Ops grupper kan samarbeta för att undvika driftsavbrott, lösa prestandaproblem och se till att utveckling och distribution cykler avslutas i tid. Genom att integrera Datadog och Azure du samla in och visa mått för hela infrastrukturen, korrelera VM mått med programnivå mått och segmentera och Undersök dina mått med valfri kombination av egenskaper och anpassade taggar.
+Datadog är världens inledande övervakningstjänsten för molnskala program. Den samlar data från servrar, databaser, verktyg och tjänster för att presentera en samlad bild av hela traven. Dessa funktioner finns på en SaaS-baserade analytics dataplattform. Den här tjänsten gör det möjligt för utveckling och Ops team kan samarbeta för att undvika driftsavbrott lösa prestandaproblem och se till att utveckling och distribution cykler avslutas i tid. Genom att integrera Datadog och Azure, kan du samla in och visa mått för hela infrastrukturen. Korrelera VM mått med på programnivå. Statistikforskning din mått med valfri kombination av egenskaper och anpassade taggar.
 
 [Gå till dokumentationen.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent integreras med Azure Virtual Machines och Apptjänster via mekanismen för Azure-tillägget. Det här sättet Dynatrace OneAgent kan samla in prestandavärden om värdar, nätverk och tjänster. Förutom att bara visa mått visualizes Dynatrace miljöer slutpunkt till slutpunkt, visar transaktioner från klientsidan i databas-lagret. AI-baserade korrelation av problem och helt integrerad--Rotorsaksanalys, inklusive metod nivån insikter om koden och databasen, se felsökning och prestanda optimeringar mycket enklare.
+Dynatrace OneAgent integreras med Azure Virtual Machines och Apptjänster via mekanismen för Azure-tillägget. Det här sättet Dynatrace OneAgent kan samla in prestandavärden om värdar, nätverk och tjänster. Förutom att bara visa mått, visualizes Dynatrace miljöer slutpunkt till slutpunkt. Den visar transaktioner från klientsidan i databas-lagret. Dynatrace ger AI-baserade korrelation av problem och är helt integrerad-Rotorsaksanalys att ge metoden nivån insikter om koden och databasen. Denna information gör det enklare att felsöka och prestanda optimeringar.
 
 [Gå till dokumentationen.][dynatrace-doc]
 
-## <a name="newrelic"></a>NewRelic
-[Lära sig mer.][newrelic-doc]
-
 ## <a name="opsgenie"></a>OpsGenie
-OpsGenie fungerar som en dispatcher för aviseringar som genereras av Azure. OpsGenie anger rätt personer att Avisera utifrån-samtal scheman och eskaleringar genom att meddela dem med e-post, textmeddelanden (SMS) telefonsamtal, push-meddelanden. Bara, genererar aviseringar om problem upptäcktes i Azure och OpsGenie garanterar rätt personer arbetar med dem.
+OpsGenie fungerar som en dispatcher för aviseringar som genereras av Azure. OpsGenie anger rätt personer att Avisera utifrån-samtal scheman och förfrågningar. Det kan meddela dem hjälp via e-post, textmeddelanden (SMS), telefonsamtal eller push-meddelanden. Azure genererar varningar för identifierade problem. OpsGenie garanterar rätt personer arbetar på problemet.
 
 [Gå till dokumentationen.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty ledande lösning för hantering av incidenter, tillhandahåller förstklassigt stöd för Azure-aviseringar om mått. Idag stöder PagerDuty nu meddelanden på Azure övervaka aviseringar och meddelanden om autoskalning logga granskningshändelser, förutom meddelanden på plattformen nivå mätvärden för Azure-tjänster. Dessa förbättringar ger användare bättre överblick core Azure-plattformen medan de kan dra full nytta av Pagerduty's incident hanteringsfunktioner för svar i realtid. Vår expanderade Azure-integrering är möjlig via webhooks, vilket ger snabb och enkel installation och anpassning.
+PagerDuty ledande lösning för hantering av incidenter, tillhandahåller förstklassigt stöd för Azure-aviseringar om mått. PagerDuty stöder meddelanden på Azure övervaka aviseringar, meddelanden om autoskalning, logga granskningshändelser och plattform nivå mätvärden för Azure-tjänster. Dessa förbättringar-ger dig bättre inblick i grundläggande Azure-plattformen. Du kan dra full nytta av Pagerduty's incident hanteringsfunktioner för svar i realtid. Den utökade Azure-integreringen är möjlig via webhooks. Webhooks kan du konfigurera och anpassa lösningen snabbt och enkelt.
 
 [Gå till dokumentationen.][pagerduty-doc]
 
 ## <a name="sciencelogic"></a>ScienceLogic
-ScienceLogic levererar nästa generations IT service försäkran plattform för att hantera alla teknik, var som helst.  I en enda plattform levererar ScienceLogic skala, säkerhet, automation och återhämtning nödvändigt att förenkla någonsin expanderande aktiviteten för att hantera IT-resurser, tjänster och program som finns i konstant rörelse.  ScienceLogic-plattformen använder Azure API: erna för gränssnittet med Microsoft Azure.  ScienceLogic ger realtid inblick i dina Azure-tjänster och resurser så att du vet när något inte fungerar och korrigera den snabbare. Du kan också hantera Azure tillsammans med andra moln och data center system och tjänster.
+ScienceLogic levererar nästa generations IT service försäkran plattform för att hantera alla teknik, var som helst. ScienceLogic levererar skala, säkerhet, automation och återhämtning som är nödvändiga för att förenkla uppgifter för att hantera IT-resurser, tjänster och program. ScienceLogic-plattformen använder Azure API: erna för gränssnittet med Microsoft Azure. ScienceLogic ger realtid inblick i dina Azure-tjänster och resurser. Så att du vet när något inte fungerar och du kan korrigera det snabbare. Du kan också hantera Azure tillsammans med andra moln och data center system och tjänster.
 
 [Lära sig mer.][sciencelogic-doc]
 
@@ -97,8 +94,8 @@ ScienceLogic levererar nästa generations IT service försäkran plattform för 
 
 [Gå till dokumentationen.][splunk-doc]
 
-## <a name="sumo-logic"></a>Sumo logik
-Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahålla realtid, kontinuerlig intelligence från strukturerade, delvis strukturerade och Ostrukturerade data i hela programmet livscykel och stack. Mer än 1 000 kunder över hela världen förlitar sig på Sumo logik för analyser och insikter att bygga, köra, och skydda sina moderna program och molninfrastrukturer. Med Sumo logik tillgång kunder till en flera innehavare, service-modell fördel öka sina SKIFT kontinuerlig innovation utökad konkurrensfördel, affärsvärde och tillväxt.
+## <a name="sumo-logic"></a>Sumo Logic
+Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahålla realtid, kontinuerlig intelligence från strukturerade, delvis strukturerade och Ostrukturerade data i hela programmet livscykel och stack. Mer än 1 000 kunder över hela världen förlitar sig på Sumo logik för analyser och insikter att bygga, köra, och skydda sina program och molninfrastrukturer. Med Sumo logik få kunder en flera innehavare, service-modell fördel för att öka konkurrensfördel och affärsvärde tillväxt.
 
 [Lära sig mer.][sumologic-doc]
 
@@ -118,7 +115,6 @@ Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahå
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
-[newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
@@ -135,7 +131,6 @@ Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahå
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
-[newrelic-logo]: ./media/partner-logos/newrelic.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
 [pagerduty-logo]: ./media/partner-logos/pagerduty.png
 [sciencelogic-logo]: ./media/partner-logos/sciencelogic.png
@@ -152,7 +147,6 @@ Sumo logik är en säker, moln-intern datorn analytics datatjänst, tillhandahå
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn introduktion."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog dokumentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace dokumentation."
-[newrelic-doc]: https://newrelic.com/azure "NewRelic dokumentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie dokumentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty dokumentation."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic dokumentation."

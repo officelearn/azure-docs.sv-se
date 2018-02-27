@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installera och konfigurera Ansible för att hantera virtuella datorer i Azure
 Den här artikeln beskrivs hur du installerar Ansible och Azure SDK för Python-moduler som krävs för några av de vanligaste Linux-distributioner. Du kan installera Ansible på andra distributioner genom att justera installerade paket så att de passar din viss plattform. Om du vill skapa Azure-resurser på ett säkert sätt du också lära dig hur du skapar och definiera autentiseringsuppgifter för Ansible ska användas. 
@@ -28,7 +28,7 @@ Fler alternativ för installation och anvisningar för ytterligare plattformar f
 
 
 ## <a name="install-ansible"></a>Installera Ansible
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAnsible* i den *eastus* plats:
+Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupAnsible* i den *eastus* plats:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -144,7 +144,7 @@ Ansible kommunicerar med Azure med ett användarnamn och lösenord eller ett huv
 Skapa ett huvudnamn för tjänsten på värddatorn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) och utdata autentiseringsuppgifterna som Ansible måste:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 Ett exempel på utdata från föregående kommandona är följande:

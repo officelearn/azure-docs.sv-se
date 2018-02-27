@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsökning av hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -62,7 +62,7 @@ Det här avsnittet ger dig felsökningsanvisningar om hur du löser problem.
 
 1. Öppna Kommandotolken som administratör 
 
-2. Typ`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 Detta kommando visar en dialogruta där du får mer information om status för anslutning till.
 
@@ -82,6 +82,18 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
 - Du är inte inloggad som domänanvändare
 
     ![Anslut till arbetsplatsen för Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Det finns ett par olika skäl till varför detta kan inträffa:
+    
+    1. Om användaren loggat in är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-anslutning på äldre enheter stöds endast för domänanvändare.
+    
+    2. Om Autoworkplace.exe av någon anledning inte kan autentisera tyst med Azure AD eller AD FS. Några möjliga orsaker kan vara routningsserver bundna problem med nätverksanslutningen till Azure AD-URL: er (kontrollera krav) eller om MFA är aktiverat/konfigurerats för användaren, men WIAORMUTLIAUTHN har inte konfigurerats på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, hindrar Autoworkplace.exe från att erhålla tyst en 
+    
+    3. Om organisationen använder Azure AD finns sömlös enkel inloggning, följande webbadresser inte på enhetens IE intranätsinställningar:
+    - https://autologon.microsoftazuread-sso.com
+    - https://aadg.windows.net.nsatc.net
+    
+    och inställningen ”Tillåt uppdateringar i statusfältet via skript” måste vara aktiverat för zonen Intranät.
 
 - En kvot har uppnåtts
 

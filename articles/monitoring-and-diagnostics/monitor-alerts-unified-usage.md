@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor - aviseringar (förhandsgranskning)
 
@@ -28,14 +28,14 @@ Den här artikeln visar hur du konfigurerar aviseringar i nya aviseringar (förh
 - Villkor: Specifika villkor eller logik som när visas signal ska utlösa åtgärd
 - Åtgärd: Specifika anrop skickas till en mottagare av ett meddelande - e-post, SMS, webhook osv.
 
-Aviseringar (förhandsgranskning) använder termen **loggen aviseringar** att beskriva aviseringar där signalen är en anpassad fråga baserat på [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md). Mått avisering kapaciteten kallas [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md) i befintliga aviseringar upplevelse kallas **mått aviseringar** i aviseringar (förhandsversion). I *mått aviseringar*, vissa resurstyper kan [flerdimensionellt mått](monitoring-metric-charts.md) för specifika Azure-resurs och därför aviseringar om dessa resurs kan göras mer specifika med ytterligare filter på dimensioner. dessa aviseringar kallas **Multi-Dimensional mått aviseringar**.
+Varning (förhandsgranskning) använder termen **loggen aviseringar** att beskriva aviseringar där signalen är en anpassad fråga baserat på [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Azure Application Insights](../application-insights/app-insights-analytics.md). Mått avisering kapaciteten kallas [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md) i befintliga aviseringar upplevelse kallas **mått aviseringar** i aviseringar (förhandsversion). I *mått aviseringar*, vissa resurstyper kan [flerdimensionellt mått](monitoring-metric-charts.md) för specifika Azure-resurs och därför aviseringar om dessa resurs kan göras mer specifika med ytterligare filter på dimensioner. dessa aviseringar kallas **Multi-Dimensional mått aviseringar**.
 Azure aviseringar (förhandsversion) ger också en samlad bild Varningsregler och möjligheten att hantera dem med en enda plats; inklusive visa alla olösta aviseringar. Mer information om funktioner från [Azure Alerts(Preview) - översikt över](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
 > Medan Azure aviseringar (förhandsversion) ger en ny och förbättrad upplevelse för att skapa aviseringar i Azure. Den befintliga [Azure aviseringar](monitoring-overview-alerts.md) upplevelse förblir användbart
 >
 
-Detaljerad följande finns stegvisa instruktioner för att använda Azure aviseringar (förhandsversion).
+Detaljerad nästa finns stegvisa instruktioner för att använda Azure aviseringar (förhandsversion).
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Skapa en aviseringsregel med Azure-portalen
 1. I den [portal](https://portal.azure.com/)väljer **övervakaren** och välj under avsnittet MONITOR - **aviseringar (förhandsgranskning)**.  
@@ -81,16 +81,13 @@ Detaljerad följande finns stegvisa instruktioner för att använda Azure aviser
 
     ![Konfigurera signal logik för flerdimensionella mått](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Logga varningar*: Kontrollera **resurstypen** är en analytics-källa som *logganalys*/*Programinsikter*, och sedan en gång lämplig **resurs** är valt, klickar du på *klar*. Därefter använda den **lägga till villkor** knappen för att visa en lista över signal alternativen för resursen och från listan över signal **anpassad logg sökning** alternativ för vald logga monitor-tjänsten som *logg Analytics*/*Programinsikter*.
+8. *Logga varningar*: Kontrollera **resurstypen** är en analytics-källa som *logganalys* eller *Programinsikter*, en gång sedan lämplig  **resursen** är valt, klickar du på *klar*. Därefter använda den **lägga till villkor** knappen för att visa en lista över signal alternativen för resursen och från listan över signal **anpassad logg sökning** alternativ för vald logga monitor-tjänsten som *logg Analytics* eller *Programinsikter*.
 
    ![Välj en resurs - sökningen anpassad logg](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Aviseringar preview** listor sparade loggen söker som signaltyp - loggen (sparad fråga) när resursen valt är logganalys.
-   Så att du kan perfekt frågan i Analytics och spara dem för framtida användning - mer information finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md). Du kan sedan skapa Varningsregler direkt, baserat på dessa frågor som visas i följande exempel skärmen med sparade sökningar:
-
-   ![Välj en resurs - sökningen anpassad logg](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Aviseringar (förhandsgranskning) listor kan importera analytics-fråga som signaltyp - **logg (sparad fråga)**enligt ovan bild. Så att användare kan perfekt frågan i Analytics och spara dem för framtida användning i varningar – mer information om hur du använder sparar frågan finns på [med loggen Sök i logganalys](../log-analytics/log-analytics-log-searches.md) eller [delade frågan i application insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Logga varningar*: när du valt frågan för aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönstret senaste sex timmar till föregående vecka.
 

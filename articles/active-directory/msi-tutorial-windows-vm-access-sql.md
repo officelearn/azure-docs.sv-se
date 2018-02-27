@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 4e6645071da5353cbe12c7353d85f95eb8874c4f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58c6b5e076e9546aa621c9d1aea8893edf4335c0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Använd en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
 
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Den här självstudiekursen skapar vi en ny Windows virtuell dator.  Du kan också aktivera MSI på en befintlig virtuell dator.
 
-1.  Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1.  Klicka på den **skapar du en resurs** knapp hittades i det övre vänstra hörnet i Azure-portalen.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 3.  Ange informationen för den virtuella datorn. Den **användarnamn** och **lösenord** skapade här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
 4.  Välj rätt **prenumeration** för den virtuella datorn i listrutan.
@@ -155,7 +155,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](h
 1.  Starta SQL Server Management Studio.
 2.  I den **Anslut till Server** dialogrutan, ange din SQLServer-namnet i den **servernamn** fältet.
 3.  I den **autentisering** väljer **Active Directory - Universal med stöd för MFA**.
-4.  I den **användarnamn** , ange namnet på Azure AD-kontot som du anger som serveradministratören, t.ex.helen@woodgroveonline.com
+4.  I den **användarnamn** , ange namnet på Azure AD-kontot som du anger som serveradministratören, t.ex. helen@woodgroveonline.com
 5.  Klicka på **Alternativ**.
 6.  I den **Anslut till databas** , ange namnet på databasen för icke-system som du vill konfigurera.
 7.  Klicka på **Anslut**.  Slutföra inloggningen.

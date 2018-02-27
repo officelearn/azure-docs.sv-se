@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en Apptjänst-miljö v1
 
@@ -34,11 +34,11 @@ Den här kursen visar hur du skapar webbappar och apptjänstplaner i en [Apptjä
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här kursen förutsätter att du har skapat en Apptjänst-miljö. Om du inte har gjort det ännu kan se [skapa en Apptjänst-miljö](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
-1. I den [Azure Portal](https://portal.azure.com/), klickar du på **Ny > webb + mobilt > Webbapp**. 
+1. I den [Azure Portal](https://portal.azure.com/), klickar du på **skapar du en resurs > webb + mobilt > Webbapp**. 
    
     ![][1]
 2. Välj din prenumeration.  
@@ -47,7 +47,7 @@ Den här kursen förutsätter att du har skapat en Apptjänst-miljö. Om du inte
 3. Välj eller skapa en Resursgrupp.
    
     *Resursgrupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när *rollbaserad åtkomstkontroll* (RBAC) regler för dina appar. Mer information finns i [översikt över Azure Resource Manager][ResourceGroups]. 
-4. Välj eller skapa en apptjänstplan.
+4. Välj eller skapa en App Service plan.
    
     *Apptjänstplaner* är hanterade uppsättningar av webbprogram.  Normalt tillämpas priset App Service-plan i stället för enskilda appar när du väljer prisnivå. I en ASE betalar för compute-instanser som allokerats till ASE i stället för att du har angett med ASP.  Om du vill skala antalet instanser av ett webbprogram som du skalar upp instanser av din Apptjänst påverkar plan och alla web apps i planen.  Vissa funktioner, till exempel plats platser eller VNET-integrering har också antal begränsningar i planen.  Mer information finns i [översikt över Azure App Service-planer](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
@@ -63,7 +63,7 @@ Den här kursen förutsätter att du har skapat en Apptjänst-miljö. Om du inte
     Om din ASE använder en intern VIP sedan Webbadressen till en app i den ASE är: [*sitename*]. [ *underdomän som angetts under skapande av ASE*]   
     När du har valt ASP under skapande av ASE underdomänen uppdatera nedan visas **namn**
 
-## <a name="createplan"></a>Skapa en apptjänstplan
+## <a name="createplan"></a> Skapa en apptjänstplan
 När du skapar en apptjänstplan i en Apptjänst-miljö skiljer worker-alternativ som det finns ingen delad arbetare i en ASE.  Personer som du måste använda är de som har tilldelats ASE av administratören.  Detta innebär att om du vill skapa en ny plan måste ha flera personer som allokerats till din ASE arbetspool än det totala antalet instanser för alla dina planer redan i den poolen, worker.  Du måste arbeta med ASE administratören att lägga till dem om du inte har tillräckligt med personer i din ASE worker-pool för att skapa ett schema.
 
 En annan skillnaden med App Service-planer hos en Apptjänst-miljö är bristen på priser val.  När du har en Apptjänst-miljö betalar för beräkningsresurser som används av systemet och har inte lagts till kostnader för planerna i miljö.  När du skapar en apptjänstplan välja normalt en prisavtal som avgör din fakturering.  En Apptjänst-miljö är i grunden en privat plats där du kan skapa innehåll.  Du betalar för miljön och inte som värd för ditt innehåll.

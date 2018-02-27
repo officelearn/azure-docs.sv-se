@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -210,7 +210,7 @@ Använd följande steg för att ansluta till Ambari och andra webbsidor via det 
 
 2. Information om den noden och port som en tjänst är tillgänglig på finns i [portar som används av Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
-## <a id="networktraffic"></a>Kontrollera nätverkstrafik
+## <a id="networktraffic"></a> Kontrollera nätverkstrafik
 
 Nätverkstrafik i en virtuell Azure-nätverk kan kontrolleras med hjälp av följande metoder:
 
@@ -227,7 +227,7 @@ Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till Azure hälsa
 
 HDInsight visar tjänster på flera portar. När du använder en virtuell installation brandvägg måste du tillåta trafik på portarna som används för dessa tjänster. Mer information finns i avsnittet [portar som krävs].
 
-### <a id="hdinsight-ip"></a>HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar
+### <a id="hdinsight-ip"></a> HDInsight med nätverkssäkerhetsgrupper och användardefinierade vägar
 
 Om du tänker använda **nätverkssäkerhetsgrupper** eller **användardefinierade vägar** att kontrollera nätverkstrafiken, utför följande åtgärder innan du installerar HDInsight:
 
@@ -250,7 +250,7 @@ Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar 
 
 Tvingad tunneling är en användardefinierad konfiguration där all trafik från ett undernät tvingas till ett visst nätverk eller plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd Tvingad tunneltrafik.
 
-## <a id="hdinsight-ip"></a>Den begärda IP-adresser
+## <a id="hdinsight-ip"></a> Den begärda IP-adresser
 
 > [!IMPORTANT]
 > Azure hälsa och management-tjänster måste kunna kommunicera med HDInsight. Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar tillåta trafik från IP-adresser för dessa tjänster att nå HDInsight.
@@ -299,6 +299,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
     | &nbsp; | Östra USA | 13.82.225.233</br>40.71.175.99 | 443 | Inkommande |
     | &nbsp; | Norra centrala USA | 157.56.8.38</br>157.55.213.99 | 443 | Inkommande |
     | &nbsp; | Västra centrala USA | 52.161.23.15</br>52.161.10.167 | 443 | Inkommande |
+    | &nbsp; | Västra USA | 13.64.254.98</br>23.101.196.19 | 443 | Inkommande |
     | &nbsp; | Västra USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkommande |
 
     Mer information om IP-adresserna för Azure Government finns i [Azure Government Intelligence + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentet.
@@ -307,7 +308,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
 
 Mer information finns i [styra nätverkstrafiken](#networktraffic) avsnitt.
 
-## <a id="hdinsight-ports"></a>Portar som krävs
+## <a id="hdinsight-ports"></a> Portar som krävs
 
 Om du tänker använda ett nätverk **virtuell installation brandväggen** om du vill skydda det virtuella nätverket måste du tillåta utgående trafik på följande portar:
 
@@ -499,7 +500,7 @@ Använd följande steg för att skapa ett virtuellt nätverk som begränsar inko
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Exempel: DNS-konfiguration
+## <a id="example-dns"></a> Exempel: DNS-konfiguration
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Namnmatchning mellan ett virtuellt nätverk och ett anslutna lokalt nätverk
 

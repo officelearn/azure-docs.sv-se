@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Migrera din befintliga Azure-Mobiltjänst till Azure App Service
 Med den [allmän tillgång till Azure App Service], Azure Mobile Services-platser kan enkelt migrera i för att kunna utnyttja alla funktioner i Azure App Service.  Det här dokumentet beskrivs vad som händer när du migrerar din webbplats från Azure Mobile Services till Azure App Service.
@@ -32,7 +32,7 @@ Migrering av din Azure-Mobiltjänst stängs din Mobiltjänst i ett [Azure App Se
 Microsoft rekommenderar att du migrerar din Azure-Mobiltjänst för att dra nytta av funktionerna i Azure Apptjänst, bland annat:
 
 * Nya värdfunktioner, inklusive [WebJobs] och [anpassade domännamn].
-* Övervakning och felsökning med New Relic eller [Programinsikter].
+* Övervakning och felsökning med [Programinsikter].
 * Inbyggda DevOps-tooling, inklusive [mellanlagring fack], återställning och i produktion testning.
 * [Autoskala], belastningsutjämning, och [prestandaövervakning].
 
@@ -127,7 +127,7 @@ PublishSettings-filen laddas ned till datorn.  Det kallas vanligtvis *sitename*.
 
 1. Öppna Visual Studio och Azure Mobile Service-projekt.
 2. Högerklicka på projektet i den **Solution Explorer** och välj **publicera...**
-3. Klicka på **Import**
+3. Klicka på **Importera**
 4. Klicka på **Bläddra** och välj din hämtade inställningsfilen för publicering.  Klicka på **OK**
 5. Klicka på **Validera anslutningen** se till att publicera inställningarna fungerar.
 6. Klicka på **publicera** att publicera webbplatsen.
@@ -269,7 +269,7 @@ Följande ytterligare appinställningar har migrerats från din Mobiltjänst och
 | Tillämpningsinställning | Beskrivning |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Namnet på din app |
-| **MS\_MobileServiceDomainSuffix** |Domänprefixet. engångsfaktorautentisering Azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Domänprefixet. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |Din nyckel för programmet |
 | **MS\_MasterKey** |Huvudnyckeln för din app |
 

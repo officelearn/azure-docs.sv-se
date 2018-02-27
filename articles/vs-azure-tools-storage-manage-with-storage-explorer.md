@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
@@ -28,6 +28,16 @@ Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Du kan behöva installera manuellt vissa beroenden för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
+> * libgconf-2-4
+> * libsecret
+> * Uppdaterade GCC
+>
+> Beroende på din distro kan det finnas andra paket som du behöver installera. Lagringsutforskaren [viktig information](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehåller särskilda åtgärder för vissa distributioner.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Ansluta till ett lagringskonto eller en tjänst
 Med Lagringsutforskaren (förhandsversion) kan du ansluta till lagringskonton på flera olika sätt. Du kan till exempel:
@@ -240,18 +250,18 @@ Förutom hantera Azure Cosmos DB konton via Azure-prenumeration, ett alternativt
     ![connection-string][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Anslut till Azure Data Lake Store av URI: N
-Om du vill få åtkomst till resurser som inte finns i din prenumeration. Men andra bevilja dig för URI: N för resurser. I det här fallet kan du ansluta till Data Lake Store med URI: N efter att du har loggat in. Referera till följande steg.
+Om du vill komma åt resurser som inte finns i din prenumeration. Men andra ger dig behörighet att komma åt resursernas URI. I det här fallet kan du ansluta till Data Lake Store med denna URI när du loggat in. Se följande steg.
 1. Öppna Lagringsutforskaren (förhandsversion).
-2. I den vänstra rutan, expanderar **lokala och bifogad**.
-3. Högerklicka på **Datasjölager**, och på snabbmenyn - väljer **Anslut till Data Lake Store...** .
+2. I det vänstra fönstret expanderar du **Lokala och ansluten**.
+3. Högerklicka på **Data Lake Store** och från snabbmenyn väljer du **Anslut till Data Lake Store...**.
 
-    ![ansluta till Data Lake Store snabbmenyn](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![snabbmenyn anslut till Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Ange Uri, och sedan verktyget navigerar till platsen för den URL som du angav.
+4. Ange den URI du fått, verktyget går till den URL du angett.
 
-    ![ansluta till Data Lake Store kontexten dialogrutan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![dialogen anslut till Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![ansluta till Data Lake Store-resultat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![resultat för ansluta till Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Söka efter lagringskonton
 Om du vill söka efter en lagringsresurs och inte vet om det är, kan du använda sökrutan överst i den vänstra rutan för att söka efter resursen.

@@ -8,18 +8,22 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure Log Integration Självstudier: processen Azure Key Vault-händelser med hjälp av Händelsehubbar
 
 Du kan använda Azure Log-integrering för att hämta loggade händelser och göra dem tillgängliga för din information och händelse (SIEM) hanteringssystem för informationssäkerhet. Den här kursen visar ett exempel på hur Azure Log-integrering kan användas för att bearbeta loggar som skaffas genom Azure Event Hubs.
+
+>[!IMPORTANT]
+>Den bästa metoden för att integrera Azure loggar är med hjälp av leverantören SIEM Azure-Monitor koppling och följande [instruktioner](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Men om din SIEM-leverantör inte ger en koppling till Azure-Monitor, du kan använda Azure Log-integrering som en tillfällig lösning (om din SIEM stöds av Azure Log-integrering) tills en sådan anslutning är tillgänglig.
+
  
 Använd den här självstudiekursen för att bekanta dig med hur Azure Log-integrering och Händelsehubbar kan fungera tillsammans med följande exempel och förstå hur varje steg stöder lösningen. Du kan sedan ta vad du har lärt dig här för att skapa egna steg för att stödja ditt företags unika krav.
 
@@ -86,13 +90,13 @@ Innan du kan slutföra stegen i den här artikeln, behöver du följande:
 
    ![PowerShell-fönster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 5. Skapa variabler för att lagra värden som kommer att användas senare. Ange var och en av följande rader i PowerShell. Du kan behöva justera värden som stämmer överens din miljö.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(Namnet på din prenumeration kan vara olika. Du kan se det som en del av utdata från det föregående kommandot.)
-    - ```$location = 'West US'```(Den här variabeln används för att skicka den plats där resurser ska skapas. Du kan ändra den här variabeln för att vara vilken plats som du väljer.)
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Namnet på din prenumeration kan vara olika. Du kan se det som en del av utdata från det föregående kommandot.)
+    - ```$location = 'West US'``` (Den här variabeln används för att skicka den plats där resurser ska skapas. Du kan ändra den här variabeln för att vara vilken plats som du väljer.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random```(Namnet kan vara allt, men den bör innehålla endast små bokstäver och siffror.)
-    - ``` $storageName = $name```(Den här variabeln används för lagringskontonamnet.)
-    - ```$rgname = $name ```(Den här variabeln används för resursgruppens namn.)
-    - ``` $eventHubNameSpaceName = $name```(Detta är namnet på namnområdet event hub.)
+    - ``` $name = 'azlogtest' + $random``` (Namnet kan vara allt, men den bör innehålla endast små bokstäver och siffror.)
+    - ``` $storageName = $name``` (Den här variabeln används för lagringskontonamnet.)
+    - ```$rgname = $name ``` (Den här variabeln används för resursgruppens namn.)
+    - ``` $eventHubNameSpaceName = $name``` (Detta är namnet på namnområdet event hub.)
 6. Ange den prenumeration som du kommer att arbeta med:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```

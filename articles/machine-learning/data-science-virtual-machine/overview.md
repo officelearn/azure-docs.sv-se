@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure datavetenskap virtuell dator för Linux och Windows
 
-Den virtuella datorn på vetenskap (DSVM) är en anpassad VM-avbildning på Microsoft Azure-molnet som skapats specifikt för att göra datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Den är tillgänglig på Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux-versionen av DSVM på Ubuntu 16.04 LTS och på OpenLogic 7.2 CentOS-baserade Linux-distributioner. 
+Den virtuella datorn på vetenskap (DSVM) är en anpassad VM-avbildning på Microsoft Azure-molnet som skapats specifikt för att göra datavetenskap. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Den är tillgänglig på Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux utgåvor av DSVM på Ubuntu 16.04 LTS och CentOS 7.4.
 
 Det här avsnittet beskrivs vad du kan göra med den virtuella datorn vetenskapliga Data, en översikt över viktiga scenarier för att använda den virtuella datorn, specificerar de viktigaste funktionerna som är tillgängliga i Windows och Linux-versioner och innehåller instruktioner om hur du kommer igång med dem.
 
@@ -49,7 +49,7 @@ Datavetenskap hackathons/tävlingar eller storskaliga datamodellering och utfors
 Den virtuella datorn datavetenskap kan vara används för att utvärdera och lära dig verktyg som Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, djupa learning / ML verktyg och nya verktyg populära i gemenskapen med minimal installation arbete. Eftersom den virtuella datorn datavetenskap kan ställas in snabbt, kan den användas i andra kortsiktig användarscenarier som replikerar publicerade experiment, köra demonstrationer följande genomgång i online sessioner eller konferens självstudier.
 
 ### <a name="deep-learning"></a>Djupgående learning
-Datavetenskap VM kan användas för utbildning-modell med djup learning algoritmer på GPU (Graphics bearbetningsenheter) baserad maskinvara. Använda VM skalning maskinvarufunktioner för Azure-molnet kan DSVM du använda GPU-baserad maskinvara på molnet enligt behov. Växla till en GPU-baserad virtuell dator när utbildning stora modeller kan eller behöver snabba beräkningar samtidigt som samma OS-disk.  Windows Server 2016-versionen av DSVM finns förinstallerat med GPU drivrutiner, ramverk och GPU-versionen av djup learning algoritmer. Linux, djup learning på GPU är aktiverat bara på den [datavetenskap virtuell dator för Linux (Ubuntu) edition](http://aka.ms/dsvm/ubuntu). Du kan distribuera Windows-Ubuntu 2016-versionen av datavetenskap VM till icke GPU-baserad Azure virtuell dator i vilket fall alla djup learning ramverk kommer återgång till CPU-läge. Tidigare, för Windows Server 2012 vi publicerade en [djup learning toolkit](http://aka.ms/dsvm/deeplearning) men nu bör du använda Windows Server 2016 för Windows-baserade djup learning arbetsbelastningar. Versionen av DSVM innehåller endast baserat på CentOS Linux Processorn bygger på några av djup lära (Microsoft kognitiva Toolkit, TensorFlow, MXNet) men kommer inte förinstallerat GPU drivrutiner och ramverk. 
+Datavetenskap VM kan användas för utbildning-modell med djup learning algoritmer på GPU (Graphics bearbetningsenheter) baserad maskinvara. Använda VM skalning maskinvarufunktioner för Azure-molnet kan DSVM du använda GPU-baserad maskinvara på molnet enligt behov. Växla till en GPU-baserad virtuell dator när utbildning stora modeller kan eller behöver snabba beräkningar samtidigt som samma OS-disk.  Windows Server 2016-versionen av DSVM finns förinstallerat med GPU drivrutiner, ramverk och GPU-versioner av djup learning ramverk. Linux, är djup learning på GPU aktiverat på både CentOS och Ubuntu DSVMs. Du kan distribuera Ubuntu och CentOS Windows 2016-versionen av datavetenskap VM till icke GPU-baserad virtuell Azure-dator i vilket fall djup learning ramverk återgår till att CPU-läge. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Vad ingår i den virtuella datorn vetenskap Data?
 Datavetenskap virtuell dator har många populära datavetenskap och djup lära redan har installerats och konfigurerats. Den omfattar också verktyg som gör det enkelt att arbeta med olika Azure-data och analyser produkter. Du kan utforska och skapa förutsägelsemodeller i stora datauppsättningar genom att använda Microsoft ML Server (R, Python) eller SQL Server 2017. En mängd andra verktyg från community för öppen källkod och från Microsoft finns också inkluderade som exempel koden och bärbara datorer. I följande tabell specificerar och jämför huvudkomponenterna som ingår i Windows och Linux-versioner av datavetenskap Virtual Machine.
@@ -74,7 +74,7 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub (flera användares anteckningsböcker server)| N | Y |
 | **Utvecklingsverktyg, IDEs och kod redigerare**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > med Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), och [R Verktyg för Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > med Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), och [R-verktyg för Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
@@ -84,7 +84,7 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim och Emacs | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git och GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .net framework | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | Y | N |
 | PowerBI Desktop | Y | N |
 | SDK: er för åtkomst till Azure och Cortana Intelligence Suite av tjänster | Y | Y |
 | **Dataförflyttning och hanteringsverktyg** | | |
@@ -92,7 +92,8 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Y | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (Azure Data Lake lagring)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [BLOB SÄKRAD drivrutin](https://github.com/Azure/azure-storage-fuse) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy(Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB Datamigreringsverktyg](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): flytta data mellan OnPrem och moln | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix/Linux-kommandoradsverktyg | Y | Y |
@@ -102,10 +103,10 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spännen](http://rattle.togaware.com/) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (Ubuntu) |
-| **GPU-baserad djup lära** |Windows Server 2016 version  |Ubuntu edition |
+| **GPU-baserad djup lära** |Windows Server 2016 edition  | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft kognitiva Toolkit (kallades tidigare CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y | Y|
@@ -113,11 +114,14 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia siffror](https://github.com/NVIDIA/DIGITS) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model-Server](https://github.com/awslabs/mxnet-model-server) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow fungerar](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA CUDNN, Nvidia drivrutin](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
 | **Stordataplattform (Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Lokala [Spark](http://spark.apache.org/) fristående | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* Lokala [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Local [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) | N | Y |
 
 
 
@@ -137,7 +141,7 @@ Datavetenskap virtuell dator har många populära datavetenskap och djup lära r
 
   eller
 
-  * [OpenLogic CentOS baserat DSVM](http://aka.ms/dsvm/centos)
+  * [CentOS baserat DSVM](http://aka.ms/dsvm/centos)
 
   
 * Klicka på den **blir det nu** knappen.

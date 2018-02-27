@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Nu ska vi prova några frågor mot dessa data för att förstå några viktiga a
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -139,7 +139,7 @@ Nu föreställa dig när vi behöver formatera om JSON-utdata i en annan form. D
     FROM Families f 
     WHERE f.address.city = f.address.state
 
-**Resultat**
+**Results**
 
     [{
         "Family": {
@@ -159,7 +159,7 @@ Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
 
-**Resultat**
+**Results**
 
     [
       { "givenName": "Jesse" }, 
@@ -174,7 +174,7 @@ Vi vill att uppmärksamma några anmärkningsvärda aspekter av Cosmos-DB-fråge
 * Cosmos DB stöder endast strikt JSON-dokument. Det innebär att typsystemet och uttryck begränsas till endast behandlar JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
 * En Cosmos-DB-samling är en schemafria behållare för JSON-dokument. Relationer i data enheter inom och mellan dokument i en samling fångas implicit av inneslutning och inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt värt pekar hänsyn intra-dokument-kopplingar som beskrivs senare i den här artikeln.
 
-## <a id="Indexing"></a>Cosmos DB indexering
+## <a id="Indexing"></a> Cosmos DB indexering
 Innan vi går in SQL-syntaxen är det vara värt att utforska indexering designen i Azure Cosmos-databasen. 
 
 Syftet med-databasindex är att hantera frågor i olika formulär och former med minsta resursförbrukning (t.ex. CPU och in-/ utdata) och ger bra genomflöde och låg latens. Valet av rätt index för att fråga en databas kräver ofta mycket planering och experiment. Den här metoden innebär en utmaning för schemat mindre databaser där data stämmer inte överens med ett strikt schema och utvecklas snabbt samtidigt. 
@@ -203,7 +203,7 @@ Den `FROM <from_specification>` satsen är valfri såvida källan filtreras elle
 
 En fråga som `SELECT * FROM Families` anger att hela familjer samlingen är källan att räkna upp. En särskild identifierare rot kan användas för att representera samlingen istället för att använda namnet på samlingen. Följande lista innehåller de regler som tillämpas per fråga:
 
-* Samlingen kan vara ett alias, t.ex `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` motsvarar `Families`. `AS`är ett valfritt nyckelord för alias identifierare.
+* Samlingen kan vara ett alias, t.ex `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` motsvarar `Families`. `AS` är ett valfritt nyckelord för alias identifierare.
 * När ett alias, den ursprungliga källan kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom inte går att matcha identifieraren ”familjer” längre.
 * Alla egenskaper som behöver refereras måste vara fullständigt kvalificerad. Detta gäller i frånvaron av strikt schema för att undvika eventuella tvetydig bindningar. Därför `SELECT id FROM Families f` är syntaktiskt felaktig eftersom egenskapen `id` är inte bunden.
 
@@ -215,7 +215,7 @@ Källan kan också reduceras till en mindre deluppsättning. Till exempel att r�
     SELECT * 
     FROM Families.children
 
-**Resultat**  
+**Results**  
 
     [
       [
@@ -253,7 +253,7 @@ När ovanstående exempel används en matris som källa, ett objekt även ska an
     SELECT * 
     FROM Families.address.state
 
-**Resultat**
+**Results**
 
     [
       "WA", 
@@ -272,7 +272,7 @@ Följande fråga begär dokument som innehåller en namnegenskapen vars värde �
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "address": {
@@ -368,7 +368,7 @@ Följande tabell visar resultatet av likheten jämförelser i SQL-API mellan tv�
             <strong>Objektet</strong>
          </td>
          <td valign="top">
-            <strong>Matris</strong>
+            <strong>matris</strong>
          </td>
       </tr>
       <tr>
@@ -492,7 +492,7 @@ Odefinierad </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Matris<strong>
+            <strong>matris<strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -611,7 +611,7 @@ I följande exempel visas en typisk urvalsfråga.
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "address": {
@@ -631,7 +631,7 @@ I exemplet nedan vi projicerar två kapslade egenskaper `f.address.state` och `f
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "state": "WA", 
@@ -647,7 +647,7 @@ Projektion stöder också JSON-uttryck som visas i följande exempel:
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "$1": {
@@ -667,7 +667,7 @@ Nu ska vi titta på rollen för `$1` här. Den `SELECT` satsen behöver skapa en
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "$1": {
@@ -693,7 +693,7 @@ Om en fråga har två egenskaper med samma namn, användas alias för att byta n
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
       "AddressInfo": {
@@ -713,7 +713,7 @@ Förutom egenskapsreferenser till stöder SELECT-satsen också skaläruttryck ko
 
     SELECT "Hello World"
 
-**Resultat**
+**Results**
 
     [{
       "$1": "Hello World"
@@ -726,7 +726,7 @@ Här är ett mer avancerat exempel som använder ett skalärt uttryck.
 
     SELECT ((2 + 11 % 7)-2)/3    
 
-**Resultat**
+**Results**
 
     [{
       "$1": 1.33333
@@ -740,7 +740,7 @@ I följande exempel är resultatet av det skalära uttrycket som ett booleskt v�
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
 
-**Resultat**
+**Results**
 
     [
       {
@@ -760,7 +760,7 @@ En annan nyckelfunktion i SQL-API är array-objekt skapas. Observera att vi har 
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
 
-**Resultat**  
+**Results**  
 
     [
       {
@@ -784,7 +784,7 @@ Den **värdet** nyckelord är ett sätt att returnera JSON-värde. Till exempel 
 
     SELECT VALUE "Hello World"
 
-**Resultat**
+**Results**
 
     [
       "Hello World"
@@ -798,7 +798,7 @@ Följande fråga returnerar JSON-värde utan den `"address"` etikett i resultate
     SELECT VALUE f.address
     FROM Families f    
 
-**Resultat**  
+**Results**  
 
     [
       {
@@ -820,7 +820,7 @@ I följande exempel utökar här om du vill visa hur du returnerar JSON primitiv
     SELECT VALUE f.address.state
     FROM Families f    
 
-**Resultat**
+**Results**
 
     [
       "WA",
@@ -837,7 +837,7 @@ Särskilda operatorn (*) går för att projicera dokumentet-är. När den använ
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultat**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -865,7 +865,7 @@ Nyckelordet TOP kan användas för att begränsa antalet värden från en fråga
     SELECT TOP 1 * 
     FROM Families f 
 
-**Resultat**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -895,7 +895,7 @@ Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utf�
     SELECT COUNT(1) 
     FROM Families f 
 
-**Resultat**
+**Results**
 
     [{
         "$1": 2
@@ -908,7 +908,7 @@ Du kan också returnera mängdfunktionen skalära värde med hjälp av den `VALU
     SELECT VALUE COUNT(1) 
     FROM Families f 
 
-**Resultat**
+**Results**
 
     [ 2 ]
 
@@ -920,11 +920,11 @@ Du kan också utföra aggregeringar i kombination med filter. Följande fråga r
     FROM Families f
     WHERE f.address.state = "WA" 
 
-**Resultat**
+**Results**
 
     [ 1 ]
 
-I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM`och `AVG` utförs via numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via siffror, strängar, booleska värden och null-värden. 
+I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM` och `AVG` utförs via numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via siffror, strängar, booleska värden och null-värden. 
 
 | Användning | Beskrivning |
 |-------|-------------|
@@ -937,7 +937,7 @@ I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM`och `AVG` utf�
 Aggregeringar kan också utföras via resultatet av en matris iteration. Mer information finns i [matris Iteration i frågor](#Iteration).
 
 > [!NOTE]
-> När du använder Azure portal Frågeutforskaren, Observera att aggregering frågor kan returnera delvis sammanlagda resultat via en fråga sida. SDK: erna producerar en enda ackumulerade värdet på alla sidor. 
+> När du använder Azure portal Data Explorer, Observera att aggregering frågor kan returnera delvis sammanlagda resultat via en fråga sida. SDK: erna producerar en enda ackumulerade värdet på alla sidor. 
 > 
 > För att kunna utföra aggregering frågor med kod du behöver .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.    
 >
@@ -953,7 +953,7 @@ Här är till exempel en fråga som hämtar familjer i den ordning de fasta Ortn
     FROM Families f 
     ORDER BY f.address.city
 
-**Resultat**
+**Results**
 
     [
       {
@@ -974,7 +974,7 @@ Och här är en fråga som hämtar familjer efter skapandedatum som lagras som e
     FROM Families f 
     ORDER BY f.creationDate DESC
 
-**Resultat**
+**Results**
 
     [
       {
@@ -997,7 +997,7 @@ En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att ge st�
     SELECT * 
     FROM Families.children
 
-**Resultat**  
+**Results**  
 
     [
       [
@@ -1031,7 +1031,7 @@ Nu ska vi titta på en annan fråga som utför iteration över underordnade obje
     SELECT * 
     FROM c IN Families.children
 
-**Resultat**  
+**Results**  
 
     [
       {
@@ -1062,7 +1062,7 @@ Detta kan ytterligare användas för att filtrera på varje enskild post i matri
     FROM c IN Families.children
     WHERE c.grade = 8
 
-**Resultat**  
+**Results**  
 
     [{
       "givenName": "Lisa"
@@ -1075,7 +1075,7 @@ Du kan också utföra sammanställning över resultatet av matrisen iteration. T
     SELECT COUNT(child) 
     FROM child IN Families.children
 
-**Resultat**  
+**Results**  
 
     [
       { 
@@ -1096,7 +1096,7 @@ I följande exempel visas hur JOIN-satsen fungerar. I följande exempel visas re
     FROM Families f
     JOIN f.NonExistent
 
-**Resultat**  
+**Results**  
 
     [{
     }]
@@ -1110,7 +1110,7 @@ I följande exempel är kopplingen mellan dokumentroten och `children` subroot. 
     FROM Families f
     JOIN f.children
 
-**Resultat**
+**Results**
 
     [
       {
@@ -1130,7 +1130,7 @@ I följande exempel visas en mer konventionella koppling:
     FROM Families f
     JOIN c IN f.children 
 
-**Resultat**
+**Results**
 
     [
       {
@@ -1167,7 +1167,7 @@ Verktyget verkliga för anslutning till är att formuläret tupplar från kryssp
     JOIN c IN f.children 
     JOIN p IN c.pets
 
-**Resultat**
+**Results**
 
     [
       {
@@ -1205,7 +1205,7 @@ Det här exemplet är en naturlig förlängning av föregående exempel och utf�
         }
     }
 
-`AndersenFamily`har ett underordnat objekt som har en husdjur. Så här ger en rad i kryssprodukten (1\*1\*1) från den här serien. WakefieldFamily men har två underordnade objekt, men endast ett underordnat objekt ”Jesse” har husdjur. Jesse har två husdjur om. Därför kryssprodukten ger 1\*1\*2 = 2 rader från den här serien.
+`AndersenFamily` har ett underordnat objekt som har en husdjur. Så här ger en rad i kryssprodukten (1\*1\*1) från den här serien. WakefieldFamily men har två underordnade objekt, men endast ett underordnat objekt ”Jesse” har husdjur. Jesse har två husdjur om. Därför kryssprodukten ger 1\*1\*2 = 2 rader från den här serien.
 
 I nästa exempel finns ett filter på `pet`. Detta omfattar inte alla tupplar där husdjur namnet inte är ”skuggkopia”. Observera att vi kan skapa tupplar från matriser, filter på något av elementen i tuppeln, och projektet valfri kombination av elementen. 
 
@@ -1221,7 +1221,7 @@ I nästa exempel finns ett filter på `pet`. Detta omfattar inte alla tupplar d�
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
 
-**Resultat**
+**Results**
 
     [
       {
@@ -1271,7 +1271,7 @@ Vi kan nu använda den här UDF i en fråga i en projektion. UDF: er måste vara
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 
-**Resultat**
+**Results**
 
     [
       {
@@ -1290,7 +1290,7 @@ UDF-filen kan även användas i ett filter som visas i exemplet nedan är också
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
-**Resultat**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -1330,7 +1330,7 @@ Nedan visas ett exempel som utnyttjar en användardefinierad funktion.
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
 
-**Resultat**
+**Results**
 
      [
       {
@@ -1436,7 +1436,7 @@ Du kan till exempel nu köra frågor som liknar följande:
 
     SELECT VALUE ABS(-4)
 
-**Resultat**
+**Results**
 
     [4]
 
@@ -1491,7 +1491,7 @@ Med dessa funktioner kan köra du nu frågor som liknar följande:
 
     SELECT VALUE IS_NUMBER(-4)
 
-**Resultat**
+**Results**
 
     [true]
 
@@ -1524,7 +1524,7 @@ Med dessa funktioner kan köra du nu frågor som liknar följande. Exempelvis re
     SELECT VALUE UPPER(Families.id)
     FROM Families
 
-**Resultat**
+**Results**
 
     [
         "WAKEFIELDFAMILY", 
@@ -1538,7 +1538,7 @@ Eller sammanfoga strängar som i det här exemplet:
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1558,7 +1558,7 @@ Strängfunktioner kan också användas i WHERE-satsen för att filtrera resultat
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1583,7 +1583,7 @@ Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är til
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1597,7 +1597,7 @@ Du kan ange ett partiellt fragment för motsvarande element i matrisen. Följand
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1611,7 +1611,7 @@ Här är ett annat exempel som använder ARRAY_LENGTH för att få antalet under
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1660,7 +1660,7 @@ Spatial funktioner kan användas för att utföra närhet frågor mot spatialdat
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Resultat**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -2012,7 +2012,7 @@ I följande exempel visas en POST för en SQL-API-fråga som görs mot en samlin
     }
 
 
-**Resultat**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
@@ -2085,7 +2085,7 @@ Det andra exemplet visar en mer komplex fråga som returnerar flera resultat fr�
     }
 
 
-**Resultat**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
@@ -2212,7 +2212,7 @@ I nästa exempel visas kopplingar, uttryckt genom SelectMany för LINQ.
 
 .NET-klienten går automatiskt igenom alla sidor i resultatet av frågan i foreach-block som ovan. Frågealternativen introducerades i avsnittet REST API är också tillgängliga i .NET SDK med hjälp av `FeedOptions` och `FeedResponse` klasser i metoden CreateDocumentQuery. Antalet sidor som kan kontrolleras med hjälp av den `MaxItemCount` inställningen. 
 
-Du kan också explicit styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery`kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurerade indexprincip. För partitionerade samlingar kan du använda `PartitionKey` frågan ska köras mot en enskild partition (även om Cosmos DB extraherar det automatiskt från frågetexten) och `EnableCrossPartitionQuery` köra frågor som kan behöva köras mot flera partitioner. 
+Du kan också explicit styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurerade indexprincip. För partitionerade samlingar kan du använda `PartitionKey` frågan ska köras mot en enskild partition (även om Cosmos DB extraherar det automatiskt från frågetexten) och `EnableCrossPartitionQuery` köra frågor som kan behöva köras mot flera partitioner. 
 
 Referera till [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net) för flera sampel som innehåller frågor. 
 

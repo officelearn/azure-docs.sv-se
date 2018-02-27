@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure-molnet Shell
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
@@ -69,9 +69,9 @@ Första startas för molnet Shell uppmanas du för att skapa en resurs dela grup
 Ett lokalt redundant lagringskonto (LRS) och Azure-filer resursen kan skapas för din räkning. Resursen Azure-filer ska användas för både Bash och PowerShell miljöer om du väljer att använda båda. Vanliga lagringskostnader gäller.
 
 Tre resurser kommer att skapas för din räkning:
-1. En resursgrupp med namnet:`cloud-shell-storage-<region>`
-2. Lagringskontonamnet:`cs<uniqueGuid>`
-3. Filresurs med namnet:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. En resursgrupp med namnet: `cloud-shell-storage-<region>`
+2. Lagringskontonamnet: `cs<uniqueGuid>`
+3. Filresurs med namnet: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Bash i molnet Shell skapar även en standardbild 5 GB disk för att bevara `$Home`. Alla filer i katalogen $Home, till exempel SSH-nycklar finns kvar i din användare diskavbildning som lagras i den monterade Azure-filresursen. Tillämpa metodtips när du sparar filer i din $Home katalog och monterade Azure-filresursen.
@@ -83,7 +83,7 @@ Ett avancerat alternativ har angetts för att associera befintliga resurser till
 Klicka på ”Visa avancerade inställningar” i Kommandotolken lagring installationen att visa ytterligare alternativ.
 
 > [!Note]
-> Nedrullningsbara listorna filtreras för före molnet Shell regionen och LRS/GRS storage-konton.
+> Nedrullningsbara listorna filtreras för före molnet Shell regionen och LRS/GRS/ZRS-lagringskonton.
 
 [Lär dig om molnet Shell lagring, uppdatera Azure-filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
 

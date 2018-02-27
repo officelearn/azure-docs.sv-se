@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Hantera reserverade virtuella Datorinstanser
 
@@ -28,7 +28,7 @@ När du köper en Azure-reserverade VM-instans kan du vill använda reservatione
 
 Så här uppdaterar omfånget för en reservation: 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **fler tjänster** > **reservationer**.
+2. Välj **alla tjänster** > **reservationer**.
 3. Välj reservationen.
 4. Välj **inställningar** > **Configuration**.
 5. Ändra omfattningen. Om du ändrar från delad till ett enda scope, kan du bara välja prenumerationer där du är ägare. Endast prenumerationer inom samma fakturering kontext som reservationen, kan väljas. Kontexten fakturering bestäms av den prenumeration som du valde när reservationen köptes. Området gäller endast betala MS-AZR - 0003P prenumerationer och Enterprise erbjudande MS-AZR - 0017P prenumerationer. Utveckling och testning prenumerationer är inte rätt att få rabatt för reservation för enterprise-avtal.
@@ -69,7 +69,7 @@ Du kan hantera åtkomst till reservationer oberoende från prenumerationer som f
  
 Att delegera hantering för en reservation: 
 1.  Logga in på [Azure-portalen](https://portal.azure.com).
-2.  Välj **fler tjänster** > **Reservation** till listan reservationer som du har åtkomst till.
+2.  Välj **alla tjänster** > **Reservation** till listan reservationer som du har åtkomst till.
 3.  Välj reservationen som du vill delegera åtkomst till andra användare.
 4.  Välj **Access Control (IAM)** på menyn.
 5.  Välj **Lägg till** > **rollen** > **ägare** (eller en annan roll om du vill ge begränsad åtkomst). 

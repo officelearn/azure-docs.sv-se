@@ -4,7 +4,7 @@ description: "Den här kursen visar hur du skapar en SQL Server alltid på tillg
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera alltid på Tillgänglighetsgruppen i Azure VM manuellt
 
@@ -32,7 +32,7 @@ Diagrammet visar hur du skapar under kursen.
 
 ![Tillgänglighetsgruppen](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kursen förutsätter att du har en grundläggande förståelse för SQL Server alltid på Tillgänglighetsgrupper. Om du behöver mer information, se [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -40,13 +40,13 @@ I följande tabell visas de krav som du måste utföra innan du påbörjar den h
 
 |  |Krav |Beskrivning |
 |----- |----- |----- |
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Två SQL-servrar | – I en Azure tillgänglighetsuppsättning <br/> – I en domän <br/> -Med redundanskluster installerat |
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Filresurs för klustret vittne |  
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-tjänstkontot | Domänkonto |
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Tjänstkontot för SQL Server Agent | Domänkonto |  
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Öppna portar i brandväggen | -SQL Server: **1433** för standardinstans <br/> -Slutpunkten för databasspegling: **5022** eller alla tillgängliga portar <br/> -Azure belastningsutjämningsavsökning: **59999** eller alla tillgängliga portar |
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Lägga till Redundansklusterfunktionen | Både SQL-servrar kräver den här funktionen |
-|![Ruta](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domänkonto för installation | -Lokal administratör på varje SQL Server <br/> -Medlem i SQL Server fasta serverrollen sysadmin för varje instans av SQL Server  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Två SQL-servrar | – I en Azure tillgänglighetsuppsättning <br/> – I en domän <br/> -Med redundanskluster installerat |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Filresurs för klustret vittne |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-tjänstkontot | Domänkonto |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Tjänstkontot för SQL Server Agent | Domänkonto |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Öppna portar i brandväggen | -SQL Server: **1433** för standardinstans <br/> -Slutpunkten för databasspegling: **5022** eller alla tillgängliga portar <br/> -Azure belastningsutjämningsavsökning: **59999** eller alla tillgängliga portar |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Lägga till Redundansklusterfunktionen | Både SQL-servrar kräver den här funktionen |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domänkonto för installation | -Lokal administratör på varje SQL Server <br/> -Medlem i SQL Server fasta serverrollen sysadmin för varje instans av SQL Server  |
 
 
 Innan du påbörjar självstudiekursen måste du [slutföra förutsättningar för att skapa Always On-Tillgänglighetsgrupper i Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Om dessa krav har redan slutförts, kan du hoppa till [Skapa kluster](#CreateCluster).
@@ -55,7 +55,7 @@ Innan du påbörjar självstudiekursen måste du [slutföra förutsättningar f�
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Skapa klustret
+## Skapa klustret
 
 När förutsättningarna har slutförts, är det första steget att skapa ett redundanskluster för Windows-Server som innehåller två SQL-servrar och en vittnesserver som.  
 
@@ -71,7 +71,7 @@ När förutsättningarna har slutförts, är det första steget att skapa ett re
 
    | Sida | Inställningar |
    | --- | --- |
-   | Innan du börjar |Använd standardvärden |
+   | Innan du börjar |Använd standard |
    | Välj servrar |Ange det första SQL Server-namnet i **ange servernamnet** och på **Lägg till**. |
    | Verifieringsvarning |Välj **Nej jag inte behöver support från Microsoft för det här klustret och därför inte vill köra verifieringstesterna. När jag klickar på nästa fortsätter att skapa klustret**. |
    | Åtkomstpunkt för administration av klustret |Skriv ett namn för klustret, till exempel **SQLAGCluster1** i **klusternamnet**.|
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. I **Object Explorer**, högerklicka på **databaser** och på **ny databas**.
 8. I **databasnamnet**, typen **MyDB1**, klicka på **OK**.
 
-### <a name="backupshare"></a>Skapa en säkerhetskopia
+### <a name="backupshare"></a> Skapa en säkerhetskopia
 
 1. På den första SQL-servern i **Serverhanteraren**, klickar du på **verktyg**. Öppna **Datorhantering**.
 
@@ -337,7 +337,7 @@ Du har nu en tillgänglighetsgrupp med repliker på två instanser av SQL Server
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Skapa en Azure belastningsutjämnare
+## <a name="create-an-azure-load-balancer"></a>Skapa en Azure Load Balancer
 
 På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-tillgänglighetsgrupp. Belastningsutjämnaren innehåller IP-adressen för tillgänglighetsgruppens lyssnare. Det här avsnittet beskrivs hur du skapar belastningsutjämnaren i Azure-portalen.
 
@@ -352,7 +352,7 @@ På Azure virtual machines kräver en belastningsutjämnare i en SQL Server-till
    | Inställning | Fält |
    | --- | --- |
    | **Namn** |Använda ett namn för belastningsutjämnaren, till exempel **sqlLB**. |
-   | **Typ** |internt |
+   | **Typ** |Intern |
    | **Virtuellt nätverk** |Använd namnet på virtuella Azure-nätverket. |
    | **Undernät** |Använd namnet på det undernät som den virtuella datorn finns i.  |
    | **IP-adresstilldelning** |Statisk |
@@ -381,7 +381,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
    | **Namn** | Skriv ett namn | SQLLBBE
    | **Tillhör** | Välj från listan | Tillgänglighetsuppsättning
    | **Tillgänglighetsuppsättning** | Använd ett namn på tillgänglighetsuppsättning som din SQL Server-datorer finns i | sqlAvailabilitySet |
-   | **Virtuella datorer** |Två Azure SQL Server-VM-namn | SQLServer-0, sqlserver-1
+   | **Virtuella datorer** |Två Azure SQL Server-VM-namn | sqlserver-0, sqlserver-1
 
 1. Ange namn för backend-adresspool.
 
@@ -421,7 +421,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd port för SQL Server-instansen | 1433 |
    | **Backend-Port** | Det här fältet används inte när flytande IP är inställd för direkta servern returnerade | 1433 |
-   | **Avsökningen** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
+   | **Probe** |Det namn du angav för avsökningen | SQLAlwaysOnEndPointProbe |
    | **Persistence för session** | Listrutan | **Ingen** |
    | **Inaktivitetstid** | Minuter att öppna en TCP-anslutning | 4 |
    | **Flytande IP (direkt serverreturnering)** | |Enabled |
@@ -431,7 +431,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en serverdelspool,
 
 1. Klicka på **OK** att ange regler för belastningsutjämning.
 
-## <a name="configure-listener"></a>Konfigurera lyssnaren
+## <a name="configure-listener"></a> Konfigurera lyssnaren
 
 Nästa du behöver göra är att konfigurera en Availability Group-lyssnare för redundanskluster.
 

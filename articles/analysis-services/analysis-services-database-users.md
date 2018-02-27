@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 53e946bba6bbd882e78b51ee8d222ab0d3ec056a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
@@ -51,7 +51,7 @@ När du skapar en tabellmodell-projekt kan du skapa roller och Lägg till använ
     |**Ingen**|Medlemmar kan inte ändra modellschemat och det går inte att fråga efter data.|  
     |**Läsa**|Medlemmar kan fråga efter data (baserat på radfilter) men det går inte att ändra modellschemat.|  
     |**Läs- och processen**|Medlemmar kan fråga data (baserat på radnivå filter) och kör processen och bearbeta alla åtgärder, men det går inte att ändra modellschemat.|  
-    |**Processen**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
+    |**Process**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
     |**Administratören**|Medlemmar kan ändra modellschemat och läsa alla data.|   
   
 5.  Om rollen som du skapar har läs- eller Läs- och processen behörighet, du kan lägga till radfilter med hjälp av en DAX-formel. Klicka på den **radfilter** , och sedan markera en tabell och klicka sedan på den **DAX-Filter** fältet och skriv sedan en DAX-formel.
@@ -123,9 +123,9 @@ Den [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) modulen inneh�
   
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
-|[Lägg till RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
-|[Ta bort RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
-|[Anropa ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort en medlem från en databasroll.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett skript för TMSL.|
 
 ## <a name="row-filters"></a>Radfilter  
 Radfilter definiera vilka rader i en tabell kan efterfrågas av medlemmar i en viss roll. Radfilter definieras för varje tabell i en modell med hjälp av DAX-formler.  
@@ -140,7 +140,7 @@ Radfilter gäller för de angivna raderna och relaterade rader. När en tabell h
 |-----------|--------------------|  
 |Region|= Region [Land] = ”USA”|  
 |Produktkategori|= Produktkategori [Name] = ”cyklar”|  
-|Transaktioner|= Transaktioner [år] = 2016|  
+|Transaktioner|=Transactions[Year]=2016|  
   
  Net effekten är att medlemmar kan fråga datarader där kunden finns i USA, produktkategorin cyklar och året 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte cyklar eller transaktioner inte 2016 såvida de inte är medlem i en annan roll som ger dessa behörigheter.
   

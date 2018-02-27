@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Övervaka och hantera Azure Recovery Services-valv och servrar för Windows-datorer
 
@@ -32,13 +32,11 @@ Den här artikeln innehåller en översikt över säkerhetskopiering övervakare
 Recovery Services-valvet instrumentpanelen visar information eller attribut för Recovery Services-valvet.
 
 1. Logga in på den [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration.
-2. På navmenyn klickar du på **fler tjänster**.
-
-    ![Öppna en lista över Recovery Services-valv steg 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Klicka på **alla tjänster**. 
 
 3. Du vill öppna en Recovery Services-valvet. I dialogrutan för att börja skriva **återställningstjänster**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv** att visa listan över Recovery Services-valv i din prenumeration.
 
-    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Öppna en lista över Recovery Services-valv steg 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Listan över Recovery Services-valv öppnas.
 
@@ -74,9 +72,9 @@ Högst upp på instrumentpanelen:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Aviseringar för säkerhetskopiering med Azure backup-agenten:
 | Aviseringsnivå | Aviseringar skickas |
 | --- | --- |
-| kritiska |Säkerhetskopieringen har misslyckats, Återställningsfel |
-| Varning |Slutfördes med varningar (när < 100 filerna säkerhetskopieras inte på grund av problem med skadade och > 1 000 000 filer har säkerhetskopierats) |
-| Information |Ingen |
+| Kritiska | för säkerhetskopiering fel, Återställningsfel och uppskjutna delete d.v.s. när någon stoppar skydd med radera data |
+| Varning | för säkerhetskopiering har slutförts med varningar (när < 100 filerna säkerhetskopieras inte på grund av problem med skadade och > 1 000 000 filer har säkerhetskopierats) |
+| Information | finns för närvarande inga informationsaviseringar för Azure backup agent |
 
 ## <a name="manage-backup-alerts"></a>Hantera aviseringar för säkerhetskopiering
 Klicka på den **säkerhetskopiering aviseringar** öppna den **säkerhetskopiering aviseringar** menyn och hantera aviseringar.
@@ -110,7 +108,7 @@ Aviseringar kan skickas för följande allvarlighetsgrader:
 
 * kritiska
 * Varning
-* Information
+* information
 
 Du inaktivera avisering med den **inaktivera** knappen i jobbet information menyn. När du klickar på Inaktivera, kan du ange upplösning anteckningar.
 
@@ -307,7 +305,7 @@ S3. Nedan visas fall när meddelandet inte skickas för att minska bruset aviser
 2. Förutsatt att processen inte körs, öppna **Kontrollpanelen** och bläddra i listan över tjänster. Starta eller starta om **Microsoft Azure Recovery Services-hanteringsagenten**.
 
     Bläddra på loggfilerna på för mer information:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Exempel:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Exempel:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Nästa steg

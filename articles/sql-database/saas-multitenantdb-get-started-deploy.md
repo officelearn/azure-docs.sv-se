@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
@@ -59,11 +59,11 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 #### <a name="plan-the-names"></a>Planera namn
 
-Stegen i det här avsnittet, finns det två platser där du måste ange namn som en *användare* och för din nya *resursgruppen*. För en person med namnet *Ann Finley*, föreslår vi följande namn:
-- *Användare:* &nbsp; **af1** &nbsp; *(hennes initialer, plus en siffra.)*
-- *Resursgrupp:* &nbsp; **wingtip af1** &nbsp; *(Vi rekommenderar gemener. Lägg till ett bindestreck och sedan användarnamnet.)*
+I stegen i det här avsnittet ger du en *användare* värde som används för att säkerställa globalt unikt namn och ett namn för den *resursgruppen* som innehåller alla resurser som skapats av en distribution i appen. För en person med namnet *Ann Finley*, föreslår vi:
+- *Användare:* **af1***(hennes initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen till en andra gång.)*
+- *Resursgrupp:* **wingtip-dpt-af1** *(wingtip dpt innebär att det är appen databas per klient. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
 
-Välj namn på din nu och Skriv ned dem.
+Välj namn på din nu och Skriv ned dem. 
 
 #### <a name="steps"></a>Steg
 
@@ -72,7 +72,7 @@ Välj namn på din nu och Skriv ned dem.
 
     [![Knapp för att distribuera till Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Ange parametervärdena som krävs för distributionen.
+1. Ange parametervärdena som krävs för distributionen.
 
     > [!IMPORTANT]
     > För den här demonstrationen Använd inte några befintliga resursgrupper, servrar eller pooler. Välj i stället **skapa en ny resursgrupp**. Ta bort den här resursgruppen när du är klar med att programmet för att stoppa relaterad fakturering.
@@ -82,12 +82,12 @@ Välj namn på din nu och Skriv ned dem.
         - Välj en **plats** från den nedrullningsbara listan.
     - För **användare** -rekommenderar vi att du väljer en kort **användaren** värde.
 
-3. **Distribuera programmet**.
+1. **Distribuera programmet**.
 
     - Klicka om du accepterar villkoren.
     - Klicka på **Köp**.
 
-4. Övervaka Distributionsstatus genom att klicka på **meddelanden**, vilket är klockikonen till höger om sökrutan. Distribuera appen Wingtip tar cirka fem minuter.
+1. Övervaka Distributionsstatus genom att klicka på **meddelanden**, vilket är klockikonen till höger om sökrutan. Distribuera appen Wingtip tar cirka fem minuter.
 
    ![distributionen lyckades](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Varje plats hämtar en anpassad webbprogram till deras händelser och sälja bil
 Central **händelser hubb** webbsidan innehåller en lista med länkar till innehavare i en viss distribution. Använd följande steg för att uppleva den **händelser hubb** webbsidan och en enskild webbapp:
 
 1. Öppna den **händelser hubb** i webbläsaren:
-    - http://events.Wingtip. &lt;Användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
+    - http://events.Wingtip-MT.&lt;användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med din distribution användaren värde.)*
 
     ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Central **händelser hubb** webbsidan innehåller en lista med länkar till inne
 
 För att styra distributionen av inkommande begäranden Wingtip appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller innehavarens namn i Webbadressen. Varje URL innehåller också värdet för din specifika användare. Varje URL följs formatet visas med hjälp av följande steg:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Appen händelser Parsar klientnamn från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
 2. Appen sedan hashar innehavarens namn för att skapa en nyckel för att komma åt en katalog med hjälp av [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md).

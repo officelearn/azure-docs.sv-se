@@ -8,7 +8,7 @@ Du kan köpa reserverade virtuella Datorinstanserna den [Azure-portalen](https:/
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Köp en reserverad virtuell dator-instans
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **fler tjänster** > **reservationer**.
+2. Välj **alla tjänster** > **reservationer**.
 3. Välj **Lägg till** att köpa en ny reservation.
 4. Fyll i de obligatoriska fälten. Körande VM instanser som matchar de markerade attributen som uppfyller kraven för att få rabatt för reservation. Det faktiska antalet VM-instanser som får rabatten är beroende av omfång och kvantitet som väljs.
 

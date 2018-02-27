@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph .NET API: Hämta och viktig information
 
@@ -32,6 +32,8 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="release-notes"></a>Viktig information
 
+Vi rekommenderar att du använder öppen källkod Gremlin drivrutinen för .NET, Gremlin.Net. Lär dig hur du kommer igång [Azure Cosmos DB: skapa en graph-app med .NET och Graph API](create-graph-dotnet.md).
+
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
 
 #### <a name="bug-fixes"></a>Felkorrigeringar
@@ -44,8 +46,8 @@ ms.lasthandoff: 12/11/2017
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
 
 #### <a name="whats-new"></a>Nyheter
-* Tillagt stöd för`.netstandard 1.6`
-  * Kräver`Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Tillagt stöd för `.netstandard 1.6`
+  * Kräver `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Lägga till en ny `gremlin-groovy` parsern för att ersätta befintliga parsern. Den här parsern stöder en delmängd av Tinkerpop's `gremlin-groovy` syntax och omfattar:
   * Bättre tolkning prestanda 2 x.
   * Matcha ett antal problem relaterade till tecknet undantagstecken i strängar, felaktigt hanterat teckenvärden och andra oegentligheter i gamla parsern.
@@ -57,7 +59,7 @@ ms.lasthandoff: 12/11/2017
 * Borttagna stöd för .NET Framework 4.5.1
 
 * Nya parsern justeras med `gremlin-groovy` grammatik. Därför är vissa uttryck som har fungerat tidigare tvetydiga för nya parsern. Ett fall av Obs:
-  * `in`och `as` är reserverade nyckelord i `gremlin-groovy`, så här måste vara kvalificerat med `.in()` eller `.as()` att undvika syntaxfel. Till exempel: `g.V().repeat(in()).times(2)`  ->  _utlöser ett syntaxfel_  
+  * `in` och `as` är reserverade nyckelord i `gremlin-groovy`, så här måste vara kvalificerat med `.in()` eller `.as()` att undvika syntaxfel. Till exempel: `g.V().repeat(in()).times(2)`  ->  _utlöser ett syntaxfel_  
  `g.V().repeat(__.in()).times(2)` -> _lyckas_
 
 ### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
@@ -90,5 +92,5 @@ Alla förfrågningar till Azure Cosmos-databasen med en pensionerad SDK avvisas 
 | [0.2.0-Preview](#0.2.2-preview) |10 maj 2017 |--- |
 | [0.1.0-Preview](#0.1.0-preview) |8 kan 2017 |--- |
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Läs mer om Azure Cosmos DB Graph API i [introduktion till Azure Cosmos DB: Graph API](graph-introduction.md). 

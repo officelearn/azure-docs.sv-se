@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Kom igång med Azure Advisor
 
@@ -66,17 +66,17 @@ Du kan filtrera rekommendationer för att öka detaljnivån till vad som är vik
 
     ![Advisor sökfilter villkor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Viloläge eller ignorera Advisor-rekommendationer
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Skjuta upp eller ignorera Advisor-rekommendationer
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och sedan öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Gå till rekommendationen som du vill viloläge eller stängas.
+2. Gå till rekommendationen som du vill skjuta upp eller ignorera.
 
 3. Klicka på rekommendationen.
 
-4. Klicka på **viloläge**. 
+4. Klicka på **skjuta upp**. 
 
-5. Ange en viloläge tidsperiod, eller välj **aldrig** stänga rekommendationen.
+5. Ange en Skjut upp tidsperiod, eller välj **aldrig** stänga rekommendationen.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Exkludera prenumerationer eller resursgrupper från Advisor
 

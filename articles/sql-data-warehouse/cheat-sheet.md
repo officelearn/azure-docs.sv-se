@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Cheat blad för Azure SQL Data Warehouse
 Den här fusklapp ger nyttiga tips och bästa praxis för att skapa din Azure SQL Data Warehouse-lösningar. Innan du börjar, mer information om varje steg i detalj genom att läsa [Azure SQL Data Warehouse arbetsbelastning mönster och ett mönster](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), som beskriver SQL Data Warehouse är och vad det är inte.
@@ -121,7 +121,7 @@ Med hjälp av Compute optimerade nivån hämtar slutligen varje resursklassen 2,
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet].
 
 ## <a name="lower-your-cost"></a>Lägre dina kostnader
-En nyckelfunktion i SQL Data Warehouse är möjligheten att pausa när du inte använder den, vilket avbryter faktureringen av beräkningsresurser. En annan viktig funktion är möjligheten att skala resurser. Pausa och skalning kan göras via Azure-portalen eller via PowerShell-kommandon.
+En nyckelfunktion i SQL Data Warehouse är möjligheten att [hantera beräkningsresurser](sql-data-warehouse-manage-compute-overview.md). Du kan pausa datalagret när du inte använder den, vilket avbryter faktureringen av beräkningsresurser. Du kan skala resurser för att möta dina krav på prestanda. Pausa genom att använda den [Azure-portalen](pause-and-resume-compute-portal.md) eller [PowerShell](pause-and-resume-compute-powershell.md). Om du vill skala, Använd den [Azure-portalen](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), eller en [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoskala nu när du vill med Azure Functions:
 

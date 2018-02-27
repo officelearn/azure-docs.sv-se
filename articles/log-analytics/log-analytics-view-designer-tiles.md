@@ -1,6 +1,6 @@
 ---
-title: "Panelen referens för Vydesigner i Azure Log Analytics | Microsoft Docs"
-description: "Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data i logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer."
+title: En referens guide till Vydesigner paneler i Azure Log Analytics | Microsoft Docs
+description: "Du kan skapa anpassade vyer i Azure portal som visar olika datavisualiseringar i logganalys-arbetsytan med hjälp av Vydesigner i logganalys. Den här artikeln är en referenshandbok inställningar för rutor som är tillgängliga i din anpassade vyer."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,166 +14,168 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics Vydesigner panelen referens
-Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data i logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer.
+# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Referenshandboken till Vydesigner paneler i logganalys
+Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika datavisualiseringar i logganalys-arbetsytan med hjälp av Vydesigner i Azure logganalys. Den här artikeln är en referenshandbok inställningar för rutor som är tillgängliga i din anpassade vyer.
 
-Andra artiklar som är tillgängliga för Vydesigner är:
+Mer information om Vydesigner finns:
 
-* [Visa Designer](log-analytics-view-designer.md) -översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
-* [Referens för visualisering del](log-analytics-view-designer-parts.md) -referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer.
+* [Visa Designer](log-analytics-view-designer.md): ger en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+* [Referens för visualisering del](log-analytics-view-designer-parts.md): innehåller en referens guide till inställningarna för visualisering delar som är tillgängliga i din anpassade vyer.
 
->[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågor i alla visningslägen måste skrivas den [nya frågespråket](https://go.microsoft.com/fwlink/?linkid=856078).  Alla vyer som har skapats innan arbetsytan har uppgraderats kommer att automtically konverteras.
+> [!NOTE]
+> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), frågor i alla visningslägen måste skrivas den [nya frågespråket](https://go.microsoft.com/fwlink/?linkid=856078). Alla vyer som skapades före uppgraderingen arbetsytan konverteras automatiskt.
 
-I följande tabell visas de olika typerna av paneler som är tillgängliga i View Designer.  I avsnitten nedan beskrivs varje typ av panelen i detalj och deras egenskaper.
+I följande tabell beskrivs tillgängliga Vydesigner paneler:  
 
-| Panel | Beskrivning |
+| sida vid sida | Beskrivning |
 |:--- |:--- |
-| [Antal](#number-tile) |Tal visar antalet poster från en fråga. |
-| [Två tal](#two-numbers-tile) |Två enda tal visar antalet poster från två olika frågor. |
-| [Ring](#donut-tile) |Ringdiagram baserat på en fråga med ett summary-värde i mitten. |
-| [Linjediagram och callout](#line-chart-amp-callout-tile) |Linjediagram baserat på en fråga och en kommentar med ett summary-värde. |
-| [Linjediagram](#line-chart-tile) |Linjediagram baserat på en fråga. |
-| [Två tidslinjer](#two-timelines-tile) |Stapeldiagram med två serier varje baserat på en separat fråga. |
+| [Antal](#number-tile) |Antal poster från en fråga. |
+| [Två tal](#two-numbers-tile) |Antal poster från två olika frågor. |
+| [Ring](#donut-tile) | Ett diagram som baseras på en fråga med ett summary-värde i mitten. |
+| [Linjediagram och callout](#line-chart-amp-callout-tile) | Ett linjediagram som baseras på en fråga och en kommentar med ett summary-värde. |
+| [Linjediagram](#line-chart-tile) |Ett linjediagram som baseras på en fråga. |
+| [Två tidslinjer](#two-timelines-tile) | Ett stapeldiagram med två serier varje baserat på en separat fråga. |
+
+I nästa avsnitt beskrivs sida vid sida-typer och deras egenskaper i detalj.
 
 ## <a name="number-tile"></a>Antalet sida vid sida
-Den **nummer** visas ett tal visar antalet poster från en fråga i loggen och en etikett.
+Den **nummer** panelen visar både antalet poster från en fråga i loggen och en etikett.
 
 ![Antalet sida vid sida](media/log-analytics-view-designer/tile-number.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
-| **Sida vid sida** | |
-| Förklaring |Text som visas under värdet. |
-| Fråga |Frågan ska köras.  Antalet poster som returneras av frågan ska visas. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
+| **sida vid sida** | |
+| Förklaring |Den text som visas under värdet. |
+| Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
 ## <a name="two-numbers-tile"></a>Panelen två tal
-Den **två tal** visas två tal visar antalet poster från två olika loggen frågor och en etikett för varje.
+Den här panelen visar antal poster från två olika loggen frågor och en etikett för varje.
 
 ![Panelen två tal](media/log-analytics-view-designer/tile-two-numbers.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
 | **Första sida vid sida** | |
-| Förklaring |Text som visas under värdet. |
-| Fråga |Frågan ska köras.  Antalet poster som returneras av frågan ska visas. |
+| Förklaring |Den text som visas under värdet. |
+| Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Andra sida vid sida** | |
-| Förklaring |Text som visas under värdet. |
-| Fråga |Frågan ska köras.  Antalet poster som returneras av frågan ska visas. |
+| Förklaring |Den text som visas under värdet. |
+| Fråga |Den fråga som körs. Antalet poster som returneras av frågan visas. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
 ## <a name="donut-tile"></a>Ring sida vid sida
-Den **ringen** visas ett tal sammanfattats från en med en kolumn i en fråga i loggen.  Ringen visar grafiskt resultaten av de tre översta posterna.
+Den **ringen** panelen visar ett tal som sammanfattar en med en kolumn i en fråga i loggen. Ringen visar grafiskt resultaten av de tre översta posterna.
 
 ![Ring sida vid sida](media/log-analytics-view-designer/tile-donut.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
 | **Ring** | |
-| Fråga |Frågan ska köras för ringen.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat. |
+| Fråga |Den fråga som körs för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. |
 | **Ring** |**> Center** |
-| Text |Text som visas under värde i ringen. |
-| Åtgärd |Åtgärden att utföra på egenskapen value för att sammanfatta ett enskilt värde.<br><br>-Summan: Lägga till värden för alla poster med egenskapens värde.<br>-Procent: Procentandel av samlade värden från poster med egenskapsvärdet jämfört med de samlade värdena i alla poster. |
-| Resultatvärden som används i center åtgärd |Du kan också klicka på plustecknet för att lägga till ett eller flera värden.  Resultatet av frågan kommer att begränsas till poster med egenskapsvärden som du anger.  Om inga värden har lagts till med än alla poster i frågan. |
+| Text |Den text som visas under värdet i ringen. |
+| Åtgärd |Åtgärden som utförs på egenskapen value för att sammanfatta som ett enskilt värde.<ul><li>Sum: Lägga till värden för alla poster med egenskapens värde.</li><li>Procent: Procentandel av samlade värden från poster med egenskapsvärdet jämfört med de samlade värdena i alla poster.</li></ul> |
+| Resultatvärden som används i center åtgärd |Alternativt, Välj plustecken (+) för att lägga till en eller flera värden. Resultatet av frågan är begränsade till poster med egenskapsvärden som du anger. Om inga värden läggs till, inkluderas alla poster i frågan. |
 | **Ring** |**> Ytterligare alternativ** |
-| Färger |Färgen som visas för var och en av de tre översta egenskaperna.  Använd avancerade färg mappning om du vill ange alternativa färger för egenskapsvärden. |
-| Avancerade färgmappning |Visar en färg för egenskapsvärden.  Om det angivna värdet i de övre tre visas alternativa färgen i stället för färgen som standard.  Om egenskapen inte är i de övre tre visas inte färg. |
+| Färger |Färgen som visas för var och en av de tre översta egenskaperna. Använd för att ange alternativa färger för egenskapsvärden *avancerade färg mappning*. |
+| Avancerade färgmappning |Visar en färg som representerar egenskapsvärden. Om det angivna värdet i de tre översta visas alternativa färgen i stället för färgen som standard. Om egenskapen inte är i de tre översta visas färgen inte. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
 ## <a name="line-chart-tile"></a>Raden diagram sida vid sida
-Den **linjediagram** panelen visar ett linjediagram med flera serier från en fråga logg över tid.  
+Den här panelen är ett linjediagram som visar flera serier från en fråga logg över tid. 
 
-![Linjediagram och Callout sida vid sida](media/log-analytics-view-designer/tile-line-chart.png)
+![Raden diagram och callout-panelen](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
 | **Linjediagram** | |
-| Fråga |Frågan ska köras för linjediagrammet.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat.  Om frågan använder den **intervall** nyckelordet sedan x-axeln i diagrammet används för detta tidsintervall.  Om frågan inte innehåller den **intervall** nyckelord och varje timme sedan intervall används för x-axeln. |
+| Fråga |Den fråga som körs för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. Om frågan använder den *intervall* nyckelordet x-axeln använder detta tidsintervall. Om frågan inte använder den *intervall* nyckelord, x-axeln använder timvis intervall. |
 | **Linjediagram** |**> Y-axeln** |
-| Använd en logaritmisk skala |Välj det här alternativet om du vill använda en logaritmisk skala för y-axeln. |
-| Enheter |Ange enheterna för de värden som returneras av frågan.  Den här informationen används för att visa etiketter i diagram som visar värdetyperna och eventuellt för konvertering av värdena.  Den **enhetstyp** anger kategorin för enheten och definierar de **aktuella enhetstypen** värden som är tillgängliga.  Om du väljer ett värde i **omvandla till** sedan numeriska värden konverteras från den **aktuell enhet** typ till den **konvertera till** typen. |
-| Anpassad etikett |Text som ska visas för Y-axeln bredvid etiketten för enhetstypen.  Om ingen etikett anges visas endast enhetstyp. |
+| Använd en logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
+| Enheter |Ange enheterna för de värden som returneras av frågan. Den här informationen används för att visa etiketter i diagram som visar värdetyperna och eventuellt för konvertering av värdena. Den **enhetstyp** anger kategorin för enheten och definierar de **aktuella enhetstypen** värden som är tillgängliga. Om du väljer ett värde i **omvandla till** sedan numeriska värden konverteras från den **aktuell enhet** typ till den **konvertera till** typen. |
+| Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast i *enhet* typen visas. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
-## <a name="line-chart--callout-tile"></a>Raden diagram & callout panelen
-Den **rad diagram & callout** panelen visar ett linjediagram med flera serier från en fråga logg över tid och en kommentar med ett summerat värde.  
+## <a name="line-chart-and-callout-tile"></a>Raden diagram och callout-panelen
+Den här panelen har både en rad diagram som visar flera serier från en fråga med tiden och en kommentar med ett summerat värde. 
 
-![Linjediagram och Callout sida vid sida](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Raden diagram och callout-panelen](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
 | **Linjediagram** | |
-| Fråga |Frågan ska köras för linjediagrammet.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat.  Om frågan använder den **intervall** nyckelordet sedan x-axeln i diagrammet används för detta tidsintervall.  Om frågan inte innehåller den **intervall** nyckelord och varje timme sedan intervall används för x-axeln. |
+| Fråga |Den fråga som körs för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord för att sammanfatta resultat. Om frågan använder den *intervall* nyckelordet x-axeln använder detta tidsintervall. Om frågan inte använder den *intervall* nyckelord, x-axeln använder timvis intervall. |
 | **Linjediagram** |**> Callout** |
-| Kommentar |Rubriktexten ska visas ovanför callout-värdet. |
-| Serienamn |Egenskapsvärdet för serien ska användas för callout-värdet.  Om inga serier anges, används alla poster från frågan. |
-| Åtgärd |Åtgärden att utföra på egenskapen value för att sammanfatta ett enskilt värde för bildtexten.<br>-Genomsnittlig: Medelvärdet av värdet från alla poster.<br><br>-Antal: Antalet poster som returneras av frågan.<br>-Sista: Exempelvärde från det sista intervallet som ingår i diagrammet.<br>-Max: Maximalt värde från de intervall som ingår i diagrammet.<br>-Min: Minsta värde från de intervall som ingår i diagrammet.<br>-Summan: Summan av värdet från alla poster. |
+| Callout-rubrik | Den text som visas ovanför callout-värdet. |
+| Serienamn |Egenskapsvärdet serie som ska användas som värde för bildtexter. Om inga serier anges, används alla poster från frågan. |
+| Åtgärd |Åtgärden som utförs på egenskapen value för att sammanfatta som ett enstaka värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet av intervall som ingår i diagrammet.</li><li>Min: Det lägsta värdet för de intervall som ingår i diagrammet.</li><li>Sum: Summan av värdena från alla poster.</li></ul> |
 | **Linjediagram** |**> Y-axeln** |
-| Använd en logaritmisk skala |Välj det här alternativet om du vill använda en logaritmisk skala för y-axeln. |
-| Enheter |Ange enheterna för de värden som returneras av frågan.  Den här informationen används för att visa etiketter i diagram som visar värdetyperna och eventuellt för konvertering av värdena.  Den **enhetstyp** anger kategorin för enheten och definierar de **aktuella enhetstypen** värden som är tillgängliga.  Om du väljer ett värde i **omvandla till** sedan numeriska värden konverteras från den **aktuell enhet** typ till den **konvertera till** typen. |
-| Anpassad etikett |Text som ska visas för Y-axeln bredvid etiketten för enhetstypen.  Om ingen etikett anges visas endast enhetstyp. |
+| Använd en logaritmisk skala |Välj den här länken för att använda en logaritmisk skala för y-axeln. |
+| Enheter |Ange enheter för värden som returneras av frågan. Den här informationen används för att visa dataetiketter som visar värdetyperna och du kan också konvertera värden. Den *enhet* typ anger kategorin för enheten och definierar de tillgängliga *aktuell enhet* Skriv värden. Om du väljer ett värde i *omvandla till*, numeriska värden konverteras från den *aktuell enhet* typ till den *konvertera till* typen. |
+| Anpassad etikett |Den text som visas för y-axeln bredvid etiketten för den *enhet* typen. Om ingen etikett anges endast i *enhet* typen visas. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
 ## <a name="two-timelines-tile"></a>Två tidslinjer sida vid sida
-Den **två tidslinjer** panelen visar resultaten av de två loggen frågor när kolumndiagram.  En uppmaning visas för varje serie.  
+Den **två tidslinjer** panelen visar resultaten av de två loggen frågor när kolumndiagram. En uppmaning visas för varje serie. 
 
 ![Två tidslinjer sida vid sida](media/log-analytics-view-designer/tile-two-timelines.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
-| Namn |Text som visas överst i panelen. |
-| Beskrivning |Text som visas under namnet på sida vid sida. |
+| Namn |Den text som visas överst i panelen. |
+| Beskrivning |Den text som visas under namnet på sida vid sida. |
 | Första diagrammet | |
-| Förklaring |Text som visas under callout för den första serien. |
-| Färg |Färg som ska användas för kolumner i den första serien. |
-| Diagram-fråga |Frågan ska köras under den första serien.  Antalet poster under varje tidsintervall et representeras av diagrammet kolumner. |
-| Åtgärd |Åtgärden att utföra på egenskapen value för att sammanfatta ett enskilt värde för bildtexten.<br><br>-Genomsnittlig: Medelvärdet av värdet från alla poster.<br>-Antal: Antalet poster som returneras av frågan.<br>-Sista: Exempelvärde från det sista intervallet som ingår i diagrammet.<br>-Max: Maximalt värde från de intervall som ingår i diagrammet. |
+| Förklaring |Den text som visas under callout för den första serien. |
+| Färg |Färgen som används för kolumnerna i den första serien. |
+| Diagram-fråga |Den fråga som körs för den första serien. Antal poster under varje tidsintervall representeras av diagrammet kolumner. |
+| Åtgärd |Åtgärden som utförs på egenskapen value för att sammanfatta som ett enstaka värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet av intervall som ingår i diagrammet.</li></ul> |
 | **Det andra diagrammet** | |
-| Förklaring |Text som visas under callout för den andra serien. |
-| Färg |Färg som ska användas för kolumner i den andra serien. |
-| Diagram-fråga |Frågan ska köras för den andra serien.  Antalet poster under varje tidsintervall et representeras av diagrammet kolumner. |
-| Åtgärd |Åtgärden att utföra på egenskapen value för att sammanfatta ett enskilt värde för bildtexten.<br><br>-Genomsnittlig: Medelvärdet av värdet från alla poster.<br>-Antal: Antalet poster som returneras av frågan.<br>-Sista: Exempelvärde från det sista intervallet som ingår i diagrammet.<br>-Max: Maximalt värde från de intervall som ingår i diagrammet. |
+| Förklaring |Den text som visas under callout för den andra serien. |
+| Färg |Färgen som används för kolumnerna i den andra serien. |
+| Diagram-fråga |Den fråga som körs för den andra serien. Antal poster under varje tidsintervall representeras av diagrammet kolumner. |
+| Åtgärd |Åtgärden som utförs på egenskapen value för att sammanfatta som ett enstaka värde för bildtexten.<ul><li>Genomsnittlig: Medelvärdet av värdena från alla poster.</li><li>Antal: Antalet alla poster som returneras av frågan.</li><li>Senaste exempel: värdet för det sista intervallet som ingår i diagrammet.</li><li>Max: Det maximala värdet av intervall som ingår i diagrammet. |
 | **Avancerade** |**> Verifiering av-dataflöde** |
-| Enabled |Välj om dataflöde kontroll ska aktiveras för panelen.  Detta ger ett alternativ visas om data inte är tillgänglig för panelen.  Detta används vanligtvis för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data är tillgängliga. |
-| Fråga |Fråga om du vill köra för att kontrollera om data är tillgängliga för vyn.  Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet från den huvudsakliga frågan. |
-| Meddelande |Meddelande som ska visas om dataflöde verifiering frågan returnerar inga data.  Om du anger inget meddelande *utför Assessment* visas. |
+| Enabled |Välj den här länken om dataflöde kontroll ska aktiveras för panelen. Den här metoden ger ett alternativ visas om data inte är tillgänglig. Normalt använder du metoden för att tillhandahålla ett meddelande under tillfälliga när vyn är installerad och data blir tillgängliga. |
+| Fråga |Den fråga som körs för att avgöra om data är tillgängliga för vyn. Om frågan returnerar inga resultat, visas ett meddelande i stället för värdet för den viktigaste frågan. |
+| Meddelande |Det meddelande som visas om dataflöde verifiering frågan returnerar inga data. Om du anger inget meddelande, en *utför Assessment* statusmeddelande visas. |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Skapar ett produktionskluster för att uppfylla behoven för ditt program inneb�
 ![Sök efter mallen för Service Fabric-kluster på Azure portal.][SearchforServiceFabricClusterTemplate]
 
 1. Logga in på [Azure Portal][azure-portal].
-2. Klicka på **ny** att lägga till en ny resursmall för. Sök efter mallen Service Fabric-kluster i den **Marketplace** under **allt**.
+2. Klicka på **skapar du en resurs** att lägga till en ny resursmall för. Sök efter mallen Service Fabric-kluster i den **Marketplace** under **allt**.
 3. Välj **Service Fabric-kluster** från listan.
 4. Navigera till den **Service Fabric-kluster** bladet, klickar du på **skapa**,
 5. Den **skapar Service Fabric-kluster** bladet har följande fyra steg:
@@ -134,6 +134,7 @@ Att ställa in en säker testklustret för dig, har vi angett den **grundläggan
 #####<a name="basic-option"></a>Grundläggande autentisering
 Följer du anvisningarna för att lägga till eller återanvända en befintlig keyvault och lägga till ett certifikat. För att lägga till certifikatet är en synkron process så du måste vänta tills certifikatet som ska skapas.
 
+
 Stå emot frestelsen med att navigera bort från skärmen förrän den föregående processen har slutförts.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Nu när certifikatet har lagts till din keyvault, visas följande skärm där du
 
 ![CreateKeyVault2]
 
-Klicka på Avancerat åtkomstprinciper och ge åtkomst till virtuella datorer för distribution. Det rekommenderas att du aktiverar malldistribution samt.
+Klicka på Avancerat åtkomstprinciper och ge åtkomst till virtuella datorer för distribution. Det rekommenderas att du aktiverar malldistribution samt. När du har gjort dina val Glöm inte att klicka på den **spara** knappen och Stäng av den **åtkomstprinciper** fönstret.
 
 ![CreateKeyVault3]
 

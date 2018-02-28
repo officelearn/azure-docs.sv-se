@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsökning av hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -55,7 +55,6 @@ Det här avsnittet ger dig felsökningsanvisningar om hur du löser problem.
 
 - En ominstallation av operativsystemet eller en manuell unregister och registrera kan skapa en ny registrering på Azure AD och resulterar i flera poster information på fliken användare i Azure-portalen. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>Steg 1: Hämta registreringsstatus 
 
 **Kontrollera registreringsstatus:**  
@@ -87,13 +86,14 @@ Om inte Azure AD-anslutning hybrid lyckades ger dialogrutan dig information om p
     
     1. Om användaren loggat in är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-anslutning på äldre enheter stöds endast för domänanvändare.
     
-    2. Om Autoworkplace.exe av någon anledning inte kan autentisera tyst med Azure AD eller AD FS. Några möjliga orsaker kan vara routningsserver bundna problem med nätverksanslutningen till Azure AD-URL: er (kontrollera krav) eller om MFA är aktiverat/konfigurerats för användaren, men WIAORMUTLIAUTHN har inte konfigurerats på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, hindrar Autoworkplace.exe från att erhålla tyst en 
+    2. Om Autoworkplace.exe av någon anledning inte kan autentisera tyst med Azure AD eller AD FS. Några möjliga orsaker kan vara routningsserver bundna problem med nätverksanslutningen till Azure AD-URL: er (kontrollera krav) eller om MFA är aktiverat/konfigurerats för användaren, men WIAORMUTLIAUTHN har inte konfigurerats på federationsservern (kontrollera konfigurationssteg). En annan möjlighet är startsfär (HRD) för identifiering sidan väntar för användarinteraktion, vilket förhindrar att Autoworkplace.exe tyst hämta en token.
     
     3. Om organisationen använder Azure AD finns sömlös enkel inloggning, följande webbadresser inte på enhetens IE intranätsinställningar:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    och inställningen ”Tillåt uppdateringar i statusfältet via skript” måste vara aktiverat för zonen Intranät.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       och inställningen ”Tillåt uppdateringar i statusfältet via skript” måste vara aktiverat för zonen Intranät.
 
 - En kvot har uppnåtts
 

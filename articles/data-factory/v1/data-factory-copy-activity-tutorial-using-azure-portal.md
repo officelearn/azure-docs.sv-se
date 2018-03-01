@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Portal för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Här är de steg du utför som en del av de här självstudierna:
 
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan exempelvis vara en kopieringsaktivitet som kopierar data från en källa till ett måldataarkiv och en HDInsight Hive-aktivitet som kör Hive-skript för att transformera indata till produktutdata. Låt oss börja med att skapa datafabriken i det här steget.
 
-1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Ny**, väljer **Data + analys** och klickar på **Data Factory**. 
+1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Skapa en resurs**, väljer **Data och analys** och klickar på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. På bladet **Ny datafabrik**:

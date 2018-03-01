@@ -1,35 +1,33 @@
 ---
-title: "Skapa en virtuell dator och lagring för skalbara program i Azure | Microsoft Docs"
-description: "Lär dig hur du distribuerar en virtuell dator som används för att köra ett skalbara program med Azure blob storage"
+title: "Skapa en virtuell dator och ett lagringskonto för ett skalbart program i Azure | Microsoft Docs"
+description: "Lär dig hur du distribuerar en virtuell dator som ska användas för att köra ett skalbart program med Azure Blob Storage"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Skapa en virtuell dator och storage-konto för ett skalbart program
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Skapa en virtuell dator och ett lagringskonto för ett skalbart program
 
-Den här kursen ingår i en serie. Den här kursen visar du distribuerar ett program som laddar upp och hämta stora mängder slumpmässiga data med Azure storage-konto. När du är klar har du ett konsolprogram som körs på en virtuell dator som du laddar upp och hämta stora mängder data till ett lagringskonto.
+Den här självstudien ingår i en serie. Den här självstudien visar hur du distribuerar ett program som överför och laddar ner stora mängder slumpmässiga data med ett Azure-lagringskonto. När du är klar har du ett konsolprogram som körs på en virtuell dator där du laddar upp och laddar ner stora mängder data till ett lagringskonto.
 
-I delen en av serierna kan du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Skapa en virtuell dator
-> * Konfigurera ett anpassat skript-tillägg
+> * Konfigurera ett anpassat skripttillägg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
  
-Exemplet Överför 50 stora filer till en blob-behållare i ett Azure Storage-konto. Ett lagringskonto ger ett unikt namnområde för att lagra och komma åt dina Azure storage-dataobjekt. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) kommando.
+I exemplet laddas 50 stora filer upp till en blobbehållare på ett Azure Storage-konto. Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt. Skapa ett lagringskonto i resursgruppen som du skapade med kommandot [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
-I följande kommando i stället använda egna globalt unikt namn för Blob storage-konto där du ser den `<blob_storage_account>` platshållare.
+I följande kommando infogar du ditt globalt unika lagringskontonamn på blobblagringskontot istället för platshållaren `<blob_storage_account>`.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -102,17 +100,17 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
-## <a name="deploy-configuration"></a>Distribuera konfiguration
+## <a name="deploy-configuration"></a>Distribuera konfigurationen
 
-För den här kursen finns förutsättningar som måste installeras på den virtuella datorn. Tillägget för anpassat skript används för att köra ett PowerShell.skript som utför följande aktiviteter:
+I den här självstudien finns det förutsättningar för vad som måste installeras på den virtuella datorn. Det anpassade skripttillägget används för att köra ett PowerShell-skript som utför följande uppgifter:
 
 > [!div class="checklist"]
-> * Installera .NET core 2.0
-> * Installera chocolatey
+> * Installera .NET Core 2.0
+> * Installera Chocolatey
 > * Installera GIT
-> * Klona lagringsplatsen exempel
-> * Återställa NuGet-paket
-> * Skapar 50 1 GB-filer med slumpmässiga data
+> * Klona lagringsplatsexemplet
+> * Återställ NuGet-paketen
+> * Skapa 50 stycken 1 GB-filer med slumpmässiga data
 
 Kör följande cmdlet för att slutföra konfigurationen av den virtuella datorn. Det här steget tar 5 till 15 minuter att slutföra.
 
@@ -128,14 +126,14 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>Nästa steg
 
-I delen en av serierna du lärt dig om att skapa ett lagringskonto, distribuerar en virtuell dator och konfigurera den virtuella datorn med nödvändiga förutsättningar, till exempel hur du:
+I del ett av serien lärde du dig att skapa ett lagringskonto, distribuera en virtuell dator och konfigurera den virtuella datorn med nödvändiga förutsättningar, till exempel:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Skapa en virtuell dator
-> * Konfigurera ett anpassat skript-tillägg
+> * Konfigurera ett anpassat skripttillägg
 
-Gå till två tillhör serien att överföra stora mängder data till ett lagringskonto med exponentiell försök och parallellitet.
+Gå till del två i serien för att ladda upp stora mängder data till ett lagringskonto med exponentiellt återförsök och parallellitet.
 
 > [!div class="nextstepaction"]
-> [Överför stora mängder av stora filer parallellt till ett lagringskonto](storage-blob-scalable-app-upload-files.md)
+> [Överföra stora mängder med stora filer parallellt till ett lagringskonto](storage-blob-scalable-app-upload-files.md)

@@ -1,3 +1,5 @@
+# [Dokumentation om StorSimple](index.md)
+
 # StorSimple virtuell matris
 
 ## Översikt

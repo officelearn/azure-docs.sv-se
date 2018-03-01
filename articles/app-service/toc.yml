@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Mallar för Resurshanteraren
+      href: app-service-rm-template-samples.md
 - name: Begrepp
   items:
     - name: Så här fungerar App Service
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Skapa mellanlagringsmiljöer
           href: web-sites-staged-publishing.md
+        - name: Vägledning för Resource Manager-mall
+          href: web-sites-rm-template-guidance.md
     - name: Mappa anpassad domän
       items:
         - name: Köpa domän

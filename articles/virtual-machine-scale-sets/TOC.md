@@ -1,3 +1,5 @@
+# [Dokumentation om Virtual Machines Scale Sets](index.md)
+
 # Översikt
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 

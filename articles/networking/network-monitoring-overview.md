@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6793bd8d2c561554213e9fe645aab018dba7a925
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="network-monitoring-solutions"></a>Lösningar för nätverksövervakning 
 
@@ -44,6 +44,8 @@ Prestandaövervakaren är en del av NPM network Monitor för moln, hybridmoln oc
 * Fastställa specifika segmentet i nätverket, som ansvarar för försämrade prestanda
 * Övervakning av hälsan på nätverket, utan att behöva SNMP
 
+![NPM topologisk karta](./media/network-monitoring-overview/npm-topology-map.png) 
+
 Mer information läser du följande artiklar:
 
 * [Konfigurera en nätverkslösning Performance Monitor i logganalys](../log-analytics/log-analytics-network-performance-monitor.md) 
@@ -64,6 +66,22 @@ Mer information finns i följande artiklar:
 
 * [Konfigurera övervakare av nätverksprestanda för ExpressRoute](../expressroute/how-to-npm.md)
 * [blogginlägget](https://aka.ms/NPMExRmonitorGA)
+
+## <a name="service-endpoint-monitor"></a>Tjänsten Endpoint för övervakning
+
+Med tjänstslutpunkten övervakning, kan du nu testa tillgängligheten för program och identifiera prestandaflaskhalsar via lokalt, operatör nätverk och moln/privat datacenter.
+
+* Övervaka slutpunkt till slutpunkt nätverksanslutning till program
+* Korrelera leverans av program med nätverksprestanda, identifiera exakta platsen för försämring längs vägen mellan användaren och programmet
+* Testa programmet tillgängligheten från flera användarplatser över hela världen
+* Fastställa latens och paket nätverksförluster för ditt företag och SaaS-program
+* Bestämma aktiva punkter i nätverket, som kan orsaka dåliga programmens prestanda
+* Övervaka tillgängligheten till Office 365-program med hjälp av inbyggda tester för Microsoft Office 365, Dynamics 365 Skype för företag och andra Microsoft-tjänster
+
+Mer information finns i följande artiklar:
+
+* [Konfigurera nätverket Prestandaövervakaren för övervakning av slutpunkter](https://aka.ms/applicationconnectivitymonitorguide)
+* [blogginlägget](https://aka.ms/svcendptmonitor)
 
 ## <a name="next-steps"></a>Nästa steg
 

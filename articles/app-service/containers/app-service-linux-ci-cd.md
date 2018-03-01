@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.openlocfilehash: 9759eac01e2db62154cd7f6bf9fcccf13282b4b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med webbprogrammet för behållare
 
@@ -41,7 +41,7 @@ I den  **[Azure-portalen](https://portal.azure.com/)**, klicka på den **Apptjä
 
 Klicka på namnet på din app som du vill konfigurera Docker-hubb kontinuerlig distribution för.
 
-I den **appinställningar**, Lägg till en app inställningen kallas `DOCKER_ENABLE_CI` med värdet `true`.
+I **Dockerbehållare**, Välj 'På' och tryck sedan på Spara för att aktivera kontinuerlig distribution.
 
 ![infoga bilden app-inställning](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsaspekter för dataflyttning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Virtuellt nätverk är en logisk representation av ditt nätverk i molnet. Du ka
 
 I följande tabell sammanfattas nätverket och automatisk värdbaserade integration runtime rekommendationer baserat på olika kombinationer av käll- och platser för hybrid dataflyttning.
 
-| Källa      | Mål                              | Nätverkskonfiguration                    | Integration runtime installationen                |
+| Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokal | Virtuella datorer och molntjänster som är distribuerad i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Själva värdbaserade integration körning kan installeras antingen lokalt eller på en virtuell Azure dator (VM) i virtuella nätverk |
 | Lokal | Virtuella datorer och molntjänster som är distribuerad i virtuella nätverk | ExpressRoute (privat Peering)           | Själva värdbaserade integration körning kan installeras antingen lokalt eller på en Azure VM i VNet |
@@ -150,8 +150,8 @@ Följande tabell innehåller **utgående port** och domänen för den **företag
 | `*.servicebus.windows.net`    | 443, 80        | Krävs av själva värdbaserade integration körningsmiljön att ansluta till data movement tjänster i Data Factory |
 | `*.core.windows.net`          | 443            | Används av själva värdbaserade integration körningen för att ansluta till Azure Storage-konto när du använder den [mellanlagrad kopiera](copy-activity-performance.md#staged-copy) funktion. |
 | `*.frontend.clouddatahub.net` | 443            | Krävs av själva värdbaserade integration körningen för att ansluta till Azure Data Factory-tjänsten. |
-| `*.database.windows.net`      | 1433           | (Valfritt) krävs när målet är Azure SQL Database / Azure SQL Data Warehouse. Använda kopieringsfunktionen mellanlagrade för att kopiera data till Azure SQL Database-/ Azure SQL Data Warehouse utan att öppna port 1433. |
-| `*.azuredatalakestore.net`    | 443            | (Valfritt) krävs när målet är Azure Data Lake store |
+| `*.database.windows.net`      | 1433           | (Valfritt) krävs när du kopierar från/till Azure SQL-databas / Azure SQL Data Warehouse. Använda kopieringsfunktionen mellanlagrade för att kopiera data till Azure SQL Database-/ Azure SQL Data Warehouse utan att öppna port 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Valfritt) krävs när du kopierar från/till är Azure Data Lake store |
 
 > [!NOTE] 
 > Du kan behöva hantera portar / vitlistning domäner på företagets brandvägg nivå som krävs av respektive datakällor. Den här tabellen använder bara Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store som exempel.   

@@ -1,0 +1,1 @@
+Funktionsappen som skapas med det här skriptet använder version 1.x av [Azure Functions-körningen](..\articles\azure-functions\functions-versions.md). Läs mer om hur du uppgraderar till version 2.x (som finns i förhandsversionen) i [Ha ett versionsmål med Azure CLI](..\articles\azure-functions\set-runtime-version.md#target-a-version-using-azure-cli). 

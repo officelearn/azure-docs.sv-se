@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern belastningsutjämnare med en App Service-miljö #
 
@@ -55,7 +55,7 @@ Det finns några saker som du inte kan göra när du använder en ILB ASE:
 
 Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
-1. I Azure-portalen väljer du **New** (Nytt) > **Webb och mobilt** > **App Service Environment**.
+1. I Azure-portalen väljer du **Skapa en resurs** > **Webb och mobilt** > **App Service Environment**.
 
 2. Välj din prenumeration.
 
@@ -106,7 +106,7 @@ Om du ställer in **VIP-typ** på **Intern** används inte ditt ASE-namn i ASE-d
 
 Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanligtvis.
 
-1. I Azure-portalen väljer du **New** (Nytt) > **Webb och mobilt** > **Webb** eller **Mobile** (Mobilt) eller **API-app**.
+1. I Azure-portalen väljer du **Skapa en resurs** > **Webb och mobilt** > **Webb** eller **Mobil** eller **API-app**.
 
 2. Ange appens namn.
 

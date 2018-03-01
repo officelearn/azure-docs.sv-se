@@ -1,4 +1,3 @@
-
 # [Dokumentation om Azure-säkerhet](index.md)
 # [Arkitektur och design](azure-security.md)
 ## [Avancerad hotidentifiering](azure-threat-detection.md)
@@ -110,9 +109,9 @@
 ### [Krav 10 – övervakning](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Krav 11 – testning](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Krav 12 – princip](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [Översikt över principer](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+## [HIPAA/HITRUST – hälsodata och AI](./blueprints/azure-health.md)
 
 # [White paper-faktablad](security-white-papers.md)
 # [Tekniska översikter](security-overviews.md)
@@ -139,5 +138,4 @@
 #### [Indataverifiering](azure-security-threat-modeling-tool-input-validation.md)
 #### [Känsliga data](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Sessionshantering](azure-security-threat-modeling-tool-session-management.md)
-
 

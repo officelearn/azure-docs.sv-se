@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skript-skapa en princip för växling vid fel för hög tillgänglighet | Microsoft Docs"
-description: "Azure CLI-skript Sample - skapa en princip för växling vid fel för hög tillgänglighet"
+title: "Azure CLI-skript – Skapa en princip för redundansväxling för hög tillgänglighet | Microsoft Docs"
+description: "Exempel på Azure CLI-skript – Skapa en princip för redundansväxling för hög tillgänglighet"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Skapa en princip för växling vid fel för hög tillgänglighet med hjälp av Azure CLI
+# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Skapa en princip för redundansväxling för hög tillgänglighet med Azure CLI
 
-Det här exempelskriptet CLI skapar ett konto i Azure Cosmos DB och konfigurerar den för hög tillgänglighet.
+Det här CLI-skriptexemplet skapar ett Azure Cosmos DB-konto och konfigurerar det sedan för hög tillgänglighet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,25 +36,25 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Följande kommando kan användas för att ta bort resursgruppen och alla resurser som är associerade med den efter skriptexempel har körts.
+När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ cosmosdb](/cli/azure/sql/server#create) | Skapar ett Azure DB som Cosmos-konto. |
-| [AZ cosmosdb uppdatering](/cli/azure/cosmosdb#update) | Uppdaterar Azure DB som Cosmos-konto. |
-| [ta bort grupp AZ](/cli/azure/resource#delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Skapar ett Azure Cosmos DB-konto. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Uppdaterar ett Azure Cosmos DB-konto. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 
-Ytterligare Azure Cosmos DB CLI skriptexempel finns i den [Azure Cosmos DB CLI dokumentationen](../cli-samples.md).
+Ytterligare Azure Cosmos DB CLI-skriptexempel finns i [Azure Cosmos DB CLI-dokumentationen](../cli-samples.md).

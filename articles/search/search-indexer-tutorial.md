@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Crawla en Azure SQL-databas med Azure Search-indexerare
 
@@ -38,7 +38,7 @@ I den här kursen får du utföra följande uppgifter med hjälp av [Azure Searc
 > * Söka i indexet
 > * Visa indexerarkonfiguration i portalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
 
@@ -121,7 +121,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 
-2. Klicka på **Ny** > **SQL Database** och skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
+2. Klicka på **Skapa en resurs** > **SQL Database** för att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
    ![Ny databassida](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

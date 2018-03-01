@@ -1,29 +1,29 @@
 ---
-title: "Säkerhetskopiera virtuella Azure-datorer i skala | Microsoft Docs"
+title: "Säkerhetskopiera Azure Virtual Machines i skala | Microsoft Docs"
 description: "Säkerhetskopiera flera virtuella datorer samtidigt till Azure"
 services: backup
-keywords: "säkerhetskopiering av virtuella datorer virtuella säkerhetskopiera; Säkerhetskopiera vm; säkerhetskopiering vm; Säkerhetskopiera Azure vm; säkerhetskopiering och katastrofåterställning"
+keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använd Azure-portalen för att säkerhetskopiera flera virtuella datorer
+# <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure-portalen till att säkerhetskopiera flera virtuella datorer
 
-När du säkerhetskopierar data i Azure kan du lagra data i en Azure-resurs kallas Recovery Services-valvet. Recovery Services-valvet resursen är tillgänglig på menyn Inställningar i de flesta Azure-tjänster. Fördelen med att ha Recovery Services-valvet integrerats i menyn Inställningar i de flesta Azure-tjänster gör det mycket enkelt att säkerhetskopiera data. Individuellt arbeta med varje databas eller en virtuell dator i ditt företag är dock tråkigt. Vad händer om du vill säkerhetskopiera data för alla virtuella datorer på en avdelning eller på en plats? Det är enkelt att säkerhetskopiera flera virtuella datorer genom att skapa en princip för säkerhetskopiering och tillämpa principen på de önskade virtuella datorerna. Den här självstudiekursen beskrivs hur du:
+När du säkerhetskopierar data i Azure lagrar du dessa data i en Azure-resurs som kallas för ett Recovery Services-valv. Recovery Services-valvresursen är tillgänglig på menyn Inställningar i de flesta Azure-tjänster. Fördelen med att integrera Recovery Services-valvet till menyn Inställningar på de flesta Azure-tjänster gör det mycket enkelt att säkerhetskopiera data. Men det är långtråkigt att arbeta med varje databas eller virtuell dator i företaget individuellt. Vad händer om du vill säkerhetskopiera data för alla virtuella datorer på en avdelning eller på en plats? Du kan enkelt säkerhetskopiera flera virtuella datorer genom att skapa en säkerhetskopieringspolicy och tillämpa den på de virtuella datorer du önskar. I den här självstudien beskrivs hur du:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
-> * Definiera en princip för säkerhetskopiering
-> * Tillämpa principen för säkerhetskopiering för att skydda flera virtuella datorer
-> * Utlösa ett säkerhetskopieringsjobb för skyddade virtuella datorer på begäran
+> * Definierar en säkerhetskopieringspolicy
+> * Applicera säkerhetsprincipen för att skydda flera virtuella datorer
+> * Utlösa ett säkerhetskopieringsjobb på begäran för de skyddade virtuella datorerna
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -31,83 +31,83 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
-Recovery Services-valvet innehåller säkerhetskopierade data och säkerhetskopiera principen tillämpas på de skydda virtuella datorerna. Säkerhetskopieringen av virtuella datorer är en lokal process. Du kan inte säkerhetskopiera en virtuell dator från en plats till ett Recovery Services-valv i en annan plats. Så för varje Azure-plats som har virtuella datorer som ska säkerhetskopieras, minst en Recovery Services-valvet måste det finnas på den platsen.
+Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspolicyn som tillämpas på de skyddade virtuella datorerna. Säkerhetskopieringen av virtuella datorer är en lokal process. Du kan inte säkerhetskopiera en virtuell dator från en plats till ett Recovery Services-valv på en annan plats. För varje Azure-plats som har virtuella datorer som ska säkerhetskopieras måste det finnas minst ett Recovery Services-valv på platsen.
 
-1. På den vänstra menyn väljer **fler tjänster** och Skriv i listan över tjänster *återställningstjänster*. När du skriver filtreras listan med resurser. När du ser Recovery Services-valv i listan, väljer du den öppna menyn i Recovery Services-valv.
+1. På menyn till vänster väljer du **Alla tjänster** och i listan över tjänster skriver du *Recovery Services*. När du skriver filtreras listan med resurser. När du ser Recovery Services-valv i listan markerar du det för att öppna menyn Recovery Services-valv.
 
-    ![Öppna Återställningstjänstvalvet-menyn](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Öppna menyn Recovery Services-valv](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
-2. I den **Recovery Services-valv** -menyn klickar du på **Lägg till** att öppna menyn Recovery Services-valvet.
+2. På menyn **Recovery Services-valv** klickar du på **Lägg till** för att öppna menyn Recovery Services-valv.
 
-    ![Öppna valvet menyn](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
+    ![Öppna menyn för valvet](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. Valvet i Recovery Services-menyn 
+3. På menyn Recovery Services-valv 
 
-    - Typen *myRecoveryServicesVault* i **namnet**,
-    - Det aktuella prenumerations-ID visas i **prenumeration**. Om du har ytterligare prenumerationer kan du välja en annan prenumeration för det nya valvet.
-    - För **resursgruppen** Välj **använda befintliga** och välj *myResourceGroup*. Om *myResourceGroup* inte finns, Välj **Skapa nytt** och skriv *myResourceGroup*.
-    - Från den **plats** nedrullningsbara menyn, Välj *Västeuropa*.
-    - Klicka på **skapa** att skapa Recovery Services-valvet.
+    - Skriv *myRecoveryServicesVault* i **Namn**,
+    - Det aktuella prenumerations-ID:t visas i **Prenumeration**. Om du har flera prenumerationer kan du välja en annan prenumeration för det nya valvet.
+    - För **Resursgrupp** väljer du **Använd befintlig** och sedan *myResourceGroup*. Om *myResourceGroup* inte finns väljer du **Skapa ny** och skriver *myResourceGroup*.
+    - Från den nedrullningsbara menyn **Plats** väljer du *Europa, västra*.
+    - Klicka på **Skapa** för att skapa ditt Recovery Services-valv.
 
-Recovery Services-valvet måste vara på samma plats som de virtuella datorerna skyddas. Om du har virtuella datorer i flera regioner kan du skapa ett Recovery Services-valv i varje region. Den här guiden skapar ett Recovery Services-valv i *Västeuropa* eftersom där har *myVM* (den virtuella datorn skapas med Snabbstart) har skapats.
+Ett Recovery Services-valv måste vara på samma plats som de virtuella datorerna som skyddas. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. I den här självstudien skapas ett Recovery Services-valv i *Europa, västra* eftersom det är där som *myVM* (den virtuella datorn som skapades med snabbstarten) skapades.
 
 Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv.
 
-När du skapar ett Recovery Services-valv har valvet standard geo-redundant lagring. För att tillhandahålla dataåterhämtning replikerar geo-redundant lagring data flera gånger mellan två Azure-regioner.
+När du skapar ett Recovery Services-valv får valvet som standard geo-redundant lagring. För att tillhandahålla dataåterhämtning replikerar geo-redundant lagring data flera gånger för två Azure-regioner.
 
-## <a name="set-backup-policy-to-protect-vms"></a>Ange princip för säkerhetskopiering att skydda virtuella datorer
+## <a name="set-backup-policy-to-protect-vms"></a>Ställa in säkerhetskopieringspolicy för att skydda virtuella datorer
 
-Nästa steg är att konfigurera valvet för typ av data och för att ställa in principen för säkerhetskopiering när du har skapat Recovery Services-valvet. Princip för säkerhetskopiering är schemat för hur ofta och när återställningspunkter tas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna. I den här kursen antar vi att ditt företag är en komplex med ett hotell, stadium, och restaurang- och medgivanden sport och du skyddar data på de virtuella datorerna. Följande steg skapar en princip för säkerhetskopiering för finansiella data.
+När du har skapat Recovery Services-valvet är nästa steg att konfigurera valvet för typ av data och att ange en säkerhetskopieringspolicy. Säkerhetsprincipen är schemat för hur ofta återställningspunkter skapas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna. För den här självstudien antar vi att ditt företag är ett idrottskomplex med ett hotell, en stadium och restauranger och kiosker, och att du skyddar dina data på de virtuella datorerna. Med följande steg skapas en säkerhetskopieringspolicy för finansiella data.
 
-1. Välj i listan över Recovery Services-valv **myRecoveryServicesVault** att öppna dess instrumentpanel.
+1. Från listan med Recovery Services-valv väljer du **myRecoveryServicesVault** för att öppna valvets instrumentpanel.
 
    ![Öppna menyn Scenario](./media/tutorial-backup-vm-at-scale/open-vault-from-list.png)
 
-2. Klicka på menyn valvet instrumentpanelen **säkerhetskopiering** öppna menyn i säkerhetskopian.
+2. Öppna menyn Säkerhetskopiering på menyn på instrumentpanelen för valvet genom att klicka på **Säkerhetskopiering**.
 
-3. På menyn mål för säkerhetskopiering i den **var körs din arbetsbelastning** nedrullningsbara menyn, Välj *Azure*. Från den **vad vill du säkerhetskopiera** listrutan, Välj *virtuella*, och klicka på **säkerhetskopiering**.
+3. På menyn Säkerhetskopieringsmål väljer du *Azure* i listrutan **Var körs din arbetsbelastning**. Från listrutan **Vad vill du säkerhetskopiera?** väljer du *Virtuell dator* och klickar sedan på **Säkerhetskopiera**.
 
-    De här åtgärderna Förbered Recovery Services-valvet för att interagera med en virtuell dator. Recovery Services-valv har en standardprincip som skapar en återställningspunkt varje dag och behåller återställningspunkter under 30 dagar.
+    Dessa åtgärder förbereder Recovery Services-valvet för att interagera med en virtuell dator. Recovery Services-valv har en standardprincip som skapar en återställningspunkt varje dag och behåller återställningspunkterna under 30 dagar.
 
     ![Öppna menyn Scenario](./media/tutorial-backup-vm-at-scale/backup-goal.png)
 
-4. Skapa en ny princip på menyn säkerhetskopiering princip från den **Välj princip för säkerhetskopiering** nedrullningsbara menyn och väljer *Skapa nytt*.
+4. Om du vill skapa en ny policy går du till menyn Säkerhetskopieringspolicy och väljer *Skapa ny* i den nedrullningsbara menyn **Välj säkerhetskopieringsprincip**.
 
     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. I den **säkerhetskopiera princip** menyn för **principnamn** typen *ekonomi*. Ange följande ändringar för princip för säkerhetskopiering: 
-    - För **säkerhetskopieringsfrekvens** ange tidszonen för *Centraltid*. Eftersom sport komplex Texas, vill ägaren tidsinställning användas lokalt. Lämna den säkerhetskopieringsfrekvens som är inställd på varje dag kl 3:30.
-    - För **kvarhållning av daglig säkerhetskopieringspunkt**, anger du tidsperioden till 90 dagar.
-    - För **kvarhållning av veckovis säkerhetskopieringspunkt**, använda den *måndag* återställningspunkt och förvara dessa i 52 veckor.
-    - För **kvarhållning av månatlig säkerhetskopieringspunkt**, använder återställningspunkt från första söndag i månaden och förvara dessa i 36 månader.
-    - Avmarkera den **kvarhållning av årlig säkerhetskopieringspunkt** alternativet. Utfyllnad för ekonomi vill inte behålla data som är längre än 36 månader.
+5. På menyn **Säkerhetskopieringspolicy** skriver du *Finans* som **Principnamn**. Ange följande ändringar för Säkerhetskopieringspolicy: 
+    - För **Säkerhetskopieringsfrekvens** ställer du in tidszon på *Central Time*. Eftersom sportkomplexet ligger i Texas vill ägaren att tidsinställningen ska vara lokal. Ställ in säkerhetskopieringsfrekvensen på varje dag klockan 3:30.
+    - För **Kvarhållning av daglig säkerhetskopieringspunkt** anger du 90 dagarsperiod.
+    - För **Kvarhållning av veckovis säkerhetskopieringspunkt** använder du återställningspunkten *Måndag* och behåller den i 52 veckor.
+    - För **Kvarhållning av månatlig säkerhetskopieringspunkt** använder du från den första söndagen i varje månad och behåller det i 36 månader.
+    - Avmarkera alternativet **Kvarhållning av årlig säkerhetskopieringspunkt**. Den ansvariga för Finans vill inte behålla data längre än 36 månader.
     - Skapa säkerhetskopieringspolicyn genom att klicka på **OK**.
 
     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
 
-    När du har skapat principen för säkerhetskopiering, associera principen med de virtuella datorerna.
+    När du har skapat principen för säkerhetskopiering associerar du principen med de virtuella datorerna.
 
-6. I den **Välj virtuella datorer** dialogrutan Välj *myVM* och på **OK** att distribuera principen för säkerhetskopiering till de virtuella datorerna. 
+6. I dialogrutan **Välj virtuella datorer** väljer du *myVM* och klicka på **OK** för att distribuera säkerhetskopieringspolicyn till de virtuella datorerna. 
 
-    Alla virtuella datorer som finns på samma plats och inte är redan kopplad till en princip för säkerhetskopiering, visas. *myVMH1* och *myVMR1* som associeras med den *ekonomi* princip.
+    Alla virtuella datorer som är på samma plats och som inte redan är associerade till en säkerhetskopieringspolicy visas. *myVMH1* och *myVMR1* markeras för att associeras till principen *Finans*.
 
     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
 
-    När distributionen är klar får du ett meddelande distributionen har slutförts.
+    När distributionen slutförs får du ett meddelande om det.
 
 ## <a name="initial-backup"></a>Den första säkerhetskopieringen
 
-Du har aktiverat säkerhetskopiering för Recovery Services-valv men en första säkerhetskopiering har inte skapats. Det är disaster recovery bäst att utlösa den första säkerhetskopieringen så att dina data skyddas. 
+Du har aktiverat säkerhetskopiering för Recovery Services-valven, men du har inte skapat någon säkerhetskopia. Det är en bästa metod för haveriberedskap för att utlösa den första säkerhetskopian, så dina data skyddas. 
 
-Köra en säkerhetskopiering på begäran:
+Så här kör du en säkerhetskopiering på begäran:
 
-1. Klicka på instrumentpanelen i valvet **3** under **säkerhetskopiering objekt**, för att öppna menyn objekt för säkerhetskopiering.
+1. På instrumentpanelen för klickar du på **3** under **Säkerhetskopieringsobjekt** för att öppna menyn Säkerhetskopieringsobjekt.
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-    Den **säkerhetskopiering objekt** menyn öppnas.
+    Menyn **Säkerhetskopieringsobjekt** öppnas.
 
-2. På den **säkerhetskopiering objekt** -menyn klickar du på **Azure virtuella** att öppna listan över virtuella datorer som är kopplad till valvet.
+2. På menyn **Säkerhetskopiera objekt** klickar du på **Virtuell Azure-dator** för att öppna listan över virtuella datorer som är associerade till valvet.
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
@@ -117,72 +117,72 @@ Köra en säkerhetskopiering på begäran:
 
 3. Öppna snabbmenyn genom att klicka på ellipserna **...** i listan **Säkerhetskopieringsobjekt**.
 
-4. Välj på snabbmenyn **Säkerhetskopiera nu**.
+4. Välj **Säkerhetskopiera nu** på snabbmenyn.
 
     ![Snabbmeny](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
-    Säkerhetskopiera nu-menyn öppnas.
+    Menyn Säkerhetskopiera nu öppnas.
 
-5. Ange den sista dagen om du vill behålla återställningspunkten och klicka på Säkerhetskopiera nu-menyn **säkerhetskopiering**.
+5. På menyn Säkerhetskopiera nu anger du den senaste dagen för att behålla återställningspunkten och klickar på **Säkerhetskopiera**.
 
     ![Ange den sista dagen som återställningspunkten som skapas med Säkerhetskopiera nu ska behållas](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
 
-    Distributionsmeddelanden visas som anger att säkerhetskopieringsjobbet har initierats, och du kan övervaka förloppet för jobbet på sidan Säkerhetskopieringsjobb. Beroende på storleken på den virtuella datorn, kan det ta en stund att skapa den första säkerhetskopian.
+    Distributionsmeddelanden visas som anger att säkerhetskopieringsjobbet har initierats, och du kan övervaka förloppet för jobbet på sidan Säkerhetskopieringsjobb. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
-    När det första säkerhetskopieringsjobbet är klar visas dess status i menyn jobbet för säkerhetskopiering. Säkerhetskopieringsjobbet på begäran skapa den första återställningspunkten för *myVM*. Upprepa dessa steg för varje virtuell dator om du vill säkerhetskopiera andra virtuella datorer. 
+    När det första säkerhetskopieringsjobbet är klart visas dess status på menyn för säkerhetskopieringsjobb. Säkerhetskopieringsjobbet på begäran skapade den första återställningspunkten för *myVM*. Upprepa dessa steg för varje virtuell dator om du vill säkerhetskopiera andra virtuella datorer. 
 
     ![Panelen Säkerhetskopieringsjobb](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
   
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta på att arbeta med efterföljande självstudiekurser inte rensa upp de resurser som skapades i den här självstudiekursen. Om du inte planerar att fortsätta, Använd följande steg för att ta bort alla resurser som skapats av den här kursen i Azure-portalen.
+Om du planerar att fortsätta arbeta med efterföljande självstudier ska du inte rensa upp resurserna som du skapade i den här självstudien. Om du inte planerar att fortsätta följer du stegen nedan för att ta bort alla resurser som du har skapat i den här självstudien på Azure-portalen.
 
-1. På den **myRecoveryServicesVault** instrumentpanelen, klickar du på **3** under **säkerhetskopiering objekt**, för att öppna menyn objekt för säkerhetskopiering.
+1. På instrumentpanelen för **myRecoveryServicesVault** klickar du på **3** under **Säkerhetskopieringsobjekt** för att öppna menyn Säkerhetskopieringsobjekt.
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 
-2. På den **säkerhetskopiering objekt** -menyn klickar du på **Azure virtuella** att öppna listan över virtuella datorer som är kopplad till valvet.
+2. På menyn **Säkerhetskopiera objekt** klickar du på **Virtuell Azure-dator** för att öppna listan över virtuella datorer som är associerade till valvet.
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
     Listan **Säkerhetskopieringsobjekt** öppnas.
 
-3. I den **säkerhetskopiering objekt** -menyn, klicka på knappen för att öppna snabbmenyn.
+3. Öppna snabbmenyn genom att klicka på ellipserna på menyn **Säkerhetskopieringsobjekt**.
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. Välj på snabbmenyn **stoppa säkerhetskopiering** öppna stoppa Backup-menyn. 
+4. På snabbmenyn väljer du **Stoppa säkerhetskopiering** för att öppna menyn Stoppa säkerhetskopiering. 
 
     ![Ikonen Inställningar](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
-5. I den **stoppa säkerhetskopiering** -menyn, Välj övre listrutan och välj **ta bort säkerhetskopierade Data**.
+5. På menyn **Stoppa säkerhetskopiering** väljer du den övre nedrullningsbara menyn och sedan **Ta bort säkerhetskopieringsdata**.
 
-6. I den **skriver du namnet på objektet säkerhetskopiering** dialogrutan, ange *myVM*.
+6. I dialogrutan **Type the name of the Backup item** (Skriv namnet på säkerhetskopieringsobjektet) skriver du *myVM*.
  
-7. När säkerhetskopieringen objektet har verifierats (en markering visas) **stoppa säkerhetskopiering** knappen är aktiverad. Klicka på **stoppa säkerhetskopiering** stoppa principen och ta bort återställningspunkter. 
+7. När säkerhetskopieringsobjektet har verifierats (en kryssmarkering visas) aktiveras knappen **Stoppa säkerhetskopiering**. Klicka på **Stoppa säkerhetskopiering** för att stoppa principen och ta bort återställningspunkterna. 
 
-    ![Klicka på Stoppa säkerhetskopiering för att ta bort valvet](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![klicka på Stoppa säkerhetskopiering för att ta bort valvet](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
 
-8. I den **myRecoveryServicesVault** -menyn klickar du på **ta bort**.
+8. På menyn **myRecoveryServicesVault** klickar du på **Ta bort**.
 
-    ![Klicka på Stoppa säkerhetskopiering för att ta bort valvet](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![klicka på Stoppa säkerhetskopiering för att ta bort valvet](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
-    När valvet har tagits bort kan du gå tillbaka till listan över Recovery Services-valv.
+    När valvet har tagits bort returnerar du listan med Recovery Services-valv.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen används Azure portal:
+I den här självstudien använder du Azure-portalen till att:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv
-> * Ange valvet för att skydda virtuella datorer
+> * Ställa in valvet för att skydda virtuella datorer
 > * Skapa en anpassad princip för säkerhetskopiering och kvarhållning
-> * Tilldela principen att skydda flera virtuella datorer
-> * Utlös en på-begäran tillbaka för virtuella datorer
+> * Tilldela principen för att skydda flera virtuella datorer
+> * Utlösa en säkerhetskopiering på begäran för virtuella datorer
 
-Fortsätta att i nästa kurs att återställa en virtuell Azure-dator från disken. 
+Fortsätta till nästa kurs för att återställa en virtuell Azure-dator från disken. 
 
 > [!div class="nextstepaction"]
-> [Återställa virtuella datorer med hjälp av CLI](./tutorial-restore-disk.md)
+> [Återställa virtuella datorer med CLI](./tutorial-restore-disk.md)

@@ -14,18 +14,18 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 4965247d77e8a3a9f5dbaa2e70952993b4bdf4ff
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Hur du använder Azure-Lagringstabellen service eller Cosmos DB tabell API från PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure-Lagringstabellen tjänsten och Azure Cosmos DB tabell API. Exemplen är skrivna i PHP och Använd den [Azure SDK för PHP][download]. Scenarier som tas upp inkluderar **skapa och ta bort en tabell**, och **lägga till, ta bort och frågar entiteter i en tabell**. Mer information om Azure Table-tjänsten finns i [nästa steg](#next-steps) avsnitt.
+Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure-Lagringstabellen tjänsten och Azure Cosmos DB tabell API. Exemplen är skrivna i PHP och Använd den [klientbiblioteket för Azure Storage tabell PHP][download]. Scenarier som tas upp inkluderar **skapa och ta bort en tabell**, och **lägga till, ta bort och frågar entiteter i en tabell**. Mer information om Azure Table-tjänsten finns i [nästa steg](#next-steps) avsnitt.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 

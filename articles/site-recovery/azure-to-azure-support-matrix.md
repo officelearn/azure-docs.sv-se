@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
 
@@ -39,7 +39,7 @@ Den här artikeln beskriver konfigurationer som stöds och komponenter för Azur
 
 **Flytta resurstypen** | **Stöds / stöds inte** | **Kommentarer**  
 --- | --- | ---
-Flytta valvet mellan resursgrupper | Stöds inte |Du kan inte flytta Recovery services-ventilen över resursgrupper.
+**Flytta valvet mellan resursgrupper** | Stöds inte |Du kan inte flytta Recovery services-ventilen över resursgrupper.
 **Flytta bearbetning, lagring och nätverk mellan resursgrupper** | Stöds inte |Om du flyttar en virtuell dator (eller andra komponenter, till exempel lagring och nätverk) när du har aktiverat replikering, måste du inaktivera replikering och aktivera replikering för den virtuella datorn igen.
 
 
@@ -93,7 +93,7 @@ Den nedan stöd gäller för alla arbetsbelastningar som körs på nämnda OS.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för virtuella Azure-datorer
 
-Versionen | **Mobilitetstjänstversionen** | Kernel-version |
+**Versionen** | **Mobilitetstjänstversionen** | **Kernel-version** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-125-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-83-generic |
@@ -153,8 +153,8 @@ Diskutrymme | Alltid uteslutas från replikering | Tillfällig disklagring har e
 Förändringstakten för data på disken | Högst 10 Mbit/s per disk för Premium-lagring och 2 Mbit/s per disk för standardlagring | Om förändringstakten genomsnittlig data på disken är utöver 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) kontinuerligt, kommer inte replikeringen att fånga upp. Om det är en databearbetning burst och förändringstakten för data som är större än 10 Mbit/s (för Premium) och 2 Mbit/s (för Standard) under en viss tid och kommer, fånga replikering upp. I det här fallet kan du se något fördröjd återställningspunkter.
 Diskar på standard storage-konton | Stöds |
 Diskar på premium storage-konton | Stöds | Om en virtuell dator har diskar som är fördelade på premium- och standard storage-konton, kan du välja ett annat mål storage-konto för varje disk så du får samma lagringskonfigurationen i målregionen
-Hanterad standarddiskar | Stöds inte |  
-Hanterad premiumdiskar | Stöds inte |
+Hanterad standarddiskar | Stöds i Azure-regioner som Azure Site Recovery stöds. Offentliga moln stöds inte för närvarande.  |  
+Hanterad premiumdiskar | Stöds i Azure-regioner som Azure Site Recovery stöds. Offentliga moln stöds inte för närvarande. |
 Lagringsutrymmen | Stöds |         
 Kryptering i vila (SSE) | Stöds | Du kan välja ett lagringskonto för SSE aktiverad för cache och mål för lagringskonton.     
 Azure Disk Encryption (ADE) | Stöds inte |

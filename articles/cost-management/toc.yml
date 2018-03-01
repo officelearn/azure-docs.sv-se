@@ -17,12 +17,12 @@
   items:
     - name: 1 – Granska användning och kostnader
       href: tutorial-review-usage.md
-    - name: 2 – Styra åtkomsten till data
-      href: tutorial-user-access.md
-    - name: 3 – Prognostisera utgifter
+    - name: 2 – Prognostisera utgifter
       href: tutorial-forecast-spending.md
-    - name: 4 – Hantera kostnader
+    - name: 3 – Hantera kostnader
       href: tutorial-manage-costs.md
+    - name: 4 – Kontrollera åtkomst till data
+      href: tutorial-user-access.md
 - name: Begrepp
   items:
     - name: Förstå kostnadsrapporter

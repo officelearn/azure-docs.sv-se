@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Kontrollera trafik med en schemabaserad logikapp
 
@@ -53,7 +53,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Välj **Ny** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
+1. Välj **Skapa en resurs** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
 
    ![Skapa en logikapp](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
@@ -97,7 +97,7 @@ Sedan lägger du till en [utlösare](../logic-apps/logic-apps-overview.md#logic-
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
    | **Frekvens** | Vecka | Den tidsenhet som används för upprepningen | 
    | **Tidszon** | Inget | Gäller bara när du anger en starttid. Det här är användbart när du anger en tidszon som inte är lokal. | 
-   | **Starttid** | Inget | Skjut upp upprepningen till en viss tidpunkt. Mer information finns i [Schemalägga aktiviteter och arbetsflöden som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
+   | **Starttid** | Ingen | Skjut upp upprepningen till en viss tidpunkt. Mer information finns i [Schemalägga aktiviteter och arbetsflöden som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
    | **Dessa dagar** | Måndag,Tisdag,Onsdag,Torsdag,Fredag | Endast tillgängligt när Vecka har valts i fältet **Frekvens** | 
    | **Vid dessa timmar** | 7,8,9 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka timmar på dagen den här upprepningen ska köras. Det här exemplet körs vid 7, 8 och 9. | 
    | **Vid dessa minuter** | 0,15,30,45 | Endast tillgängligt när Vecka eller Dag har valts i fältet **Frekvens**. Välj vid vilka minuter på dagen den här upprepningen ska köras. Det här exemplet körs varje kvart och börjar vid noll minuter. | 
@@ -148,7 +148,7 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    | **Avståndsenhet** | <*your-preference*> | Avståndsenhet för din resväg. I den här artikeln används enheten ”Mile”  | 
    | **Travel mode** (Färdsätt) | Driving (Bil) | Färdsättet för din resväg. Välj det här färdsättet: ”Driving” (Bil) | 
    | **Transit Date-Time** (Tid/datum för kollektivtrafik) | Inget | Gäller endast ”transit mode” (kollektivtrafik) | 
-   | **Date-Time Type** (Typ av datum/tid) | Inget | Gäller endast ”transit mode” (kollektivtrafik) | 
+   | **Date-Time Type** (Typ av datum/tid) | Ingen | Gäller endast ”transit mode” (kollektivtrafik) | 
    |||| 
 
    Mer information om dessa parametrar finns [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Beräkna en resväg).

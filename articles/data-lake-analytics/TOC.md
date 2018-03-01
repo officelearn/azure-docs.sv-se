@@ -1,5 +1,6 @@
-# Översikt
+# [Dokumentation om Data Lake Analytics](index.md)
 
+# Översikt
 ## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Kom igång

@@ -24,13 +24,13 @@
         - name: Förbereda Azure
           href: tutorial-prepare-azure.md
         - name: Förbereda lokal VMware
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Konfigurera haveriberedskap
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Köra ett programåterställningstest
           href: tutorial-dr-drill-azure.md
         - name: Köra redundans och återställning efter fel
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: 'Hyper-V:s virtuella datorer'
       items:
         - name: Förbereda Azure
@@ -50,9 +50,9 @@
         - name: Förbereda Azure för lokal replikering
           href: tutorial-prepare-azure.md
         - name: Migrera lokala datorer till Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Migrera AWS-instanser till Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Migrera virtuella Azure-datorer till en annan region
           href: azure-to-azure-tutorial-migrate.md
 - name: Begrepp
@@ -62,11 +62,11 @@
         - name: Arkitektur för Azure till Azure
           href: azure-to-azure-architecture.md
         - name: Arkitektur för VMware till Azure
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Arkitektur för Hyper-V till Azure
           href: hyper-v-azure-architecture.md
         - name: Arkitektur för fysisk till Azure
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Arkitektur för Hyper-V till sekundär
           href: hyper-v-vmm-architecture.md
     - name: Stödmatris för krav
@@ -114,11 +114,11 @@
         - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Haveriberedskap för fysiska servrar till Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Haveriberedskap för virtuella Hyper-V-datorer till en sekundär webbplats
           href: hyper-v-vmm-disaster-recovery.md
         - name: Haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Köra ett programåterställningstest till Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Köra ett haveriberedskapstest för virtuella Hyper-V-datorer till en sekundär plats
@@ -236,7 +236,7 @@
         - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Konfigurera Hyper-V-replikering till Azure (med VMM) med PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Konfigurera Hyper-V-replikering till en sekundär VMM-plats med PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Arbetsbelastningar
@@ -290,7 +290,7 @@
         - name: Problem med redundans till Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problem med återaktivering av skydd och återställning efter fel
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Övervaka Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Referens

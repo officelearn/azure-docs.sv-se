@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Krav för Azure Stack Public Key Infrastructure-certifikat
 Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av externa offentliga IP-adresser tilldelas en liten uppsättning Azure Stack-tjänster och eventuellt klient virtuella datorer. PKI-certifikat med lämpliga DNS-namn för dessa Azure Stack infrastruktur för offentliga slutpunkter krävs under distributionen av Azure-stacken. Den här artikeln innehåller information om:
@@ -27,6 +27,7 @@ Azure-stacken har en infrastruktur för offentliga nätverk med hjälp av extern
 - Vilka certifikat som krävs för att distribuera Azure-stacken
 - Processen för att hämta certifikat som matchar de specifikationerna
 - Hur du förbereder, validera och använda dessa certifikat under distributionen
+
 > [!NOTE]
 > Under distributionen måste du kopiera certifikat till distributionsmappen som matchar den identitetsleverantör som du distribuerar mot (Azure AD eller AD FS). Om du använder ett enda certifikat för alla slutpunkter, måste du kopiera den certifikatfilen i varje distributionsmappen som beskrivs i tabellerna nedan. Mappstrukturen före bygger på den virtuella datorn för distribution och finns på: C:\CloudDeployment\Setup\Certificates. 
 

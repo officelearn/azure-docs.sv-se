@@ -1,3 +1,5 @@
+# [Dokumentation om Data Catalog](index.md)
+
 # Översikt
 ## [Vad är Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Vanliga scenarier](data-catalog-common-scenarios.md)
@@ -6,7 +8,7 @@
 # Kom igång
 ## [Kom igång med Azure Data Catalog](data-catalog-get-started.md)
 ## [Börja använda Azure Data Catalog](data-catalog-adopting-data-catalog.md)
-## [Krav](data-catalog-prerequisites.md)
+## [Förutsättningar](data-catalog-prerequisites.md)
 ## [Vanliga frågor och svar](data-catalog-frequently-asked-questions.md)
 
 # Gör så här för att

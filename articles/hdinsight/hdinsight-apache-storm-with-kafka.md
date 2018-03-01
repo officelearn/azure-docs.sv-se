@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Använda Apache Kafka med Storm på HDInsight
 
@@ -172,7 +172,7 @@ Mer information om topologier som finns [https://storm.apache.org/releases/1.1.2
     ```
 
     > [!IMPORTANT]
-    > Bash-exemplet förutsätter att `$CLUSTERNAME` innehåller namnet på HDInsight-klustret. Det förutsätts även att som [jq](https://stedolan.github.io/jq/) är installerad. När du uppmanas, ange lösenordet för inloggningskontot för klustret.
+    > Bash-exemplet förutsätter att `$CLUSTERNAME` innehåller namnet på HDInsight-klustret. Det förutsätts även att som [jq](https://stedolan.github.io/jq/) version 1.5 eller senare har installerats. När du uppmanas, ange lösenordet för inloggningskontot för klustret.
 
     Det värde som returneras liknar följande:
 
@@ -218,7 +218,7 @@ Mer information om topologier som finns [https://storm.apache.org/releases/1.1.2
 4. Spara den `dev.properties` filen och sedan använda följande kommando för att överföra den till Storm-kluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Ersätt **användarnamn** med SSH-användarnamn för klustret. Ersätt **BASENAME** med det grundläggande namnet som du använde när du skapar klustret.
@@ -287,6 +287,9 @@ Mer information om topologier som finns [https://storm.apache.org/releases/1.1.2
     Använd Ctrl + c för att stoppa skriptet.
 
 ## <a name="start-the-reader"></a>Starta läsaren
+
+> [!NOTE]
+> När du visar läsaren i Användargränssnittet för Storm kan det uppstå ett __topologi kanaler lag fel__ avsnitt. I det här exemplet kan du ignorera det här felet.
 
 1. Från SSH-session till Storm-kluster använder du följande kommando för att starta reader-topologi:
 

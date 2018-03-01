@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Exchange EDIFACT-meddelanden för enterprise-integrering med logic apps
 
@@ -32,65 +32,63 @@ Innan du kan utbyta EDIFACT-meddelanden för Logikappar i Azure, måste du skapa
 
 Här är de objekt som du behöver:
 
-* En [integrering konto](../logic-apps/logic-apps-enterprise-integration-accounts.md) som redan har definierat och som är associerade med din Azure-prenumeration  
+* En [integrering konto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierat och som är associerade med din Azure-prenumeration  
 * Minst två [partners](logic-apps-enterprise-integration-partners.md) som redan har definierats i ditt konto för integrering
 
 > [!NOTE]
 > När du skapar ett avtal måste innehållet i de meddelanden som du tar emot eller skickar till och från partnern matcha en avtalstyp.
 
-När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-accounts.md) och [lägga till partners](logic-apps-enterprise-integration-partners.md), du kan skapa ett EDIFACT-avtal genom att följa dessa steg.
+När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [lägga till partners](logic-apps-enterprise-integration-partners.md), du kan skapa ett EDIFACT-avtal genom att följa dessa steg.
 
 ## <a name="create-an-edifact-agreement"></a>Skapa ett EDIFACT-avtal 
 
-1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). I den vänstra menyn, Välj **alla tjänster**.
+1. Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). 
 
-    > [!TIP]
-    > Om du inte ser **alla tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
+2. På Azure huvudmenyn, Välj **alla tjänster**. I sökrutan anger du ”integration” och välj sedan **integrationskonton**.
 
-    ![På vänster-menyn väljer du ”alla tjänster”](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Hitta integration-konto](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. I sökrutan skriver du ”integration” för filtret. Välj i resultatlistan **Integrationskonton**.
+   > [!TIP]
+   > Om **alla tjänster** inte visas kan du behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **Visa textfält**.
 
-    ![Filtrera efter ”integration”, Välj ”Integrationskonton”](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. Under **Integrationskonton**, väljer du det integration konto där du vill skapa avtal.
 
-3. I den **Integrationskonton** bladet som öppnas väljer du det integration konto där du vill skapa avtal.
-Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-apps-enterprise-integration-accounts.md "om integrationskonton").  
+   ![Välj integration konto var du vill skapa avtalet](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Välj integration konto var du vill skapa avtalet](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Välj **avtal**. Om du inte har ett avtal sida vid sida, lägga till panelen först.   
 
-4. Välj den **avtal** panelen. Om du inte har ett avtal sida vid sida, lägga till panelen först.   
+   ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Välj på sidan avtal **Lägg till**.
 
-5. I bladet avtal som öppnas väljer du **Lägg till**.
-
-    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Under **Lägg till**, ange en **namn** för ditt avtal. För **avtalstyp**väljer **EDIFACT**. Välj den **värden Partner**, **Värdidentiteten**, **gäst Partner**, och **gäst identitet** för ditt avtal.
 
-    ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Egenskap | Beskrivning |
-    | --- | --- |
-    | Namn |Avtalets namn |
-    | Avtalstyp | Ska vara EDIFACT |
-    | Värdpartner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
-    | Värd-identitet |En identifierare för värdpartnern som |
-    | Gästpartner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
-    | Gästidentitet |En identifierare för gäst-partner |
-    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
-    | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |
+   | Egenskap | Beskrivning |
+   | --- | --- |
+   | Namn |Avtalets namn |
+   | Avtalstyp | Ska vara EDIFACT |
+   | Värdpartner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
+   | Värd-identitet |En identifierare för värdpartnern som |
+   | Gästpartner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
+   | Gästidentitet |En identifierare för gäst-partner |
+   | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
+   | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal handtag mottagna meddelanden
 
 Nu när du har angett egenskaperna avtal, kan du konfigurera hur detta avtal identifierar och hanterar inkommande meddelanden som tagits emot från din partner via det här avtalet.
 
-1.  Under **Lägg till**väljer **tar emot inställningar**.
+1. Under **Lägg till**väljer **tar emot inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
 
-    **Ta emot inställningarna** är indelad i följande avsnitt: identifierare, bekräftelse, scheman, kontroll siffror, verifiering och interna inställningar.
+   **Ta emot inställningarna** är indelad i följande avsnitt: identifierare, bekräftelse, scheman, kontroll siffror, verifiering och interna inställningar.
 
-    ![Konfigurera ”ta emot inställningar”](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   ![Konfigurera ”ta emot inställningar”](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
 
@@ -211,7 +209,7 @@ Andra än teckenuppsättningen, kan du ange en annan uppsättning avgränsare so
 | Egenskap | Beskrivning |
 | --- | --- |
 | UNB1.1 (systemidentifierare) |Välj EDIFACT-teckenuppsättningen som ska tillämpas på utgående utbyte. |
-| Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda, baserat på följande avgränsare beskrivningar för det aktuella schemat. |
+| Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda utifrån beskrivningarna avgränsare nedan för det aktuella schemat. |
 | Indatatyp |Välj en typ av inkommande från den nedrullningsbara listan. |
 | Komponentavgränsare |Ange ett enskilt tecken för att avgränsa sammansatta dataelement. |
 | Dataelement-avgränsare |Ange ett enskilt tecken för att avgränsa enkla dataelement i sammansatta dataelement. |
@@ -240,13 +238,13 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 
 ## <a name="find-your-created-agreement"></a>Hitta din skapade avtal
 
-1.  När du är klar med inställningen alla dina avtal egenskaper på den **Lägg till** bladet välj **OK** har skapat ditt avtal och gå tillbaka till ditt kontoblad för integrering.
+1.  När du är klar med inställningen alla dina avtal egenskaper på den **Lägg till** väljer **OK** har skapat ditt avtal och gå tillbaka till ditt konto för integrering.
 
     Ditt nya avtal nu visas i din **avtal** lista.
 
-2.  Du kan också visa dina avtal i ditt Kontoöversikt för integrering. Välj på ditt kontoblad integration **översikt**och välj den **avtal** panelen. 
+2.  Du kan också visa dina avtal i ditt Kontoöversikt för integrering. Välj på menyn konto din integrering **översikt**och välj den **avtal** panelen. 
 
-    ![Välj ”avtal” panelen om du vill visa alla avtal](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Visa Swagger-fil
 Swagger-information för EDIFACT-anslutningen finns i [EDIFACT](/connectors/edifact/).

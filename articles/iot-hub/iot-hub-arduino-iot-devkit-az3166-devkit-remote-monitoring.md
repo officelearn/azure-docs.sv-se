@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: abaad6514b24bd4bcc923d87a7b721cc80648c47
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Suite för övervakning av fjärråtkomst
 
 I kursen får du lära dig hur du kör en exempelapp på din DevKit sensordata ska skickas till din Azure IoT Suite.
+
+Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kompatibel skiva med sensorer och omfattande kringutrustning. Du kan utveckla för den med hjälp av [Visual Studio Code-tillägget för Arduino](https://aka.ms/arduino). Och det ingår en växande [projekt katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) att hjälpa dig prototyp Sakernas Internet (IoT) lösningar som utnyttjar Microsoft Azure-tjänster.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
@@ -122,3 +124,4 @@ Om du stöter på problem, läser du [vanliga frågor och svar](https://microsof
 Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT Suite och visualisera sensordata, är här de föreslagna nästa steg:
 
 * [Översikt över Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Anslut en MXChip IoT DevKit enhet till programmet Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

@@ -1,3 +1,5 @@
+# [Dokumentation om IoT Suite](index.md)
+
 # Översikt
 ## [Koncept för IoT-arkitektur](iot-suite-what-is-azure-iot.md)
 ## [Jämför Azure IoT-alternativ](iot-suite-options.md)

@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -35,31 +35,29 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Skapa en webbapp i och en App Service-plan
-1. Klicka på alternativet **Nytt** i det vänstra navigeringsfönstret.
-
+1. Klicka på alternativet **Skapa en resurs** i det vänstra navigeringsfönstret.
 2. Sök efter och välj objektet *Webbapp* och klicka på **Skapa**.
-
-3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa den nya resursgruppen *myResourceGroup* och placera den i valfri resursgrupp.
+3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa en ny resursgrupp, *myResourceGroup' och placera den i valfri resursgrupp.
 
 Dina resurser bör etableras på några minuter. Använd webbappen och motsvarande App Service-plan i resten av den här självstudien.
 
    ![Skapa en ny App Service](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navigera till inställningarna för automatisk skalning
-1. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
+1. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har lästs in väljer du fliken **Autoskalning**.
 2. Här visas en lista med de resurser i din prenumeration som har stöd för automatisk skalning. Identifiera den App Service-plan du skapade tidigare i självstudien och klicka på den.
 
     ![Navigera till inställningarna för automatisk skalning](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Klicka på knappen **Aktivera autoskalning** i autoskalningsinställningarna
+3. Klicka på knappen **Aktivera autoskalning** i autoskalningsinställningarna.
 
-I följande steg får du hjälp att fylla skärmen Autoskala så att den ser ut som på bilden nedan:
+I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser ut som på bilden nedan:
 
    ![Spara autoskalningsinställningen](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## <a name="configure-default-profile"></a>Konfigurera en standardprofil
-1. Ange ett **Namn** för autoskalningsinställningen
-2. Se till att **Skalningsläge** är inställt på ”Skala till ett specifikt antal instanser” i standardprofilen
+1. Ange ett **Namn** för autoskalningsinställningen.
+2. Se till att **Skalningsläge** är inställt på ”Skala till ett specifikt antal instanser” i standardprofilen.
 3. Ange antalet instanser till **1**. Den här inställningen garanterar att när inga andra profiler är aktiva återställer standardprofilen instansantalet till 1.
 
   ![Navigera till inställningarna för automatisk skalning](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
@@ -67,33 +65,33 @@ I följande steg får du hjälp att fylla skärmen Autoskala så att den ser ut 
 
 ## <a name="create-recurrance-profile"></a>Skapa en upprepningsprofil
 
-1. Klicka på länken **Add a scale condition** (Lägg till ett skalningsvillkor) under standardprofilen
+1. Klicka på länken **Add a scale condition** (Lägg till ett skalningsvillkor) under standardprofilen.
 
-2. Redigera fältet **Namn** för profilen till ”Monday to Friday profile”
+2. Redigera fältet **Namn** för profilen till ”Monday to Friday profile”.
 
-3. Se till att **Skalningsläge** är satt till ”Skala baserat på ett mått”
+3. Se till att **Skalningsläge** är satt till Skala baserat på ett mått.
 
 4. För **Instansgränser** anger du 1 för **Minst**, 2 för **Maximalt** och 1 som **Standard**. Den här inställningen garanterar att profilen inte automatiskt skalar om Service-planen så att den har färre än 1 instans eller fler än 2 instanser. Om profilen inte har tillräckligt med data för ett beslut används standardantalet instanser (i det här fallet 1).
 
-5. Välj Upprepa specifika dagar för **Schema**
+5. Välj Upprepa specifika dagar för **Schema**.
 
 6. Ange att profilen ska upprepas måndag-fredag från 09.00 PST till 18.00 PST. Den här inställningen garanterar att profilen bara är aktiv och giltig från 09.00 till 18:00, måndag-fredag. Vid andra tider är det standardprofilen som används för autoskalningsinställningar.
 
 ## <a name="create-a-scale-out-rule"></a>Skapa en utskalningsregel
 
-1. Öppna profilen ”Monday to Friday profile”
+1. I ”Monday to Friday profile”.
 
-2. Klicka på länken **Lägg till en regel**
+2. Klicka på länken **Lägg till en regel**.
 
 3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till Apptjänster och **Resurs** till webbappen du skapade tidigare i självstudien.
 
-4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Summa
+4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Summa.
 
 5. Sätt **Operator** till Större än, **Tröskelvärde** till 10 och **Varaktighet** till 5 minuter.
 
-6. Sätt **Åtgärd** till Öka antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter
+6. Sätt **Åtgärd** till Öka antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter.
 
-7. Klicka på knappen **Lägg till**
+7. Klicka på knappen **Lägg till**.
 
 Den här regeln säkerställer att om din webbapp tar emot fler än 10 förfrågningar inom 5 minuter eller mindre så läggs ytterligare en instans till i din App Service-plan för att hantera belastningen.
 
@@ -102,23 +100,23 @@ Den här regeln säkerställer att om din webbapp tar emot fler än 10 förfråg
 ## <a name="create-a-scale-in-rule"></a>Skapa en inskalningsregel
 Vi rekommenderar att du alltid använder en inskalningsregel tillsammans med en utskalningsregel. Om du använder båda så undviker du att överetablera resurser. Överetablering innebär att du har flera instanser igång än vad som behövs för att hantera den aktuella belastningen. 
 
-1. Öppna profilen ”Monday to Friday profile”
+1. I ”Monday to Friday profile”.
 
-2. Klicka på länken **Lägg till en regel**
+2. Klicka på länken **Lägg till en regel**.
 
 3. Ange Annan resurs som **Måttkälla**. Sätt **Resurstyp** till Apptjänster och **Resurs** till webbappen du skapade tidigare i självstudien.
 
-4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Genomsnitt
+4. Sätt **Tidsmängd** till Summa, **Måttnamn** till Förfrågningar och **Tidsintervallstatistik** till Genomsnitt.
 
 5. Sätt **Operator** till Mindre än, **Tröskelvärde** till 5 och **Varaktighet** till 5 minuter.
 
-6. Sätt **Åtgärd** till Minska antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter
+6. Sätt **Åtgärd** till Minska antal med, **Antal instanser** till 1 och **Nedkylningstid** till 5 minuter.
 
-7. Klicka på knappen **Lägg till**
+7. Klicka på knappen **Lägg till**.
 
     ![Skapa en inskalningsregel](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
-8. **Spara** autoskalningsinställningen
+8. **Spara** autoskalningsinställningen.
 
     ![Spara autoskalningsinställningen](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
@@ -127,15 +125,15 @@ Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste we
 
 1. Öppna ett webbläsarfönster och navigera till den webbapp du skapade tidigare i självstudien. Du hittar URL:en för webbappen i Azure Portal genom att gå till Web App-resursen och klicka på knappen **Bläddra** på fliken Översikt.
 
-2. Läs in sidan fler än 10 gånger i snabb följd
+2. Läs in sidan fler än 10 gånger i snabb följd.
 
 3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
 
-4. Välj App Service-planen du använt i den här självstudien från listan
+4. Välj App Service-planen du använt i den här självstudien från listan.
 
-5. Klicka på fliken **Körningshistorik** i autoskalningsinställningarna
+5. Klicka på fliken **Körningshistorik** i autoskalningsinställningarna.
 
-6. Du ser ett diagram som återger antalet instanser för App Service-planen över tid
+6. Du ser ett diagram som återger antalet instanser för App Service-planen över tid.
 
 7. Om några minuter bör instansantalet öka från 1 till 2.
 
@@ -144,15 +142,15 @@ Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste we
 ## <a name="trigger-scale-in-action"></a>Lös ut inskalningsåtgärden
 Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än 5 förfrågningar under 5 minuter. 
 
-1. Kontrollera att inga förfrågningar skickas till webbappen
+1. Kontrollera att inga förfrågningar skickas till webbappen.
 
-2. Läs in Azure Portal
+2. Läs in Azure Portal.
 
 3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
 
-4. Välj App Service-planen du använt i den här självstudien från listan
+4. Välj App Service-planen du använt i den här självstudien från listan.
 
-5. Klicka på fliken **Körningshistorik** i autoskalningsinställningarna
+5. Klicka på fliken **Körningshistorik** i autoskalningsinställningarna.
 
 6. Du ser ett diagram som återger antalet instanser för App Service-planen över tid.
 
@@ -168,7 +166,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 2. Klicka på **Ta bort** på resurssidan, bekräfta borttagningen genom att skriva **Ja** i textrutan och klicka sedan på **Ta bort**.
 
-3. Välj App Service-planresursen och klicka på **Ta bort**
+3. Välj App Service-planresursen och klicka på **Ta bort**.
 
 4. Bekräfta borttagningen genom att skriva **Ja** i textrutan och sedan klicka på **Ta bort**.
 

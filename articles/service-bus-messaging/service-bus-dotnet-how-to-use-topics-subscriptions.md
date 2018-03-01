@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -52,7 +52,7 @@ Om du redan har skapat ett namnområde för Service Bus-meddelanden går du vida
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Skapa ett ämne med Azure Portal
 
 1. Logga in på [Azure portal][azure-portal].
-2. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Fler tjänster** eller på **Alla resurser**). Klicka på det namnområde där du vill skapa ämnet. 
+2. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster** eller på **Alla resurser**). Klicka på det namnområde där du vill skapa ämnet. 
 3. Översiktsfönstret för namnområdet öppnas. Klicka på **Ämnen**:
    
     ![Skapa ett ämne][createtopic1]

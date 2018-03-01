@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-compose"></a>Skapa sfctl
+# <a name="sfctl-compose"></a>sfctl compose
 Skapa, ta bort och hantera distributioner av Docker Compose.
 
 ## <a name="commands"></a>Kommandon
@@ -160,10 +160,9 @@ Validerar angivna uppgradera parametrarna och börja uppgradera distributionen.
 | --- | --- |
 |   --debug                      | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 |    --hjälp -h                    | Visa den här hjälpmeddelandet och avsluta.|
- |   --utdata -o                  | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.
-                                   Standard: json.|
- |   --fråga                      | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
- |   -verbose                    | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
+|   --utdata -o                  | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs. Standard: json.|
+|   --fråga                      | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
+|   -verbose                    | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
 
 ## <a name="next-steps"></a>Nästa steg
 - [Ställ in](service-fabric-cli.md) Service Fabric CLI.

@@ -1,10 +1,11 @@
 - name: Dokumentation om Azure Search
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Search
       href: search-what-is-azure-search.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa en tjänst
       href: search-create-service-portal.md

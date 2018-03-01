@@ -3,21 +3,21 @@ title: "Skapa en Azure-datafabrik med hjälp av en Resource Manager-mall | Micro
 description: "I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
-editor: monicar
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.author: douglasl
+ms.openlocfilehash: 50f6bebffbf9eb88ec2c725184793d1ea9291312
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     ```
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
-1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Fler tjänster**, söker med nyckelordet som **data fa** och väljer **Datafabriker**.
+1. När du har loggat in på [Azure-portalen](https://portal.azure.com/) klickar du på **Alla tjänster**, söker med nyckelordet som **data fa** och väljer **Datafabriker**.
 
     ![Bläddra igenom datafabriksmenyerna](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. På sidan **Datafabriker** klickar du på datafabriken som du skapade. Om det behövs kan du filtrera listan med namnet på datafabriken.  

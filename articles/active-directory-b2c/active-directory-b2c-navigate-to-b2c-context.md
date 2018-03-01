@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c1fd08c52f33a062d06e0593cbbe00346bb44f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9b9f71d0c11aee238661d57fd2e5246f1bf0842
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Byta till en Azure AD B2C-klient
 
@@ -32,15 +32,15 @@ Om du vill navigera till din Azure AD B2C-klient måste du vara inloggad i Azure
 1. Växla mellan klienterna genom att klicka på din e-postadress eller på bilden i det övre högra hörnet.
 1. I den `Directory`-lista som visas väljer du den Azure AD B2C-klient som du vill hantera.
 
-Azure Portal uppdateras.  Du är nu inloggad på Azure Portal, i samma kontext som din Azure AD B2C-klient.
+Azure-portalen uppdateras.  Du är nu inloggad på Azure Portal, i samma kontext som din Azure AD B2C-klient.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Gå till B2C-funktionsbladet
+## <a name="navigate-to-the-b2c-features-pane"></a>Gå till B2C-funktionsfönstret
 
 1. Klicka på **Bläddra** i det vänstra navigeringsfönstret.
-1. Klicka på  **> Fler tjänster** och sök efter `Azure AD B2C` i det vänstra navigeringsfönstret.  (Klicka på stjärnan till vänster om Azure AD B2C för att fästa vid vänster startsida)
-1. Klicka på **Azure AD B2C** för att komma åt B2C-funktionsbladet.
+1. Klicka på **Alla tjänster** och sök efter `Azure AD B2C` i det vänstra navigeringsfönstret.  (Klicka på stjärnan till vänster om Azure AD B2C för att fästa vid vänster startsida)
+1. Klicka på **Azure AD B2C** för att komma åt B2C-funktionsfönstret.
    
-    ![Skärmbild av bläddring till B2C-funktionsbladet](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Skärmbild av bläddring till B2C-funktionsfönstret](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> Du måste vara global administratör för B2C-klienten för att kunna komma åt B2C-funktionsbladet. En global administratör från en annan klient eller en användare från en klient kan inte komma åt det.  Du kan växla till B2C-klienten med klientväxlaren i det övre högra hörnet i Azure Portal.
+> Du måste vara global administratör för B2C-klienten för att kunna komma åt B2C-funktionsfönstret. En global administratör från en annan klient eller en användare från en klient kan inte komma åt det.  Du kan växla till B2C-klienten med klientväxlaren i det övre högra hörnet i Azure Portal.

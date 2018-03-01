@@ -1,7 +1,6 @@
 - name: Dokumentation om Data Factory V2
   href: index.yml
-- name: |
-    Översikt
+- name: Översikt
   items:
     - name: Introduktion till Data Factory
       href: introduction.md
@@ -206,6 +205,8 @@
               href: connector-mongodb.md
             - name: MySQL
               href: connector-mysql.md
+            - name: Netezza
+              href: connector-netezza.md
             - name: OData
               href: connector-odata.md
             - name: ODBC
@@ -232,6 +233,8 @@
               href: connector-sap-business-warehouse.md
             - name: SAP Cloud for Customer
               href: connector-sap-cloud-for-customer.md
+            - name: SAP ECC
+              href: connector-sap-ecc.md
             - name: SAP HANA
               href: connector-sap-hana.md
             - name: ServiceNow
@@ -250,6 +253,8 @@
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
+            - name: Vertica
+              href: connector-vertica.md
             - name: Webbtabell
               href: connector-web-table.md
             - name: Xero

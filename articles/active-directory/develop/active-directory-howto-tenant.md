@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Skaffa en Azure Active Directory-klient
 I Azure Active Directory (Azure AD) representerar en [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) en organisation.  Det är en dedikerad instans av Azure AD-tjänsten som en organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst som Azure, Microsoft Intune och Office 365.  Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter.  
@@ -44,7 +44,7 @@ Om du redan har registrerat dig för en Azure-prenumeration med ditt individuell
 I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient och skapa en administratör i den klienten med hjälp av en liknande process.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt individuella konto
-2. Navigera till “Azure Active Directory”-avsnittet i portalen (finns i vänster navigationsfält, under **Fler tjänster**)
+2. Navigera till “Azure Active Directory”-avsnittet i portalen (finns i vänster navigationsfält, under **Alla tjänster**)
 3. Du borde automatiskt vara inloggade på ”Standardkatalogen”, annars kan du växla kataloger genom att klicka på ditt kontonamn i det övre högra hörnet.
 4. Från avsnittet **Snabbuppgifter**, väljer du **lägg till en användare**.
 5. I formuläret Lägg till en användare, anger du följande information:
@@ -58,7 +58,7 @@ I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient
 8. För att ändra det tillfälliga lösenordet, loggar du in på [https://login.microsoftonline.com](https://login.microsoftonline.com) med det här nya användarkontot och ändrar lösenordet när du tillfrågas.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Använda en Azure-prenumeration för en organisation
-Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com), borde du hitta en klientorganisation när du navigerar till "Fler tjänster" och "Azure Active Directory".  Du kan använda den här klienten om du vill.
+Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com) borde du hitta en klientorganisation när du navigerar till ”Alla tjänster” och ”Azure Active Directory”.  Du kan använda den här klienten om du vill.
 
 ## <a name="start-from-scratch"></a>Börja från början
 Oroa dig inte om inget av alternativen ovan passar dig. Gå bara till [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) för att skapa en ny Azure AD-katalog. När du har slutfört processen får du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till **Azure Active Directory** i det vänstra navigeringsfältet.

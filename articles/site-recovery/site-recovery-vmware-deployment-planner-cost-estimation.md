@@ -1,6 +1,6 @@
 ---
-title: "Distributionshanteraren för Azure Site Recovery för VMware till Azure| Microsoft Docs"
-description: "Det här är användarhandboken för Distributionshanteraren för Azure Site Recovery."
+title: "Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs"
+description: "Det här är användarhandboken för Azure Site Recovery-kapacitetsplaneraren."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0a4d8958c0bbbe8b0242bfe8943d01ef66afec74
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning i Distributionshanteraren för Azure Site Recovery  
 
@@ -32,15 +32,15 @@ Sammanfattning av kostnadsuppskattning
 
 Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala för lagring, beräkning, nätverk och licenser när du skyddar alla dina kompatibla virtuella datorer till Azure med Azure Site Recovery. Kostnaden beräknas för kompatibla virtuella datorer och inte för alla profilerade virtuella datorer.  
  
-Du kan visa kostnaden per månad eller per år. Läs mer om vilka [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och vilka [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
+Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Kostnad per komponenter**: den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och licenskostnad för Azure Site Recovery. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och testredundanstiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och licensen för Azure Site Recovery.
+**Cost by components** (Kostnad per komponenter) Den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och Azure Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
 
-**Kostnad per tillstånd**: den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och testredundans. 
+**Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test. 
 
-**Replikeringskostnad**: kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
 
-**DR-testkostnad**: kostnaden som tillkommer under redundanstest. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure storage cost per Month/Year**: (Azure Storage-kostnad per månad/år) det här visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och redundanstest.
 
@@ -52,7 +52,7 @@ De grå cellerna i hela rapporten är skrivskyddade. Celler i vitt kan ändras e
 
 ![Detaljerad kostnadsuppskattning1](media/site-recovery-hyper-v-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
 
-### <a name="overall-dr-cost-by-components"></a>Overall DR cost by components (Övergripande kostnad för haveriberedskap per komponent)
+### <a name="overall-dr-cost-by-components"></a>Övergripande kostnad för haveriberedskap per komponent
 I det första avsnittet visas den sammanlagda kostnaden för haveriberedskap per komponent och kostnaden för haveriberedskap per tillstånd. 
 
 **Databearbetning**: kostnaden för virtuella IaaS-datorer som körs på Azure för haveriberedskap. Här ingår de virtuella datorer som skapas av Azure Site Recovery under DR-tester (redundanstester) och de virtuella datorer som körs på Azure som SQL Server med AlwaysOn-tillgänglighetsgrupper och domänkontrollanter/DNS-servrar.
@@ -126,7 +126,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 **Lagringstyp**: typen av lagring som används för den virtuella datorn. Det här är antingen Standard eller Premium.
 
-**Totalt lagringsutrymme (GB) för virtuell dator**: det totala lagringsutrymmet för den virtuella datorn.
+**Totalt lagringsutrymme (GB) för virtuella datorer**: det totala lagringsutrymmet för den virtuella datorn.
 
 **Antal DR-tester under ett år**: antalet gånger som du utför DR-tester under ett år. Standardvärdet är 4 gånger per år. Du kan ändra perioden för specifika virtuella datorer eller använda det nya värdet för alla virtuella datorer genom att ange det nya värdet på den översta raden och klicka på knappen Använd för alla. Den totala kostnaden för DR-tester är baserad på antalet DR-tester under ett år och varaktigheten för varje DR-test.  
 
@@ -166,4 +166,4 @@ Distributionshanteraren för Azure Site Recovery kan generera kostnadsrapporten 
 |TRY|Turkiska lira (TL)||USD| Amerikanska dollar ($)||ZAR|Sydafrikanska rand (R)|
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om hur du skyddar [virtuella VMware-datorer till Azure med Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure).
+Lär dig mer om hur du skyddar [virtuella VMware-datorer till Azure med Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

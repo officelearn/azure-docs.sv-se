@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8262162ce73176426057af4654f12614cac85472
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 103e4ca5ffd6c9dfe5043af9d8f75763705eb939
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för att få åtkomst till resurser
 
@@ -36,7 +36,7 @@ Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är 
 
 Nu kan du gå vidare till ett avsnitt för att autentisera med:
 
-* [lösenord](#create-service-principal-with-password)
+* [Lösenord](#create-service-principal-with-password)
 * [självsignerat certifikat](#create-service-principal-with-self-signed-certificate)
 * [certifikat från certifikatutfärdare](#create-service-principal-with-certificate-from-certificate-authority)
 
@@ -403,7 +403,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 > Åtkomst-token upphör att gälla, så att använda en sparad profil fungerar bara för så länge token är giltig.
 >  
 
-Alternativt kan du anropa REST-åtgärder från PowerShell för att logga in. Du kan hämta åtkomsttoken för användning med andra åtgärder från autentiseringssvaret. Ett exempel för att hämta åtkomsttoken genom att anropa REST-åtgärder finns [genererar en åtkomst-Token](resource-manager-rest-api.md#generating-an-access-token).
+Alternativt kan du anropa REST-åtgärder från PowerShell för att logga in. Du kan hämta åtkomsttoken för användning med andra åtgärder från autentiseringssvaret. Ett exempel för att hämta åtkomsttoken genom att anropa REST-åtgärder finns [skapa begäran](/rest/api/#create-the-request).
 
 ## <a name="debug"></a>Felsökning
 

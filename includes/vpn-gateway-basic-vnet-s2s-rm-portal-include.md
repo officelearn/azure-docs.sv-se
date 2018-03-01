@@ -6,7 +6,7 @@ Följ stegen nedan för att skapa en VNet i Resource Manager-distributionsmodell
 >
 
 1. Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
-2. Klicka på **Ny**. Skriv ”virtuellt nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
+2. Klicka på **Skapa en resurs**. Skriv ”virtuellt nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
 3. I listan **Välj en distributionsmodell** nästan längst ned på sidan Virtuellt nätverk väljer du **Resource Manager** och klickar sedan på **Skapa**. Då öppnas sidan ”Skapa virtuell nätverksgateway”.
 
     ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Sidan Skapa virtuellt nätverk")

@@ -1,3 +1,5 @@
+# [Dokumentation om Load Balancer](index.md)
+
 # Översikt
 ## [Vad är belastningsutjämnare?](load-balancer-overview.md)
 ## [Vad är Load Balancer Standard?](load-balancer-standard-overview.md)

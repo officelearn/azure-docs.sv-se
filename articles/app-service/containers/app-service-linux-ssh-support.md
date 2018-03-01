@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
@@ -29,7 +29,7 @@ Apptjänst i Linux stöder SSH till appbehållare med var och en av de inbyggda 
 
 ![Runtime stackar](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Du kan också använda SSH med din anpassade Docker-avbildningar genom att inkludera SSH-server som en del av avbildningen och konfigurera den som beskrivs i det här avsnittet.
+Du kan också använda SSH med din anpassade Docker-avbildningar genom att inkludera SSH-server som en del av avbildningen och konfigurera den som beskrivs i den här artikeln.
 
 ## <a name="making-a-client-connection"></a>Gör en klientanslutning
 
@@ -49,7 +49,7 @@ Om du inte redan har autentiserats, krävs att autentisera med din Azure-prenume
 
 Utför följande steg för Docker-avbildning för en anpassad Docker-avbildning att stödja SSH-kommunikation mellan behållaren och klienten i Azure-portalen.
 
-Dessa steg som visas i Azure App Service-databasen som [exempel](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Stegen visas i Azure App Service-databasen som [exempel](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Inkludera den `openssh-server` installationen i [ `RUN` instruktion](https://docs.docker.com/engine/reference/builder/#run) i Dockerfile för avbildning och ange lösenordet för rot-kontot till `"Docker!"`.
 
@@ -65,7 +65,7 @@ Dessa steg som visas i Azure App Service-databasen som [exempel](https://github.
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Lägg till en [ `COPY` instruktion](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på vår sshd_config-filen i Azure App Service GitHub-lagret [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Lägg till en [ `COPY` instruktion](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på filen sshd_config i Azure App Service GitHub-lagret [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > Den *sshd_config* filen måste innehålla följande eller om anslutningen misslyckas: 
@@ -82,26 +82,28 @@ Dessa steg som visas i Azure App Service-databasen som [exempel](https://github.
     EXPOSE 2222 80
     ```
 
-1. Se till att [starta den ssh-tjänsten](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) med hjälp av ett kommandoskript i */bin* directory.
+1. Se till att starta tjänsten SSH med hjälp av ett kommandoskript (se exempel på [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Dockerfile använder den [ `CMD` instruktion](https://docs.docker.com/engine/reference/builder/#cmd) att köra skriptet.
+Dockerfile använder den [ `ENTRYPOINT` instruktion](https://docs.docker.com/engine/reference/builder/#entrypoint) att köra skriptet.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande länkar för mer information om Web App för behållare. Du kan publicera frågor och funderingar i [vårt forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Du kan publicera frågor och funderingar på den [Azure-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
+För mer information om Web App för behållare, se:
 
 * [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
 * [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)

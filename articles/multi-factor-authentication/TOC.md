@@ -1,3 +1,5 @@
+# [Dokumentation om Multi-Factor Authentication](index.md)
+
 # Översikt
 ## [Vad är Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [Hur det fungerar](multi-factor-authentication-how-it-works.md)

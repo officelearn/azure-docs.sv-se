@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Linux-dator med SQL Server på Azure Portal
 
@@ -33,17 +33,17 @@ I den här kursen ska du:
 * [Ändra SA-lösenordet](#password)
 * [Konfigurera för fjärranslutningar](#remote)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a id="create"></a> Skapa en virtuell Linux-dator med SQL Server installerat
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Klicka på **Nytt** i det vänstra fönstret.
+1. I den vänstra rutan klickar du på **Skapa en resurs**.
 
-1. I fönstret **Nytt** klickar du på **Compute**.
+1. I fönstret **Skapa en resurs** klickar du på **Compute**.
 
 1. Klicka på **Visa alla** bredvid rubriken **Aktuella**.
 

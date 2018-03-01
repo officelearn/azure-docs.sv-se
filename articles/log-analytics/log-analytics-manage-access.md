@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -34,7 +34,7 @@ För att skapa en arbetsyta måste du:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
 En arbetsyta är en Azure-resurs och en behållare där data samlas in, aggregeras, analyseras och presenteras på Azure Portal.
 
-Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. När du minimerar antalet arbetsytor kan du söka och samordna de flesta data eftersom det inte går att söka i flera arbetsytor. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. Tidigare kunde du endast analysera data inifrån den aktuella arbetsytan, vilket begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration. Nu kan du [fråga över flera arbetsytor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), vilket ger en systemomfattande överblick över dina data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
 För närvarande tillhandahåller en arbetsyta:
 
@@ -62,10 +62,10 @@ Du kan visa information om din arbetsyta på Azure Portal.
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Visa information om arbetsytan på Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på knappen **Fler tjänster** längst upp till vänster i Azure-portalen.  I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
-    ![Azure-hubb](./media/log-analytics-manage-access/hub.png)  
-3. Välj en arbetsyta på Log Analytics-prenumerationsbladet.
-4. Bladet för arbetsytan visar information om arbetsytan och länkar till ytterligare information.  
+2. Klicka på **Alla tjänster**.  I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
+    ![Skärmbild som visar Azures vänstra meny](./media/log-analytics-manage-access/hub.png)  
+3. Välj en arbetsyta på Log Analytics-prenumerationssidan.
+4. Sidan för arbetsytan visar information om arbetsytan och länkar till ytterligare information.  
     ![information om arbetsytan](./media/log-analytics-manage-access/workspace-details.png)  
 
 

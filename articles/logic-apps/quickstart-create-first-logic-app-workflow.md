@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Snabbstart: Skapa ditt första arbetsflöde för logikapp – Azure Portal
 
@@ -34,15 +34,15 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med dina Azure-kontoautentiseringsuppgifter.
+Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med autentiseringsuppgifterna för ditt Azure-konto.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp 
 
-1. Välj **Ny** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
+1. Välj **Skapa en resurs** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
 
    ![Skapa en logikapp](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **Fäst på instrumentpanelen** > **Skapa**.
+3. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **Fäst på instrumentpanelen** > **Skapa**.
 
    ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -55,7 +55,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 
-3. När Azure har distribuerat din app öppnas Logic Apps Designer och visar en sida med en introduktionsvideo och vanliga utlösare. Under **Mallar** väljer du **Tom logikapp**.
+3. När Azure har distribuerat din app öppnas Logic Apps Designer och det visas en sida med en introduktionsvideo och vanliga utlösare. Under **Mallar** väljer du **Tom logikapp**.
 
    ![Välja tom mall för logikapp](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 

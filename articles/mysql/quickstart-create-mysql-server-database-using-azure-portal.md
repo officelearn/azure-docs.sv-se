@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 Azure Database för MySQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database för MySQL-server på ungefär fem minuter med Azure Portal.  
@@ -29,7 +29,7 @@ Du skapar en Azure Database för MySQL-server med en definierad uppsättning [Co
 
 Följ de här stegen för att skapa en Azure Database för MySQL-server:
 
-1. Klicka på knappen **Nytt** (+) i det övre vänstra hörnet i portalen.
+1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
 2. Välj **Databaser** > **Azure-databas för MySQL**. Du kan också skriva **MySQL** i sökrutan och leta reda på tjänsten.
 

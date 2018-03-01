@@ -1,6 +1,6 @@
 - name: Azure Migrate-dokumentation
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Migrate
       href: migrate-overview.md
@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Begrepp
   items:
+    - name: Begrepp för insamlare
+      href: concepts-collector.md
     - name: Utvärderingsberäkningar
       href: concepts-assessment-calculation.md
     - name: Visualisering av beroenden

@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>sfctl nod
+# <a name="sfctl-node"></a>sfctl node
 Hantera de noder som formar ett kluster.
 
 ## <a name="commands"></a>Kommandon
@@ -30,7 +30,7 @@ Hantera de noder som formar ett kluster.
 |    inaktivera       | Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte.|
 |    aktivera        | Aktivera en Service Fabric-klusternod som för tillfället inaktiverat.|
 |    hälsa        | Hämtar hälsotillståndet för en Service Fabric-nod.|
-|    info          | Hämtar listan över noder i Service Fabric-klustret.|
+|    info          | Hämtar information om en viss nod i Service Fabric-klustret.|
 |    lista          | Hämtar listan över noder i Service Fabric-klustret.|
 |    läsa in          | Hämtar belastningen information för en Service Fabric-nod.|
 |    ta bort tillstånd  | Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort.|
@@ -50,7 +50,7 @@ Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte. När i
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| --deactivation-intent | Beskriver syftet eller anledningen till att inaktivera noden. Möjliga värden följande. -Pause - anger att noden ska pausas. Värdet är 1. -Omstart - anger att avsikten är att noden som ska startas om efter en kort tidsperiod. Värdet är 2. -RemoveData - anger avsikten är att noden för att ta bort data. Värdet är 3. .|
+| --deactivation-intent | Beskriver syftet eller anledningen till att inaktivera noden. |
 | --timeout -t       | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
@@ -109,9 +109,9 @@ Hämtar hälsotillståndet för en Service Fabric-nod. Använd EventsHealthState
 | -verbose                | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
 
 ## <a name="sfctl-node-info"></a>sfctl noden info
-Hämtar listan över noder i Service Fabric-klustret.
+Hämtar information om en viss nod i Service Fabric-klustret.
 
-Hämtar information om en viss nod i Service Fabric-klustret. Svaret innehåller namn, status, ID, hälsa, drifttid och annan information om noden.
+Hämtar informationen om en viss nod i Service Fabric Cluster.The svar inkluderar namn, status, id, hälsa, drifttid och annan information om noden.
 
 ### <a name="arguments"></a>Argument
 
@@ -133,14 +133,14 @@ Hämtar information om en viss nod i Service Fabric-klustret. Svaret innehåller
 ## <a name="sfctl-node-list"></a>sfctl nodlistan
 Hämtar listan över noder i Service Fabric-klustret.
 
-Noder slutpunkten returnerar information om noderna i Service Fabric-kluster. Svaret innehåller namn, status, ID, hälsa, drifttid och annan information om noden.
+Hämtar listan över noder i Service Fabric-klustret. Svaret innehåller namn, status, id, hälsa, drifttid och annan information om noden.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
 | --continuation-token| Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar.      När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
-| --node-status-filter| Tillåter filtrering noder baserat på NodeStatus. Endast de noder som matchar det angivna filtret värdet returneras. Filtervärdet kan vara något av följande. -default - filtret värdet matchar alla noder excepts dem med status som okänd eller tagits bort. -alla - filtret värdet matchar alla noder. värdet matchar filtret - in - noder som är igång. värdet matchar filtret - ned - noder som är nere. -Aktivera - det här värdet matchar Filternoder som håller på att aktiveras med status som aktiverar. -inaktiverar – det här värdet matchar Filternoder som håller på att inaktiveras med status som inaktiverar. -inaktiverat - det här filtret värdet matchar noder som har inaktiverats. -Okänt - filtret värdet matchar noder vars status är okänd. En nod är okänt tillstånd om Service Fabric saknar auktoritär information om noden. Detta kan inträffa om systemet lär sig en nod vid körning. -ta bort - detta värde matchar Filternoder vars status är inställd på borttagen. Dessa är de noder som tas bort från klustret med RemoveNodeState-API. .      Standard: standard.|
+| --node-status-filter| Tillåter filtrering noder baserat på NodeStatus. Endast de noder som matchar det angivna filtret värdet returneras. Filtervärdet kan vara något av följande. Standard: standard.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
@@ -156,7 +156,7 @@ Noder slutpunkten returnerar information om noderna i Service Fabric-kluster. Sv
 ## <a name="sfctl-node-load"></a>Läs in sfctl-nod
 Hämtar belastningen information för en Service Fabric-nod.
 
-Hämtar belastningen information för en Service Fabric-nod.
+Hämtar belastningen information för en Service Fabric-nod för de mätvärden som har belastning eller kapacitet har definierats.
 
 ### <a name="arguments"></a>Argument
 
@@ -203,7 +203,7 @@ Startar om en klusternod för Service Fabric som redan har startats.
 Startar eller stoppar en klusternod.
 
 Startar eller stoppar en klusternod.  En nod i klustret är en process, inte själva instansen OS.
-Ange ”Start” för parametern NodeTransitionType om du vill starta en nod. Ange ”Avbryt” för parametern NodeTransitionType om du vill stoppa en nod. Detta API startar åtgärden - när API: N returnerar noden inte kan har slutförts övergång ännu. Anropa GetNodeTransitionProgress med samma åtgärds-ID att hämta status för åtgärden. .
+Ange ”Start” för parametern NodeTransitionType om du vill starta en nod. Ange ”Avbryt” för parametern NodeTransitionType om du vill stoppa en nod. Detta API startar åtgärden - när API: N returnerar noden inte kan har slutförts övergång ännu. Anropa GetNodeTransitionProgress med samma åtgärds-ID att hämta status för åtgärden. 
 
 ### <a name="arguments"></a>Argument
 
@@ -211,7 +211,7 @@ Ange ”Start” för parametern NodeTransitionType om du vill starta en nod. An
 | --- | --- |
 | --nod-instans-id [krävs]| I noden instans-ID på målnoden. Detta kan fastställas via GetNodeInfo API.|
 | --nodnamn [krävs]| Namnet på noden.|
-| ---övergång-nodtyp [krävs]| Anger vilken typ av övergång att utföra.                       NodeTransitionType.Start startar en stoppad nod.                       NodeTransitionType.Stop stoppar en nod som är igång. -Ogiltig - reserverade.  Överför inte till API-gränssnitt. -Start - övergång en stoppad nod till uppåt. -Stop - övergång en uppdaterad nod stoppas. .|
+| ---övergång-nodtyp [krävs]| Anger vilken typ av övergång att utföra.                       NodeTransitionType.Start startar en stoppad nod.                       NodeTransitionType. Stoppa stoppar en nod som är igång. |
 | --åtgärden-id [krävs]| Ett GUID som identifierar ett detta API-anrop.  Detta är skickades till API: et för motsvarande GetProgress.|
 | --stop-duration-in-seconds [Required]| Varaktighet i sekunder, att noden stoppades.  Det lägsta värdet är 600 är maximalt 14400. När denna tid har löpt ut startas noden automatiskt igen.|
 | --timeout -t                      | Servern tidsgräns i sekunder.  Standard: 60.|

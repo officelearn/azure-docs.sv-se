@@ -1,3 +1,5 @@
+# [Dokumentation om Key Vault](index.md)
+
 # Översikt
 ## [Vad är Key Vault?](key-vault-whatis.md)
 ## [Tjänstöversikt](https://azure.microsoft.com/services/key-vault/)
@@ -41,7 +43,7 @@
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
-## [NET](/dotnet/api/microsoft.azure.keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
 ### [Hantering av valv](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)

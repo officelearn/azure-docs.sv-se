@@ -4,7 +4,7 @@ description: "Skapa en VPN-gateway-anslutning mellan virtuella nätverk med hjä
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure Portal
 
-Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-anslutningstypen. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
+Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-anslutningstypen. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
 
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure-portalen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
@@ -51,9 +51,9 @@ Att konfigurera en anslutning mellan virtuella nätverk är ett bra sätt att en
 
 Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att ansluta dina virtuella nätverk med hjälp av anvisningarna för [plats-till-plats](vpn-gateway-howto-site-to-site-resource-manager-portal.md) i stället. När du använder anvisningarna för plats-till-plats-IPsec skapar och konfigurerar du de lokala nätverksgatewayerna manuellt. Den lokala nätverksgatewayen för varje virtuellt nätverk behandlar det andra virtuella nätverket som en lokal plats. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om adressutrymmet för ett virtuellt nätverk ändras måste du uppdatera den motsvarande lokala nätverksgatewayen för att avspegla det. Den uppdateras inte automatiskt.
 
-### <a name="vnet-peering"></a>VNet-peering
+### <a name="vnet-peering"></a>VNET-peering
 
-Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNet-peering. VNet-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNET-peering. VNET-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNET-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
@@ -62,7 +62,7 @@ Du kan vilja ansluta virtuella nätverk med en anslutning mellan virtuella nätv
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
   * Du kan ange din egna geografiska replikering eller synkronisering med en säker anslutning, utan att passera några Internet-slutpunkter.
-  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera att SQL alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
+  * Med Azure Traffic Manager och Load Balancer kan du konfigurera arbetsbelastning med hög tillgänglighet och geografisk redundans över flera Azure-regioner. Ett viktigt exempel är att konfigurera SQL så att det alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
 * **Regionala flernivåprogram med isolering eller administrativa gränser**
 
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
@@ -81,7 +81,7 @@ I den här artikeln får du hjälp med att ansluta virtuella nätverk med anslut
 * Adressutrymme: 10.11.0.0/16
 * Prenumeration: Välj den prenumeration som du vill använda
 * Resursgrupp: TestRG1
-* Plats: Östra USA
+* Plats: USA, östra
 * Undernätsnamn: FrontEnd
 * Adressintervall för undernätet: 10.11.0.0/24
 * Namn för gateway-undernät: GatewaySubnet (anges automatiskt i portalen)

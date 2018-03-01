@@ -9,10 +9,10 @@ ms.date: 02/18/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 406f0890da1ef4123b16082e7371d67f6328ea2c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -22,7 +22,7 @@ Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md)
 Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Väljer ett replikeringsmål
+> * Välj ett replikeringsmål
 > * Konfigurerar käll- och målmiljön
 > * Konfigurerar en replikeringsprincip
 > * Aktivera replikering

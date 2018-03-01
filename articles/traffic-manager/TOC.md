@@ -1,3 +1,5 @@
+# [Dokumentation om Traffic Manager](index.md)
+
 # Översikt
 ## [Vad är Traffic Manager?](traffic-manager-overview.md)
 ## [Metoder för routning](traffic-manager-routing-methods.md)

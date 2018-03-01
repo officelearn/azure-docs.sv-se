@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Skapa en Internetuppkopplad belastningsutjämnare med hjälp av Azure Portal
 
@@ -57,7 +57,7 @@ Mer information om belastningsutjämningskomponenter för Azure Resource Manager
 > I det här exemplet förutsätter vi att du har ett virtuellt nätverk som heter **myVNet**. Information om hur du skapar det virtuella nätverket finns i avsnittet om hur du [skapar ett virtuellt nätverk](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Vi förutsätter också att det finns ett undernät i **myVNet** med namnet **LB-Subnet-BE** och två virtuella datorer, **web1** och **web2**, i samma tillgänglighetsuppsättning med namnet **myAvailSet** i **myVNet**. Information om hur du skapar virtuella datorer finns på [den här länken](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 1. Öppna en webbläsare och gå till Azure Portal: [http://portal.azure.com](http://portal.azure.com). Logga in med ditt Azure-konto.
-2. Längst upp till vänster på skärmen väljer du **Nytt** > **Nätverk** > **Belastningsutjämnare**.
+2. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Belastningsutjämnare.**
 3. På bladet **Skapa belastningsutjämnare** skriver du ett namn för belastningsutjämnaren. I vårt exempel använder vi **myLoadBalancer**.
 4. Under **Typ** väljer du **Offentlig**.
 5. Under **Offentlig IP-adress** skapar du en ny offentlig IP-adress med namnet **myPublicIP**.

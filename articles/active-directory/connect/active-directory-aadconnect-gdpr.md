@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>BNPR efterlevnad och Azure AD Connect 
 
@@ -33,7 +33,7 @@ Allmänna Data Protection förordning kompatibilitet för Azure AD Connect insta
 1.  Extrahera data för en person på begäran, och ta bort data från den personen från installationer
 2.  Se till att inga data sparas 48 timmar.
 
-Råd Azure AD Connect-teamet rekommenderar det andra alternativet.  Orsaken till att det är, är att det är för långt den enklaste att implementera och underhålla.
+Azure AD Connect-teamet rekommenderar det andra alternativet eftersom det är mycket enklare att implementera och underhålla.
 
 En Azure AD Connect sync-servern lagrar följande data som ingår i omfånget för BNPR kompatibilitet:
 1.  Data om en person i den **Azure AD Connect-databas**

@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Fråga efter och hantera partitioner för alla tjänster.
@@ -48,7 +48,7 @@ Fråga efter och hantera partitioner för alla tjänster.
 Hämtar hälsotillståndet för den angivna Service Fabric-partitionen.
 
 Hämtar information om hälsa för den angivna partitionen. Använd EventsHealthStateFilter för att filtrera insamling av hälsotillstånd händelser som rapporterats för tjänsten baserat på hälsotillståndet.
-Använd ReplicasHealthStateFilter för att filtrera objektsamlingen ReplicaHealthState på partitionen. Om du anger en partition som inte finns i health store returnerar denna cmdlet ett fel. .
+Använd ReplicasHealthStateFilter för att filtrera objektsamlingen ReplicaHealthState på partitionen. Om du anger en partition som inte finns i health store returnerar denna cmdlet ett fel.
 
 ### <a name="arguments"></a>Argument
 
@@ -101,7 +101,7 @@ Hämtar listan över partitioner i en Service Fabric-tjänst. S partitions-ID, p
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --tjänst-id [krävs]| Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Till exempel om tjänstens namn är ”fabric://myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp ~ app1 ~ svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner.|
+| --tjänst-id [krävs]| Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Om namnet på tjänsten är till exempel ”fabric: / myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp ~ app1 ~ svc1” i 6.0 + och ”myapp/app1/svc1” i tidigare versioner.|
 | --continuation-token| Parametern fortsättning token för att hämta nästa uppsättning resultat.         En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
 | --timeout -t        | Servern tidsgräns i sekunder.  Standard: 60.|
 
@@ -162,7 +162,7 @@ Anger att den ska försöka att återställa en specifik partition som för när
 ## <a name="sfctl-partition-restart"></a>sfctl partition omstart
 Detta API startar om vissa eller alla repliker eller instanser av den angivna partitionen.
 
-Detta API är användbart för testning av redundans. Om används för att rikta en tillståndslösa tjänsten partition, vara RestartPartitionMode AllReplicasOrInstances. Anropa API: et för GetPartitionRestartProgress som använder samma åtgärds-ID för att hämta förloppet. .
+Detta API är användbart för testning av redundans. Om används för att rikta en tillståndslösa tjänsten partition, vara RestartPartitionMode AllReplicasOrInstances. Anropa API: et för GetPartitionRestartProgress som använder samma åtgärds-ID för att hämta förloppet.
 
 ### <a name="arguments"></a>Argument
 
@@ -170,8 +170,8 @@ Detta API är användbart för testning av redundans. Om används för att rikta
 | --- | --- |
 | --åtgärden-id [krävs]| Ett GUID som identifierar ett detta API-anrop.  Detta är skickades till API: et för motsvarande GetProgress.|
 | --partitions-id [krävs]| Identitet för partitionen.|
-| --omstart partition-läge [krävs]| -Ogiltig - reserverade.  Överför inte till API-gränssnitt. -AllReplicasOrInstances - alla repliker eller instanser i partitionen har startats om på samma gång. -OnlyActiveSecondaries - endast sekundärt repliker har startats om. .|
-| --tjänst-id [krävs]| Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Till exempel om tjänstens namn är ”fabric://myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp ~ app1 ~ svc1” i 6.0 + och ”myapp/app1/svc1” i föregående v ersions.|
+| --omstart partition-läge [krävs]| Beskriv vilka partitioner att starta om.|
+| --tjänst-id [krävs]| Identiteten för tjänsten. Detta är vanligtvis det fullständiga namnet på tjänsten utan den ”fabric:' URI-schema. Från och med version 6.0, hierarkiska namn är avgränsade med den ”~” tecken. Om namnet på tjänsten är till exempel ”fabric: / myapp/app1/svc1”, tjänstidentiteten skulle vara ”myapp ~ app1 ~ svc1” i 6.0 + och ”myapp/app1/svc1” i föregående para rsions.|
 | --timeout -t                    | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument

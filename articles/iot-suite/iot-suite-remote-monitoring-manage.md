@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Hantera och konfigurera dina enheter
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig hur man:
 > * Anropa enheten från lösningen.
 > * Konfigurera om en enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
@@ -42,11 +42,11 @@ Om du inte har distribuerat remote övervakningslösning ännu, bör du genomfö
 
 ## <a name="add-a-simulated-device"></a>Lägg till en simulerad enhet
 
-Navigera till den **enheter** i lösningen och väljer sedan **ny enhet**. I den **ny enhet** panelen, väljer **simulerad**:
+Navigera till den **enheter** i lösningen och väljer sedan **+ ny enhet**. I den **ny enhet** panelen, väljer **simulerad**:
 
 ![Etablera en simulerad enhet](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Lämna antalet enheter för att etablera inställd på **1**. Välj **felaktig motorn** som den **enhetsmodell**, och välj sedan **tillämpa** att skapa den simulerade enheten:
+Lämna antalet enheter för att etablera inställd på **1**. Välj den **felaktig motorn** enheten modell och välj sedan **tillämpa** att skapa den simulerade enheten:
 
 ![Etablera en simulerad motorn-enhet](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

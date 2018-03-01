@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 Log Analytics innehåller information om hur mycket data som samlas in, vilka system som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
@@ -44,13 +44,17 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 ![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
-4. Välj **Logganalys-användning** på listan i det vänstra fönstret.
-5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/time.png)<br><br>
-6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).<br><br> ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)<br><br>
-7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.<br><br> ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
+2. Klicka på **Alla tjänster** och skriv **Log Analytics** i resurslistan. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
+    ![Azure-hubb](./media/log-analytics-usage/hub.png)
+3. Instrumentpanelen för **Log Analytics** visar en lista över dina arbetsytor. Välj en arbetsyta.
+4. På instrumentpanelen för *arbetsytan* klickar du på **Log Analytics usage** (Log Analytics-användning).
+5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.  
+    ![tidsintervall](./media/log-analytics-usage/time.png)
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).  
+    ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)
+7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.  
+    ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
 I det här avsnittet beskrivs hur du skapar en avisering om:

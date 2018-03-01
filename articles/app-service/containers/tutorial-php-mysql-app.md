@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service i Linux
 
@@ -31,8 +31,8 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
-> * Anslut en PHP-app till MySQL
+> * skapa en MySQL-databas i Azure
+> * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma diagnostikloggar från Azure
@@ -50,11 +50,11 @@ För att slutföra den här kursen behöver du:
 * Aktivera följande PHP-tillägg som behövs för Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer och XML
 * [Installera och starta MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
-## <a name="prepare-local-mysql"></a>Förbered lokal MySQL
+## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL
 
 I det här steget skapar du en databas för självstudien på din lokala MySQL-server.
 
-### <a name="connect-to-local-mysql-server"></a>Anslut till en lokal MySQL-server
+### <a name="connect-to-local-mysql-server"></a>Ansluta till en lokal MySQL-server
 
 Anslut till din lokala MySQL-server via ett terminalfönster. Du kan använda det här terminalfönstret för att köra alla kommandon i den här självstudien.
 
@@ -121,7 +121,7 @@ DB_PASSWORD=<root_password>
 
 Mer information om hur Laravel använder _.env_-filen finns i [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Konfiguration av Laravel-miljö).
 
-### <a name="run-the-sample-locally"></a>Kör exemplet lokalt
+### <a name="run-the-sample-locally"></a>Köra exemplet lokalt
 
 Kör [Laravel-databasmigreringar](https://laravel.com/docs/5.4/migrations) för att skapa de tabeller som behövs för appen. Du kan se vilka tabeller som skapas i migreringarna i katalogen _database/migrations_ (databas/migreringar) på Git-lagringsplatsen.
 
@@ -159,7 +159,7 @@ I det här steget skapar du en MySQL-databas i [Azure Database for MySQL (Previe
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa en server i Azure Database for MySQL (Preview) med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Skapa en server i Azure Database för MySQL (förhandsversion) med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 I följande kommando ersätter du MySQL-servernamnet i platshållaren _&lt;mysql_server_name>_ (giltiga tecken är `a-z`, `0-9` och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`) och den måste vara globalt unik.
 
@@ -227,7 +227,7 @@ Skriv `quit` för att avsluta serveranslutningen.
 quit
 ```
 
-## <a name="connect-app-to-azure-mysql"></a>Anslut appen till Azure MySQL
+## <a name="connect-app-to-azure-mysql"></a>Ansluta appen till Azure MySQL
 
 I det här steget ansluter du PHP-appen till MySQL-databasen du skapade i Azure Database for MySQL (Preview).
 
@@ -302,7 +302,7 @@ Lägg till några uppgifter på sidan.
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
-### <a name="commit-your-changes"></a>Genomför ändringarna
+### <a name="commit-your-changes"></a>Genomföra ändringarna
 
 Kör följande Git-kommandon för att genomföra ändringarna:
 
@@ -320,7 +320,7 @@ I det här steget distribuerar du din MySQL-anslutna PHP-app till Azure App Serv
 Laravel-appen startas i katalogen _/public_. PHP Docker-standardavbildningen för App Service använder Apache, och låter dig inte anpassa `DocumentRoot` för Laravel. Däremot kan du använda `.htaccess` för att skriva om alla begäranden så att de pekar till _/public_ i stället för rotkatalogen. I lagringsplatsens rot har en `.htaccess` redan lagts till för detta ändamål. Därmed är Laravel-appen klar att distribueras.
 
 > [!NOTE] 
-> Om du inte vill använda _.htaccess_-omskrivning kan du distribuera din Laravel-app med en [anpassad Docker-avbildning](quickstart-custom-docker-image.md) i stället.
+> Om du inte vill använda _.htaccess_-omskrivning kan du distribuera din Laravel-app med en [anpassad Docker-avbildning](quickstart-docker-go.md) i stället.
 >
 >
 
@@ -428,7 +428,7 @@ Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
 ## <a name="update-model-locally-and-redeploy"></a>Uppdatera modellen lokalt och distribuera om
 
-I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen, och publicerar sedan uppdateringen till Azure.
+I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen och publicerar sedan uppdateringen till Azure.
 
 För uppgiftsscenariot ändrar du programmet så att du kan markera en uppgift som slutförd.
 
@@ -591,8 +591,8 @@ Menyn till vänster innehåller sidor för att konfigurera appen.
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
-> * Anslut en PHP-app till MySQL
+> * skapa en MySQL-databas i Azure
+> * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
 > * strömma diagnostikloggar från Azure

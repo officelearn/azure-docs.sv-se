@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8a1e0b3e56dab5500d60b0610cddccaf095c8d97
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Virtual machine-styrning med Azure CLI
 
@@ -55,7 +55,7 @@ Det finns tre resursspecifika roller som ger vanligtvis behövs åtkomst för at
 
 I stället för att tilldela roller till enskilda användare, är det ofta lättare att [skapa en Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) för användare som behöver vidta liknande åtgärder. Tilldela sedan den gruppen till rätt roll. För att förenkla den här artikeln kan skapa du en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen till en roll för ett omfång. 
 
-I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med ett smeknamn för e-post för *vmDemoGroup*.
+I följande exempel skapas en Azure Active Directory-grupp med namnet *VMDemoContributors* med ett smeknamn för e-post för *vmDemoGroup*. Smeknamn för e-post fungerar som ett alias för gruppen.
 
 ```azurecli-interactive
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)

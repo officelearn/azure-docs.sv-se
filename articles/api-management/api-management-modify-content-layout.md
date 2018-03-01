@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Ändra innehåll och layout för sidorna på utvecklarportalen i Azure API Managment
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
@@ -41,33 +41,16 @@ Under vardagligt redigeringsarbete gör man normalt sett bara ändringar i inneh
 
 ## <a name="modify-layout-widget"> </a>Ändra innehållet i en layoutwidget
 
-Du ändrar innehållet på utvecklarportalen från utgivarportalen, som du kommer åt via Azure Portal. För att nå den, klickar du på **utgivarportalen** i API Management-verktygsfältet.
+Developer-portalen är tillgänglig på Azure Portal. 
 
-![Utgivarportalen][api-management-management-console]
-
-Om du vill redigera innehållet i widgeten klickar du på **Widgetar** i menyn **Utvecklarportal** till vänster. I det här exemplet ska vi ändra innehållet i en widget för sidhuvud. Välj widgeten **Sidhuvud** i listan.
-
-![Widgeten Sidhuvud][api-management-widgets-header]
-
-Du kan redigera innehållet i sidhuvudet i fältet **Brödtext**. Ändra till önskad text och klicka sedan på **Spara** längst ned på sidan.
+1. Klicka på **utgivarportalen** i API Management-instansens verktygsfält.
+2. Om du vill redigera innehållet i widgetar klickar du på ikonen som består av två penslar på menyn **Utvecklare** till vänster på portalen. 
+3. Om du vill ändra rubrikens innehåll bläddrar du till avsnittet **Rubrik** på listan till vänster.
+    
+    Widgetarna går att redigera inifrån fälten.
+4. När du är redo att publicera ändringarna klickar du på **Publicera** längst ned på sidan.
 
 Nu visas det nya sidhuvudet på varje sida på utvecklarportalen.
-
-> Om du vill öppna utvecklarportalen från utgivarportalen klickar du på **Utvecklarportal** på den översta raden.
-> 
-> 
-
-## <a name="edit-page-contents"> </a>Redigera innehållet på en sida
-
-Om du vill visa en lista över alla befintliga innehållssidor klickar du på **Innehåll** på menyn **Utvecklarportal** på utgivarportalen.
-
-![Hantera innehåll][api-management-customization-manage-content]
-
-Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarportalens startsida. Gör önskade ändringar, förhandsgranska dem om det behövs och klicka sedan på **Publicera nu** så att de visas för alla.
-
-> Startsidan har en särskild layout och har plats för en banderoll längst upp. Det går inte att ändra banderollen från avsnittet **Innehåll**. Om du vill redigera banderollen klickar du på **Widgetar** på menyn **Utvecklarportal**, väljer **Startsida** i listrutan **Aktuellt skikt** och öppnar sedan objektet **Banderoll** under avsnittet **Aktuellt**. Du kan redigera innehållet i den här widgeten på samma sätt som andra sidor.
-> 
-> 
 
 ## <a name="next-steps"> </a>Nästa steg
 * [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles]

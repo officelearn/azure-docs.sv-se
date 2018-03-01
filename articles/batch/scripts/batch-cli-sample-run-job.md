@@ -1,64 +1,62 @@
 ---
-title: "Azure CLI-skriptexempel - köra ett jobb med Batch | Microsoft Docs"
-description: "Azure CLI-skriptexempel - köra ett jobb med Batch"
+title: "Exempel på Azure CLI-skript – Kör ett Batch-jobb | Microsoft Docs"
+description: "Exempel på Azure CLI-skript – Kör ett jobb med Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
+author: dlepow
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: a782bed39720ac8f4b62b082dd43a2604faf1ca6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Jobb som körs på Azure Batch med Azure CLI
+# <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI-exempel: Köra ett jobb och uppgifter med Azure Batch
 
-Det här skriptet skapar ett batchjobb och lägger till en rad uppgifter i jobbet. Här visas också hur du övervakar ett jobb och dess uppgifter. Slutligen visas hur man frågar Batch-tjänsten för information om jobbets uppgifter effektivt.
+Det här skriptet skapar ett Batch-jobb och lägger till en rad uppgifter i jobbet. Det visar även hur du övervakar ett jobb och dess uppgifter. 
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Installera Azure CLI med hjälp av instruktionerna i den [Azure CLI installationsguiden](https://docs.microsoft.com/cli/azure/install-azure-cli), om du inte redan har gjort.
-- Skapa ett Batch-konto om du inte redan har ett. Se [skapa ett batchkonto med Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) för ett exempelskript som skapar ett konto.
-- Konfigurera ett program att köras från en start-aktivitet om du inte gjort det ännu. Se [att lägga till program till Azure Batch med Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) för ett exempelskript som skapar ett program och överför ett programpaket till Azure.
-- Konfigurera en pool som jobbet ska köras. Se [hantera Azure Batch-pooler med Azure CLI](https://docs.microsoft.com/azure/batch/batch-cli-sample-manage-pool) för ett exempelskript som skapar en pool med en tjänstkonfiguration moln eller en konfiguration av virtuell dator.
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Exempelskript
+## <a name="example-script"></a>Exempelskript
 
-[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
-## <a name="clean-up-job"></a>Rensa jobb
+## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du har kört ovan exempelskript kör du följande kommando för att ta bort jobbet och alla aktiviteter. Observera att poolen måste tas bort separat. Se [hantera Azure Batch-pooler med Azure CLI](./batch-cli-sample-manage-pool.md) för mer information om hur du skapar och tar bort pooler.
+Kör följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
-```azurecli
-az batch job delete --job-id myjob
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa ett batchjobb och uppgifter. Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [logga in AZ batch-konto](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autentisera mot en Batch-kontot.  |
-| [Skapa AZ batchjobb](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Skapar ett batchjobb.  |
-| [AZ batch-jobbet uppsättningen](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Uppdaterar egenskaperna för ett batchjobb.  |
-| [AZ batch-jobbet visar](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Hämtar information om batchjobb angivna.  |
-| [Skapa AZ batchaktiviteten](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Lägger till en aktivitet till angivna Batch-jobbet.  |
-| [AZ batch uppgiften visa](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Hämtar information om en aktivitet från det angivna Batch-jobbet.  |
-| [uppgiftslista för AZ batch](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_list) | Listar de uppgifter som är associerade med det angivna jobbet.  |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Skapar en pool med beräkningsnoder.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Skapar ett Batch-jobb.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Lägger till en aktivitet i angivet Batch-jobb.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Uppdaterar egenskaperna för ett Batch-jobb.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Hämtar information om ett angivet Batch-jobb.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Hämtar information om en uppgift från det angivna Batch-jobbet.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
-
-Ytterligare Batch CLI skriptexempel finns i den [Azure Batch CLI dokumentationen](../batch-cli-samples.md).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure/overview).

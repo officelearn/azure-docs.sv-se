@@ -1,10 +1,11 @@
 - name: Dokumentation om Service Fabric
-  href: /azure/service-fabric
+  href: index.yml
 - name: Översikt
   items:
     - name: Vad är Service Fabric?
       href: service-fabric-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa ett .NET-program
       href: service-fabric-quickstart-dotnet.md

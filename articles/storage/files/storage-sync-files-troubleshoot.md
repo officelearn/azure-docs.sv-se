@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -145,15 +145,14 @@ Om synkroniseringen misslyckas på en server:
 <a id="replica-not-ready"></a>**Synkroniseringen misslyckas med felet: ”0x80c8300f - repliken är inte redo att utföra nödvändiga åtgärden”**  
 Det här problemet är förväntat om du skapar en molnslutpunkt och använda en Azure-filresurs som innehåller data. När ändringen identifiering jobbet har slutförts körs på Azure-filresursen (det kan ta upp till 24 timmar) ska starta synkronisering fungerar korrekt.
 
-<a id="broken-sync-files"></a>**Felsökning av enskilda filer som inte kan synkronisera**  
-Om det inte går att synkronisera enskilda filer:
-1. Granska de operativa och diagnostik händelseloggar, finns under program- och Services\Microsoft\FileSync\Agent i Loggboken.
-2. Kontrollera att det finns inga öppna referenser i filen.
 
     > [!NOTE]
-    > Azure filsynkronisering tar regelbundet VSS-ögonblicksbilder för att synkronisera filer som har öppna referenser.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Vi stöder för närvarande inte resursflyttningen till en annan prenumeration eller, flyttar till en annan Azure AD-klient.  Om prenumerationen flyttas till en annan klient, blir Azure-filresursen otillgänglig för vår tjänst ändringen i ägarskap. Om klienten har ändrats, du måste ta bort server-slutpunkter och molnslutpunkt (se synkronisering grupphantering avsnittet anvisningar så här rengör du Azure-filresursen för att återanvändas) och skapa gruppen synkronisering.
+
+<a id="doesnt-have-enough-free-space"></a>**Den här datorn har inte tillräckligt med ledigt utrymme-fel**  
+Om portalen visas statusen ”den här datorn inte har tillräckligt med ledigt utrymme” kan problemet bero på att det är mindre än 1 GB ledigt utrymme på volymen.  Till exempel om det finns en 1,5 GB-volym, synkronisering kommer bara att kunna använda .5GB om du klickar på det här problemet du expanderar du storleken på volymen som används för Serverslutpunkten.
 
 ## <a name="cloud-tiering"></a>Lagringsnivåer för moln 
 Det finns två sökvägar för fel i moln skiktning:

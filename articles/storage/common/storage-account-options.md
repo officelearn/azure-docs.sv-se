@@ -9,16 +9,15 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
 ## <a name="overview"></a>Översikt
-
 Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Fundera på de här skillnaderna innan du skapar ett lagringskonto för att komma fram till vilket alternativ som passar bäst för dina behov. Dessa är de tre alternativen av lagringskonton:
 
 * **GPv2**-konton (General-purpose v2) 
@@ -85,7 +84,7 @@ Mer information om lagringskonton finns i [Om Azure Storage-konton](../common/st
 
 Om du endast behöver block- eller tilläggsbloblagring rekommenderar vi att du använder GPv2-konton så att du kan dra nytta av de olika prissättningsmodellerna för olika lagringsnivåer. Dock kanske du vill använda GPv1 i vissa fall, till exempel:
 
-* Du måste fortfarande använda den klassiska distributionsmodellen. Blob Storage-konton är bara tillgängliga via Azure Resource Manager-distributionsmodellen.
+* Du fortfarande måste använda den klassiska distributionsmodellen. Blob Storage-konton är bara tillgängliga via Azure Resource Manager-distributionsmodellen.
 
 * Du har stora transaktionsvolymer eller behöver stor bandbredd för geo-replikering, vilket ger högre kostnader med GPv2- och Blob Storage-konton än med GPv1, samtidigt som du inte har tillräckligt med lagringsutrymme för att kunna dra nytta av de lägre kostnaderna för GB-lagring.
 
@@ -126,7 +125,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. På navmenyn väljer du **Nytt** > **Data + Storage** > **Storage-konto**.
+2. I navmenyn väljer du **Skapa en resurs** > **Data + lagring** > **Lagringskonto**.
 
 3. Ange ett namn för lagringskontot.
 
@@ -160,7 +159,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
+2. Gå till ditt lagringskonto genom att välja **Alla resurser** och sedan ditt lagringskonto.
 
 3. Klicka på **Konfiguration** i avsnittet Inställningar.
 
@@ -174,7 +173,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
+2. Gå till ditt lagringskonto genom att välja **Alla resurser** och sedan ditt lagringskonto.
 
 3. Klicka på **Konfiguration** på bladet Inställningar för att visa och/eller ändra kontokonfigurationen.
 
@@ -186,7 +185,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Gå till din blob i lagringskontot genom att välja Alla resurser, ditt lagringskonto, din behållare och sedan välja din blob.
+2. Gå till din blob i lagringskontot genom att välja **Alla resurser**, ditt lagringskonto, din behållare och sedan din blob.
 
 3. På bladet Blob-egenskaper klickar du på listrutemenyn **Åtkomstnivå** för att välja lagringsnivåerna **Frekvent**, **Lågfrekvent**, eller **Arkiv**.
 

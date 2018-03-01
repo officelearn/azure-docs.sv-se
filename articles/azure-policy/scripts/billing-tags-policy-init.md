@@ -1,6 +1,6 @@
 ---
-title: Azure princip json-exemplet - fakturering taggar princip initiativ | Microsoft Docs
-description: "Den här principen exempeldata json kräver angivna värden för kostnad center och produktens namn."
+title: "Azure Policy json-exempel – Principinitiativ för faktureringstaggar | Microsoft Docs"
+description: "Det här json-exemplet för principuppsättning kräver angivna taggvärden för kostnadsställe och produktnamn."
 services: azure-policy
 documentationcenter: 
 author: bandersmsft
@@ -15,15 +15,15 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="billing-tags-policy-initiative"></a>Fakturering taggar princip initiativ
+# <a name="billing-tags-policy-initiative"></a>Principinitiativ för faktureringstaggar
 
-Den här principuppsättningen kräver angivna värden för kostnad center och produktens namn. Använder inbyggda principer för att tillämpa och tillämpa taggar som krävs. Du kan ange obligatoriska värden för taggar.
+Den här principuppsättningen kräver angivna taggvärden för kostnadsställe och produktnamn. Använder inbyggda principer för att tillämpa och framtvinga taggar som krävs. Du anger de värden som krävs för taggar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Den här principuppsättningen kräver angivna värden för kostnad center och p
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Du kan distribuera den här mallen med hjälp av den [Azure-portalen](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell).
+Du kan distribuera den här mallen med hjälp av [Azure-portalen](#deploy-with-the-portal) eller med [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
@@ -52,12 +52,33 @@ New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentnam
 
 ### <a name="clean-up-powershell-deployment"></a>Rensa PowerShell-distribution
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+## <a name="apply-tags-to-existing-resources"></a>Tillämpa taggar på befintliga resurser
+
+När du har tilldelat principerna kan du utlösa en uppdatering av alla befintliga resurser för att framtvinga taggprinciper som du har lagt till. Följande skript behåller eventuella andra taggar som fanns i resurserna:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
+}
+```
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Nya Azure princip mallen exempel finns på [mallar för Azure princip](../json-samples.md).
+- Ytterligare Azure Policy-mallexempel finns i [mallar för Azure Policy](../json-samples.md).

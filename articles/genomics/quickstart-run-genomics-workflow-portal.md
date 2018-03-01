@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -84,7 +84,7 @@ Du kan installera de här paketen med `pip`, `easy_install` eller via `setup.py`
 
 
 ### <a name="test-the-microsoft-genomics-client"></a>Testa Microsoft Genomics-klienten
-Ladda ned konfigurationsfilen från ditt Genomics-konto för att testa Microsoft Genomics-klienten. Navigera till ditt Genomics-konto genom att klicka på **Fler tjänster** längst ned till vänster, filtrera och välja Genomics-konton.
+Ladda ned konfigurationsfilen från ditt Genomics-konto för att testa Microsoft Genomics-klienten. Navigera till ditt Genomics-konto genom att klicka på **Alla tjänster** längst ned till vänster, filtrera och välja Genomics-konton.
 
 
 ![Filtrera efter Microsoft Genomics på Azure-portalen](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filtrera efter Microsoft Genomics på Azure-portalen")

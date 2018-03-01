@@ -1,3 +1,5 @@
+# [Dokumentation om DNS](index.md)
+
 # Översikt
 
 ## [Vad är Azure DNS?](dns-overview.md)
@@ -9,7 +11,7 @@
 # Kom igång
 
 ## Skapa en DNS-zon och -post
-### [Azure Portal](dns-getstarted-portal.md)
+### [Azure-portalen](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
@@ -21,12 +23,12 @@
 # Gör så här för att
 
 ## Hantera DNS-zoner
-### [Azure Portal](dns-operations-dnszones-portal.md)
+### [Azure-portalen](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Hantera DNS-poster
-### [Azure Portal](dns-operations-recordsets-portal.md)
+### [Azure-portalen](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
@@ -48,7 +50,7 @@
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
-## [NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)

@@ -1,3 +1,5 @@
+# [Dokumentation om Service Bus Relay](index.md)
+
 # Översikt
 ## [Vad är vidarebefordran?](relay-what-is-it.md)
 ## [Vanliga frågor och svar](relay-faq.md)

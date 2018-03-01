@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problem med att konfigurera och etablera ett program för användare
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
   * [Jag vet inte hur man konfigurerar användaretablering för ett Azure AD-galleriprogram](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Jag påträffade ett fel när jag skulle kofigurera användaretablering för ett Azure AD-galleriprogram](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Problem med att spara autentiseringsuppgifter vid konfigurering av användarförsörjning till ett program i Azure Active Directory-galleriet](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Jag har konfigurerat etablering för mitt Azure AD-galleriprogram, men inga användare har etablerats](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Etablering i mitt Azure AD-galleriprogram fungerar, men fel uppsättning användare etableras](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

@@ -1,3 +1,5 @@
+# [Dokumentation om Azure Resource Manager](index.md)
+
 # Översikt
 ## [Vad är Resource Manager?](resource-group-overview.md)
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure-portalen](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Skapa hanteringsgrupper](management-groups-create.md)
 ### [Hantera dina hanteringsgrupper](management-groups-manage.md)
 ### [Styrningsexempel](resource-manager-subscription-examples.md)
-### [Hanterade program](../managed-applications/overview.md)
 
 ## Styr åtkomsten
 ### Skapa tjänstens huvudnamn

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet
 Azure Active Directory (Azure AD) Connect Health hjälper dig att övervaka och få insyn i den lokala identitetsinfrastrukturen och synkroniseringstjänsterna. Tjänsten hjälper dig att upprätthålla en tillförlitlig anslutning till Office 365 och Microsoft Online Services genom att tillhandahålla övervakningsfunktioner för viktiga identitetskomponenter som Active Directory Federation Services-servrar (AD FS), Azure AD Connect-servrar (kallas även synkroniseringsmotorn), Active Directory-domänkontrollanter osv. Den gör det också enkelt att komma åt viktiga datapunkter om komponenterna så att du snabbt kan få information om användningen och andra viktiga insikter för att fatta välgrundade beslut.
@@ -110,7 +110,7 @@ Använd följande steg för att komma igång med Azure AD Connect Health:
 På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda och hitta användningsanalyser. Webbadressen https://aka.ms/aadconnecthealth URL leder till huvudbladet i Azure AD Connect Health. Tänk dig ett blad som ett fönster. Huvudbladet innehåller en **snabbstart**, tjänster i Azure AD Connect Health och ytterligare konfigurationsalternativ. Mer information finns i form av skärmbilden nedan tillsammans med kortfattade beskrivningar. När du har distribuerat agenterna identifierar hälsotjänsten automatiskt de tjänster som Azure AD Connect Health övervakar.
 
 > [!NOTE]
-> För mer information om licenser går du till [Vanliga frågor och svar om Azure AD Connect](active-directory-aadconnect-health-faq.md) eller [sidan med priser för Azure AD](https://aka.ms/aadpricing).
+> För mer information om licenser går du till [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md) eller [sidan med priser för Azure AD](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health/portal4.png)
 

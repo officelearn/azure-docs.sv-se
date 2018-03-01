@@ -1,10 +1,11 @@
-- name: Azure Time Series Insights
+- name: Dokumentation om Azure Time Series Insights
   href: index.yml
 - name: Översikt
   items:
     - name: Om Time Series Insights
       href: time-series-insights-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Utforska Time Series Insights
       href: time-series-quickstart.md

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrera din SQL Server-databas till Azure SQL Database
 
@@ -52,7 +52,7 @@ Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagri
 
 Följ de här stegen om du vill skapa en tom SQL-databas. 
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
@@ -267,7 +267,7 @@ Du kan ändra tjänstnivån, prestandanivån och kompatibilitetsnivån med hjäl
     ```
 
 ## <a name="next-steps"></a>Nästa steg 
-I de här självstudierna lärde du dig att:
+I den här självstudien fick du lärda dig att:
 
 > * Skapa en tom Azure SQL-databas på Azure-portalen 
 > * Skapa en brandväggsregel på servernivå på Azure-portalen 

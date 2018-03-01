@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Skapa, fråga och filtrera ett Azure Search-index i portalen
 
@@ -36,17 +36,17 @@ Det här är en introduktion helt utan kodning, så att du kan komma igång med 
 
 Alternativt kan du starta med en [kodbaserad introduktion för att programmera Azure Search i .NET](search-howto-dotnet-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Självstudiekursen förutsätter en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och tillgång till [Azure Search-tjänsten](search-create-service-portal.md). 
 
 Om du inte vill etablera en tjänst omedelbart kan du titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i denna [översiktsvideo över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Hitta din tjänst
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna instrumentpanelen för Azure Search-tjänsten. Om du inte har fäst tjänstepanelen på instrumentpanelen kan du hitta din tjänst på det här sättet: 
    
-   * Klicka på **Fler tjänster** längst ned i det vänstra navigeringsfönstret.
+   * Klicka på **Alla tjänster** i det vänstra navigeringsfönstret.
    * Skriv *sök* i sökrutan för att hämta en lista över söktjänster till din prenumeration. Din tjänst ska finnas med i listan. 
 
 ## <a name="check-for-space"></a>Kontrollera utrymmet

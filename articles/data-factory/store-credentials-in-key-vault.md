@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51318a6bb4f88759984531b005c65712b6817ec0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Spara autentiseringsuppgifter i Azure Key Vault
 
-Du kan lagra autentiseringsuppgifter för datalager i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna vid körning av en aktivitet som använder datalagret.
+Du kan lagra autentiseringsuppgifter för datalager och beräknar i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna vid körning av en aktivitet som använder data store/beräkning.
 
-För närvarande Kopieringsaktiviteten med alla typer av kopplingar stöder den här funktionen - Sök i avsnittet ”länkade tjänstegenskaper” [varje koppling avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) mer information. Stöd för andra aktivitetstyper och beräkna länkad tjänst kommer senare.
+För närvarande stöder alla aktivitetstyper utom anpassad aktivitet den här funktionen. För kopplingskonfiguration i synnerhet Kontrollera avsnittet ”länkade tjänstegenskaper” i [varje koppling avsnitt](copy-activity-overview.md#supported-data-stores-and-formats) mer information.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [dokumentationen för Data Factory version1](v1/data-factory-introduction.md).

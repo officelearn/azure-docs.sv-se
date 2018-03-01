@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -41,7 +41,7 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 > När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **användarprenumeration**, som inte längre rekommenderas för de flesta scenarier, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Du måste registrera din prenumeration med Azure Batch och koppla kontot till ett Azure Key Vault för att kunna skapa ett Batch-konto i läget Användarprenumeration.
 
 1. Logga in på [Azure Portal][azure_portal].
-2. Klicka på **Ny** och sök på Marketplace efter **Batch-tjänst**.
+2. Klicka på **Skapa en resurs** och sök på Marketplace efter **Batch-tjänst**.
 
     ![Batch på Marketplace][marketplace_portal]
 3. Välj **Batch-tjänst**, klicka på **Skapa** och ange inställningar för **Nytt Batch-konto**. Se följande information.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
 Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  Den här artikeln innehåller en översikt och ytterligare information för stegen i videon. Den här 24 minuter långa videon visar hur till:
@@ -33,7 +33,7 @@ Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den me
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Skapa en Azure AD-katalog
-Att säkra din Web API-serverdel med Azure Active Directory måste du först ha en AAD-klient. I det här videoklippet en klient med namnet **APIMDemo** används. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
+Du måste ha en AAD-klient om du vill skydda din Web API-serverdel med Azure Active Directory. I det här videoklippet en klient med namnet **APIMDemo** används. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
@@ -33,7 +33,7 @@ Titta igenom dessa videor för mer information om skalningsuppsättningar:
 * [Skaluppsättningar för virtuell dator med Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Skapa och hantera skalningsuppsättningar
-Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. Om du vill hantera din skalningsuppsättning kan du använda Azure Portal, [Azure PowerShell-cmdletar](virtual-machine-scale-sets-windows-manage.md) eller Azure CLI 2.0.
+Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Skapa en resurs** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. Om du vill hantera din skalningsuppsättning kan du använda Azure Portal, [Azure PowerShell-cmdletar](virtual-machine-scale-sets-windows-manage.md) eller Azure CLI 2.0.
 
 Skalningsuppsättningar kan distribueras mellan olika [tillgänglighetszoner](virtual-machine-scale-sets-use-availability-zones.md).
 

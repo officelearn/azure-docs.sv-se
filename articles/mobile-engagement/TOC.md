@@ -1,3 +1,5 @@
+# [Dokumentation om Mobile Engagement](index.md)
+
 # [Översikt](mobile-engagement-overview.md)
 ## [Jämförelse med relaterade tjänster](mobile-engagement-comparison.md)
 ## [Funktionsöversikt](mobile-engagement-key-features.md)
@@ -115,7 +117,7 @@
 ### [Tjänstbegränsningar](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Referens
-## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+## [NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 
 
 

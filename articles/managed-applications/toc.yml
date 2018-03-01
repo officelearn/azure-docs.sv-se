@@ -1,10 +1,11 @@
-- name: Azure-hanterade program
+- name: Dokumentation om Azure-hanterade program
   href: index.yml
 - name: Översikt
   items:
     - name: Om hanterade program
       href: overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Skapa hanterat program
       href: managed-apps-quickstart-cli.md

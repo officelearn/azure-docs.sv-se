@@ -5,6 +5,7 @@
     - name: Om Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Distribuera till Edge – Linux/Mac
       href: quickstart-linux.md

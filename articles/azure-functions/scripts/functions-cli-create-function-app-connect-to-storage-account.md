@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure-funktion som ansluter till en Azure Storage | Microsoft Docs
-description: Azure CLI-skript Sample - skapa en Azure-funktion som ansluter till en Azure Storage
+title: Skapa en Azure-funktion som ansluter till Azure Storage | Microsoft Docs
+description: "Exempel på Azure CLI-skript – Skapa en Azure-funktion som ansluter till Azure Storage"
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -16,49 +16,51 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Integrera Funktionsapp i Azure Storage-konto
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Skapa en funktionsapp som ansluter till ett Azure Storage-konto
 
-Det här exempelskriptet skapar en Funktionsapp och Storage-konto.
+Det här exempelskriptet för Azure Functions skapar en funktionsapp och ansluter funktionen till ett Azure Storage-konto. Appinställningen som skapas och som innehåller anslutningen kan användas med [[lagringsutlösare eller bindning](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du använder CLI lokalt kan du kontrollera att du använder Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du använder CLI lokalt kontrollerar du att du har Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här exemplet skapar en app i Azure-funktion och lägger till anslutningssträngen för lagring till en appinställning.
+Det här exemplet skapar en Azure-funktionsapp och lägger till anslutningssträngen för lagring i en appinställning.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När skriptexempel har körts, kör följande kommando för att ta bort resursgruppen och alla relaterade resurser:
+När skriptet har körts kan följande kommando köras för att ta bort resursgruppen och alla relaterade resurser:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [AZ inloggning](https://docs.microsoft.com/cli/azure/#login) | Logga in på Azure. |
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapa en resursgrupp med platsen |
-| [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/storage/account) | skapar ett lagringskonto |
-| [Skapa AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Skapa en ny funktionsapp |
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Rensa |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Logga in på Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapa en resursgrupp med plats |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | skapar ett lagringskonto |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Skapa en ny funktionsapp |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Rensa |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 
-Ytterligare Azure Functions CLI skriptexempel finns i den [Azure Functions dokumentationen](../functions-cli-samples.md).
+Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

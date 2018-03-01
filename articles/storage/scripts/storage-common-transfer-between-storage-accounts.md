@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell-skript exempel – migrera blobbar över storage-konton med hjälp av AzCopy på Windows | Microsoft Docs"
-description: "Använder AzCopy, kopierar Blob-innehållet i ett Azure Storage-konto till en annan."
+title: "Exempel på Azure CLI-skript – Migrera blobar över lagringskonton med hjälp av AzCopy på Windows | Microsoft Docs"
+description: "Kopierar med hjälp av AzCopy blob-innehållet från ett Azure Storage-konto till ett annat."
 services: storage
 documentationcenter: na
 author: roygara
@@ -11,31 +11,31 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 1/3/2018
-ms.author: v-rogara
-ms.openlocfilehash: 0902792b2367aa56285e7e074e184ffa35fca466
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.author: rogarana
+ms.openlocfilehash: 970315c5d597d691454f9dea0a76f2c0dc4a40ec
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrera blobbar över storage-konton med hjälp av AzCopy i Windows
+# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrera blobar över lagringskonton med hjälp av AzCopy på Windows
 
-Det här exemplet kopierar alla blob-objekt från ett lagringskonto som användaren tillhandahållit källan till en som användaren tillhandahållit mål-lagringskontot. 
+Det här exemplet kopierar alla blob-objekt från ett lagringskonto som användaren tillhandahåller till ett mållagringskonto som användaren tillhandahåller. 
 
-Detta görs genom att använda den `Get-AzureStorageContainer` kommando, som visar alla behållare i ett lagringskonto. Exemplet skickar AzCopy-kommandon, kopierar varje behållare från lagringskontot källa till mål-lagringskontot. Om något fel uppstår exemplet återförsök $retryTimes (standard är 3 och kan ändras med den `-RetryTimes` parametern). Fel har uppstått på varje försök användaren kan köra skriptet genom att tillhandahålla exemplet med den senaste har kopierade behållaren med hjälp av den `-LastSuccessContainerName` parameter. Exemplet fortsätter sedan kopiera behållare från den tidpunkten.
+Detta görs genom att använda `Get-AzureStorageContainer`-kommandot, som visar alla behållare i ett lagringskonto. Exemplet skickar sedan AzCopy-kommandon som kopierar varje behållare från källans lagringskonto till målets lagringskonto. Om något fel uppstår försöker exemplet igen $retryTimes (standard är 3 och kan ändras med `-RetryTimes`-parametern). Om ett fel uppstår vid varje nytt försök kan användaren köra skriptet igen genom att ange exemplet med den behållare som senast kunde kopieras med hjälp av `-LastSuccessContainerName`-parametern. Exemplet fortsätter sedan kopiera behållare från den punkten.
 
-Det här exemplet kräver Azure PowerShell Storage Modulversion **4.0.2** eller senare. Du kan kontrollera dina installerade versionen med hjälp av `Get-Module -ListAvailable Azure.storage`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Det här exemplet kräver Azure PowerShell Storage-modul version **4.0.2** eller senare. Du kan kontrollera den installerade versionen med hjälp av `Get-Module -ListAvailable Azure.storage`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Det här exemplet kräver den senaste versionen av [AzCopy på Windows](http://aka.ms/downloadazcopy). Standardkatalogen för installation är`C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+Det här exemplet kräver även den senaste versionen av [AzCopy på Windows](http://aka.ms/downloadazcopy). Standardkatalogen för installation är `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
 
-Det här exemplet använder en källa lagringskontonamn och nyckel, ett mål för lagringskontonamnet och nyckeln och fullständig filsökväg för AzCopy.exe (om den inte är installerad i standardkatalogen).
+Det här exemplet använder källans lagringskontonamn och nyckel, målets lagringskontonamnet och nyckel och den fullständiga filsökvägen för AzCopy.exe (om det inte är installerat i standardkatalogen).
 
 Följande är exempel på indata för det här exemplet:
 
-Om AzCopy är installerad i standardkatalogen:
+Om AzCopy är installerat i standardkatalogen:
 ```PowerShell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
@@ -43,7 +43,7 @@ DestStorageAccountName: ExampleTargetStorageAccountName
 DestStorageAccountKey: ExampleTargetStorageAccountKey
 ```
 
-Om AzCopy inte är installerad i standardkatalogen:
+Om AzCopy inte är installerat i standardkatalogen:
 
 ```Powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
@@ -53,247 +53,25 @@ DestStorageAccountKey: ExampleTargetStorageAccountKey
 AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```
 
-Om fel uppstod och provet måste köras från en viss behållare: 
+Om ett fel uppstod och exemplet måste köras igen från en viss behållare: 
 
 `.\copyScript.ps1 -LastSuccessContainerName myContainerName`
 
 ## <a name="sample-script"></a>Exempelskript
 
-```Powershell
-# Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
-# Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
-# Do not modify the Source or Destination accounts while the script is running
+[!code-powershell[main](../../../powershell_scripts/storage/migrate-blobs-between-accounts/migrate-blobs-between-accounts.ps1 "Migrate blobs between storage accounts.")]
 
- param (
-    [Parameter(Mandatory = $true, 
-    HelpMessage= "Source Storage account name.")]
-    [ValidatePattern("^[a-z0-9`]{3,24}$")]
-    [String]$srcStorageAccountName,
+## <a name="script-explanation"></a>Förklaring av skript
 
-    [Parameter(Mandatory = $true, 
-    HelpMessage= "Source Storage account key.")]
-    [String]$srcStorageAccountKey,
-    
-    [Parameter(Mandatory = $true, 
-    HelpMessage= "Destination Storage account name.")]
-    [ValidatePattern("^[a-z0-9`]{3,24}$")]
-    [String]$DestStorageAccountName,
-
-    [Parameter(Mandatory = $true, 
-    HelpMessage= "Destination Storage account key.")]
-    [String]$DestStorageAccountKey,
-
-    [Parameter(Mandatory = $false, 
-    HelpMessage= "Input the full filePath of the AzCopy.exe, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe")]
-    [String]$AzCopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe",
-
-    [Parameter(Mandatory = $false, 
-    HelpMessage='Sets the number of retries in an event of failure. Set to 0 for no retry, set -1 for infinite retry.')]
-    [Int32]$RetryTimes = 3,
-
-    [Parameter(Mandatory = $false, 
-    ValueFromPipeline = $true, 
-    HelpMessage='Used for resume operation. When provided, the script will copy containers that are alphabetically after $LastSuccessContainerName')]
-    [String]$LastSuccessContainerName = $nullz
- )
-
- if( (Get-Item $AzCopyPath).Exists)
- {
-
-    $FileItemVersion = (Get-Item $AzCopyPath).VersionInfo
-    $FilePath = ("{0}.{1}.{2}.{3}" -f  $FileItemVersion.FileMajorPart,  $FileItemVersion.FileMinorPart,  $FileItemVersion.FileBuildPart,  $FileItemVersion.FilePrivatePart)
-
-    if([version] $FilePath -lt "7.0.0.2")
-    {
-        $AzCopyPath = Read-Host "Version of AzCopy found at default install directory is of a lower, unsupported version. Please input the full filePath of the AzCopy.exe that is version 7.0.0.2 or higher, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
-    }
- }
- elseIf( (Get-Item $AzCopyPath).Exists -eq $false)
- {
-    $AzCopyPath = Read-Host "Input the full filePath of the AzCopy.exe, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
- }
-
-# Create and check Storage context
-$Error.Clear()
-$srcCtx = New-AzureStorageContext -StorageAccountName $srcStorageAccountName -StorageAccountKey $srcStorageAccountKey
-if ($srcCtx -eq $null)
-{
-    Write-Error "Script could not create source Storage Context, possibly due to invalid StorageAccountName or StorageAccount Key terminating: $Error[0]";
-    return;
-}
-$destCtx = New-AzureStorageContext -StorageAccountName $destStorageAccountName -StorageAccountKey $destStorageAccountKey
-if ($destCtx -eq $null)
-{
-    Write-Error "Script could not create destination storage context, possibly due to invalid StorageAccountName or StorageAccount Key terminating: $Error[0]";
-    return;
-}
-
-#Check Source and Destination Storage account Connection
-$Error.Clear()
-$Containers = Get-AzureStorageContainer -MaxCount 1 -Context $srcCtx
-if ($Error.Count -gt 0)
-{
-    Write-Error "Script failed to connect to source Storage account, terminating: $Error[0]";
-    return;
-}
-$Containers = Get-AzureStorageContainer -MaxCount 1 -Context $destCtx
-if ($Error.Count -gt 0)
-{
-    Write-Error "Script failed to connect to destination Storage account, terminating: $Error[0]";
-    return;
-}
-
-#Check AzCopy Path
-if((Test-Path $AzCopyPath) -eq $false)
-{
-    Write-Error "Script is terminating since the provided AzCopyPath does not exist: $AzCopyPath ";
-    return;
-}
-elseif((Get-Item $AzCopyPath).BaseName -ne "AzCopy" )
-{
-    Write-Error "Script is terminating since the provided AzCopyPath does not refer to the AzCopy exe: $AzCopyPath ";
-    return;
-}
-elseif((Get-Item $AzCopyPath).BaseName -eq "AzCopy")
-{
-    $FileItemVersion = (Get-Item $AzCopyPath).VersionInfo
-    $FilePath = ("{0}.{1}.{2}.{3}" -f  $FileItemVersion.FileMajorPart,  $FileItemVersion.FileMinorPart,  $FileItemVersion.FileBuildPart,  $FileItemVersion.FilePrivatePart)
-
-    if([version] $FilePath -lt "7.0.0.2")
-    {
-        $AzCopyPath = Read-Host "Version of AzCopy found at provided path is of a lower, unsupported version. Please input the full filePath of the AzCopy.exe that is version 7.0.0.2 or higher, e.g.: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe"
-    }
-}
-
-$OutputLastSuccessContainer = $LastSuccessContainerName;
-$HasReachedLastSuccessContainer = $false;
-
-if ($LastSuccessContainerName -eq $null -or $LastSuccessContainerName -eq "")
-{
-    $HasReachedLastSuccessContainer = $true;
-}
-
-# For list container
-$MaxReturn = 250
-$Token = $Null
-
-do{
-    # List source containers
-    $retry = 1
-    $Error.Clear()
-    $srcContainers = Get-AzureStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
-
-    # If list container fail, retry it
-    while(($Error.Count -gt 0) -and ($RetryTimes -eq -1 -or $retry -le $retryTimes))
-    {
-        Write-Host "Retry List containers $retry"
-        $Error.Clear()
-        $srcContainers = Get-AzureStorageContainer -MaxCount $MaxReturn -ContinuationToken $Token -Context $srcCtx
-        $retry++
-    }
-
-    # If list container fail after retry, break script
-    if ($Error.Count -gt 0){
-        Write-Error "Terminating the script since listing source containers failed: $Error[0]";
-        $CopyContainerFail = $true
-        break;
-    }
-    $Token = $srcContainers[$srcContainers.Count -1].ContinuationToken;
-
-    # Transfer containers one by one
-    $CopyContainerFail = $false
-    foreach ($container in $srcContainers)
-    {
-        if (!$HasReachedLastSuccessContainer)
-        {
-            if ($container.Name -eq $LastSuccessContainerName)
-            {
-                $HasReachedLastSuccessContainer = $true;
-            }
-            Write-Host "Skipping container copy: $($container.Name)"
-            Continue;
-        }
-
-        Write-Host "Start copying container: $($container.Name)"
-        $retry = 1
-
-        # Get AzCopy command for transfer one container
-        $destContainer = $destCtx.StorageAccount.CreateCloudBlobClient().GetContainerReference($container.Name)
-        $azCopyCmd = [string]::Format("""{0}"" /source:{1} /dest:{2} /sourcekey:""{3}"" /destkey:""{4}"" /snapshot /y /s",$AzCopyPath, $container.CloudBlobContainer.Uri.AbsoluteUri, $destContainer.Uri.AbsoluteUri, $srcStorageAccountKey, $DestStorageAccountKey)
-    
-        # Execute the AzCopy command first time
-        Write-Host "$azCopyCmd"
-        $result = cmd /c $azCopyCmd
-        foreach($s in $result)
-        {
-            Write-Host $s 
-        }
-
-        # If transfer failed, retry it
-        while(($LASTEXITCODE -ne 0) -and ($RetryTimes -eq -1 -or $retry -le $retryTimes))
-        {
-            Write-Host "Retry $retry : $azCopyCmd"
-            $result = cmd /c $azCopyCmd
-            foreach($s in $result)
-            {
-                Write-Host $s 
-            }
-            $retry++
-        }
-
-        # If tranfer failed after retry, print error
-        if ($LASTEXITCODE -ne 0){
-            Write-Error "Container copy failed: $($container.Name)";
-            $CopyContainerFail = $true
-            break;
-        }
-        else
-        {
-            Write-Host "Finished copying container: $($container.Name)"
-            Write-Host ""
-            $OutputLastSuccessContainer = $container.Name
-        }
-    }
-    if($CopyContainerFail)
-    {
-        break;
-    }
-}
-While ($Token -ne $Null)
-
-# Summary the copy result
-if ($CopyContainerFail)
-{
-    if(($OutputLastSuccessContainer -ne $null) -and ($OutputLastSuccessContainer -ne ""))
-    {
-        Write-Warning "To resume, rerun the script and append the parameter: ""-LastSuccessContainer $OutputLastSuccessContainer"""
-        return $OutputLastSuccessContainer
-    }
-    else
-    {
-        Write-Warning "To resume, rerun the script."
-        return $null
-    }
-}
-else
-{
-    Write-Host "All Containers copied successfully."
-    return ""
-}
-```
-
-## <a name="script-explanation"></a>Skriptet förklaring
-
-Det här skriptet använder följande kommandon för att kopiera data från ett lagringskonto till en annan. Varje objekt i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att kopiera data från ett lagringskonto till ett annat. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returnerar de behållare som är associerade med det här lagringskontot. |
-| [Ny AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Skapar en Azure Storage-kontext. |
+| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returnerar de behållare som är kopplade till det här lagringskontot. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Skapar en Azure Storage-kontext. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare lagringsutrymme PowerShell-skript-exempel finns i [PowerShell-exempel för Azure Blob storage](../blobs/storage-samples-blobs-powershell.md).
+Ytterligare PowerShell-skriptexempel för lagring finns i [PowerShell-exempel för Azure Blob Storage](../blobs/storage-samples-blobs-powershell.md).

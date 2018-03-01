@@ -16,16 +16,16 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Alla ämnen för Azure SQL Data Warehouse-tjänsten
 Det här avsnittet listar alla avsnittet som särskilt gäller direkt till den **SQL Data Warehouse** tjänsten Azure. Du hittar den här webbsidan för nyckelord med hjälp av **Ctrl + F**, för att hitta de aktuella intresseområden.
 
 ## <a name="new"></a>Ny
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 1 |[SQL Data Warehouse-säkerhetskopieringar](sql-data-warehouse-backups.md) |Mer information om SQL Data Warehouse inbyggd databassäkerhetskopieringar som gör att du kan återställa en Azure SQL Data Warehouse till en återställningspunkt eller en annan geografisk region. |
 
@@ -38,7 +38,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 3 |[SQL Data Warehouse-återställning](sql-data-warehouse-restore-database-overview.md) |** Kan jag återställa ett pausat data warehouse? ** om du vill återställa ett datalager som är pausad, måste du först ta den online igen. När datalagret är tillbaka online har sju dagar efter återställningspunkter kan välja mellan. ** Återställa till en geo-redundant region ** om du använder geo-redundant lagring, kan du återställa datalagret till datacentret parad i en annan geografisk region. Datalagret har återställts från den senaste säkerhetskopieringen av varje dag. ** Återställa tidslinjen ** du kan återställa en databas till vilken återställningspunkt under de senaste sju dagarna. Ögonblicksbilder starta alla fyra till åtta timmar och är tillgängliga i sju dagar. När en ögonblicksbild är äldre än sju dagar, den upphör att gälla och dess återställningspunkten är inte längre tillgänglig. ** Återställa kostnader ** faktureras lagring kostnad för återställda data warehouse med Azure Premium Storage-hastighet. Om du pausar ett återställda data warehouse, debiteras du för lagring till Azure Premium Storage-sats. Fördelen med att pausa är du inte är kostnad |2016-09-29 |
 
 ## <a name="get-started"></a>Kom igång
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 4 |[Autentisera till Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) |Azure Active Directory (AAD) och SQL Server-autentisering till Azure SQL Data Warehouse. |
 | 5 |[Metodtips för Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md) |Rekommendationer och metodtips som du bör känna till när du utvecklar lösningar för Azure SQL Data Warehouse. De hjälper dig att lyckas! |
@@ -56,7 +56,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 17 |[Fråga Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Fråga SQL Data Warehouse med Visual Studio. |
 
 ## <a name="develop"></a>Utveckla
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 18 |[Optimera transaktioner för SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md) |Bästa praxis riktlinjer för att skriva effektiva transaktionsuppdateringar i Azure SQL Data Warehouse |
 | 19 |[Hantering av samtidighet och arbetsbelastning i SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md) |Förstå samtidighet och arbetsbelastningen hantering i Azure SQL Data Warehouse för utveckling av lösningar. |
@@ -73,7 +73,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 30 |[Designbeslut och kodning tekniker för SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Begrepp för utveckling, designbeslut, rekommendationer och kodning tekniker för SQL Data Warehouse. |
 
 ## <a name="manage"></a>Hantera
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 31 |[Hantera datorkraft i Azure SQL Data Warehouse (översikt)](sql-data-warehouse-manage-compute-overview.md) |Prestanda skala ut funktioner i Azure SQL Data Warehouse. Skala ut genom att justera dwu: er eller pausa och återuppta beräkningsresurser för att spara kostnader. |
 | 32 |[Hantera datorkraft i Azure SQL Data Warehouse (Azure portal)](sql-data-warehouse-manage-compute-portal.md) |Azure portal uppgifter för hantering av beräkningskraft. Skala beräkningsresurser genom att justera dwu: er. Eller, pausa och återuppta beräkningsresurser för att spara kostnader. |
@@ -89,7 +89,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 42 |[Återställa en Azure SQL Data Warehouse (REST-API)](sql-data-warehouse-restore-database-rest-api.md) |REST API-uppgifterna för att återställa en Azure SQL Data Warehouse. |
 
 ## <a name="tables-and-indexes"></a>Tabeller och index
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 43 |[Datatyper för tabellerna i SQL Data Warehouse](sql-data-warehouse-tables-data-types.md) |Komma igång med datatyper för Azure SQL Data Warehouse-tabeller. |
 | 44 |[Distribuera tabeller i SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) |Komma igång med att distribuera tabeller i Azure SQL Data Warehouse. |
@@ -100,7 +100,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 49 |[Temporära tabeller i SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Komma igång med temporära tabeller i Azure SQL Data Warehouse. |
 
 ## <a name="integrate"></a>Integrera
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 50 |[Använda Azure Data Factory med SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Tips för att använda Azure Data Factory (ADM) med Azure SQL Data Warehouse för utveckling av lösningar. |
 | 51 |[Använda Azure Machine Learning med SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Självstudier för att använda Azure Machine Learning med Azure SQL Data Warehouse för utveckling av lösningar. |
@@ -109,7 +109,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 54 |[Dra nytta av andra tjänster med SQL Data Warehouse](sql-data-warehouse-overview-integrate.md) |Verktyg och partners med lösningar som kan integreras med SQL Data Warehouse. |
 
 ## <a name="load"></a>Läsa in
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 55 |[Läs in data från Azure blobblagring till Azure SQL Data Warehouse (Azure Data Factory)](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md) |Lär dig hur man läser in data med Azure Data Factory |
 | 56 |[Läs in data från Azure blob storage till SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |Lär dig mer om att använda PolyBase för att läsa in data från Azure blob storage till SQL Data Warehouse. Läsa in några tabeller från offentliga data till datalagret för Contoso Retail-schemat. |
@@ -123,7 +123,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 64 |[Läs in data till Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md) |Läs om vanliga scenarier för datainläsning till SQL Data Warehouse. Dessa inkluderar med PolyBase, Azure blob storage, flat-filer och disk leverans. Du kan också använda verktyg från tredje part. |
 
 ## <a name="migrate"></a>Migrera
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 65 |[Migrera dina SQL-kod till SQL Data Warehouse](sql-data-warehouse-migrate-code.md) |Tips för att migrera SQL-kod till Azure SQL Data Warehouse för utveckling av lösningar. |
 | 66 |[Migrera dina Data](sql-data-warehouse-migrate-data.md) |Tips för att migrera dina data till Azure SQL Data Warehouse för utveckling av lösningar. |
@@ -132,14 +132,14 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 69 |[Migrera lösningen till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Riktlinjer för migrering för att skapa din lösning för Azure SQL Data Warehouse-plattformen. |
 
 ## <a name="partners"></a>Partner
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 70 |[SQL Data Warehouse business intelligence-partner](sql-data-warehouse-partner-business-intelligence.md) |Listor med tredje parts intelligence affärspartner med lösningar som har stöd för SQL Data Warehouse. |
 | 71 |[SQL Data Warehouse data integration partners](sql-data-warehouse-partner-data-integration.md) |Listor med tredje parts samarbetar med lösningar för katalogintegrering som stöder Azure SQL Data Warehouse. |
 | 72 |[SQL Data Warehouse data management partners](sql-data-warehouse-partner-data-management.md) |Listor med tredje parts data management samarbetar med lösningar som stöder SQL Data Warehouse. |
 
 ## <a name="reference"></a>Referens
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 73 |[Referensinformation för SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Innehåll referenslänkar för SQL Data Warehouse. |
 | 74 |[PowerShell-cmdletar och REST-API: er för SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |Hitta de översta PowerShell-cmdletarna för Azure SQL Data Warehouse inklusive hur du pausar och återupptar en databas. |
@@ -148,7 +148,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 77 |[Systemvyer](sql-data-warehouse-reference-tsql-system-views.md) |Länkar till system visar innehåll för SQL Data Warehouse. |
 
 ## <a name="security"></a>Säkerhet
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 78 |[SQL Data Warehouse - klientversioner stöd för granskning och dynamisk Datamaskning](sql-data-warehouse-auditing-downlevel-clients.md) |Lär dig mer om SQL Data Warehouse äldre klienter stöd för granskning av data |
 | 79 |[Granskning i Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) |Kom igång med granskning i Azure SQL Data Warehouse |
@@ -157,7 +157,7 @@ Det här avsnittet innehåller artiklar som har uppdaterats nyligen, där uppdat
 | 82 |[Skydda en databas i SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Tips för att skydda en databas i Azure SQL Data Warehouse för utveckling av lösningar. |
 
 ## <a name="miscellaneous"></a>Övrigt
-| &nbsp; | Rubrik | Beskrivning |
+| &nbsp; | Namn | Beskrivning |
 | ---:|:--- |:--- |
 | 83 |[Installera Visual Studio och SSDT för SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installera Visual Studio och SQL Server Development Tools (SSDT) för Azure SQL Data Warehouse |
 | 84 |[Migrering till Premium-lagringsinformation](sql-data-warehouse-migrate-to-premium-storage.md) |Anvisningar för att migrera en befintlig SQL Data Warehouse till premium-lagring |

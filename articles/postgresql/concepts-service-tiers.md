@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-databas för PostgreSQL-alternativ och prestanda: förstå vad som är tillgängliga i varje prisnivå
 När du skapar en Azure-databas för PostgreSQL-servern, besluta om tre huvudsakliga alternativ för att konfigurera de resurser som allokerats för servern. Dessa alternativ kan påverka prestanda och skalning av servern.
@@ -78,7 +78,7 @@ Beräkna enheter är ett mått på CPU bearbetning dataflödet som garanterat sk
 | Konfigurera max servern IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS |
 | Konfigurera max servern IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB |
 
-\*Maxstorlek server lagring refererar till etablerade lagringsstorleken för servern.
+\* Maxstorlek server lagring refererar till etablerade lagringsstorleken för servern.
 
 ## <a name="storage"></a>Lagring 
 Lagringskonfigurationen definierar mängden lagringskapacitet till en Azure-databas för PostgreSQL-servern. Lagring som används av tjänsten innehåller databasfilerna, temporära filer, transaktionsloggar och PostgreSQL i serverloggen. Överväg storleken på lagring som krävs för att vara värd för dina databaser och prestandakrav (IOPS) när du väljer lagringskonfigurationen.

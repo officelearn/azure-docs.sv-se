@@ -2,23 +2,19 @@
 title: "Ge programdata hög tillgänglighet i Azure | Microsoft Docs"
 description: "Använd RA-GRS för att ge programdata hög tillgänglighet"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
 
@@ -64,7 +60,7 @@ Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och 
 
 Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
 
-1. Välj knappen **New** (Nytt) längst upp till vänster i Azure Portal.
+1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. Välj **Storage** på sidan **New** (Nytt) och välj **Lagringskonto – blob, fil, tabell, kö** under **Aktuella**.
 3. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurera tjänstslutpunkter för virtuellt nätverk
 
@@ -62,8 +62,8 @@ Under förhandsgranskningen stöds funktionen med tjänstslutpunkt för virtuell
 
 1. Öppna [Azure-portalen](https://portal.azure.com/).
 Logga in på Azure med ditt Azure-konto. Om du inte har ett Azure-konto kan du registrera dig för en kostnadsfri utvärderingsversion. Kontot måste ha nödvändiga [behörigheter](#provisioning) för att skapa ett virtuellt nätverk och tjänstslutpunkten.
-2. Klicka på + Ny > Nätverk > Virtuellt nätverk > + Lägg till.
-3. Ange följande värden under Skapa virtuellt nätverk och klicka på Skapa:
+2. Klicka på **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk** > **+Lägg till**.
+3. Ange följande värden i ”Skapa virtuellt nätverk” och klicka sedan på **Skapa**:
 
 Inställning | Värde
 ------- | -----

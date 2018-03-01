@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
 
@@ -21,34 +21,13 @@ Utkastet är ett verktyg med öppen källkod som hjälper till att paketet och k
 
 Det här dokumentet beskriver med ett Kubernetes kluster på AKS utkast.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart][aks-quickstart].
 
 Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Quickstart][acr-quickstart].
 
-## <a name="install-helm"></a>Installera Helm
-
-Helm CLI är en klient som körs på utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm diagram.
-
-Installera Helm CLI på en Mac med `brew`. Ytterligare installationsalternativ, se [installerar Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Resultat:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm måste också installeras i klustret AKS. Läs mer om hur du installerar helm [Använd Helm med Azure Container Service (AKS)][aks-helm].
 
 ## <a name="install-draft"></a>Installera utkast
 
@@ -227,13 +206,13 @@ Först den *externa IP-* för tjänsten visas som `pending`.
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-När den extern IP-adressen har ändrats från `pending` till en `IP address`, Använd `Control+C` att stoppa kubectl titta på processen.
+När EXTERNAL-IP-adressen har ändrats från `pending` till en `IP address` använder du `Control+C` för att stoppa kubectl-övervakningsprocessen.
 
 ```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
-Bläddra till den externa IP-adressen om du vill se programmet.
+Bläddra till den externa IP-adressen för att visa programmet.
 
 ```console
 curl 52.175.224.118
@@ -307,10 +286,10 @@ Mer information om hur du använder ett utkast till dokumentationen i utkast på
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

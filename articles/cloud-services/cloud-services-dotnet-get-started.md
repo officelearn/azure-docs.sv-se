@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -45,7 +45,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -116,7 +116,7 @@ Följ dessa steg för att köra programmet i molnet:
 En Azure-molntjänst är den miljö som programmet kommer att köras i.
 
 1. Öppna [Azure-portalen](https://portal.azure.com) i webbläsaren.
-2. Klicka på **New > Compute > Cloud Service (Ny > Compute > Molntjänst**.
+2. Klicka på **Skapa en resurs > Compute > Molntjänst**.
 
 3. Ange ett URL-prefix för molntjänsten i textrutan för DNS-namn.
 
@@ -135,7 +135,7 @@ En Azure-molntjänst är den miljö som programmet kommer att köras i.
 ### <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
 När appen körs i molnet använder den en molnbaserad databas.
 
-1. I [Azure-portalen](https://portal.azure.com) klickar du på **New > databaser > SQL Database**.
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs > Databaser > SQL Database**.
 2. Ange *contosoads* i rutan **Database Name** (Databasnamn).
 3. I **resursgruppen** klickar du på **använd befintliga** och markerar den resursgrupp som används för molntjänsten.
 4. I följande bild klickar du på **Server – konfigurera nödvändiga inställningar** och **Skapa en ny server**.
@@ -162,7 +162,7 @@ Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobbd
 
 I ett riktigt program skapar du vanligtvis separata konton för programdata jämfört med loggningsdata, samt separata konton för testdata jämfört med produktionsdata. Under den här kursen använder du bara ett konto.
 
-1. I [Azure-portalen](https://portal.azure.com) klickar du på **New > Storage > Storage Account - blob, file, table, queue**.
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs > Storage > Storage Account – blob, file, table, queue**.
 2. Ange ett URL-prefix i **Namn**-rutan.
 
     Det här prefixet och texten som du ser under rutan utgör den unika URL:en till ditt lagringskonto. Om det prefix du anger redan har använts av någon annan, måste du välja ett annat prefix.

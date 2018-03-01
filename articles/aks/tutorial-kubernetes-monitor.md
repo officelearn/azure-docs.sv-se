@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes på kursen i Azure - Monitor Kubernetes"
-description: "AKS kursen - övervakaren Kubernetes med Microsoft Operations Management Suite (OMS)"
+title: "Självstudie om Kubernetes i Azure – Övervaka Kubernetes"
+description: "AKS-självstudie – Övervaka Kubernetes med Microsoft Operations Management Suite (OMS)"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,58 +9,58 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>Övervaka Azure Container Service (AKS)
 
-Övervaka dina Kubernetes klustret och behållare är viktigt, särskilt när du kör ett produktionskluster i skala, med flera program.
+Det är viktigt att du övervakar Kubernetes-behållarna och behållarna, särskilt när du kör ett produktionskluster i skala med flera program.
 
-I kursen får du konfigurera övervakning av du AKS kluster med hjälp av den [behållare lösning för Log Analytics][log-analytics-containers].
+I den här självstudien konfigurerar du övervakningen av AKS-kluster med [behållarlösningen för Log Analytics][log-analytics-containers].
 
-Den här självstudien del sju åtta omfattar följande aktiviteter:
+Den här självstudien som är del sju av åtta tar upp följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurera behållaren övervakningslösning
-> * Konfigurera övervakning agenter
+> * Konfigurera behållarens övervakningslösning
+> * Konfigurera övervakningsagenterna
 > * Åtkomst till övervakningsinformation i Azure-portalen
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I föregående självstudiekurser ett program som har paketerats i behållaren bilder, dessa bilder som har överförts till registret för Azure-behållaren och ett Kubernetes kluster skapas.
+I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
-## <a name="configure-the-monitoring-solution"></a>Konfigurera övervakning lösningen
+## <a name="configure-the-monitoring-solution"></a>Konfigurera övervakningslösningen
 
-Välj i Azure-portalen **ny** och Sök efter `Container Monitoring Solution`. När du väljer **skapa**.
+I Azure-portalen väljer du **Skapa en resurs** och söker efter `Container Monitoring Solution`. När du hittar den väljer du **Skapa**.
 
-![Lägg till lösning](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
+![Lägga till lösning](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Skapa en ny OMS-arbetsyta eller välj en befintlig. Formuläret OMS-arbetsytan vägleder dig genom processen.
+Skapa en ny OMS-arbetsyta eller välj en befintlig. Formuläret OMS-arbetsyta vägleder dig genom processen.
 
-När du skapar arbetsytan väljer **fäst på instrumentpanelen** enkelt kan användas.
+När du skapar arbetsytan väljer du **Fäst på instrumentpanelen** för enkel hämtning.
 
 ![OMS-arbetsyta](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-När du är klar väljer **OK**. När verifieringen är klar, Välj **skapa** att skapa behållaren övervakningslösning.
+När du är klar väljer du **OK**. När verifieringen är klar väljer du **Skapa** för att skapa lösningen för övervakning av behållaren.
 
-När arbetsytan har skapats kan visas den för dig i Azure-portalen.
+När arbetsytan har skapats visas den för dig i Azure-portalen.
 
-## <a name="get-workspace-settings"></a>Hämta arbetsytan inställningar
+## <a name="get-workspace-settings"></a>Hämta inställningar för arbetsyta
 
-Logganalys arbetsyte-ID och nyckel krävs för att konfigurera agenten lösning på Kubernetes-noder.
+Log Analytics-arbetsytans ID och nyckel behövs för att konfigurera lösningsagenten på Kubernetes-noderna.
 
-Om du vill hämta dessa värden, Välj **OMS-arbetsytan** i den vänstra menyn lösningar för behållaren. Välj **avancerade inställningar** och anteckna den **ARBETSYTE-ID** och **PRIMÄRNYCKEL**.
+Om du vill hämta värdena väljer du **OMS-arbetsyta** på behållarlösningens vänstra meny. Välj  **	Avancerade inställningar** och anteckna **ARBETSYTANS ID** och **PRIMÄRNYCKELN**.
 
-## <a name="configure-monitoring-agents"></a>Konfigurera övervakning agenter
+## <a name="configure-monitoring-agents"></a>Konfigurera övervakningsagenter
 
-Följande Kubernetes manifestfilen kan användas för att konfigurera behållaren övervakningsagenterna på ett Kubernetes kluster. Den skapar en Kubernetes [DaemonSet][kubernetes-daemonset], som körs en enda baljor på varje nod i klustret.
+Du kan använda följande Kubernetes-manifestfil för att konfigurera behållarens övervakningsagenter på ett Kubernetes-kluster. Det skapar en Kubernetes [DaemonSet][kubernetes-daemonset], som kör en enda pod på varje klusternod.
 
-Spara följande text i en fil med namnet `oms-daemonset.yaml`, och ersätter platshållarvärdena för `WSID` och `KEY` med Log Analytics arbetsyte-ID och nyckeln.
+Spara följande text till en fil med namnet `oms-daemonset.yaml` och ersätt platshållarvärdena för `WSID` och `KEY` med Log Analytics arbetsyta-ID och nyckel.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -131,13 +131,13 @@ spec:
        path: /var/lib/docker/containers/
 ```
 
-Skapa DaemonSet med följande kommando:
+Skapa ett DaemonSet med följande kommando:
 
 ```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
-För att se att DaemonSet har skapats, kör du:
+Kör följande om du vil se det som DaemonSet har skapat:
 
 ```azurecli-interactive
 kubectl get daemonset
@@ -150,26 +150,26 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-När agenterna körs tar flera minuter för OMS att mata in och bearbeta data.
+När agenterna har körts tar det flera minuter för OMS att mata in och bearbeta data.
 
 ## <a name="access-monitoring-data"></a>Åtkomst till övervakningsdata
 
-Välj logganalys-arbetsytan har fästs på portalens instrumentpanel i Azure-portalen. Klicka på den **lösning för övervakning av behållare** panelen. Här hittar du information om AKS klustret och behållare från klustret.
+I Azure-portalen väljer du Log Analytics-arbetsytan som har fästs på portalens instrumentpanel. Klicka på panelen **Lösning för övervakning av behållare**. Här hittar du information om AKS-klustret och behållarna från klustret.
 
 ![Instrumentpanel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Finns det [Azure logganalys dokumentationen] [ log-analytics-docs] för detaljerad information om frågor och analys av övervakningsdata.
+I [Azure Log Analytics-dokumentationen][log-analytics-docs] finns det detaljerad information om att fråga och analysera övervakningsdata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen övervakade Kubernetes klustret med OMS. Uppgifter som omfattas ingår:
+I den här självstudien har du övervakat ditt Kubernetes-kluster med OMS. Här är några av uppgifterna:
 
 > [!div class="checklist"]
-> * Konfigurera behållaren övervakningslösning
-> * Konfigurera övervakning agenter
+> * Konfigurera behållarens övervakningslösning
+> * Konfigurera övervakningsagenterna
 > * Åtkomst till övervakningsinformation i Azure-portalen
 
-Gå vidare till nästa kurs att lära dig om att uppgradera Kubernetes till en ny version.
+Gå vidare till nästa självstudie om du vill lära dig om att uppgradera Kubernetes till en ny version.
 
 > [!div class="nextstepaction"]
 > [Uppgradera Kubernetes][aks-tutorial-upgrade]

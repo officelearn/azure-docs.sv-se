@@ -1,10 +1,10 @@
 ---
 title: "Översikt över VPN Gateway: Skapa VPN-anslutningar till virtuella Azure-nätverk på olika platser | Microsoft Docs"
-description: "Den här översikten över VPN Gateway beskriver hur du kan ansluta till virtuella Azure-nätverk med hjälp av en VPN-anslutning via Internet. Översikten innehåller också diagram över grundläggande anslutningskonfigurationer."
+description: "Den här artikeln beskriver vad en VPN-gateway är och visar hur du kan ansluta till virtuella Azure-nätverk med hjälp av en VPN-anslutning via Internet. Översikten innehåller också diagram över grundläggande anslutningskonfigurationer."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>Om VPN Gateway
 
@@ -27,15 +27,11 @@ En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad tra
 
 Varje virtuellt nätverk kan ha endast en VPN-gateway, men du kan skapa flera anslutningar till samma VPN-gateway. Ett exempel på detta är en konfiguration med anslutning till flera platser. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar, inklusive punkt-till-plats-VPN, den bandbredd som är tillgänglig för gatewayen.
 
-### <a name="whatis"></a>Vad är en virtuell nätverksgateway?
+## <a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
 En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett specifikt undernät med namnet GatewaySubnet. De virtuella datorerna som finns i GatewaySubnet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt och du bör aldrig distribuera ytterligare resurser till GatewaySubnet.
 
 När du skapar en virtuell nätverksgateway med hjälp av gatewaytypen 'Vpn ”, skapas en viss typ av virtuell nätverksgateway som krypterar trafiken: en VPN-gateway. Det kan ta upp till 45 minuter att skapa en VPN-gateway. Detta beror på att de virtuella datorerna för VPN-gateway distribueras till GatewaySubnet och konfigureras med de inställningar som du angett. Den Gateway-SKU som du väljer avgör hur kraftfulla de virtuella datorerna är.
-
-## <a name="gwsku"></a>Gateway-SKU:er
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Konfigurera en VPN-gateway
 
@@ -52,6 +48,10 @@ Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsver
 ### <a name="models"></a>Distributionsmodell
 
 När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>Gateway-SKU:er
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Diagram för anslutningstopologi
 
@@ -110,7 +110,7 @@ De virtuella nätverk som du ansluter kan finnas:
 
 Azure har för närvarande två distributionsmodeller: klassisk och Resource Manager. Om du har använt Azure ett tag har du förmodligen virtuella Azure-datorer och instansroller som kör i ett klassiskt VNet. Dina nyare virtuella datorer och rollinstanser kanske körs i ett VNet som skapats i Resource Manager. Du kan skapa en anslutning mellan virtuella nätverk så att resurserna i ett VNet kan kommunicera direkt med resurserna i ett annat.
 
-### <a name="vnet-peering"></a>VNet-peering
+### <a name="vnet-peering"></a>VNET-peering
 
 Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 

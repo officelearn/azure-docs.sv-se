@@ -1,6 +1,6 @@
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **Nya**, sedan **Webb + Mobil**, och sedan **Mobile Engagement**.
+2. Klicka på **Skapa en resurs**, **Webb och mobilt** och sedan **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
 3. På bladet **Ny Mobile Engagement app-samling** som visas, skapar du en appsamling. Ange följande information:

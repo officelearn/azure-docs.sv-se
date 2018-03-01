@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -152,11 +152,11 @@ Du kan övervaka kopieringsaktiviteten körs på Azure Data Factory ”författa
 
 Om du vill övervaka kopieringsaktiviteten kör visuellt, gå till din data factory -> **författare & övervakaren** -> **övervakningsfliken**, visas en lista över pipelinen körs med en ”visa aktiviteten körs” länk i  **Åtgärder** kolumn. 
 
-![Övervakaren pipeline körs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+![Övervaka pipelinekörningar](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
 Klicka om du vill se en lista över aktiviteter i denna pipeline-körning. I den **åtgärder** kolumn och, du har länkar till kopiera aktivitet indata, utdata, fel (om det inte går att köra kopieringsaktiviteten) och information.
 
-![Övervaka aktiviteten körs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+![Övervaka aktivitetskörningar](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
 Klicka på den ”**information**” länken under **åtgärder** Kopiera aktivitetens körning information och prestandaegenskaper. Den visar information, inklusive volym/rader/filer för data som kopieras från källan till mottagare, dataflöde, steg den passerar med motsvarande varaktighet och konfigurationer för ditt scenario kopia.
 

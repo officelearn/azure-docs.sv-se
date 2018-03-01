@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -230,6 +230,7 @@ sudo apt-get install -f
 * [Förbereda en Linux-utvecklingsmiljö i Windows](service-fabric-local-linux-cluster-windows.md)
 * [Använd Service Fabric CLI för att hantera dina program](service-fabric-application-lifecycle-sfctl.md)
 * [Skillnader mellan Service Fabric i Windows och Linux](service-fabric-linux-windows-differences.md)
+* [Automatisera uppdatering av operativsystemet i Linux-klustret](service-fabric-patch-orchestration-application-linux.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

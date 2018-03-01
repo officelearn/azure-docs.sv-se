@@ -1,6 +1,6 @@
 ---
 title: "Skapa en funktion i Azure som distribueras från Visual Studio Team Services | Microsoft Docs"
-description: "Skapa en Funktionsapp och distribuera Funktionskoden från Visual Studio Team Services"
+description: "Skapa en funktionsapp och distribuera funktionskod från Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
@@ -9,46 +9,50 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Skapa en funktion i Azure som distribueras från Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Skapa en funktionsapp och distribuera funktionskod från Visual Studio Team Services
 
-Det här avsnittet beskrivs hur du använder Azure Functions för att skapa en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) funktionen app med hjälp av den [förbrukning plan](../functions-scale.md#consumption-plan). Funktionen appen, som är en behållare för dina funktioner distribueras kontinuerligt från en Visual Studio Team Services VSTS ()-databas. För att slutföra det här avsnittet måste du ha:
+Det här avsnittet beskrivs hur du använder Azure Functions för att skapa en [serverlös](https://azure.microsoft.com/overview/serverless-computing/) funktionsapp med hjälp av [förbrukningsplanen](../functions-scale.md#consumption-plan). Funktionsappen, som blir en behållare för dina funktioner, distribueras kontinuerligt från en VSTS-lagringsplats (Visual Studio Team Services). 
 
-* En VSTS databas som innehåller ditt funktionen app-projekt och som du har administrativ behörighet.
-* En [personlig åtkomsttoken (PATRIK)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) att komma åt databasen VSTS.
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+För att slutföra det här avsnittet måste du ha följande:
+
+* En VSTS-lagringsplats som innehåller ditt funktionsappsprojekt och där du har administratörsbehörighet.
+* En [personlig åtkomsttoken (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) till VSTS-lagringsplatsen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du föredrar att använda Azure CLI lokalt, måste du installera och använda version 2.0 eller senare. För att avgöra versionen av Azure CLI kör `az --version`. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du föredrar att använda Azure CLI lokalt måste du installera och använda version 2.0 eller senare. Avgör vilken version av Azure CLI du har genom att köra `az --version`. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här exemplet skapar en app i Azure-funktion och distribuerar Funktionskoden från Visual Studio Team Services.
+Det här exemplet skapar en funktionsapp och distribuerar funktionskod från Visual Studio Team Services.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, storage-konto, funktionsapp och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, ett lagringskonto, en funktionsapp och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. |
-| [Skapa AZ functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [AZ apptjänst Webbkonfiguration källkontroll](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associerar en funktionsapp med en Git eller ett. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Kopplar en funktionsapp till en Git- eller Mercurial-lagringsplats. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 
-Ytterligare Azure Functions CLI skriptexempel finns i den [Azure Functions dokumentationen](../functions-cli-samples.md).
+Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

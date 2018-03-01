@@ -1,8 +1,11 @@
+# [Dokumentation om Azure AD Domain Services](index.md)
+
 # Översikt
 ## [Vad är Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Är det rätt alternativ för dig?
 ### [Jämför med Windows Server AD](active-directory-ds-comparison.md)
 ### [Jämför med Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
+## [Nyheter](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Funktioner](active-directory-ds-features.md)
 ## [Scenarier](active-directory-ds-scenarios.md)
 ## [Så här fungerar synkronisering](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
 
 # Gör så här för att
+## [Kontrollera en hanterad domäns hälsostatus](active-directory-ds-check-health.md)
 ## [Använda Azure AD Domain Services i Azure CSP-prenumerationer](active-directory-ds-csp.md)
 ## [Aktivera Azure AD Domain Services med PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Anslut till en hanterad domän
@@ -28,7 +32,7 @@
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
-### [Kontrollera hälsan för domänen](active-directory-ds-check-health.md)
+
 ### Konfigurera säker LDAP för en hanterad domän
 #### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

@@ -1,3 +1,5 @@
+# [Dokumentation om Azure Marketplace](index.md)
+
 # [Utgivarhandbok för Azure Marketplace](marketplace-publishers-guide.md)
 # [Låt din verksamhet växa med Azure Marketplace](grow-your-business-azure-marketplace.md)
 # [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

@@ -1,60 +1,61 @@
 ---
-title: "Azure CLI skript exempel - lägga till ett program i Batch | Microsoft Docs"
-description: "Azure CLI skript exempel - lägga till ett program i Batch"
+title: "Exempel på Azure CLI-skript – Lägga till ett program i Batch | Microsoft Docs"
+description: "Exempel på Azure CLI-skript – Lägga till ett program i Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Lägga till program till Azure Batch med Azure CLI
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI-exempel: Lägga till ett program i ett Azure Batch-konto
 
-Det här skriptet visar hur du konfigurerar ett program för användning med en Azure Batch-pool eller en uppgift. Paketera din körbar fil, tillsammans med eventuella beroenden till en ZIP-fil om du vill konfigurera ett program. I det här exemplet kallas den körbara zip-filen ' min-program-exe.zip'.
+Det här skriptet visar hur du lägger till ett program som ska användas med en pool eller uppgift i Azure Batch. Konfigurera ett program som ska läggas till i Batch-kontot genom att paketera den körbara filen tillsammans med eventuella beroenden i en zip-fil. 
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Installera Azure CLI med hjälp av instruktionerna i den [Azure CLI installationsguiden](https://docs.microsoft.com/cli/azure/install-azure-cli), om du inte redan har gjort.
-- Skapa ett Batch-konto om du inte redan har ett. Se [skapa ett batchkonto med Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) för ett exempelskript som skapar ett konto.
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Exempelskript
+## <a name="example-script"></a>Exempelskript
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>Rensa program
+## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du har kört ovan exempelskript kör du följande kommandon för att ta bort programmet och alla dess överförda programpaket.
+Kör följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa ett program och ladda upp ett programpaket.
-Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon.
+Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ batch-program](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Skapar ett program.  |
-| [AZ batch programmet uppsättningen](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Uppdaterar egenskaperna för ett program.  |
-| [Skapa AZ batch-programpaket](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Lägger till ett programpaket till det angivna programmet.  |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Skapar ett program.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Lägger till ett programpaket i det angivna programmet.  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Uppdaterar egenskaperna för ett program.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
-
-Ytterligare Batch CLI skriptexempel finns i den [Azure Batch CLI dokumentationen](../batch-cli-samples.md).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Lägg till eller uppdatera partner i business-to-business-avtalen i arbetsflödet
 
 Partners är enheter som deltar i business-to-business (B2B) transaktioner och utbyte av meddelanden mellan varandra. Innan du kan skapa partners som representerar du och en annan organisation i dessa transaktioner, måste du både dela information som identifierar och validerar meddelanden som skickas av varandra. Du kan skapa partners i ditt konto integration som representerar du båda när du diskutera dessa uppgifter och är redo att börja business-relation.
 
-## <a name="what-roles-do-partners-have-in-your-integration-account"></a>Vilka roller har partners i integration kontot?
+## <a name="what-roles-do-partners-play-in-your-integration-account"></a>Vilka roller spelar partners i integration kontot?
 
 Om du vill definiera information om meddelanden som utbyts mellan partners, kan du skapa avtal mellan dessa partner. Men innan du kan skapa ett avtal, du måste ha lagt till minst två parter till ditt konto för integrering. Din organisation måste vara en del av avtal som den **värden partner**. Den andra partnern eller **gäst partner** representerar den organisation som utbyter meddelanden med din organisation. Gäst-partner kan vara ett annat företag eller även en avdelning i din organisation.
 
@@ -33,61 +33,67 @@ När du lägger till dessa tillverkare, skapar du ett avtal.
 
 Ta emot och skicka inställningarna går från synvinkel för den Partner som värd. Exempelvis avgör ta emot inställningarna i ett avtal hur värdbaserade partnern tar emot meddelanden som skickas från en gäst-partner. På samma sätt anger skicka inställningarna i avtalet hur värdbaserade partnern skickar meddelanden till gäst-partner.
 
-## <a name="how-to-create-a-partner"></a>Så här skapar du en partner?
+## <a name="create-partner"></a>Skapa partner
 
-1. Välj i Azure-portalen **Bläddra**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+2. På Azure huvudmenyn, Välj **alla tjänster**. I sökrutan anger du ”integration” och välj sedan **integrationskonton**.
 
-2. Skriv i sökrutan filtrera **integrering**och välj **Integrationskonton** i resultatlistan.
+   ![Hitta integration konto](./media/logic-apps-enterprise-integration-partners/account-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+3. Under **Integrationskonton**, väljer du det integration konto där du vill lägga till dina partners.
 
-3. Välj integration konto där du vill lägga till dina partners.
-
-    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Välj integration konto](./media/logic-apps-enterprise-integration-partners/account-2.png)
 
 4. Välj den **Partners** panelen.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+   ![Välj ”Partners”](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-5. I bladet Partners väljer **Lägg till**.
+5. Under **Partners**, Välj **Lägg till**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+   ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. Ange ett namn för din partner och välj sedan en **kvalificerare**. Du kan använda en **värdet** för att identifiera dokument som finns i dina appar.
+6. Ange ett namn för din partner och välj sedan en **kvalificerare**. Ange en **värdet** att identifiera dokument som tar emot dina appar. När du är klar väljer **OK**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+   ![Lägg till information om resurspartner](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-7. Om du vill se förloppet för ditt partner-processen, Välj den *bell* meddelandeikonen.
+7. Välj den **Partners** panelen igen.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
+   ![Välj ikonen ”Partners”](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-8. För att bekräfta att din nya partner har lagts till, Välj den **Partners** panelen.
+   Din nya partner visas nu. 
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+   ![Visa ny partner](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
-    När du har valt Partners panelen visas också nytillagda partners i bladet Partners.
+## <a name="edit-partner"></a>Redigera partner
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+1. I den [Azure-portalen](https://portal.azure.com), söka efter och välj ditt konto för integrering. Välj den **Partners** panelen.
 
-## <a name="how-to-edit-existing-partners-in-your-integration-account"></a>Hur du redigerar befintliga partners i ditt konto för integrering
+   ![Välj ikonen ”Partners”](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-1. Välj den **Partners** panelen.
-2. När det öppnas bladet Partners, markerar du den partner som du vill redigera.
-3. På den **uppdatering Partner** panelen, gör ändringarna.
-4. När du är klar väljer **spara**, eller om du vill avbryta ändringarna, Välj **Ignorera**.
+2. Under **Partners**, markerar du den partner som du vill redigera.
 
-    ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   ![Välj partner att ta bort](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-## <a name="how-to-delete-a-partner"></a>Hur du tar bort en partner
+3. Under **uppdatering Partner**, gör ändringarna.
+När du är klar väljer **spara**. 
 
-1. Välj den **Partners** panelen.
-2. När det öppnas bladet Partner, markerar du den partner som du vill ta bort.
-3. Välj **ta bort**.
+   ![Skapa och spara ändringarna](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+   Om du vill avbryta ändringarna, Välj **Ignorera**.
+
+## <a name="delete-partner"></a>Ta bort partner
+
+1. I den [Azure-portalen](https://portal.azure.com), söka efter och välj ditt konto för integrering. Välj den **Partners** panelen.
+
+   ![Välj ikonen ”Partners”](./media/logic-apps-enterprise-integration-partners/delete.png)
+
+2. Under **Partners**, markerar du den partner som du vill ta bort.
+Välj **ta bort**.
+
+   ![Ta bort partner](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Mer information om avtalen](../logic-apps/logic-apps-enterprise-integration-agreements.md "Lär dig mer om enterprise integration-avtal")  
 

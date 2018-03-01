@@ -7,8 +7,10 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera automatisk etablering
+    - name: Konfigurera automatisk etablering – portal
       href: quick-setup-auto-provision.md
+    - name: Konfigurera automatisk etablering – mall
+      href: quick-setup-auto-provision-rm.md
     - name: Skapa simulerad enhet
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Avetablera enheter
       href: how-to-unprovision-devices.md
+    - name: Utföra innehavarbevis med X.509 CA-v-certifikat
+      href: how-to-verify-certificates.md
     - name: Använda HSM med SDK
       href: use-hsm-with-sdk.md
     - name: Styra åtkomsten till etableringstjänsten
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Använd SDK-verktyg för att utveckla
       href: how-to-use-sdk-tools.md
+    - name: Ansluta till MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Referens
   items:
     - name: REST

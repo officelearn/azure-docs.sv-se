@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Skapa en ny Azure API Management-tjänstinstans
 
@@ -34,7 +34,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Skapa en ny tjänst
 
-1. I [Azure-portalen](https://portal.azure.com/) väljer du **New** (Nytt) > **Enterprise-integration** > **API Management**.
+1. I [Azure-portalen](https://portal.azure.com/) väljer du **Skapa en resurs** > **Enterprise-integration** > **API Management**.
 
     Du kan även välja **New** (Nytt), skriva `API management` i sökrutan och trycka på RETUR. Klicka på **Skapa**.
 

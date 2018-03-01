@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
 [Skaluppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) stöder nu virtuella datorer med anslutna datadiskar. Datadiskar kan definieras i lagringsprofilen för skalningsuppsättningar som har skapats med Azure Managed Disks. Tidigare var operativsystemsenheter och temp-enheter de enda direktanslutna lagringsalternativen tillgängliga för virtuella datorer i skalningsuppsättningar.
@@ -61,6 +61,59 @@ Ett annat sätt att skapa en skalningsuppsättning med anslutna datadiskar är a
 ```
 
 Du kan se ett fullständigt exempel på en skalningsuppsättning med en ansluten disk som är klar att distribueras här: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Skapa ett Service Fabric-kluster med anslutna datadiskar
+Varje [nodtyp](../service-fabric/service-fabric-cluster-nodetypes.md) i ett [Service Fabric](/azure/service-fabric)-kluster som körs i Azure backas upp av en VM-skalningsuppsättning.  Genom att använda en Azure Resource Manager-mall kan du ansluta datadiskar till de skaluppsättningar som utgör Service Fabric-klustret. Du kan använda en [befintlig mall](https://github.com/Azure-Samples/service-fabric-cluster-templates) som utgångspunkt. I mallen tar du med ett _dataDisks_-avsnitt i _storageProfile_ för _Microsoft.Compute/virtualMachineScaleSets_-resurserna. Distribuera sedan mallen. I följande exempel ansluts en datadisk på 128 GB:
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+Du kan automatiskt partitionera, formatera och montera datadiskarna när klustret distribueras.  Lägg till ett anpassat skripttillägg till _extensionProfile_ för _virtualMachineProfile_ i skaluppsättningarna.
+
+Förbered datadiskarna i ett Windows-kluster automatiskt genom att lägga till följande:
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+Förbered datadiskarna i ett Linux-kluster automatiskt genom att lägga till följande:
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Lägg till en datadisk till en befintlig skalningsuppsättning
 > [!NOTE]

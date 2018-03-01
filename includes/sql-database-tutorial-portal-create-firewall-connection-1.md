@@ -6,13 +6,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](../articles/sql-database/sql-database-service-tiers.md). Databasen skapas i en [Azure-resursgrupp](../articles/azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](../articles/sql-database/sql-database-features.md). 
 
-Följ dessa steg om du vill skapa en tom SQL-databas. 
+Följ de här stegen om du vill skapa en tom SQL-databas. 
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
-   ![Skapa en tom databas](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![skapa tom databas](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. Fyll i följande information i SQL Database-formuläret (se föregående bild):   
 
@@ -38,7 +38,7 @@ Följ dessa steg om du vill skapa en tom SQL-databas.
 
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er och mängden lagring. Undersök alternativen för mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå. 
 
-7. Den här självstudiekursen, Välj den **Standard** servicenivå och Använd sedan skjutreglaget för att välja **100 dtu: er (S3)** och **400** GB lagringsutrymme.
+7. I de här självstudierna väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
 
    ![skapa databas-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Följ dessa steg om du vill skapa en tom SQL-databas.
    > [!IMPORTANT]
    > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, Kanada Central, Kanada Öst, Frankrike Central, Tyskland centrala östra Japan, centrala Korea södra centrala USA, södra Östasien, USA East2 , USA, västra USA Gov Virginia och västra Europa. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: östra Australien, sydöstra Australien, centrala Kanada, östra Kanada, centrala Frankrike, centrala Tyskland, östra Japan, centrala Korea, södra centrala USA, Sydostasien, östra USA 2, västra USA, Virginia (USA-förvaltad region) och Västeuropa. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
-10. Välj en **sorteringen** för tom databas (använda standardvärdet för den här självstudiekursen). Mer information om sorteringar finns [sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Välj en **sortering** för den tomma databasen (använd standardvärdet för de här självstudierna). Mer information om sorteringar finns i [Sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
-11. Klicka på **Skapa** för att etablera databasen. Etablering tar om en och en halv minut att slutföra. 
+11. Klicka på **Skapa** för att etablera databasen. Det tar cirka en och en halv minut att slutföra etableringen. 
 
 12. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
     
@@ -68,13 +68,13 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 > SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver20170824.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständiga servernamnet (t.ex. **mynewserver20170824.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. 
 
    ![servernamn](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Klicka på **ange serverbrandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
+3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
    ![brandväggsregler för server](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

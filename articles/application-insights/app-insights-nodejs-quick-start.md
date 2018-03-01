@@ -10,19 +10,19 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Börja övervaka Node.js-webbappen
 
-Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
+Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
 
 Denna snabbstart guidar dig genom processen att lägga till version 0.22 av Application Insights SDK för Node.js för en befintlig Node.js-webbapp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -40,11 +40,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Application Insights kan samla in telemetridata från alla internetanslutna appar, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **Nytt** > **Övervakning + Hantering** > **Application Insights**.
+1. Välj **Skapa en resurs** > **Övervakning och hantering**  > **Application Insights**.
 
    ![lägg till en Application Insights-resurs](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   En konfigurationsruta visas, använd tabellen nedan när du ska fylla i indatafälten.
+   En konfigurationsruta visas. Använd följande tabell när du ska fylla i indatafälten.
 
     | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|

@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln innehåller en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -29,14 +29,8 @@ Om du precis har satt igång med Azure SQL Data Warehouse kan artikeln kännas �
 Hjälp med inläsningen hittar du i [Vägledning för att läsa in data](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Minska kostnaderna genom att pausa och skala
-En viktig funktion i SQL Data Warehouse är möjligheten att kunna pausa tjänsten när du inte använder den, vilket gör att faktureringen för beräkningsresurser stoppas.  En annan viktig funktion är möjligheten att skala resurser.  Du kan pausa och skala via Azure Portal eller med hjälp av PowerShell-kommandon.  Bekanta dig med de här funktionerna eftersom de avsevärt kan minska kostnaden för ditt informationslager när det inte används.  Om du alltid vill att informationslagret ska vara tillgängligt kan du överväga att skala ned det till den minsta storleken, ett DW100 i stället för att pausa.
+Läs mer om att minska kostnaderna genom att pausa och skala i [Hantera beräkning](sql-data-warehouse-manage-compute-overview.md). 
 
-Se även [Pause compute resources][Pause compute resources] (Pausa beräkningsresurser), [Resume compute resources][Resume compute resources] (Återuppta beräkningsresurser) och [Scale compute resources] (Skala beräkningsresurser).
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Tömma transaktioner före pausning eller skalning
-När du pausar eller skalar SQL Data Warehouse avbryts dina frågor i bakgrunden när du initierar paus- eller skalningsbegäran.  Att avbryta en enkel SELECT-fråga är en snabb åtgärd och påverkar nästan inte alls den tid det tar att pausa eller skala instansen.  Transaktionsfrågor, som ändrar data eller datastrukturen, kan däremot ta längre tid att stoppa.  **Transaktionsfrågor måste per definition slutföras i sin helhet eller så måste ändringarna återställas.**  Det kan ta lång tid att återställa arbetet som en transaktionsfråga har utfört, till och med längre tid än den ursprungliga ändringen som frågan tillämpade.  Om du till exempel avbryter en fråga som tog bort rader och som redan har körts i en timme, kan det ta en timme för systemet att lägga till de borttagna raderna igen.  Om du pausar eller skalar under pågående transaktioner kan det verka som åtgärden tar lång tid eftersom pausningen och skalningen måste vänta tills återställningen har slutförts innan de kan fortsätta.
-
-Se även [Understanding transactions][Understanding transactions] (Förstå transaktioner) och [Optimizing transactions][Optimizing transactions] (Optimera transaktioner)
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
 Till skillnad från SQL Server, som automatiskt identifierar och skapar eller uppdaterar statistik i kolumner, kräver SQL Data Warehouse manuellt underhåll av statistik.  Vi planerar att ändra detta i framtiden, men tills vidare är det bra om du underhåller din statistik för att säkerställa att SQL Data Warehouse-planerna är optimerade.  Kvaliteten på planerna som skapas av optimeraren beror på den tillgängliga statistiken.  **Ett enkelt sätt att komma igång med statistik är att skapa exempelstatistik för varje kolumn.**  Det är lika viktigt att uppdatera statistik när viktiga dataändringar görs.  En konservativ metod kan vara att uppdatera statistiken varje dag eller efter varje belastning.  Det finns alltid kompromisser mellan prestanda och kostnaden för att skapa och uppdatera statistik. Om du tycker att det tar för lång tid att underhålla all statistik kanske du vill prova att vara mer selektiv när du väljer vilka kolumner som ska innehålla statistik eller vilka kolumner som ska uppdateras regelbundet.  Du kanske till exempel vill uppdatera datumkolumner, där nya värden kan läggas till, varje dag. **Du får ut mest genom att använda statistik för kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.**
@@ -138,7 +132,7 @@ Avslutningsvis ber vi dig att använda sidan för [Azure SQL Data Warehouse-feed
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute (Skala beräkningsresurser)
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

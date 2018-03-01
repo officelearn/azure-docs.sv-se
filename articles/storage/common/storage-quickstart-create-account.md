@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -161,7 +161,7 @@ Tänk på dessa regler när du namnger lagringskontot:
 
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
 
-1. I Azure-portalen, expanderar du menyn på vänster sida för att öppna tjänstemenyn och välj **fler tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
+1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
 3. Sätt fältet **Typ av konto** till **StorageV2 (generell användning v2)**.
 4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **Zonredundant lagring (ZRS förhandsversion)**, **Geo-redundant lagring (GRS)** eller **Read-Access Geo-Redundant Storage (RA-GRS)**.

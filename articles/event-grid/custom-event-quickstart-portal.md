@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Portal och Event Grid
 
@@ -43,7 +43,7 @@ Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp.
 
 Ett ämne ger en användardefinierad slutpunkt där du publicerar dina händelser. 
 
-1. Välj **Fler tjänster** och sök efter *event grid* för att skapa ett ämne i resursgruppen. Välj **Event Grid-avsnitt** från de tillgängliga alternativen.
+1. Välj **Alla tjänster** och sök efter *event grid* för att skapa ett ämne i resursgruppen. Välj **Event Grid-avsnitt** från de tillgängliga alternativen.
 
    ![Skapa ett event grid-ämne](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelande
 
 Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. 
 
-1. Om du vill skapa en Event Grid-prenumeration väljer du återigen **Fler tjänster** och söker efter *event grid*. Välj **Event Grid-prenumeration** bland de tillgängliga alternativen.
+1. Om du vill skapa en Event Grid-prenumeration väljer du återigen **Alla tjänster** och söker efter *event grid*. Välj **Event Grid-prenumeration** bland de tillgängliga alternativen.
 
    ![Skapa event grid-prenumeration](./media/custom-event-quickstart-portal/create-subscription.png)
 

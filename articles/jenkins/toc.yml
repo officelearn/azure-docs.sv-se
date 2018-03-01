@@ -1,6 +1,6 @@
-- name: Jenkins på Azure
+- name: Dokumentation om Jenkins på Azure
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Jenkins på Azure
       href: overview.md

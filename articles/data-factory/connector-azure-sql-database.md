@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,12 @@ Du kan kopiera data från/till Azure SQL Database till alla stöds sink-datalagr
 
 Mer specifikt stöder den här Azure SQL Database-anslutningen:
 
-- Kopierar data med hjälp av SQL-autentisering.
+- Kopiera data med hjälp av **SQL-autentisering**, och **Azure Active Directory-program tokenautentisering** med tjänstens huvudnamn eller hanterade tjänsten identitet (MSI).
 - Hämtar data med hjälp av SQL-fråga eller en lagrad procedur som källa.
 - Som mottagare, bifoga data måltabellen eller anropa en lagrad procedur med egen kod vid kopiering.
+
+> [!IMPORTANT]
+> Om du kopierar data med hjälp av Azure Integration Runtime, konfigurera [Azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) till [ge Azure-tjänster åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data med hjälp av Self-hosted integrering Runtime, konfigurera Azure SQL Server-brandväggen så att rätt IP-adressintervall, inklusive den datorns IP-adress som används för att ansluta till Azure SQL Database.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -52,13 +55,21 @@ Följande egenskaper stöds för Azure SQL Database länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureSqlDatabase** | Ja |
-| connectionString |Ange information som behövs för att ansluta till Azure SQL Database-instans för egenskapen connectionString. Endast grundläggande autentisering stöds. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectionString |Ange information som behövs för att ansluta till Azure SQL Database-instans för egenskapen connectionString. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| servicePrincipalId | Ange programmets klient-ID. | Ja när du använder AAD-autentisering med tjänstens huvudnamn. |
+| servicePrincipalKey | Ange programmets nyckeln. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja när du använder AAD-autentisering med tjänstens huvudnamn. |
+| klient | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja när du använder AAD-autentisering med tjänstens huvudnamn. |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
-> [!IMPORTANT]
-> Konfigurera [Azure SQL Database-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) i databasservern [ge Azure-tjänster åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Dessutom, om du kopierar data till Azure SQL Database från utanför Azure från lokala datakällor med data factory inklusive själva värdbaserade Integration Runtime konfigurera lämplig IP-adressintervall för den dator som skickar data till Azure SQL Databas.
+För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel respektive:
 
-**Exempel:**
+- [Med SQL-autentisering](#using-sql-authentication)
+- [Med hjälp av AAD-program tokenautentisering - tjänstens huvudnamn](#using-service-principal-authentication)
+- [Med hjälp av AAD-program tokenautentisering - hanterade tjänstidentiteten](#using-managed-service-identity-authentication)
+
+### <a name="using-sql-authentication"></a>Med SQL-autentisering
+
+**Länkad tjänst exempel använder SQL-autentisering:**
 
 ```json
 {
@@ -69,6 +80,113 @@ Följande egenskaper stöds för Azure SQL Database länkade tjänsten:
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Med hjälp av service principal autentisering
+
+Följ dessa steg om du vill använda service principal AAD programmet token autentisering:
+
+1. **[Skapa ett Azure Active Directory-program från Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anteckna namnet på programmet och följande värden som du använder för att definiera den länkade tjänsten:
+
+    - Program-ID:t
+    - Nyckeln för programmet
+    - Klient-ID:t
+
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören måste vara en AAD-användare eller grupp för AAD, men kan inte vara en tjänstens huvudnamn. Det här steget gör du så att i senare steg kan du använda en AAD-identitet för att skapa en innesluten databasanvändare för tjänsten huvudnamn.
+
+3. **Skapa en innesluten databasanvändare för tjänstens huvudnamn**, genom att ansluta till databasen från/till vilken du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL. Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Bevilja behörigheter som krävs för tjänstens huvudnamn** som vanligt för SQL-användare, t.ex. genom att köra nedan:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. I ADF, konfigurerar du en Azure SQL Database länkad tjänst.
+
+
+**Länkad tjänst exempel med hjälp av service principal autentisering:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Med hjälp av hanteringstjänster identitetsverifiering
+
+En datafabrik kan associeras med en [hanterade tjänstidentiteten (MSI)](data-factory-service-identity.md), som motsvarar denna specifika data factory. Du kan använda den här tjänstidentiteten för Azure SQL Database-autentisering, vilket gör att den här avsedda fabriken åtkomst och kopiera data från/till databasen.
+
+Om du vill använda MSI baserad autentisering för AAD-token, gör du följande:
+
+1. **Skapa en grupp i Azure AD och göra fabriken MSI medlem i gruppen**.
+
+    a. Hitta data factory tjänstidentiteten från Azure-portalen. Gå till din data factory -> Egenskaper -> Kopiera den **SERVICE IDENTITY ID**.
+
+    b. Installera den [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modulen, loggar in med `Connect-AzureAD` kommandot och kör följande kommandon för att skapa en grupp och Lägg till data factory MSI som en medlem.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  för din Azure SQL Server på Azure-portalen om du inte gjort det. AAD-administratören kan vara en AAD-användare eller grupp för AAD. Om du ger gruppen MSI en administratörsroll kan du hoppa över steg 3 och 4 nedan som administratören skulle ha fullständig åtkomst till databasen.
+
+3. **Skapa en innesluten databasanvändare för gruppen AAD**, genom att ansluta till databasen från/till vilken du vill kopiera data med hjälp av verktyg som SSMS med en AAD identitet med minst ALTER de ANVÄNDARBEHÖRIGHETER som krävs och kör följande T-SQL. Läs mer på innesluten databasanvändare från [här](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Ge gruppen AAD nödvändiga behörigheter** som vanligt för SQL-användare, t.ex. genom att köra nedan:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. I ADF, konfigurerar du en Azure SQL Database länkad tjänst.
+
+**Länkad tjänst exempel med hjälp av MSI-autentisering:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {

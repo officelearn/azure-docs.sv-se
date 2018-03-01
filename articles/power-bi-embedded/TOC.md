@@ -1,5 +1,6 @@
-# Översikt
+# [Dokumentation om Power BI Embedded](index.md)
 
+# Översikt
 ## [Om Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Kom igång

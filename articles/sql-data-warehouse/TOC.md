@@ -1,3 +1,5 @@
+# [Dokumentation om SQL Data Warehouse](index.md)
+
 # Översikt
 
 ## [Om SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)

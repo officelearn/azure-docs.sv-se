@@ -1,6 +1,6 @@
 - name: Dokumentation om Microsoft Genomics
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Vad är Microsoft Genomics?
       href: overview-what-is-genomics.md

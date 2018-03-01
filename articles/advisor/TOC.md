@@ -1,3 +1,5 @@
+# [Dokumentation om Azure Advisor](index.md)
+
 # Översikt
 ## [Vad är Azure Advisor?](advisor-overview.md)
 

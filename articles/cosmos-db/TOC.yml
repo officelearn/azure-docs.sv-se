@@ -258,6 +258,8 @@
               href: mongodb-robomongo.md
             - name: Använda Mongoose
               href: mongodb-mongoose.md
+            - name: Använda läsinställningar
+              href: mongodb-readpreference.md
             - name: Funktioner som stöds med MongoDB
               href: mongodb-feature-support.md
             - name: Angular-självstudier

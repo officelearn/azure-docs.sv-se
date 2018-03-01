@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Distribuera
 
@@ -27,8 +27,8 @@ Under den här lektionen konfigurerar du distributionsegenskaper, anger en Analy
   
 Uppskattad tidsåtgång för den här lektionen: **5 minuter**  
   
-## <a name="prerequisites"></a>Förutsättningar  
-Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+## <a name="prerequisites"></a>Nödvändiga komponenter  
+De här artikeln ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Du måste ha [administratörsbehörighet](../analysis-services-server-admins.md) på den fjärranslutna Analysis Services-servern för att distribuera till den.  
@@ -67,6 +67,9 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 3. När distributionen är klar kan du klicka på **Stäng**.  
   
+
+Den här lektionen beskriver den vanligaste och enklaste metoden för att distribuera en tabellmodell från SSDT. Avancerade distributionsalternativ som Distributionsguiden eller att automatisera med XMLA och AMO ger större flexibilitet, konsekvens och schemalagda distributioner. Läs mer i informationen om [distribution av tabellmodellslösning](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Sammanfattning  
 Grattis! Du är färdig med att redigera och distribuera din första Analysis Services Tabular-modell. Den här självstudien har hjälpt dig att slutföra de vanligaste uppgifterna för att skapa en tabellmodell. Nu när Adventure Works Internet Sales-modellen har distribuerats kan du använda SQL Server Management Studio för att hantera modellen, skapa processkript och en säkerhetskopieringsplan. Användare kan nu även ansluta till modellen med ett rapportklientprogram, till exempel Microsoft Excel eller Power BI.  
 

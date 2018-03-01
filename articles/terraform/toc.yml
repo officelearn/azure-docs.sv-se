@@ -1,3 +1,5 @@
+- name: Dokumentation om Terraform på Azure
+  href: index.yml
 - name: Översikt
   items:
     - name: Om Terraform på Azure
@@ -21,7 +23,7 @@
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Cloud Shell-integrering
       href: terraform-cloud-shell.md

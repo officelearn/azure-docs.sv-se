@@ -14,12 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
+<<<<<<< HEAD
 ms.author: aelnably;wesmc
 ms.openlocfilehash: 9759eac01e2db62154cd7f6bf9fcccf13282b4b4
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2018
+=======
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/28/2018
+>>>>>>> d7b96017f3c2d57f5135571d8789582901649dd0
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med webbprogrammet för behållare
 
@@ -34,7 +43,7 @@ Logga in på den [Azure-portalen](https://portal.azure.com)
 Du kan aktivera funktionen kontinuerlig distribution med [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 I den  **[Azure-portalen](https://portal.azure.com/)**, klicka på den **Apptjänst** alternativet till vänster på sidan.
@@ -50,7 +59,7 @@ I **Dockerbehållare**, Välj 'På' och tryck sedan på Spara för att aktivera 
 Du kan hämta Webhooksadressen med [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 För Webhooksadressen, måste du ha följande slutpunkt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.

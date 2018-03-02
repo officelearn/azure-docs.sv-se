@@ -14,26 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>API Management principuttrycken
-Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna implicit [kontexten](api-management-policy-expressions.md#ContextVariables) variabel och ett tillåtna [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.  
-  
-> [!TIP]
->  Mer information om principen uttryck finns i [Principuttrycken](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
->   
->  Demonstration av hur du konfigurerar principer med hjälp av principuttrycken finns [moln omfattar avsnitt 177: mer API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Den här videon innehåller följande princip uttryck demonstrationer:  
->   
->  -   10:30 - finns i så att leverera sammanhangsinformation till backend-tjänst. Använd den [ange frågesträngparametern](api-management-transformation-policies.md#SetQueryStringParameter) och [ange HTTP-huvudet](api-management-transformation-policies.md#SetHTTPheader) principer för att ange den här informationen. Det finns en demonstration av anropa en funktion i developer-portalen där du kan se dessa principer på arbetet vid 12:10.  
-> -   13:50 – se hur du använder den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) för att bevilja åtkomst till åtgärder före baserat på token anspråk. Spola fram till 15:00 för att se hur principerna är konfigurerade i Redigeraren för grupprincipobjekt. Se en demonstration av anropa en funktion från utvecklarportal både med och utan autentiseringstoken som krävs vid 18:50.  
-> -   21:00 - Använd en [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) spåra för att se hur principer utvärderas och resultatet av dessa utvärderingar.  
-> -   25:25 - se hur du använder med den [hämta från cache](api-management-caching-policies.md#GetFromCache) och [Store cacheminne](api-management-caching-policies.md#StoreToCache) principer för att konfigurera cachelagring av API Management-svar. Ange hur länge som matchar svar cachelagring av serverdelstjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv.  
-> -   34:30 - se hur du utför innehållsfiltrering. Ta bort dataelement från svar togs emot från en serverdel med hjälp av den [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) och [konfigurera brödtext](api-management-transformation-policies.md#SetBody) principer. Börja med 31:50 att se en översikt över [mörkt Sky prognos API: N](https://developer.forecast.io/) används för den här demon.  
-> -   För att hämta principrapporter som används i den här videon, se den [api-hantering-exempel principer](https://github.com/Azure/api-management-samples/tree/master/policies) github-lagringsplatsen.  
+Den här artikeln beskrivs princip uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna implicit [kontexten](api-management-policy-expressions.md#ContextVariables) variabel och ett tillåtna [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.  
+
+Mer information:
+
+- Lär dig mer om att leverera sammanhangsinformation till backend-tjänst. Använd den [ange frågesträngparametern](api-management-transformation-policies.md#SetQueryStringParameter) och [ange HTTP-huvudet](api-management-transformation-policies.md#SetHTTPheader) principer för att ange den här informationen.
+- Se hur du använder den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) för att bevilja åtkomst till åtgärder före baserat på token anspråk.   
+- Se hur du använder en [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) spåra för att se hur principer utvärderas och resultatet av dessa utvärderingar.  
+- Se hur du använder med den [hämta från cache](api-management-caching-policies.md#GetFromCache) och [Store cacheminne](api-management-caching-policies.md#StoreToCache) principer för att konfigurera cachelagring av API Management-svar. Ange hur länge som matchar svar cachelagring av serverdelstjänsten som anges av tjänsten säkerhetskopierade `Cache-Control` direktiv.  
+- Se hur du utför innehållsfiltrering. Ta bort dataelement från svar togs emot från en serverdel med hjälp av den [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) och [konfigurera brödtext](api-management-transformation-policies.md#SetBody) principer. 
+- För att ladda ned principen instruktioner finns i [api-hantering-exempel principer](https://github.com/Azure/api-management-samples/tree/master/policies) github-lagringsplatsen.  
   
   
 ##  <a name="Syntax"></a> Syntax  
@@ -41,7 +38,7 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
   
  Flera instruktioner uttryck innefattas i `@{expression}`. Alla kodsökvägar inom flera instruktioner uttryck måste avslutas med en `return` instruktion.  
   
-##  <a name="PolicyExpressionsExamples"></a>Exempel  
+##  <a name="PolicyExpressionsExamples"></a> Exempel  
   
 ```  
 @(true)  
@@ -67,13 +64,13 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 }  
 ```  
   
-##  <a name="PolicyExpressionsUsage"></a>Användning  
+##  <a name="PolicyExpressionsUsage"></a> Användning  
  Uttryck kan användas som attributvärden eller textvärden i API-hantering [principer](api-management-policies.md) (såvida principreferens anger något annat).  
   
 > [!IMPORTANT]
 >  När du använder principuttrycken har endast begränsad verifiering av principen uttryck när principen har definierats. Uttryck utförs av gateway vid körning, eventuella undantag som genereras av principen uttryck resultatet i ett körningsfel.  
   
-##  <a name="CLRTypes"></a>.NET framework-typer som är tillåtna i uttryck för principen  
+##  <a name="CLRTypes"></a> .NET framework-typer som är tillåtna i uttryck för principen  
  I följande tabell visas .NET Framework-typer och deras medlemmar som tillåts i princip uttryck.  
   
 |CLR-typ|Metoder som stöds|  
@@ -167,7 +164,7 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |System.Xml.Linq.XText|Alla metoder som stöds|  
 |System.Xml.XmlNodeType|Alla|  
   
-##  <a name="ContextVariables"></a>Kontexten variabel  
+##  <a name="ContextVariables"></a> Kontexten variabel  
  En variabel med namnet `context` implicit finns i varje princip [uttryck](api-management-policy-expressions.md#Syntax). Dess medlemmar innehåller information som är relevanta för den `\request`. Alla de `context` medlemmar är skrivskyddad.  
   
 |Kontexten variabel|Tillåtna metoder, egenskaper och parametervärden|  
@@ -206,10 +203,7 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|indata - kod text som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />Returnerar oformaterad text.|
 |byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - indata - kod text som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar oformaterad text.|
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Nästa steg
 
 Arbeta med principer, Läs mer:

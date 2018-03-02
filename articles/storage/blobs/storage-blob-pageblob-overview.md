@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Unika funktioner i Azure Sidblobbar
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>En Sidblob-uthyrning
 Åtgärden lån Blob upprättar och hanterar ett lås på en blob för skrivning och delete-åtgärder. Den här åtgärden är användbart i scenarier där en sidblob nås från flera klienter för att säkerställa att endast en klient kan skriva till blob i taget. Azure-diskar, till exempel utnyttjar detta leasing mekanism för att se till att disken är endast hanteras av en enda virtuell dator. Lås varaktighet kan vara 15 till 60 sekunder eller kan vara oändlig. Finns i dokumentationen för [här](/rest/api/storageservices/lease-blob) för mer information.
 
-> Använd följande länk för att få [kodexempel](/resources/samples/?service=storage&term=blob&sort=0) för många Programscenarier för andra. 
+> Använd följande länk för att få [kodexempel](/resources/samples/?service=storage&term=blob&sort=0 ) för många Programscenarier för andra. 
 
 Förutom omfattande REST API: er dessutom sidblobbar delad åtkomst, hållbarhet och förbättrad säkerhet. Vi tar upp dessa fördelar i detalj i nästa punkter. 
 

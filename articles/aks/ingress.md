@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4d5f1ddbb3d56d4c7af90ddb4f7d37f082a751c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-ingång på Azure Container Service (AKS)
 
 En domänkontrollant för en ingång är en typ av programvara som tillhandahåller omvänd proxy, konfigurera trafikroutning och TLS upphörande för Kubernetes tjänster. Kubernetes ingång resurser används för att konfigurera regler för inkommande trafik och vägar för enskilda Kubernetes-tjänster. Med hjälp av en domänkontrollant för en inkommande trafik och regler för inkommande trafik, kan en extern adress användas att dirigera trafik till flera tjänster i ett Kubernetes kluster.
 
-Det här dokumentet vägleder genom en exempeldistribution av den [NGIX ingång controller] [ nginx-ingress] i ett kluster med Azure Container Service (AKS). Dessutom kan den [KUBE LEGO] [ kube-lego] för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen körs flera program i klustret AKS, som är tillgänglig via en adress.
+Det här dokumentet vägleder genom en exempeldistribution av den [NGINX ingång controller] [ nginx-ingress] i ett kluster med Azure Container Service (AKS). Dessutom kan den [KUBE LEGO] [ kube-lego] för att automatiskt generera och konfigurera [vi kryptera] [ lets-encrypt] certifikat. Slutligen körs flera program i klustret AKS, som är tillgänglig via en adress.
 
 ## <a name="install-an-ingress-controller"></a>Installera ett meddelande om ingångs-domänkontrollant
 

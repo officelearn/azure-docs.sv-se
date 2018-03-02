@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 22e05af889b4e792dcc6f6fc438e8a58674b9f0e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure Apptjänst statiska IP-begränsningar #
 
@@ -26,7 +26,7 @@ IP-begränsningar kan du definiera en lista över IP-adresser som har tillgång 
 
 När en begäran om att appen har genererats från en klient, utvärderas den IP-adressen mot listan över tillåtna. Om IP-adressen inte finns med i listan över appen svarar med en [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuskod.
 
-IP-begränsningarna har definierats i web.config som din app använder vid körning. Under vissa omständigheter kan vissa modulen köras innan IP-begränsningar logiken i HTTP-pipeline. När detta inträffar, misslyckas denna begäran med ett annat HTTP-felkod.
+IP-begränsningarna har definierats i web.config som din app använder vid körning (mer exakt begränsningar infogas i en uppsättning tillåtna IP-adresser i applicationHost.config, så om du också lägga till en uppsättning tillåtna IP-adresser i filen web.config, de tar prioritet). Under vissa omständigheter kan vissa modulen köras innan IP-begränsningar logiken i HTTP-pipeline. När detta inträffar, misslyckas denna begäran med ett annat HTTP-felkod.
 
 IP-begränsningar utvärderas på samma App plan tjänstinstanser tilldelats din app.
 

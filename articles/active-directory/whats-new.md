@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -41,6 +41,256 @@ Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad 
 Den här sidan uppdateras varje månad, så kontrollera igen den regelbundet.
 
 
+
+## <a name="february-2018"></a>Februari 2018
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Förbättrad navigering för att hantera användare och grupper
+
+**Typ:** ändringsplan  
+**Tjänstekategori:** Directory Management  
+**Produkten kapaciteten:** Directory
+ 
+
+Navigering upplevelsen för att hantera användare och grupper har effektiviserats. Nu kan du navigera från översikt över directory direkt till en lista över alla användare enklare åtkomst till listan över borttagna användare. Du kan också navigera från översikt över directory direkt till listan över alla grupper med lättare åtkomst till inställningar för hantering av grupper. Och även från översikt katalogsidan, du kan söka efter en användare, grupp, företagsprogram eller appregistrering.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Tillgängligheten för inloggningar och granska rapporter i Microsoft Azure drivs av 21Vianet (Azure Kina 21Vianet)
+
+**Typ:** ny funktion  
+**Tjänstekategori:** statliga moln  
+**Produkten kapaciteten:** övervakning och rapportering
+ 
+
+Azure AD loggen aktivitetsrapporter är nu tillgängliga i Microsoft Azure som drivs av 21Vianet (Azure Kina 21Vianet) instanser. Det ingår följande loggar:
+
+- **Inloggningar aktivitetsloggar** -innehåller alla inloggningar loggar som är associerade med din klient.
+
+- **Granskningsloggarna för lösenord via självbetjäning** -innehåller alla SSPR granskningsloggarna.
+
+- **Directory Management granska loggar** -innehåller alla directory management relaterade granskningsloggar som användaren management, hantering och andra.
+
+Med dessa loggar få du insikter om hur du gör din miljö. Med dessa data kan du:
+
+- Avgör hur dina appar och tjänster används av användarna.
+
+- Felsöka problem som hindrar användare från att få sitt arbete.
+
+Mer information om hur du använder de här rapporterna finns [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Använd ”rapporten Reader” roll (role icke-administratörer) för att visa aktivitetsrapporter för Azure AD
+
+**Typ:** ny funktion  
+**Tjänstekategori:** rapportering  
+**Produkten kapaciteten:** övervakning och rapportering
+ 
+
+Vi har aktiverat möjligheten för användare i rollen ”rapportläsare” åtkomst inloggningar och granska aktivitet i Azure Portal samt med vår Graph-API: er som en del av kunder feedback för att aktivera roller för icke-administratörer har åtkomst till Azure AD-aktivitet loggar. 
+
+Mer information hur du använder de här rapporterna finns [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>EmployeeID anspråk tillgängliga som användarattribut och användar-ID
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapaciteten:** enkel inloggning
+ 
+
+Du kan konfigurera **EmployeeID** som användar-ID och användarattribut för användare och B2B gäster i SAML-baserade inloggning program från Enterprise programgränssnitt.
+
+Mer information finns i [anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Förenklad hantering av program med hjälp av jokertecken i Azure AD Application Proxy
+
+**Typ:** ny funktion  
+**Tjänstekategori:** App Proxy  
+**Produkten kapaciteten:** användarautentisering
+ 
+
+För att underlätta programdistribution och minskar de administrativa omkostnaderna, stöder vi nu möjligheten att publicera program med jokertecken. Om du vill publicera ett program med jokertecken kan du följa standardprogrammet publishing flödet, men använder jokertecken i de interna och externa URL: er.
+
+Mer information finns i [jokertecken program i Azure Active Directory application proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Nya cmdletar för att stöd för konfiguration av Application Proxy
+
+**Typ:** ny funktion  
+**Tjänstekategori:** App Proxy  
+**Produkten kapaciteten:** plattform
+ 
+
+Den senaste versionen av modulen AzureAD PowerShell Preview innehåller nya cmdlet: ar som ger kunder möjlighet att konfigurera Application Proxy-program med hjälp av PowerShell.
+
+De nya cmdletarna är: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Nya cmdletar för att stöd för konfiguration av grupper
+
+**Typ:** ny funktion  
+**Tjänstekategori:** App Proxy  
+**Produkten kapaciteten:** plattform
+ 
+
+Den senaste versionen av AzureAD PowerShell-modulen innehåller cmdletar för att hantera grupper i Azure AD. Dessa cmdletar tidigare var tillgängliga i modulen AzureADPreview och läggs nu till modulen AzureAD
+
+Grupp-cmdletar som är nu version för allmän tillgänglighet är: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>En ny version av Azure AD Connect är tillgänglig
+
+**Typ:** ny funktion  
+**Tjänstekategori:** AD Sync  
+**Produkten kapaciteten:** plattform
+ 
+
+Azure AD Connect är det rekommenderade verktyget för att synkronisera data mellan Azure AD och lokala datakällor, inklusive Windows Server Active Directory och LDAP.
+
+**Viktigt**
+ 
+Den här versionen innehåller schemat och sync regel ändringar. Azure AD Connect synkroniseringstjänsten utlöser en fullständig Import och fullständig synkronisering steg efter en uppgradering. Information om hur du ändrar det här problemet finns i [så att skjuta upp fullständig synkronisering efter uppgraderingen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Den här versionen har följande uppdateringar och ändringar:
+
+**Fast problem**
+
+- Åtgärda tidsinställning fönster på bakgrundsaktiviteter för filtrering av partitionen sida när du växlar till nästa sida.
+- Fast ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB.
+- Fast ett programfel att återställa från timeout för sql-anslutningen.
+- Fast ett programfel om certifikat med jokertecken för SAN-nätverk inte uppfyllde kontroll.
+- Fast ett programfel som orsakar miiserver.exe krasch under exporten för AAD-koppling.
+- Fast ett programfel som felaktiga lösenord inloggad DC när du kör AAD ansluta för att ändra konfigurationen
+
+**Nya funktioner och förbättringar**
+
+- För BNPR krävs det att ange vilka typer av kundinformation som delas med Microsoft (telemetri, hälsa, etc.), innehåller länkar till detaljerad onlinedokumentation och ger dig ett sätt att du kan ändra dina inställningar.  Den här incheckning lägger du till följande:
+    - Installera licensavtal sidan Datadelning och sekretessmeddelande på rensningen.
+
+    - Data delas och sekretess meddelande på sidan för uppgradering.
+
+    - En ny ytterligare uppgift **sekretessinställningar** där användaren kan ändra sina inställningar.
+ 
+- Programtelemetri - administratörer kan växla den här klassen av data på/av.
+
+- Azure AD Health-data – administratörer måste besöka health-portalen för att styra inställningar för hälsotillstånd. När tjänsten principen har ändrats, läser agenterna och använda den.
+
+- Åtgärder för tillbakaskrivning av enhet och en förloppsindikator för att initiera dialogrutan lagts till.
+
+- Förbättrad allmän diagnostik med HTML-rapport och fullständig datainsamling i en ZIP-Text / HTML-rapport.
+
+- Förbättrad tillförlitlighet Auto uppgradera och lägga till ytterligare telemetri för att kontrollera hälsotillståndet för servern som kan fastställas.
+
+- Begränsa behörigheter som är tillgängliga för privilegierade konton på kontot för AD-koppling. För nya installationer guiden begränsar de behörigheter som Privilegierade konton har på MSOL konto när du har skapat kontot MSOL. Ändringarna påverkar express installationer och anpassade installationer med Autoskapa konto.
+
+- Installationsprogrammet för att inte kräva SA privilegiet ren installation av AADConnect har ändrats.
+
+- Nya verktyg för att felsöka synkroniseringsproblem med för ett specifikt objekt. För närvarande kontrollerar verktyget följande:
+
+    - UserPrincipalName matchningsfel mellan synkroniserade användarobjektet och användarkontot i Azure AD-klient.
+  
+    - Om objektet är filtrerad från synkronisering på grund av domän filtrering
+  
+    - Om objektet är filtrerad från synkronisering på grund av organisationsenhet (OU) filtrering
+
+- Nya verktyg för att synkronisera den aktuella lösenords-hash som lagras i Active Directory lokalt för ett specifikt användarkonto. Verktyget kräver inte en lösenordsändring. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Stödjande Intune App Protection principer som lagts till för program med Azure AD application-baserad villkorlig åtkomst
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** villkorlig åtkomst  
+**Produkten kapaciteten:** identitet säkerhet och skydd
+ 
+
+Vi har lagt till fler program som har stöd för program-baserad villkorlig åtkomst. Nu kan du få åtkomst till Office 365 och andra Azure AD-anslutna molnappar med hjälp av dessa godkända klientprogram.
+
+Följande program kommer att läggas till i slutet av februari 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft fakturering
+
+Mer information finns i:
+
+- [Godkända klienten app-krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Villkor för användning av uppdatera till mobila upplevelsen 
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** användningsvillkoren  
+**Produkten kapaciteten:** styrning
+ 
+
+När användningsvillkoren visas kan du nu på **har problem med att visa? Klicka här**. Om du klickar på den här länken öppnas användningsvillkoren internt på enheten. Oavsett teckenstorleken i dokumentet eller skärmstorlek av enhet du zooma och läsa dokumentet efter behov. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>Januari 2018
  
 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Hive och Pig i HDInsight
 
@@ -126,8 +126,8 @@ Python-skriptet kan användas som en UDF från Pig via den `GENERATE` instruktio
 
 Om du vill ange Python-tolkning `register` referera till Python-skriptet. I följande exempel registrera skript med Pig som `myfuncs`:
 
-* **Att använda Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Att använda C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Att använda Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Att använda C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > När du använder Jython, sökvägen till filen pig_jython kan vara en lokal sökväg eller en WASB: / / sökväg. När du använder C Python, måste du referera en fil på det lokala filsystemet på den nod som du använder för att skicka Pig-jobbet.
@@ -145,7 +145,7 @@ Här är det här exemplet har:
 
 1. Den första raden läser in data exempelfilen `sample.log` till `LOGS`. Varje post som definierar också en `chararray`.
 2. Nästa rad filtrerar ut eventuella null-värden som lagrar resultatet av åtgärden i `LOG`.
-3. Därefter den itererar över poster i `LOG` och använder `GENERATE` att anropa den `create_structure` metod i Python/Jython-skript som läses in som `myfuncs`. `LINE`används för att skicka den aktuella posten till funktionen.
+3. Därefter den itererar över poster i `LOG` och använder `GENERATE` att anropa den `create_structure` metod i Python/Jython-skript som läses in som `myfuncs`. `LINE` används för att skicka den aktuella posten till funktionen.
 4. Slutligen utdata dumpas STDOUT med hjälp av den `DUMP` kommando. Detta kommando visar resultaten när åtgärden har slutförts.
 
 ### <a name="create-the-pigudfpy-file"></a>Skapa filen pigudf.py
@@ -380,8 +380,8 @@ Information om felet (STDERR) och resultatet av jobbet (STDOUT) loggas också i 
 
 | För det här jobbet... | Titta på de här filerna i blob-behållaren |
 | --- | --- |
-| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Hive |/HivePython/stderr<p>/HivePython/stdout |
+| Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Nästa steg
 

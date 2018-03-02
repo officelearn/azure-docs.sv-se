@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
 När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten realtid visar ett REST-API för att hämta förutsägelser. Du kan skicka data till webbtjänsten i formatet en eller flera rader för att hämta en eller flera förutsägelser i taget.
@@ -35,7 +35,7 @@ Du kan ange den för tillfället distribuerade tjänster och Docker bilder med h
 När webbtjänsten har distribuerats, använder du följande kommando få tjänstens Webbadress och annan information för att anropa tjänstslutpunkten. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Det här kommandot skriver ut tjänst-URL, obligatoriska begärandehuvuden, swagger URL och exempeldata för att anropa tjänsten om API-schemat för tjänsten angavs vid tidpunkten för distribution.
@@ -43,7 +43,7 @@ Det här kommandot skriver ut tjänst-URL, obligatoriska begärandehuvuden, swag
 Du kan testa tjänsten direkt från CLI utan att skapa en HTTP-begäran genom att ange CLI Exempelkommando med indata:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Hämta service API-nyckel

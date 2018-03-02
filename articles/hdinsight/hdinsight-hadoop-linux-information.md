@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -29,13 +29,13 @@ Azure HDInsight-kluster tillhandahåller Hadoop på en välbekant miljö för Li
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras på datorn.
 
 * [cURL](https://curl.haxx.se/) – används för att kommunicera med webbtjänster
 * [jq](https://stedolan.github.io/jq/) – används för att parsa JSON-dokument
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (förhandsvisning) – används för att hantera Azure-tjänster
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) – används för att hantera Azure-tjänster
 
 ## <a name="users"></a>Användare
 
@@ -61,7 +61,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
 
 ## <a name="remote-access-to-services"></a>Fjärråtkomst till tjänster
 
-* **Ambari (webb)** -https://&lt;klusternamn >. azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
     Autentisera med hjälp av kluster-administratör och lösenordet och sedan logga in på Ambari.
 
@@ -72,7 +72,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
     >
     > Om du vill använda den fullständiga funktionaliteten hos Ambari-webbgränssnittet, använda en SSH-tunnel till proxy webbtrafik till klustrets huvudnod. Se [Använd SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, jobbhistorik, NameNode, Oozie och andra webb-användargränssnitt](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;klusternamn >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Autentisera med hjälp av kluster-administratör och lösenord.
@@ -100,7 +100,7 @@ Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här kat
 * **2.2.4.9-1**: katalognamnet är versionen av Hortonworks Data Platform som används av HDInsight. Numret på ditt kluster kan vara annorlunda än den som anges här.
 * **aktuella**: den här katalogen innehåller länkar till underkataloger på den **2.2.4.9-1** directory. Denna katalog finns så att du inte behöver komma ihåg versionsnumret.
 
-Exempeldata och JAR-filer kan hittas på Hadoop Distributed File System på `/example` och`/HdiSamples`
+Exempeldata och JAR-filer kan hittas på Hadoop Distributed File System på `/example` och `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS och Azure Storage Data Lake Store
 
@@ -151,11 +151,11 @@ Du kan använda Ambari för att hämta standardkonfigurationen för lagring för
 
 Det här kommandot returnerar ett värde som liknar följande URI: er:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Om du använder ett Azure Storage-konto.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Om du använder ett Azure Storage-konto.
 
     Kontonamnet är namnet på det Azure Storage-kontot. Behållarens namn är blob-behållaren som är roten till klusterlagringen.
 
-* `adl://home`Om du använder Azure Data Lake Store. Använd följande REST-anrop för att få Data Lake Store-namn:
+* `adl://home` Om du använder Azure Data Lake Store. Använd följande REST-anrop för att få Data Lake Store-namn:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 

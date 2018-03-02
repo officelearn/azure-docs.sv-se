@@ -1,24 +1,24 @@
 ---
-title: "Konfigurera parametrar för server i Azure-databas för PostgreSQL via Azure portal | Microsoft Docs"
+title: "Konfigurera parametrar för server i Azure-databas för PostgreSQL via Azure-portalen"
 description: "Den här artikeln beskriver hur du konfigurerar parametrar för server i Azure-databas för PostgreSQL via Azure portal."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 9e8262fbfcde2e69a656e356a7ab241f2d5043ad
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 02/28/2018
+ms.openlocfilehash: 6d43cac79c19e117385549b1678a464dc5731bd7
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Konfigurera serverparametrar för i Azure-portalen
 Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure-databas för PostgreSQL-servern via Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill gå igenom den här instruktioner som du behöver du:
 - [Azure-databas för PostgreSQL-server](quickstart-create-server-database-portal.md)
 
@@ -37,7 +37,7 @@ Om du vill gå igenom den här instruktioner som du behöver du:
 ![informationsknappen](./media/howto-configure-server-parameters-in-portal/4-information-button.png)
 
 6. Om det behövs kan du använda den **sökrutan** att begränsa för en viss parameter. Sökningen är på namn och beskrivning av parametrarna.
-![Sökresultat](./media/howto-configure-server-parameters-in-portal/5-search.png)
+![sökresultat](./media/howto-configure-server-parameters-in-portal/5-search.png)
 
 7. Ändra de parametervärden som du vill justera. Alla ändringar du gör i en session är markerade i lila. När du har ändrat värdena, kan du välja **spara**. Du kan också **Ignorera** ändringarna.
 ![Spara eller ignorera ändringar](./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png)

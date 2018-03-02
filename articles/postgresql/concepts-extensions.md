@@ -1,19 +1,19 @@
 ---
-title: "Använder PostgreSQL-tillägg i Azure-databas för PostgreSQL | Microsoft Docs"
+title: "Använd PostgreSQL tillägg i Azure-databas för PostgreSQL"
 description: "Beskriver möjligheten att utöka funktionerna i databasen med tillägg i Azure-databas för PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-tillägg i Azure-databas för PostgreSQL
 PostgreSQL ger dig möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg låter för paketering flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som har inbyggda funktioner efter som läses in i databasen. Mer information om PostgreSQL-tillägg finns [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -33,7 +33,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 |---|---|
 | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Innehåller en datatyp för automatisk krypterade lösenord. |
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Ger en skiftlägeskänslig tecken strängtyp. |
-| [kub](https://www.postgresql.org/docs/9.6/static/cube.html) | Innehåller en datatyp för flerdimensionella kuber. |
+| [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Innehåller en datatyp för flerdimensionella kuber. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Innehåller en datatyp för att lagra uppsättningar med nyckel/värde-par. |
 | [körs](https://www.postgresql.org/docs/9.6/static/isn.html) | Innehåller datatyper för internationella produkten numrering standarder. |
 | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Innehåller en datatyp för hierarkisk trädstruktur-liknande strukturer. |
@@ -48,9 +48,9 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Ger funktioner och operatorer för att ändra null utan matriser med heltal. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Tillhandahåller kryptografiska funktioner. |
 | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Hanterar partitionerade tabeller genom tid eller -ID. |
-| [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Ger funktioner och operatorer för att fastställa liknande alfanumeriskt baserat på trigram matchning. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Ger funktioner och operatorer för att fastställa liknande alfanumeriskt baserat på trigram matchning. |
 | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Tillhandahåller funktioner som hanterar hela tabeller, inklusive korstabell. |
-| [UUID-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genererar universellt unika identifierare (UUID: er). |
+| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genererar universellt unika identifierare (UUID: er). |
 
 ### <a name="full-text-search-extensions"></a>Fulltextsökning tillägg
 
@@ -80,7 +80,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 > [!div class="mx-tableFixed"]
 | **Tillägg** | **Beskrivning** |
 |---|---|
-| [PG\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Ger möjlighet att undersöka vad som händer i delade buffert cachen i realtid. |
+| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Ger möjlighet att undersöka vad som händer i delade buffert cachen i realtid. |
 | [PG\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Ger ett sätt att läsa in relationsdata i bufferten cachen. |
 | [PG\_stat\_instruktioner](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Ger möjlighet att spåra körningen statistik för alla SQL-instruktioner som körs av en server. |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Ger möjlighet att visa radnivå låsning information. |

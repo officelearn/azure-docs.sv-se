@@ -12,11 +12,19 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 697196f725f0cb8ad3054bd8336b588c17dddc3d
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2018
+=======
+ms.openlocfilehash: 77c8a6a5e384d27dca2582cc0fedc2bd23c0592e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/28/2018
+>>>>>>> d7b96017f3c2d57f5135571d8789582901649dd0
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-hub-device-provisioning-service"></a>Ansluta MXChip IoT DevKit till Azure IoT-hubb enheten etablering av tjänst
 
@@ -27,6 +35,11 @@ Den här artikeln beskriver hur du konfigurerar DevKit för att göra det automa
 * Registrera enskilda enhet
 * Kontrollera att enheten är registrerad
 
+<<<<<<< HEAD
+=======
+Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kompatibel skiva med sensorer och omfattande kringutrustning. Du kan utveckla för den med hjälp av [Visual Studio Code-tillägget för Arduino](https://aka.ms/arduino). Och det ingår en växande [projekt katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) att hjälpa dig prototyp Sakernas Internet (IoT) lösningar som utnyttjar Microsoft Azure-tjänster.
+
+>>>>>>> d7b96017f3c2d57f5135571d8789582901649dd0
 ## <a name="before-you-begin"></a>Innan du börjar
 
 För att slutföra stegen i den här kursen behöver du följande:

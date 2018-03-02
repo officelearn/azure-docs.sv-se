@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     SDK: er för Azure Cosmos DB är ständigt bättre för att tillhandahålla bästa prestanda. Finns det [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) sidor för att avgöra den senaste SDK och granska förbättringar.
 2. **Använd klienten en singleton-Azure Cosmos DB för livslängden för ditt program**
 
-    Efach DocumentClient instansen är trådsäker och utför effektiv hantering och cachelagring av adresser när direkt läge. Om du vill tillåta effektiv hantering och bättre prestanda med DocumentClient, rekommenderas att använda en enda instans av DocumentClient per AppDomain för livslängden för programmet.
+    Varje DocumentClient-instansen är trådsäker och utför effektiv hantering och cachelagring av adresser när direkt läge. Om du vill tillåta effektiv hantering och bättre prestanda med DocumentClient, rekommenderas att använda en enda instans av DocumentClient per AppDomain för livslängden för programmet.
 
    <a id="max-connection"></a>
 3. **Öka System.Net MaxConnections per värd när du använder läget för Gateway**

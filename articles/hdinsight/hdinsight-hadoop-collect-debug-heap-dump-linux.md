@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dcc04e5bba28d0cb32e8633542ab8d3c125003ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap Dumpar för Hadoop-tjänster på Linux-baserat HDInsight
 
@@ -51,8 +51,8 @@ I varje skript är en export för  **\* \_OPTS**, som innehåller de alternativ 
 
 Mappa och minska processer är något annorlunda, eftersom dessa åtgärder är en underordnad process för MapReduce-tjänsten. Varje mappa eller minska processen körs i en underordnad behållare och det finns två poster som innehåller JVM-alternativ. Både i **mapred site.xml**:
 
-* **mapreduce.Admin.Map.child.Java.opts**
-* **mapreduce.Admin.Reduce.child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
 > Vi rekommenderar att du använder Ambari för att ändra inställningar för både skript och mapred site.xml, som Ambari referens replikera ändringar på noder i klustret. Finns det [med Ambari](#using-ambari) avsnittet specifika anvisningar.
@@ -91,7 +91,7 @@ Du kan även utlösa ett skript när en **OutOfMemoryError** inträffar. Till ex
 
 Om du vill ändra konfigurationen för en tjänst använder du följande steg:
 
-1. Öppna Ambari webbgränssnittet för klustret. Webbadressen är https://YOURCLUSTERNAME.azurehdinsight.net.
+1. Öppna Ambari webbgränssnittet för klustret. The URL is https://YOURCLUSTERNAME.azurehdinsight.net.
 
     När du uppmanas, autentisera till platsen med HTTP-kontonamnet (standard: admin) och lösenord för klustret.
 

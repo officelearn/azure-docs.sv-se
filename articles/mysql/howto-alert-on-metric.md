@@ -1,19 +1,19 @@
 ---
-title: "Konfigurera aviseringar för mått för Azure-databas för MySQL på Azure-portalen | Microsoft Docs"
+title: "Konfigurera aviseringar för mått för Azure-databas för MySQL på Azure-portalen"
 description: "Den här artikeln beskriver hur du konfigurerar och åtkomst mått aviseringar för Azure-databas för MySQL från Azure-portalen."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använda Azure portal för att ställa in aviseringar på mått för Azure-databas för MySQL 
 
@@ -24,13 +24,13 @@ Aviseringen utlösare när värdet för ett visst mått överskrider ett tröske
 Du kan konfigurera en avisering om du vill göra följande åtgärder när den utlöser:
 * Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
-* anropa en webhook
+* Anropa en webbhook
 
 Du kan konfigurera och få information om Varningsregler med:
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure-portalen](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Kommandoradsgränssnittet (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en aviseringsregel på ett mått från Azure-portalen
 1. I den [Azure-portalen](https://portal.azure.com/), Välj den Azure-databas för MySQL-server som du vill övervaka.
@@ -49,7 +49,7 @@ Du kan konfigurera och få information om Varningsregler med:
    |---------|---------|
    | Namn | Ange ett namn för regeln. Det här värdet skickas via e-post för avisering. |
    | Beskrivning | Ange en kort beskrivning av regeln. Det här värdet skickas via e-post för avisering. |
-   | Varning i | Välj **mått** för den här typen av avisering. |
+   | Varning vid | Välj **mått** för den här typen av avisering. |
    | Prenumeration | Det här fältet är förinställd med prenumerationen som är värd för din Azure-databas för MySQL. |
    | Resursgrupp | Det här fältet är förinställd med resursgruppen för din Azure-databas för MySQL. |
    | Resurs | Det här fältet är förinställd med namnet på din Azure-databas för MySQL. |

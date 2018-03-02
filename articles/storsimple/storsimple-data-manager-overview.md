@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Lösning: översikt för StorSimple Data Manager
 
@@ -56,9 +56,9 @@ Datahanteraren StorSimple finns i följande 7 områden:
 
 StorSimple Data Manager kan dock användas för att omvandla data i följande regioner. 
 
-![Regioner som är tillgängliga för data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Regioner som är tillgängliga för data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Den här uppsättningen är större eftersom resursen distributionen i någon av de ovanstående regionerna kan ta fram omvandling av processen i den nedan regioner. Så som dina data finns i någon av regionerna som 26 kommer transformera du dina data med hjälp av den här tjänsten.
+Den här uppsättningen är större eftersom resursen distributionen i någon av de ovanstående regionerna kan ta fram omvandling av processen i den nedan regioner. Så som dina data finns i någon av regionerna som 19 kommer transformera du dina data med hjälp av den här tjänsten.
 
 
 ## <a name="choosing-a-region"></a>Att välja en region

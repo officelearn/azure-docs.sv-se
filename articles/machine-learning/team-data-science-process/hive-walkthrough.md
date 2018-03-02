@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team vetenskap av data i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången ska vi använda den [Team Data vetenskap processen (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktionen-tekniker data från den allmänt tillgängliga [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset, och att ned exempel data. Om du vill hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter, bygga vi modeller av data med Azure Machine Learning. 
@@ -104,10 +104,10 @@ Här beskrivs hur du använder AzCopy för att överföra filer som innehåller 
 
 Ersätt följande parametrar i följande AzCopy-kommandon med de faktiska värdena som du angav när du skapar Hadoop-kluster och packa upp datafilerna.
 
-* ***&#60; path_to_data_folder >*** katalogen (tillsammans med sökväg) på datorn som innehåller de uppackade datafilerna.  
-* ***&#60; lagringskontonamnet av Hadoop-kluster >*** storage-konto som är kopplad till ditt HDInsight-kluster.
-* ***&#60; standardbehållaren för Hadoop-kluster >*** standardbehållaren som används av klustret. Observera att namnet på standardbehållaren är vanligtvis samma namn som själva klustret. Om klustret kallas ”abc123.azurehdinsight.net”, är standardbehållaren abc123.
-* ***&#60; lagringskontonyckel >*** nyckel för storage-konto som används av klustret.
+* ***< Path_to_data_folder >*** katalogen (tillsammans med sökväg) på datorn som innehåller de uppackade datafilerna.  
+* ***<storage account name of Hadoop cluster>*** Storage-konto som är kopplad till ditt HDInsight-kluster.
+* ***<default container of Hadoop cluster>*** Standardbehållaren som används av klustret. Observera att namnet på standardbehållaren är vanligtvis samma namn som själva klustret. Om klustret kallas ”abc123.azurehdinsight.net”, är standardbehållaren abc123.
+* ***<storage account key>*** Nyckel för lagringskontot som används av klustret.
 
 Kör följande två AzCopy-kommandon från en kommandotolk eller ett Windows PowerShell-fönster.
 
@@ -561,7 +561,7 @@ Om du vill visa innehållet i en viss fil, säg **000000\_0**, använda Hadoop's
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`rekommenderas inte för användning med dem och kan ta mycket lång tid för stora filer.  
+> `copyToLocal` rekommenderas inte för användning med dem och kan ta mycket lång tid för stora filer.  
 > 
 > 
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 25cea4ae23471d182105ca3f720aaf74f81bf8c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU är inte tillgänglig
 
 Den här artikeln beskriver hur du löser den **SkuNotAvailable** fel.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 När du distribuerar en resurs (vanligtvis en virtuell dator), visas följande felkod och felmeddelande:
 
@@ -46,7 +46,7 @@ För att lösa problemet måste du bestämma vilka SKU: er är tillgängliga i e
 Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) i PowerShell. Filtrera resultatet av platsen. Du måste ha den senaste versionen av PowerShell för det här kommandot.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
 ```
 
 Resultatet innehåller en lista över SKU: er för platsen och eventuella begränsningar för den SKU.

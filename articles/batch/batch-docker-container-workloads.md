@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Köra behållarprogram på Azure Batch
 
@@ -27,7 +27,7 @@ Den här artikeln förutsätter förtrogenhet med Docker behållare begrepp och 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* SDK-versioner: det Batch SDK stöd behållaren bilder i följande versioner:
+* SDK-versioner: det Batch SDK stöd behållaren bilder från och med följande versioner:
     * Batch REST API-version 2017-09-01.6.0
     * Batch .NET SDK version 8.0.0
     * Batch Python SDK version 4.0
@@ -87,7 +87,7 @@ Ange en referens till VM-avbildning som ska användas när compute-noder för po
 
     För att få den här avbildnings-ID från Azure-portalen kan öppna **alla resurser**, markerar du den anpassade avbildningen och från den **översikt** avsnitt av bladet avbildningen kopiera sökvägen i **resurs-ID**.
 
-* Om du använder en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) bild, ange en uppsättning parametrar som beskriver bilden: erbjudandetypen, utgivare, SKU och version för avbildningen som anges i [lista över virtuella datoravbildningar](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Om du använder en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) bild, ange en uppsättning parametrar som beskriver bilden: utgivaren, erbjudandetypen, SKU och version för avbildningen som anges i [lista över virtuella datoravbildningar](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En detaljerad översikt över Batch finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md).
+* Se även den [Batch skeppsvarv](https://github.com/Azure/batch-shipyard) toolkit för enkel distribution av arbetsbelastningar i behållare på Azure Batch via [skeppsvarv recept](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Mer information om att installera och använda Docker CE på Linux finns i [Docker](https://docs.docker.com/engine/installation/) dokumentation.
 

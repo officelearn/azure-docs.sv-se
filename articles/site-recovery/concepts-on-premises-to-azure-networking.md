@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 9b14f6ea361d3c1d7402d1a8aeb10695a8726edb
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Konfigurera IP-adresser för att ansluta efter en redundansväxling till Azure
 
@@ -36,7 +36,7 @@ I den här artikeln lär du dig hur:
 När du planerar din replikering och redundansstrategi, är en av viktiga frågor hur du ansluter till den virtuella Azure-datorn efter redundans. Det finns ett par alternativ när du utformar din strategi för nätverket för replik virtuella Azure-datorer:
 
 - **Använd en annan IP-adress**: du kan välja för att använda en annan IP-adressintervall för replikerade Virtuella Azure-nätverket. I det här scenariot den virtuella datorn får en ny IP-adress efter växling vid fel och en DNS-uppdatering krävs.
-- **Behålla samma IP-adress**: du kanske vill använda samma IP-adressintervall som på din primär lokal plats för Azure-nätverket efter redundans. Behålla samma IP adresser förenklar återställning genom att minska nätverksrelaterade problem efter växling vid fel. Men när du replikerar till Azure måste uppdatera vägar med den nya platsen för IP-adresser efter växling vid fel. 
+- **Behålla samma IP-adress**: du kanske vill använda samma IP-adressintervall som på din primär lokal plats för Azure-nätverket efter redundans. Behålla samma IP adresser förenklar återställning genom att minska nätverksrelaterade problem efter växling vid fel. Men när du replikerar till Azure måste uppdatera vägar med den nya platsen för IP-adresser efter växling vid fel.
 
 ## <a name="retaining-ip-addresses"></a>Behålla IP-adresser
 
@@ -86,11 +86,7 @@ Förutom vnet-till-vnet-anslutningen efter växling vid fel, kan Woodgrove stäl
 
 ## <a name="assigning-new-ip-addresses"></a>Tilldela nya IP-adresser
 
-Detta [blogginlägget](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in Azure nätverksinfrastrukturen när du inte behöver behålla IP-adresser efter växling vid fel. Den börjar med en beskrivning av programmet, ta en titt på hur du ställer in nätverk lokalt och i Azure och avslutas med information om att köra redundansväxlingar. 
+Detta [blogginlägget](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in Azure nätverksinfrastrukturen när du inte behöver behålla IP-adresser efter växling vid fel. Den börjar med en beskrivning av programmet, ta en titt på hur du ställer in nätverk lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kör en redundansväxling](site-recovery-failover.md)
-
-
-
-

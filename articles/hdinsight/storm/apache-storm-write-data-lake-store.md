@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till HDFS från Apache Storm på HDInsight
 
@@ -40,11 +40,11 @@ För att kompilera det här projektet, behöver du följande konfiguration för 
 
 Följande miljövariabler kan anges när du installerar Java och JDK på utvecklingsdatorn. Dock bör du kontrollera att de finns och att de innehåller rätt värden för ditt system.
 
-* `JAVA_HOME`-måste peka på den katalog där JDK har installerats.
-* `PATH`-bör innehålla följande sökvägar:
+* `JAVA_HOME` -måste peka på den katalog där JDK har installerats.
+* `PATH` -bör innehålla följande sökvägar:
   
-    * `JAVA_HOME`(eller motsvarande sökväg).
-    * `JAVA_HOME\bin`(eller motsvarande sökväg).
+    * `JAVA_HOME` (eller motsvarande sökväg).
+    * `JAVA_HOME\bin` (eller motsvarande sökväg).
     * Den katalog där Maven är installerat.
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Hur du använder HdfsBolt med HDInsight
@@ -140,7 +140,7 @@ Läs mer på framework som [https://storm.apache.org/releases/1.1.0/flux.html](h
 
 Storm på HDInsight innehåller inte de komponenter som HdfsBolt använder för att kommunicera med Azure Storage eller Azure Data Lake Store i Storms klassökvägen som standard. Använd följande skriptåtgärden för att lägga till dessa komponenter i `extlib` katalogen för Storm på klustret:
 
-* Skript-URI:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Skript-URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Noder som gäller för: Nimbus, chef
 * Parametrar: ingen
 
@@ -160,7 +160,7 @@ Information om hur du använder det här skriptet med ditt kluster finns i [anpa
 
 1. Använd följande kommando för att kopiera topologi till HDInsight-klustret. Ersätt **användaren** med SSH-användarnamn som du använde när du skapar klustret. Ersätt **CLUSTERNAME** med namnet på klustret.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     När du uppmanas, anger du det lösenord som används när du skapar SSH-användare för klustret. Om du använder en offentlig nyckel i stället för ett lösenord, kan du behöva använda de `-i` parametern för att ange sökvägen till motsvarande privata nyckel.
    

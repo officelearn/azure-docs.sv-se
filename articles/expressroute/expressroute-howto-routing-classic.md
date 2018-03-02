@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Skapa och ändra peering för en ExpressRoute-krets (klassisk)
 > [!div class="op_single_selector"]
@@ -78,10 +78,10 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
 ### <a name="to-create-azure-private-peering"></a>Så här skapar du Azures privata peering
 1. **Importera PowerShell-modulen för ExpressRoute.**
    
-    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen.  
+    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen. Versionen som kan variera.    
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Skapa en ExpressRoute-krets.**
    
     Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-classic.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster för Layer 3, kan du begära att anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig följer du anvisningarna nedan när du har skapat kretsen. 
@@ -116,11 +116,11 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
      
     Du kan köra följande cmdlet för att konfigurera Azures privata peering för din krets.
      
-        Nya AzureBGPPeering - AccessType privat - ServiceKey ”***” - PrimaryPeerSubnet ”10.0.0.0/30” - SecondaryPeerSubnet ”10.0.0.4/30” - PeerAsn 1234 - VlanId 100
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
     Du kan använda cmdleten nedan om du vill använda en MD5-hash.
      
-        Nya AzureBGPPeering - AccessType privat - ServiceKey ”***” - PrimaryPeerSubnet ”10.0.0.0/30” - SecondaryPeerSubnet ”10.0.0.4/30” - PeerAsn 1234 - VlanId 100 - SharedKey ”A1B2C3D4”
+        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
@@ -168,10 +168,10 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
 ### <a name="to-create-azure-public-peering"></a>Så här skapar du Azures offentliga peering
 1. **Importera PowerShell-modulen för ExpressRoute.**
    
-    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen. 
+    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen. Versionen som kan variera.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Skapa en ExpressRoute-krets**
    
     Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-classic.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster för Layer 3, kan du begära att anslutningsleverantören aktiverar Azures offentliga peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig följer du anvisningarna nedan när du har skapat kretsen.
@@ -206,11 +206,11 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
      
     Du kan köra följande cmdlet för att konfigurera Azures offentliga peering för din krets
      
-        Nya AzureBGPPeering - AccessType offentliga - ServiceKey ”***” - PrimaryPeerSubnet ”131.107.0.0/30” - SecondaryPeerSubnet ”131.107.0.4/30” - PeerAsn 1234 - VlanId 200
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
     Du kan använda cmdleten nedan om du väljer att använda en MD5-hash
      
-        Nya AzureBGPPeering - AccessType offentliga - ServiceKey ”***” - PrimaryPeerSubnet ”131.107.0.0/30” - SecondaryPeerSubnet ”131.107.0.4/30” - PeerAsn 1234 - VlanId 200 - SharedKey ”A1B2C3D4”
+        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
@@ -254,10 +254,10 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
 ### <a name="to-create-microsoft-peering"></a>Så här skapar du Microsoft-peering
 1. **Importera PowerShell-modulen för ExpressRoute.**
    
-    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen.  
+    För att börja använda ExpressRoute-cmdlets måste du importera Azure och ExpressRoute-moduler i PowerShell-sessionen. Kör följande kommandon för att importera Azure och ExpressRoute-modulerna i PowerShell-sessionen. Versionen som kan variera.   
    
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 2. **Skapa en ExpressRoute-krets**
    
     Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-classic.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster för Layer 3, kan du begära att anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Men om anslutningsprovidern inte kan hantera routning åt dig följer du anvisningarna nedan när du har skapat kretsen.
@@ -295,7 +295,7 @@ Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar
      
     Du kan köra följande cmdlet för att konfigurera Microsoft pering för kretsen
      
-        Nya AzureBGPPeering - AccessType Microsoft - ServiceKey ”***” - PrimaryPeerSubnet ”131.107.0.0/30” - SecondaryPeerSubnet ”131.107.0.4/30” - VlanId 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes ”123.0.0.0/30” - RoutingRegistryName ”ARIN” - SharedKey ”A1B2C3D4”
+        New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Så här visar du Microsofts peering-information
 Du kan hämta information om konfigurationen med följande cmdlet.

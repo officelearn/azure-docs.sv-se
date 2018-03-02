@@ -1,19 +1,19 @@
 ---
-title: "Versioner som stöds i Azure-databas för PostgreSQL | Microsoft Docs"
+title: "Versioner som stöds i Azure-databas för PostgreSQL"
 description: "Beskriver versionerna som stöds i Azure-databas för PostgreSQL."
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 646e95f5c3c7bc9bb175a5532435b28bb998b49b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 2065631922d25deaa94601484da9b8de3fd62b22
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="supported-postgresql-database-versions"></a>Versioner stöds PostgreSQL-databas
 Microsoft syftet är att stödja n-2 versioner av PostgreSQL-motorn i Azure-databasen för PostgreSQL-tjänsten, vilket innebär att den släppta huvudversionen (n) och två tidigare större versioner (-2).

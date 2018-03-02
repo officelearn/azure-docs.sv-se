@@ -1,19 +1,19 @@
 ---
-title: "Ansluta befintliga Azure App Service till Azure-databas för MySQL | Microsoft Docs"
+title: "Ansluta befintliga Azure App Service till Azure-databas för MySQL"
 description: "Instruktioner för hur du ansluter en befintlig Azure App Service korrekt till Azure-databas för MySQL"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ansluta en befintlig Azure App Service till Azure-databas för MySQL-server
 Det här avsnittet beskriver hur du ansluter en befintlig Azure App Service till din Azure-databas för MySQL-servern.

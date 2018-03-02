@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
@@ -58,15 +58,22 @@ Dessa begränsningar gäller för en enskild HTTP-begäran eller ett anrop för 
 
 Dessa begränsningar gäller för en enkel logikapp som körs.
 
-| Namn | Gräns | 
-| ---- | ----- | 
-| Kör varaktighet | 90 dagar | 
-| Kvarhållning av lagring | 90 dagar från kör starttid | 
-| Min upprepningsintervallet | 1 sekund </br>För logic apps med en App Service-Plan: 15 sekunder | 
-| Max upprepningsintervallet | 500 dagar | 
-||| 
+| Namn | Standard | Gräns |
+| ---- | ------- | ----- |
+| Kör varaktighet   | 90 dagar | 7 till 90 dagarna |
+| Kvarhållning av lagring | 90 dagar från kör starttid |  7 till 90 dagar från kör starttid |
+||||
 
 Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontakta produktteamet](mailto://logicappsemail@microsoft.com) att få hjälp med dina krav.
+
+
+### <a name="recurrence-interval"></a>Upprepningsintervall
+
+| Namn | Gräns |
+| ---- | ------- |
+| Min upprepningsintervallet | 1 sekund </br>För logic apps med en App Service-Plan: 15 sekunder |
+| Max upprepningsintervallet | 500 dagar |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Slingor och debatching gränser
 
@@ -75,7 +82,7 @@ Dessa begränsningar gäller för en enkel logikapp som körs.
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
 | ForEach-objekt | 100,000 | Du kan använda den [fråga åtgärd](../connectors/connectors-native-query.md) att filtrera större matriser efter behov. | 
-| Tills iterationer | 5,000 | | 
+| Tills iterationer | 5 000 | | 
 | SplitOn objekt | 100,000 | | 
 | ForEach parallellitet | 50 | Standardvärdet är 20. <p>Att ställa in en viss nivå av parallellitet i en ForEach-loop i `runtimeConfiguration` egenskap i den `foreach` åtgärd. <p>Om du vill köra en ForEach-loop sekventiellt, den `operationOptions` egenskapen till ”sekventiella” i den `foreach` åtgärd. | 
 |||| 
@@ -109,10 +116,10 @@ Dessa begränsningar gäller för en enskild logik app definition.
 | Antalet variabler per arbetsflöde | 250 | | 
 | Maximalt antal tecken per uttryck | 8 192 | | 
 | Max `trackedProperties` storlek i antal tecken | 16,000 | 
-| `action`/`trigger`gräns för | 80 | | 
-| `description`Maxlängden | 256 | | 
-| `parameters`gränsen | 50 | | 
-| `outputs`gränsen | 10 | | 
+| `action`/`trigger` gräns för | 80 | | 
+| `description` Maxlängden | 256 | | 
+| `parameters` Gränsen | 50 | | 
+| `outputs` Gränsen | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

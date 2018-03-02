@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Skapa en modell i Azure-portalen
 
@@ -27,15 +27,19 @@ Funktionen Azure Analysis Services web designer (förhandsversion) i Azure-porta
 
 Kom ihåg, Webbdesigner är **preview**. När nya funktioner har lagts till hela tiden, i preview är funktionerna begränsade. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="before-you-begin"></a>Innan du börjar
 
 - En Azure Analysis Services-server till Standard eller utvecklare nivån. Nya modeller som skapats med hjälp av Webbdesigner är DirectQuery, stöds endast av dessa nivåer.
 - Azure SQL Database, Azure SQL Data Warehouse eller Power BI Desktop (.pbix)-filen som en datakälla. Nya modeller som skapats från Power BI Desktop filer stöd Azure SQL Database, Azure SQL Data Warehouse, Oracle och Teradata-datakällor.
 - Ett SQL Server-konto och lösenord för att ansluta till Azure SQL Database eller Azure SQL Data Warehouse-datakällor.
 
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
+Logga in på [Azure-portalen](https://portal.azure.com/).
+
 ## <a name="to-create-a-new-tabular-model"></a>Skapa en ny tabellmodell
 
-1. I serverns **översikt** bladet > **Webbdesigner**, klickar du på **öppna**.
+1. I servern **översikt** > **Webbdesigner**, klickar du på **öppna**.
 
     ![Skapa en modell i Azure-portalen](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

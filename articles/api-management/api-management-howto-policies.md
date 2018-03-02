@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
 
@@ -27,7 +27,7 @@ Principerna tillämpas i gatewayen som placeras mellan API-klienten och hanterad
 
 Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som den [Åtkomstkontrollflödet] [ Control flow] och [ange variabel] [ Set variable] principer är baserade på principuttrycken. Mer information finns i [avancerade principer] [ Advanced policies] och [principuttrycken][Policy expressions].
 
-## <a name="sections"></a>Förstå principkonfiguration
+## <a name="sections"> </a>Förstå principkonfiguration
 
 Principdefinitionen är ett enkelt XML-dokument som beskriver en sekvens av inkommande och utgående rapporter. XML-filen kan redigeras direkt i definitionsfönstret. En lista över uttryck har angetts till höger och instruktioner gäller för den aktuella omfattningen är aktiverad och markerat.
 
@@ -60,7 +60,7 @@ Konfigurationen är indelat i `inbound`, `backend`, `outbound`, och `on-error`. 
 
 Om det finns ett fel under bearbetningen av en begäran, alla eventuella resterande steg i den `inbound`, `backend`, eller `outbound` avsnitt hoppas över och körning som leder till instruktionerna i den `on-error` avsnitt. Genom att placera principrapporter i den `on-error` avsnitt som du kan granska felet med hjälp av den `context.LastError` egenskapen inspektera och anpassa den fel svar med hjälp av den `set-body` principen, och konfigurera vad händer om ett fel inträffar. Det finns felkoder för inbyggda steg och fel som kan uppstå under bearbetning av principrapporter. Mer information finns i [felhantering i API Management-principer](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>Hur du konfigurerar principer
+## <a name="scopes"> </a>Hur du konfigurerar principer
 
 Mer information om hur du konfigurerar principer finns [ange eller redigera principer](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Begränsa inkommande begäranden och godkänner endast de från IP-adressen 1.2.
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Nästa steg
 

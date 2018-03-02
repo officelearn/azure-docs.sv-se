@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [konfigurera Application Insights i ditt projekt](app-insights-overview.md), telemetridata om prestanda och användning av din app visas i ditt projekt Application Insights-resurs i den [Azure-portalen](https://portal.azure.com).
@@ -117,7 +117,6 @@ Du kan automatisera instrumentpanelen skapas med hjälp av [Azure Resource Manag
 
 ### <a name="essentials-tab"></a>Fliken Essentials
 * [Instrumentation nyckeln](app-insights-create-new-resource.md#copy-the-instrumentation-key) -identifierar den här appen resurs.
-* Priser för - och göra funktioner tillgängliga och ange volym versaler.
 
 ### <a name="app-navigation-bar"></a>Navigeringsfältet i appen
 ![Vänstra navigeringsfältet](./media/app-insights-dashboards/app-left-nav-bar.png)

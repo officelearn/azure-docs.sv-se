@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -34,7 +34,7 @@ Vilka API ska du använda med Azure Cosmos DB?
 * **[MongoDB API](mongodb-introduction.md)**  -av datamigrering verktyget stöder för närvarande inte Azure Cosmos DB MongoDB API som en källa eller som ett mål. Om du vill migrera data i eller utanför MongoDB API-samlingar i Azure Cosmos DB finns [Azure Cosmos DB: hur du migrerar data MongoDB-API: t](mongodb-migrate.md) anvisningar. Du kan fortfarande använda Migreringsverktyget för Data för att exportera data från MongoDB till Azure SQL DB-API Cosmos samlingar för användning med SQL-API. 
 * **[Diagram över API](graph-introduction.md)**  -verktyget för migrering av Data är inte ett stöds Importverktyg för Graph API konton just nu. 
 
-Den här kursen ingår följande uppgifter:
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Installera verktyget datamigrering
@@ -61,7 +61,7 @@ Verktyget datamigrering är en öppen källkod som importerar data till Azure Co
 Medan Importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan den också drivas från kommandoraden (dt.exe). Faktum är är ett alternativ till utdata associerat kommando när du har installerat en import via Användargränssnittet. Tabell källdata (t.ex. SQL Server- eller CSV-filer) kan omvandlas så att hierarkiska relationer (underdokument) kan skapas under importen. Vill du fortsätta läsa vill lära dig mer om alternativ för exempel på kommandorader för att importera från varje källa och mål alternativ visning importera resultat.
 
 ## <a id="Install"></a>Installation
-Källkoden för migrering verktyget finns på GitHub i [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool) och en kompilerad version är tillgänglig från [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Du kan sammanställa lösningen eller bara ladda ned och extrahera den kompilerade versionen till en katalog som du väljer. Kör sedan antingen:
+Källkoden för migrering verktyget finns på GitHub i [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt och sedan köra antingen:
 
 * **Dtui.exe**: grafiskt gränssnittsversionen av verktyget
 * **DT.exe**: kommandoraden versionen av verktyget
@@ -77,7 +77,7 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 * [CSV-filer](#CSV)
 * [Azure Table Storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [BLOB](#BlobImport)
+* [Blob](#BlobImport)
 * [Azure DB Cosmos-samlingar](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure DB Cosmos-massimport](#SQLBulkImport)
@@ -167,7 +167,7 @@ Formatet för anslutningssträngen är standard SQL connection-strängformat.
 
 Egenskapen kapslade avgränsare används för att skapa hierarkiska relationer (underordnade dokument) under importen. Överväg följande SQL-fråga:
 
-*Välj OMVANDLINGEN (BusinessEntityID AS varchar) som Id, namn, adresstyp som [Address.AddressType], AddressLine1 som [Address.AddressLine1], ort som [Address.Location.City], StateProvinceName som [Address.Location.StateProvinceName], postnummer som [ Address.PostalCode] CountryRegionName som [Address.CountryRegionName] från Sales.vStoreWithAddresses där adresstyp = 'Huvudkontoret'*
+*select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'*
 
 Som returnerar följande resultat (den partiella):
 

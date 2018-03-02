@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
 
@@ -29,8 +29,8 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 
 
 1. I Site Recovery på Azure-portalen klickar du på **Återställningsplaner** > *recoveryplan_name* > **Redundanstest**.
-2. Välj en **återställningspunkt** som ska växlas. Du kan använda något av följande alternativ:
-    - **Senaste bearbetas**: det här alternativet flyttas över alla virtuella datorer i planen för att den senaste återställningspunkten som bearbetas av Site Recovery. Information om den senaste återställningspunkten för en specifik VM, **senaste återställningspunkter** i VM-inställningarna. Det här alternativet ger en låga RTO (mål), eftersom ingen tid läggs obearbetade data bearbetas.
+2. Välj en **återställningspunkt** som ska växlas. Du kan välja något av följande alternativ:
+    - **Senaste bearbetas**: det här alternativet flyttas över alla virtuella datorer i planen för att den senaste återställningspunkten som bearbetas av Site Recovery. Information om den senaste återställningspunkten för en specifik VM, **senaste återställningspunkter** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
     - **Senaste programkonsekventa**: det här alternativet flyttas över alla virtuella datorer i planen till den senaste programkonsekventa återställningspunkten bearbetas av Site Recovery. Information om den senaste återställningspunkten för en specifik VM, **senaste återställningspunkter** i VM-inställningarna. 
     - **Senaste**: det här alternativet först bearbetar alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan åtgärden misslyckas över till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter växling vid fel har alla data som replikeras till Site Recovery när redundans utlöstes.
     - **Senaste multi-VM bearbetas**: det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har aktiverats för flera Virtuella datorer. Virtuella datorer med inställningen aktiverad växlas över till den senaste vanliga multi-VM konsekventa återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.  
@@ -45,7 +45,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 5. Följa redundansförloppet på den **jobb** fliken. Du ska kunna se testdatorn för replikering i Azure-portalen.
 6. Om du vill initiera en RDP-anslutning till Azure VM, behöver du [lägga till en offentlig IP-adress](https://aka.ms/addpublicip) för gränssnitt för den virtuella datorn. 
 7. När allt fungerar som förväntat, klickar du på **Rensa redundanstestet**. Detta tar bort de virtuella datorerna som skapades under testning av redundans.
-8. I **anteckningar**, registrera och spara observationer från redundanstestningen. 
+8. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. 
 
 
 ![Testa redundans](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
@@ -81,7 +81,7 @@ Inga mellanliggande steg behövs inte i alla andra fall, och tar avsevärt mindr
 Vi rekommenderar att för att testa redundans du väljer ett nätverk som är isolerat från återställning plats produktionsnätverket specifika i den **beräknings- och nätverksinställningar** inställningar för varje virtuell dator. Som standard när du skapar en Azure-nätverk, är det isolerade från andra nätverk. Testnätverket ska efterlikna produktionsnätverket:
 
 - Testnätverket ska ha samma antal undernät som produktionsnätverket. Undernät ska ha samma namn.
-- Testnätverket ska använda samma IP-adress rangek.
+- Testnätverket ska använda samma IP-adressintervallet.
 - Uppdatera DNS i testnätverket med IP-adress som angetts för DNS VM i **beräknings- och nätverksinställningar** inställningar. Läs [redundanstestning för Active Directory](site-recovery-active-directory.md#test-failover-considerations) för mer information.
 
 
@@ -103,7 +103,7 @@ Om du vill köra ett redundanstest för program, testa, måste en kopia av din p
 
 Om du vill ansluta till virtuella Azure-datorer med RDP efter en växling vid fel, följa kraven sammanfattas i tabellen.
 
-**Växling vid fel** | **Plats** | **Åtgärder**
+**Redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Azure virtuell dator som kör Windows** | Lokala datorer före redundans | För att komma åt den virtuella Azure-datorn via internet aktiverar du RDP och kontrollera att TCP och UDP-regler har lagts till för **offentliga**, och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **Tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning, aktiverar du RDP på datorn och se till att RDP tillåts i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **Domän och privat** nätverk.<br/><br/>  Kontrollera att operativsystemet SAN-principen anges till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Kontrollera att det finns ingen Windows-uppdateringar som väntar på den virtuella datorn när du utlösa redundansväxling. Windows update kan börja när du växlar över och du inte kan logga in på den virtuella datorn förrän uppdateringen är klar. 
 **Azure virtuell dator som kör Windows** | Azure VM efter växling vid fel |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrollera **starta diagnostik** att verifiera en skärmbild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och granska dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).

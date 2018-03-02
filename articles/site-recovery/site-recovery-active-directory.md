@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
 
@@ -26,7 +26,7 @@ Den här artikeln förklaras hur du skapar en lösning för katastrofåterställ
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Om du replikerar till Azure, [förbereda Azure-resurser](tutorial-prepare-azure.md), inklusive en prenumeration, ett virtuellt Azure-nätverk, ett lagringskonto och Recovery Services-valvet.
-* Granska de [supportkrav](site-recovery-support-matrix-to-azure.md) för alla komponenter.
+* Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 
@@ -80,7 +80,7 @@ De flesta program kräver förekomsten av en domänkontrollant eller en DNS-serv
     ![Azure testnätverket](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery försöker skapa virtuella testdatorer i ett undernät med samma namn och genom att använda samma IP-adress som har angetts i den **beräknings- och nätverksinställningar** inställningarna för den virtuella datorn. Om ett undernät med samma namn är inte tillgänglig i virtuella Azure-nätverket som har angetts för att testa redundans, skapas den virtuella testdatorn i alfabetisk ordning första undernätet. 
+    > Site Recovery försöker skapa virtuella testdatorer i ett undernät med samma namn och genom att använda samma IP-adress som har angetts i den **beräknings- och nätverksinställningar** inställningarna för den virtuella datorn. Om ett undernät med samma namn är inte tillgänglig i virtuella Azure-nätverket som har angetts för att testa redundans, skapas den virtuella testdatorn i alfabetisk ordning första undernätet.
     >
     > Om mål-IP-adressen är en del av det valda undernätet, försöker Site Recovery skapa testa redundans virtuell dator med hjälp av IP-måladressen. Om mål-IP inte är en del av det valda undernätet, har testa redundans virtuell dator skapats med hjälp av nästa tillgängliga IP-Adressen i det valda undernätet.
     >
@@ -110,7 +110,7 @@ Från och med Windows Server 2012 [ytterligare skydd är inbyggda i Active Direc
 
 När **VM-GenerationID** återställs, den **InvocationID** värdet för AD DS-databasen återställs också. Dessutom RID-poolen förkastas och SYSVOL är markerad som icke-auktoritativa. Mer information finns i [introduktion till virtualisering av Active Directory Domain Services](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) och [säker virtualisering av DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Misslyckande till Azure kan orsaka **VM-GenerationID** att återställa. Återställer **VM-GenerationID** utlöser ytterligare skydd när domain controller virtuella datorn startar i Azure. Detta kan resultera i en *betydande fördröjning* att de kan logga in på domänen controller virtuell dator. 
+Misslyckande till Azure kan orsaka **VM-GenerationID** att återställa. Återställer **VM-GenerationID** utlöser ytterligare skydd när domain controller virtuella datorn startar i Azure. Detta kan resultera i en *betydande fördröjning* att de kan logga in på domänen controller virtuell dator.
 
 Eftersom den här domänkontrollanten används endast i ett redundanstest virtualiseringsskydd inte är nödvändiga. Att se till att den **VM-GenerationID** ändras inte värdet för domain controller virtuell dator kan du ändra värdet för följande DWORD till **4** i den lokala domänkontrollanten:
 
@@ -165,20 +165,20 @@ Om efter ett redundanstest utlöses skyddsmekanismerna för virtualisering, kan 
 Om föregående villkoren uppfylls är det troligt att domänkontrollanten fungerar korrekt. Om den inte gör du följande:
 
 1. Göra en auktoritativ återställning på domänkontrollanten. Tänk på följande information:
-    * Även om vi inte rekommenderar [FRS replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), om du använder FRS-replikering följer du stegen för en auktoritativ återställning. Den här processen beskrivs i [med registernyckeln BurFlags för att initiera tjänsten File Replication](https://support.microsoft.com/kb/290762). 
-    
+    * Även om vi inte rekommenderar [FRS replikering](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), om du använder FRS-replikering följer du stegen för en auktoritativ återställning. Den här processen beskrivs i [med registernyckeln BurFlags för att initiera tjänsten File Replication](https://support.microsoft.com/kb/290762).
+
         Mer information om BurFlags finns i bloggposten [D2 och D4: Vad är det för?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Om du använder DFSR replikering följer du instruktionerna för en auktoritativ återställning. Den här processen beskrivs i [tvingar fram en auktoritär och icke-auktoritär synkronisering för DFSR-replikerad SYSVOL (som ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556). 
-    
+    * Om du använder DFSR replikering följer du instruktionerna för en auktoritativ återställning. Den här processen beskrivs i [tvingar fram en auktoritär och icke-auktoritär synkronisering för DFSR-replikerad SYSVOL (som ”D4/D2” för FRS)](https://support.microsoft.com/kb/2218556).
+
         Du kan också använda PowerShell-funktioner. Mer information finns i [DFSR SYSVOL auktoritära/icke-auktoritativ återställning PowerShell funktioner](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Kringgå kravet på inledande synkroniseringen genom att ange följande registernyckel **0** i den lokala domänkontrollanten. Om DWORD-värdet inte finns, kan du skapa det under den **parametrar** nod. 
+2. Kringgå kravet på inledande synkroniseringen genom att ange följande registernyckel **0** i den lokala domänkontrollanten. Om DWORD-värdet inte finns, kan du skapa det under den **parametrar** nod.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Mer information finns i [felsökning av DNS-händelse-ID 4013: DNS-servern kunde inte läsa in AD-integrerade DNS-zoner](https://support.microsoft.com/kb/2001093).
 
-3. Inaktivera kravet på att en global katalogserver är tillgängliga för att verifiera användarinloggning. Om du vill göra detta, i den lokala domänkontrollanten, ange följande registernyckel till **1**. Om DWORD-värdet inte finns, kan du skapa det under den **Lsa** nod. 
+3. Inaktivera kravet på att en global katalogserver är tillgängliga för att verifiera användarinloggning. Om du vill göra detta, i den lokala domänkontrollanten, ange följande registernyckel till **1**. Om DWORD-värdet inte finns, kan du skapa det under den **Lsa** nod.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

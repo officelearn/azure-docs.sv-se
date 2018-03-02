@@ -1,3 +1,5 @@
+# [Dokumentation om Azure AD B2C](index.md)
+
 # [Översikt](active-directory-b2c-overview.md)
 
 # Kom igång

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använda Azure AD Graph API
 
@@ -99,13 +99,13 @@ Ditt program nu har även behörighet att ta bort användare från din B2C-klien
 ## <a name="download-configure-and-build-the-sample-code"></a>Hämta, konfigurera och skapa exempelkoden
 Först hämta exempelkoden och få det körs. Sedan tar vi en närmare titt på den.  Du kan [hämta exempelkoden som en .zip-fil](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Du kan också klona den i en katalog som du väljer:
 
-```
+```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 Öppna den `B2CGraphClient\B2CGraphClient.sln` Visual Studio-lösning i Visual Studio. I den `B2CGraphClient` projekt, öppna filen `App.config`. Ersätt tre appinställningarna med egna värden:
 
-```
+```xml
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
@@ -120,9 +120,9 @@ Högerklicka sedan på den `B2CGraphClient` lösningen och återskapa exemplet. 
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Skapa användaren CRUD-åtgärder med hjälp av Graph-API
 Om du vill använda B2CGraphClient, öppna en `cmd` Windows kommandot fråga och ändra katalogen till den `Debug` directory. Kör sedan den `B2C Help` kommando.
 
-```
-> cd B2CGraphClient\bin\Debug
-> B2C Help
+```cmd
+cd B2CGraphClient\bin\Debug
+B2C Help
 ```
 
 Då visas en kort beskrivning av varje kommando. Varje gång du anropar någon av dessa kommandon `B2CGraphClient` gör en begäran till Azure AD Graph API.
@@ -179,8 +179,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Om du vill se den här begäran, kör du:
 
- ```
- > B2C Get-User
+ ```cmd
+ B2C Get-User
  ```
 
 Det finns två viktiga saker att tänka på:
@@ -245,9 +245,9 @@ De flesta av de här egenskaperna i den här begäran krävs för att skapa kons
 
 Om du vill se begäran, kör du något av följande kommandon:
 
-```
-> B2C Create-User ..\..\..\usertemplate-email.json
-> B2C Create-User ..\..\..\usertemplate-username.json
+```cmd
+B2C Create-User ..\..\..\usertemplate-email.json
+B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
 Den `Create-User` kommandot tar emot en JSON-fil som indataparameter. Innehåller en JSON-representation av ett användarobjekt. Det finns två exempel JSON-filer i exempelkoden: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra de här filerna så att de passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fälten som du kan använda i dessa filer. Information om de valfria fälten kan hittas i den [Azure AD Graph API Entitetsreferens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
@@ -279,9 +279,9 @@ Content-Length: 37
 
 Försök att uppdatera en användare genom att uppdatera JSON-filer med nya data. Du kan sedan använda `B2CGraphClient` att köra något av följande kommandon:
 
-```
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
+```cmd
+B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
+B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
 Kontrollera den `B2CGraphClient.SendGraphPatchRequest(...)` metod för information om hur du skickar denna begäran.
@@ -291,16 +291,16 @@ Du kan söka efter användare i din B2C-klient på ett par olika sätt. En med h
 
 Kör något av följande kommandon för att söka efter en viss användare:
 
-```
-> B2C Get-User <user-object-id>
-> B2C Get-User <filter-query-expression>
+```cmd
+B2C Get-User <user-object-id>
+B2C Get-User <filter-query-expression>
 ```
 
 Här följer några exempel:
 
-```
-> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```cmd
+B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
 ```
 
 ### <a name="delete-users"></a>Ta bort användare
@@ -313,8 +313,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Anger det här kommandot och visa begäran om borttagning som skrivs ut på konsolen om du vill se ett exempel:
 
-```
-> B2C Delete-User <object-id-of-user>
+```cmd
+B2C Delete-User <object-id-of-user>
 ```
 
 Kontrollera den `B2CGraphClient.SendGraphDeleteRequest(...)` metod för information om hur du skickar denna begäran.
@@ -328,14 +328,14 @@ Om du vill definiera ett anpassat attribut i din B2C-klient, finns det [referens
 
 Du kan visa de anpassade attribut som definierats i din B2C-klient med hjälp av `B2CGraphClient`:
 
-```
-> B2C Get-B2C-Application
-> B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
+```cmd
+B2C Get-B2C-Application
+B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
 Resultatet av dessa funktioner visar information om varje anpassade attribut som:
 
-```JSON
+```json
 {
       "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
       "objectType": "ExtensionProperty",
@@ -353,8 +353,8 @@ Resultatet av dessa funktioner visar information om varje anpassade attribut som
 
 Du kan använda det fullständiga namnet som `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, som en egenskap på din användarobjekt.  Uppdatera JSON-fil med den nya egenskapen och ett värde för egenskapen och kör sedan:
 
-```
-> B2C Update-User <object-id-of-user> <path-to-json-file>
+```cmd
+B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
 Med hjälp av `B2CGraphClient`, du har ett tjänstprogram som kan hantera B2C-klient användarna programmässigt. `B2CGraphClient` använder en egen programidentitet för att autentisera till Azure AD Graph API. Token får också med hjälp av en klienthemlighet. Kom ihåg några viktiga punkter för B2C-appar som du använda den här funktionaliteten i ditt program:

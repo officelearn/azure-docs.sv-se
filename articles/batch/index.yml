@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/30/2017
   ms.author: carolz
-  ms.openlocfilehash: 9e9a160762ae31087a2be36734ca528f65723818
-  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.openlocfilehash: 6ab5c490887a6b8f9b1330438188f6463a37c54d
+  ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/01/2018
+  ms.lasthandoff: 02/28/2018
 abstract:
   description: "Använd Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Definiera Azure-beräkningsresurser för att köra dina program parallellt eller i stor skala utan manuell konfigurering eller hantering av infrastrukturen. Schemalägg beräkningsintensiva uppgifter och lägg till eller ta bort beräkningsresurser dynamiskt utifrån dina krav. Lär dig hur du använder Azure Batch med våra snabbstarter, självstudier och exempel."
 sections:
@@ -71,6 +71,6 @@ sections:
     - title: Kommandorad
       html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/azurerm.batch">Azure PowerShell</a></p>
     - title: "Språk"
-      html: <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p><p><a href="/java/api/com.microsoft.azure.batch">Java</a></p><p><a href="/nodejs/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
     - title: REST
       html: "<p><a href=\"/rest/api/batchservice\">REST API för Batch-tjänsten</a></p><p><a href=\"/rest/api/batchmanagement/\">REST API för Batch Management</a></p>"

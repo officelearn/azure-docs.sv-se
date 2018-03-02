@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Anslut HDInsight till lokalt nätverk
 
@@ -78,7 +78,7 @@ Så här skapar du en Linux VM som använder den [binda](https://www.isc.org/dow
 
     ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Från den __grunderna__ ange följande information:
+2. Ange följande information i avsnittet __Grundläggande inställningar__:
 
     * __Namnet__: ett eget namn som identifierar den här virtuella datorn. Till exempel __DNSProxy__.
     * __Användarnamnet__: namnet på SSH-konto.
@@ -123,7 +123,7 @@ Så här skapar du en Linux VM som använder den [binda](https://www.isc.org/dow
     > [!NOTE]
     > Det finns flera olika sätt att hämta den `ssh` verktyget. Linux-, Unix- och macOS anges som en del av operativsystemet. Om du använder Windows, bör du något av följande alternativ:
     >
-    > * [Azure-molnet Shell](../cloud-shell/quickstart.md)
+    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash på Ubuntu på Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)

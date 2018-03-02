@@ -1,48 +1,24 @@
+--Rubrik: skydda en webb-API-serverdel med Azure Active Directory och API-hantering | Microsoft Docs beskrivning: Lär dig hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering.
+tjänster: api management dokumentationcenter: '' författare: juliako manager: cfowler editor: ''
+
+MS.Service: api management ms.workload: mobila ms.tgt_pltfrm: na ms.devlang: na ms.topic: artikel ms.date: 10/30/2017 ms.author: apimpm
 ---
-title: Skydda ett webb-API-serverdelen med Azure Active Directory och API-hantering | Microsoft Docs
-description: "Lär dig hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering."
-services: api-management
-documentationcenter: 
-author: juliako
-manager: cfowler
-editor: 
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/30/2017
-ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
----
+
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
-Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  Den här artikeln innehåller en översikt och ytterligare information för stegen i videon. Den här 24 minuter långa videon visar hur till:
 
-* Skapa en webb-API-serverdel och skydda den med AAD - börjar vid 1:30
-* Importera API: et i API Management - inleder 7:10
-* Konfigurera Developer-portalen för att anropa API - början på 9:09
-* Konfigurera ett skrivbordsprogram att anropa API - börjar vid 18:08
-* Konfigurera en princip för verifiering av JWT för att godkänna begäranden - börjar vid 20:47 före
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+Det här avsnittet visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  
 
 ## <a name="create-an-azure-ad-directory"></a>Skapa en Azure AD-katalog
-Att säkra din Web API-serverdel med Azure Active Directory måste du först ha en AAD-klient. I det här videoklippet en klient med namnet **APIMDemo** används. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
+Du måste ha en AAD-klient om du vill skydda din Web API-serverdel med Azure Active Directory. Om du vill skapa en AAD-klient, logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och på **ny**->**Apptjänster**->**Active Directory**  -> **Directory**->**skapa anpassade**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-I det här exemplet en katalog med namnet **APIMDemo** skapas med en standarddomän med namnet **DemoAPIM.onmicrosoft.com**. Den här katalogen används i hela videon.
+I det här exemplet en katalog med namnet **APIMDemo** skapas med en standarddomän med namnet **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Skapa en tjänst för webb-API som skyddas av Azure Active Directory
-I det här steget skapas en webb-API-serverdel med hjälp av Visual Studio 2013. Det här steget av videon börjar vid 1:30. Skapa Web API backend-projekt i Visual Studio klickar du på **filen**->**ny**->**projekt**, och välj **ASP.NET-webbprogram Programmet** från den **Web** lista över mallar. I det här videoklippet projektet med namnet **APIMAADDemo**. Klicka på **OK** för att skapa projektet. 
+I det här steget skapas en webb-API-serverdel med hjälp av Visual Studio 2013. Skapa Web API backend-projekt i Visual Studio klickar du på **filen**->**ny**->**projekt**, och välj **ASP.NET-webbprogram Programmet** från den **Web** lista över mallar. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +51,6 @@ I det här exemplet, en ny **programtjänstplanen** med namnet **APIMAADDemo** h
 Klicka på **OK** att konfigurera webbprogrammet och skapa projektet.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Lägg till kod Web API-projekt
-Nästa steg i videon lägger till koden Web API-projekt. Det här steget startar vid 4:35.
 
 Webb-API i det här exemplet implementerar en grundläggande Kalkylatorn tjänst med hjälp av en modell och en domänkontrollant. Om du vill lägga till modellen för tjänsten, högerklicka på **modeller** i **Solution Explorer** och välj **Lägg till**, **klassen**. Klassen namnet `CalcInput` och på **Lägg till**.
 
@@ -161,14 +136,13 @@ public class CalcController : ApiController
 Tryck på **F6** att skapa och verifiera lösningen.
 
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
-I det här steget Visual Studio har project publicerats till Azure. Det här steget av videon börjar på 5:45.
 
 Om du vill publicera projektet till Azure, högerklicka på den **APIMAADDemo** projektet i Visual Studio och välj **publicera**. Behåll standardinställningarna den **Publicera webbplats** dialogrutan och klicka på **publicera**.
 
 ![Webbpublicering][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Bevilja behörighet till Azure AD backend-tjänstprogram
-Ett nytt program för backend-tjänsten har skapats i Azure AD-katalogen som en del av processen för att konfigurera och publicera för Web API-projekt. I det här steget video, början på 6:13 behörigheter till webb-API-serverdelen.
+Ett nytt program för backend-tjänsten har skapats i Azure AD-katalogen som en del av processen för att konfigurera och publicera för Web API-projekt.
 
 ![Program][api-management-aad-backend-app]
 
@@ -352,7 +326,7 @@ Utför följande steg om du vill konfigurera Kalkylatorn API.
 När du har importerat API:et visas sammanfattningssidan för API:et på utgivarportalen.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Anropa API: et fel från developer-portalen
-Nu API: et har importerats till API-hantering, men kan ännu inte anropas har från developer-portalen eftersom serverdelstjänsten skyddas med Azure AD-autentisering. Detta visas i videon inleder med följande steg 7:40.
+Nu API: et har importerats till API-hantering, men kan ännu inte anropas har från developer-portalen eftersom serverdelstjänsten skyddas med Azure AD-autentisering. 
 
 Klicka på **utvecklarportalen** från upp till höger i portalen utgivare.
 
@@ -373,9 +347,9 @@ Klicka på **skicka** och notera svarsstatusen av **401 obehörig**.
 Begäran har inte behörighet eftersom serverdelen API skyddas av Azure Active Directory. Innan du anropar API: N i developer måste portal konfigureras för att ge utvecklare som använder OAuth 2.0. Den här processen beskrivs i följande avsnitt.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Registrera developer-portalen som ett AAD-program
-Det första steget i att konfigurera developer-portalen för att ge utvecklare som använder OAuth 2.0 är att registrera developer-portalen som ett AAD-program. Detta visas från 8:27 i videon.
+Det första steget i att konfigurera developer-portalen för att ge utvecklare som använder OAuth 2.0 är att registrera developer-portalen som ett AAD-program. 
 
-Gå till Azure AD-klient från det första steget i den här videon i det här exemplet **APIMDemo** och navigera till den **program** fliken.
+Gå till Azure AD-klient. I det här exemplet väljer **APIMDemo** och navigera till den **program** fliken.
 
 ![Nytt program][api-management-aad-new-application-devportal]
 
@@ -394,7 +368,7 @@ För **App-Id-URL** anger du URL för API Management-tjänsten och lägga till v
 ![Nytt program][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Konfigurera en server för API Management OAuth 2.0-auktorisering
-Nästa steg är att konfigurera en server för OAuth 2.0-auktorisering i API-hantering. Det här steget visas i början på 9:43 videon.
+Nästa steg är att konfigurera en server för OAuth 2.0-auktorisering i API-hantering. 
 
 Klicka på **säkerhet** API Management-menyn till vänster klickar du på **OAuth 2.0**, och klicka sedan på **lägga till tillståndet** server.
 
@@ -466,7 +440,7 @@ Klicka på **delegerade behörigheter** för **APIMAADDemo** och markera kryssru
 ![Lägg till behörigheter][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>Aktivera OAuth 2.0 användarautentiseringen för Kalkylatorn API
-OAuth 2.0-server är konfigurerat kan du ange den i säkerhetsinställningarna för ditt API. Det här steget visas i videon börjar på 14:30.
+OAuth 2.0-server är konfigurerat kan du ange den i säkerhetsinställningarna för ditt API. 
 
 Klicka på **API: er** i den vänstra menyn och klicka på **Kalkylatorn** att visa och konfigurera dess inställningar.
 
@@ -477,7 +451,7 @@ Navigera till den **säkerhet** markerar den **OAuth 2.0** kryssrutan Markera ö
 ![Kalkylatorn API][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Anropa API: et Kalkylatorn från developer-portalen
-OAuth 2.0-tillståndet är konfigurerat på API anropas åtgärderna har från developer center. Det här steget visas i videon börjar på 15:00.
+OAuth 2.0-tillståndet är konfigurerat på API anropas åtgärderna har från developer center. 
 
 Gå tillbaka till den **lägga till två heltal** Kalkylatorn tjänsten i developer-portalen och klicka på **prova**. Observera att det nya objektet i den **auktorisering** avsnittet motsvarar auktoriserings-server som du just lagt till.
 
@@ -492,10 +466,12 @@ Klicka på **skicka** och notera den **svarsstatusen** av **200 OK** och resulta
 ![Kalkylatorn API][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>Konfigurera ett skrivbordsprogram att anropa API: et
-I nästa procedur i videon börjar vid 16:30 och konfigurerar en enkel skrivbordsprogram att anropa API: et. Det första steget är att registrera programmet i Azure AD och ge det åtkomst till katalogen och serverdelstjänsten. Det finns en demonstration av skrivbordsprogram anropar en åtgärd på Kalkylatorn API vid 18:25.
+
+Konfigurera en enkel skrivbordsprogram att anropa API: et. Det första steget är att registrera programmet i Azure AD och ge det åtkomst till katalogen och serverdelstjänsten. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Konfigurera en princip för verifiering av JWT för att godkänna begäranden före
-Den sista proceduren i videon börjar vid 20:48 och visar hur du använder den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att auktorisera före begäranden genom att verifiera åtkomsttoken för varje inkommande begäran. Om begäran inte har verifierats av Validera JWT-principen, begäran har blockerats av API-hantering och skickas inte vidare till serverdelen.
+
+Använd den [Validera JWT](api-management-access-restriction-policies.md#ValidateJWT) princip för att auktorisera före begäranden genom att verifiera åtkomsttoken för varje inkommande begäran. Om begäran inte har verifierats av Validera JWT-principen, begäran har blockerats av API-hantering och skickas inte vidare till serverdelen.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +484,7 @@ Den sista proceduren i videon börjar vid 20:48 och visar hur du använder den [
 </validate-jwt>
 ```
 
-En annan demonstration av hur du konfigurerar och använder den här principen finns [moln omfattar avsnitt 177: mer API Management-funktioner](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 13:50. Spola fram till 15:00 för att se de principer som konfigurerats i Redigeraren för grupprinciper och sedan till 18:50 för en demonstration av anropa en funktion från utvecklarportal både med och utan autentiseringstoken som krävs.
+Mer information finns i [moln omfattar avsnitt 177: flera API Management-funktioner](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) och spola framåt till 13:50. Spola fram till 15:00 för att se de principer som konfigurerats i Redigeraren för grupprinciper och sedan till 18:50 för en demonstration av anropa en funktion från utvecklarportal både med och utan autentiseringstoken som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 * Checka ut mer [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API-hantering.

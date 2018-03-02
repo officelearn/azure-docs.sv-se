@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Ställ in återställning av lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
 InMage Scout i [Azure Site Recovery](site-recovery-overview.md) erbjuder realtid replikering mellan lokala platser för VMware. InMage Scout ingår i Azure Site Recovery-tjänsten prenumerationer. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -53,7 +53,7 @@ Välj vad som ska replikera och var du vill replikera den till.
 2. Konfigurationsservrar
 3. Process-servrar
 4. Huvudmålet servrar
-5. vContinuum-servrar
+5. vContinuum servers
 6. Källservern (både Windows och Linux-servrar)
 
 Installera uppdateringar på följande sätt:
@@ -62,10 +62,10 @@ Installera uppdateringar på följande sätt:
 >Uppdatering av alla Scout komponenterna filversion får inte vara samma i uppdateringen ZIP-filen. Den äldre versionen betyda att det finns ingen ändring i komponenten sedan tidigare uppdateringen till den här uppdateringen.
 
 Hämta den [uppdatera](https://aka.ms/asr-scout-update6) ZIP-filen. Filen innehåller följande komponenter: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.GZ
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. Extrahera ZIP-filer.
@@ -124,7 +124,7 @@ Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeri
 - Om källservrar, huvudmålservern, konfiguration, process och RX servrar redan kör uppdatering 4, tillämpas den endast på huvudmålservern. 
 
 #### <a name="new-platform-support"></a>Stöd för nya plattformar
-* SUSE Linux Enterprise Server 11 Service Pack-4(SP4)
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * SLES 11 SP4 64 bitars **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** paketeras med grundläggande Scout GA-paketet (**InMage_Scout_Standard_8.0.1 GA.zip**). Hämta GA från portalen, enligt beskrivningen i [skapa ett valv](#create-a-vault).
 
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar developer konton med hjälp av OAuth 2.0 i Azure API Management
 Stöd för många API: er [OAuth 2.0](http://oauth.net/2/) att skydda API: et och se till att endast giltigt användare har åtkomst och de kan bara komma åt resurser som de är rätt. För att kunna använda Azure API Management interaktiva Utvecklarkonsolen med dessa API: er, kan tjänsten du konfigurera service-instans för att fungera med din OAuth 2.0 aktiverade API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"> </a>Nödvändiga komponenter
 Den här guiden visar hur du konfigurerar API Management service-instans för att använda OAuth 2.0-auktorisering för utvecklare konton, men visar inte hur du konfigurerar en OAuth 2.0-provider. Konfigurationen för varje OAuth 2.0-provider är olika, men stegen är liknande och nödvändiga typer av information som används när du konfigurerar OAuth 2.0 i din API Management service-instans är samma. Det här avsnittet visas exempel som använder Azure Active Directory som en OAuth 2.0-provider.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Den här guiden visar hur du konfigurerar API Management service-instans för at
 > 
 > 
 
-## <a name="step1"></a>Konfigurera en server för OAuth 2.0-auktorisering i API Management
+## <a name="step1"> </a>Konfigurera en server för OAuth 2.0-auktorisering i API Management
 Börja genom att klicka på **Publisher-portal** på Azure Portal för API Management-tjänsten.
 
 ![Utgivarportalen][api-management-management-console]
@@ -89,7 +89,7 @@ Om **Auktoriseringskoden bevilja typer** är inställd på **resurs ägarlöseno
 
 När formuläret är klar klickar du på **spara** spara serverkonfiguration för API Management OAuth 2.0-auktorisering. När serverkonfigurationen sparas kan konfigurera du API: er för att använda den här konfigurationen som visas i nästa avsnitt.
 
-## <a name="step2"></a>Konfigurera en API för att använda OAuth 2.0 användarautentiseringen
+## <a name="step2"> </a>Konfigurera en API för att använda OAuth 2.0 användarautentiseringen
 Klicka på **API: er** från den **API Management** Klicka på menyn till vänster, klickar på namnet på den önskade API **säkerhet**, och sedan markera kryssrutan för **OAuth 2.0**.
 
 ![Auktoriseringen av användaren][api-management-user-authorization]
@@ -98,7 +98,7 @@ Välj den önskade **auktorisering server** i listrutan och klickar på **spara*
 
 ![Auktoriseringen av användaren][api-management-user-authorization-save]
 
-## <a name="step3"></a>Testa användarautentiseringen OAuth 2.0 i Developer-portalen
+## <a name="step3"> </a>Testa användarautentiseringen OAuth 2.0 i Developer-portalen
 När du har konfigurerat OAuth 2.0 auktorisering servern och konfigurerat ditt API för att använda den servern kan testa du den genom att gå till Developer-portalen och anropar en API.  Klicka på **Utvecklarportal** på menyn längst upp till höger.
 
 ![Utvecklarportalen][api-management-developer-portal-menu]
@@ -134,9 +134,6 @@ Du kan nu konfigurera önskade värden för parametrarna återstående och skick
 ## <a name="next-steps"></a>Nästa steg
 Mer information om att använda OAuth 2.0 och API-hantering finns i följande video och tillhörande [artikel](api-management-howto-protect-backend-with-aad.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

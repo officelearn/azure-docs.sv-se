@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
 
@@ -51,7 +51,7 @@ Klicka på **Spara** och anteckna lösenordsvärdet. Lösenordet behövs när du
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Välj **Ny** > **Behållare** > **Azure Container Service - AKS (preview)** (Azure Container Service – förhandsversion).
+Välj **Skapa en resurs** > **Behållare** > **Azure Container Service – AKS (förhandsversion)**.
 
 Ange klusternamnet, DNS-prefix, resursgruppens namn, plats och Kubernetes-version för klustret. Anteckna klusternamnet och resursgruppens namn. De behövs när du ansluter till klustret.
 

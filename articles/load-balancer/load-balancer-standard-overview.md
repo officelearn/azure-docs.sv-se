@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Load Balancer Standard översikt över Azure (förhandsversion)
 
@@ -302,9 +302,11 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 1. Skapa en ny Standard resurs (belastningsutjämning och offentliga IP-adresser, vid behov). Skapa dina regler och avsökning definitioner.
 
-2. Ta bort grundläggande SKU-resurser (belastningsutjämning och offentliga IP-adresser, i tillämpliga fall) från alla VM-instanser. Se till att även ta bort alla VM-instanser i tillgänglighetsuppsättningen.
+2. Skapa en ny eller uppdatera befintliga NSG på nätverkskortet eller undernät i listan över godkända belastningsutjämnade trafik, avsökningen samt all annan trafik som du vill tillåta.
 
-3. Bifoga alla VM-instanser till de nya Standard-SKU-resurserna.
+3. Ta bort grundläggande SKU-resurser (belastningsutjämning och offentliga IP-adresser, i tillämpliga fall) från alla VM-instanser. Se till att även ta bort alla VM-instanser i tillgänglighetsuppsättningen.
+
+4. Bifoga alla VM-instanser till de nya Standard-SKU-resurserna.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrera från Standard till grundläggande SKU
 

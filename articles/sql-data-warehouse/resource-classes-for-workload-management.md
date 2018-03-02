@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Resursklasser för hantering av arbetsbelastning
 Riktlinjer för att hantera antalet samtidiga frågor som körs samtidigt och beräkna resurser för frågor i Azure SQL Data Warehouse med resursklasser.
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Resursklass av tjänstens är fast och kan inte ändras.  Administratören är den användare som skapades under etableringen.
 
+> [!NOTE]
+> Användare eller grupper som har definierats som Active Directory-administratör är också tjänstadministratörer.
+>
+>
+
 ### <a name="default-resource-class"></a>Standard resursklassen
 Som standard varje användare är medlem i små resursklassen **smallrc**. 
 
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 Vi rekommenderar att du skapar en användare som är dedikerad till att köra en viss typ av frågan eller läsa in åtgärder. Ger användaren en permanent resursklassen istället för att ändra resursklassen regelbundet. Med tanke på att statiska resursklasser ge större övergripande kontroll på arbetsbelastningen föreslår vi också använda dessa först innan du bestämmer dynamisk resursklasser.
 
 ### <a name="resource-classes-for-load-users"></a>Resursklasser för att läsa in användare
-`CREATE TABLE`använder grupperad kolumnlagring indexeras som standard. Komprimera data i ett columnstore index är en åtgärd för minne och minnesbelastning kan minska index kvalitet. Därför är det mest sannolika kräver en högre resursklassen vid inläsning av data. För att säkerställa belastningar har tillräckligt med minne, du skapa en användare som är avsett att köras belastningar och tilldela användaren till en högre resursklassen.
+`CREATE TABLE` använder grupperad kolumnlagring indexeras som standard. Komprimera data i ett columnstore index är en åtgärd för minne och minnesbelastning kan minska index kvalitet. Därför är det mest sannolika kräver en högre resursklassen vid inläsning av data. För att säkerställa belastningar har tillräckligt med minne, du skapa en användare som är avsett att köras belastningar och tilldela användaren till en högre resursklassen.
 
 Det minne som behövs för att bearbeta belastningar effektivt beror på tabellen som lästs in och storleken på data. Mer information om minneskrav finns [maximera radgrupps kvalitet](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -165,12 +170,12 @@ Här är syftet med den här lagrade proceduren:
 >  [!NOTE]  
 >  Om du inte får utdata när du kör lagrad procedur med parametrar som ges sedan kan det finnas två fall. <br />1. Antingen DW-parametern innehåller ett ogiltigt värde för Servicenivåmål <br />2. Eller, det finns ingen matchande resursklass för åtgärden, CCI i tabellen. <br />Till exempel på DW100, den högsta minnestilldelningen är 400 MB, och om tabellschemat är tillräckligt bred för att passera kravet 400 MB.
       
-### <a name="usage-example"></a>Exempel på användning:
+### <a name="usage-example"></a>Användningsexempel:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Antingen ange en NULL-parameter om du vill extrahera den aktuella DWU från databasen för Datalagret eller ange eventuella stöds DWU i form av 'DW100'
-2. @SCHEMA_NAME:Ange ett namn på tabellen
-3. @TABLE_NAME:Ange ett tabellnamn av intresse
+1. @DWU: Antingen ange en NULL-parameter om du vill extrahera den aktuella DWU från databasen för Datalagret eller ange eventuella stöds DWU i form av 'DW100'
+2. @SCHEMA_NAME: Ange ett namn på tabellen
+3. @TABLE_NAME: Ange ett tabellnamn av intresse
 
 Exempel köra den här lagrade proceduren:  
 ```sql  

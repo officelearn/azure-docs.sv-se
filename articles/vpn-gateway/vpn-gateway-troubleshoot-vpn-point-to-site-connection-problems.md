@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 83d96a2706e879f8817540e85369729289be9456
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Anslutningsproblem med Azure punkt-till-plats
 
@@ -335,7 +335,7 @@ NIC-drivrutinen är inaktuellt.
 Uppdatera NIC-drivrutinen:
 
 1. Klicka på **starta**, typen **Enhetshanteraren**, och markera den i listan över resultat. Om du uppmanas ange ett administratörslösenord eller en bekräftelse skriver du lösenordet eller lämna bekräftelse.
-2. I den ** nätverkskort ** kategorier, hitta nätverkskort som du vill uppdatera.  
+2. I den **nätverkskort** kategorier, hitta nätverkskort som du vill uppdatera.  
 3. Dubbelklicka på namnet på enheten, Välj **Uppdatera drivrutin**väljer **Sök automatiskt efter uppdaterade drivrutiner**.
 4. Om Windows inte finns en ny drivrutin, du följa instruktionerna du söka efter en på enhetstillverkarens webbplats.
 5. Starta om datorn och försök igen.

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
@@ -70,7 +70,7 @@ När någon [inbyggda RBAC rollen](../active-directory/role-based-access-control
 Mer information om hanteringsgrupper finns: 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](management-groups-create.md)
 - [Ändra, ta bort eller hantera dina hanteringsgrupper](management-groups-manage.md)
-- [Installera Azure Powershell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Installera Azure PowerShell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Granska REST API-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
 - [Installera tillägg för Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

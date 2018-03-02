@@ -1,43 +1,49 @@
 ---
-title: "Begränsningar i Azure-databas för MySQL | Microsoft Docs"
-description: "Beskriver begränsningar i förhandsversionen i Azure-databas för MySQL."
+title: "Begränsningar i Azure-databas för MySQL"
+description: "Den här artikeln beskriver begränsningar i Azure-databas för MySQL, till exempel antal anslutning och lagringsalternativ för motorn."
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: kamathsun
+ms.author: sukamat
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
-ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
 Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
 
 ## <a name="service-tier-maximums"></a>Tjänsten nivå maxkapacitet
-Azure MySQL-databas har flera tjänstnivåer för att välja mellan när du skapar en server. Mer information finns i [förstå vad som är tillgängliga i varje tjänstnivå](concepts-service-tiers.md).  
+Azure MySQL-databas har flera tjänstnivåer för att välja mellan när du skapar en server. Mer information finns i [Azure-databas för MySQL prisnivåer](concepts-pricing-tiers.md).  
 
 Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje tjänstnivå under förhandsgranskningen gör på följande sätt: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Högsta antal anslutningar**        |                   |
-| Grundläggande 50 beräknings-enheter     | 50-anslutningar    |
-| Grundläggande 100 beräknings-enheter    | 100 anslutningar   |
-| Standardenheter 100 beräkning | 200-anslutningar   |
-| Standardenheter 200 beräkning | 400-anslutningar   |
-| Standardenheter 400 beräkning | 800 anslutningar   |
-| Standard 800 beräknings-enheter | 1600 anslutningar  |
-| **Max beräknings-enheter**      |                   |
-| Grundläggande tjänstenivå         | 100 enheter för beräkning |
-| Standardtjänstenivå      | 800 beräknings-enheter |
-| **Maximalt lagringsutrymme**            |                   |
-| Grundläggande tjänstenivå         | 1 TB              |
-| Standardtjänstenivå      | 1 TB              |
+|**Prisnivå**| **Compute-generering**|**vCore(s)**| **Högsta antal anslutningar**|
+|---|---|---|---|
+|Basic| Gen 4| 1| 50|
+|Basic| Gen 4| 2| 100|
+|Basic| Gen 5| 1| 50|
+|Basic| Gen 5| 2| 100|
+|Generellt syfte| Gen 4| 2| 200|
+|Generellt syfte| Gen 4| 4| 400|
+|Generellt syfte| Gen 4| 8| 800|
+|Generellt syfte| Gen 4| 16| 1600|
+|Generellt syfte| Gen 4| 32| 3200|
+|Generellt syfte| Gen 5| 2| 200|
+|Generellt syfte| Gen 5| 4| 400|
+|Generellt syfte| Gen 5| 8| 800|
+|Generellt syfte| Gen 5| 16| 1600|
+|Generellt syfte| Gen 5| 32| 3200|
+|Minnesoptimerad| Gen 5| 2| 600|
+|Minnesoptimerad| Gen 5| 4| 1250|
+|Minnesoptimerad| Gen 5| 8| 2500|
+|Minnesoptimerad| Gen 5| 16| 5000|
+|Minnesoptimerad| Gen 5| 32| 10000| 
 
 När för många anslutningar har uppnåtts, får du följande fel:
 > FEL 1040 (08004): För många anslutningar
@@ -51,14 +57,14 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="unsupported"></a>Stöds inte
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [SVARTLISTADE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [ARKIV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERERAD](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privilege-support"></a>Stöd för behörighet
 
 ### <a name="unsupported"></a>Stöds inte
-- DBA rollen många sever parametrar och inställningar av misstag kan försämra serverprestanda eller negera ACID DBMS-egenskaper. Därför för att upprätthålla våra service integritet och SLA på en produktnivå exponerar vi inte rollen DBA till kunder. Standard-användarkonto som skapas när en ny databasinstans har skapats, kan kunder utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen. 
-- SUPER privilegium på samma sätt [SUPER privilegium](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
+- DBA rollen: många parametrar för server och inställningar kan oavsiktligt försämra serverprestanda eller negera ACID DBMS-egenskaper. Därför för att upprätthålla tjänsten integritet och SLA på en produktnivå, visar tjänsten inte gränssnittshändelsen DBA-rollen. Standard-användarkonto som skapas när en ny databasinstans har skapats, kan användaren utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen. 
+- SUPER privilegium: på samma sätt [SUPER privilegium](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulation instruktionen
 
@@ -71,8 +77,7 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ## <a name="preview-functional-limitations"></a>Funktionella begränsningar i förhandsversionen
 
 ### <a name="scale-operations"></a>Skalningsåtgärder
-- Dynamisk skalning av servrar över tjänstnivåer stöds inte för närvarande. Att växla mellan tjänstnivåerna Basic och Standard.
-- Dynamisk på begäran ökningen av lagring i förväg skapade server stöds inte för närvarande.
+- Dynamisk skalning av servrar över prisnivåer stöds inte för närvarande. Att växla mellan Basic generella och Minnesoptimerade prisnivåer.
 - Minska lagringsstorleken för server stöds inte.
 
 ### <a name="server-version-upgrades"></a>Version serveruppgraderingarna
@@ -91,5 +96,5 @@ När för många anslutningar har uppnåtts, får du följande fel:
 - MySQL-serverinstans visar fel serverversionen efter anslutningen har upprättats. För att få rätt server-instans versionshantering, använder du väljer version(); kommandot MySQL i Kommandotolken.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Vad som är tillgängligt på respektive tjänstnivå](concepts-service-tiers.md)
+- [Vad som är tillgängligt på respektive tjänstnivå](concepts-pricing-tiers.md)
 - [Versioner som stöds MySQL-databas](concepts-supported-versions.md)

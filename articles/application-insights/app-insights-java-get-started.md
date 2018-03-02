@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -70,12 +70,12 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>1.0.n</version>`. Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>2.0.n</version>`. Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Behöver du uppdatera till en ny SDK?* Uppdatera ditt projekts beroenden.
 
 #### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
@@ -90,19 +90,19 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor? Prova att använda en specifik version, t.ex.:* `version:'1.0.n'`. *Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor? Prova att använda en specifik version, t.ex.:* `version:'2.0.n'`. *Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Så här uppdaterar du till ett nytt SDK*
   * Uppdatera ditt projekts beroenden.
 
 #### <a name="otherwise-"></a>Eller …
 Lägg till SDK manuellt:
 
-1. Ladda ned [Application Insights SDK för Java](https://aka.ms/aijavasdk).
+1. Ladda ned [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Extrahera binärfilerna från ZIP-filen och lägg till dem i projektet.
 
 ### <a name="questions"></a>Frågor …
@@ -112,7 +112,7 @@ Lägg till SDK manuellt:
   * `applicationinsights-web` ger dig mått som spårar antalet HTTP-förfrågningar och svarstider. Du kan utelämna den här komponenten om du inte vill att den här telemetrin ska samlas in automatiskt. Till exempel om du vill skriva din egen.
 * *Så här uppdaterar du SDK när du publicerar ändringar*
 
-  * Ladda ned senaste [Application Insights SDK för Java](https://aka.ms/qqkaq6) och ersätt det gamla.
+  * Ladda ned senaste [Application Insights SDK för Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) och ersätt det gamla.
   * Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Lägga till en XML-fil för Application Insights
@@ -372,7 +372,7 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 
 [Läs mer om webbtester för tillgänglighet.][availability]
 
-## <a name="questions-problems"></a>Frågor? Har du problem?
+## <a name="questions-problems"></a>Har du några frågor? Har du problem?
 [Felsöka Java](app-insights-java-troubleshoot.md)
 
 ## <a name="video"></a>Video

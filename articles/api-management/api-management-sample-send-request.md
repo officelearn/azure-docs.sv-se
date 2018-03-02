@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Med hjälp av externa tjänster från Azure API Management-tjänsten
 Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en mängd olika användbara arbete baserat enbart på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Dock kan interagera med externa tjänster från API Management principer öppnar många fler möjligheter.
@@ -282,11 +282,4 @@ Du kan konfigurera instrumentpanelen resursen ska cachelagras för minst en timm
 
 ## <a name="summary"></a>Sammanfattning
 Azure API Management-tjänsten ger flexibla principer som kan tillämpas selektivt på HTTP-trafik och möjliggör sammansättning av backend-tjänster. Om du vill förbättra din API-gateway med aviseringar funktion, verifiering, verifiering funktioner eller skapa nya sammansatta resurser baserat på flera backend-tjänster på `send-request` och tillhörande principer öppnar en värld av möjligheter.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Titta på en videoöversikt över dessa principer
-Mer information om den [-en-sätt-begäran om att skicka](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [-begäran om att skicka](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), och [returnera svar](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) principer som beskrivs i den här artikeln, se följande video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

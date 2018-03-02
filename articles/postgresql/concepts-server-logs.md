@@ -1,19 +1,19 @@
 ---
-title: "Loggas i Azure-databas för PostgreSQL | Microsoft Docs"
-description: "Skapar frågan och felloggar i Azure-databas för PostgreSQL."
+title: "Loggas i Azure-databas för PostgreSQL"
+description: "Den här artikeln beskrivs hur Azure-databas för PostgreSQL genererar fråga och felloggar och logga hur kvarhållning har konfigurerats."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 02/28/2018
+ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Loggas i Azure-databas för PostgreSQL 
 Azure-databas för PostgreSQL genererar fråge- och loggar. Åtkomst till transaktionsloggar stöds dock inte. Frågan och felloggar kan användas för att identifiera, felsöka och reparera konfigurationsfel och något sämre prestanda. Mer information finns i [felrapportering och loggning](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).

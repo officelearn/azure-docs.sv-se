@@ -2,7 +2,7 @@
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj **Nytt** > **Webb och mobilt** > **Notification Hub**.
+2. Välj **Skapa en resurs** > **Webb och mobilt** > **Notification Hub**.
    
       ![Azure Portal – skapa en Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

@@ -1,3 +1,5 @@
+# [Dokumentation för Devtest Labs](index.md)
+
 # Översikt
 ## [Om Azure DevTest Labs](devtest-lab-overview.md)
 ## [Koncept](devtest-lab-concepts.md)

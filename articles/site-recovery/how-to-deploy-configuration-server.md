@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
-Du distribuerar ett lokalt konfigurationsservern när du använder [Azure Site Recovery](site-recovery-overview.md) för katastrofåterställning av virtuella VMware-datorer och fysiska servrar till Azure. Konfiguration av servern koordinater kommunikation mellan lokal VMware och Azure. Den hanterar också datareplikering. Den här artikeln vägleder dig igenom de steg som krävs för att distribuera konfigurationsservern.
+Du distribuerar ett lokalt konfigurationsservern när du använder [Azure Site Recovery](site-recovery-overview.md) för katastrofåterställning av virtuella VMware-datorer och fysiska servrar till Azure. Konfiguration av servern koordinater kommunikation mellan lokal VMware och Azure. Den hanterar också datareplikering. Den här artikeln vägleder dig igenom de steg som krävs för att distribuera konfigurationsservern när du replikera virtuella VMware-datorer till Azure. [Följ den här artikeln](site-recovery-set-up-physical-to-azure.md) om du behöver konfigurera en konfigurationsserver för fysisk serverreplikering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Vi rekommenderar att du distribuerar konfigurationsservern som en högtillgänglig VMware VM. För fysisk serverreplikering kan konfigurationsservern ställas in på en fysisk dator. Minsta maskinvarukrav sammanfattas i följande tabell.
+Vi rekommenderar att du distribuerar konfigurationsservern som en högtillgänglig VMware VM. Minsta maskinvarukrav sammanfattas i följande tabell.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Om du vill lägga till en extra NIC på konfigurationsservern lägger du till de
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska självstudier om hur du ställer in katastrofåterställning av [virtuella VMware-datorer](tutorial-vmware-to-azure.md) och [fysiska servrar](tutorial-physical-to-azure.md) till Azure.
+Ställ in återställning av [virtuella VMware-datorer](tutorial-vmware-to-azure.md) till Azure.

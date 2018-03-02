@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
 
@@ -70,7 +70,7 @@ Om nätverksmappning redan har inträffat, kan du inte ändra det virtuella mål
 
 
 ## <a name="subnet-selection"></a>Val av undernät
-Undernätet för den virtuella måldatorn är valt baserat på namnet på undernätet för den virtuella källdatorn. Om ett undernät som har samma namn som den virtuella källdatorn är tillgängliga i målnätverket, har undernätet angetts för den virtuella måldatorn. Om ett undernät med samma namn inte finns i målnätverket, har alfabetiskt första undernätet angetts som mål-undernät. 
+Undernätet för den virtuella måldatorn är valt baserat på namnet på undernätet för den virtuella källdatorn. Om ett undernät som har samma namn som den virtuella källdatorn är tillgängliga i målnätverket, har undernätet angetts för den virtuella måldatorn. Om ett undernät med samma namn inte finns i målnätverket, har alfabetiskt första undernätet angetts som mål-undernät.
 
 Om du vill ändra undernätet, gå till den **beräknings- och nätverksinställningar** inställningar för den virtuella datorn.
 

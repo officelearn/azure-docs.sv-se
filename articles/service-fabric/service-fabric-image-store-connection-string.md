@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Förstå inställningen ImageStoreConnectionString
 
@@ -34,15 +34,17 @@ Det finns tre möjliga typer av Image Store-providers och deras motsvarande ansl
 
 2. Filsystem: ”file:[file systemsökvägen]”
 
-3. Azure Storage ”: xstore:DefaultEndpointsProtocol = https; AccountName = [...]; AccountKey = [...]; Behållaren = [...] ”
+3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...]"
 
 Providertyp som används i produktionen är Image Store-tjänsten, som är en tillståndskänslig beständiga systemtjänst som du ser i Service Fabric Explorer. 
 
-![Image Store-tjänsten][img_is]
+![Image Store Service][img_is]
 
 Värd för Image Store i en systemtjänst i själva klustret eliminerar externa beroenden för paketdatabasen och ger oss mer kontroll över ort lagringsutrymme. Framtida förbättringar runt Image Store är sannolikt att rikta Image Store-providern först, om inte exklusivt. Anslutningssträngen för Image Store Service-providern har inte någon unik information eftersom klienten är redan ansluten till målklustret. Klienten behöver bara känna protokoll som systemtjänsten som mål som ska användas.
 
-Filsystem-providern används i stället för Image Store-tjänsten för den lokala en ruta kluster under utvecklingen för att starta klustret något snabbare. Skillnaden är vanligtvis liten, men det är en användbar optimering för de flesta avdelningen under utvecklingen. Det är möjligt att distribuera ett kluster med lokala en ruta med de andra provider lagringstyper samt, men det finns vanligtvis ingen anledning att göra det eftersom utveckla och testning arbetsflödet fortsätter att vara detsamma oavsett providern. Än denna användning finns filsystemet och Azure Storage-providers endast för bakåtkompatibilitet.
+Filsystem-providern används i stället för Image Store-tjänsten för den lokala en ruta kluster under utvecklingen för att starta klustret något snabbare. Skillnaden är vanligtvis liten, men det är en användbar optimering för de flesta avdelningen under utvecklingen. Det är möjligt att distribuera ett kluster med lokala en ruta med de andra provider lagringstyper samt, men det finns vanligtvis ingen anledning att göra det eftersom utveckla och testning arbetsflödet fortsätter att vara detsamma oavsett providern. Azure Storage-providern finns bara för bakåtkompatibilitet gamla kluster distribueras innan Image Store Service provider infördes.
+
+Dessutom varken providern filsystem eller Azure Storage-providern ska inte användas som en metod för att dela en Image Store mellan flera kluster - resulterar detta i skadade data för klusterkonfigurationen som varje kluster kan skriva motstridiga data till den Image Store. Om du vill dela etablerade programpaket mellan flera kluster använder [sfpkg] [ 12] filer i stället som kan överföras till en extern butik hämta URI.
 
 Så medan ImageStoreConnectionString konfigureras använda du vanligtvis bara standardinställningen. När du publicerar till Azure via Visual Studio anges parametern automatiskt åt dig därför. Anslutningssträngen är alltid ”fabric: Avbildningsarkiv” för programdistribution till kluster finns i Azure. Även om när osäkra, värdet alltid kan verifieras genom att hämta klustermanifestet av [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), eller [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testa både lokalt och driftskluster alltid ska konfigureras för att du använder Image Store Service-providern.
 
@@ -55,4 +57,4 @@ Så medan ImageStoreConnectionString konfigureras använda du vanligtvis bara st
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

@@ -1,6 +1,6 @@
 ---
-title: "Azure Container registret tutorial – förbereda en georeplikerad Azure-behållaren registret"
-description: "Skapa en Azure-behållaren registret, konfigurera geo-replikering, förbereda en Docker-avbildning och distribuera den till registret. En del i en serie med tre delar."
+title: "Självstudie om Azure Container Registry – förbereda ett georeplikerat Azure Container Registry"
+description: "Skapa ett Azure-behållarregister, konfigurera geo-replikering, förbereda en Docker-avbildning och distribuera den till registret. Del ett av en serie i tre delar."
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,105 +9,105 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Förbereda ett geo-replikerade Azure-behållaren register
+# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Förbereda ett georeplikerat Azure Container Registry
 
-En Azure-behållaren är ett privat Docker-register som distribueras i Azure som du kan hålla nätverket Stäng dina distributioner. I den här uppsättningen med tre självstudiekursen artiklar du lära dig hur du använder geo-replikering för att distribuera ett ASP.NET Core webbprogram som körs i en Linux-behållare till två [Web Apps för behållare](../app-service/containers/index.yml) instanser. Du ser hur Azure automatiskt distribuerar avbildningen till varje förekomst av webbprogrammet från närmaste georeplikerad databasen.
+Ett Azure-behållarregister är ett privat Docker-register som distribueras i Azure så att du kan lagra behållarregistren nära distributionerna i nätverket. I den här serien med tre självstudieartiklar får du lära dig att använda geo-replikering för att distribuera ett ASP.NET Core-webbprogram som körs i en Linux-behållare eller två [Web Apps for Containers](../app-service/containers/index.yml)-instanser. Du ser hur Azure automatiskt distribuerar avbildningen till varje webbappinstans från den närmaste geo-replikerade lagringsplatsen.
 
-I den här kursen ingår i en serie med tre delar:
+I den här självstudien ingår i en serie med tre delar:
 
 > [!div class="checklist"]
-> * Skapa ett geo-replikerade Azure-behållaren register
+> * Skapa ett georeplikerat Azure-behållarregister
 > * Klona programmets källkod från GitHub
-> * Skapa en Docker behållaren image från programmet källa
-> * Push-behållaren avbildningen till registret
+> * Skapa en Docker-behållaravbildning från programkällkoden
+> * Överföra behållaravbildningen till registret
 
-I efterföljande självstudiekurser distribuera behållaren från din privata registret till ett webbprogram som körs i två Azure-regioner. Du sedan uppdatera koden i programmet och uppdatera både Web App-instanser med en enda `docker push` i registret.
+I efterföljande självstudier distribuerar du behållaren från ditt privata register till en webbapp som körs i två Azure-regioner. Du uppdaterar sedan koden i programmet, och uppdaterar båda Web App-instanserna med en enda `docker push` till registret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här kursen kräver att du använder Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+I den här självstudien krävs att du kör Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för behållare.
 
 För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
 
-Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. Därför rekommenderar vi en lokal installation av Azure CLI och Docker-utvecklingsmiljö.
+Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i den här självstudien. Vi rekommenderar därför en lokal installation av Azure CLI och Docker-utvecklingsmiljön.
 
 > [!IMPORTANT]
-> Funktionen geo-replikering i Azure Container registret är för närvarande i **preview**. Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner den [kompletterande villkor för användning](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras innan allmän tillgänglighet (GA).
+> Funktionen för geo-replikering för Azure Container Registry är finns för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 >
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 
-Logga in på [Azure Portal](http://portal.azure.com).
+Logga in på [Azure-portalen](http://portal.azure.com).
 
-Välj **nya** > **behållare** > **Azure-behållaren registret**.
+Välj **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
 
-![Skapa en behållare registret i Azure-portalen][tut-portal-01]
+![Skapa ett behållarregister i Azure-portalen][tut-portal-01]
 
-Konfigurera nya registret med följande inställningar:
+Konfigurera ditt nya register med följande inställningar:
 
-* **Registrets**: skapa ett namn i registret som globalt unikt i Azure och innehåller 5 50 alfanumeriska tecken
-* **Resursgruppen**: **Skapa nytt** > `myResourceGroup`
-* **Plats**:`West US`
-* **Administratörsanvändare**: `Enable` (krävs för webbprogrammet för behållare och hämtar bilder)
+* **Registernamn**: Skapa ett registernamn som är globalt unikt i Azure och som innehåller 5–50 alfanumeriska tecken
+* **Resursgrupp**: **Skapa ny** > `myResourceGroup`
+* **Plats**: `West US`
+* **Adminstratörsanvändare**: `Enable` (krävs för Web App for Containers för att hämta avbildningar)
 * **SKU**: `Premium` (krävs för geo-replikering)
 
-Välj **skapa** att distribuera ACR-instans.
+Välj **Skapa** för att distribuera ACR-instansen.
 
-![Skapa en behållare registret i Azure-portalen][tut-portal-02]
+![Skapa ett behållarregister i Azure-portalen][tut-portal-02]
 
-I resten av den här kursen använder vi `<acrName>` som platshållare för behållaren **registrets** som du har valt.
+I resten av den här självstudien använder vi `<acrName>` som platshållare för det **behållarregisternamn** du väljer.
 
 > [!TIP]
-> Eftersom Azure-behållaren register är vanligtvis långlivade resurser som används på flera värdar i behållare, rekommenderar vi att du skapar registret i sin egen resursgruppen. När du konfigurerar georeplikerad register och webhooks placeras dessa ytterligare resurser i samma resursgrupp.
+> Eftersom Azure-behållarregister vanligtvis är långlivade resurser som används av flera behållarvärdar rekommenderar vi att du skapar ditt register i en egen resursgrupp. När du konfigurerar georeplikerade register och webhooks placeras de här ytterligare resurserna i samma resursgrupp.
 >
 
 ## <a name="configure-geo-replication"></a>Konfigurera geo-replikering
 
-Nu när du har en Premium-registret kan du konfigurera geo-replikering. Ditt webbprogram som du konfigurerar i nästa kurs ska köras i två regioner, dra sedan dess behållare bilder från närmaste registret.
+Nu när du har ett Premium-register kan du konfigurera geo-replikering. Din webbapp, som du konfigurerar i nästa självstudie för att köras i två regioner, kan då hämta sina behållaravbildningar från det närmaste registret.
 
-Navigera till din nya behållare registret i Azure portal och välj **replikeringar** under **SERVICES**:
+Gå till ditt nya behållarregister i Azure-portalen och välj **Replikeringar** under **TJÄNSTER**:
 
-![Replikeringar i Azure portal behållaren registret UI][tut-portal-03]
+![Replikeringar i användargränssnittet i behållarregister i Azure-portalen][tut-portal-03]
 
-En karta visas med grön Sexhörningar som representerar Azure-regioner för geo-replikering:
+En karta visas som visar gröna sexhörningar som representerar Azure-regioner som är tillgängliga för geo-replikering:
 
- ![Region kartan i Azure-portalen][tut-map-01]
+ ![Regionskarta i Azure Portal][tut-map-01]
 
-Replikera i registret till östra USA genom att välja den gröna Sexhörning och välj sedan **skapa** under **skapa replikering**:
+Replikera ditt register till regionen USA, östra genom att välja dess gröna sexhörning. Välj sedan **Skapa** under **Skapa replikering**:
 
- ![Skapa replikering Användargränssnittet i Azure-portalen][tut-portal-04]
+ ![Skapa replikerings-UI i Azure-portalen][tut-portal-04]
 
-När replikeringen är klar portalen visar *klar* för båda regioner. Använd den **uppdatera** knappen för att uppdatera status för replikering; det kan ta någon minut så för att replikerna skapas och synkroniseras.
+När replikeringen är slutförd visar portalen *Klar* för båda regionerna. Använd knappen **Uppdatera** för att uppdatera replikeringens status. Det kan ta en minut eller så innan replikerna har skapats och synkroniserats.
 
-![Replikeringsstatus Användargränssnittet i Azure-portalen][tut-portal-05]
+![Status för replikerings-UI i Azure-portalen][tut-portal-05]
 
-## <a name="container-registry-login"></a>Behållaren registret inloggning
+## <a name="container-registry-login"></a>Logga in på behållarregistret
 
-Nu när du har konfigurerat geo-replikering kan skapa en avbildning av behållaren och push i registret. Du måste först logga in till din ACR-instansen innan du skickar bilder till den. Med [Basic, Standard och Premium-SKU: er](container-registry-skus.md), du kan autentisera med hjälp av din Azure identitet.
+Nu när du har konfigurerat geo-replikering ska du skapa en behållaravbildning och push-överföra den till registret. Logga in på din ACR-instans innan du push-överför avbildningar till den. Med [SKU:er på nivån Basic, Standard och Premium](container-registry-skus.md) kan du autentisera med din Azure-identitet.
 
-Använd den [az acr inloggning](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) kommandot för att autentisera och cachelagrar autentiseringsuppgifter för registret. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
+Använd kommandot [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) för att autentisera och cachelagra autentiseringsuppgifterna för registret. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar `Login Succeeded` när du är klar.
+Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exemplet i den här självstudiekursen innehåller en liten webbprogram som skapats med [ASP.NET Core](http://dot.net). Appen fungerar en HTML-sida som visar den region som distribuerades avbildningen av registret för Azure-behållare.
+Exemplet i den här självstudien innehåller en liten webbapp som är inbyggd i [ASP.NET Core](http://dot.net). Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
 
 ![Självstudieappen visas i webbläsare][tut-app-01]
 
-Använda git för att hämta exemplet i en lokal katalog och `cd` till katalogen:
+Använd git för att ladda ned exemplet till en lokal katalog, och `cd` till katalogen:
 
 ```bash
 git clone https://github.com/Azure-Samples/acr-helloworld.git
@@ -116,7 +116,7 @@ cd acr-helloworld
 
 ## <a name="update-dockerfile"></a>Uppdatera Dockerfile
 
-Dockerfile som ingår i exemplet visar hur behållaren har skapats. Den startar från ett officiellt [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore) bilden, kopierar programmet filer till behållare och installerar beroenden, kompilerar utdata med hjälp av officiellt [aspnetcore build](https://store.docker.com/community/images/microsoft/aspnetcore-build) bilden, och slutligen skapar en optimerad aspnetcore-bild.
+Den Dockerfile som finns i exemplet visar hur behållaren är byggd. Den startar från en officiell [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore)-avbildning, kopierar programfilerna till behållaren, installerar beroenden, kompilerar utdata med den officiella [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build)-avbildningen och skapar slutligen en optimerad aspnetcore-avbildning.
 
 Dockerfile finns på `./AcrHelloworld/Dockerfile` i den klonade källan.
 
@@ -146,9 +146,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-Programmet i den *acr helloworld* bild försöker identifiera den region där dess behållare har distribuerats genom att fråga DNS om information om i registret inloggningsserver. Du måste ange i registret inloggnings server-URL i den `DOCKER_REGISTRY` miljövariabeln i Dockerfile.
+Programmet i avbildningen *acr-helloworld* försöker bestämma region som dess behållare distribuerades från genom att fråga DNS om information om registrets inloggningsserver. Du måste ange URL-adressen till registrets inloggningsserver i miljövariabeln `DOCKER_REGISTRY` i Dockerfile.
 
-Först hämta i registret inloggningen server URL: en med den `az acr show` kommando. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
+Hämta först URL-adressen till registrets inloggningsserver med kommandot `az acr show`. Ersätt `<acrName>` med namnet på registret som du skapade i föregående steg.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,21 +162,21 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Därefter uppdaterar du den `DOCKER_REGISTRY` raden med server i registret inloggnings-URL. I det här exemplet vi uppdaterar raden för att återspegla våra exempel registret namn, *uniqueregistryname*:
+Därefter uppdaterar du raden `DOCKER_REGISTRY` med registrets inloggningsserver-URL. I det här exemplet uppdaterar vi raden för att återspegla vårt exempelregisternamn, *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
-## <a name="build-container-image"></a>Skapa behållaren image
+## <a name="build-container-image"></a>Skapa behållaravbildning
 
-Nu när du har uppdaterat Dockerfile med URL-Adressen till registret, kan du använda `docker build` att skapa behållaren avbildningen. Kör följande kommando för att skapa avbildningen och tagga med URL-Adressen för din privata registret, Ersätt återigen `<acrName>` med namnet på registret:
+Nu när du har uppdaterat din Dockerfile med registrets URL kan du använda `docker build` för att skapa behållaravbildningen. Kör följande kommando för att skapa avbildningen och tagga den med URL-adressen till ditt privata register, där du återigen ersätter `<acrName>` med namnet på ditt register:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Flera rader på utdata visas som Docker-avbildning är uppbyggd (visas här trunkerat):
+Flera rader med utdata visas när Docker-avbildningen har skapats (visas trunkerat här):
 
 ```bash
 Sending build context to Docker daemon  523.8kB
@@ -192,7 +192,7 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Använd den `docker images` kommandot för att se den inbyggda avbildningen:
+Använd kommandot `docker images` för att se den skapade avbildningen:
 
 ```bash
 docker images
@@ -206,15 +206,15 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 ...
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Push-avbildningen till registret för Azure-behållare
+## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Använd slutligen den `docker push` kommandot för att skicka den *acr helloworld* avbildningen till registret. Ersätt `<acrName>` med namnet på registret.
+Använd till slut kommandot `docker push` för att skicka avbildningen *acr-helloworld* till ditt register. Ersätt `<acrName>` med namnet på registret.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Eftersom du har konfigurerat i registret för geo-replikering replikeras automatiskt avbildningen till både den *västra USA* och *östra USA* regioner med den här enda `docker push` kommando.
+Eftersom du har konfigurerat registret för georeplikering replikeras avbildningen automatiskt till både regionerna *USA, västra* och *USA, östra* med kommandot `docker push`.
 
 Resultat:
 
@@ -232,18 +232,18 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen skapas ett privat, georeplikerad behållare register som skapat en avbildning av behållare, och sedan pushas avbildningen till registret. Genom att följa stegen i kursen får du:
+I den här självstudien har du skapat ett privat, geo-replikerat behållarregister, skapat en behållaravbildning och sedan push-överfört avbildningen till ditt register. Genom att följa stegen i självstudien har du:
 
 > [!div class="checklist"]
-> * Skapa ett geo-replikerade Azure-behållaren register
-> * Klonat programkällkod från GitHub
-> * Bygger en Docker-behållare avbildning från programmet källa
-> * Pushas behållaren avbildningen till registret
+> * Skapat ett georeplikerat Azure-behållarregister
+> * Klonat programmets källkod från GitHub
+> * Skapat en Docker-behållaravbildning från programkällkoden
+> * Överfört behållaravbildningen till registret
 
-Gå vidare till nästa kurs mer information om hur du distribuerar din behållare till flera webbprogram för behållare instanser med geo-replikering för att hantera avbildningar lokalt.
+Fortsätt till nästa självstudie om du vill lära dig att distribuera behållaren till flera Web Apps for Containers-instanser och använda geo-replikering för att hantera avbildningarna lokalt.
 
 > [!div class="nextstepaction"]
-> [Distribuera webbapp från Azure-behållare registret](container-registry-tutorial-deploy-app.md)
+> [Distribuera webbapp från Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

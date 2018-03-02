@@ -21,7 +21,7 @@ Om du inte redan har lagts ditt webbprogram som en Traffic Manager-slutpunkt må
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Klicka på **verifiera** att spara konfigurationen av domain name.
-6. När du klickar på **verifiera** Azure kommer startar domänverifiering arbetsflöde. Detta kommer att söka efter ägarskap för domänen som värdnamn tillgänglighet och rapporten slutfört eller detaljerade fel med normativ guidence om hur du åtgärdar felet.    
+6. När du klickar på **verifiera** Azure kommer startar domänverifiering arbetsflöde. Detta kommer att söka efter ägarskap för domänen som värdnamn tillgänglighet och rapporten slutfört eller detaljerade fel med vägledning om hur du åtgärdar felet.    
 7. När valideringen har lyckats **lägga till värdnamnet** knappen blir aktiv och du kommer att kunna tilldela värdnamnet. Navigera till ditt domännamn i en webbläsare. Du bör nu se din app körs med ditt domännamn. 
    
    När konfigurationen är klar, visas det anpassade domännamnet i den **domännamn** avsnitt av ditt webbprogram.

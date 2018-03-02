@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning
 
@@ -298,27 +298,27 @@ IoT-hubb förutsätter följande JSON-representation av meddelandehuvuden för m
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 Meddelandet Systemegenskaper föregås av `'$'` symbolen.
-Egenskaper för användare nås alltid med deras namn. Om ett användarnamn för egenskapen sammanfaller med en systemegenskap (exempelvis `$to`), egenskapen hämtas med den `$to` uttryck.
-Du kan alltid komma åt Systemegenskapen med hakparenteser `{}`: du kan till exempel använda uttrycket `{$to}` att komma åt Systemegenskapen `to`. Inom hakparenteser egenskapsnamn hämta alltid Systemegenskapen motsvarande.
+Egenskaper för användare nås alltid med deras namn. Om ett användarnamn för egenskapen sammanfaller med en systemegenskap (exempelvis `$contentType`), egenskapen hämtas med den `$contentType` uttryck.
+Du kan alltid komma åt Systemegenskapen med hakparenteser `{}`: du kan till exempel använda uttrycket `{$contentType}` att komma åt Systemegenskapen `contentType`. Inom hakparenteser egenskapsnamn hämta alltid Systemegenskapen motsvarande.
 
 Kom ihåg att egenskapsnamn är skiftlägeskänsliga.
 
@@ -350,12 +350,58 @@ Referera till den [uttryck och villkor] [ lnk-query-expressions] avsnittet för 
 
 IoT-hubb kan endast vidarebefordra baserat på meddelandetexten innehållet om meddelandetexten är korrekt formaterad JSON kodning i UTF-8, UTF-16 eller UTF-32. Ange innehållstypen i meddelandet för att `application/json`. Ange det innehåll som kodning av UTF teckenkodningar som stöds i meddelandena. Om något av huvudena har angetts försöker inte IoT-hubb utvärdera eventuella frågeuttryck som rör innehållet mot meddelandet. Om meddelandet inte är ett JSON-meddelande, eller om meddelandet inte anger content-type och Innehållskodning, kan du fortfarande använda meddelanderoutning för att vidarebefordra meddelandet baserat på meddelandena.
 
+I följande exempel visas hur du skapar ett meddelande med ett korrekt format och kodade JSON-meddelandetext:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Du kan använda `$body` i frågeuttrycket att skicka meddelandet. Du kan använda en enkel body-referens, brödtext matrisreferens eller flera body-referenser i frågeuttrycket. Din frågeuttryck kan också kombinera en brödtext referens med en referens för sidhuvudet. Följande är alla giltig fråga uttryck:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
@@ -513,7 +559,7 @@ I vägar villkor stöds följande typkontroll och omvandling funktioner:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| AS_NUMBER | Konverterar den inmatade strängen till ett tal. `noop`Om indata är ett tal. `Undefined` om strängen inte representerar ett tal.|
+| AS_NUMBER | Konverterar den inmatade strängen till ett tal. `noop` Om indata är ett tal. `Undefined` om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om det angivna uttrycket är en matris. |
 | IS_BOOL | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett booleskt värde. |
 | IS_DEFINED | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde. |

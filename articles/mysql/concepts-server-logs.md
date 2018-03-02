@@ -1,19 +1,19 @@
 ---
-title: "Server-loggar för Azure-databas för MySQL | Microsoft Docs"
+title: "Server-loggar för Azure-databas för MySQL"
 description: "Beskriver tillgängliga i Azure-databasen loggar för MySQL och tillgängliga parametrar för att aktivera olika loggningsnivåer."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 13b30df82c1a6c4c45a621a1f7a40148a55a7648
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.date: 02/28/2018
+ms.openlocfilehash: ce6b6208b74063ea5d6e9868ca414f833b1a2045
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Loggas i Azure-databas för MySQL
 Långsam frågeloggen är tillgänglig för användare i Azure-databas för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågeloggen kan användas för att identifiera prestandaflaskhalsar för felsökning. 

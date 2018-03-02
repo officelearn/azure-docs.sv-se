@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee8b89ab93fd10129cbb0e0634c5c920a928f1c1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -46,7 +46,7 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar vidarebefordra autentiseringsbegäranden, så att de behöver känna till de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 NPS-tillägget är avsedda att fungera med den befintliga infrastrukturen. Kontrollera att du har följande krav innan du börjar.
 
@@ -63,7 +63,7 @@ Windows Server 2008 R2 SP1 eller senare.
 Dessa bibliotek installeras automatiskt med tillägget.
 
 -   [Visual C++ Redistributable-paket för Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-modulen för Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Microsoft Azure Active Directory-modulen för Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Den Microsoft Azure Active Directory-modulen för Windows PowerShell installeras, om det inte redan finns, via ett konfigurationsskript som du körs som en del av installationen. Det finns inget behov av att installera den här modulen i förväg om den inte redan är installerad.
 

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -31,7 +31,7 @@ En *utlösaren* definierar hur en funktion har anropats. En funktion måste ha e
 
 Indata och utdata *bindningar* tillhandahåller en deklarativ metod för att ansluta till data från i din kod. Bindningar är valfria och en funktion kan ha flera indata och utdata bindningar. 
 
-Utlösare och bindningar kan du undvika hardcoding information om de tjänster som du arbetar med. Du funktionen tar emot data (till exempel innehållet i ett kömeddelande) i funktionsparametrar. Du skickar data (till exempel för att skapa ett kömeddelande) med hjälp av returvärdet för funktionen, en `out` parameter, eller en [insamlingsobjekt](functions-reference-csharp.md#writing-multiple-output-values).
+Utlösare och bindningar kan du undvika hardcoding information om de tjänster som du arbetar med. Funktionen tar emot data (till exempel innehållet i ett kömeddelande) i funktionsparametrar. Du skickar data (till exempel för att skapa ett kömeddelande) med hjälp av returvärdet för funktionen, en `out` parameter, eller en [insamlingsobjekt](functions-reference-csharp.md#writing-multiple-output-values).
 
 När du utvecklar funktioner med hjälp av Azure portal, utlösare och bindningar har konfigurerats i en *function.json* fil. Portalen innehåller ett gränssnitt för den här konfigurationen, men du kan redigera filen direkt genom att ändra till den **redigeraren**.
 
@@ -42,6 +42,50 @@ När du utvecklar funktioner genom att använda Visual Studio för att skapa en 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Information om vilka bindningar finns i förhandsgranskningen eller godkänns för produktion finns [språk som stöds](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Registrera bindning tillägg
+
+I version 2.x av Azure Functions-runtime måste du explicit registrera den [bindning tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) som du använder i appen funktion. 
+
+Tillägg levereras som NuGet-paket, där paketet vanligtvis namn börjar med [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Hur du installerar och registrerar bindning tillägg beror på hur du utvecklar dina funktioner: 
+
++ [Lokalt i C# med hjälp av Visual Studio eller VS-kod](#precompiled-functions-c)
++ [Lokalt med hjälp av Azure Functions grundläggande verktyg](#local-development-azure-functions-core-tools)
++ [I Azure-portalen](#azure-portal-development) 
+
+Det finns en grundläggande uppsättning bindningar i version 2.x som inte har angetts som tillägg. Du behöver inte registrera tillägg för följande utlösare och bindningar: HTTP-timer- och Azure Storage. 
+
+Information om hur du ställer in en funktionsapp att använda version 2.x för Functions-runtime finns [så avsedda för Azure Functions-runtime versioner](set-runtime-version.md). Version 2.x för Functions-runtime är för närvarande under förhandsgranskning. 
+
+Paketversionerna visas i det här avsnittet tillhandahålls endast som exempel. Kontrollera den [NuGet.org plats](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) att fastställa vilken version av ett visst tillägg som krävs av andra beroenden i funktionen appen.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Lokala C# utveckling med hjälp av Visual Studio eller VS-kod 
+
+När du använder Visual Studio eller Visual Studio-koden för att utveckla lokalt funktioner i C#, behöver du bara lägga till NuGet-paket för tillägget. 
+
++ **Visual Studio**: Använd NuGet Package Manager-verktyg. Följande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) installerar Azure DB som Cosmos-tillägget från Package Manager-konsolen:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: du kan installera paket från en kommandotolk med hjälp av den [dotnet lägga till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) kommandot i .NET-CLI på följande sätt:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Lokal utveckling Azure Functions grundläggande verktyg
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Azure portal-utveckling
+
+När du skapar en funktion eller lägga till en bindning till en befintlig funktion, uppmanas du när tillägget för utlösare eller bindning som läggs till kräver registrering.   
+
+När en varning visas för det specifika tillägget installeras, klickar du på **installera** att registrera tillägget. Du behöver bara installera varje tillägg en gång för en viss funktionsapp. 
+
+>[!Note] 
+>I portalen-installationen kan ta upp till 10 minuter på en plan för användning.
 
 ## <a name="example-trigger-and-binding"></a>Exempel utlösaren och bindning
 
@@ -72,7 +116,7 @@ Här är en *function.json* -filen för det här scenariot.
 
 Det första elementet i den `bindings` matrisen är Queue storage utlösaren. Den `type` och `direction` egenskaper identifiera utlösaren. Den `name` egenskapen identifierar funktionsparametern som tar emot innehållet i kön meddelandet. Namnet på köns övervaka `queueName`, och anslutningssträngen i appinställningen som identifieras av `connection`.
 
-Det andra elementet i den `bindings` matrisen är Azure Table Storage-utdatabindning. Den `type` och `direction` egenskaper identifiera bindningen. Den `name` egenskapen anger hur funktionen ger den nya tabellraden i det här fallet med hjälp av funktionen returvärdet. Namnet på tabellen `tableName`, och anslutningssträngen i appinställningen som identifieras av `connection`.
+Det andra elementet i den `bindings` matrisen är Azure Table Storage-utdatabindning. Den `type` och `direction` egenskaper identifiera bindningen. Den `name` egenskapen anger hur funktionen ger den nya tabellraden, i det här fallet med hjälp av funktionen returvärde. Namnet på tabellen `tableName`, och anslutningssträngen i appinställningen som identifieras av `connection`.
 
 Visa och redigera innehållet i *function.json* i Azure-portalen klickar du på den **redigeraren** alternativet på den **integrera** för din funktion.
 

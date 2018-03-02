@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maximalt antal lagringsalternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -26,13 +26,13 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Ingår lagringsutrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Alternativ för min edtu: er per databas ** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Alternativ för max edtu: er per databas ** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Alternativ för min edtu: er per databas | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Alternativ för max edtu: er per databas | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Maximalt lagringsutrymme per databas (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -42,13 +42,13 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Saknas | Saknas | Saknas | Gäller inte | 
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga inloggningar per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Alternativ för min edtu: er per databas ** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Alternativ för max edtu: er per databas ** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Alternativ för min edtu: er per databas | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Alternativ för max edtu: er per databas | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
 | Maximalt antal lagringsalternativ per databas (GB) * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
@@ -87,7 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, Kanada Central, Kanada Öst, Frankrike Central, Tyskland centrala östra Japan, centrala Korea södra centrala USA, södra Östasien, USA East2 , USA, västra USA Gov Virginia och västra Europa. 
+> \* På Premium-nivån är mer än 1 TB lagringsutrymme för närvarande tillgängligt i följande regioner: östra Australien, sydöstra Australien, centrala Kanada, östra Kanada, centrala Frankrike, centrala Tyskland, östra Japan, centrala Korea, södra centrala USA, Sydostasien, östra USA 2, västra USA, Virginia (USA-förvaltad region) och Västeuropa. 
 >
->\*\* Min/max edtu: er per databas startar 200 edtu: er och högre **Standard** pooler finns i förhandsgranskningen.
->
+

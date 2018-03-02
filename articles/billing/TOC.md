@@ -1,3 +1,5 @@
+# [Dokumentation om Azure-fakturering](index.md)
+
 # Kom igång
 ## [Undvika oväntade kostnader](billing-getting-started.md)
 ## [Skapa tjänster som ingår i kostnadsfritt konto](billing-create-free-services-included-free-account.md)

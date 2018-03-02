@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planera kapacitet och skalning för VMware-replikering med Azure Site Recovery
 
@@ -20,7 +20,7 @@ Använd den här artikeln för att räkna ut planera för kapacitet och skalning
 
 ## <a name="how-do-i-start-capacity-planning"></a>Hur börjar jag kapacitetsplanering?
 
-Samla in information om replikeringsmiljön genom att köra den [Azure Site Recovery-distribution Planner](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. [Lär dig mer](site-recovery-deployment-planner.md) om det här verktyget. Du kan samla in information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättningsuppdateringar per disk. Verktyget omfattar även kraven på nätverksbandbredd och Azure-infrastrukturen för lyckad replikering och testa redundans.
+Samla in information om replikeringsmiljön genom att köra den [Azure Site Recovery-distribution Planner](https://aka.ms/asr-deployment-planner-doc) för VMware-replikering. [Lär dig mer](site-recovery-deployment-planner.md) om det här verktyget. Du kan samla in information om kompatibla och inkompatibla virtuella datorer, diskar per virtuell dator och data omsättningsuppdateringar per disk. Verktyget kontrollerar även kraven på nätverksbandbredd och vilken Azure-infrastruktur som krävs för en lyckad replikering och testning av redundans.
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitetsplanering
 
@@ -85,7 +85,7 @@ När du har använt den [verktyget distribution Planner](site-recovery-deploymen
 2. Klicka på **Ändra egenskaper** i snapin-modulen.
 
     ![Skärmbild av Azure Backup MMC snapin-modulen alternativet för att ändra egenskaper](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. På den **begränsning** väljer **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder**. Ange begränsningar för arbete och fritid timmar. Giltiga intervall är från 512 kbit/s till 102 Mbit/s.
+3. På den **begränsning** väljer **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder**. Ange begränsningar för arbete och fritid timmar. Giltigt intervall är från 512 kbit/s och 1023 Mbit/s per sekund.
 
     ![Skärmbild av Azure Backup egenskapsdialogrutan](./media/site-recovery-vmware-to-azure/throttle2.png)
 

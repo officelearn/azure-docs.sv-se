@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Självstudier: Azure Active Directory-integrering med Rollbar
 
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Rollbar domän med enkel inloggning information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. I den **identifierare** textruta anger du URL:`https://saml.rollbar.com`
+    a. I den **identifierare** textruta anger du URL: `https://saml.rollbar.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![URL: er och Rollbar domän med enkel inloggning information](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://rollbar.com/<accountname>/saml/login/azure/`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Rollbar klienten supportteamet](mailto:support@rollbar.com) att hämta dessa värden. 
@@ -149,11 +149,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Klicka på **Spara**.
 
-11. När du klickar på Spara knappen skärmen blir så här. Utför följande steg i det här avsnittet:
+11. När du klickar på Spara knappen skärmen blir så här:
     
     ![Konfiguration](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > För att kunna slutföra följande steg måste du först lägga till dig själv som en användare Rollbar app i Azure.
+    a. Om du vill kräva att alla användare att autentisera via Azure och klicka sedan på **logga in via din identitetsleverantör** återautentisera via Azure.  
 
-    a. Välj **kräver inloggning via SAML-identitetsprovider** kryssrutan.
+    b.  När du kommer tillbaka till skärmen, välja den **kräver inloggning via SAML-identitetsprovider** kryssrutan.
 
     b. Klicka på **Spara**.
 

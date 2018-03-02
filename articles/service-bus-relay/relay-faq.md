@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
 
@@ -76,14 +76,13 @@ Skicka ett meddelande till en Service Bus relay behandlas som en ”full via” 
 Reläer som öppnas med hjälp av den **netTCPRelay** WCF bindning behandlar meddelanden inte som enskilda meddelanden, men som en dataström med data som flödar genom systemet. När du använder den här bindningen har bara avsändaren och lyssnare insyn i fastställandet av de enskilda meddelanden skickas och tas emot. För vidarebefordrar som använder den **netTCPRelay** bindning, behandlas alla data som en dataström för att beräkna fakturerbar meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskild relay på grundval av 5 minuter. Sedan dividerar den den totala mängden data med 64 KB att fastställa antalet fakturerbar meddelanden för att relay under den tidsperioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvoten namn | Omfång | Typ | Beteende när överskridits | Värde |
-| --- | --- | --- | --- | --- |
-| Samtidiga lyssnare på ett relä |Entitet |Statisk |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
-| Samtidiga relay-lyssnare |Systemomfattande |Statisk |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |2,000 |
-| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Systemomfattande |Statisk |- |5,000 |
-| Relay slutpunkter per namnområde för tjänsten |Systemomfattande |Statisk |- |10 000 |
-| Meddelandestorlek för [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) och [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) vidarebefordrar |Systemomfattande |Statisk |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelandestorlek för [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) och [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) vidarebefordrar |Systemomfattande |Statisk |- |Obegränsat |
+| Kvoten namn | Omfång |  Anteckningar | Värde |
+| --- | --- | --- | --- |
+| Samtidiga lyssnare på ett relä |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
+| Samtidiga relay-anslutningar per alla relay-slutpunkterna i ett namnområde för tjänsten |Namnrymd |- |5 000 |
+| Relay slutpunkter per namnområde för tjänsten |Namnrymd |- |10 000 |
+| Meddelandestorlek för [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) och [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) vidarebefordrar |Namnrymd |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelandestorlek för [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) och [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) vidarebefordrar |Namnrymd |Ingen gräns meddelandestorlek. |Obegränsat |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Har Relay användning kvoter?
 Som standard för alla Molntjänsten anger Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Vi förstår att dina behov ibland kanske överskrider gränserna. Du kan kontakta kundtjänst när som helst, så att vi kan förstå dina behov och justera dessa gränser korrekt. För Service Bus är sammanställd användning kvoter följande:

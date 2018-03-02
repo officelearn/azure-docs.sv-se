@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4a9235db7431b531864272d220006dbe8340924
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
 
@@ -52,7 +52,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
-Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az_batch_account_create) kommando. Du behöver ett konto för att skapa beräkningsresurser (pooler med datornoder) och Batch-jobb.
+Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az_batch_account_create). Du behöver ett konto för att skapa beräkningsresurser (pooler med datornoder) och Batch-jobb.
 
 I följande exempel skapas en Batch-kontot med namnet *mybatchaccount* i *myResourceGroup* och länkar det lagringskonto som du skapade.  
 
@@ -116,7 +116,7 @@ do
    az batch task create \
     --task-id mytask$i \
     --job-id myjob \
-    --command-line "/bin/bash -c printenv | grep AZ_BATCH; sleep 90s"
+    --command-line "/bin/bash -c 'printenv | grep AZ_BATCH; sleep 90s'"
 done
 ```
 
@@ -205,7 +205,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Batch-konto, en Batch-pool och ett Batch-jobb. Jobbet kördes exempelaktiviteter och du visade utdata som skapats på en av noderna. Nu när du förstår nyckelbegreppen för Batch-tjänsten är du redo att testa Batch med mer realistiska arbetsbelastningar i större skala. Om du vill veta mer om Azure Batch ska du fortsätta med Azure Batch-självstudierna. 
+I den här snabbstarten skapade du ett Batch-konto, en Batch-pool och ett Batch-jobb. Jobbet körde exempelaktiviteter och du visade utdata som skapats på en av noderna. Nu när du förstår nyckelbegreppen för Batch-tjänsten är du redo att testa Batch med mer realistiska arbetsbelastningar i större skala. Om du vill veta mer om Azure Batch ska du fortsätta med Azure Batch-självstudierna. 
 
 
 > [!div class="nextstepaction"]

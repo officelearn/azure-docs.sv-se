@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Skapa ett behållarregister med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 
-Välj **Ny** > **Behållare** > **Azure Container Registry**.
+Välj **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
 
 ![Skapa ett behållarregister i Azure-portalen][qs-portal-01]
 

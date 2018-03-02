@@ -1,36 +1,36 @@
 ---
-title: "Utforma din första Azure-databas för PostgreSQL med hjälp av Azure portal | Microsoft Docs"
-description: "Den här kursen visar hur du utformar din första Azure-databas för PostgreSQL med Azure-portalen."
+title: "Självstudie – Utforma din första Azure Database for PostgreSQL med Azure Portal"
+description: "I den här självstudien visar vi hur du utformar din första Azure Database for PostgreSQL med Azure-portalen."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 9be88f4ab4f5b2a7970f186b891e0867cc53dde5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Utforma din första Azure-databas för PostgreSQL med Azure-portalen
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudie: Utforma din första Azure Database for PostgreSQL med Azure Portal
 
-Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Med Azure-portalen kan du enkelt hantera servern och utforma en databas.
+Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. I Azure-portalen kan du enkelt hantera servern och utforma en databas.
 
-I kursen får du använder Azure-portalen att lära dig hur du:
+I den här självstudien använder du Azure-portalen till att:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
-> * Konfigurera server-brandväggen
-> * Använd [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) verktyg för att skapa en databas
-> * Läs in exempeldata
+> * Konfigurera serverbrandväggen
+> * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
+> * Läsa in exempeldata
 > * Frågedata
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -41,12 +41,12 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 En Azure Database för PostgreSQL-server skapas med en definierad uppsättning [compute- och lagringsresurser](./concepts-compute-unit-and-storage.md). Servern skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1.  Klicka på den **+ ny** knapp hittades i det övre vänstra hörnet i Azure-portalen.
+1.  Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
 2.  Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
  ![Azure Database för PostgreSQL – Skapa databasen](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  Fyll i detaljformuläret för den nya server med följande information, som det visas i föregående bil:
-    - Servernamn: **mypgserver-20170401** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
+    - Servernamn: **mydemoserver** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
     - Prenumeration: Om du har flera prenumerationer, väljer du lämplig prenumeration där resursen ska finnas eller debiteras till.
     - Resursgrupp: **myresourcegroup**
     - Valfritt inloggningsnamn och lösenord för serveradministratören
@@ -54,10 +54,10 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     - PostgreSQL-version
 
   > [!IMPORTANT]
-  > Inloggning för serveradministratör och lösenord som du anger här krävs för att logga in på servern och dess databaser senare i den här snabbstarten. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
+  > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här snabbstarten. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
 
-4.  Klicka på **Prisnivå** för att ange tjänstenivå och prestandanivå för den nya databasen. Snabbstart, Välj **grundläggande** nivån **50 Compute enheter** och **50 GB** ingår lagringsutrymme.
- ![Azure Database för PostgreSQL – välj tjänstnivå](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.  Klicka på **Prisnivå** för att ange prisnivån för den nya servern. För den här snabbstarten väljer du **Generell användning**, **Gen 4** compute-generering, 2 **virtuella kärnor**, 5 GB **lagring** och 7 dagar **kvarhållningsperiod för säkerhetskopior**. Välj redundansalternativet för säkerhetskopiering som heter **Geografiskt redundant** för att göra så att dina automatiska serversäkerhetskopior lagras i geo-redundant lagring.
+ ![Azure Database for PostgreSQL – välj prisnivå](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 5.  Klicka på **OK**.
 6.  Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
 
@@ -71,42 +71,42 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
 
-Azure-databasen för PostgreSQL-tjänsten använder en brandvägg på servernivå. Som standard förhindrar den här brandväggen alla externa program och verktyg ansluter till servern och alla databaser på servern såvida inte en brandväggsregel skapas för att öppna brandväggen för ett specifikt IP-adressintervall. 
+Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå. Brandväggen förhindrar som standard att alla externa program och verktyg ansluter till servern eller databaser på servern, om inte en brandväggsregel skapas som öppnar brandväggen för specifika IP-adressintervall. 
 
-1.  När distributionen är klar, klickar du på **alla resurser** från den vänstra menyn och skriver in namnet **mypgserver-20170401** för att söka efter din nyskapade server. Klicka på servernamnet som listas i sökresultatet. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
+1.  När distributionen är färdig klickar du på **Alla resurser** på den vänstra menyn och anger namnet **mydemoserver** för att söka efter servern som du nyss skapade. Klicka på servernamnet som listas i sökresultatet. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
  
  ![Azure Database för PostgreSQL – sök efter server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  På serversidan väljer du **Anslutningssäkerhet**. 
-3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. För den här självstudiekursen kommer vi att alla IP-adresser genom att skriva in **Regelnamnet = AllowAllIps**, **första IP-= 0.0.0.0** och **sista IP = 255.255.255.255** och klicka sedan på **spara** . Du kan ange en specifik brandväggsregel som omfattar ett mindre IP-intervall för att kunna ansluta från nätverket.
+3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. I den här självstudien tillåter vi alla IP-adresser genom att skriva in **Regelnamn = AllowAllIps**, **Start-IP-adress = 0.0.0.0** och **Slut-IP-adress = 255.255.255.255**. Därefter klickar vi på **Spara**. Du kan ställa in en specifik brandväggsregel som omfattar ett mindre IP-intervall för att kunna ansluta från ditt nätverk.
  
  ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Klicka på **spara** och klicka sedan på den **X** att stänga den **anslutningssäkerhet** sidan.
+4.  Klicka på **Spara** och sedan på **X** för att stänga sidan om **anslutningssäkerhet**.
 
   > [!NOTE]
-  > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall, kan du ansluta till din Azure SQL Database-server om din IT-avdelning öppnar port 5432.
+  > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
   >
 
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-När du skapade Azure-databasen för standard-PostgreSQL server **postgres** databasen skapades. För att ansluta till din databasserver, måste du ange värddatorinformation och autentiseringsuppgifter för åtkomst.
+När du skapade Azure Database for PostgreSQL-servern, skapades även standarddatabasen **postgres**. För att ansluta till din databasserver, måste du ange värddatorinformation och autentiseringsuppgifter för åtkomst.
 
-1. I den vänstra menyn i Azure-portalen klickar du på **alla resurser** och Sök efter den server som du just har skapat **mypgserver 20170401**.
+1. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter den server som du nyss skapade.
 
   ![Azure Database för PostgreSQL – sök efter server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. Klicka på servernamnet **mypgserver-20170401**.
+2. Klicka på servernamnet **mydemoserver**.
 
-4. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
+3. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
 
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
 ## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Anslut till PostgreSQL-databasen med psql i Cloud Shell
 
-Låt oss nu använda den [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) kommandoradsverktyg för att ansluta till Azure-databas för PostgreSQL-servern. 
+Nu använder vi [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-kommandoradsverktyget för att ansluta till Azure Database for PostgreSQL-servern. 
 1. Starta Azure Cloud Shell via terminalikonen överst i navigeringsfönstret.
 
    ![Azure Database för PostgreSQL – Azure Cloud Shell-terminalikonen](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
@@ -120,10 +120,10 @@ Låt oss nu använda den [psql](https://www.postgresql.org/docs/9.6/static/app-p
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Följande kommando till exempel, ansluter till standarddatabasen som heter **postgres** på din PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange ditt lösenord för serveradministratören när du uppmanas till detta.
+   Följande kommando ansluter till exempel till standarddatabasen som heter **postgres** på din PostgreSQL-server **mydemoserver.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange ditt lösenord för serveradministratören när du uppmanas till detta.
 
    ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>Skapa en ny databas
@@ -137,9 +137,9 @@ I prompten kör du följande kommando för att växla anslutning till den nylige
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure-databasen för PostgreSQL kan du utföra vissa grundläggande uppgifter:
+Nu när du vet hur du ansluter till Azure Database for PostgreSQL-databasen, kan du utföra några grundläggande uppgifter:
 
-Först skapar en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som spårar inventeringsinformation som använder den här SQL-koden:
+Skapa först en tabell och läs in lite data till den. Nu ska vi skapa en tabell som spårar inventeringsinformation med följande SQL-kod:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -148,59 +148,59 @@ CREATE TABLE inventory (
 );
 ```
 
-Du kan se den nyligen skapade tabellen i listan över tabeller nu genom att skriva:
+Du kan se den nyligen skapade tabellen i listan med tabeller genom att skriva:
 ```sql
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>Läser in data i tabeller
-Nu när du har en tabell att infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
+## <a name="load-data-into-the-tables"></a>Läs in data till tabellerna
+Nu när du har en tabell kan du infoga lite data i den. Kör följande fråga i den öppna kommandotolken så at du löser in några datarader.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Du har nu två rader med exempeldata i tabellen inventering som du skapade tidigare.
+Nu har du två rader med exempeldata i inventeringstabellen du skapade tidigare.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Fråga efter och uppdatera data i tabeller
-Kör följande fråga för att hämta information från databastabellen inventering. 
+## <a name="query-and-update-the-data-in-the-tables"></a>Ställ frågor mot och uppdatera data i tabellerna
+Kör följande fråga för att hämta information från inventeringsdatabastabellen. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Du kan också uppdatera data i tabellen.
+Du kan även uppdatera data i tabellen.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Du kan se de uppdaterade värdena när du hämtar data.
+Du ser de uppdaterade värdena när du hämtar data.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Återställa data till en tidigare tidpunkt
-Anta att du av misstag har tagit bort den här tabellen. Den här situationen är något som du lätt kan återställa från. Azure-databas för PostgreSQL kan du gå tillbaka till någon punkt i tid (i det senaste upp till 7 dagar (grundläggande) och 35 dagar (Standard)) och återställa den här i tidpunkt till en ny server. Du kan använda den här nya servern för att återställa dina data. Följ anvisningarna nedan för återställning av **mypgserver 20170401** server till en punkt innan inventering tabell har lagts till.
+Anta att du har tagit bort den här tabellen av misstag. Det är inte så enkelt att återställa från den här situationen. Med Azure Database for PostgreSQL kan du gå tillbaka till valfri tidpunkt från vilken du har serversäkerhetskopior (bestäms utifrån kvarhållningsperioden för säkerhetskopior som du konfigurerar) och återställa tidpunkten på en ny server. Du kan använda den nya servern till att återställa dina data. Med följande steg återställs servern **mydemoserver** till en tidpunkt innan inventeringstabellen lades till.
 
-1.  I Azure-databasen för PostgreSQL **översikt** för servern, klickar du på **återställa** i verktygsfältet. Den **återställa** öppnas.
-  ![Azure portal – återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
-2.  Fyll i den **återställa** formulär med informationen som krävs:
+1.  I Azure Database for PostgreSQL på sidan **Översikt** för servern, klickar du på **Återställ** i verktygsfältet. Sidan **Återställ** öppnas.
+  ![Azure-portalen – Återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+2.  Fyll i formuläret **Återställ** med den information som behövs:
 
-  ![Azure portal – återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
-  - **Återställningspunkt**: Välj en i tidpunkt som inträffar innan servern har ändrats
-  - **Målservern**: Ange ett nytt servernamn som du vill återställa till
-  - **Plats**: du kan inte välja regionen, som standard är det samma som källservern
-  - **Prisnivån**: du kan inte ändra det här värdet när du återställer en server. Det är samma som källservern. 
-3.  Klicka på **OK** [återställa servern till point-in-time](./howto-restore-server-portal.md) innan tabellen har tagits bort. Återställa en server till en annan tidpunkt skapar en dubblett ny server som den ursprungliga servern från och med punkten tidpunkt du anger under förutsättning att det är inom kvarhållningsperioden för din [tjänstnivån](./concepts-service-tiers.md).
+  ![Azure-portalen – Återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+  - **Återställningspunkt**: Välj en tidpunkt innan servern ändrades
+  - **Målserver**: Ange ett nytt servernamn som du vill återställa till
+  - **Plats**: Du kan inte välja region, som standard är det samma som källservern
+  - **Prisnivå**: Du kan inte ändra det här värdet när du återställer en server. Det är samma som källservern. 
+3.  Klicka på **OK** om du vill [återställa servern till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. Om du återställer en server till en annan tidpunkt skapas en dubblett av den ursprungliga servern vid den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [prisnivå](./concepts-pricing-tiers.md).
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får du har lärt dig hur du använder Azure-portalen och andra verktyg för att:
+I den här självstudien har du lärt dig hur du använder Azure-portalen och andra verktyg för att:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
-> * Konfigurera server-brandväggen
-> * Använd [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) verktyg för att skapa en databas
-> * Läs in exempeldata
+> * Konfigurera serverbrandväggen
+> * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
+> * Läsa in exempeldata
 > * Frågedata
 > * Uppdatera data
 > * Återställa data
 
-Granska sedan den här självstudiekursen om du vill veta hur du använder Azure CLI till liknande aktiviteter: [utforma din första Azure-databas för PostgreSQL med Azure CLI](tutorial-design-database-using-azure-cli.md)
+Nu ska du lära dig hur du använder Azure CLI till liknande aktiviteter. Gå till följande självstudie: [Utforma din första Azure Database for PostgreSQL med Azure CLI](tutorial-design-database-using-azure-cli.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsökning av problem med Azure-filer i Windows
 
@@ -164,6 +164,12 @@ Använd någon av följande lösningar:
 
 -   Enheten från samma användarkonto som innehåller programmet. Du kan använda ett verktyg som PsExec.
 - Skicka lagringskontonamn och nyckel i användarnamn och lösenordsparametrar av nätet använder kommandot.
+- Använd kommandot cmdkey att lägga till autentiseringsuppgifter i Autentiseringshanteraren. Du kan göra detta från en kommandorad service konto kontext, antingen via en interaktiv inloggning eller genom att använda runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Mappa resursen direkt utan att använda en enhetsbokstav. Vissa program kan inte ansluta till enhetsbeteckningen korrekt, så använder den fullständiga UNC-sökvägen kan vara mer tillförlitlig. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 När du följer anvisningarna kan visas följande felmeddelande när du kör net används för kontot system/nätverk: ”systemfel 1312 har uppstått. En angiven inloggningssession finns inte. Det kanske redan har avslutats ”. Om detta inträffar, se till att användarnamnet som skickades till net Använd inkluderar domäninformation (till exempel ”: [lagringskontonamn]. file.core.windows .net”).
 
@@ -180,7 +186,7 @@ Om du vill kopiera en fil i nätverket, måste du först dekryptera den. Använd
 
 - Använd den **Kopiera /d** kommando. Det gör de krypterade filerna ska sparas som dekrypterade filer vid målet.
 - Ange följande registernyckel:
-  - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetypen = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
   - Värde = 1

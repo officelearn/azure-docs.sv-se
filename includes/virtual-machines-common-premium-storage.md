@@ -35,7 +35,7 @@ Här följer några av funktionerna i Premium-lagring:
 
 * **Premium-lagringsdiskar**
 
-    Premium-lagring stöder Virtuella diskar som kan kopplas till specifika storlek-serien virtuella datorer. Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien och Fs-serien virtuella datorer. Du kan välja mellan sju diskstorlekar: P4 (32GB) P6 (64GB) P10 (128GB) P20 (512GB), P30 (1024GB), P40 (2 048 GB), p 50 (4095GB). P4 och P6 diskstorlekar stöds ännu bara för hanterade diskar. Varje diskstorleken har sin egen prestandakrav. Beroende på kraven för application kan du koppla en eller flera diskar till den virtuella datorn. Beskrivs i detalj i specifikationerna [Premium-lagring skalbarhets- och prestandamål](#scalability-and-performance-targets).
+    Premium-lagring stöder Virtuella diskar som kan kopplas till specifika storlek-serien virtuella datorer. Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och Esv3-serien virtuella datorer. Du kan välja mellan sju diskstorlekar: P4 (32GB) P6 (64GB) P10 (128GB) P20 (512GB), P30 (1024GB), P40 (2 048 GB), p 50 (4095GB). P4 och P6 diskstorlekar stöds ännu bara för hanterade diskar. Varje diskstorleken har sin egen prestandakrav. Beroende på kraven för application kan du koppla en eller flera diskar till den virtuella datorn. Beskrivs i detalj i specifikationerna [Premium-lagring skalbarhets- och prestandamål](#scalability-and-performance-targets).
 
 * **Premium-sidblobbar**
 
@@ -62,7 +62,7 @@ Här följer några av funktionerna i Premium-lagring:
 ## <a name="supported-vms"></a>Virtuella datorer som stöds
 Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och B-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
 
-Information om VM-typer och storlekar i Azure för Windows finns [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md). Information om VM-typer och storlekar i Azure för Linux finns [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md).
+Information om VM-typer och storlekar i Azure för Windows finns i artikeln [VM-storlekar för Windows](../articles/virtual-machines/windows/sizes.md). Information om VM-typer och storlekar i Azure för Linux finns i artikeln [VM-storlekar för Linux](../articles/virtual-machines/linux/sizes.md).
 
 Det här är några av funktionerna i DS-serien, DSv2-serien GS-serien, Ls-serien och Fs-serien virtuella datorer:
 
@@ -129,7 +129,7 @@ När du etablerar en disk för premium-lagring anger storleken på disken högst
 
 | Premium diskar typ  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 512 GB            | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 512 GB            | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 2 300              | 5000              | 7500              | 7500              | 
 | Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
 
@@ -236,12 +236,12 @@ Följande Linux-distributioner har validerats för Azure Premium-lagring. För b
 
 | Distribution | Version | Stöds kernel | Information |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| SUSE sles-12-prioritet-v20150213 <br> SUSE-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | Virtuell CoreOS 584.0.0 |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
 | CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |

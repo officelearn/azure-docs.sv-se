@@ -1,6 +1,6 @@
 - name: Azure DB för PostgreSQL-dokument
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Azure DB för PostgreSQL
       href: overview.md
@@ -58,9 +58,7 @@
     - name: Resurser
       items:
         - name: Prisnivåer
-          href: concepts-service-tiers.md
-        - name: Compute-enheter
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Begränsningar
           href: concepts-limits.md
     - name: Dataåtkomst och säkerhet
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Konfigurera SSL
           href: concepts-ssl-connection-security.md
+    - name: Verksamhetskontinuitet
+      items:
+        - name: Översikt
+          href: concepts-business-continuity.md
+        - name: Säkerhetskopiering och återställning
+          href: concepts-backup.md
     - name: Övervaka
       href: concepts-monitoring.md
     - name: Utveckling
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Instruktionsguider
   items:
-    - name: Brandväggsregler
+    - name: Skapa användare
+      href: howto-create-users.md
+    - name: Hantera brandväggen
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md

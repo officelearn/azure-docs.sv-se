@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona åtgärder i Azure
 Vissa Azure REST-åtgärder körs asynkront eftersom åtgärden inte går att slutföra snabbt. Det här avsnittet beskriver hur du spåra statusen för asynkrona åtgärder via värden som returneras i svaret.  
@@ -39,9 +39,9 @@ Referera till den [REST API-dokumentation](/rest/api/) att se svar för åtgärd
 ## <a name="monitor-status-of-operation"></a>Övervaka status för åtgärden
 De asynkrona REST-åtgärderna returvärden huvud som du använder för att avgöra status för åtgärden. Det finns potentiellt tre värden i huvudet för att granska:
 
-* `Azure-AsyncOperation`-URL för att kontrollera pågående status för åtgärden. Om åtgärden returnerar det här värdet måste du alltid använda den (i stället för platsen) att spåra status för åtgärden.
-* `Location`-URL för att avgöra när en åtgärd har slutförts. Använd det här värdet bara när Azure-asynkrona åtgärder inte returneras.
-* `Retry-After`-Antalet sekunder som ska förflyta innan kontrollerar statusen för den asynkrona åtgärden.
+* `Azure-AsyncOperation` -URL för att kontrollera pågående status för åtgärden. Om åtgärden returnerar det här värdet måste du alltid använda den (i stället för platsen) att spåra status för åtgärden.
+* `Location` -URL för att avgöra när en åtgärd har slutförts. Använd det här värdet bara när Azure-asynkrona åtgärder inte returneras.
+* `Retry-After` -Antalet sekunder som ska förflyta innan kontrollerar statusen för den asynkrona åtgärden.
 
 Men returnerar inte varje asynkron åtgärd dessa värden. Du kan behöva utvärdera huvudvärde Azure-asynkrona åtgärder för en åtgärd och huvudvärde platsen för en annan åtgärd. 
 
@@ -82,7 +82,7 @@ Endast `status` returneras för alla svar. Felobjekt returneras när det har sta
 Åtgärder som att skapa, uppdatera eller ta bort (PUT, korrigering, ta bort) en resurs vanligtvis returnera en `provisioningState` värde. När en åtgärd har slutförts, returneras ett av följande tre värden: 
 
 * Lyckades
-* Det gick inte
+* Misslyckad
 * Avbrutna
 
 Alla andra värden anger åtgärden körs fortfarande. Resursprovidern kan returnera ett anpassat värde som anger dess tillstånd. Du kan till exempel få **godkända** när begäran har tagits emot och körs.
@@ -194,5 +194,4 @@ Om begäran körs får du en statuskod 202. Om begäran har slutförts, din får
 ## <a name="next-steps"></a>Nästa steg
 
 * Dokumentation om varje REST-åtgärd finns [REST API-dokumentation](/rest/api/).
-* Information om hur du hanterar resurser via Hanteraren för filserverresurser REST-API finns [med hjälp av hanteraren för filserverresurser REST API](resource-manager-rest-api.md).
 * information om hur du distribuerar mallar via Hanteraren för filserverresurser REST-API finns [distribuera resurser med Resource Manager-mallar och Resource Manager REST API](resource-group-template-deploy-rest.md).

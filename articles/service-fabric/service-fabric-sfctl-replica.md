@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-replica"></a>sfctl replik
+# <a name="sfctl-replica"></a>sfctl replica
 Hantera replikerna som tillhör tjänsten partitioner.
 
 ## <a name="commands"></a>Kommandon
@@ -64,7 +64,7 @@ Hämtar information om repliken har distribuerats på en Service Fabric-nod. Inf
 ## <a name="sfctl-replica-health"></a>sfctl repliken hälsa
 Hämtar hälsotillståndet för Service Fabric tillståndskänslig service replik eller tillståndslösa tjänstinstansen.
 
-Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthStateFilter för att filtrera insamling av hälsotillstånd händelser rapporteras på repliken som baseras på hälsotillståndet. .
+Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthStateFilter för att filtrera insamling av hälsotillstånd händelser rapporteras på repliken som baseras på hälsotillståndet.
 
 ### <a name="arguments"></a>Argument
 
@@ -82,13 +82,13 @@ Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthSt
 | --debug                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o              | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
-| --fråga                  | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
+| --fråga                  | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|
 | -verbose                | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
 
 ## <a name="sfctl-replica-info"></a>sfctl repliken info
 Hämtar information om en replik av en Service Fabric-partition.
 
-Respons inkluderar ID, roll, status, hälsotillstånd, nodnamn, drifttid och annan information om repliken.
+Svaret innehåller ID: t, roll, status, hälsotillstånd, nodnamn, drifttid och annan information om repliken.
 
 ### <a name="arguments"></a>Argument
 
@@ -96,7 +96,7 @@ Respons inkluderar ID, roll, status, hälsotillstånd, nodnamn, drifttid och ann
 | --- | --- |
 | --partitions-id [krävs]| Identitet för partitionen.|
 | --replik-id [krävs]| Identifierare för repliken.|
-| --continuation-token  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --continuation-token  | Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
 | --timeout -t          | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
@@ -106,7 +106,7 @@ Respons inkluderar ID, roll, status, hälsotillstånd, nodnamn, drifttid och ann
 | --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
-| --fråga               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
+| --fråga               | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|
 | -verbose             | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replikeringslistan

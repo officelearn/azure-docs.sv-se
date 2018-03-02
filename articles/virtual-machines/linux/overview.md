@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8116ba82838cf0ee610c6dadada0d8bfe6106f34
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb &mdash; perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -32,7 +32,7 @@ Microsoft Azure-resurser fördelas på flera geografiska områden runtom i värl
 * [Azure-regioner](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Tillgänglighet
-Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtuella datorer med en instans, förutsatt att du distribuerar den virtuella datorn med premiumlagring för alla diskar.  För att distributionen ska kunna omfattas av standardserviceavtalet på 99,95 % för virtuella datorer behöver du fortfarande distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en tillgänglighetsuppsättning. En tillgänglighetsuppsättning säkerställer att dina virtuella datorer distribueras via flera feldomäner i Azure-datacentren och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) förklaras den garanterade tillgängligheten för Azure som helhet.
+Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtuella datorer med en instans, förutsatt att du distribuerar den virtuella datorn med premiumlagring för alla diskar.  För att distributionen ska kunna omfattas av standardserviceavtalet på 99,95 % för virtuella datorer behöver du fortfarande distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en tillgänglighetsuppsättning. En tillgänglighetsuppsättning säkerställer att dina virtuella datorer distribueras via flera feldomäner i Azure-datacentren och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
 ## <a name="managed-disks"></a>Managed Disks
 

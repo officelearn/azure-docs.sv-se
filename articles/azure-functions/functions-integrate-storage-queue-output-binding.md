@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 07b864c72696fbcfc0119b978e2ab9a51307291a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a17897dc76b47f3fb7b6eb5076160faf6c5ae9c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -40,7 +40,7 @@ För att slutföra den här snabbstarten behöver du:
 
 I det här avsnittet använder du portalens användargränssnitt för att lägga till en Queue Storage-utdatabindning till funktionen som du skapade tidigare. Den här bindningen gör det möjligt att skriva minimal kod för att skapa ett meddelande i en kö. Du behöver inte skriva kod för uppgifter som till exempel att öppna en lagringsanslutning, skapa en kö eller lägga till en referens i en kö. Azure Functions-körningen och utdatabindningen tar hand om de här aktiviteterna åt dig.
 
-1. Öppna sidan för funktionsappen som du skapade i [Skapa din första funktion i Azure Portal](functions-create-first-azure-function.md) på sidan för funktionsappar i Azure Portal. Detta gör du genom att välja **Fler tjänster > Funktionsappar** och sedan markera din funktionsapp.
+1. Öppna sidan för funktionsappen som du skapade i [Skapa din första funktion i Azure Portal](functions-create-first-azure-function.md) på sidan för funktionsappar i Azure Portal. Detta gör du genom att välja **Alla tjänster > Funktionsappar** och sedan markera din funktionsapp.
 
 2. Välj funktionen som du skapade i den tidigare snabbstarten.
 

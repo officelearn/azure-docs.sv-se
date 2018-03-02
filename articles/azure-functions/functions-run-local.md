@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Använd för att skapa projektet utan en lokal Git-lagringsplats i `--no-source-control [-n]` alternativet.
+
+## <a name="register-extensions"></a>Registrera tillägg
+
+I version 2.x av Azure Functions-runtime måste du explicit registrera den [bindning tillägg](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) som du använder i appen funktion. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>Lokala inställningsfilen
 
@@ -311,6 +319,10 @@ Till exempel för att anropa en funktion som utlöses av HTTP och skicka innehå
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Visa loggfiler lokalt
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a>Publicera till Azure
 

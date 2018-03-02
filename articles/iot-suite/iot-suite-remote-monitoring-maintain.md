@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Felsök och åtgärda enhetsproblem
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig hur man:
 > * Använd den **Underhåll** att undersöka larm
 > * Anropa en metod för enheten för att åtgärda problemet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudiekursen, måste en distribuerad instans av den fjärranslutna övervakningslösning i din Azure-prenumeration.
 
@@ -58,6 +58,8 @@ Bekräfta larm, Välj den **larm förekomster** och välj **återanropen för kv
 
 ![Bekräfta larm](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+När du har godkänt larmet status för ändras till **godkänd**.
+
 I listan kan du se den **prototyp** ansvarar för startar temperatur larmet enhet:
 
 ![Lista över de enheter som orsakar larm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Om du vill visa information om ett specifikt jobb eller metodanrop, väljer du d
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer vi visar dig hur till:
+I kursen får du sett hur du:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

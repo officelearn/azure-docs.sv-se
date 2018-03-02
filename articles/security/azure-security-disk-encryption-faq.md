@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption vanliga frågor och svar
 
@@ -49,10 +49,11 @@ Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure D
 | --- | --- |--- |
 | Ubuntu | 16.04-VARJE DAG-LTS | OS- och disk |
 | Ubuntu | 14.04.5-DAILY-LTS | OS- och disk |
-| RHEL | 7.3 | OS- och disk |
-| RHEL | 7.2 | OS- och disk |
-| RHEL | 6.8 | OS- och disk |
-| RHEL | 6.7 | Datadisk |
+| RHEL | 7.4 | Data disk * |
+| RHEL | 7.3 | Data disk * |
+| RHEL | 7.2 | Data disk * |
+| RHEL | 6.8 | Data disk * |
+| RHEL | 6.7 | Data disk * |
 | CentOS | 7.3 | OS- och disk |
 | CentOS | 7.2n | OS- och disk |
 | CentOS | 6.8 | OS- och disk |
@@ -67,6 +68,8 @@ Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure D
 | SLES | HPC 12 | Datadisk |
 | SLES | Priority:11-SP4 | Datadisk |
 | SLES | 11 SP4 | Datadisk |
+
+*__ADE stöds för RHEL för datadisk. Den aktuella implementeringen ADE fungerar för OS-disken, men stöds inte för närvarande tillsammans. Både Microsoft och Red Hat arbetar på en lösning som gemensamt stöds. Under tiden kan du referera ADE vitboken för Linux OS-diskkryptering [här](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **F:** hur kan jag börja använda Azure Disk Encryption?
 

@@ -1,3 +1,5 @@
+# [Dokumentation om ExpressRoute](index.md)
+
 # Översikt
 ## [Vad är ExpressRoute?](expressroute-introduction.md)
 ## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
@@ -17,24 +19,24 @@
 
 # Gör så här för att
 ## Skapa och ändra en krets
-### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Skapa och ändra peering-konfiguration
-### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## Länka ett virtuellt nätverk till en ExpressRoute-krets
-### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## [Konfigurera ett virtuellt privat nätverk för plats-till-plats via Microsoft-peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurera en virtuell nätverksgateway för ExpressRoute
-### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure-portalen](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
 ## Konfigurera routningsfilter för Microsoft-peering
-### [Azure Portal](how-to-routefilter-portal.md)
+### [Azure-portalen](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
 ## [Flytta från offentlig peering till Microsoft-peering](how-to-move-peering.md)

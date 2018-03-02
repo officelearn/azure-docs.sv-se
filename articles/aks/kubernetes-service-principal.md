@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bf366d08ba9b8cf28c266aa4ac2d521465db44b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Tjänstens huvudnamn med Azure Container Service (AKS)
 
@@ -83,7 +83,6 @@ Tänk på följande när du arbetar med AKS och Azure AD-tjänstens huvudnamn.
 * När du anger **klient-ID:t** för tjänstobjektet kan du använda värdet för `appId` (som anges i den här artikeln) eller motsvarande `name` för tjänstobjektet (till exempel `https://www.contoso.org/example`).
 * På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
 * Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/acsServicePrincipal.json` på den dator som används för att köra kommandot.
-* Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt, kan tjänstobjektet även autentisera med ett [Azure-behållarregister][acr-intro] som skapats i samma prenumeration.
 * När du tar bort ett AKS-kluster som har skapats av `az aks create` tas inte tjänstens huvudnamn som skapades automatiskt bort. Du kan använda `az ad sp delete --id $clientID` för att ta bort den.
 
 ## <a name="next-steps"></a>Nästa steg

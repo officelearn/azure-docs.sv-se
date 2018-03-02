@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importera data till Azure Search med hjälp av portalen
 Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. 
@@ -49,7 +49,7 @@ Guiden Importera Data stöder följande datakällor:
 En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur. Innan du kör guiden bör du skapa den här datastrukturen.
 
 ## <a name="connect-to-your-data"></a>Ansluta till data
-1. Logga in på [Azure Portal](https://portal.azure.com) och öppna instrumentpanelen för tjänsten. Du kan klicka på **Fler tjänster** i index om du vill söka efter befintliga söktjänster i nuvarande prenumeration. 
+1. Logga in på [Azure Portal](https://portal.azure.com) och öppna instrumentpanelen för tjänsten. Du kan klicka på **Alla tjänster** i indexet om du vill söka efter befintliga ”söktjänster” i den nuvarande prenumerationen. 
 2. Klicka på **Importera data** i kommandofältet för att öppna bladet Importera data.  
 3. Klicka på **Anslut till dina data** för att ange en definition för datakällan som används av en indexerare. Vid datakällor inom prenumerationen kan guiden vanligtvis identifiera och läsa anslutningsinformationen, vilket minimerar de allmänna konfigurationskraven.
 

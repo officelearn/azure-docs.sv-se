@@ -1,20 +1,20 @@
 ---
-title: "Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI | Microsoft Docs"
+title: "Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI"
 description: "Den här artikeln beskriver hur du skapar och hanterar Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI-kommandoraden."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 4fbb0adabac3cefa0b889279eed9dfd03fe1b1f5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 1d72761f3c80fbf3068492b6843349fc9d7accfd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure-databas för PostgreSQL-Server från en specifik IP-adress eller intervall av IP-adresser. Med hjälp av lämplig Azure CLI-kommandona, kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för PostgreSQL brandväggsregler, se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md)
@@ -47,6 +47,15 @@ Om du vill tillåta åtkomst till en enda IP-adress, ange samma adress i den `--
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
+Ange IP-adress 0.0.0.0 som den första IP- och slut-IP som i följande exempel för att tillåta program från Azure IP-adresser att ansluta till din Azure-databas för PostgreSQL-servern.
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver--name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
+> 
+
 Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har skapat, som standard i JSON-format. Om det finns ett fel, visar utdata ett felmeddelande i stället.
 
 ## <a name="update-firewall-rule"></a>Uppdatera brandväggsregel 

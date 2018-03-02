@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 38869444d43a3fb5c37a222ef58d30fc607106aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en databas och en graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp som är byggd med [Graph API](graph-sdk-dotnet.md).  
+Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en databas och en graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -47,61 +47,96 @@ Om du redan har Visual Studio 2017 installerat ser du till att det är installer
 
 Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-Det här exempelprojektet använder projektformatet .NET Core och har konfigurerats för att rikta in sig på följande ramverk:
- - netcoreapp2.0
- - net461
-
-1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till en arbetskatalog.  
+1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till din arbetskatalog.  
 
 2. Klona exempellagringsplatsen med följande kommando. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Öppna sedan Visual Studio och öppna lösningsfilen. 
+3. Öppna sedan Visual Studio och öppna lösningsfilen.
+
+4. Återställ NuGet-paketen i projektet. Det bör inkludera Gremlin.Net-drivrutinen och Newtonsoft.Json-paketet.
+
+5. Du kan också installera Gremlin.Net-drivrutinen manuellt, version 3.2.7, med Nuget-pakethanteraren eller [nuget-kommandoradsverktyget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+
+    ```bash
+    nuget install Gremlin.Net -Version 3.2.7
+    ```
 
 ## <a name="review-the-code"></a>Granska koden
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
-* DocumentClient initieras. 
+* Ställ in dina anslutningsparametrar baserat på kontot som skapades ovan (rad 19): 
 
     ```csharp
-    using (DocumentClient client = new DocumentClient(
-        new Uri(endpoint),
-        authKey,
-        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";
+    private static int port = 443;
+    private static string authKey = "your-authentication-key";
+    private static string database = "your-database";
+    private static string collection = "your-collection-or-graph";
     ```
 
-* En ny databas skapas.
+* Gremlin-kommandona som ska köras finns i en ordlista (rad 26):
 
     ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
-    ```
-
-* En ny graf skapas.
-
-    ```csharp
-    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
-        UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graph" },
-        new RequestOptions { OfferThroughput = 1000 });
-    ```
-* En mängd Gremlin-steg utförs med metoden `CreateGremlinQuery`.
-
-    ```csharp
-    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
-    // results asychronously
-    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
-    while (query.HasMoreResults)
+    private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
-        foreach (dynamic result in await query.ExecuteNextAsync())
-        {
-            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
-        }
-    }
+        { "Cleanup",        "g.V().drop()" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+        { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+        { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
+        { "UpdateVertex",   "g.V('thomas').property('age', 44)" },
+        { "CountVertices",  "g.V().count()" },
+        { "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" },
+        { "Project",        "g.V().hasLabel('person').values('firstName')" },
+        { "Sort",           "g.V().hasLabel('person').order().by('firstName', decr)" },
+        { "Traverse",       "g.V('thomas').out('knows').hasLabel('person')" },
+        { "Traverse 2x",    "g.V('thomas').out('knows').hasLabel('person').out('knows').hasLabel('person')" },
+        { "Loop",           "g.V('thomas').repeat(out()).until(has('id', 'robin')).path()" },
+        { "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+        { "CountEdges",     "g.E().count()" },
+        { "DropVertex",     "g.V('thomas').drop()" },
+    };
+    ```
 
+
+* Skapa ett `GremlinServer`-anslutningsobjekt med parametrarna som anges ovan (rad 52):
+
+    ```csharp
+    var gremlinServer = new GremlinServer(hostname, port, enableSsl: true, 
+                                                    username: "/dbs/" + database + "/colls/" + collection, 
+                                                    password: authKey);
+    ```
+
+* Skapa ett nytt `GremlinClient`-objekt (rad 56):
+
+    ```csharp
+    var gremlinClient = new GremlinClient(gremlinServer);
+    ```
+
+* Kör varje Gremlin-fråga med objektet `GremlinClient` med en an Async Task (rad 63). Det gör att Gremlin-frågorna läses från ordlistan som definierades ovan (rad 26):
+
+    ```csharp
+    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
+    task.Wait();
+    ```
+
+* Hämta resultatet och läs värdena, som är formaterade som en ordlista, med `JsonSerializer`-klassen från Newtonsoft.Json:
+
+    ```csharp
+    foreach (var result in task.Result)
+    {
+        // The vertex results are formed as dictionaries with a nested dictionary for their properties
+        string output = JsonConvert.SerializeObject(result);
+        Console.WriteLine(String.Format("\tResult:\n\t{0}", output));
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
@@ -114,43 +149,41 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-dotnet/keys.png)
 
-2. Öppna filen appsettings.json i Visual Studio 2017 och klistra in värdet över `FILLME` i `endpoint`. 
+2. I Program.cs klistrar du värdet över `your-endpoint` i variabeln `hostname` på rad 19. 
 
-    `"endpoint": "https://FILLME.documents.azure.com:443/",`
+    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
 
     Slutpunktsvärdet bör nu se ut så här:
 
-    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och använd det som värdet för AuthKey-nyckeln i App.config. Avsluta med att spara dina ändringar. 
+3. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och klistra in det i variabeln `authkey`, som ersätter platshållaren `"your-authentication-key"` på rad 21. 
 
-    `"authkey": "FILLME"`
+    `private static string authKey = "your-authentication-key";`
 
-4. Spara filen appsettings.json. 
+4. Med informationen i databasen som skapades ovan klistrar du in databasnamnet i variabeln `database` på rad 22. 
+
+    `private static string database = "your-database";`
+
+5. På samma sätt, med informationen från samlingen som skapades ovan, klistrar du in samlingen (som även är grafnamnet) i variabeln `collection` på rad 23. 
+
+    `private static string collection = "your-collection-or-graph";`
+
+6. Spara filen Program.cs. 
 
 Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
-Innan du kör programmet rekommenderar vi att du uppdaterar paketet *Microsoft.Azure.Graphs* till den senaste versionen.
+Tryck på Ctrl + F5 för att köra programmet. Programmet skriver ut både Gremlin-frågekommandona och resultatet i konsolen.
 
-1. I Visual Studio högerklickar du på projektet **GraphGetStarted** i **Solution Explorer** och sedan på **Hantera NuGet-paket**. 
-
-2. På fliken **Bläddra** i NuGet-pakethanteraren skriver du *Microsoft.Azure.Graphs* och markerar kryssrutan **Include prerelease** (Ta med förhandsversioner). 
-
-3. I resultaten uppdaterar du biblioteket **Microsoft.Azure.Graphs** till den senaste versionen av paketet. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
-
-    Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
-
-4. Tryck på Ctrl + F5 för att köra programmet.
-
-   Hörn och gränser som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret genom att trycka två gånger på RETUR när skriptet har körts.
+   Hörn och gränser som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret genom att trycka på RETUR när skriptet har körts.
 
 ## <a name="browse-using-the-data-explorer"></a>Bläddra med datautforskaren
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland och ställa frågor mot dina nya grafdata.
 
-1. Den nya databasen visas i fönstret Graphs (Diagram) i Datautforskaren. Expandera **graphdb**, **graphcollz** och klicka på **Diagram**.
+1. Den nya databasen visas i fönstret Graphs (Diagram) i Datautforskaren. Expandera databasen och samlingsnoderna och klicka på **Diagram**.
 
 2. Klicka på knappen **Använd filter** för att använda standardfrågan och visa alla hörn i diagrammet. Data som genereras av den här exempelappen visas i fönstret Graphs (Grafer).
 

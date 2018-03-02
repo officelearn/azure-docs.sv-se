@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -35,7 +35,7 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
@@ -47,7 +47,7 @@ Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar
 
 
 1. Logga in på [Azure Portal][portal].
-2. Välj **Nytt** > **Utvecklarverktyg** > **Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
+2. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
 
   ![Skapa en Application Insights-resurs](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

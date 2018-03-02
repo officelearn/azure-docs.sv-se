@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 33b9c36d4600646c36a519e647bd8cc8b6d68666
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux VM i Azure
 Linux virtuella datorer (VM) i Azure som oftast hanteras från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya Linux eller för snabb felsökning scenarier kan användningen av fjärrskrivbord vara enklare. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för dina Linux VM med hjälp av Resource Manager-distributionsmodellen.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln kräver ett befintligt Linux VM i Azure. Om du behöver skapa en virtuell dator med någon av följande metoder:
+Den här artikeln kräver en befintlig virtuell Ubuntu 16.04 LTS-dator i Azure. Om du behöver skapa en virtuell dator med någon av följande metoder:
 
 - Den [Azure CLI 2.0](quick-create-cli.md)
 - Den [Azure-portalen](quick-create-portal.md)
@@ -34,7 +34,7 @@ Den här artikeln kräver ett befintligt Linux VM i Azure. Om du behöver skapa 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installera en Skrivbordsmiljö på Linux-VM
 De flesta virtuella Linux-datorer i Azure har inte en Skrivbordsmiljö installerad som standard. Virtuella Linux-datorer hanteras ofta med hjälp av SSH-anslutningar i stället för en Skrivbordsmiljö. Det finns olika skrivbordsmiljöer i Linux som du kan välja. Beroende på ditt val av Skrivbordsmiljö kan den använda en 2 GB diskutrymme och ta 5 till 10 minuter att installera och konfigurera de nödvändiga paketen.
 
-I följande exempel installeras förenklade [xfce4](https://www.xfce.org/) Skrivbordsmiljö på en Ubuntu VM. Kommandon för andra distributioner variera (Använd `yum` installera på Red Hat Enterprise Linux och konfigurera lämplig `selinux` regler eller Använd `zypper` att installera på SUSE, till exempel).
+I följande exempel installeras förenklade [xfce4](https://www.xfce.org/) Skrivbordsmiljö på en virtuell Ubuntu 16.04 LTS-dator. Kommandon för andra distributioner variera (Använd `yum` installera på Red Hat Enterprise Linux och konfigurera lämplig `selinux` regler eller Använd `zypper` att installera på SUSE, till exempel).
 
 Första SSH till den virtuella datorn. I följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.azure.com* med användarnamnet för *azureuser*:
 

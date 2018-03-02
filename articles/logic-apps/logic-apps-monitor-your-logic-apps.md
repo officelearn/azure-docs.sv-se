@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
@@ -97,7 +97,7 @@ Innan du börjar bör behöver du ha en OMS-arbetsyta. Läs [hur du skapar en OM
    3. Under **OMS arbetsytor**, Välj OMS-arbetsyta för loggning.
    4. Under **loggen**, Välj den **WorkflowRuntime** kategori.
    5. Välj det mått intervallet.
-   6. När du är klar väljer **spara**.
+   6. När du är klar väljer du **Spara**.
 
    ![Välj OMS-arbetsytan och data för loggning](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -131,7 +131,7 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
 5. I sökrutan anger du ett fält som du vill söka efter och tryck på **RETUR**. När du börjar skriva in visas OMS möjliga matchningar och åtgärder som du kan använda. 
 
-   Till exempel vill hitta topp 10-händelser som har inträffat, ange och välj sökfrågan: **kategori = WorkflowRuntime | topp 10**
+   Till exempel vill hitta topp 10-händelser som har inträffat, ange och välj sökfrågan: **söka kategori == ”WorkflowRuntime” | begränsa 10**
 
    ![Ange söksträngen](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

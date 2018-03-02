@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Lär dig mer om att hantera Azure Data Lake Analytics-konton, datakällor, jobb och katalogobjekt med hjälp av Azure PowerShell. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 När du skapar ett Data Lake Analytics-konto som du behöver veta:
 
@@ -99,13 +99,13 @@ Få information om ett konto.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Kontrollera om finns ett visst Data Lake Analytics-konto. Cmdleten returnerar antingen `True` eller `False`.
+Kontrollera om finns ett visst Data Lake Analytics-konto. Cmdleten returnerar antingen `$true` eller `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Kontrollera om finns ett visst Data Lake Store-konto. Cmdleten returnerar antingen `True` eller `False`.
+Kontrollera om finns ett visst Data Lake Store-konto. Cmdleten returnerar antingen `$true` eller `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Ta bort en brandväggsregel.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Tillåt Azure IP-adresser.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Skicka en fil som ett U-SQL-skript
 
 ```powershell
@@ -258,15 +255,13 @@ Resultatet innehåller de jobb som körs för närvarande och de jobb som nyss b
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Lista över de x främsta jobb
 
-### <a name="list-a-specific-number-of-jobs"></a>Visa en lista med ett visst antal jobb
-
-Som standard för jobben i listan sorteras i överföringstid. Så att de nyligen skickade jobb visas först. Som standard i ADLA konto kommer ihåg jobb i 180 dagar men Ge AdlJob-cmdlet som standard returnerar endast de första 500. Använd - översta parametern för att visa en lista med ett visst antal jobb.
+Som standard för jobben i listan sorteras i överföringstid. Så att de nyligen skickade jobb visas först. Som standard i ADLA konto kommer ihåg jobb i 180 dagar men cmdleten Get-AdlJob som standard returnerar endast de första 500. Använd - översta parametern för att visa en lista med ett visst antal jobb.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Lista över jobb baserat på värdet för egenskapen jobb
 
@@ -295,8 +290,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 Använd den `-Result` parametern för att identifiera om avslutades jobben har slutförts. Det har dessa värden:
 
-* Avbröts
-* Det gick inte
+* Annullerad
+* Misslyckad
 * Ingen
 * Lyckades
 
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 Den `-Submitter` parametern hjälper dig att identifiera vem som har skickat ett jobb.
 
@@ -338,7 +332,6 @@ Använd den `Get-AdlJobPipeline` för att se pipeline-information skickats tidig
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

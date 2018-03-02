@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Självstudier: Azure Active Directory-integrering med
 
@@ -108,13 +108,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och rutan domän med enkel inloggning information](./media/active-directory-saas-box-tutorial/url3.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.box.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.box.com`
 
-    b. I den **identifierare** textruta anger du URL:`box.net`
+    b. I den **identifierare** textruta anger du URL: `box.net`
      
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) att hämta det här värdet. 
-
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. För att få SSO konfigurerats för ditt program, kontakta [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) och ger dem den hämta XML-filen.
+6. För att få SSO konfigurerats för ditt program kan du utföra stegen i [inställningen in enkel inloggning på din egen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+
+> [!NOTE] 
+> Om det inte går att aktivera enkel inloggning inställningar för Box-konto kan du behöva kontakta [rutan klienten supportteamet](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) och ger dem den hämta XML-filen.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

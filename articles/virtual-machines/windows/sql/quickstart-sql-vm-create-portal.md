@@ -1,10 +1,10 @@
 ---
-title: Skapa en SQL Server Windows-VM i Azure Portal | Microsoft Docs
+title: Skapa en SQL Server Windows-VM i portalen | Microsoft Docs
 description: "Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator i Azure Portal."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator i Azure Portal.
 
+> [!TIP]
+> I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra etableringsalternativ för SQL-VM finns i [Etableringsguide för Windows SQL Server-datorer i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md).
+
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
-1. Klicka på **Nytt** på Azure Portal. Fönstret **Nytt** öppnas.
+1. Klicka på **Skapa en resurs** i Azure Portal. 
 
 1. Skriv **SQL Server 2017 Developer på Windows Server 2016** i sökfältet och tryck på RETUR.
 

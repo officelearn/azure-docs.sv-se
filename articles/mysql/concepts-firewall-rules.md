@@ -1,19 +1,19 @@
 ---
-title: "Azure-databas för MySQL serverbrandväggsreglerna | Microsoft Docs"
+title: "Azure-databas för MySQL serverbrandväggsreglerna"
 description: "Beskriver brandväggsregler för din Azure-databas för MySQL-servern."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/12/2018
-ms.openlocfilehash: 5afe3fc2d39c6ab0996b1ee68a4158ccacc7e86a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: a1ebbc088b54112ed625412a347b054fd3361782
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure-databas för MySQL serverbrandväggsreglerna
 Brandväggar förhindrar all åtkomst till databasservern förrän du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern, baserat på den ursprungliga IP-adressen för varje begäran.

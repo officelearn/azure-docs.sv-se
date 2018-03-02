@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Utforma din första Azure SQL-databas
 
@@ -53,7 +53,7 @@ Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagri
 
 Följ de här stegen om du vill skapa en tom SQL-databas. 
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
 2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
@@ -83,7 +83,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er och mängden lagring. Undersök alternativen för mängden DTU:er och lagringsutrymme som du har tillgång till på varje tjänstnivå. 
 
-7. I de här självstudierna väljer du tjänstenivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
+7. I de här självstudierna väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
 
    ![skapa databas-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 

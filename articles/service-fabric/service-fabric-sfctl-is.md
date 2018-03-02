@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-is"></a>sfctl är
+# <a name="sfctl-is"></a>sfctl is
 Fråga efter och skicka kommandon till tjänsten infrastruktur.
 
 ## <a name="commands"></a>Kommandon
@@ -34,14 +34,14 @@ Fråga efter och skicka kommandon till tjänsten infrastruktur.
 ## <a name="sfctl-is-command"></a>sfctl är kommando
 Initierar en administrativa kommando på den angivna Infrastructure Service-instansen.
 
-För kluster som har en eller flera instanser av tjänsten infrastruktur som konfigurerats för kan detta API skicka infrastruktur-fil till en viss instans av tjänsten infrastruktur. Tillgängliga kommandon och deras motsvarande svar format varierar beroende på den infrastruktur som körs på klustret. Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas direkt från din kod. .
+För kluster som har en eller flera instanser av tjänsten infrastruktur som konfigurerats för kan detta API skicka infrastruktur-fil till en viss instans av tjänsten infrastruktur. Tillgängliga kommandon och deras motsvarande svar format varierar beroende på den infrastruktur som körs på klustret. Detta API stöder Service Fabric-plattform. Det är inte avsedd att användas direkt från din kod. 
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.  Standard: är kommando.|
-| --service-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
+| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika. |
+| --service-id     | Identiteten för infrastruktur-tjänst. ID: T är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
@@ -63,8 +63,8 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.  Standard: är fråga.|
-| --service-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
+| --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.|
+| --service-id     | Identiteten för infrastruktur-tjänst. ID: T är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument

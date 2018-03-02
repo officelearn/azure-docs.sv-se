@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Använda C# med MapReduce strömning på Hadoop i HDInsight
 
@@ -33,7 +33,7 @@ Hadoop streaming är ett verktyg som låter dig köra MapReduce-jobb med hjälp 
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
-__Linux-baserat HDInsight__ kluster Använd [Mono (https://mono-project.com)](https://mono-project.com) att köra .NET-program. Monoljud version 4.2.1 ingår i HDInsight version 3.5. Mer information om versionen av Mono som ingår i HDInsight finns [HDInsight komponenten versioner](../hdinsight-component-versioning.md). Om du vill använda en viss version av Mono, finns det [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
+__Linux-baserat HDInsight__ kluster Använd [Mono (https://mono-project.com)](https://mono-project.com) att köra .NET-program. Monoljud version 4.2.1 ingår i HDInsight version 3,6. Mer information om versionen av Mono som ingår i HDInsight finns [HDInsight komponenten versioner](../hdinsight-component-versioning.md). Om du vill använda en viss version av Mono, finns det [installera eller uppdatera Mono](../hdinsight-hadoop-install-mono.md) dokumentet.
 
 Mer information om monoljud kompatibilitet med .NET Framework-versioner finns [monoljud kompatibilitet](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -49,7 +49,7 @@ Den grundläggande processen som används för strömning i det här dokumentet 
 
 Mer information om strömning finns [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Tidigare erfarenhet av skrivning och bygga C#-kod som riktar sig till .NET Framework 4.5. Stegen i det här dokumentet använder Visual Studio 2017.
 

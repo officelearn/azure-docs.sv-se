@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från logikappar med lokala datagateway
 
@@ -75,7 +75,7 @@ När du har installerat gatewayen på en lokal dator måste du skapa din datagat
 
 1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). Se till att använda samma Azure arbetet eller skolan e-postadress används för att installera gatewayen.
 
-2. Välj på Azure Huvudmeny, **skapar du en resurs** > **Enterprise Integration** > **lokala datagateway**:
+2. Välj på Azure Huvudmeny, **skapar du en resurs** > **Enterprise Integration** > **lokala datagateway**.
 
    ![Sök efter ”lokala datagateway”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -101,15 +101,16 @@ När du har installerat gatewayen på en lokal dator måste du skapa din datagat
     * **Installationen namnet**: Välj den gateway som du tidigare har installerat om gatewayinstallationen av inte redan har markerats. 
 
     Lägg till gateway-resurs i instrumentpanelen i Azure, Välj **fäst på instrumentpanelen**. 
-    När du är klar väljer **skapa**.
+    När du är klar väljer du **Skapa**.
 
     Exempel:
 
     ![Ange information för att skapa din lokala datagateway](./media/logic-apps-gateway-connection/createblade.png)
 
-    Om du vill hitta eller visa din datagateway när som helst från Azure huvudmenyn, gå till **fler tjänster** > **Enterprise Integration** > **lokala Data Gateways** .
+    Om du vill hitta eller visa din datagateway när som helst på Azure huvudmenyn väljer **alla tjänster**. 
+    Ange ”lokala data gateway” i sökrutan och väljer sedan **lokala Data Gateways**.
 
-    ![Gå till ”fler tjänster”, ”Enterprise Integration”, ”lokala Data Gateways”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Sök efter ”lokala Data Gateways”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -124,7 +125,7 @@ Nu när du har skapat din data gateway-resurs och tillhörande din Azure-prenume
 
 2. Lägg till en koppling som har stöd för lokala anslutningar, t.ex. SQL Server.
 
-3. Efter den ordning som visas, Välj **Anslut via lokala datagateway**, ange ett unikt anslutningsnamn och informationen som krävs och välj den data gateway-resurs som du vill använda. När du är klar väljer **skapa**.
+3. Efter den ordning som visas, Välj **Anslut via lokala datagateway**, ange ett unikt anslutningsnamn och informationen som krävs och välj den data gateway-resurs som du vill använda. När du är klar väljer du **Skapa**.
 
    > [!TIP]
    > Ett unikt anslutningsnamn hjälper dig att identifiera anslutningen senare, speciellt när du skapar flera anslutningar. Om tillämpligt, ange domännamn för ditt användarnamn. 

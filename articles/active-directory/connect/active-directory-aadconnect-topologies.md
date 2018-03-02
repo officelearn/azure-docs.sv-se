@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.
@@ -144,7 +144,9 @@ I den här topologin är en Azure AD Connect sync-servern ansluten till varje Az
 
 En DNS-domän kan registreras i ett enda Azure AD-klient. UPN-namnen för användare i den lokala Active Directory-instansen måste också använda separata namnområden. I den föregående bilden registreras exempelvis tre separata UPN-suffix i den lokala Active Directory-instansen: contoso.com, fabrikam.com och Internetadress. Användare i varje lokala Active Directory-domän använda ett annat namnområde.
 
-Det finns ingen GALSync mellan Azure AD-klient-instanser. Adressboken i Exchange Online och Skype för företag visar endast användare i samma klientorganisation.
+>[!NOTE]
+>Globala adress lista synkronisering (GalSync) görs inte automatiskt i den här topologin och kräver en ytterligare anpassade MIM-implementeringen så varje klient en fullständig globala adresslistan (GAL) i Exchange Online och Skype för företag – Online.
+
 
 Den här topologin har följande begränsningar för annars scenarier som stöds:
 

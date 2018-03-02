@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -36,8 +36,7 @@ Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppd
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Status: Publicerat för att välja kunder
-
+Status: Publicerat för att välja den här versionen är för närvarande har distribuerats till en liten och slumpmässiga på AADConnect-klienter som har aktiverat Automatiska uppgradering kunder. Vi kommer att expandera den här gruppen av klienter under de kommande veckorna tills 100% av våra kunder uppgradera automatiskt har tagit emot den här versionen. Efter det att vi bygga för allmän hämtning på länken ovan hämta - är planerad för mitten av mars 2018.
 >[!NOTE]
 >När uppgraderingen till den här nya versionen är klar utlöser automatiskt en fullständig synkronisering och fullständig import för Azure AD-koppling och en fullständig synkronisering för AD-koppling. Detta kan ta en stund, beroende på storleken på din Azure AD Connect-miljö, kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om att uppgradera förrän du har hittat en lämplig tidpunkt gör.
 
@@ -59,7 +58,7 @@ Status: Publicerat för att välja kunder
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Lägger till sekretessinställningar för datum skydd förordning (BNPR).  BNPR krävs vi för att ange vilka typer av kundinformation som delas med Microsoft (telemetri, hälsa, etc.), innehåller länkar till detaljerad onlinedokumentation och ger dig ett sätt för kunderna att ändra sina inställningar.  Den här incheckning lägger du till följande:
+* Lägger till sekretessinställningar för allmänna Data Protection förordning (BNPR).  BNPR krävs vi för att ange vilka typer av kundinformation som delas med Microsoft (telemetri, hälsa, etc.), innehåller länkar till detaljerad onlinedokumentation och ger dig ett sätt för kunderna att ändra sina inställningar.  Den här incheckning lägger du till följande:
 
 
     - Installera licensavtal sidan Datadelning och sekretessmeddelande på rensningen.

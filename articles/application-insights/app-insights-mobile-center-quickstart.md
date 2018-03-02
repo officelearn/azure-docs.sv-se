@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
 Den här snabbstarten leder dig genom anslutning av appens App Center-instans till Application Insights. Med Application Insights kan du fråga, segmentera, filtrera och analysera telemetrin med mer kraftfulla verktyg än vad som finns i [Analytics](https://docs.microsoft.com/mobile-center/analytics/)-tjänsten i App Center.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -66,7 +66,7 @@ Om du vill säkerställa att de anpassade händelserna tas emot går du till fli
 När appen skickar anpassade händelser och dessa händelser tas emot av App Center måste du skapa en Application Insights-resurs av App Center-typ i Azure-portalen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **Nytt** > **Övervakning + Hantering** > **Application Insights**.
+2. Välj **Skapa en resurs** > **Övervakning och hantering**  > **Application Insights**.
 
     ![Lägga till en Application Insights-resurs](./media/app-insights-mobile-center-quickstart/add.png)
 

@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -32,7 +32,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
 
-1. I Azure-portalen klickar du på **+**, på **Data och analys** och sedan på **Azure Databricks (Preview)** (Azure Databricks (förhandsversion)). 
+1. I Azure-portalen klickar du på **Skapa en resurs**, sedan på **Data och analys** och därefter på **Azure Databricks (Preview)** (Azure Databricks (förhandsversion)). 
 
     ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 

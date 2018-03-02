@@ -1,3 +1,5 @@
+# [Dokumentation om Azure Active Directory](index.md)
+
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Om Azures identitetshantering](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Konfiguration](active-directory-application-config-content-map.md)
 ##### [Inloggning](active-directory-application-sign-in-content-map.md)
 ##### [Etablering](active-directory-application-provisioning-content-map.md)
+###### [Verifiering av en användare har etablerats](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Etableringen tar lång tid](application-provisioning-when-will-provisioning-finish.md)
+###### [Konfigurera användaretablering](application-provisioning-config-how-to.md)
+###### [Konfigurera etablering problem](application-provisioning-config-problem.md)
+###### [Problem med att spara autentiseringsuppgifter för administratörer](application-provisioning-config-problem-storage-limit.md)
+###### [Inga användare etableras](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Fel användare etableras](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Hantera åtkomst](active-directory-application-access-content-map.md)
 ##### [Åtkomstpanel](active-directory-application-access-panel-content-map.md)
 ##### [Programproxy](active-directory-application-proxy-content-map.md)

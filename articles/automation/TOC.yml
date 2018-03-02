@@ -1,6 +1,6 @@
 - name: Azure Automation användardokumentation
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Vad är Automation?
       href: automation-intro.md
@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Hantera uppdateringar för din virtuella dator
       href: automation-tutorial-update-management.md
-    - name: Publicera uppdateringar och spårning av ändringar
+    - name: Publicera uppdateringar och spårning av ändringar av runbook
       href: automation-onboard-solutions.md
     - name: Identifiera programvara på en virtuell dator
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Gör så här för att
   items:
-    - name: Hantering av uppdateringar
+    - name: Publicering
       items:
-        - name: "Översikt\r\n"
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Publicera från en virtuell Azure-dator
+          href: automation-onboard-solutions-from-vm.md
+        - name: Publicera från ett Automation-konto
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Uppdateringshantering
+      items:
+        - name: Översikt över Uppdateringshantering
+          href: automation-update-management.md
         - name: Hantera uppdateringar för flera virtuella datorer
           href: manage-update-multi.md
-        - name: Integrera SCCM med uppdateringshantering för OMS
+        - name: Integrera SCCM med Uppdateringshantering
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Spårning av ändringar
       items:
-        - name: "Översikt\r\n"
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Spåra ändringar i dina virtuella datorer
-          href: automation-vm-change-tracking.md
+        - name: Översikt över Ändringsspårning
+          href: automation-change-tracking.md
     - name: Inventering
       items:
         - name: Hantera en virtuell dator med inventeringssamling

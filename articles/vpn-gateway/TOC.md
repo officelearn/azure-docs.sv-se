@@ -1,3 +1,5 @@
+# [Dokumentation om VPN-gateway](index.md)
+
 # Översikt
 ## [Om VPN-gateway](vpn-gateway-about-vpngateways.md)
 ## [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md)

@@ -11,24 +11,24 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportera Azure Resource Manager-mallar med Azure CLI
 
 Med Resource Manager kan du exportera en Resource Manager-mall från befintliga resurser i din prenumeration. Du kan använda mallen som genereras för att lära dig mer om mallsyntaxen eller för att automatisera omdistributionen av din lösning om det behövs.
 
-Observera att du kan exportera en mall på två sätt:
+Det är viktigt att Observera att det finns två sätt att exportera en mall:
 
-* Du kan exportera själva mallen som du använde för en distribution. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar när du vill hämta en mall.
-* Du kan exportera en mall som representerar resursgruppens aktuella tillstånd. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar den en mall som är en ögonblicksbild av resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Den här metoden är användbar när du har ändrat resursgruppen. I detta fall behöver du avbilda resursgruppen som en mall.
+* Du kan exportera den **faktiska mall som används för en distribution**. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar när du vill hämta en mall.
+* Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar en mall som är en ”ögonblicksbild” eller ”backup” av resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet om du vill distribuera resurser i samma resursgrupp. För att använda den här mallen för en annan resursgrupp måste kanske du ändra avsevärt den.
 
-Båda metoderna beskrivs i det här avsnittet.
+Den här artikeln visar båda metoderna.
 
 ## <a name="deploy-a-solution"></a>Distribuera en lösning
 
@@ -55,13 +55,13 @@ Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det är 
 
 ## <a name="export-resource-group-as-template"></a>Exportera resursgrupp som mall
 
-I stället för att hämta en mall från distributionshistoriken, kan du hämta en mall som representerar det aktuella tillståndet för en resursgrupp med hjälp av den [az exportera](/cli/azure/group#az_group_export) kommando. Du kan använda det här kommandot när du har gjort många ändringar i resursgruppen och inga befintliga mallen som representerar alla ändringar.
+I stället för att hämta en mall från distributionshistoriken, kan du hämta en mall som representerar det aktuella tillståndet för en resursgrupp med hjälp av den [az exportera](/cli/azure/group#az_group_export) kommando. Du kan använda det här kommandot när du har gjort många ändringar i resursgruppen och inga befintliga mallen som representerar alla ändringar. Den är avsedd som en ögonblicksbild av resursgrupp, där du kan distribuera att samma resursgrupp. Om du vill använda den exporterade mallen andra lösningar ändra du avsevärt den.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det skiljer sig från mallen i GitHub. Det har olika parametrar och inga variabler. SKU-lagring och plats är hårdkodat till värden. I följande exempel visas den exporterade mallen, men mallen har ett något annorlunda parameternamn:
+Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det skiljer sig från mallen i GitHub. Mallen har olika parametrar och inga variabler. SKU-lagring och plats är hårdkodat till värden. I följande exempel visas den exporterade mallen, men mallen har ett något annorlunda parameternamn:
 
 ```json
 {

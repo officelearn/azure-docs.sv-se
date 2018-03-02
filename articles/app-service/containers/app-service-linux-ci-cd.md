@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med webbprogrammet för behållare
 
@@ -34,14 +34,14 @@ Logga in på den [Azure-portalen](https://portal.azure.com)
 Du kan aktivera funktionen kontinuerlig distribution med [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 I den  **[Azure-portalen](https://portal.azure.com/)**, klicka på den **Apptjänst** alternativet till vänster på sidan.
 
 Klicka på namnet på din app som du vill konfigurera Docker-hubb kontinuerlig distribution för.
 
-I den **appinställningar**, Lägg till en app inställningen kallas `DOCKER_ENABLE_CI` med värdet `true`.
+I **Dockerbehållare**, Välj 'På' och tryck sedan på Spara för att aktivera kontinuerlig distribution.
 
 ![infoga bilden app-inställning](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ I den **appinställningar**, Lägg till en app inställningen kallas `DOCKER_ENA
 Du kan hämta Webhooksadressen med [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 För Webhooksadressen, måste du ha följande slutpunkt: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.

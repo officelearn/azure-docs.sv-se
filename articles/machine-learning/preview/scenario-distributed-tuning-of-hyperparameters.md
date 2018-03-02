@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av justeringsmodeller med hjälp av Azure Machine Learning arbetsstationen
 
@@ -39,19 +39,14 @@ Rutnätet sökning med korsvalidering kan ta lång tid. Om en algoritm har fem j
 * En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [installera och skapa Quickstart](./quickstart-installation.md) att installera arbetsstationen och skapa konton.
 * Det här scenariot förutsätter att du använder Azure ML-arbetsstationen på Windows 10 eller MacOS med Docker-motorn har installerats lokalt. 
 * Om du vill köra ett scenario med en fjärransluten dockerbehållare etablera Ubuntu Data vetenskap virtuell dator (DSVM) genom att följa den [instruktioner](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 28 Gb minne. D4 instanser av virtuella datorer har denna kapacitet. 
-* Om du vill köra det här scenariot med ett Spark-kluster genom att etablera Azure HDInsight-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Vi rekommenderar att du har ett kluster med minst:
-    - sex arbetsnoder
+* Om du vill köra det här scenariot med ett Spark-kluster, etablera HDInsight Spark-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Vi rekommenderar att du har ett kluster med följande konfiguration i huvud- och arbetsroller noder:
+    - fyra arbetsnoder
     - åtta kärnor
-    - 28 Gb minne i huvud- och arbetsroller noder. D4 instanser av virtuella datorer har denna kapacitet.       
-    - Vi rekommenderar att ändra följande parametrar för att maximera prestandan i klustret:
-        - Spark.Executor.instances
-        - Spark.Executor.cores
-        - Spark.Executor.Memory 
+    - 28 Gb minne  
+      
+  D4 instanser av virtuella datorer har denna kapacitet. 
 
-Du kan följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) och redigera definitioner i ”anpassade spark standardvärden”.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Felsökning av**: din Azure-prenumeration kan ha en kvot på antal kärnor som kan användas. Azure-portalen tillåter inte att skapa klustret med det totala antalet kärnor överskrider kvoten. Du kvoten finns i avsnittet prenumerationer Azure portal, klickar du på den prenumeration som används för att distribuera ett kluster och klicka sedan på **användning + kvoter**. Vanligtvis kvoter definieras per Azure-region och du kan välja att distribuera Spark-kluster i en region där du har tillräckligt med ledigt kärnor. 
 
 * Skapa ett Azure storage-konto som används för att lagra dataset. Följ den [instruktioner](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto.
 
@@ -118,7 +113,7 @@ med IP-adress, användarnamn och lösenord i DSVM. IP-adressen för DSVM finns i
 
 Om du vill konfigurera Spark miljö körs i CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 med namnet på klustret, klustrets SSH-användarnamn och lösenord. Standardvärdet för SSH-användarnamn är `sshuser`, såvida inte du har ändrat under etablering av klustret. Namnet på klustret finns i avsnittet Egenskaper på sidan kluster i Azure-portalen:
 
@@ -126,14 +121,20 @@ med namnet på klustret, klustrets SSH-användarnamn och lösenord. Standardvär
 
 Vi kan använda spark sklearn paketet för att ha Spark som en körningsmiljö för distribuerade justering av justeringsmodeller. Vi har ändrat spark_dependencies.yml fil om du vill installera det här paketet när Spark körningsmiljö används:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ i fönstret CLI.
 Eftersom lokala miljön är för liten för att beräkna alla egenskapsuppsättningar växlar vi till remote DSVM som har större minne. Körning i DSVM görs i dockerbehållare som hanteras av AML arbetsstationen. Med den här DSVM kommer du att beräkna alla funktioner och träna modeller och finjustera justeringsmodeller (se nästa avsnitt). singleVM.py filen har slutförts funktionen beräknings- och modellering kod. I nästa avsnitt visar vi hur du kör singleVM.py i fjärranslutna DSVM. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Justera justeringsmodeller med fjärråtkomst DSVM
-Vi använder [xgboost](https://anaconda.org/conda-forge/xgboost) av toning trädet förstärkning implementering [1]. Vi använder [scikit-Läs](http://scikit-learn.org/) paket att justera justeringsmodeller av xgboost. Även om xgboost inte är en del av scikit-Läs paketet, den implementerar scikit-Läs API och kan därför användas tillsammans med hyperparameter justera funktioner i scikit-Läs. 
+Vi använder [xgboost](https://anaconda.org/conda-forge/xgboost) av toning trädet förstärkning implementering [1]. Vi använder också [scikit-Läs](http://scikit-learn.org/) paket att justera justeringsmodeller av xgboost. Även om xgboost inte är en del av scikit-Läs paketet, den implementerar scikit-Läs API och kan därför användas tillsammans med hyperparameter justera funktioner i scikit-Läs. 
 
-Xgboost har åtta justeringsmodeller:
+Xgboost har åtta justeringsmodeller, beskrivs [här](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,14 +211,13 @@ Xgboost har åtta justeringsmodeller:
 * learning_rate
 * colsample\_by_level
 * delprov
-* mål för en beskrivning av dessa justeringsmodeller finns på
-- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* Mål  
+ 
 Från början vi använda remote DSVM och finjustera justeringsmodeller från ett litet rutnät av möjliga värden:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Det här rutnätet har fyra kombinationer av värden för justeringsmodeller. Vi använder 5-fold mellan verifiering, resulterande 4 x 5 = 20 körs av xgboost. Vi använder negativt loggen förlust mått för att mäta prestanda hos modeller. Följande kod hittar värdena för justeringsmodeller från rutnätet som maximera cross-validerade negativt logg går förlorade. Dessa värden används också för att träna modellen slutliga över fullständig träningsmängden:
+Det här rutnätet har fyra kombinationer av värden för justeringsmodeller. Vi använder 5-fold mellan verifiering, vilket resulterar i 4 x 5 = 20 körs av xgboost. Vi använder negativt loggen förlust mått för att mäta prestanda hos modeller. Följande kod hittar värdena för justeringsmodeller från rutnätet som maximera cross-validerade negativt logg går förlorade. Dessa värden används också för att träna modellen slutliga över fullständig träningsmängden:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -285,7 +285,7 @@ Vi använder Spark-kluster för att skala ut justera justeringsmodeller och anv�
 
 Det här rutnätet har 16 kombinationer av värden för justeringsmodeller. Eftersom vi använder 5-fold mellan verifiering, vi kör xgboost 16 × 5 = 80 gånger.
 
-scikit-Läs paketet inte har inbyggt stöd för att justera justeringsmodeller med Spark-kluster. Lyckligtvis [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) paket från Databricks fyller luckan. Det här paketet innehåller GridSearchCV-funktionen med nästan samma API som GridSearchCV funktion i scikit-Läs. Om du vill använda spark sklearn och finjustera justeringsmodeller med Spark måste ansluta för att skapa Spark-kontexten
+scikit-Läs paketet inte har inbyggt stöd för att justera justeringsmodeller med Spark-kluster. Lyckligtvis [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) paket från Databricks fyller luckan. Det här paketet innehåller GridSearchCV-funktionen med nästan samma API som GridSearchCV funktion i scikit-Läs. Om du vill använda spark sklearn och finjustera justeringsmodeller med Spark måste vi skapa ett Spark-kontexten
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

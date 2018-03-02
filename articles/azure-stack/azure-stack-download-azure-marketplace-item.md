@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure-stacken
 
@@ -109,7 +109,7 @@ Använd följande steg för att ladda ned nödvändiga marketplace-objekt från 
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importera avbildningen och publicera den på Azure-stacken marketplace
 
-1. När du har laddat ned avbildningen och galleriet paketet spara dem och innehållet i en flyttbar diskenhet AzureStack verktyg master-mappen och kopiera den till Azure Stack-miljö (du kan kopiera den lokalt till valfri plats som: ”C:\MarketplaceImages”).   
+1. När du har laddat ned avbildningen och galleriet paketet spara dem och innehållet i en flyttbar diskenhet AzureStack verktyg master-mappen och kopiera den till Azure Stack-miljö (du kan kopiera den lokalt till valfri plats som: ”C:\MarketplaceImages”).     
 
 2. Innan du importerar avbildningen måste du ansluta till Azure Stack-operatorn miljö med hjälp av stegen som beskrivs i [konfigurera Azure Stack operatorn PowerShell-miljö](azure-stack-powershell-configure-admin.md).  
 

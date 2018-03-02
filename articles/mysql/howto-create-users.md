@@ -1,19 +1,19 @@
 ---
-title: "Skapa användare i Azure-databas för MySQL-server | Microsoft Docs"
+title: "Skapa användare i Azure-databas för MySQL-server"
 description: "Den här artikeln beskriver hur du kan skapa nya användarkonton för att interagera med en Azure-databas för MySQL-servern."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure-databas för MySQL-server 
 Den här artikeln beskriver hur du kan skapa användare i en Azure-databas för MySQL-servern.
@@ -80,7 +80,7 @@ När Azure-databasen för MySQL-server har skapats kan kan du använda första a
 5. Logga in på servern, anger den avsedda databas med nytt användarnamn och lösenord. Det här exemplet visar mysql-kommandoraden. Med det här kommandot uppmanas du lösenordet för användarnamnet. Ersätt egna servernamnet, databasnamnet och användarnamn.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>Nästa steg

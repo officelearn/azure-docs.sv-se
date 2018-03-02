@@ -1,6 +1,6 @@
-1. Logga in på [Azure Portal].
+1. Logga in på [Azure-portalen].
 
-2. Klicka på **Ny**.
+2. Klicka på **Skapa en resurs**.
 
 3. I sökrutan skriver du **Mobile Apps**.
 
@@ -16,4 +16,4 @@
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/

@@ -3,7 +3,7 @@ title: "Anslut Azure SSIS-integrering runtime till ett virtuellt nätverk | Micr
 description: "Lär dig hur du ansluter till Azure-SSIS-integrering runtime till ett Azure virtual network."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6f0038ea750d05b8d59bde07b54cb4aa22ab71b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.author: douglasl
+ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Anslut din Azure-SSIS-integrering runtime (IR) till Azure-nätverk i följande scenarier: 

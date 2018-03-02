@@ -1,3 +1,5 @@
+# [Dokumentation om Redis Cache](index.md)
+
 # Översikt
 ##[Varför ska jag använda Redis Cache](https://azure.microsoft.com/services/cache/)
 ##[Utforska funktioner på premiumnivå](cache-premium-tier-intro.md)
@@ -11,7 +13,7 @@
 
 # Kom igång
 ##[ASP.NET](cache-web-app-howto.md)
-##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+##[NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)

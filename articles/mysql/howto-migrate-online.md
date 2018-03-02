@@ -1,19 +1,19 @@
 ---
-title: "Minimal avbrottstid migrering till Azure-databas för MySQL | Microsoft Docs"
+title: "Minimal avbrottstid migrering till Azure-databas för MySQL"
 description: "Den här artikeln beskriver hur du utför en minimal avbrottstid migrering av en MySQL-databas till Azure-databas för MySQL och hur du ställer in första last och kontinuerlig datasynkronisering från källdatabasen till måldatabasen med hjälp av Attunity replikera för Microsoft Migreringar."
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimal avbrottstid migrering till Azure-databas för MySQL
 Du kan migrera dina befintliga MySQL-databas till Azure-databas för MySQL med hjälp av Attunity replikera för Microsoft Migrations. Attunity replikera är en gemensam erbjudande från Attunity och Microsoft. Tillsammans med Azure för migrering databastjänsten ingår det utan extra kostnad för Microsoft-kunder. 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster
 
@@ -132,7 +132,7 @@ Du bör använda certifikat med offentlig nyckel, eftersom det är säkrare än 
 
 Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-### <a name="cluster-customization"></a>Anpassning av kluster
+### <a name="cluster-customization"></a>Klusteranpassning
 
 **Script åtgärder** används med Linux-baserade kluster måste skrivas i Bash-skript. Linux-baserade kluster kan använda script actions under eller efter att klustret har skapats. Mer information finns i [anpassa Linux-baserade HDInsight med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md) och [för Linux-baserade HDInsight utveckling av skriptåtgärder](hdinsight-hadoop-script-actions-linux.md).
 
@@ -201,10 +201,10 @@ Följande diagram ger vägledning om hur du migrerar dina Hive-arbetsbelastninga
 | På Windows-baserade jag använda... | På Linux-baserade... |
 | --- | --- |
 | **Hive-redigeraren** |[Hive-vyn i Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`Så här aktiverar du Tez |Tez är standard Körningsmotor för Linux-baserade kluster så set-satsen är inte längre behövs. |
+| `set hive.execution.engine=tez;` Så här aktiverar du Tez |Tez är standard Körningsmotor för Linux-baserade kluster så set-satsen är inte längre behövs. |
 | C# användardefinierade funktioner | Mer information om verifiering C#-komponenter med Linux-baserat HDInsight finns [migrera .NET lösningar på Linux-baserat HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-filer eller skript på den server som anropas som en del av ett Hive-jobb |Använd Bash-skript |
-| `hive`kommando från fjärrskrivbord |Använd [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) eller [Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` kommando från fjärrskrivbord |Använd [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) eller [Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 

@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-databas för MySQL-alternativ och prestanda: förstå vad som är tillgängliga i varje prisnivå
 När du skapar en Azure-databas för MySQL-servern, besluta om tre huvudsakliga alternativ för att konfigurera de resurser som allokerats för servern. Dessa alternativ kan påverka prestanda och skalning av servern.
@@ -45,8 +45,8 @@ Om du vill välja en prisnivå, först starta genom att fastställa om din arbet
 | :------------------------ | :-------- | :----------- |
 | Maximal beräknings-enheter | 100 | 800 | 
 | Maximalt totalt lagringsutrymme | 1 TB | 1 TB | 
-| Lagring IOPS garanti | Saknas | Ja | 
-| Maximalt lagringsutrymme IOPS | Saknas | 3 000 | 
+| Lagring IOPS garanti | Gäller inte | Ja | 
+| Maximalt lagringsutrymme IOPS | Gäller inte | 3 000 | 
 | Databasen period för lagring av säkerhetskopior. | 7 dagar | 35 dagar | 
 
 Du kan inte ändra prisnivån när servern har skapats under tidsramen för förhandsgranskning. I framtiden, ska det vara möjligt att uppgradera eller nedgradera en server från en prisnivå till ett annat skikt.
@@ -72,12 +72,12 @@ Beräkna enheter är ett mått på CPU bearbetning dataflödet som garanterat sk
 | **Prestandanivå** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Max beräknings-enheter | 100 | 200 | 400 | 800 |
-| Inkluderade lagringsstorlek och etablerade IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Inkluderade lagringsstorlek och etablerade IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Maxstorlek för storage server\* | 1 TB | 1 TB | 1 TB | 1 TB |
 | Konfigurera max servern IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS | 3 000 IOPS |
 | Konfigurera max servern IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB | Fast 3 IOPS per GB |
 
-\*Maxstorlek server lagring refererar till etablerade lagringsstorleken för servern.
+\* Maxstorlek server lagring refererar till etablerade lagringsstorleken för servern.
 
 ## <a name="storage"></a>Lagring 
 Lagringskonfigurationen definierar mängden lagringskapacitet till en Azure-databas för MySQL-servern. Det lagringsutrymme som används av tjänsten innehåller databasfiler och transaktionsloggar MySQL i serverloggen. Överväg storleken på lagring som krävs för att vara värd för dina databaser och prestandakrav (IOPS) när du väljer lagringskonfigurationen.

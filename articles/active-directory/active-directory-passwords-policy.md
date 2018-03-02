@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -86,8 +86,8 @@ Varje användarkonto som behöver logga in på Azure AD måste ha ett unikt huvu
 | Egenskap | UserPrincipalName krav |
 | --- | --- |
 | Tecken som tillåts |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Tecken som tillåts inte |<ul> <li>Alla ”@” tecken som inte avgränsa användarnamnet från domänen.</li> <li>Får inte innehålla en punkt ””. omedelbart före den ”@” symbol</li></ul> |
-| Längden begränsningar |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan vara upp till 64 tecken innan den ”@” symbol</li><li>Det kan vara upp till 48 tecken efter den ”@” symbol</li></ul> |
+| Tecken som tillåts inte |<ul> <li>Alla ”\@ \" tecken som inte avgränsa användarnamnet från domänen.</li> <li>Får inte innehålla en punkt ””. omedelbart före den ”\@ \" symbol</li></ul> |
+| Längden begränsningar |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan vara upp till 64 tecken innan den ”\@ \" symbol</li><li>Det kan vara upp till 48 tecken efter den ”\@ \" symbol</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>De principer som gäller endast för användarkonton i molnet
 
@@ -96,7 +96,7 @@ I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpa
 | Egenskap | Krav |
 | --- | --- |
 | Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Starka lösenord: får inte innehålla en punkttecknet ””. omedelbart före den ”@” symbol.</li></ul> |
+| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Starka lösenord: får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen.</li></ul> |
 | Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: kräver tre av de fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Siffror (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Giltighetstiden för lösenord |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
 | Meddelande om lösenords upphör att gälla |<ul><li>Standardvärde: **14** dagar (tills lösenordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
@@ -124,24 +124,24 @@ Om du vill komma igång behöver du [ladda ned och installera Azure AD PowerShel
 1. Ansluta till Windows PowerShell med administratörsbehörighet för ditt företag.
 2. Kör något av följande kommandon:
 
-   * Kör följande cmdlet för att se om en enskild användares lösenord upphör att gälla aldrig, med hjälp av UPN-namnet (till exempel  *aprilr@contoso.onmicrosoft.com* ) eller användar-ID för den användare som du vill kontrollera:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Kör följande cmdlet för att se om en enskild användares lösenord upphör att gälla aldrig, med hjälp av UPN-namnet (till exempel  *aprilr@contoso.onmicrosoft.com* ) eller användar-ID för den användare som du vill kontrollera: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Ange ett lösenord ska upphöra att gälla
 
 1. Ansluta till Windows PowerShell med administratörsbehörighet för ditt företag.
 2. Kör något av följande kommandon:
 
-   * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller ID för användaren:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * För att ange lösenord för alla användare i organisationen så att de upphör att gälla, använder du följande cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller ID för användaren: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * För att ange lösenord för alla användare i organisationen så att de upphör att gälla, använder du följande cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Ange ett lösenord aldrig upphör att gälla
 
 1. Ansluta till Windows PowerShell med administratörsbehörighet för ditt företag.
 2. Kör något av följande kommandon:
 
-   * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller ID för användaren:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * För att ange lösenord för alla användare i en organisation aldrig upphör att gälla, kör du följande cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller ID för användaren: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * För att ange lösenord för alla användare i en organisation aldrig upphör att gälla, kör du följande cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
    > Lösenord har angetts till `-PasswordNeverExpires $true` fortfarande ålder baserat på den `pwdLastSet` attribut. Om du ställer in användarlösenord aldrig går ut och sedan 90 dagar gå genom lösenord upphör att gälla. Baserat på de `pwdLastSet` attributet, om du ändrar upphör att gälla till `-PasswordNeverExpires $false`, alla lösenord som har en `pwdLastSet` äldre än 90 dagar användaren måste ändra dem nästa gång de loggar in. Den här ändringen kan påverka ett stort antal användare. 

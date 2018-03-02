@@ -1,73 +1,60 @@
 ---
-title: "Azure CLI-skript exempel – skapa ett Batch-konto | Microsoft Docs"
-description: "Azure CLI-skript exempel – skapa ett Batch-konto"
+title: "Exempel på Azure CLI-skript – Skapa Batch-konto – Batch-tjänsten | Microsoft Docs"
+description: "Exempel på Azure CLI-skript – Skapa Batch-konto i Batch-tjänstläge"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Skapa ett batchkonto med Azure CLI
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-exempel: Skapa ett Batch-konto i Batch-tjänstläge
 
-Det här skriptet skapar ett Azure Batch-konto och visar hur olika egenskaper för kontot som kan efterfrågas och uppdateras.
+Det här skriptet skapar ett Azure Batch-konto i Batch-tjänstläget och visar hur du ställer frågor eller uppdaterar olika egenskaper för kontot. När du skapar ett Batch-konto i standardläget för Batch-tjänsten tilldelas dess beräkningsnoder internt av Batch-tjänsten. Tilldelade beräkningsnoder regleras av en separat vCPU-kvort (kärna) och kontot kan autentiseras antingen via autentiseringsuppgifter för delad nyckel eller en Azure Active Directory-token.
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Installera Azure CLI med hjälp av instruktionerna i den [Azure CLI installationsguiden](https://docs.microsoft.com/cli/azure/install-azure-cli), om du inte redan har gjort.
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Exempelskript för batch-konto
+## <a name="example-script"></a>Exempelskript
 
-När du skapar en Batch-kontot som standard tilldelas dess datornoderna internt av Batch-tjänsten. Allokerade datornoderna omfattas av en separat kärnkvot och kontot kan autentiseras antingen via autentiseringsuppgifterna för delad nyckel eller ett Azure Active Dirctory-token.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Batch-kontot med användaren exempelskript för prenumeration
-
-Du kan också välja om du vill ha skapa dess compute-noder i din egen Azure-prenumeration.
-Konton som allokerar compute-noder i din prenumeration måste autentiseras via Azure Active Directory-token och datornoder allokerade räknas som en prenumerationens kvoter. Om du vill skapa ett konto i det här läget måste en ange en Key Vault-referens när du skapar kontot.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-När du kör något av ovanstående exempelskript kör följande kommando för att ta bort resursgruppen och alla relaterade resurserna (inklusive Batch-konton, Azure Storage-konton och Azure nyckelvalv).
+Kör följande kommando för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, Batch-kontot och alla relaterade resurser. Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ batch-kontot](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot.  |
-| [AZ batch inställt](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Uppdaterar egenskaperna för Batch-kontot.  |
-| [Visa för AZ batch-konto](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Hämtar information om det angivna Batch-kontot.  |
-| [AZ batch-kontot nycklar lista](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hämtar åtkomstnycklarna för det angivna Batch-kontot.  |
-| [logga in AZ batch-konto](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autentiseras mot det angivna Batch-kontot för ytterligare CLI interaktion.  |
-| [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto. |
-| [Skapa AZ keyvault](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Skapar ett nyckelvalv. |
-| [Ange en AZ keyvault-princip](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Uppdatera säkerhetsprincipen för angivna nyckelvalvet. |
-| [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Uppdaterar egenskaperna för Batch-kontot.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Hämtar information om det angivna Batch-kontot.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hämtar åtkomstnycklar för det angivna Batch-kontot.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
-
-Ytterligare Batch CLI skriptexempel finns i den [Azure Batch CLI dokumentationen](../batch-cli-samples.md).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure/overview).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: estfan; LADocs
+ms.openlocfilehash: cca13db916dc2560ff78d477a0faa241e032ab27
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-logic-apps-features"></a>Använda funktioner i Logic Apps
 
@@ -85,7 +85,7 @@ Nu får du e-postmeddelanden endast när meddelandena uppfyller villkoret.
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Upprepa åtgärder via en lista med forEach
 
-ForEach-loop anger en matris om du vill upprepa åtgärden över. Flödet misslyckas om den inte är en matris. Om du har action1 som en matris med meddelanden och du vill skicka meddelandet, inkludera du den här forEach satsen i egenskaperna för åtgärden:`forEach : "@action('action1').outputs.messages"`
+ForEach-loop anger en matris om du vill upprepa åtgärden över. Flödet misslyckas om den inte är en matris. Om du har action1 som en matris med meddelanden och du vill skicka meddelandet, inkludera du den här forEach satsen i egenskaperna för åtgärden: `forEach : "@action('action1').outputs.messages"`
 
 ## <a name="edit-the-code-definition-for-a-logic-app"></a>Redigera koden definitionen för en logikapp
 
@@ -117,12 +117,12 @@ Det här exemplet visar hur du uppdaterar din befintliga logikapp så att du kan
             "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Gå till den `When_a_feed-item_is_published` åtgärd, hitta den `queries` avsnittet och Ersätt värdet för frågan med:`"feedUrl": "#@{parameters('currentFeedUrl')}"` 
+2. Gå till den `When_a_feed-item_is_published` åtgärd, hitta den `queries` avsnittet och Ersätt värdet för frågan med: `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
     För att ansluta två eller flera strängar kan du också använda den `concat` funktion. 
     Till exempel `"@concat('#',parameters('currentFeedUrl'))"` fungerar på samma sätt som anges ovan.
 
-3.  När du är klar väljer **spara**. 
+3.  När du är klar väljer du **Spara**. 
 
     Nu kan du ändra webbplatsens RSS-feed genom att ange en annan URL till den `currentFeedURL` objekt.
 

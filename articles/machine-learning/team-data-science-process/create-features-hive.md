@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. Dessa Hive-frågor via inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
@@ -31,7 +31,7 @@ Exempel på de frågor som presenteras som är specifika för den [NYC Taxi resa
 
 Detta **menyn** länkar till avsnitt som beskriver hur du skapar funktioner för data i olika miljöer. Den här uppgiften är ett steg i den [Team Data vetenskap processen (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -93,14 +93,14 @@ Hive levereras med en uppsättning UDF: er för bearbetning av datetime-fält. I
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Den här Hive-fråga förutsätter att den *&#60; datetime-fält >* i standard datetime-format.
+Den här Hive-fråga förutsätter att den  *<datetime field>*  i standard datetime-format.
 
 Om ett datetime-fält inte är i standardformatet, måste du konvertera datetime-fält till Unix-tidsstämpel först och sedan konvertera tidsstämpeln Unix till en datetime-sträng som är i standardformatet. När datetime är i formatet kan använda användare inbäddade datetime UDF: er att extrahera funktioner.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-I den här frågan, om den *&#60; datetime-fält >* har mönster som *03/26/2015 12:04:39*, *' &#60; mönstret för datetime-fält >'* ska vara `'MM/dd/yyyy HH:mm:ss'`. Om du vill testa den kan användare som köra
+I den här frågan, om den  *<datetime field>*  har mönster som *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* ska vara `'MM/dd/yyyy HH:mm:ss'`. Om du vill testa den kan användare som köra
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -140,7 +140,7 @@ Matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hit
 
 En fullständig lista över Hive inbäddade UDF: er finns i den **inbyggda funktioner** avsnitt på den <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Avancerade alternativ: finjustera Hive parametrar att fråga snabbare
+## <a name="tuning"></a> Avancerade alternativ: finjustera Hive parametrar att fråga snabbare
 Parametern standardinställningarna för Hive-kluster är kanske inte lämplig för Hive-frågor och de data som bearbetar frågorna. Det här avsnittet beskrivs vissa parametrar som användare kan justera för att förbättra prestanda för Hive-frågor. Användare måste lägga till parametern justera frågor innan frågor för bearbetning av data.
 
 1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetning långa poster **heap utrymmet börjar ta slut** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:

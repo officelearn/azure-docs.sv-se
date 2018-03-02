@@ -3,7 +3,7 @@ title: "Skapa Azure-SSIS-integrering körning i Azure Data Factory | Microsoft D
 description: "Lär dig hur du skapar en Azure-SSIS-integrering körning så att du kan köra SSIS-paket i Azure-molnet."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integrering körning i Azure Data Factory
 Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure.
@@ -40,7 +40,7 @@ Den här artikeln beskrivs olika sätt att etablera ett Azure-SSIS-IR:
 
 När du skapar en Azure-SSIS-IR ansluter Data Factory till din Azure SQL Database för att förbereda katalog SSIS-databasen (SSISDB). Skriptet konfigurerar också behörigheter och inställningar för ditt VNet, om det anges, och ansluter den nya instansen för Azure-SSIS Integration Runtime till VNet.
 
-När du etablerar en instans av Azure-SSIS IR installeras också Azure Feature Pack för SSIS och åtkomst-Redistributable. Med dessa komponenter upprättar du en anslutning till Excel- och Access-filer och till olika Azure-datakällor, utöver de datakällor som stöds av de inbyggda komponenterna. Du kan inte installera komponenter från tredje part för SSIS vid den här tidpunkten (inklusive komponenter från tredje part från Microsoft, som Oracle- och Teradata-komponenterna från Attunity och SAP BI-komponenterna).
+När du etablerar en instans av en Azure-SSIS IR installeras också Azure Feature Pack för SSIS och Access Redistributable. Med dessa komponenter upprättar du en anslutning till Excel- och Access-filer och till olika Azure-datakällor, utöver de datakällor som stöds av de inbyggda komponenterna. Du kan inte installera komponenter från tredje part för SSIS vid den här tidpunkten (inklusive komponenter från tredje part från Microsoft, som Oracle- och Teradata-komponenterna från Attunity och SAP BI-komponenterna).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -54,15 +54,15 @@ När du etablerar en instans av Azure-SSIS IR installeras också Azure Feature P
 - **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps). Du använder PowerShell för att köra ett skript för att etablera en Azure-SSIS Integration Runtime som kör SSIS-paket i molnet. 
 
 > [!NOTE]
-> - Du kan skapa en datafabrik för version 2 i följande regioner: östra USA, östra USA 2, Sydostasien och västra Europa. 
-> - Du kan skapa en Azure-SSIS-IR inom följande områden: östra USA, östra USA 2, centrala USA, Nordeuropa, Västeuropa och östra.
+> - Du kan skapa en datafabrik med version 2 i följande regioner: USA, östra; USA, östra 2; Asien, sydöstra och Europa, västra. 
+> - Du kan skapa en integreringskörning för Azure-SSIS i följande regioner: USA, östra; USA, östra 2; USA, centrala; Europa, norra; Europa, västra och Australien, östra.
 
 ## <a name="azure-portal"></a>Azure Portal
 I det här avsnittet använder Azure-portalen specifikt Data Factory Gränssnittet för att skapa en Azure-SSIS-IR. 
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta **Microsoft Edge** eller **Google Chrome** webbläsare. Data Factory UI stöds för närvarande bara i Microsoft Edge och Google Chrome webbläsare.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 2. Logga in på [Azure-portalen](https://portal.azure.com/).    
 3. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    

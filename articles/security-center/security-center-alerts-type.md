@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Inaktivera och ta bort IIS-loggfiler**: Den här varningen anger att IIS-loggen har inaktiverats och tagits bort, vilket ofta används av angripare för att försök sudda ut sina spår.
 * **Misstänkt filborttagning**: Den här varningen anger misstänkt borttagning av filer som kan användas av en angripare för att ta bort bevis på skadliga binärfiler.
 * **Skuggkopior av alla filer har tagits bort**: Den här varningen anger att skuggkopior har tagits bort.
-* **En historikfil har rensats**: Den här varningen anger att loggfilen för kommandohistoriken har rensats, vilket kan användas av en angripare för att sudda ut sina spår.
 * **Misstänkta kommandon för att rensa filer**: Den här varningen anger en kombination av systeminformationskommandon som används för att utföra självrensning efter att potentiella hot har utförts.  Medan *systeminfo.exe* är ett legitimt Windows-verktyg, är det ovanligt att det körs två gånger i följd, följt av ett borttagningskommando på så sätt som har inträffat här.
 * **Skapande av misstänkt konto**: Den här varningen anger att ett konto har skapats som är snarlikt ett befintlig inbyggt konto med administratörsprivilegier. Den här tekniken kan användas av angripare för att skapa ett falskt konto utan att bli identifierade.
-* **Misstänkt inloggningsaktivitet**: Den här varningen anger en ovanlig inloggningsaktivitet som kan tyda på en råstyrkeattack i Server Message Block (SMB). Om resursen som påverkas fungerar som en IIS-server, kan varningen bero på specifik konfiguration av IIS-autentisering som är giltig.
 * **Misstänkt aktivitet för skuggkopia av volym**: Den här varningen anger borttagningsaktivitet av skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Den här aktiviteten är ofta kopplad till Ransowmare, men den kan också vara legitim.
 * **Persistence-metod för Windows-registret**: Den här varningen anger ett försök att spara en körbar fil i Windows-registret. Skadlig kod använder ofta en sådan metod för att överleva en omstart.
-* **Windows-brandväggen har inaktiverats**: Den här varningen anger att Windows-brandväggen har inaktiverats.
 * **Misstänkt ny brandväggsregel**: Den här varningen anger att en ny brandväggsregel har lagts till via *netsh.exe* för att tillåta trafik från en körbar fil på en misstänkt plats.
-* **Ny användare har lagts till i administratörsgruppen**: Den här varningen anger att en ny användare har lagts till den lokala administratörsgruppen.
-* **En ny tjänst skapades**: Den här varningen anger att en ny tjänst har skapats.
 * **Misstänkta XCOPY-körningar**: Den här varningen anger ett antal XCOPY-körningar som skulle kunna signalera att en av dina datorer har komprometterats och använts för att sprida skadlig kod.
 * **Undertryckning av juridisk information som visas för användare vid inloggning**: Den här varningen anger en ändring i registernyckeln som styr om en juridiska information visas för användarna när de loggar in. Det här är en vanlig aktivitet som utförs av angripare efter att de har komprometterat en värd.
 * **Avvikande blandning av versaler och gemener i kommandoraden identifierad**: Den här varningen anger användning av en blandning av versaler och gemener i kommandoraden, vilket är en teknik som används av angripare för att komma undan skiftlägeskänsliga eller hash-baserade regler för datorn.
@@ -123,15 +118,10 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Ändringar i misstänkt Set-ExecutionPolicy och WinRM**: Den här varningen anger konfigurationsändringar vilka associeras med användning av den skadliga ChinaChopper webshell.
 * **Inaktivering av kritiska tjänster**: Den här varningen anger att kommandot ”net.exe stop” användes för att stoppa kritiska tjänster som SharedAccess eller Windows Security Center.
 * **Misstänkt användning av -s-växel för FTP**: Den här varningen anger användning av ”-s”-växel för FTP, som kan användas av skadlig kod för att ansluta till en fjärransluten server och hämta ytterligare skadliga binärfiler.
-* **Förberedelse för exfiltrering av dokument via IIS-bakdörr**: Den här varningen anger att dokument samlas in och förbereds för exfiltrering.
 * **Misstänkt körning av kommandot VBScript.Encode**: Den här varningen anger att kommandot *VBScript.Encode* utfördes, vilket kodar skript till oläsbar text, vilket gör det svårare för användare att undersöka koden.
 * **Allokering av VBScript http-objekt**: Den här varningen anger att en VBScript-fil skapats med hjälp av kommandotolken, som kan användas för att hämta skadliga filer.
 * **Attack mot tröga tangenter**: Den här varningen anger att en angripare kanske saboterar en binär åtkomst (till exempel tröga tangenter, skärmtangentbord, skärmläsaren) för att ge bakdörrsåtkomst.
 * **Indikationer på Petya-utpressningstrojan**: Den här varningen anger att de tekniker som är associerade med Petya-utpressningstrojan har observerats.
-* **En kernel-modul lästes in**: Den här varningen anger att en kernel-modul lästes in.
-* **En kernel-modul togs bort**: Den här varningen anger att en kernel-modul togs bort.
-* **Avvikande inloggning till en dator**: Den här varningen anger att användaren loggat in från en ovanlig IP-adress.
-* **En fil har hämtats och körts**: Den här varningen anger att en fil har hämtas till datorn, getts behörighet för körning och därmed körts.
 * **Försök att inaktivera AMSI**: Den här varningen anger ett försök att inaktivera skanningsgränssnitt för program mot skadlig kod (AMSI), vilket skulle inaktivera identifiering av program mot skadlig kod.
 * **Indikatorer på utpressningstrojan**: Den här varningen anger misstänkt aktivitet som traditionellt är associerade med en utpressningstrojan för låsskärm och kryptering.
 * **Misstänkt insamling av spår för utdatafil**: Den här varningen anger att ett spår (till exempel av nätverksaktivitet) har samlas in och matats ut till en ovanlig filtyp.
@@ -145,14 +135,8 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Konstruktion av dynamisk PS-skript**: Den här varningen anger att ett PowerShell-skript har skapats dynamiskt. Angripare använder den här metoden för att progressivt skapa ett skript för att kunna komma undan ID-system.
 * **Metaploit-indikatorer**: Den här varningen anger en aktivitet som associeras med Metasploit-ramverket, vilket innehåller en mängd angriparfunktioner och -verktyg.
 * **Misstänkt kontoaktivitet**: Den här varningen anger ett försök att ansluta till en dator med ett konto som nyligen har komprometterats.
-* **Möjlig misstänk schemalagd åtkomst**: Den här varningen anger att ett cron-jobb har utförts, som kan användas av angripare för att köra skadliga program enligt ett schema.
-* **Möjlig misstänkt åtkomst av kommandohistorikfil**: Den här varningen anger onormal åtkomst till kommandohistorikfilen.
 * **Skapande av konto**: Den här varningen anger skapandet av ett nytt konto på datorn.
-* **Ändring av bash-inställningen har skett**: Den här varningen anger åtkomst till en fil för Bash-profil, vilket kan vara bevis på att en angripare försöker att köra skadliga program enligt ett schema.
-* **Misstänkt sekvens med misslyckade sudo-försök**: Den här varningen anger en sekvens av misslyckade sudo-kommandon, som ofta observerats vid råstyrkeattacker som syftar till att eskalera privilegier för en oauktoriserad användare.
-* **Misstänkta lyckade sudo-försök**: Den här varningen anger en sekvens av misslyckade sudo-attacker följda av en lyckad sudo-attack, som ofta observerats vid råstyrkeattacker som syftar till att eskalera privilegier för en oauktoriserad användare.
-* **En ny användare har lagts till i gruppen sudoers**: Den här varningen anger att en användare har lagts till gruppen sudoers, vilket gör att medlemmarna kan köra kommandon med höga privilegier.
-* **Nätverksinloggning med autentiseringsuppgifter i klartext**: Den här varningen anger att nätverksinloggning observerades där lösenordet har skickats via nätverket i klartext. Detta är vanligt för inloggning från ett ASP-skript med hjälp av ADVAPI eller när en användare loggar in på IIS med IIS:s grundläggande autentiseringsläge. Grundläggande autentisering är inte den rekommenderade metoden såvida den inte kapslas in i ett krypteringslager, till exempel SSL (d.v.s. med hjälp av HTTPS-anslutningar endast).
+
 
 ### <a name="crash-analysis"></a>Kraschanalys
 
@@ -206,6 +190,8 @@ Om ytterligare information är tillgänglig visas den i säkerhetsincidenten und
 - Logga raderingshändelser
 - PNP-enhet ansluten från okänd källa
 - Aviseringar som inte medför åtgärd
+- Skapa nytt konto
+- Filen avkodas med certutil-verktyget 
 
 ![Varning om onormal åtkomst](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

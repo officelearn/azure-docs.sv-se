@@ -1,19 +1,19 @@
 ---
-title: "Server begrepp i Azure-databas för MySQL | Microsoft Docs"
+title: "Server begrepp i Azure för MySQL-databas"
 description: "Det här avsnittet innehåller information och riktlinjer för att arbeta med Azure-databas för MySQL-servrar."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0cf35efa7b8b4c6f78a8821c6d10e606813b7848
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Server begrepp i Azure för MySQL-databas
 Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för MySQL-servrar.
@@ -33,7 +33,7 @@ En Azure-databas för MySQL-server:
 - Scope för av hanteringsprinciper som gäller för dess databaser: inloggning, brandvägg, användare, roller, konfigurationer och så vidare.
 - Är tillgänglig i flera versioner. Mer information finns i [stöd för Azure-databas för MySQL-databasversioner](./concepts-supported-versions.md).
 
-Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja om du vill skapa en enskild databas per server att använda alla resurser eller skapa flera databaser att dela resurser. Prissättning är strukturerade per server, baserat på konfigurationen av prisnivå, Compute enheter, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-service-tiers.md).
+Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja om du vill skapa en enskild databas per server att använda alla resurser eller skapa flera databaser att dela resurser. Prissättning är strukturerade per server, baserat på konfigurationen av prisnivå, vCores, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur gör ansluta och autentisera till en Azure-databas för MySQL-servern?
 

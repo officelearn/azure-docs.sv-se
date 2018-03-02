@@ -11,24 +11,24 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
 > [!div class="op_single_selector"]
-> * [NET](batch-dotnet-get-started.md)
+> * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
 > * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
-Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
+Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Den här artikeln förutsätter att du har kunskaper om Node.js och att du är bekant med Linux. Den förutsätter också att du har ett Azure-konto med behörighet att skapa batch- och lagringstjänster.
 
 Vi rekommenderar att du läser [Azure Batch, teknisk översikt](batch-technical-overview.md) innan du går igenom stegen som beskrivs i den här artikeln.
@@ -73,7 +73,7 @@ Med hjälp av det här kommandot installerar du den senaste versionen av azure-b
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Steg 2: Skapa ett Azure Batch-konto
 
-Du kan skapa ett konto i [Azure Portal](batch-account-create-portal.md) eller från kommandoraden ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
+Du kan skapa ett konto i [Azure Portal](batch-account-create-portal.md) eller från kommandoraden ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)).
 
 Nedan beskrivs kommandon som kan användas för att skapa ett sådant med hjälp av Azure CLI.
 
@@ -359,6 +359,6 @@ Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi  rekommenderar om du inte har använt tjänsten.
-- Se [Batch Node.js-referens](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) om du vill utforska Batch API.
+- Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi rekommenderar om du inte har använt tjänsten.
+- Se [Batch Node.js-referens](/javascript/api/overview/azure/batch) om du vill utforska Batch API.
 

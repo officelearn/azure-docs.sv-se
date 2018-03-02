@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Skapa ett labb i Azure DevTest Labs
 Ett labb i Azure DevTest Labs är den infrastruktur som omfattar en grupp med resurser, till exempel virtuella datorer (VM), som låter dig hantera resurserna genom att ange gränser och kvoter. Den här artikeln beskriver steg för steg hur du skapar ett labb med hjälp av Azure CLI.
@@ -32,9 +32,9 @@ Du behöver följande om du vill skapa ett labb:
 Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. På huvudmenyn på vänster sida väljer du **Fler tjänster** (längst ned i listan).
+1. På huvudmenyn på vänster sida väljer du **Alla tjänster** (längst ned i listan).
 
-    ![Menyalternativet Fler tjänster](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![Menyalternativet Alla tjänster](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. I listan över tillgängliga tjänster: **DevTest Labs**.
 1. Välj **Lägg till** i **DevTest Labs**.

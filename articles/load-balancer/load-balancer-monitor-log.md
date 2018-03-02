@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Logganalys för Azure Load Balancer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare. Vissa av dessa loggar kan nås via portalen. Alla loggar kan extraheras från Azure blob storage och visas i olika verktyg som Excel och PowerBI. Mer information om de olika typerna av loggar i listan nedan.
 
 * **Granskningsloggar:** du kan använda [Azure-granskningsloggarna](../monitoring-and-diagnostics/insights-debugging-with-events.md) (kallades tidigare operativa loggar) att visa alla åtgärder som skickas till din Azure-prenumeration(er) och deras status. Granskningsloggar är aktiverade som standard och kan visas i Azure-portalen.
-* **Varna händelseloggar:** du kan använda den här loggen för att visa aviseringar rasied av belastningsutjämnaren. Status för belastningsutjämnaren samlas var femte minut. Den här loggen skrivs endast om en belastningsutjämnare avisering händelsen utlöses.
+* **Varna händelseloggar:** du kan använda den här loggen för att visa aviseringar som genererats av belastningsutjämnaren. Status för belastningsutjämnaren samlas var femte minut. Den här loggen skrivs endast om en belastningsutjämnare avisering händelsen utlöses.
 * **Hälsotillstånd avsökningen loggar:** du kan använda den här loggen för att visa problem som identifieras av din hälsoavsökningen, till exempel antal instanser i en serverdelspool som inte tar emot förfrågningar från belastningsutjämnaren på grund av fel för avsökning av hälsotillstånd. Den här loggen skapas i när det finns en ändring i avsökningen hälsostatus.
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Logga in på den [Azure-portalen](http://portal.azure.com). Om du inte redan har
 > [!NOTE]
 > Granskningsloggar kräver inte ett separat lagringskonto. Användning av lagring för händelsen och hälsa avsökningen loggning kommer avgifter service.
 
-## <a name="audit-log"></a>granskningslogg
+## <a name="audit-log"></a>Granskningslogg
 
 Granskningsloggen skapas som standard. Loggarna finns kvar i 90 dagar i Azures händelseloggar store. Mer information om de här loggarna genom att läsa den [visa händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) artikel.
 

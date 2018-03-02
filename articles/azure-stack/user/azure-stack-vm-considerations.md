@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -41,19 +41,25 @@ Virtuella datorer är en på begäran, skalbara datorresurser som erbjuds av Azu
 |Skalningsuppsättningar för virtuella datorer|Autoskala som stöds|Autoskala stöds inte.<br>Lägga till fler instanser i en skala som anges med portalen, Resource Manager-mallar eller PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
+Azure inför gränserna på flera sätt att undvika överförbrukning av resurser (server lokalt och på tjänstenivå). Utan att placera vissa begränsningar på en innehavare förbrukningen av resurs kan klient-upplevelse påverkas när en mycket brus granne overconsumes resurser. 
+- För nätverk utgång från den virtuella datorn finns bandbredd caps på plats. Versaler i Azure-stacken matchar caps i Azure.  
+- För lagringsresurser implementerar Azure Stack IOPs lagringsgränser för att undvika grundläggande överförbrukning av resurser av klienter för åtkomst till lagring. 
+- För virtuella datorer med flera diskar i bifogade data är maximalt dataflöde för varje enskild datadisk 500 IOPS för HHDs och 2300 IOPS för SSD-enheter.
 
-Azure-stacken stöder följande storlekar:
+I följande tabell visas de virtuella datorerna som stöds på Azure-Stack tillsammans med deras konfiguration:
 
-| Typ | Storlek | Rad storlekar som stöds |
-| --- | --- | --- |
-|Generellt syfte |Basic A|A0 - A4|
-|Generellt syfte |Standard A|A0–A7|
-|Generellt syfte |D-serien|D1 - D4|
-|Generellt syfte |Dv2-serien|D1_v2 - D5_v2|
-|Generellt syfte |DS-serien|DS1 - DS4|
-|Generellt syfte |DSv2-serien|DS1_v2 - DS5_v2|
-|Minnesoptimerad|DS-serien|DS11 - DS14|
-|Minnesoptimerad |DSv2-serien|DS11_v2 - DS14_v2|
+| Typ           | Storlek          | Rad storlekar som stöds |
+| ---------------| ------------- | ------------------------ |
+|Generellt syfte |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Generellt syfte |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Generellt syfte |D-serien       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Generellt syfte |Dv2-serien     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Generellt syfte |DS-serien      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Generellt syfte |DSv2-serien    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Minnesoptimerad|D-serien       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Minnesoptimerad|DS-serien      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Minnesoptimerad|Dv2-serien     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Minnesoptimerad|DSv2-serien-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Den här konsekvenskontroll innehåller till exempel hur mycket minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 

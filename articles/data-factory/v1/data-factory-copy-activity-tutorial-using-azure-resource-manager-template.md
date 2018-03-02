@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Resource Manager-mall för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehål
 ## <a name="monitor-pipeline"></a>Övervaka pipeline
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
-2. Klicka på **Datafabriker** på den vänstra menyn (eller) klicka på **Fler tjänster** och klicka på **Datafabriker** under kategorin **INFORMATION + ANALYS**.
+2. Klicka på **Datafabriker** på den vänstra menyn (eller) klicka på **Alla tjänster** och klicka på **Datafabriker** under kategorin **INFORMATION + ANALYS**.
    
     ![Menyn Datafabriker](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. På sidan **Datafabriker** kan du söka efter och hitta din datafabrik (AzureBlobToAzureSQLDatabaseDF). 

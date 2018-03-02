@@ -1,20 +1,20 @@
 ---
-title: "Konfigurera SSL-anslutning i Azure-databas för PostgreSQL | Microsoft Docs"
+title: "Konfigurera SSL-anslutning i Azure-databas för PostgreSQL"
 description: "Anvisningar och information för att konfigurera Azure-databas för PostgreSQL och associerade program ska använda SSL-anslutningar."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfigurera SSL-anslutning i Azure-databas för PostgreSQL
 Azure-databas för PostgreSQL föredrar ansluta ditt klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -40,7 +40,7 @@ Du kan bekräfta inställningen genom att visa den **översikt** sidan för att 
 Du kan aktivera eller inaktivera den **ssl tvingande** parameter med hjälp av `Enabled` eller `Disabled` värden i Azure CLI.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Se till att ditt program eller framework stöder SSL-anslutningar
@@ -116,11 +116,11 @@ I följande exempel visas hur för att ansluta till servern med hjälp av komman
 
 Med hjälp av kommandoradsgränssnittet PostgreSQL, kör du följande kommando:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Om detta lyckas visas följande utdata:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

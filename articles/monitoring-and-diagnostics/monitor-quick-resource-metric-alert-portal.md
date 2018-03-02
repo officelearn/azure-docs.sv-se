@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Få ett meddelande när ett måttvärde uppfyller ett villkor
 
@@ -26,15 +26,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-2. Sök efter och välj **Logikapp**. Skapa en ny resursgrupp med namnet **myResourceGroup**. Använd standardplatsen. Klicka på knappen **Skapa**.
+2. Sök efter och välj **Logikapp**. Klicka på knappen **Skapa**.
 
-3. Ange information för logikappen och markera alternativet **Fäst på instrumentpanelen**. Klicka på **Skapa** när du är klar.
+3. Ange den logikappinformation som visas i följande bild.  Använd standardplatsen. Markera alternativet **Fäst på instrumentpanelen**.  Klicka på **Skapa** när du är klar. 
 
     ![Ange grundläggande information om logikappen i Portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 12. Klicka på **Spara**.
 
+13. Det kan ta upp till 5 minuter för logikappen att köra de åtgärder som ska utföras.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Visa mått för din logikapp
 
 1. Klicka på alternativet **Övervaka** i det vänstra navigeringsfönstret.
@@ -71,7 +73,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 4. Ändra **tidsintervallet** för diagrammet för att visa data för den senaste timmen.
 
-5. Nu visas ett diagram med det totala antalet körningar som logikappen har startat den senaste timmen.
+5. Nu visas ett diagram med det totala antalet körningar som logikappen har startat den senaste timmen. Om du inte ser något kontrollerar du att du har väntat i minst 5 minuter från ovanstående steg. Uppdatera sedan webbläsaren. 
 
     ![Rita ett måttdiagram för logikappresursen](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

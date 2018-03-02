@@ -77,6 +77,10 @@
       items:
         - name: Använda Kubernetes-instrumentpanelen
           href: kubernetes-dashboard.md
+    - name: Felsöka
+      items:
+        - name: Åtkomst till SSH-noden
+          href: aks-ssh.md
 - name: Referens
   items:
     - name: Azure CLI

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysisk server till Azure replikeringsarkitektur
 
@@ -42,7 +42,7 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
     - Datorer skicka replikeringsdata till processervern på port HTTPS 9443 inkommande (kan ändras).
     - Konfigurationsservern samordnar replikeringshantering med Azure via port HTTPS 443 utgående.
     - Processervern tar emot data från källdatorer, optimerar och krypterar den och skickar den till Azure Storage över port 443 utgående.
-    - Om du aktiverar konsekvens för flera kommunicerar datorer i replikeringsgruppen med varandra via port 20004. Multi-VM används om du grupperar flera datorer i replikeringsgrupper som delar kraschkonsekventa och app-konsekventa återställningspunkter när de växlar över vid fel. Detta är användbart om datorerna kör samma arbetsbelastning och måste överensstämma.
+    - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Multi-VM används om du grupperar flera datorer i replikeringsgrupper som delar kraschkonsekventa och app-konsekventa återställningspunkter när de växlar över vid fel. Detta är användbart om datorerna kör samma arbetsbelastning och måste överensstämma.
 4. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute [offentlig peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
 

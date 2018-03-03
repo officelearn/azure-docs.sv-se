@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: 488206e81e483fa2006d774cd4e7d60f7017d9cb
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Hur du distribuerar globalt läser med Azure Cosmos DB MongoDB API Läs inställningar 
 
@@ -39,7 +39,9 @@ Kör följande kommandon för att klona exempellagringsplatsen. Baserat på din 
 
 1. [Exempelprogram för .NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [NodeJS exempelprogrammet]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Java exempelprogrammet](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Mongoose exempelprogrammet](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Java exempelprogrammet](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [SpringBoot exempelprogrammet](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash

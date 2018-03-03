@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurera Azure Media Services telemetri med .NET
 
@@ -42,19 +42,23 @@ Följande steg krävs för att aktivera telemetri:
 - Hämta autentiseringsuppgifter för det lagringskonto som är kopplade till Media Services-kontot. 
 - Skapa en Aviseringsslutpunkten med **EndPointType** inställd på **AzureTable** och endPointAddress som pekar på lagringstabellen.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Skapa en övervakningskonfiguration för de tjänster som du vill övervaka. Mer än en övervakning Konfigurationsinställningen tillåts. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>Förbrukar telemetri information
 
@@ -66,13 +70,15 @@ Information om den konsumerande telemetri information, se [detta](media-services
 
 2. Lägga till följande element för **appSettings** definieras i filen app.config:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Exempel  
     
 I följande exempel visas hur du aktiverar telemetri för det angivna AMS-kontot och hur man frågar mått med Azure Media Services .NET SDK.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

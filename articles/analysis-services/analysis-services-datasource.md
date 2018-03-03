@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -48,7 +48,7 @@ Använd .NET Framework Data Provider för SQL Server i minnet och DirectQuery-mo
 
 ## <a name="on-premises-data-sources"></a>Lokala datakällor
 
-Ansluter till lokala datakällor kräver en lokal gateway. När du använder en gateway, se till att 64-bitars-providrar är installerade.
+Ansluter till lokala datakällor från och Azure-AS-servern kräver en lokal gateway. När du använder en gateway, krävs en 64-bitars providers.
 
 ### <a name="in-memory-and-directquery"></a>I minnet och DirectQuery
 
@@ -60,31 +60,26 @@ Ansluter till lokala datakällor kräver en lokal gateway. När du använder en 
 | Teradata |OLE DB Provider för Teradata Teradata-dataprovidern för .NET |Teradata-dataprovidern för .NET | |
 | | | |
 
-\* 1400 tabellmodeller endast.
-
 ### <a name="in-memory-only"></a>I minnet enbart
-
-> [!IMPORTANT]
-> Testa providrar för följande datakällor pågår. 
 
 |Datakälla  |  
 |---------|---------|
 |Access-databas     |  
 |Active Directory *     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
-|Excel-arbetsbok     | 
+|Excel-arbetsbok     |  
 |Exchange*     |  
 |Mappen *     | 
 |JSON-dokumentet *     |  
 |Rader från binary *     | 
 |MySQL-databas     | 
-|OData Feed*     | 
+|OData Feed*     |  
 |ODBC-fråga     | 
-|OLE DB     |  
+|OLE DB     |   
 |Postgre SQL-databasen *    | 
-|SAP HANA *    |   
+|SAP HANA *    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Sybase-databas     |  

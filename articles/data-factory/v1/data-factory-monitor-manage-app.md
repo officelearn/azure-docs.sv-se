@@ -3,7 +3,7 @@ title: "Övervaka och hantera data pipelines - Azure | Microsoft Docs"
 description: "Lär dig hur du använder appen för hantering och övervakning för att övervaka och hantera Azure datafabriker och rörledningar."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av övervakning och hantering av appen
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ Längst ned i diagramvyn visas dessa knappar: Zooma In, Zooma ut Zooma till inne
 
 ![Diagram visa zoomning kommandon](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Lista över Windows-aktivitet
+### <a name="activity-windows-list"></a>Lista med aktivitetsfönster
 Listan över aktiviteten Windows längst ned i den mellersta rutan visar alla aktivitetsfönster för datamängden som du valde i Resursläsaren eller diagramvyn. Som standard är listan i fallande ordning, vilket innebär att du ser den senaste aktivitetsfönstret längst upp.
 
-![Lista över Windows-aktivitet](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Lista med aktivitetsfönster](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Den här listan inte automatiskt, så Använd uppdateringsknappen i verktygsfältet manuellt uppdatera det.  
 

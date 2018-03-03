@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: 
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: shlo
+ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Du kan använda sökning aktiviteten för att läsa eller söka efter en post, namn eller värde från en extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
@@ -62,7 +62,7 @@ Det maximala antalet rader som returneras av sökning aktiviteten är **5000**, 
 ## <a name="type-properties"></a>Typegenskaper
 Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
-DataSet | Ger dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>`AzureBlobDataset`för [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) som källa</li><li>`FileShareDataset`för [filsystemet](connector-file-system.md#dataset-properties) som källa</li><li>`AzureSqlTableDataset`för [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) eller [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) som källa</li><li>`SqlServerTable`för [SQL Server](connector-sql-server.md#dataset-properties) som källa</li><li>`AzureTableDataset`för [Azure Table storage](connector-azure-table-storage.md#dataset-properties) som källa</li> | Nyckel/värde-par | Ja
+DataSet | Ger dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>`AzureBlobDataset` för [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) som källa</li><li>`FileShareDataset` för [filsystemet](connector-file-system.md#dataset-properties) som källa</li><li>`AzureSqlTableDataset` för [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) eller [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) som källa</li><li>`SqlServerTable` för [SQL Server](connector-sql-server.md#dataset-properties) som källa</li><li>`AzureTableDataset` för [Azure Table storage](connector-azure-table-storage.md#dataset-properties) som källa</li> | Nyckel/värde-par | Ja
 källa | Innehåller egenskaper för dataset-specifik datakälla, samma som kopieringskälla för aktiviteten. Hämta information från avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-artikel. | Nyckel/värde-par | Ja
 firstRowOnly | Anger om du vill returnera endast den första raden eller alla rader. | Boolesk | Nej. Standardvärdet är `true`.
 

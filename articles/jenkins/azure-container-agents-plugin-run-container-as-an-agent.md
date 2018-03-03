@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Skapa ett projekt i Azure med hjälp av Jenkins och instanser för Azure-behållare
 
@@ -233,7 +233,7 @@ När Azure Container agenter plugin-programmet har installerats hjälper i det h
 
     - **Namnet** -ange `ACI-container`.
     - **Etiketter** -ange `ACI-container`.
-    - **Bild av docker** -ange`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Bild av docker** -ange `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![Definiera Bildegenskaper Azure Container-förekomst](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Det är dags att bygga projektet! Det här avsnittet beskrivs hur du skapar ett 
 ## <a name="clean-up-azure-resources"></a>Rensa Azure-resurser
 
 I kursen får skapade du resurser som ingår i två Azure-resursgrupper: 
-    - `JenkinsResourceGroup`-Innehåller Azure-resurser för Jenkins-server.
-    - `JenkinsAciResourceGroup`-Innehåller Azure-resurser för agenten Jenkins.
+    - `JenkinsResourceGroup` -Innehåller Azure-resurser för Jenkins-server.
+    - `JenkinsAciResourceGroup` -Innehåller Azure-resurser för agenten Jenkins.
     
 Om du inte längre behöver använda någon av resurserna i en Azure-resursgrupp kan du ta bort en resurs grupp med den `az group delete` kommandot på följande sätt (ersätter den &lt;resourceGroup > med namnet på resursgruppen som du vill ta bort):
 

@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importera en Power BI Desktop-fil
 
-Du kan skapa en ny modell i Azure som genom att importera en Power BI Desktop-fil (pbix). Modellen metadata, cachelagrade data och datasource anslutningar har importerats. Rapporter och visualiseringar har inte importerats. En gång i din server modell kan ändras genom att uppdatera och importera pbix genom att använda funktionen web designer (förhandsversion) i portalen eller med hjälp av SQL Server Management Studio (SSMS). Importerade modeller kan inte öppnas eller exporteras till Visual Studio.
+Du kan skapa en ny modell i Azure som genom att importera en Power BI Desktop-fil (pbix). Modellen metadata, cachelagrade data och datasource anslutningar har importerats. Rapporter och visualiseringar har inte importerats.
 
-> [!NOTE]
-> Om din modell pbix ansluter till lokala datakällor, ett [lokala gateway](analysis-services-gateway.md) måste vara konfigurerad för servern.
+**Begränsningar**   
+- Pbix modellen måste ansluta till [datakällor som stöds av Analysis Services](analysis-services-datasource.md) endast. 
+- Pbix-modellen kan inte ha live eller DirectQuery-anslutningar. 
+- Om modellen pbix ansluter till lokala datakällor, ett [lokala datagateway](analysis-services-gateway.md) måste konfigureras för Analysis Services-servern.
+- Importen misslyckas om datamodellen pbix innehåller metadata som inte stöds i Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Importera från pbix
 

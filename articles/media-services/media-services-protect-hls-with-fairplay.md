@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady HLS
 Azure Media Services kan du kryptera dynamiskt innehåll HTTP Live Streaming (HLS) med hjälp av följande format:  
@@ -116,7 +116,7 @@ Följande är allmänna steg för att skydda dina tillgångar med FairPlay med h
      > * En annan IAssetDeliveryPolicy att konfigurera FairPlay för HLS
      >
      >
-6. Skapa en OnDemand-positionerare för att få en strömnings-URL.
+6. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>Använd FairPlay viktiga leverans av player appar
 Du kan utveckla player appar med hjälp av iOS SDK. Om du vill kunna spela upp FairPlay innehåll som du behöver implementera licens exchange-protokollet. Det här protokollet har inte angetts av Apple. Det är varje app så att skicka begäranden viktiga leverans. Media Services FairPlay viktiga tjänsten förväntar SPC komma som meddelandet www-form-url kodad post i följande format:
@@ -128,7 +128,7 @@ Du kan utveckla player appar med hjälp av iOS SDK. Om du vill kunna spela upp F
 >
 >
 
-## <a name="streaming-urls"></a>Strömmande URL: er
+## <a name="streaming-urls"></a>Direktuppspelnings-URL:er
 Om din tillgång har krypterats med flera DRM, bör du använda en kryptering-tagg i strömnings-URL: (format = 'm3u8 aapl', kryptering = ”xxx”).
 
 Följande gäller:
@@ -138,7 +138,7 @@ Följande gäller:
 * Krypteringstypen är skiftlägeskänsligt.
 * Följande krypteringstyper av kan anges:  
   * **cenc**: Common encryption (PlayReady eller Widevine)
-  * **cbcs aapl**: FairPlay
+  * **cbcs-aapl**: FairPlay
   * **CBC**: AES envelope kryptering
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -146,8 +146,10 @@ Följande gäller:
 1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 2. Lägg till följande element i **appSettings** som definieras i filen app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Exempel
 
@@ -156,11 +158,11 @@ I följande exempel visar möjligheten att använda Media Services kan leverera 
 Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

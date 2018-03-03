@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3354b0122b9025c5da2fb55439620a56c6c985d9
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du utför avancerad encoding med Media Encoder Stand
 
 Den här artikeln visar hur du anpassar en förinställning genom att göra den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställningen och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) artikeln visar anpassade förinställningar som kan användas för att utföra avancerade åtgärder för kodning.
 
-## <a id="customizing_presets"></a>Anpassa en MES förinställning
+## <a id="customizing_presets"></a> Anpassa en MES förinställning
 
 ### <a name="original-preset"></a>Ursprungliga förinställda
 
@@ -38,7 +38,7 @@ Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-me
 
 Öppna den **CustomPreset_JSON.json** filen och ta bort först tre lager från **H264Layers** så filen ser ut så här.
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -107,7 +107,7 @@ Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-me
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
 
@@ -132,7 +132,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

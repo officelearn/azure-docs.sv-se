@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Anslutningsproblem med Azure punkt-till-plats
 
@@ -40,7 +40,9 @@ Det här problemet uppstår om klientcertifikatet saknas från **certifikat - ak
 
 Följ dessa steg för att lösa problemet:
 
-1. Se till att följande certifikat är på rätt plats:
+1. Öppna Certifikathanteraren: Klicka på **starta**, typen **hantera datorcertifikat**, och klicka sedan på **hantera datorcertifikat** i sökresultatet.
+
+2. Se till att följande certifikat är på rätt plats:
 
     | Certifikat | Plats |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Följ dessa steg för att lösa problemet:
     | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rotcertifikatutfärdare|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Lokal dator\Betrodda certifikatutfärdare|
 
-2. Gå till användare\<användarnamn > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID > manuellt installera certifikatet (*.cer-fil) på användaren och datorns Arkiv.
+3. Gå till användare\<användarnamn > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID > manuellt installera certifikatet (*.cer-fil) på användaren och datorns Arkiv.
 
 Mer information om hur du installerar klientcertifikatet finns [generera och exportera certifikat för plats-till-plats-anslutningar](vpn-gateway-certificates-point-to-site.md).
 

@@ -3,9 +3,9 @@ title: "Anropa Spark-program från Azure Data Factory | Microsoft Docs"
 description: "Lär dig mer om att anropa Spark-program från ett Azure data factory genom att använda MapReduce activity."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory pipelines
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/23/2018
 > * [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten Apache Spark i Data Factory version 2](../transform-data-using-spark.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten Apache Spark i Data Factory version 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introduktion
 Aktiviteten Spark är ett av de [data transformation aktiviteter](data-factory-data-transformation-activities.md) stöds av Data Factory. Den här aktiviteten körs det angivna Spark-programmet på Spark-kluster i Azure HDInsight. 
@@ -64,31 +64,31 @@ Här följer vanliga stegen för att skapa ett data factory-pipelinen med Spark 
 4. Överför **test.py** till den **pyFiles** mapp i den **adfspark** behållare i blob storage. Skapa behållaren och mappen om de inte redan finns.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
-Följ dessa steg om du vill skapa en datafabrik:
+Gör så här för att skapa en datafabrik:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **nya** > **Data + analys** > **Datafabriken**.
+2. Välj **Nytt** > **Data och analys** > **Data Factory**.
 
 3. På den **nya datafabriken** bladet under **namn**, ange **SparkDF**.
 
    > [!IMPORTANT]
-   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig”, byta namn på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns [Data Factory: namngivningsregler](data-factory-naming-rules.md).
+   > Namnet på Azure Data Factory måste vara globalt unikt. Om du ser felet ”datafabriksnamnet SparkDF är inte tillgänglig”, byta namn på datafabriken. Till exempel använda yournameSparkDFdate och skapa datafabriken igen. Mer information om namngivningsregler finns i [Data Factory: namngivningsregler](data-factory-naming-rules.md).
 
-4. Under **prenumeration**, Välj den Azure-prenumeration där du vill att datafabriken ska skapas.
+4. Under **Prenumeration** väljer du den Azure-prenumeration där du vill att datafabriken ska skapas.
 
 5. Välj en befintlig resursgrupp eller skapa ett Azure-resursgrupp.
 
-6. Välj den **fäst på instrumentpanelen** kryssrutan.
+6. Markera kryssrutan **Fäst på instrumentpanelen**.
 
 7. Välj **Skapa**.
 
    > [!IMPORTANT]
-   > Om du vill skapa Data Factory-instanser måste du vara medlem av den [Data Factory-deltagare](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rollen på prenumerationen/resursgruppsnivå.
+   > Om du vill skapa Data Factory-instanser måste du vara medlem i [rollen Deltagare för Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) på prenumerations-/resursgruppnivå.
 
 8. Du kan se datafabriken när den har skapats på instrumentpanelen i Azure-portalen.
 
-9. När datafabriken har skapats kan du se den **datafabriken** sidan som visar innehållet i datafabriken. Om du inte ser den **datafabriken** väljer panelen för din data factory på instrumentpanelen.
+9. När datafabriken har skapats visas sidan **Datafabrik** med innehållet i datafabriken. Om du inte ser den **datafabriken** väljer panelen för din data factory på instrumentpanelen.
 
     ![Bladet Datafabrik](./media/data-factory-spark/data-factory-blade.png)
 
@@ -96,11 +96,11 @@ Följ dessa steg om du vill skapa en datafabrik:
 I det här steget skapar du två länkade tjänster. En tjänst länkar Spark-kluster till din data factory och den andra tjänsten länkar ditt lagringsutrymme till din data factory. 
 
 #### <a name="create-a-storage-linked-service"></a>Skapa en länkad lagringstjänst
-I det här steget kan länka du ditt lagringskonto till din data factory. En datauppsättning som du skapar i ett steg senare i den här genomgången refererar till den här länkade tjänsten. Länkad HDInsight-tjänst som du definierar i nästa steg refererar till den här länkade tjänsten för. 
+I det här steget länkar du ditt lagringskonto till datafabriken. En datauppsättning som du skapar i ett steg senare i den här genomgången refererar till den här länkade tjänsten. Länkad HDInsight-tjänst som du definierar i nästa steg refererar till den här länkade tjänsten för. 
 
 1. På den **datafabriken** bladet väljer **författare och distribuera**. Data Factory-redigeraren visas.
 
-2. Välj **Nytt datalager**, och välj **Azure Storage**.
+2. Välj **Nytt datalager** och välj **Azure Storage**.
 
    ![Nytt datalager](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
@@ -108,9 +108,9 @@ I det här steget kan länka du ditt lagringskonto till din data factory. En dat
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Ersätt **kontonamn** och **kontonyckel** med namn och åtkomstnyckel för ditt lagringskonto. Om du vill lära dig mer om att hämta din lagringsåtkomstnyckel, se hur du visa, kopiera och återskapa åtkomstnycklar för lagring i [hantera ditt lagringskonto](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+4. Ersätt **kontonamn** och **kontonyckel** med namn och åtkomstnyckel för ditt lagringskonto. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar lagringsåtkomstnycklar i [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) (Hantera ditt lagringskonto).
 
-5. Om du vill distribuera den länkade tjänsten, Välj **distribuera** i kommandofältet. Utkast till-1-fönstret försvinner när den länkade tjänsten har distribuerats. Du ser **AzureStorageLinkedService** i trädvyn till vänster.
+5. Om du vill distribuera den länkade tjänsten, Välj **distribuera** i kommandofältet. Fönstret Draft-1 stängs när den länkade tjänsten har distribuerats. Du ser **AzureStorageLinkedService** i trädvyn till vänster.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Skapa en länkad HDInsight-tjänst
 I det här steget skapar du en länkad HDInsight-tjänst för att länka ditt HDInsight Spark-kluster till datafabriken. HDInsight-klustret används för att köra Spark-program som anges i aktiviteten Spark för pipeline i det här exemplet. 
@@ -152,10 +152,10 @@ I det här steget skapar du en länkad HDInsight-tjänst för att länka ditt HD
 
 3. Om du vill distribuera den länkade tjänsten, Välj **distribuera** i kommandofältet. 
 
-### <a name="create-the-output-dataset"></a>Skapa datamängd för utdata
+### <a name="create-the-output-dataset"></a>Skapa datauppsättningen för utdata
 Datamängd för utdata är styr schemat (varje timme, dag). Därför måste du ange en datamängd för utdata för aktiviteten Spark i pipelinen även om aktiviteten inte producerar några utdata. Ange en inkommande datauppsättning för aktiviteten är valfritt.
 
-1. I den Data Factory-redigeraren, Välj **mer** > **ny datamängd** > **Azure Blob storage**.
+1. Välj **Mer** > **Ny datauppsättning** > **Azure Blob Storage** i Data Factory Editor.
 
 2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. JSON-fragment definierar en datamängd som kallas **OutputDataset**. Dessutom kan du ange att resultatet lagras i blob-behållaren som kallas **adfspark** och mappen kallas **pyFiles-/ utdata**. Som tidigare nämnts är den här datauppsättningen dummy dataset. Spark-program i det här exemplet producerar inte några utdata. Den **tillgänglighet** avsnittet anger datamängd för utdata skapas varje dag. 
 
@@ -184,9 +184,9 @@ Datamängd för utdata är styr schemat (varje timme, dag). Därför måste du a
 
 
 ### <a name="create-a-pipeline"></a>Skapa en pipeline
-I det här steget skapar du en pipeline med en HDInsightSpark aktivitet. Datamängd för utdata är för närvarande styr schemat, så du måste skapa en datamängd för utdata även om aktiviteten inte producerar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen. Därför har inga indata datamängden angetts i det här exemplet.
+I det här steget skapar du en pipeline med en HDInsightSpark aktivitet. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen. Därför har inga indata datamängden angetts i det här exemplet.
 
-1. I den Data Factory-redigeraren, Välj **mer** > **ny pipeline**.
+1. Välj **Mer** > **Ny pipeline** i Data Factory Editor.
 
 2. Ersätt skript i ett utkast till-1-fönster med följande skript:
 
@@ -350,7 +350,7 @@ Skapa följande mappstruktur i blob-lagring som refereras av länkad HDInsight-t
 | Sökväg | Beskrivning | Krävs | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Rotsökvägen för Spark-jobb i den länkade lagringstjänsten. | Ja | Mapp |
-| &lt;användardefinierade&gt; | Den sökväg som pekar på filen post för Spark-jobbet. | Ja | Fil |
+| &lt;Användardefinierade &gt; | Den sökväg som pekar på filen post för Spark-jobbet. | Ja | Fil |
 | . / JAR: er | Alla filer under den här mappen överförs och placeras på Java-klassökvägen i klustret. | Nej | Mapp |
 | . / pyFiles | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret. | Nej | Mapp |
 | . / filer | Alla filer under den här mappen överförs och placeras på utföraren arbetskatalogen. | Nej | Mapp |

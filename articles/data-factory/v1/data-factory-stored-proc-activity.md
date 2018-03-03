@@ -3,7 +3,7 @@ title: SQLServer lagrade Proceduraktiviteten
 description: "Lär dig hur du kan använda lagrade Proceduraktiviteten för SQL Server för att anropa en lagrad procedur i en Azure SQL Database eller Azure SQL Data Warehouse från Data Factory-pipelinen."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -98,7 +98,7 @@ Den här genomgången använder aktiviteten lagrad procedur i en pipeline för a
 
    ![Ny datafabrik](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Välj din **Azure-prenumeration**.
-5. För **resursgruppen**, gör du något av följande steg:
+5. Gör något av följande för **Resursgrupp**:
    1. Klicka på **Skapa nytt** och ange ett namn för resursgruppen.
    2. Klicka på **använda befintliga** och välj en befintlig resursgrupp.  
 6. Välj **plats** för datafabriken.
@@ -212,7 +212,7 @@ Observera följande egenskaper:
     ![Diagram över sida vid sida](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. När ett segment är i **klar** tillstånd, kör en `select * from sampletable` frågan mot Azure SQL-databasen för att verifiera att data har infogas i tabellen av den lagrade proceduren.
 
-   ![utdata](./media/data-factory-stored-proc-activity/output.png)
+   ![Utdata](./media/data-factory-stored-proc-activity/output.png)
 
    Se [övervaka pipeline](data-factory-monitor-manage-pipelines.md) detaljerad information om hur du övervakar Azure Data Factory pipelines.  
 

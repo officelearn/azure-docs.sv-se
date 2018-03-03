@@ -1,183 +1,215 @@
 ---
-title: "Skapa ett virtuellt nätverk - Azure PowerShell | Microsoft Docs"
-description: "Lär dig hur du skapar ett virtuellt nätverk med PowerShell."
+title: "Skapa ett virtuellt Azure-nätverk med flera undernät - PowerShell | Microsoft Docs"
+description: "Lär dig hur du skapar ett virtuellt nätverk med flera undernät med hjälp av PowerShell."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: a31f4f12-54ee-4339-b968-1a8097ca77d3
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 03/01/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: 
+ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>Skapa ett virtuellt nätverk med PowerShell
+# <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>Skapa ett virtuellt nätverk med flera undernät med hjälp av PowerShell
 
-[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser kommunicera med Internet och privat med varandra. Skapa flera undernät i ett virtuellt nätverk kan du segmentera nätverket så att du kan filtrera eller kontrollera trafikflödet mellan undernät. I den här artikeln lär du dig hur du:
 
-Azure har två distributionsmodeller: Azure Resource Manager och klassisk. Microsoft rekommenderar att skapa resurser med Resource Manager-distributionsmodellen. Mer information om skillnaderna mellan de två modellerna finns i artikeln [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Förstå Azure-distributionsmodellerna).
- 
-Den här artikeln förklaras hur du skapar ett VNet via Resource Manager-distributionsmodellen med hjälp av PowerShell. Du kan också skapa ett virtuellt nätverk med Resource Manager med hjälp av andra verktyg eller skapa ett virtuellt nätverk med hjälp av den klassiska distributionsmodellen genom att välja ett annat alternativ i följande lista:
+> [!div class="checklist"]
+> * Skapa ett virtuellt nätverk
+> * Skapa ett undernät
+> * Testa nätverkskommunikation mellan virtuella datorer
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-> * [CLI](virtual-networks-create-vnet-arm-cli.md)
-> * [Mall](virtual-networks-create-vnet-arm-template-click.md)
-> * [Portal (klassisk)](virtual-networks-create-vnet-classic-pportal.md)
-> * [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI (klassisk)](virtual-networks-create-vnet-classic-cli.md)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudiekursen Azure PowerShell Modulversion 3,6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Om du vill skapa ett virtuellt nätverk med PowerShell gör du följande:
+Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *EastUS* plats.
 
-1. Installera och konfigurera Azure PowerShell genom att följa stegen i den [installera och konfigurera Azure PowerShell](/powershell/azure/overview) artikel.
+```azurepowershell-interactive
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+```
 
-2. Vid behov kan du skapa en ny resursgrupp som visas nedan. I det här scenariot skapar du en resursgrupp med namnet *TestRG*. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork* med adressprefixet *10.0.0.0/16*.
 
-    ```powershell   
-    New-AzureRmResourceGroup -Name TestRG -Location centralus
-    ```
+```azurepowershell-interactive
+$virtualNetwork = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name myVirtualNetwork `
+  -AddressPrefix 10.0.0.0/16
+```
 
-    Förväntad utdata:
+Den **AddressPrefix** anges i CIDR-notering. Det angivna adressprefixet innehåller 10.0.0.0-10.0.255.254 för IP-adresser.
 
-        ResourceGroupName : TestRG
-        Location          : centralus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG    
-3. Skapa ett nytt virtuellt nätverk med namnet *TestVNet*:
+## <a name="create-a-subnet"></a>Skapa ett undernät
 
-    ```powershell
-    New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location centralus
-    ```
+Ett undernät har skapats genom att först skapa en konfiguration av undernät och sedan uppdaterar det virtuella nätverket med undernätskonfiguration. Skapa en konfiguration av undernät med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). I följande exempel skapas två undernät konfigurationer för *offentliga* och *privata* undernät:
 
-    Förväntad utdata:
+```azurepowershell-interactive
+$subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Public `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
 
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                   : W/"[Id]"
-        ProvisioningState          : Succeeded
-        Tags                       : 
-        AddressSpace               : {
-                                   "AddressPrefixes": [
-                                     "192.168.0.0/16"
-                                   ]
-                                  }
-        DhcpOptions                : {}
-        Subnets                    : []
-        VirtualNetworkPeerings     : []
-4. Lagra det virtuella nätverksobjektet i en variabel:
+$subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Private `
+  -AddressPrefix 10.0.1.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    ```
+Den **AddressPrefix** angetts för ett undernät måste vara inom adressprefixet som definierats för det virtuella nätverket. Azure DHCP tilldelas IP-adresser från ett undernät adressprefix resurser har distribuerats i ett undernät. Azure endast tilldelas adresser 10.0.0.4-10.0.0.254 resurser har distribuerats inom den **offentliga** undernät, eftersom Azure reserverar de första fyra adresserna (10.0.0.0-10.0.0.3 för undernät i det här exemplet) och sist adressen ( 10.0.0.255 för undernät i det här exemplet) i varje undernät.
 
-   > [!TIP]
-   > Du kan kombinera steg 3 och 4 genom att köra `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus`.
-   > 
+Skriva undernät konfigurationer till det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), vilket skapar undernäten i det virtuella nätverket:
 
-5. Lägg till ett undernät i den nya VNet-variabeln:
+```azurepowershell-interactive
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-    ```
+Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderar vi att du noggrant bekanta dig med adressutrymme [överväganden](virtual-network-manage-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
 
-    Förväntad utdata:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {}
-        Subnets             : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24"
-                                  }
-                                ]
-        VirtualNetworkPeerings     : []
+## <a name="test-network-communication"></a>Testa nätverkskommunikation
 
-6. Upprepa steg 5 för varje undernät som du vill skapa. Följande kommando skapar den *BackEnd* undernät för scenariot:
+Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser kommunicera med Internet och privat med varandra. En typ av resurs som du kan distribuera till ett virtuellt nätverk är en virtuell dator. Skapa två virtuella datorer i det virtuella nätverket så att du kan testa nätverkskommunikation mellan dem och Internet i ett senare steg. 
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-    ```
+### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-7. Även om du skapar undernät, så finns de för tillfället bara i den lokala variabeln som används för att hämta det VNet som du skapar i steg 4 ovan. Om du vill spara ändringarna till Azure genom att köra följande kommando:
+Skapa en virtuell dator med [ny AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator med namnet *myVmWeb* i den *offentliga* undernätet för den *myVirtualNetwork* virtuellt nätverk. Den `-AsJob` alternativet skapar den virtuella datorn i bakgrunden så du kan fortsätta till nästa steg. När du uppmanas, anger du användarnamn och lösenord som du vill logga in på den virtuella datorn med.
 
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-   
-    Förväntad utdata:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {
-                                  "DnsServers": []
-                                }
-        Subnets               : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  },
-                                  {
-                                    "Name": "BackEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                                    "AddressPrefix": "192.168.2.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  }
-                                ]
-        VirtualNetworkPeerings : []
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Public" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmWeb" `
+    -AsJob
+```
+
+Azure tilldelas automatiskt 10.0.0.4 som privata IP-adressen för den virtuella datorn, eftersom 10.0.0.4 är den första tillgängliga IP-adressen i den *offentliga* undernät. 
+
+Skapa en virtuell dator i den *privata* undernät.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Private" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmMgmt"
+```
+
+Det tar några minuter att skapa den virtuella datorn. Även om inte returnerade utdata och Azure utsetts 10.0.1.4 privata IP-adressen för den virtuella datorn, eftersom 10.0.1.4 är den första tillgängliga IP-adressen i den *privata* undernätet för *myVirtualNetwork*. 
+
+Fortsätt inte med stegen tills den virtuella datorn skapas och PowerShell returnerar utdata.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Kommunikation mellan virtuella datorer och internet
+
+Du kan ansluta till en virtuell dators offentlig IP-adress från Internet. När Azure skapade den *myVmMgmt* virtuell dator, en offentlig IP-adress med namnet *myVmMgmt* också skapades och tilldelade till den virtuella datorn. Även om en virtuell dator inte är nödvändigt att ha en offentlig IP-adress som tilldelats, tilldelar Azure en offentlig IP-adress till varje virtuell dator som du skapar som standard. För att kommunicera från Internet till en virtuell dator, måste en offentlig IP-adress tilldelas till den virtuella datorn. Alla virtuella datorer kan kommunicera utgående med Internet, oavsett om en offentlig IP-adress har tilldelats den virtuella datorn. Mer information om utgående Internet-anslutningar i Azure finns [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den *myVmMgmt* virtuell dator:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmMgmt `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Använd följande kommando för att skapa en fjärrskrivbords-session med den *myVmMgmt* virtuell dator från den lokala datorn. Ersätt `<publicIpAddress>` med IP-adressen som returneras från det föregående kommandot.
+
+```
+mstsc /v:<publicIpAddress>
+```
+
+En Remote Desktop Protocol (RDP)-fil skapas, hämtas till datorn och öppnas. Ange användarnamn och lösenord som du angav när du skapar den virtuella datorn (du kan behöva välja **fler alternativ**, sedan **Använd ett annat konto**, för att ange de autentiseringsuppgifter du angav när du skapa den virtuella datorn) och klicka sedan på **OK**. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att fortsätta med anslutningen. 
+
+I ett senare steg ping för att kommunicera med den *myVmMgmt* virtuell dator från den *myVmWeb* virtuella datorn. Ping använder ICMP som nekas via Windows-brandväggen som standard. Aktivera ICMP via Windows-brandväggen genom att skriva följande kommando från en kommandotolk:
+
+```
+netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+```
+
+Du rekommenderas att inte tillåta ICMP via Windows-brandväggen för Produktionsdistribution om ping används i den här artikeln.
+
+Av säkerhetsskäl är det vanligt att begränsa antalet virtuella datorer som via fjärranslutning kan anslutas till i ett virtuellt nätverk. I den här självstudiekursen den *myVmMgmt* virtuella används för att hantera den *myVmWeb* virtuell dator i det virtuella nätverket. Använd följande kommando för att fjärrskrivbord till den *myVmWeb* virtuell dator från den *myVmMgmt* virtuella:
+
+``` 
+mstsc /v:myVmWeb
+```
+
+Att kommunicera med den *myVmMgmt* virtuell dator från den *myVmWeb* virtuella datorn, anger du följande kommando från en kommandotolk:
+
+```
+ping myvmmgmt
+```
+
+Utdata som liknar följande exempel utdata visas:
+    
+```
+Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+Ping statistics for 10.0.1.4:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+      
+Du kan se som adressen till den *myVmMgmt* virtuella datorn är 10.0.1.4. 10.0.1.4 var den första tillgängliga IP-adressen i adressintervallet i *privata* undernät som du har distribuerat den *myVmMgmt* virtuella datorn till i föregående steg.  Du ser att det fullständigt kvalificerade domännamnet för den virtuella datorn är *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Även om den *dar5p44cif3ulfq00wxznl3i3f* del av domännamnet är olika för den virtuella datorn, återstående delar av namnet på en domän är samma. Som standard använder alla virtuella Azure-datorer standard Azure DNS-tjänsten. Alla virtuella datorer i ett virtuellt nätverk kan matcha namnen på alla andra virtuella datorer i samma virtuella nätverk med Azures standard DNS-tjänsten. Du kan använda DNS-servern eller den privata förmågan för Azure DNS-tjänsten istället för att använda Azures standard DNS-tjänsten. Mer information finns i [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) eller [med hjälp av Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Installera Internet Information Services (IIS) för Windows Server på den *myVmWeb* virtuella datorn, anger du följande kommando från en PowerShell-session:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+När installationen av IIS är klar, kan du koppla från den *myVmWeb* fjärrskrivbords-session, vilket lämnar du i den *myVmMgmt* fjärrskrivbords-sessionen. Öppna en webbläsare och gå till http://myvmweb. Du kan se IIS välkomstsidan.
+
+Koppla från den *myVmMgmt* fjärrskrivbords-sessionen.
+
+Hämta den offentliga adressen Azure som tilldelats den *myVmWeb* virtuell dator:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmWeb `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+På din egen dator går du till den offentliga IP-adressen för den *myVmWeb* virtuella datorn. Det går inte att försöka Se IIS välkomstsidan från din dator. Försöket misslyckas eftersom när de virtuella datorerna har distribuerats Azure skapas en nätverkssäkerhetsgrupp för varje virtuell dator som standard. 
+
+En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Nätverkssäkerhetsgruppen standard nekar all inkommande trafik från Internet via alla portar för Windows-datorer måste acceptera TCP-port 3389 (RDP). Därför kan som standard kan du också RDP direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 3389 öppen på en webbserver. Eftersom webbsurfning kommunicerar via port 80, misslyckas kommunikation från Internet eftersom det inte finns någon regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte längre behöver använda [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) att ta bort resursgruppen och alla resurser som den innehåller.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du ansluter:
+I kursen får du har lärt dig hur du distribuerar ett virtuellt nätverk med flera undernät. Du också lära dig att när du skapar en virtuell dator för Windows Azure skapar ett nätverksgränssnitt som den kopplas till den virtuella datorn och skapar en nätverkssäkerhetsgrupp som endast tillåter trafik via port 3389, från Internet. Gå vidare till nästa kurs att lära dig att filtrera trafik till undernät i stället för till enskilda virtuella datorer.
 
-- En virtuell dator (VM) till ett virtuellt nätverk genom att läsa den [skapa en virtuell Windows-dator](../virtual-machines/virtual-machines-windows-ps-create.md) artikel. I stället för att skapa ett virtuellt nätverk och undernät i stegen i artikeln kan du ansluta en virtuell dator till ett befintligt virtuellt nätverk och undernät.
-- Det virtuella nätverket till andra virtuella nätverk genom att läsa artikeln [Connect VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) (Ansluta virtuella nätverk).
-- Det virtuella nätverket till ett lokalt nätverk med hjälp av ett virtuellt privat nätverk (VPN) för plats till plats eller en ExpressRoute-krets. Mer information finns i artiklarna [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Ansluta ett virtuellt nätverk till ett lokalt nätverk med hjälp av VPN för plats till plats) och [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-arm.md) (Länka ett virtuellt nätverk till en ExpressRoute-krets).
+> [!div class="nextstepaction"]
+> [Filtrera trafik till undernät](./virtual-networks-create-nsg-arm-ps.md)

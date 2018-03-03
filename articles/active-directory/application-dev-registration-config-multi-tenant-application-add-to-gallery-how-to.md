@@ -1,6 +1,6 @@
 ---
-title: "Hur du lägger till ett program för flera innehavare i Azure AD application Gallery | Microsoft Docs"
-description: Beskriver hur du kan ange anpassade utvecklade flera innehavare program i Azure AD Application Gallery
+title: "Lägga till flera program i Azure AD application Gallery | Microsoft Docs"
+description: Beskriver hur du kan ange flera anpassad utvecklat programmet i Azure AD application gallery.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f29f7cbf118d4d70c1ea2cca174ff0cf0ba9bd14
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Hur du lägger till ett program för flera innehavare i Azure AD application Gallery
+# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Lägga till flera program i Azure AD application Gallery
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD Application Gallery?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD application gallery?
 
-Azure AD är en molnbaserad identitetstjänst. [Azure AD app-galleriet](https://azure.microsoft.com/marketplace/active-directory/all/) är en gemensam lagring där alla program kopplingar publiceras för enkel inloggning och användaretablering. Våra ömsesidiga kunder som använder Azure AD som identitetsprovider leta efter olika SaaS-program kopplingar, vilka publiceras här. IT-administratören lägger till koppling från galleriet appen och konfigurerar och använder den för enkel inloggning och etablering. Azure AD stöder alla större federation protokoll som SAML 2.0, OpenID Connect, OAuth och WS-Fed för enkel inloggning. 
+Azure Active Directory (AD Azure) är en molnbaserad identitetstjänst. Den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/) i Azure Marketplace app store, där alla program kopplingar publiceras för enkel inloggning och användaretablering. Kunder som använder Azure AD som en identitetsleverantör hitta till olika SaaS-program kopplingar som publiceras här. IT-administratörer lägga till kopplingar från appgalleriet och sedan konfigurera och använda kopplingar för enkel inloggning och etablering. Azure AD stöder alla större federation protokoll, till exempel SAML 2.0, OpenID Connect, OAuth och WS-Fed för enkel inloggning. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Om programmet stöder SAML eller OpenIDConnect
-Om du har ett program för flera innehavare som du vill visa i Azure AD Application Gallery, måste du först kontrollera att ditt program stöder en av följande enkel inloggning tekniker:
+Om du har en multitenant program som ska visas i Azure AD application gallery, måste du först kontrollera att ditt program stöder en av följande enkel inloggning tekniker:
 
-1. **OpenID Connect** – skapa flera innehavare program i Azure AD och implementera [Azure AD medgivande framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) för ditt program. Skicka inloggningsbegäran om till vanliga slutpunkten så att en kund kan ge medgivande till programmet. Du kan styra kunden användaråtkomst baserat på klient-ID och användarens UPN togs emot i token. Skicka programmet som anges i detta [artikel](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: Om du vill att din app i listan, skapa flera program i Azure AD och genomföra den [Azure AD medgivande framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) för ditt program. Skicka inloggningsbegäran om till en gemensam slutpunkt så att en kund kan ge medgivande till programmet. Du kan kontrollera en användares åtkomst baserat på klient-ID och användarens UPN togs emot i token. Skicka programmet genom att använda processen som beskrivs i [visar en lista över ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-2. **SAML** – om programmet stöder SAML 2.0 och vi kan visa ditt program i galleriet och instruktionerna visas [här](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)
-
-Om programmet stöder en av dessa lägen för enkel inloggning och du vill visa en lista med flera innehavare programmet i Azure AD Application Gallery, du kan följa anvisningarna i [detta](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) artikel. 
+- **SAML**: om programmet stöder SAML 2.0, appen kan visas i galleriet. Följ instruktionerna i [visar en lista över ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Om ditt program inte stöder SAML eller OpenIDConnect
-Även om programmet inte stöder en av dessa lägen, integrera vi fortfarande den i vår galleriet med vår lösenord Single Sign-on-teknik.
+Program som inte har stöd för SAML- eller OpenIDConnect kan fortfarande integreras i appgalleriet genom lösenord enkel inloggning teknik.
 
-**Lösenord SSO** – skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenordsbaserade enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). Lösenordsbaserade SSO, även kallat lösenord vaulting, kan du hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbara för situationer där flera användare behöva dela ett enda konto som din organisation sociala medier app konton. 
+Lösenord för enkel inloggning, kallas även lösenordsvalv, gör att du kan hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto som din organisation sociala medier app konton. 
 
-Om du vill visa ditt program med den här tekniken sedan skicka begäran enligt beskrivningen i [detta](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) artikel.
+Om du vill visa ditt program med den här tekniken:
+1. Skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenord enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. Skicka förfrågan enligt beskrivningen i [visar en lista över ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="escalations"></a>Eskaleringar
 
-Alla eskaleringar släppa i ett e-postmeddelande till [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och vi gå tillbaka till du villkoret så SNART.
+Skicka e-post för alla eskaleringar [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och vi kommer tillbaka till dig så snart som möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
-[Visa en lista över ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+Lär dig hur du [visa ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).

@@ -6,13 +6,13 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Identifiera och utvärdera en stor VMware-miljön
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
 Den här artikeln beskriver hur du utvärdera stort antal lokala virtuella datorer (VM) med hjälp av [Azure migrera](migrate-overview.md). Azure migrera utvärderar datorer för att kontrollera om de är lämpliga för migrering till Azure. Tjänsten innehåller storlek och kostnad uppskattningar för datorerna som körs i Azure.
 
@@ -30,15 +30,17 @@ Planera identifieringar och utvärderingar baserat på följande begränsningar:
 | **Entitet** | **Gränsen för datorn** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Identifiering  | 1,000              |
-| Utvärdering | 400               |
+| Identifiering  | 1,500              |
+| Utvärdering | 1,500               |
 
-- Om du har färre än 400 datorer att identifiera och utvärdera behöver du ett projekt och en enkel identifiering. Beroende på dina krav kan du utvärdera alla datorer i en enda bedömning eller dela upp datorerna i flera bedömningar. 
-- Om du har 400 till 1 000 datorer att identifiera, måste ett projekt med en enda identifiering. Men du behöver flera bedömningar att utvärdera dessa datorer eftersom en enda bedömning kan innehålla upp till 400 datorer.
-- Om du har 1,001 till 1 500 datorer, måste ett projekt med två identifieringar i den.
-- Om du har mer än 1 500 datorer måste du skapa flera projekt och utföra flera identifieringar, baserat på dina krav. Exempel:
-    - Om du har 3 000 datorer, kan du konfigurera två projekt med två identifieringar eller tre projekt med en enda identifiering.
-    - Om du har 5 000 datorer, kan du konfigurera fyra projekt: tre med en identifiering av 1 500 datorer och en med en identifiering av 500 datorer. Du kan också ställa in fem projekt med en enda identifiering i var och en. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Planera flera identifieringar
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
 Azure Media Hyperlapse är ett Media Processor (HP) som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Videostabilisera Pro och telefon Videostabilisera Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder massiv skala i plattformen Media-bearbetning i Azure Media Services att skala horisontellt och parallelize masskopiera Videostabilisera bearbetning.
@@ -47,7 +47,7 @@ När det är ditt innehåll i Media Services-konto, behöver du skapa förinstä
 Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard:
 
 **XML-förinställda:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **JSON förinställda:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,8 +74,9 @@ Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard
             "Stabilize":false
         }
     }
+```
 
-### <a id="sample_code"></a>Microsoft Videostabilisera med AMS .NET SDK
+### <a id="sample_code"></a> Microsoft Videostabilisera med AMS .NET SDK
 Följande metod överför en mediefil som en tillgång och skapar ett jobb med Azure Media Hyperlapse Media Processor.
 
 > [!NOTE]
@@ -85,6 +87,7 @@ Följande metod överför en mediefil som en tillgång och skapar ett jobb med A
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ Följande metod överför en mediefil som en tillgång och skapar ett jobb med A
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Filtyper som stöds
 * MP4
@@ -210,7 +214,7 @@ Följande metod överför en mediefil som en tillgång och skapar ett jobb med A
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

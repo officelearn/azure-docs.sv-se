@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna dina resurser med Azure-Hanteringsgrupper 
 
-Om du har flera prenumerationer kan du ordna dem i behållare som kallas ”hanteringsgrupper” för att hantera åtkomst, principer och efterlevnad för alla prenumerationer. De här behållarna ger dig företagsklass management vid en stor skala oavsett vilken typ av prenumerationer som du kanske har.  
+Om du har flera prenumerationer kan du ordna dem i behållare som kallas ”hanteringsgrupper” för att hantera åtkomst, principer och efterlevnad för alla prenumerationer. Av hanteringsgrupper ger företagsklass hantering på en stor skala oavsett vilken typ av prenumerationer som du kanske har.  
 
 Funktionen för hantering av grupp finns i en förhandsversion. Börja använda hantering av grupper, logga in på den [Azure-portalen](https://portal.azure.com) och Sök efter **Hanteringsgrupper** i den **alla tjänster** avsnitt. 
 

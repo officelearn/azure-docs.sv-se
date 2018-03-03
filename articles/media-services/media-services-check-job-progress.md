@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f81153f4fb51e474e0f8cc1e26ad866079a88ca7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-job-progress-using-net"></a>Övervaka Jobbförloppet med hjälp av .NET
 > [!div class="op_single_selector"]
@@ -33,6 +33,7 @@ När du kör jobb behöver du ofta ett sätt att spåra jobbförloppet. Du kan k
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definiera StateChanged händelsehanterare för att övervaka jobbförloppet
 Följande exempel definierar händelsehanteraren StateChanged. Den här händelsehanteraren spårar jobbförloppet och ger uppdaterad status, beroende på tillståndet. Koden definierar också metoden LogJobStop. Den här metoden helper loggar information om felet.
 
+```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
         Console.WriteLine("Job state changed event:");
@@ -107,7 +108,7 @@ Följande exempel definierar händelsehanteraren StateChanged. Den här händels
     {
         return jobID.Replace(":", "_");
     }
-
+```
 
 
 ## <a name="next-step"></a>Nästa steg

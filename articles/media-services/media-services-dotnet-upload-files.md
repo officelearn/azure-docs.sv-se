@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f688c8f28b1dfd9a54e4dc39120851c144bbeffe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Ladda upp filer till ett Media Services-konto med hjälp av .NET
 > [!div class="op_single_selector"]
@@ -37,32 +37,32 @@ Filerna i tillgången kallas **Tillgångsfiler**. Den **AssetFile** instansen oc
 > 
 > * Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför tillåts procent-encoding inte. Värdet för den **namn** egenskapen får inte ha något av följande [procent-encoding-reserverade tecken](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det kan bara finnas ett '.' för filnamnstillägget.
 > * Längden på namnet får inte vara större än 260 tecken.
-> * Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [det här](media-services-quotas-and-limitations.md) avsnittet.
-> * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
+> * Det finns en gräns för maximal filstorlek för bearbetning i Media Services. Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
+> * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 > 
 
-När du skapar tillgångar, anger du följande krypteringsalternativ. 
+När du skapar tillgångar, anger du följande krypteringsalternativ:
 
-* **Ingen** – Ingen kryptering används. Detta är standardvärdet. Observera att när du använder det här alternativet om ditt innehåll inte skyddas under överföringen eller i vila i lagring.
-  Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet. 
+* **Ingen** – Ingen kryptering används. Detta är standardvärdet. När du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
+  Om du planerar att leverera en MP4 med progressivt nedladdning ska använda det här alternativet: 
 * **CommonEncryption** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddats med vanlig kryptering eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
 * **EnvelopeEncrypted** – Använd det här alternativet om du överför HLS som krypterats med AES. Observera att filerna måste ha kodats och krypterats av Transform Manager.
-* **StorageEncrypted** - krypterar innehållet lokalt med hjälp av AES 256 bitarskryptering och överför den till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Det primära användningsfallet för Lagringskryptering är när du vill skydda dina hög kvalitet inkommande mediefiler med stark kryptering i vila på disk.
+* **StorageEncrypted** - krypterar innehållet lokalt med hjälp av AES 256 bitarskryptering och överför den till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
   
     Media Services tillhandahåller på disklagring kryptering för dina tillgångar, inte över överföring som Digital Rights Manager (DRM).
   
     Om tillgången är lagringskrypterad, måste du konfigurera principen för tillgångsleverans. Mer information finns i [konfigurera tillgångsleveransprincip](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Om du anger för din tillgång som ska krypteras med en **CommonEncrypted** alternativ, eller en **EnvelopeEncypted** alternativet måste du associera din tillgång med en **ContentKey**. Mer information finns i [hur du skapar en ContentKey](media-services-dotnet-create-contentkey.md). 
+Om du anger för din tillgång som ska krypteras med en **CommonEncrypted** alternativ, eller en **EnvelopeEncypted** alternativet, måste du koppla din tillgång med en **ContentKey**. Mer information finns i [hur du skapar en ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Om du anger för din tillgång som ska krypteras med en **StorageEncrypted** alternativ, Media Services SDK för .NET skapar en **StorateEncrypted** **ContentKey** för din tillgången.
+Om du anger för din tillgång som ska krypteras med en **StorageEncrypted** alternativ, Media Services SDK för .NET skapar en **StorateEncrypted** **ContentKey** för din tillgång.
 
-Det här avsnittet visar hur du använder Media Services .NET SDK samt Media Services .NET SDK-tillägg för att överföra filer till en tillgång med Media Services.
+Den här artikeln visar hur du använder Media Services .NET SDK samt Media Services .NET SDK-tillägg för att överföra filer till en tillgång med Media Services.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Ladda upp en enstaka fil med Media Services .NET SDK
-Exempelkoden nedan använder .NET SDK för att överföra en fil. AccessPolicy och lokaliserare skapas och förstörs av funktionen överföringen. 
+Följande kod använder .NET för att överföra en fil. AccessPolicy och lokaliserare skapas och förstörs av funktionen överföringen. 
 
-
+```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
             if (!File.Exists(singleFilePath))
@@ -83,6 +83,7 @@ Exempelkoden nedan använder .NET SDK för att överföra en fil. AccessPolicy o
 
             return inputAsset;
         }
+```
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Överför flera filer med Media Services .NET SDK
@@ -93,7 +94,7 @@ Koden gör följande:
 * Skapar en tom tillgång med metoden CreateEmptyAsset som definierats i föregående steg.
 * Skapar en **AccessPolicy** -instans som definierar behörigheter och varaktighet för åtkomst till tillgången.
 * Skapar en **lokaliserare** instans som ger åtkomst till tillgången.
-* Skapar en **BlobTransferClient** instans. Den här typen representerar en klient som körs på Azure-blobbar. I det här exemplet använder vi klienten övervakar överför. 
+* Skapar en **BlobTransferClient** instans. Den här typen representerar en klient som körs på Azure-blobbar. I det här exemplet övervakar klienten överföringen pågår. 
 * Räknar upp via filer i den angivna katalogen och skapar en **AssetFile** -instans för varje fil.
 * Överför filer till Media Services med hjälp av den **UploadAsync** metod. 
 
@@ -102,6 +103,7 @@ Koden gör följande:
 > 
 > 
 
+```csharp
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
         {
             var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
@@ -157,10 +159,10 @@ Koden gör följande:
             Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
         }
     }
+```
 
 
-
-Tänk på följande när du hämtar ett stort antal tillgångar.
+Tänk på följande när du hämtar ett stort antal tillgångar:
 
 * Skapa en ny **CloudMediaContext** objekt per tråd. Den **CloudMediaContext** klass är inte trådsäker.
 * Öka NumberOfConcurrentTransfers från standardvärdet 2 till ett högre värde som 5. Den här egenskapen påverkar alla förekomster av **CloudMediaContext**. 
@@ -169,29 +171,36 @@ Tänk på följande när du hämtar ett stort antal tillgångar.
 ## <a id="ingest_in_bulk"></a>Fört in tillgångar i gång med hjälp av Media Services .NET SDK
 Överföringen av stora tillgångsfiler kan utgöra en flaskhals under skapande av tillgångsinformation. Fört in tillgångar i massutskick eller ”samtidigt vill föra in” innebär att Frikoppling tillgången skapas överföringen. Skapa ett manifest (IngestManifest) som beskriver tillgången och dess associerade filer om du vill använda en grupp som vill föra in metod. Sedan använda metoden överför du väljer att ladda upp filerna i manifestet blob-behållaren. Microsoft Azure Media Services bevakar blob-behållare som är associerade med manifestet. När en fil har överförts till blob-behållare, Slutför Microsoft Azure Media Services tillgång skapas baserat på konfigurationen av tillgången i manifestet (IngestManifestAsset).
 
-Om du vill skapa en ny IngestManifest anropa metoden skapa som exponeras av IngestManifests samlingen på CloudMediaContext. Den här metoden skapar en ny IngestManifest med manifestnamnet som du anger.
+Anropa metoden skapa som exponeras av IngestManifests samlingen på CloudMediaContext om du vill skapa en ny IngestManifest. Den här metoden skapar en ny IngestManifest med manifestnamnet som du anger.
 
+```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
+```
 
-Skapa tillgångar som ska associeras med flesta IngestManifest. Konfigurera önskade krypteringsalternativ för tillgångsinformation för att föra in samtidigt.
+Skapa de resurser som är associerade med flesta IngestManifest. Konfigurera önskade krypteringsalternativ för tillgångsinformation för att föra in samtidigt.
 
+```csharp
     // Create the assets that will be associated with this bulk ingest manifest
     IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
+```
 
 En IngestManifestAsset associerar en tillgång med bulk IngestManifest för att föra in samtidigt. Här associerar även AssetFiles som utgör varje tillgång. Använd Create-metoden för att skapa en IngestManifestAsset på serverkontext.
 
 Exemplet nedan visar att lägga till två nya IngestManifestAssets som kopplar två tillgångar skapat för flesta mata in manifestet. Varje IngestManifestAsset associerar även en uppsättning filer som överförs för varje tillgång vid massinläsning vill föra in.  
 
+```csharp
     string filename1 = _singleInputMp4Path;
     string filename2 = _primaryFilePath;
     string filename3 = _singleInputFilePath;
 
     IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
+```
 
-Du kan använda en hög hastighet klientprogrammet kan överföra tillgångsfiler till blob storage-behållare URI som tillhandahålls av den **IIngestManifest.BlobStorageUriForUpload** -egenskapen för IngestManifest. En tjänst för överföringen av viktiga hög hastighet är [Aspera på begäran för Azure-programmet](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Du kan också skriva kod för att överföra tillgångar filerna som visas i följande kodexempel.
+Du kan använda alla snabb klientprogram som kan överföra tillgångsfiler till blob storage-behållare URI som tillhandahålls av den **IIngestManifest.BlobStorageUriForUpload** -egenskapen för IngestManifest. En tjänst för viktiga snabb överföring är [Aspera på begäran för Azure-programmet](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Du kan också skriva kod för att överföra tillgångar filerna som visas i följande kodexempel.
 
+```csharp
     static void UploadBlobFile(string destBlobURI, string filename)
     {
         Task copytask = new Task(() =>
@@ -214,18 +223,21 @@ Du kan använda en hög hastighet klientprogrammet kan överföra tillgångsfile
 
         copytask.Start();
     }
+```
 
-Koden för uppladdning av tillgångsfiler för används i det här avsnittet visas i följande kodexempel.
+Koden för uppladdning av tillgångsfiler för används i den här artikeln visas i följande kodexempel:
 
+```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
-
+```
 
 Du kan se förloppet för den grupp vill föra in för alla resurser som är associerade med en **IngestManifest** genom att avsöka egenskapen statistik för den **IngestManifest**. För att kunna uppdatera statusinformation, måste du använda en ny **CloudMediaContext** varje gång du avsöka egenskapen statistik.
 
 Exemplet nedan visar avsöker en IngestManifest av dess **Id**.
 
+```csharp
     static void MonitorBulkManifest(string manifestID)
     {
        bool bContinue = true;
@@ -257,12 +269,13 @@ Exemplet nedan visar avsöker en IngestManifest av dess **Id**.
              bContinue = false;
        }
     }
-
+```
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>Överföra filer med hjälp av .NET SDK-tillägg
-Exemplet nedan visar hur du laddar upp en enstaka fil med .NET SDK-tillägg. I det här fallet den **CreateFromFile** metod används, men den asynkrona versionen är också tillgänglig (**CreateFromFileAsync**). Den **CreateFromFile** metoden kan du ange filnamnet, kryptering och ett återanrop för att rapportera filen Överföringsförlopp.
+I följande exempel visas hur du laddar upp en enstaka fil med .NET SDK-tillägg. I det här fallet den **CreateFromFile** metod används, men den asynkrona versionen är också tillgänglig (**CreateFromFileAsync**). Den **CreateFromFile** metoden kan du ange filnamnet, kryptering och ett återanrop för att rapportera filen Överföringsförlopp.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -277,10 +290,13 @@ Exemplet nedan visar hur du laddar upp en enstaka fil med .NET SDK-tillägg. I d
 
         return inputAsset;
     }
+```
 
 I följande exempel anropar UploadFile funktion och anger lagringskryptering som alternativ för skapande av tillgångsinformation.  
 
+```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -295,7 +311,7 @@ Du kan också använda Azure Functions för att utlösa ett kodningsjobb baserat
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Nästa steg
-Nu när du har överfört en tillgång till Media Services, gå till den [hur du hämtar en Medieprocessor] [ How to Get a Media Processor] avsnittet.
+Nu när du har överfört en tillgång till Media Services, gå till den [hur du hämtar en Medieprocessor] [ How to Get a Media Processor] artikel.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

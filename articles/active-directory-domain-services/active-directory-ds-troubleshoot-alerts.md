@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsökning av aviseringar
 Den här artikeln innehåller felsökning guider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -34,6 +34,13 @@ Välj felsökningssteg som motsvarar eller avisering ID eller meddelande som du 
 | AADDS102 | *Ett huvudnamn för tjänsten som krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigering, och synkronisera din hanterade domän.* | [Tjänstens huvudnamn saknas](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *IP-adressintervall för det virtuella nätverket som du har aktiverat Azure AD Domain Services är i en offentlig IP-adressintervallet. Azure AD Domain Services måste aktiveras i ett virtuellt nätverk med en privat IP-adressintervall. Den här konfigurationen påverkar Microsofts möjlighet att övervaka, hantera, korrigeringsfil och synkronisera din hanterade domän.* | [Adressen är i en offentlig IP-adressintervall](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft kan inte nå domänkontrollanterna för den här hanterade domänen. Detta kan inträffa om en nätverkssäkerhetsgrupp (NSG) som har konfigurerats på din virtuella nätverk blockerar åtkomst till den hanterade domänen. En annan möjlig orsak är att om det finns en användardefinierad väg som blockerar inkommande trafik från internet.* | [Nätverksfel](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *Den hanterade domänen senast synkroniserades med Azure AD på {0}. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.* | [Synkronisering har inte utförts på ett tag](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Den hanterade domänen senast säkerhetskopierades på XX.* | [En säkerhetskopiering har inte utförts på ett tag](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *Säkert LDAP-certifikatet för den hanterade domänen upphör XX.* | [Att säkra LDAP-certifikat](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *Den hanterade domänen har pausats eftersom Azure-prenumerationen som är kopplade till domänen inte är aktiv.* | [Upphävande på grund av inaktiverad prenumeration](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigering, eller uppdatera domänkontrollanterna för din hanterade domän under en längre tid.* | [Upphävande på grund av en ogiltig konfiguration](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Saknas directory
 **Varningsmeddelande:**
@@ -75,7 +82,7 @@ Följ dessa steg om du vill återställa din tjänst:
 
 Innan du börjar läsa den **privat IP v4-adressutrymmet** i avsnittet [i den här artikeln](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser som finns i samma IP-adressintervall som de som konfigurerats för undernätet. Men eftersom det virtuella nätverket har konfigurerats för det här intervallet kan dessa begäranden skickas vidare i det virtuella nätverket och kommer inte att nå avsedda webbresurser. Detta kan leda till oväntade fel med Azure AD Domain Services.
+I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser som finns i samma IP-adressintervall som de som konfigurerats för undernätet. Men eftersom det virtuella nätverket har konfigurerats för det här intervallet kan dessa begäranden skickas vidare i det virtuella nätverket och kommer inte att nå avsedda webbresurser. Den här konfigurationen kan leda till oväntade fel med Azure AD Domain Services.
 
 **Om du äger IP-adressintervall i internet som konfigureras i det virtuella nätverket kan den här aviseringen ignoreras. Dock Azure AD Domain Services kan inte användas i [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] med den här konfigurationen eftersom det kan leda till oväntade fel.**
 
@@ -93,6 +100,47 @@ I det virtuella nätverket kan datorer gör förfrågningar till Azure-resurser 
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [handboken](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Kontrollera hälsotillståndet för din domän på två timmar för att säkerställa aviseringen har lösts.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Synkronisering har inte slutförts i en stund
+
+**Varningsmeddelande:**
+
+*Den hanterade domänen senast synkroniserades med Azure AD på {0}. Användare kan inte logga in på den hanterade domänen eller gruppmedlemskap kanske inte är synkroniserad med Azure AD.*
+
+**Reparation:**
+
+[Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Problem med konfigurationen kan ibland blockera Microsofts möjlighet att synkronisera din hanterade domän. Om du ska kunna lösa alla aviseringar, vänta tillbaka två timmar och kontrollera om du vill se om synkroniseringen har slutförts.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: En säkerhetskopiering inte har utförts i en stund
+
+**Varningsmeddelande:**
+
+*Den hanterade domänen senast säkerhetskopierades på XX.*
+
+**Reparation:**
+
+[Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Problem med konfigurationen kan ibland blockera Microsofts möjlighet att synkronisera din hanterade domän. Om du ska kunna lösa alla aviseringar, vänta tillbaka två timmar och kontrollera om du vill se om synkroniseringen har slutförts.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Tillfälligt på grund av inaktiverad prenumeration
+
+**Varningsmeddelande:**
+
+*Den hanterade domänen har pausats eftersom Azure-prenumerationen som är kopplade till domänen inte är aktiv.*
+
+**Reparation:**
+
+Att återställa din tjänst [förnya prenumerationen Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) som är associerade med din hanterade domän.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Tillfälligt på grund av en ogiltig konfiguration
+
+**Varningsmeddelande:**
+
+*Den hanterade domänen har pausats på grund av en ogiltig konfiguration. Tjänsten har inte kan hantera, korrigering, eller uppdatera domänkontrollanterna för din hanterade domän under en längre tid.*
+
+**Reparation:**
+
+[Kontrollera din domän hälsa](active-directory-ds-check-health.md) för eventuella aviseringar som kan tyda på problem i konfigurationen för din hanterade domän. Om du kan lösa några av dessa varningar, göra det. Kontakta supporten om du vill aktivera prenumerationen igen efter.
 
 ## <a name="contact-us"></a>Kontakta oss
 Kontakta produktteamet Azure Active Directory Domain Services för att [dela feedback eller support](active-directory-ds-contact-us.md).

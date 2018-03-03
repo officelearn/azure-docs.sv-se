@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Tillämpa en princip för namngivning för Office 365-grupper i Azure Active Directory (förhandsgranskning)
 
@@ -100,7 +100,9 @@ Om du får en uppmaning om att få åtkomst till en ej betrodd lagringsplats skr
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-I den **logga in på ditt konto** skärm som öppnas, ange ditt administratörskonto och lösenord för att ansluta till din tjänst och välj **logga in**.
+  I den **logga in på ditt konto** skärm som öppnas, ange ditt administratörskonto och lösenord för att ansluta till din tjänst och välj **logga in**.
+
+3. Följ stegen i [Azure Active Directory-cmdlets för att konfigurera inställningarna för](active-directory-accessmanagement-groups-settings-cmdlets.md) att skapa gruppinställningar för den här innehavaren.
 
 ### <a name="view-the-current-settings"></a>Visa de aktuella inställningarna
 
@@ -140,9 +142,9 @@ Det var allt. Du har ställa in namngivning principen och lagt till din blockera
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportera eller importera en lista över anpassade blockerade ord
 
-Mer information finns i artikeln [Azure Active Directory-cmdlets för att konfigurera inställningar för grupper](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Mer information finns i artikeln [Azure Active Directory-cmdlets för att konfigurera inställningarna för](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Här är ett exempel PowerShell-skript för att exportera flera blockerade ord:
+Här är ett exempel på ett PowerShell.skript för att exportera flera blockerade ord:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 

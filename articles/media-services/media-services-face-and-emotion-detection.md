@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera Ansikts- och Känslo med Azure Media Analytics
 ## <a name="overview"></a>Översikt
 Den **Azure Media ansikte detektor** medieprocessor (HP) kan du räkna, spåra förflyttningar och även mäta målgruppen deltagande och reaktion via ansikte uttryck. Den här tjänsten innehåller två funktioner: 
 
-* **Ansikts-identifiering**
+* **ansikts-identifiering**
   
     Identifiering av framsidan hittar och spårar mänsklig ytor inom en video. Flera ytor kan identifieras och spåras senare när de flyttas runt, med tid och plats metadata som returneras i en JSON-fil. Under spårning försöker den att ge en konsekvent ID till samma sida när personen flyttar på skärmen, även om de hindras eller lämna en kort ramen.
   
@@ -64,12 +64,14 @@ Står inför detektor använder tekniker för fragmentering (där metadata kan d
 ### <a name="task-configuration-preset"></a>Uppgiftskonfigurationen (förinställda)
 När du skapar en uppgift med **Azure Media ansikte detektor**, måste du ange en konfiguration förinställning. Följande konfiguration förinställningen gäller bara för framsidan identifiering.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Attributbeskrivningar
 | Attributets namn | Beskrivning |
@@ -79,6 +81,7 @@ När du skapar en uppgift med **Azure Media ansikte detektor**, måste du ange e
 ### <a name="json-output"></a>JSON-utdata
 Följande exempel visar JSON-utdata har trunkerats.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ Följande exempel visar JSON-utdata har trunkerats.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Känsloigenkänning indata och utdata exempel
 ### <a name="input-video"></a>Indatavideo
@@ -133,6 +136,7 @@ Följande exempel visar JSON-utdata har trunkerats.
 ### <a name="task-configuration-preset"></a>Uppgiftskonfigurationen (förinställda)
 När du skapar en uppgift med **Azure Media ansikte detektor**, måste du ange en konfiguration förinställning. Följande konfiguration förinställningen anger för att skapa JSON baserat på känsloigenkänning.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ När du skapar en uppgift med **Azure Media ansikte detektor**, måste du ange e
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Attributbeskrivningar
@@ -161,6 +166,7 @@ Nedan rekommenderas värden för inställningarna sammanställd fönster och int
 ### <a name="json-output"></a>JSON-utdata
 JSON utdata för sammanställd känslo (trunkerad):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ JSON utdata för sammanställd känslo (trunkerad):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Begränsningar
 * Inkommande video format som stöds omfattar MP4, MOV och WMV.
@@ -324,10 +331,12 @@ Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
 2. Skapa ett jobb med en aktivitet för identifiering av ansikte baserat på en konfigurationsfil som innehåller följande json-förinställda: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Hämta JSON utdatafilerna. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -336,7 +345,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -510,7 +519,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://amslabs.azurewebsites.net/demos/Analytics.html)
 

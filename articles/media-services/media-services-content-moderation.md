@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använda Azure Media innehåll kontrollanten för att identifiera möjliga innehåll för vuxna och dyr
 
@@ -61,13 +61,13 @@ Utdata JSON innehåller följande element:
 | start |Starttiden för den första händelsen i ”tick”. |
 | Varaktighet |Längden på ett fragment, i ”tick”. |
 | interval |Intervallet för varje händelsepost i avsnittet i ”tick”. |
-| [händelser](#events-json-elements) |Varje händelse representerar ett klipp och varje klippet innehåller nyckelrutor identifieras och spåras inom den varaktigheten. Det är en matris av händelser. Yttre matrisen representerar ett tidsintervall. Den interna matrisen består av 0 eller fler händelser som skedde vid den punkten i tid.|
+| [Händelser](#events-json-elements) |Varje händelse representerar ett klipp och varje klippet innehåller nyckelrutor identifieras och spåras inom den varaktigheten. Det är en matris av händelser. Yttre matrisen representerar ett tidsintervall. Den interna matrisen består av 0 eller fler händelser som skedde vid den punkten i tid.|
 
 ### <a name="events-json-elements"></a>Händelser JSON-element
 
 |Element|Beskrivning|
 |---|---|
-| reviewRecommended | `true`eller `false` beroende på om den **adultScore** eller **racyScore** överstiger de interna tröskelvärdena. |
+| reviewRecommended | `true` eller `false` beroende på om den **adultScore** eller **racyScore** överstiger de interna tröskelvärdena. |
 | adultScore | Förtroende resultat för möjliga vuxet innehåll på en skala från 0.00 0,99. |
 | racyScore | Förtroende resultat för möjliga dyr innehåll på en skala från 0.00 0,99. |
 | index | index för ramen på en skala från den första bildrutan index till den senaste ram index. |
@@ -90,6 +90,7 @@ Följande kodexempel för .NET använder Media Services .NET SDK för att köra 
 Finns det [innehåll kontrollant video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) för fullständig källkoden och Visual Studio-projekt.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Finns det [innehåll kontrollant video quickstart](../cognitive-services/Content
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-För fullständig källkoden och Visual Studio-projekt, ta en titt på [innehåll kontrollant video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>JSON-utdata
+### JSON output
 
-Följande exempel visar en innehåll kontrollant JSON-utdata har trunkerats.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Platsen för en keyframe i sekunder = tidsstämpel/tidsrymd
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ Följande exempel visar en innehåll kontrollant JSON-utdata har trunkerats.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

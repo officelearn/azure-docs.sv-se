@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med ADP federerad enkel inloggning | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ADP federerad enkel inloggning."
+title: "Självstudier: Azure Active Directory-integrering med ADP | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ADP."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Självstudier: Azure Active Directory-integrering med ADP federerad enkel inloggning
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Självstudier: Azure Active Directory-integrering med ADP
 
-I kursen får lära du att integrera ADP federerad enkel inloggning med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera ADP med Azure Active Directory (AD Azure).
 
-Integrera ADP federerad enkel inloggning med Azure AD ger dig följande fördelar:
+Integrera ADP med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har tillgång till ADP federerad enkel inloggning.
-- Du kan aktivera användarna att automatiskt hämta loggat in på ADP federerad enkel inloggning (Single Sign-On) med sina Azure AD-konton.
+- Du kan styra i Azure AD som har tillgång till ADP.
+- Du kan aktivera användarna att automatiskt hämta loggat in på ADP (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med ADP federerad enkel inloggning, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med ADP behöver du följande:
 
 - En Azure AD-prenumeration
-- En prenumeration på ADP federerad enkel inloggning aktiverad
+- En prenumeration på ADP aktiverad
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -50,13 +50,13 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till ADP federerad enkel inloggning från galleriet
+1. Att lägga till ADP från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>Att lägga till ADP federerad enkel inloggning från galleriet
-Du måste lägga till ADP federerad enkel inloggning från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av ADP federerad enkel inloggning i Azure AD.
+## <a name="adding-adp-from-the-gallery"></a>Att lägga till ADP från galleriet
+Du måste lägga till ADP från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av ADP i Azure AD.
 
-**Utför följande steg för att lägga till ADP federerad enkel inloggning från galleriet:**
+**Utför följande steg för att lägga till ADP från galleriet:**
 
 1.  Logga in på Microsoft Azure identitet providern miljön som administratör.
 
@@ -72,35 +72,35 @@ Du måste lägga till ADP federerad enkel inloggning från galleriet i listan ö
 
     ![Knappen Nytt program][3]
 
-5. I sökrutan skriver **ADP federerad enkel inloggning**väljer **ADP federerad enkel inloggning** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+5. I sökrutan skriver **ADP**väljer **ADP** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![ADP federerad enkel inloggning i resultatlistan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![ADP i resultatlistan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med ADP federerad enkel inloggning baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med ADP baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i ADP federerad enkel inloggning till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ADP federerad enkel inloggning upprättas.
+Azure AD måste du känna till användaren i ADP motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ADP upprättas.
 
-I ADP federerad enkel inloggning, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I ADP, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med ADP federerad enkel inloggning måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med ADP, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
 2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare ADP federerad enkel inloggning](#create-an-adp-federated-sso-test-user)**  – du har en motsvarighet för Britta Simon i ADP federerad enkel inloggning som är kopplad till Azure AD-representation av användaren.
+3. **[Skapa en testanvändare ADP](#create-an-adp-test-user)**  – du har en motsvarighet för Britta Simon i ADP som är kopplad till Azure AD-representation av användaren.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet ADP federerad enkel inloggning.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ADP-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med ADP federerad enkel inloggning:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med ADP:**
 
-1. I Azure-portalen på den **ADP federerad enkel inloggning** programmet integration klickar du på **fliken Egenskaper** och utför följande steg: 
+1. I Azure-portalen på den **ADP** programmet integration klickar du på **fliken Egenskaper** och utför följande steg: 
 
-    ![Egenskaper för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Egenskaper för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. Ange den **aktiverats för användare att logga in** fältvärde till **Ja**.
 
@@ -110,25 +110,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Ange den **synlig för användarna** fältvärde till **nr**.
 
-2. Klicka på **enkel inloggning** på **ADP federerad enkel inloggning** sidan för integrering av programmet.
+2. Klicka på **enkel inloggning** på **ADP** sidan för integrering av programmet.
 
     ![Konfigurera enkel inloggning länk][4]
 
 3. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. På den **ADP federerad enkel inloggning domän och URL: er** avsnittet, utför följande steg:
+4. På den **ADP domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och ADP federerad enkel inloggning domän med enkel inloggning information](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![URL: er och ADP domän med enkel inloggning information](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     I den **identifierare** textruta, ange ett URL-Adressen: `https://fed.adp.com/` 
     
-5. Programmet ADP federerad enkel inloggning förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Följande skärmbild visar ett exempel för det här. Anspråkets namn kommer alltid att **”PersonImmutableID”** och värdet som vi har mappats till **employeeid**. 
+5. Programmet ADP förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Följande skärmbild visar ett exempel för det här. Anspråkets namn kommer alltid att **”PersonImmutableID”** och värdet som vi har mappats till **employeeid**. 
 
-    Här mappning från Azure AD till ADP federerad enkel inloggning ska ske på den **employeeid** men du kan mappa till ett annat värde baserat på dina inställningar för programmet. Så kan du arbeta med [ADP supportteamet](https://www.adp.com/contact-us/overview.aspx) först att använda rätt ID för en användare och mappa värdet med den **”PersonImmutableID”** anspråk.
+    Här mappning från Azure AD till ADP kommer att utföras på den **employeeid** men du kan mappa till ett annat värde baserat på dina inställningar för programmet. Så kan du arbeta med [ADP supportteamet](https://www.adp.com/contact-us/overview.aspx) först att använda rätt ID för en användare och mappa värdet med den **”PersonImmutableID”** anspråk.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
@@ -153,9 +153,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. Konfigurera enkel inloggning på **ADP federerad enkel inloggning** sida, måste du ladda upp den hämtade **XML-Metadata för** på den [ADP federerad enkel inloggning webbplats](https://adpfedsso.adp.com/public/login/index.fcc).
+8. Konfigurera enkel inloggning på **ADP** sida, måste du ladda upp den hämtade **XML-Metadata för** på den [ADP webbplats](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
 > Den här processen kan ta ett par dagar. 
@@ -178,13 +178,13 @@ Konfigurera ADP tjänster och tilldela/hantera användare att styra användarnas
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **ADP federerad enkel inloggning**väljer **ADP federerad enkel inloggning** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **ADP**väljer **ADP** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![ADP federerad enkel inloggning i resultatlistan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![ADP i resultatlistan](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. I Azure-portalen på din **ADP federerad enkel inloggning** programmet integration klickar du på **fliken Egenskaper** och utför följande steg:  
+5. I Azure-portalen på din **ADP** programmet integration klickar du på **fliken Egenskaper** och utför följande steg:  
 
-    ![Linkedproperties för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Linkedproperties för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Ange den **aktiverats för användare att logga in** fältvärde till **Ja**.
 
@@ -192,19 +192,19 @@ Konfigurera ADP tjänster och tilldela/hantera användare att styra användarnas
 
     c.  Ange den **synlig för användarna** fältvärde till **Ja**.
 
-6. Klicka på **enkel inloggning** på **ADP federerad enkel inloggning** sidan för integrering av programmet.
+6. Klicka på **enkel inloggning** på **ADP** sidan för integrering av programmet.
 
     ![Konfigurera enkel inloggning länk][4]
 
-7. På den **enkel inloggning** markerar **läge** som **inloggning länkade** att länka programmet till **ADP federerad enkel inloggning**.
+7. På den **enkel inloggning** markerar **läge** som **inloggning länkade**. länka ditt program till **ADP**.
 
-    ![Enkel inloggning länkade](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Enkel inloggning länkade](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. Navigera till den **konfigurera inloggnings-URL** avsnittet, utför följande steg:
 
-    ![Prop för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Prop för enkel inloggning](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. Klistra in den **användaren åtkomst-URL**, som du har kopierat från ovan **fliken Egenskaper** (från den huvudsakliga ADP federerad enkel inloggning app).
+    a. Klistra in den **användaren åtkomst-URL**, som du har kopierat från ovan **fliken Egenskaper** (från den huvudsakliga ADP-app).
                                                              
     b. Följande är 5 appar som stöder olika **Relay tillstånd URL: er**. Du måste lägga till lämpliga **Relay tillstånd URL** värdet för ett visst program manuellt till den **användaren åtkomst-URL**.
     
@@ -274,25 +274,25 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>Skapa en testanvändare ADP federerad enkel inloggning
+### <a name="create-an-adp-test-user"></a>Skapa en ADP testanvändare
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i ADP federerad enkel inloggning. Arbeta med [ADP supportteamet](https://www.adp.com/contact-us/overview.aspx) att lägga till användare i kontot ADP federerad enkel inloggning.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i ADP. Arbeta med [ADP supportteamet](https://www.adp.com/contact-us/overview.aspx) att lägga till användare i ADP-konto.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ADP federerad enkel inloggning.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ADP.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Britta Simon ADP federerad enkel inloggning, utför du följande steg:**
+**Om du vill tilldela ADP Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **ADP federerad enkel inloggning**.
+2. Välj i listan med program **ADP**.
 
-    ![Länken ADP federerad enkel inloggning i listan med program](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![Länken ADP i listan med program](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
@@ -312,15 +312,13 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen ADP federerad enkel inloggning på åtkomstpanelen du bör få automatiskt loggat in i tillämpningsprogrammet ADP federerad enkel inloggning.
+När du klickar på panelen ADP på åtkomstpanelen du bör få automatiskt loggat in på ditt ADP-program.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

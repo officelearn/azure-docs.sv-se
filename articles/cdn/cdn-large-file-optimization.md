@@ -1,5 +1,5 @@
 ---
-title: "Optimering av stora filer download via Azure innehållsleveransnätverk"
+title: Optimering av stora filer download via Azure CDN
 description: "Optimering av stora filhämtningar förklaras i djup"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimering av stora filer download via Azure innehållsleveransnätverk
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimering av stora filer download via Azure CDN
 
 Filstorlekarna av innehåll som levereras via Internet fortsätter att växa på grund av utökad funktionalitet, förbättrad grafik och medieinnehåll. Den här tillväxt drivs av många faktorer: bredband intrång, större billiga lagringsenheter, omfattande fler HD-video- och Internet-anslutna enheter (IoT). Snabba och effektiva leveransmekanismen för stora filer är viktigt att säkerställa en smidig och roligare användarfunktioner.
 
@@ -67,7 +67,7 @@ CDN cachelagrar alla segment när de tas emot. Hela filen är inte cachelagras p
 Optimering av stora filer använder olika cachelagring förfallodatum standardtiden från Internet leverans. Den skiljer mellan cachelagring av positiva och negativa cachelagring baserat på http-svarskoder. Om den ursprungliga servern anger en förfallotid via en cache-control eller expires-rubrik i svaret, godkänner CDN värdet. När ursprung inte ange och filen matchar villkor som typ och storlek för den här typen av optimering, använder CDN standardvärden för optimering av stora filer. I annat fall används CDN standardvärden för allmän web leverans.
 
 
-|    | Allmän web | Optimering av stora filer 
+|    | Allmän web | Optimering av stor fil 
 --- | --- | --- 
 Cachelagring: positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
 Cachelagring: negativt <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund 
@@ -113,7 +113,7 @@ Funktionerna för optimering för Verizon är aktiverade som standard. Det finns
 
 Överväg följande ytterligare aspekter för den här typen av optimering.
  
-### <a name="azure-content-delivery-network-from-akamai"></a>Azure Content Delivery Network från Akamai
+### <a name="azure-content-delivery-network-from-akamai"></a>Azure Content Delivery Network from Akamai
 
 - Segment processen genererar ytterligare begäranden till den ursprungliga servern. Men är den övergripande datavolymen som levereras med ursprung mycket mindre. Segment resulterar i bättre cachelagring egenskaper på CDN.
 

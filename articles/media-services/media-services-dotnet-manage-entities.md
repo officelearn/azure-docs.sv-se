@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fd8f89bc842b33576dc0f85ab606dfe3628480ed
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera resurser och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -39,6 +39,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ## <a name="get-an-asset-reference"></a>Hämta en referens till en tillgång
 En uppgift som ofta är att hämta en referens till en befintlig tillgång i Media Services. Följande kodexempel visar hur du kan hämta en referens för tillgångsinformation från samlingen tillgångar på servern context-objektet, baserat på en tillgång Id. Följande kodexempel använder en Linq-fråga för att hämta en referens till ett befintligt IAsset-objekt.
 
+```csharp
     static IAsset GetAsset(string assetId)
     {
         // Use a LINQ Select query to get an asset.
@@ -51,10 +52,12 @@ En uppgift som ofta är att hämta en referens till en befintlig tillgång i Med
 
         return asset;
     }
+```
 
 ## <a name="list-all-assets"></a>Visa en lista med alla tillgångar
 När antalet tillgångar som du har i lagring växer, är det bra att visa dina tillgångar. Följande kodexempel visar hur du söker igenom tillgångar samling på servern kontextobjektet. Med varje tillgång skriver kodexemplet aktuella även några av dess egenskapsvärden i konsolen. Varje tillgång kan exempelvis innehålla många mediefiler. Exemplet skriver ut alla filer som är associerade med varje tillgång.
 
+```csharp
     static void ListAssets()
     {
         string waitMessage = "Building the list. This may take a few "
@@ -90,6 +93,7 @@ När antalet tillgångar som du har i lagring växer, är det bra att visa dina 
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="get-a-job-reference"></a>Hämta en referens i projektet
 
@@ -97,6 +101,7 @@ När du arbetar med att bearbeta uppgifter i Media Services kod måste ofta du h
 
 Du kan behöva hämta en referens för jobbet när du startar en tidskrävande kodningsjobbet och behöver kontrollera Jobbstatus i en tråd. När metoden returnerar från en tråd i detta fall måste du hämta en uppdateras referens till ett jobb.
 
+```csharp
     static IJob GetJob(string jobId)
     {
         // Use a Linq select query to get an updated 
@@ -110,12 +115,14 @@ Du kan behöva hämta en referens för jobbet när du startar en tidskrävande k
 
         return job;
     }
+```
 
 ## <a name="list-jobs-and-assets"></a>Lista över jobb och tillgångar
 En viktig uppgift är att lista över tillgångar med deras associerade jobbet i Media Services. Följande kodexempel visar hur du listar alla IJob-objekt, och sedan för varje projekt, den visar egenskaper om jobbet, alla relaterade uppgifter, alla indata-tillgångar och alla utdata tillgångar. Koden i det här exemplet kan vara användbart för flera uppgifter. Om du vill visa en lista med tillgångar utdata från ett eller flera kodning jobb som du tidigare körde visar denna kod hur du kommer åt utdata tillgångar. När du har en referens till en utdatatillgången, kan du sedan leverera innehållet till andra användare eller program genom att hämta den eller tillhandahålla URL: er. 
 
 Mer information om alternativ för att leverera tillgångar finns [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
 
@@ -190,12 +197,14 @@ Mer information om alternativ för att leverera tillgångar finns [leverera till
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="list-all-access-policies"></a>Visa en lista med alla åtkomstprinciper
 I Media Services kan du definiera en åtkomstprincip för en tillgång eller dess filer. En åtkomstprincip definierar behörigheter för en fil eller en tillgång (vilken typ av åtkomst och varaktighet). I Media Services-koden definiera du vanligtvis en åtkomstprincip genom att skapa ett IAccessPolicy objekt och associera den med en befintlig tillgång. Sedan kan du skapa en ILocator-objektet, vilket gör att du kan ge direktåtkomst till tillgångar i Media Services. Visual Studio-projekt som medföljer den här dokumentationen serien innehåller flera kodexempel som visar hur du skapar och tilldelar tillgångar åtkomstprinciper och lokaliserare.
 
 Följande kodexempel visar hur du listar alla åtkomstprinciper på servern och visar vilken typ av behörigheter som associeras med varje. Ett annat bra sätt att visa principer för åtkomst är att lista alla ILocator objekt på servern och sedan för varje lokaliserare, kan du visa dess associerade åtkomstprincip via egenskapen AccessPolicy.
 
+```csharp
     static void ListAllPolicies()
     {
         foreach (IAccessPolicy policy in _context.AccessPolicies)
@@ -208,6 +217,7 @@ Följande kodexempel visar hur du listar alla åtkomstprinciper på servern och 
 
         }
     }
+```
     
 ## <a name="limit-access-policies"></a>Gränsen åtkomstprinciper 
 
@@ -216,6 +226,7 @@ Följande kodexempel visar hur du listar alla åtkomstprinciper på servern och 
 
 Du kan till exempel skapa en allmän uppsättning principer med följande kod som körs endast en gång i ditt program. Du kan logga ID: N till en loggfil för senare användning:
 
+```csharp
     double year = 365.25;
     double week = 7;
     IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
@@ -225,9 +236,11 @@ Du kan till exempel skapa en allmän uppsättning principer med följande kod so
     Console.WriteLine("One year policy ID is: " + policyYear.Id);
     Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+```
 
 Du kan sedan använda de befintliga ID i koden så här:
 
+```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
@@ -247,6 +260,7 @@ Du kan sedan använda de befintliga ID i koden så här:
         policy1Year,
         DateTime.UtcNow.AddMinutes(-5));
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+```
 
 ## <a name="list-all-locators"></a>Visa en lista med alla positionerare
 En positionerare är en URL som innehåller en direkt sökväg för att komma åt en tillgång, tillsammans med behörigheter till tillgången som definieras av den positionerare associerade åtkomstprincip. Varje tillgång kan ha en samling ILocator objekt som är associerade med den på egenskapen lokaliserare. Serverkontext har också en positionerare samling som innehåller alla lokaliserare.
@@ -255,6 +269,7 @@ Följande kodexempel visar alla positionerare på servern. För varje lokalisera
 
 Observera att en positionerare sökväg till en tillgång är en grundläggande Webbadress till tillgången. Om du vill skapa en direkt sökväg till enskilda filer som en användare eller ett program kan bläddra till din kod måste lägga till specifika filsökvägen lokaliserare sökvägen. Mer information om hur du gör detta finns i avsnittet [leverera tillgångar med Media Services SDK för .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     static void ListAllLocators()
     {
         foreach (ILocator locator in _context.Locators)
@@ -272,12 +287,14 @@ Observera att en positionerare sökväg till en tillgång är en grundläggande 
             Console.WriteLine("");
         }
     }
+```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Uppräkning av stora mängder av entiteter
 När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Du måste använda Skip och vidta vid uppräkning av stora mängder av entiteter. 
 
 Följande funktion loop genom alla jobb i den angivna Media Services-konto. Media Services returnerar 1000 jobb i Jobbsamlingen. Funktionen tillämpar Skip och vidta för att se till att alla jobb räknas (om du har fler än 1000 jobb i ditt konto).
 
+```csharp
     static void ProcessJobs()
     {
         try
@@ -313,10 +330,12 @@ Följande funktion loop genom alla jobb i den angivna Media Services-konto. Medi
             Console.WriteLine(ex.Message);
         }
     }
+```
 
 ## <a name="delete-an-asset"></a>Ta bort en tillgång
 I följande exempel tar bort en tillgång.
 
+```csharp
     static void DeleteAsset( IAsset asset)
     {
         // delete the asset
@@ -327,12 +346,14 @@ I följande exempel tar bort en tillgång.
             Console.WriteLine("Deleted the Asset");
 
     }
+```
 
 ## <a name="delete-a-job"></a>Ta bort ett jobb
 Om du vill ta bort ett jobb, måste du kontrollera status för jobbet som anges i egenskapen State. Jobb som har slutförts eller avbrutits kan tas bort medan jobb som har vissa andra tillstånd, till exempel köade schemalagda eller bearbetning, måste först avbrytas och sedan kan du ta bort.
 
 Följande exempel visar en metod för att ta bort ett jobb genom att kontrollera status för jobb och ta sedan bort när tillståndet slutförts eller avbrutits. Den här koden är beroende av föregående avsnitt i det här avsnittet för att hämta en referens till ett jobb: hämta en referens i projektet.
 
+```csharp
     static void DeleteJob(string jobId)
     {
         bool jobDeleted = false;
@@ -377,11 +398,13 @@ Följande exempel visar en metod för att ta bort ett jobb genom att kontrollera
 
         }
     }
+```
 
 
 ## <a name="delete-an-access-policy"></a>Ta bort en åtkomstprincip
 Följande kodexempel visar hur du hämtar en referens till en princip utifrån en princip-Id, och sedan ta bort principen.
 
+```csharp
     static void DeleteAccessPolicy(string existingPolicyId)
     {
         // To delete a specific access policy, get a reference to the policy.  
@@ -395,7 +418,7 @@ Följande kodexempel visar hur du hämtar en referens till en princip utifrån e
         policy.Delete();
 
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

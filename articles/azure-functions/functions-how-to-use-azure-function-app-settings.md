@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure-portalen 
 
@@ -66,7 +66,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 ![Redigeraren för Apptjänst](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Programinställningar
+### <a name="settings">Programinställningar</a>
 
 | | |
 |-|-|
@@ -82,11 +82,11 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 ![Funktionen app-konsolen](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Avancerade verktyg (Kudu)
+### <a name="kudu">Avancerade verktyg (Kudu)</a>
 
 | | |
 |-|-|
-| ![Funktionsapp Kudu i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Avancerade verktyg för Apptjänst (även kallat Kudu) ger åtkomst till appen funktionen avancerade administrativa funktioner. Från Kudu Hantera Systeminformation, app-inställningar, miljövariabler, webbplatstillägg, HTTP-huvuden och servervariabler. Du kan också starta **Kudu** genom att bläddra till SCM-slutpunkten för din funktionsapp som`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Funktionsapp Kudu i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Avancerade verktyg för Apptjänst (även kallat Kudu) ger åtkomst till appen funktionen avancerade administrativa funktioner. Från Kudu Hantera Systeminformation, app-inställningar, miljövariabler, webbplatstillägg, HTTP-huvuden och servervariabler. Du kan också starta **Kudu** genom att bläddra till SCM-slutpunkten för din funktionsapp som `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Konfigurera Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 ![Konfigurera autentisering för en funktionsapp](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>API-definition
+### <a name="swagger">API-definition</a>
 
 | | |
 |-|-|
-| ![Funktionen app API swagger-definition i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions stöder Swagger så att klienterna kan enkelt använda din HTTP-utlösta funktioner. Mer information om hur du skapar API-definitioner med Swagger finns [Kom igång med API Apps och Swagger i Azure](../app-service/app-service-web-tutorial-rest-api.md). Du kan också använda funktioner proxyservrar för att definiera en enda API-yta för flera funktioner. Mer information finns i [arbeta med Azure Functions proxyservrar](functions-proxies.md). |
+| ![Funktionen app API swagger-definition i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions stöder Swagger så att klienterna kan enkelt använda din HTTP-utlösta funktioner. Mer information om hur du skapar API-definitioner med Swagger finns [värd för en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Du kan också använda funktioner proxyservrar för att definiera en enda API-yta för flera funktioner. Mer information finns i [arbeta med Azure Functions proxyservrar](functions-proxies.md). |
 
 ![Konfigurera Funktionsapp-API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

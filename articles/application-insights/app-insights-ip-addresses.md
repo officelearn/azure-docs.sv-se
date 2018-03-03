@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bd4cee783944b0c6e0efcb7ec63c5a72bd13cc8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 37fbe7fa3160d39e85614c3481061d5ce458b29a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och logganalys
 Den [Azure Application Insights](app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kanske behöver dessa adresser om den app som du övervakar finns bakom en brandvägg.
@@ -30,7 +30,7 @@ Den [Azure Application Insights](app-insights-overview.md) tjänsten använder e
 ## <a name="outgoing-ports"></a>Utgående portar
 Du måste öppna vissa utgående portar i brandväggen för din server att tillåta Application Insights SDK och/eller statusövervakaren att skicka data till portalen:
 
-| Syfte | Webbadress | IP-adress | Portar |
+| Syfte | URL | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Direktsänd dataström mått |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
@@ -39,7 +39,7 @@ Du måste öppna vissa utgående portar i brandväggen för din server att till�
 ## <a name="status-monitor"></a>Statusövervakaren
 Status Monitor-konfiguration – behövs bara när du gör ändringar.
 
-| Syfte | Webbadress | IP-adress | Portar |
+| Syfte | URL | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Konfiguration |`management.core.windows.net` | |`443` |
 | Konfiguration |`management.azure.com` | |`443` |
@@ -48,10 +48,10 @@ Status Monitor-konfiguration – behövs bara när du gör ändringar.
 | Konfiguration |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Konfiguration |`auth.gfx.ms` | |`443` |
 | Konfiguration |`login.live.com` | |`443` |
-| Installation |`packages.nuget.org` | |`443` |
+| Installation |`packages.nuget.org` , `nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
-| Syfte | Webbadress | IP-adress | Portar |
+| Syfte | URL | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Kraschdata |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 

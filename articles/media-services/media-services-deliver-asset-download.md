@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Så här: leverera en tillgång för hämtning
-Det här avsnittet beskrivs alternativ för att leverera media tillgångar som har överförts till Media Services. Du kan leverera Media Services-innehåll i Programscenarier med flera. Du kan hämta media tillgångar eller komma åt dem med hjälp av en positionerare. Du kan skicka medieinnehåll till ett annat program eller till en annan innehållsleverantören. Du kan också leverera innehåll med hjälp av en innehåll innehållsleveransnätverk (CDN) för bättre prestanda och skalbarhet.
+Den här artikeln beskrivs alternativ för att leverera media tillgångar som har överförts till Media Services. Du kan leverera Media Services-innehåll i Programscenarier med flera. Hämta de genererade media tillgångarna efter kodning, eller komma åt dem med hjälp av en strömningslokaliserare. Du kan också leverera innehåll med hjälp av en innehåll innehållsleveransnätverk (CDN) för bättre prestanda och skalbarhet.
 
 Det här exemplet visar hur du hämtar media tillgångar från Media Services till den lokala datorn. Koden frågar jobb som är associerade med Media Services-konto av jobb-ID och har tillgång till dess **OutputMediaAssets** samling (vilket är den uppsättning tillgångar i media utdata en eller flera som är ett resultat från att köra ett jobb). Det här exemplet illustrerar hur du hämtar utdata media tillgångar från ett jobb, men du kan använda samma metod för att ladda ned andra tillgångar.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar eller åtkomstbehörigheter, till exempel principer för lokaliserare som är avsedda att vara på plats för lång tid (icke-överföringen principer). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,7 +77,7 @@ Det här exemplet visar hur du hämtar media tillgångar från Media Services ti
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning

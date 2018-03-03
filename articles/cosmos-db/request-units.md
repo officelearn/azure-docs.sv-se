@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Läs mer i [uppskatta dina genomströmning måste](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Vi rekommenderar att komma igång med att titta på nedanstående video, där Ar
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Ange kapacitet för begäran-enhet i Azure Cosmos DB
 När du startar en ny samling, tabell eller diagrammet kan du ange hur många frågeenheter per sekund (RU per sekund) som du vill reserverade. Baserat på etablerat dataflöde, Azure Cosmos DB allokerar fysiska partitioner som värd för din samling och delningar/rebalances data över partitioner när det växer.
 
-Azure DB Cosmos-behållare kan skapas som fast eller obegränsade. Fast storlek behållare har en maxgräns på 10 GB och 10 000 RU/s genomströmning. Du måste ange minsta dataflöde på 1 000 RU/s för att skapa ett obegränsat antal behållare och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden du se till att ditt diagram-samling/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
+Azure DB Cosmos-behållare kan skapas som fast eller obegränsade. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange minsta dataflöde på 1 000 RU/s för att skapa ett obegränsat antal behållare och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden du se till att ditt diagram-samling/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
 
 > [!NOTE]
 > En partitionsnyckel är en logisk gräns och inte en fysisk. Därför behöver du inte begränsa antalet distinkta partitionsnyckelvärden. I praktiken är det bättre att ha tydligare partitionsnyckelvärden än mindre, Azure Cosmos DB har flera alternativ för belastningsutjämning.
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 Det finns ingen inverkan på tillgängligheten för din behållaren när du ändrar genomflödet. Nya reserverat dataflöde är vanligtvis effektiva i sekunder för tillämpning av nya genomflöde.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genomströmning isolering i globalt distribuerade databaser
+
+När du har replikerats databasen till flera regioner, tillhandahåller Azure Cosmos DB genomströmning isolering för att säkerställa att RU användning i en region inte påverkar RU användning i en annan region. Till exempel om du skriva data till en region och läsa data från en annan region, börjar RUs som används för att utföra åtgärden i en region inte bort från RUs som används för läsning i region B. RUs inte delas mellan regioner där du har distribuerat. Varje region där databasen replikeras har fullständig mängden RUs etableras. Mer information om globala replikering finns [hur du distribuerar data globalt med Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Överväganden för begäran-enhet
 När du uppskattar antalet begäran enheter att reservera för Azure DB som Cosmos-behållare, är det viktigt att beakta följande variabler:
@@ -209,7 +213,7 @@ Exempel:
 6. Beräkna de nödvändiga frågeenheter anges uppskattade antal åtgärder som du vill köra varje sekund.
 
 ## <a id="GetLastRequestStatistics"></a>Använd API för Mongodb's GetLastRequestStatistics kommando
-API: et för MongoDB stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran kostnad för angivna åtgärder.
+MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran kostnad för angivna åtgärder.
 
 Till exempel köra åtgärden som du vill kontrollera begäran kostnad för i Mongo-gränssnittet.
 ```
@@ -235,10 +239,10 @@ Med detta i åtanke är en metod för att uppskatta mängden reserverat dataflö
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Använd API för Mongodb's portal mätvärden
-Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter för ditt API för MongoDB-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *begäran kostnad* diagram, kan du få en uppskattning av hur många begäran enheter varje åtgärden förbrukar och hur många enheter som begäran som de använder i förhållande till varandra.
+## <a name="use-mongodb-api-portal-metrics"></a>Använda portalen MongoDB API-mått
+Det enklaste sättet att hämta en bra uppskattning av begäran enhet avgifter för MongoDB-API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *begäran kostnad* diagram, kan du få en uppskattning av hur många begäran enheter varje åtgärden förbrukar och hur många enheter som begäran som de använder i förhållande till varandra.
 
-![API för MongoDB portal mått][6]
+![Portalen MongoDB API-mått][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Exempel på beräkning av en begäran
 Överväg följande ~ 1 KB dokument:
@@ -343,8 +347,8 @@ Om du använder klient-SDK för .NET och LINQ-frågor och sedan i de flesta fall
 
 Om du har mer än en klient kumulativt drift ovan förfrågningar, försök standardbeteendet finns tillräckligt inte och klienten genereras en DocumentClientException med statuskoden 429 till programmet. I sådana fall, kan du hantera försök beteende och logik i ditt program fel hantering rutiner eller att öka reserverat dataflöde för behållaren.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Överskrider reserverat dataflöde gränser i API för MongoDB
-Program som överskrider de etablerade frågeenheter för en samling kommer att begränsas förrän frekvensen sjunker under nivån reserverade. När en begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en *16500* felkoden - *för många begäranden*. Som standard API för MongoDB kommer automatiskt att försöka upp till 10 gånger innan det returneras en *för många begäranden* felkoden. Om du tar emot många *för många begäranden* felkoder, kan du antingen lägga till försök beteende i ditt program felhantering rutiner eller [öka reserverat dataflöde för samlingen](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
+Program som överskrider de etablerade frågeenheter för en samling kommer att begränsas förrän frekvensen sjunker under nivån reserverade. När en begränsning inträffar serverdelen förebyggande syfte avslutas förfrågan med en *16500* felkoden - *för många begäranden*. Som standard MongoDB-API automatiskt försöker upp till 10 gånger innan det returneras en *för många begäranden* felkoden. Om du tar emot många *för många begäranden* felkoder, kan du antingen lägga till försök beteende i ditt program felhantering rutiner eller [öka reserverat dataflöde för samlingen](set-throughput.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Utforska gärna dessa resurser om du vill veta mer om reserverat dataflöde med Azure Cosmos DB databaser kan:

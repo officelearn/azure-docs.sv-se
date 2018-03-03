@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintlig BLOB till ett Media Services tillgång
 Den här artikeln visar hur du kopierar blobar från ett lagringskonto till ett nytt Azure Media Services (AMS) tillgångsinformation med hjälp av [Azure Media Services .NET SDK-tilläggen](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -39,11 +39,11 @@ Artikeln visar två kodexempel:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Kopiera BLOB mellan två AMS-konton  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Två Media Services-konton. Se artikeln [hur du skapar ett Media Services-konto](media-services-portal-create-account.md).
 
-### <a name="download-sample"></a>Hämta exempel
+### <a name="download-sample"></a>Ladda ned exempel
 Du kan följa stegen i den här artikeln eller hämta ett exempel som innehåller koden som beskrivs i den här artikeln från [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ### <a name="set-up-your-project"></a>Konfigurera ditt projekt
@@ -51,7 +51,7 @@ Du kan följa stegen i den här artikeln eller hämta ett exempel som innehålle
 1. Ställ in din utvecklingsmiljö enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 2. Lägg till avsnittet AppSettings i .config-filen och uppdatera värden baserat på Media Services-konton, mål-lagringskontot och källans tillgången-ID.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Du kan följa stegen i den här artikeln eller hämta ett exempel som innehålle
 
 Följande kod använder tillägget **IAsset.Copy** metod för att kopiera alla filer i tillgången källan till målet tillgången använder ett enda tillägg.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Kopiera blobbar från ett lagringskonto till ett AMS-konto 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Ett lagringskonto som du vill kopiera BLOB.
 - En AMS-kontot som du vill kopiera BLOB.
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Ställ in din utvecklingsmiljö enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 2. Lägg till avsnittet AppSettings i .config-filen och uppdatera värden baserat på dina käll lagrings- och AMS-konton.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -187,9 +187,9 @@ namespace CopyExistingBlobsIntoAsset
 Följande kod kopierar blobbar från ett lagringskonto till en tillgång med Media Services. 
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan nu koda överförda tillgångar. Mer information finns i [Koda tillgångar](media-services-portal-encode.md).

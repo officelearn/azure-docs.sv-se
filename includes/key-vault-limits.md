@@ -13,6 +13,6 @@ Hemligheter, hanteras Lagringskontonycklar och valvet transaktioner:
 | Alla transaktioner |2000 |
 |
 
-Se [Azure Key Vault begränsning vägledning](../key-vault/key-vault-ovw-throttling.md) information om hur du hanterar begränsning när denna gräns överskrids.
+Se [Azure Key Vault begränsning vägledning](../articles/key-vault/key-vault-ovw-throttling.md) information om hur du hanterar begränsning när denna gräns överskrids.
 
 <sup>1</sup> finns en gräns för alla transaktionstyper hela prenumerationen som är 5 x per nyckelvalv gränsen. Till exempel HSM - andra transaktioner per prenumeration är begränsade till 5000 transaktioner 10 sekunder per prenumeration.

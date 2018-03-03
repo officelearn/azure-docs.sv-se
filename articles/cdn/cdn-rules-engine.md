@@ -3,8 +3,8 @@ title: "Åsidosätta HTTP beteende med hjälp av Azure CDN regelmotor | Microsof
 description: "Motorn regler kan du anpassa hur Azure CDN hanteras HTTP-begäranden som blockerar leveransen av vissa typer av innehåll, definiera en princip för cachelagring och ändra HTTP-huvuden."
 services: cdn
 documentationcenter: 
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -12,32 +12,44 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/21/2018
 ms.author: mazha
-ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Åsidosätta HTTP beteende med hjälp av Azure CDN regelmotor
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
-Motorn regler kan du anpassa hur HTTP-begäranden hanteras som blockerar leveransen av vissa typer av innehåll, definiera en princip för cachelagring och ändra HTTP-huvuden.  Den här kursen visar att skapa en regel som ändrar cachelagringsbeteendet CDN tillgångar.  Det finns också videoinnehåll i den ”[finns också](#see-also)” avsnittet.
+Azure CDN regelmotor kan du anpassa hur HTTP-begäranden ska hanteras. Till exempel blockerar leveransen av vissa typer av innehåll, definiera en princip för cachelagring eller ändra ett HTTP-huvud. Den här kursen visar hur du skapar en regel som ändrar CDN tillgångar cachelagring beteende. Mer information om syntaxen som motorn regler finns [Azure CDN regler motorn referens](cdn-rules-engine-reference.md).
 
-   > [!TIP] 
-   > En referens till syntax i detalj finns [regler modulreferens](cdn-rules-engine-reference.md).
-   > 
+## <a name="access"></a>Access
+För att komma åt regelmotor, måste du först välja **hantera** från början av den **CDN-profilen** sidan för att komma åt sidan för hantering av Azure CDN. Beroende på om slutpunkten är optimerad för dynamiska acceleration (DSA), du sedan komma åt regelmotor med uppsättningen regler som är lämpliga för din typ av slutpunkt:
 
+- Slutpunkter som är optimerade för allmänna webben eller andra icke-DSA-optimering: 
+    
+    Välj den **HTTP stora** fliken och markera sedan **regelmotor**.
+
+    ![Regelmotor för HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+
+- Slutpunkter som är optimerade för DSA: 
+    
+    Välj den **ADN** fliken och markera sedan **regelmotor**. 
+    
+    ADN är en term som används av Verizon för att ange DSA-innehåll. Alla regler som du skapar här ignoreras av alla slutpunkter i din profil som inte är optimerade för DSA. 
+
+    ![Regelmotor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Självstudier
-1. CDN-profilbladet klickar du på den **hantera** knappen.
+1. Från den **CDN-profilen** väljer **hantera**.
    
-    ![CDN-profilbladet hantera knappen](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN-profilen hantera knappen](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-2. Klicka på den **HTTP stora** TABB, följt av **regelmotor**.
+2. Välj den **HTTP stora** fliken och markera sedan **regelmotor**.
    
     Alternativ för en ny regel visas.
    
@@ -46,42 +58,42 @@ Motorn regler kan du anpassa hur HTTP-begäranden hanteras som blockerar leveran
    > [!IMPORTANT]
    > Den ordning i vilken flera regler påverkar hur de ska hanteras. En efterföljande regel kan åsidosätta de åtgärder som anges av en tidigare regel.
    > 
-   > 
 3. Ange ett namn i den **namn / beskrivning** textruta.
-4. Identifiera vilken typ av förfrågningar som regeln gäller för.  Som standard den **alltid** matchar villkoret är markerad.  Du kommer att använda **alltid** för den här självstudiekursen, så klicka på OK.
+4. Identifiera vilken typ av förfrågningar som regeln gäller för. Använda standard matchar villkoret, **alltid**. 
    
-   ![CDN matchar villkoret](./media/cdn-rules-engine/cdn-request-type.png)
-   
-   > [!TIP]
-   > Det finns många typer av matchar villkoren som är tillgängliga i listrutan.  Klicka på ikonen blå information till vänster om matchar villkoret förklarar markerade villkoret i detalj.
-   > 
-   >  En fullständig lista över villkorsuttryck i detalj finns [regler motorn villkorsuttryck](cdn-rules-engine-reference-match-conditions.md).
-   >  
-   > En fullständig lista över matchar villkoren i detalj finns [regler motorn matchar villkor](cdn-rules-engine-reference-match-conditions.md).
-   > 
-   > 
-5. Klicka på den  **+**  knappen bredvid **funktioner** att lägga till en ny funktion.  Välj i listrutan till vänster, **kraft interna Max-ålder**.  Ange i textrutan som visas, **300**.  Lämna de återstående standardvärdena.
-   
-   ![CDN-funktion](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![CDN matchar regelvillkor](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Som matchar villkoren visas klickar till vänster om den nya funktionen informationsmeddelande ikonen information om den här funktionen.  I fall av **kraft interna Max-ålder**, vi åsidosätter tillgångens **Cache-Control** och **upphör att gälla** rubriker för att styra när kantnod CDN uppdateras tillgången från ursprung.  Vårt exempel 300 sekunder innebär kantnod CDN cachelagrar tillgången i 5 minuter innan du uppdaterar tillgången från sin ursprungsplats.
+   > Flera matchar villkor är tillgängliga i den nedrullningsbara listan. För information om det markerade matchar villkoret, markerar du informationsmeddelande ikonen till vänster.
    > 
-   > En fullständig lista över funktioner i detalj finns [regler motorn funktionen information](cdn-rules-engine-reference-features.md).
+   >  En detaljerad lista över villkorsuttryck finns [regler motorn villkorsuttryck](cdn-rules-engine-reference-match-conditions.md).
+   >  
+   > En detaljerad lista över villkor för matchning finns [regler motorn matchar villkor](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-6. Klicka på den **Lägg till** för att spara den nya regeln.  Den nya regeln är nu väntar på godkännande. När den har blivit godkänd status ändras från **väntande XML** till **Active XML**.
+1. Om du vill lägga till en ny funktion, Välj den  **+**  knappen bredvid **funktioner**.  Välj i listrutan till vänster, **kraft interna Max-ålder**.  Ange i textrutan som visas, **300**. Ändra inte de återstående standardvärdena.
+   
+   ![Funktionen för CDN-regel](./media/cdn-rules-engine/cdn-new-feature.png)
+   
+   > [!NOTE]
+   > Flera funktioner är tillgängliga i den nedrullningsbara listan. Välj information ikonen till vänster för information om den valda funktionen. 
+   >
+   > För **kraft interna Max-ålder**, tillgångens `Cache-Control` och `Expires` huvuden åsidosätts för att styra när kantnod CDN uppdaterar tillgången från ursprunget. I det här exemplet cachelagrar kantnod CDN tillgången i 300 sekunder eller 5 minuter innan den uppdaterar tillgången från sin ursprungsplats.
+   > 
+   > En detaljerad lista över funktioner finns i [regler motorn funktioner](cdn-rules-engine-reference-features.md).
+   > 
+   > 
+1. Klicka på den **Lägg till** för att spara den nya regeln.  Den nya regeln är nu väntar på godkännande. När den har blivit godkänd status ändras från **väntande XML** till **Active XML**.
    
    > [!IMPORTANT]
    > Regler ändringarna kan ta upp till 90 minuter att sprida via CDN.
    > 
    > 
 
-## <a name="see-also"></a>Se även
-* [Azure CDN-översikt](cdn-overview.md)
+## <a name="see-also"></a>Se också
+* [Översikt över Azure CDN](cdn-overview.md)
 * [Regler modulreferens](cdn-rules-engine-reference.md)
 * [Regler motorn matchar villkor](cdn-rules-engine-reference-match-conditions.md)
 * [Regler motorn villkorsuttryck](cdn-rules-engine-reference-conditional-expressions.md)
 * [Regler motorn funktioner](cdn-rules-engine-reference-features.md)
-* [Åsidosätta standardbeteendet i HTTP-motorn regler](cdn-rules-engine.md)
-* [Azure fredagar: Azure CDN kraftfulla nya Premiumfunktioner](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
+* [Azure fredagar: Azure CDN kraftfulla nya premiumfunktioner](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

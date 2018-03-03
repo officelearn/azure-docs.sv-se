@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Aggregering av händelse och med EventFlow
 
@@ -32,12 +32,12 @@ EventFlow binärfiler är tillgängliga som en uppsättning NuGet-paket. Om du v
 
 En lista över olika paket visas, märkt med ”anger” och ”utdata” visas. EventFlow stöder olika providrar för olika loggning och analyzers. Tjänsten värd för EventFlow bör inkludera paket beroende på käll- och mål för programloggarna. Förutom core ServiceFabric paketet, du måste också ha minst ett indata och utdata har konfigurerats. Du kan till exempel lägga till följande paket skickade EventSource händelser till Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`att samla in data från EventSource tjänstklass och standard EventSources som *Microsoft ServiceFabric Services* och *Microsoft-ServiceFabric-aktörer*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(vi ska skicka loggar till en Azure Application Insights-resurs)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` att samla in data från EventSource tjänstklass och standard EventSources som *Microsoft ServiceFabric Services* och *Microsoft-ServiceFabric-aktörer*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vi ska skicka loggar till en Azure Application Insights-resurs)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(gör det möjligt för initiering av EventFlow pipeline från Service Fabric tjänstkonfiguration och rapporterar eventuella problem med att skicka diagnostikdata som Service Fabric hälsorapporter)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`paketet kräver service-projekt att rikta .NET Framework 4.6 eller senare. Kontrollera att du anger rätt Målversionen av framework i projektegenskaperna innan du installerar det här paketet.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` paketet kräver service-projekt att rikta .NET Framework 4.6 eller senare. Kontrollera att du anger rätt Målversionen av framework i projektegenskaperna innan du installerar det här paketet.
 
 När alla paket som är installerade, är nästa steg att konfigurera och aktivera EventFlow i tjänsten.
 
@@ -147,7 +147,7 @@ EventFlow stöder användningen av Service Fabric-inställningar och program par
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`är namnet på konfigurationsavsnittet Service Fabric och `<setting-name>` är Konfigurationsinställningen med ett värde som ska användas för att konfigurera en EventFlow inställning. Att läsa mer om hur du gör detta, gå till [stöd för Service Fabric-inställningar och programparametrar](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` är namnet på konfigurationsavsnittet Service Fabric och `<setting-name>` är Konfigurationsinställningen med ett värde som ska användas för att konfigurera en EventFlow inställning. Att läsa mer om hur du gör detta, gå till [stöd för Service Fabric-inställningar och programparametrar](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Verifiering
 

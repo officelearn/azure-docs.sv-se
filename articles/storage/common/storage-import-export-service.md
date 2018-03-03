@@ -3,22 +3,16 @@ title: "Använda Azure Import/Export för att överföra data till och från Azu
 description: "Lär dig hur du skapar importera och exportera jobben i Azure-portalen för att överföra data till och från Azure Storage."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -31,25 +25,34 @@ I den här artikeln får stegvisa instruktioner om hur du använder Azure Import
 Följ de nedanstående steg om data på disken som ska importeras till Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Steg 1: Förbered enheten/s-verktyget WAImportExport och generera journal fil/s.
 
-1.  Identifiera vilka data som ska importeras till Azure Storage. Detta kan vara kataloger och fristående filer på en lokal server eller en nätverksresurs.
+1.  Identifiera vilka data som ska importeras till Azure Storage. Du kan importera kataloger och fristående filer på en lokal server eller en nätverksresurs.
 2.  Beroende på storleken på data anskaffa antalet krävs 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III hårddiskar.
 3.  Koppla hårddiskar direkt med SATA eller med adaptrar för externa USB till en windows-dator.
-4.  Skapa en NTFS-volym på varje hårddisk och tilldela en enhetsbeteckning till volymen. Inga monteringspunkter.
-5.  Aktivera säker plats-bitarskryptering på volymen om du vill aktivera kryptering på windows-dator. Följ instruktionerna på https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Helt kopiera data till dessa krypterade enda NTFS-volymer på diskar med hjälp av kopiera och klistra in eller dra & släppa eller Robocopy eller något sådant verktyg.
+1.  Skapa en NTFS-volym på varje hårddisk och tilldela en enhetsbeteckning till volymen. Inga monteringspunkter.
+2.  Aktivera säker plats-bitarskryptering på volymen om du vill aktivera kryptering på windows-dator. Följ instruktionerna på https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Helt kopiera data till dessa krypterade enda NTFS-volymer på diskar med hjälp av kopiera och klistra in eller dra & släppa eller Robocopy eller något sådant verktyg.
 7.  Hämta WAImportExport V1 från https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Packa upp till standard mappen waimportexportv1. Till exempel C:\WaImportExportV1  
 9.  Kör som administratör och öppna ett PowerShell eller kommandoraden och ändra katalogen till mappen uppackade. Till exempel cd C:\WaImportExportV1
-10. Kopiera följande kommandorad till en anteckningar och redigera det för att skapa en kommandorad.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session #1 /sk:***== /t:D /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
+10. Kopiera följande kommandorad till en textredigerare och redigera det för att skapa en kommandorad:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: namnet på en fil som kallas journal-fil med tillägget .jrn. En journal-fil genereras per enhet och därför rekommenderas att använda disk serienumret som namn på filen.
-    /Sk: nyckel för azure Storage-konto. / t: Enhetsbeteckning på disken för att skickas. Till exempel D /bk: är enheten /srcdir bitars säker plats för nyckeln: enhetsbeteckningen för disken som ska levereras följt av: \. Till exempel D:\
-    /dstdir: namnet på Azure Storage-behållare som data som ska importeras.
-    /skipwrite 
-    
-11. Upprepa steg 10 för varje disk som ska levereras.
-12. En journal-fil med namnet som angetts med parametern /j: skapas för varje körning av kommandoraden.
+    I följande tabell beskrivs dessa alternativ:
+
+    |Alternativ  |Beskrivning  |
+    |---------|---------|
+    |/j:     |Namnet på journal-fil med filnamnstillägget .jrn. En journal-fil skapas per enhet. Du bör använda disk serienumret som namn på filen.         |
+    |/sk:     |Nyckel för Azure Storage-konto.         |
+    |/t:     |Enhetsbeteckning på disken för att skickas. Till exempel enhet `D`.         |
+    |/bk:     |BitLocker-nyckel för enheten.         |
+    |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
+    |/dstdir:     |Namnet på målbehållare i Azure Storage         |
+
+1. Upprepa steg 10 för varje disk som ska levereras.
+2. En journal-fil med namnet som angetts med parametern /j: skapas för varje körning av kommandoraden.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Steg 2: Skapa ett importjobb på Azure-portalen.
 
@@ -88,6 +91,11 @@ I det här avsnittet listas vi kraven för att använda den här tjänsten. Läs
 
 ### <a name="storage-account"></a>Lagringskonto
 Du måste ha en befintlig Azure-prenumeration och en eller flera lagringskonton för att använda tjänsten Import/Export. Azure Import/Export stöder endast klassiska, Blob Storage-konton och generella v1 storage-konton. Varje jobb kan användas för att överföra data till eller från en enda storage-konto. Med andra ord kan inte ett enda import/export-jobb vara över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Tjänsten Azure Import exportera har inte stöd för lagringskonton där den [virtuella nätverksslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
+> 
+> 
 
 ### <a name="data-types"></a>Datatyper
 Du kan använda tjänsten Azure Import/Export för att kopiera data till **Block** blobar **sidan** blobbar, eller **filer**. Däremot kan du bara exportera **Block** blobar **sidan** blobbar eller **Append** blobbar från Azure storage med hjälp av den här tjänsten. Tjänsten stöder endast import av Azure-filer till Azure storage. Exportera Azure-filer stöds inte för närvarande.

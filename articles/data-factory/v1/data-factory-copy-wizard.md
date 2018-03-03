@@ -3,9 +3,9 @@ title: Kopiera data enkelt med guiden Kopiera - Azure | Microsoft Docs
 description: "Läs mer om hur du använder guiden Kopiera Data Factory för att kopiera data från datakällor som stöds till sänkor."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data med guiden för Azure Data Factory kopiera
 > [!NOTE]
@@ -45,7 +45,7 @@ Guiden är utformad med stordata i åtanke från början. Det är enkelt och eff
 ## <a name="automatic-data-preview"></a>Automatisk förhandsgranskning
 Guiden Kopiera kan du granska en del av data från den valda datakällan för att kontrollera huruvida data är rätt data du vill kopiera. Om datakällan finns i en textfil, Parsar guiden Kopiera dessutom textfil Läs rad och kolumn avgränsare och schemat automatiskt. 
 
-![Inställningar för format](./media/data-factory-copy-wizard/file-format-settings.png)
+![Filformatinställningar](./media/data-factory-copy-wizard/file-format-settings.png)
 
 ## <a name="schema-capture-and-mapping"></a>Schemat avbildning och mappning
 Schemat för indata kan inte överens med schemat för utdata i vissa fall. I det här scenariot måste du koppla kolumner från datakällans schema till kolumner från mål-schemat. 

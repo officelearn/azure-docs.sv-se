@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
-”Den här artikeln är utformad för att hjälpa dig att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
+
+Den här artikeln är utformad för att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
 
 Det här är en lista över närliggande ämnen:
 
@@ -42,7 +43,6 @@ Status: Publicerat för att välja den här versionen är för närvarande har d
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Fast problem
-* Åtgärda tidsinställning fönster på bakgrunden uppgifter för Partition filtrering sidan när
 * Åtgärda tidsinställning fönster på bakgrundsaktiviteter för filtrering av Partition sida när du växlar till nästa sida.
 
 * Ett fel som orsakade åtkomstfel när den anpassade åtgärden ConfigDB fast

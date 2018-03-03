@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Lägg till push-meddelanden i appen Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -152,6 +152,7 @@ På serversidan som har konfigurerats med FCM kan du lägga till komponenter och
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ På serversidan som har konfigurerats med FCM kan du lägga till komponenter och
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Du är nu redo testa push-meddelanden i appen körs på en Android-enhet eller e
 ### <a name="test-push-notifications-in-your-android-app"></a>Testa push-meddelanden i din Android-app
 De två första stegen krävs bara när du testar på en emulator.
 
-1. Se till att du distribuerar till eller felsökning på en virtuell enhet som har Google APIs som mål, enligt nedan i hanteraren för Android-enhet.
+1. Se till att du distribuerar till eller felsökning på en enhet eller emulator som är konfigurerad med Google Play-tjänster. Detta kan kontrolleras genom att kontrollera som den **spela upp** appar installeras på enheten eller emulatorn.
 2. Lägg till ett Google-konto för Android-enhet genom att klicka på **appar** > **inställningar** > **Lägg till konto**. Följ sedan anvisningarna för att lägga till ett befintligt Google-konto till enheten eller skapa en ny.
 3. I Visual Studio eller Xamarin Studio högerklickar du på den **Droid** projektet och klicka på **Ställ in som Startprojekt**.
 4. Klicka på **kör** att skapa projektet och starta appen på din Android-enhet eller emulator.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Med Azure Media Paketeraren för att utföra uppgifter för statiska paketering
 > [!NOTE]
@@ -58,6 +58,7 @@ Det här avsnittet visar hur du bearbeta aktiviteten validering. Den visar även
 
 För att verifiera ditt MP4-filer med Media Services Paketeraren, måste du skapa en egen manifestet (.ism)-fil och överför den tillsammans med källfilerna till Media Services-kontot. Nedan är ett exempel på .ism-fil som produceras av Media Encoder Standard. Filnamnen är skiftlägeskänsliga. Kontrollera också att texten i .ism-fil är kodad med UTF-8.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ För att verifiera ditt MP4-filer med Media Services Paketeraren, måste du skap
         </switch>
       </body>
     </smil>
+```
 
 När du har kan med anpassad bithastighet MP4-uppsättningen du dra nytta av dynamisk paketering. Dynamisk paketering som gör att du kan leverera dataströmmar i det angivna protokollet utan ytterligare paketera. Mer information finns i [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 Följande kodexempel används Azure Media Services .NET SDK-tilläggen.  Se till att uppdatera kod så att den pekar till den mapp där inkommande MP4-filer och .ism-fil finns. Och även till där MediaPackager_ValidateTask.xml-filen finns. XML-filen har definierats i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ Följande kodexempel används Azure Media Services .NET SDK-tilläggen.  Se till
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Med statiska kryptering för att skydda din Smooth och MPEG DASH med PlayReady
 Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-playready-widevine.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
@@ -263,6 +267,7 @@ Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaEncryptor_Pla
 
 Exemplet definierar metoden UpdatePlayReadyConfigurationXMLFile som du kan använda för att uppdatera filen MediaEncryptor_PlayReadyProtection.xml dynamiskt. Tillgängliga viktiga startvärdet måste du använda metoden CommonEncryption.GeneratePlayReadyContentKey för att generera nyckeln innehåll baserat på keySeedValue och KeyId värden.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ Exemplet definierar metoden UpdatePlayReadyConfigurationXMLFile som du kan anvä
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Med statiska kryptering för att skydda HLSv3 med AES-128
 Om du vill kryptera dina HLS med AES-128, kan du välja att använda dynamisk kryptering (det rekommenderade alternativet) eller statisk kryptering (som visas i det här avsnittet). Om du vill använda dynamisk kryptering finns [med hjälp av dynamisk AES-128-kryptering och leverans av tjänsten](media-services-protect-with-aes128.md).
@@ -707,6 +713,7 @@ Om du vill kryptera dina HLS med AES-128, kan du välja att använda dynamisk kr
 
 Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till multibitrate MP4-filer och sedan paket MP4s till Smooth Streaming. Den paketerar sedan Smooth Streaming i HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES) dataströmmen 128-bitars kryptering. Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där konfigurationsfilerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml finns. Du kan hitta definitionen för filerna i den [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till 
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Med statiska kryptering för att skydda HLSv3 med PlayReady
 Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-playready-widevine.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
@@ -990,6 +998,7 @@ Media Services är nu en tjänst för att leverera Microsoft PlayReady-licenser.
 
 Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml MediaEncryptor_PlayReadyProtection.xml finns. MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml definieras i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml har definierats i den [aktiviteten förinställningen för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) artikel.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafi
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reliable-actors-state-management"></a>Tillförlitliga aktörer tillståndshantering
-Reliable Actors är enkeltrådad objekt som kan kapsla både logik och tillstånd. Eftersom aktörer körs på Reliable Services, upprätthålla de tillstånd på ett tillförlitligt sätt med hjälp av samma beständiga och replikeringsmekanismer Reliable Services använder. Det här sättet aktörer förlorar inte deras tillstånd efter fel på återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resursen NLB eller uppgraderingar.
+Reliable Actors är enkeltrådad objekt som kan kapsla både logik och tillstånd. Eftersom aktörer körs på Reliable Services, upprätthålla de tillstånd på ett tillförlitligt sätt med hjälp av samma beständiga och replikeringsmekanismer. Det här sättet aktörer förlorar inte deras tillstånd efter fel på återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resursen NLB eller uppgraderingar.
 
 ## <a name="state-persistence-and-replication"></a>Tillstånd beständighet och replikering
 Alla Reliable Actors anses *stateful* eftersom varje instans aktören mappas till ett unikt ID. Det innebär att upprepade anrop till samma aktörs-ID dirigeras till samma aktören-instans. I ett system med tillståndslös däremot är klientanrop inte säkert att dirigeras till samma server varje gång. Därför är aktörstjänster alltid tillståndskänsliga tjänster.
 
 Även om stateful som de måste lagra tillstånd på ett tillförlitligt sätt inte innebär betraktas som aktörer. Aktörer kan välja vilken beständighet och replikering baserat på deras data lagringskraven:
 
-* **Beständiga tillståndet**: tillstånd sparat på disken och replikeras till 3 eller fler repliker. Detta är det mest beständiga tillståndet lagringsalternativet där tillstånd kan spara genom hela klustret avbrott.
-* **Temporära tillstånd**: tillstånd replikeras till 3 eller fler repliker och endast lagras i minnet. Detta ger återhämtning mot nodfel och aktören fel, och under uppgraderingar och resursen belastningsutjämning. Dock tillstånd sparas inte till disk. Så om alla repliker går förlorade på samma gång, tillståndet förloras samt.
-* **Inga beständiga tillståndet**: tillstånd är inte replikerade eller skrivits till disk. Den här nivån är för aktörer som bara inte behöver upprätthålla tillstånd på ett tillförlitligt sätt.
+* **Beständiga tillståndet**: tillstånd sparat på disken och replikeras till tre eller flera repliker. Beständiga tillståndet är mest beständiga tillståndet lagringsalternativ, där tillståndet kan spara genom hela klustret avbrott.
+* **Temporära tillstånd**: tillstånd ska replikeras till tre eller flera repliker och endast sparas i minnet. Temporär state ger återhämtning mot nodfel och aktören fel, och under uppgraderingar och resursen belastningsutjämning. Dock tillstånd sparas inte till disk. Så om alla repliker går förlorade på samma gång, tillståndet förloras samt.
+* **Inga beständiga tillståndet**: tillstånd är inte replikeras eller skrivs till disk, Använd endast för aktörer som inte behöver upprätthålla tillstånd på ett tillförlitligt sätt.
 
 Varje nivå av beständiga är helt enkelt en annan *tillståndsprovidern* och *replikering* konfigurationen av din tjänst. Om tillståndet skrivs till disk är beroende av tillståndsprovidern - komponenten i en tillförlitlig tjänst som lagrar tillstånd. Replikeringen beror på hur många repliker för en tjänst har distribuerats med. Precis som med Reliable Services kan både tillståndsprovidern och replikantalet enkelt ställas in manuellt. Aktören framework innehåller ett attribut som, när används på en aktör, väljs automatiskt en standardprovider för tillstånd och genererar automatiskt inställningarna för replikantalet för att uppnå ett av dessa tre beständiga inställningar. Attributet StatePersistence ärvs inte av härledd klass, varje aktören måste tillhandahålla StatePersistence nivån.
 
@@ -111,7 +111,7 @@ Tillstånd manager nycklar måste vara strängar. Värden är generisk och kan h
 
 Tillståndshanterarens visar vanliga ordlista metoder för att hantera tillstånd, liknar de som finns i tillförlitliga ordlistan.
 
-### <a name="accessing-state"></a>Åtkomst till tillstånd
+## <a name="accessing-state"></a>Åtkomst till tillstånd
 Tillstånd kan nås via tillståndshanterarens av nyckeln. Tillstånd manager metoder är alla asynkrona eftersom de kan kräva disk-i/o när aktörer beständiga tillstånd. Vid första åtkomst cachelagras tillstånd objekt i minnet. Upprepa åtkomst operations access-objekt direkt från minnet och returnera synkront utan att det medför i/o eller asynkrona kontexten-växla omkostnader. Ett tillstånd objekt tas bort från cachen i följande fall:
 
 * En aktörsmetod utlöser ett undantag när det hämtar ett objekt från hanteraren tillstånd.
@@ -193,7 +193,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### <a name="saving-state"></a>Sparar tillstånd
+## <a name="saving-state"></a>Sparar tillstånd
 Tillstånd manager hämtning metoder returnerar en referens till ett objekt i lokalt minne. Ändra det här objektet i lokala minnet enbart orsakar inte den sparas varaktigt. När ett objekt som hämtats från tillståndshanterarens och ändras, måste den igen i tillståndshanterarens sparas varaktigt.
 
 Du kan infoga tillstånd med hjälp av en ovillkorlig *ange*, som motsvarar den `dictionary["key"] = value` syntax:
@@ -328,7 +328,7 @@ interface MyActor {
 }
 ```
 
-### <a name="removing-state"></a>Ta bort tillstånd
+## <a name="removing-state"></a>Ta bort tillstånd
 Du kan ta bort tillstånd permanent från en aktör tillstånd manager genom att anropa den *ta bort* metod. Den här metoden genererar `KeyNotFoundException`(C#) eller `NoSuchElementException`(Java) vid försök att ta bort en nyckel som inte finns.
 
 ```csharp
@@ -404,6 +404,17 @@ class MyActorImpl extends FabricActor implements  MyActor
     }
 }
 ```
+
+## <a name="best-practices"></a>Bästa praxis
+Här följer några rekommendationer och felsökningstips för att hantera dina aktörstillstånd.
+
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Kontrollera tillståndet aktören som detaljerad som möjligt
+Detta är avgörande för prestanda och resursanvändningen för ditt program. När alla skrivning/uppdateringar ”namngivna tillstånd” en aktörs serialiseras hela värdet som motsvarar det ”namngiven tillståndet” och skickas över nätverket till de sekundära replikerna.  Sekundära skriver den till lokal disk och svar tillbaka till den primära repliken. När den primära servern tar emot bekräftelser från ett kvorum av sekundära repliker, skriver tillståndet till den lokala disken. Anta till exempel att värdet är en klass som har 20 medlemmar och en storlek på 1 MB. Även om du bara ändrat något av klassmedlemmar som är av storlek 1 KB du hamnar betalar kostnaden för serialisering och nätverks- och skrivåtgärder för fullständig 1 MB. På liknande sätt, om värdet är en samling (t.ex en lista, matris eller ordlista), betalar du kostnaden för den kompletta samlingen även om du ändrar en av dess medlemmar. Gränssnittet StateManager i klassen aktören påminner om en ordlista. Du bör alltid modellen datastrukturen som representerar aktörstillstånd ovanpå den här ordlistan.
+ 
+### <a name="correctly-manage-the-actors-life-cycle"></a>Hantera korrekt skådespelare, livscykel
+Du bör ha Rensa princip om att hantera storleken på tillstånd i varje partition för en aktören-tjänst. Aktören tjänsten ska ha ett fast antal aktörer och återanvända en mycket som möjligt. Om du skapar nya aktörer kontinuerligt, måste du ta bort dem när de har sitt arbete. Aktören framework lagrar vissa metadata om varje aktören finns. Ta bort alla tillstånd för en aktör tas inte bort metadata om att aktören. Du måste ta bort aktören (finns [ta bort aktörer och deras tillstånd](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) ta bort all information om den lagras i systemet. Som en extra kontroll ska du fråga tjänsten aktören (se [uppräkning aktörer](service-fabric-reliable-actors-platform.md)) ibland att kontrollera antalet aktörer inom det förväntade intervallet.
+ 
+Om du ser någonsin att databasens filstorlek för en tjänst aktören öka bortom den förväntade storleken, kontrollerar du att du följer riktlinjerna ovan. Om du följer dessa riktlinjer och är fortfarande databasen problem-filens storlek, bör du [skapar ett supportärende](service-fabric-support.md) med Produktteamet för att få hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

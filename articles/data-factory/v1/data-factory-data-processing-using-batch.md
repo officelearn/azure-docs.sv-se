@@ -3,7 +3,7 @@ title: "Bearbeta stora datauppsättningar genom att använda Data Factory och Ba
 description: "Beskriver hur du bearbetar stora mängder data i ett Azure Data Factory-pipelinen med hjälp av parallell bearbetning möjligheterna för Azure Batch."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processen stora datauppsättningar genom att använda Data Factory och Batch
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [anpassade aktiviteter i Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig. Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [anpassade aktiviteter i Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
 
 Den här artikeln beskriver en arkitektur på en exempellösning som flyttar och bearbetar stora datauppsättningar på automatisk och schemalagda sätt. Det ger också en slutpunkt till slutpunkt-genomgång för att implementera lösningen genom att använda Data Factory och Azure Batch.
 
@@ -130,7 +130,7 @@ Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    ![Mappen och undermapparna struktur](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`och `outputfolder` är mappar på högsta nivå i `mycontainer`. Den `inputfolder` mappen innehåller undermappar med datum-/ tidsstämplar (åååå-MM-DD-HH).
+   `Inputfolder` och `outputfolder` är mappar på högsta nivå i `mycontainer`. Den `inputfolder` mappen innehåller undermappar med datum-/ tidsstämplar (åååå-MM-DD-HH).
 
    Om du använder Lagringsutforskaren, i nästa steg kan du överföra filer med följande namn: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`och så vidare. Det här steget skapar automatiskt mappar.
 
@@ -556,9 +556,9 @@ Länkade tjänster länka datalager eller beräkna en datafabrik-tjänster. I de
 
    ![Nytt datalager](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Ersätt **kontonamn** med namnet på ditt lagringskonto. Ersätt **kontonyckel** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagringsåtkomstnyckel finns [visa, kopiera och generera lagring åtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar din lagringsåtkomstnyckel finns [visa, kopiera och generera lagring åtkomstnycklar](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Välj **distribuera** i kommandofältet att distribuera den länkade tjänsten.
+4. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
    ![Distribuera](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,12 +593,12 @@ I det här steget skapar du en länkad tjänst för Batch-kontot som används f�
    
    e. Ange **StorageLinkedService** för den **linkedServiceName** egenskapen. Du har skapat den här länkade tjänsten i föregående steg. Den här används som ett mellanlagringsområde för filer och loggar.
 
-3. Välj **distribuera** i kommandofältet att distribuera den länkade tjänsten.
+3. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
 #### <a name="step-3-create-datasets"></a>Steg 3: Skapa datauppsättningar
 I det här steget skapar du datauppsättningar som representerar indata och utdata.
 
-#### <a name="create-the-input-dataset"></a>Skapa inkommande datauppsättningen
+#### <a name="create-the-input-dataset"></a>Skapa indatauppsättningen
 1. I den Data Factory-redigeraren, Välj den **ny datamängd** i verktygsfältet. Välj **Azure Blob storage** från den nedrullningsbara listan.
 
 2. Ersätt JSON-skript i den högra rutan med följande kodavsnitt i JSON:
@@ -685,7 +685,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
 3. Välj **distribuera** i verktygsfältet för att skapa och distribuera den **InputDataset** tabell.
 
-#### <a name="create-the-output-dataset"></a>Skapa datamängd för utdata
+#### <a name="create-the-output-dataset"></a>Skapa datauppsättningen för utdata
 I det här steget skapar du en annan dataset av typen AzureBlob som representerar utdata.
 
 1. I den Data Factory-redigeraren, Välj den **ny datamängd** i verktygsfältet. Välj **Azure Blob storage** från den nedrullningsbara listan.
@@ -803,7 +803,7 @@ I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivite
     - Den **isPaused** egenskap är inställd på false som standard. Pipelinen körs direkt i det här exemplet eftersom sektorerna starta tidigare. Du kan ange egenskapen **SANT** att pausa pipeline- och set tillbaka till **FALSKT** startas om.
     -   Den **starta** och **end** tider är fem timmar från varandra. Segment produceras varje timma, så att fem segment produceras av pipeline.
 
-3. Välj **distribuera** i kommandofältet distribuera pipelinen.
+3. Välj **Distribuera** i kommandofältet för att distribuera pipelinen.
 
 #### <a name="step-5-test-the-pipeline"></a>Steg 5: Testa pipeline
 I det här steget kan testa du pipeline genom att släppa filer i de inkommande mapparna. Börja med att testa pipeline med en fil för varje inkommande mapp.

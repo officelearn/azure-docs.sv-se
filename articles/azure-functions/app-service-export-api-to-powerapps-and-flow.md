@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2d7ef0d4b2669b774b1d218d244052083e883517
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-baserad API till PowerApps och Microsoft-flöde
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 På liknande sätt kan kan utvecklare som vill använda sina API: er mer brett inom en organisation få sina API: er app och flödar builders. Det här avsnittet beskrivs hur du exporterar en API som byggts med [Azure Functions](../azure-functions/functions-overview.md) eller [Azure App Service](../app-service/app-service-web-overview.md). Exporterade API blir en *anpassad koppling*, som används i PowerApps och Microsoft Flow precis som en inbyggd kontakt.
 
 ## <a name="create-and-export-an-api-definition"></a>Skapa och exportera en API-definition
-Innan du exporterar ett API måste du beskriva API: et med ett OpenAPI definition (tidigare känt som en [Swagger](http://swagger.io/) filen). Den här definitionen innehåller information om vilka åtgärder är tillgängliga i en API och hur data för begäran och svar för API: et strukturerad. PowerApps och Microsoft Flow kan skapa egna kopplingar för alla OpenAPI 2.0-definition. Azure Functions och Azure Apptjänst har inbyggt stöd för att skapa, värd och hantera OpenAPI definitioner. Mer information finns i [skapa en RESTful-API i Azure Web Apps](../app-service/app-service-web-tutorial-rest-api.md).
+Innan du exporterar ett API måste du beskriva API: et med ett OpenAPI definition (tidigare känt som en [Swagger](http://swagger.io/) filen). Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade. PowerApps och Microsoft Flow kan skapa egna kopplingar för alla OpenAPI 2.0-definition. Azure Functions och Azure Apptjänst har inbyggt stöd för att skapa, värd och hantera OpenAPI definitioner. Mer information finns i [värd för en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Du kan också skapa anpassade kopplingar i PowerApps och flöda Användargränssnittet i Microsoft utan att använda en OpenAPI definition. Mer information finns i [registrera och använda en anpassad koppling (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) och [registrera och använda en anpassad koppling (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -103,11 +103,11 @@ Följ dessa steg om du vill importera API-definition i PowerApps och Microsoft F
 
 2. Klicka på ikonen växel i det övre högra hörnet och sedan på **anpassade kopplingar**.
 
-   ![Växeln-ikonen i tjänsten](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
+   ![Kugghjulsikon i tjänst](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
 3. Klicka på **Skapa anpassad koppling**, klicka på **importera en definition av OpenAPI**.
 
-   ![Skapa anpassad koppling](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
+   ![Skapa anpassad anslutningsapp](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
 4. Ange ett namn för anpassad koppling och sedan navigera till OpenAPI definitionen som du exporterade och klickar på **Fortsätt**.
 
@@ -153,7 +153,7 @@ Det här avsnittet beskriver de autentiseringstyper som stöds i **Express** lä
 ### <a name="api-key"></a>API-nyckel
 När du använder en API-nyckel, uppmanas användarna anslutningstjänsten för nyckeln när de skapar en anslutning. Du kan ange en API-nyckelnamn hjälper dem att förstå vilka behövs. I det tidigare exemplet använder vi namnet `API Key (contact meganb@contoso.com)` så att användarna förstår var du kan hämta information om API-nyckeln. För Azure Functions är nyckeln vanligtvis en värdnycklar, som omfattar flera funktioner i funktionen appen.
 
-### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (AD Azure)
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 När du använder Azure AD, du behöver två registreringar för Azure AD-program: en för API sig själv och en för anpassad koppling:
 
 - Konfigurera registrering för API: et med den [autentisering/auktorisering i Apptjänst](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) funktion.

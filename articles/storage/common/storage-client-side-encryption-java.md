@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Kryptering på klientsidan och Azure Key Vault med Java för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -59,7 +59,7 @@ Under krypteringen klientbiblioteket Generera en slumpmässig initieringen Vecto
 > 
 > 
 
-Hämtar en krypterad blob omfattar hämtar innehållet i hela blob med hjälp av den  **hämta*/openInputStream** bekvämlighet metoder. Omslutna CEK oförpackade och används tillsammans med IV (som lagras som blobbmetadata i det här fallet) för att returnera dekrypterade data till användarna.
+Hämtar en krypterad blob omfattar hämtar innehållet i hela blob med hjälp av den **download * / openInputStream** bekvämlighet metoder. Omslutna CEK oförpackade och används tillsammans med IV (som lagras som blobbmetadata i det här fallet) för att returnera dekrypterade data till användarna.
 
 Hämta ett godtyckligt intervall (**downloadRange*** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att dekryptera har det begärda intervallet i krypterade blob.  
 
@@ -99,6 +99,10 @@ Tabell datakryptering fungerar på följande sätt:
 I batch-åtgärder, kommer samma KEK att används över alla rader i den batchåtgärd eftersom klientbiblioteket kan bara ett alternativ objekt (och därför en princip/KEK) per batchåtgärd. Men genererar klientbiblioteket internt en ny slumpmässiga IV och slumpmässiga CEK per rad i batchen. Användare kan också välja att kryptera olika egenskaper för varje åtgärd i gruppen genom att definiera problemet i matcharen kryptering.
 
 ### <a name="queries"></a>Frågor
+> [!NOTE]
+> Eftersom enheterna är krypterade, kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du försöker, blir resultatet felaktigt, eftersom skulle tjänsten försöker jämföra krypterade data med okrypterade data.
+> 
+>
 Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatmängden. Om en entitet i frågeresultatet inte kan matchas till en provider, genereras klientbiblioteket ett fel. För en fråga som utför server side projektioner läggs klientbiblioteket metadataegenskaper särskilda kryptering (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault

@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ef1486bb65da7ca49e2d03273a47a3a3ee05150e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
 
@@ -23,14 +23,6 @@ ms.lasthandoff: 12/18/2017
 **Vad är Azure Machine Learning?**
 
 Azure Machine Learning är en helt hanterad Azure-tjänst som gör att du kan skapa, testa, hantera och distribuera machine learning och AI-modeller. Vår nya tjänster hämtningsbart program erbjuder en kod första metod som utnyttjar moln, lokalt och kant för att tillhandahålla tåget, distribuera, hantera och övervaka modeller med ström, hastighet och flexibilitet. Azure Machine Learning Studio tillhandahåller också en webbläsarbaserad, visuell dra och släpp redigeringsmiljön där ingen kodning krävs. 
-
-**Hur kommer jag igång med förhandsgranskningen?**
-
-Det enklaste sättet att komma igång är att registrera dig för tjänsten experiment i Azure. Du kan också hämta appen ledigt arbetsstationen eller registrera dig för ett konto för hantering av modellen från portalen. Dessutom kan du besöka vårt dokumentationswebbplats för artiklar, videor, demo-kod och mycket mer. 
-
-**Jag har inte en Azure-prenumeration. Kan jag prova de nya tjänsterna?**
-
-Som en del av Microsoft Azure-portfölj kräver vår nya tjänster en Azure-prenumeration. Du måste dessutom ha rätt behörigheter för att skapa tillgångar resursgrupper, virtuella datorer, t.ex. 
 
 **Regioner som är nya tjänster är tillgängliga?**
 
@@ -52,7 +44,7 @@ Vi stöder för närvarande Python endast. Vi arbetar på R-integrering och tror
 
 **Hur Azure Machine Learning relaterar till Microsoft Machine Learning Spark?**
 
-S: MMLSpark ger djup learning och datavetenskap tools för Apache Spark med betoning på produktiviteten, enkel undersökningar och den senaste algoritmer. MMLSpark möjliggör integrering av Spark Machine Learning rörledningar med Microsoft kognitiva Toolkit och OpenCV. Du kan skapa kraftfulla skalbara förutsägbara och analysdata modeller för bilden och texten data. MMLSpark är tillgänglig under en licens för öppen källkod och ingår i AML arbetsstationen som en uppsättning konsumeras modeller och algoritmer. Mer information om MMLSpark finns i vår produktdokumentation. 
+MMLSpark ger djup learning och datavetenskap tools för Apache Spark med betoning på produktiviteten, enkel undersökningar och den senaste algoritmer. MMLSpark möjliggör integrering av Spark Machine Learning rörledningar med Microsoft kognitiva Toolkit och OpenCV. Du kan skapa kraftfulla skalbara förutsägbara och analysdata modeller för bilden och texten data. MMLSpark är tillgänglig under en licens för öppen källkod och ingår i AML arbetsstationen som en uppsättning konsumeras modeller och algoritmer. Mer information om MMLSpark finns i vår produktdokumentation. 
 
 **Vilka versioner av Spark stöds av de nya verktyg och tjänster? Överst**
 
@@ -135,7 +127,7 @@ Nej. Azure Machine Learning arbetsstationen är ett kostnadsfritt program. Du ka
 
 **Stöder kommandoradsverktyget funktioner?**
 
-S: Ja, Azure Machine Learning erbjuder en fullständig CLI-gränssnitt. Machine Learning CLI installeras som standard med Azure Machine Learning-arbetsstationen. Det finns även som en del av den virtuella datorn i Linux datavetenskap på Azure och integreras i [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Ja, Azure Machine Learning erbjuder en fullständig CLI-gränssnitt. Machine Learning CLI installeras som standard med Azure Machine Learning-arbetsstationen. Det finns även som en del av den virtuella datorn i Linux datavetenskap på Azure och integreras i [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 
 
 **Kan jag använda Jupyter-anteckningsböcker med arbetsstationen?**
@@ -144,7 +136,7 @@ Visst! Du kan köra Jupyter notebooks i arbetsstationen med arbetsstationen som 
 
 **Vilka Jupyter-anteckningsbok kärnor stöds?**
 
-S: den aktuella versionen av Jupyter som ingår i arbetsstationen startar en Python 3 kernel och en ytterligare kernel för varje ”runconfig”-fil i mappen aml_config. Konfigurationer som stöds är:
+Den aktuella versionen av Jupyter som ingår i arbetsstationen startar en Python 3 kernel och en ytterligare kernel för varje ”runconfig”-fil i mappen aml_config. Konfigurationer som stöds är:
 - Lokala Python
 - Python i lokala eller fjärranslutna Docker
 
@@ -176,7 +168,7 @@ För public preview stöder arbetsstationen ”härledd kolumn med hjälp av exe
 
 **Finns det några storleksbegränsningar tvingas av Azure Machine Learning arbetsstationen, undersökningar eller hantering av modellen?**
 
-S: inte kräver nya tjänster inte några begränsningar. Det finns emellertid begränsningar i miljön där du utför din förberedelse av data, modell utbildning, undersökningar eller distribution. Till exempel om du använder en lokal miljö för träning begränsas du av det tillgängliga utrymmet på hårddisken. Du kan också om du använder HDInsight du begränsas av alla associerade storlek eller compute begränsningar. 
+Nej, är det inte möjligt att införa några begränsningar med de nya tjänsterna. Det finns emellertid begränsningar i miljön där du utför din förberedelse av data, modell utbildning, undersökningar eller distribution. Till exempel om du använder en lokal miljö för träning begränsas du av det tillgängliga utrymmet på hårddisken. Du kan också om du använder HDInsight du begränsas av alla associerade storlek eller compute begränsningar. 
 
 ## <a name="algorithms-and-libraries"></a>Algoritmer och bibliotek
 
@@ -187,45 +179,3 @@ Vår förhandsgranskning produkter och tjänster är bäst av community för öp
 **Hur Azure Machine Learning är relaterade till Microsoft kognitiva Toolkit?**
 
 Den [Microsoft kognitiva Toolkit](https://www.microsoft.com/cognitive-toolkit/) är en av många ramverk som stöds av våra nya verktyg och tjänster. Kognitiva Toolkit är en enhetlig djup learning Verktygslåda som gör att du kan använda och kombinera populära maskininlärning modeller inklusive Feed vanlig djupa Neurala nätverk, Convolutional nät Sequence-Sequence och återkommande nätverk. Mer information om Microsoft kognitiva Toolkit Besök vår [produktdokumentationen](https://docs.microsoft.com/cognitive-toolkit/). 
-
-## <a name="pricing-and-billing"></a>Priser och fakturering
-
-**Är du debitering för Azure Machine Learning under förhandsgranskningen?** 
-
-S: i Azure Machine Learning-arbetsstationen programmet är tillgängligt utan kostnad till Azure-prenumeranter. Erbjuder kostnadsfria nivåer, förutom betalnivåer avialable med rabatt under Public Preview experiment tjänsten och hantering av modellen.
-
-**Jag debiteras baserat på hur många experiment körs?**
-
-Nej, i Experimentering kan du ha hur många experiment du vill, och du debiteras endast utifrån antalet användare. Beräkningsresurser för Experimentering debiteras separat.  Vi rekommenderar att du kan utföra flera försök att komma fram till den bästa modellen för din lösning. 
-
-**Kommer det att debiteras baserat på hur många gånger min webbtjänster kallas?**
-
-Nej. Webbtjänster kan anropas så ofta som krävs, utan någon modell Management fakturering effekter. Du avgör själv hur du vill skala dina distributioner sett till behoven i dina tillämpningar.
-
-**Hur kan jag för att skala antalet enheter som jag har köpt i Azure Machine Learning modellen Management?**
-
-Du kan ändra antalet enheter, uppåt eller nedåt med hjälp av Azure-portalen eller CLI. 
-
-**Vad kan min faktura ut?**
-
-Växlar produceras dagligen. I faktureringssyfte börjar en dag vid midnatt UTC-tid. Fakturor genereras per månad. Separata avgifter tas ut för Azure-tjänster som används tillsammans med Azure Machine Learning. Avgifter kan inkludera, men är inte begränsade till: 
-- Beräkna avgifter
-- HDInsight
-- Azure Container Service
-- Azure Container Registry 
-- Azure Blob Storage
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Azure Event Hub
-- Azure Stream Analytics för ytterligare information eller om du vill visa ett prov faktura besöker du sidan med våra priser. 
-
-## <a name="support-and-training"></a>Support och utbildning
-
-**Var kan jag lära mig mer om Azure Machine Learning?**
-
-På [Azure Machine Learning Documentation Center](./overview-what-is-azure-ml.md) hittar du videokurser och instruktionsguider. Dessa stegvisa guider införa tjänsterna och förklarar datalivscykeln. Vi lägger till nytt material på Machine Learning Center med jämna mellanrum. Du kan skicka dina önskemål om ytterligare utbildningsmaterial på användaren Feedbackforum.
-
-**Hur får jag support för Azure Machine Learning?**
-
-För teknisk support, gå till stöd för Azure och välj Machine Learning. Azure Machine Learning har även en aktiv community [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine-Learning”, övervakas av teamet.  Förslag och funktionsförfrågningar kan skickas på den [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) plats. 

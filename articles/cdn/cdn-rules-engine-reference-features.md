@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
 
-Den tredje delen av en regel är en funktion. En funktion som definierar typ av åtgärd som tillämpas på typ av begäran med en uppsättning villkor för matchning.
+Den tredje delen av en regel är en funktion. En funktion som definierar typ av åtgärd som tillämpas på den typ av begäran som identifieras av en uppsättning villkor för matchning.
 
 ## <a name="access-features"></a>Access-funktioner
 
@@ -49,21 +49,21 @@ Namn | Syfte
 [Begränsning av bandbredd](#bandwidth-throttling) | Begränsar bandbredd för svar som tillhandahålls av Microsoft edge-servrar.
 [Kringgå Cache](#bypass-cache) | Anger om begäran bör kringgå cachelagring.
 [Cache-Control sidhuvud behandling](#cache-control-header-treatment) | Styr generering av `Cache-Control` huvuden av edge-servern när externa maximal ålder funktionen är aktiv.
-[Cachenyckel frågesträng](#cache-key-query-string) | Anger om cache-nyckel ska inkludera eller exkludera frågan string-parametrar som är associerade med en begäran.
+[Cachenyckel frågesträng](#cache-key-query-string) | Avgör om cache-nyckeln innehåller eller utesluter frågan string-parametrar som är associerade med en begäran.
 [Omarbetning av cache-nyckel](#cache-key-rewrite) | Skriver om cache-nyckeln som associeras med en begäran.
 [Slutföra Cache Fill](#complete-cache-fill) | Anger vad som händer när en begäran resulterar i en partiell cache-miss på edge-server.
-[Komprimera filtyper](#compress-file-types) | Definierar de filformat som ska komprimeras på servern.
+[Komprimera filtyper](#compress-file-types) | Definierar filformat för filer som är komprimerade på servern.
 [Internt Max-åldern som standard](#default-internal-max-age) | Anger maximal ålder standardintervallet för edge-server till ursprunget server Cachevalidering.
 [Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av `Expires` huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
-[Externa maximal ålder](#external-max-age) | Anger intervallet för maximal ålder för webbläsaren edge server Cachevalidering.
+[External Max-Age](#external-max-age) | Anger intervallet för maximal ålder för webbläsaren edge server Cachevalidering.
 [Tvinga inre maximal ålder](#force-internal-max-age) | Anger intervallet för maximal ålder för edge-server till ursprunget server Cachevalidering.
 [H.264-stöd (http-progressiv nedladdning)](#h264-support-http-progressive-download) | Avgör vilka typer av H.264 som kan användas för att strömma innehåll.
-[Kontrollera No-Cache-begäran](#honor-no-cache-request) | Anger om en HTTP-klientens no-cache-begäranden ska vidarebefordras till den ursprungliga servern.
+[Kontrollera No-Cache-begäran](#honor-no-cache-request) | Anger om en HTTP-klientens no-cache-begäranden som vidarebefordras till den ursprungliga servern.
 [Ignorera ursprung No-Cache](#ignore-origin-no-cache) | Anger om CDN ignorerar vissa direktiv som hanteras från en ursprungsservern.
 [Ignorera Unsatisfiable intervall](#ignore-unsatisfiable-ranges) | Anger svaret som returneras till klienter när en förfrågan genererar statuskod 416 begärt intervall inte kunde hanteras.
 [Internt Max-inaktuell](#internal-max-stale) | Styr hur länge tidigare normala förfallotiden cachelagrade tillgång kan hanteras från en gränsserver när edge-servern inte kan verifiera den cachelagra tillgången med den ursprungliga servern.
 [Partiell Cache delning](#partial-cache-sharing) | Anger om en begäran kan generera delvis cachelagrat innehåll.
-[Prevalidate cachelagrat innehåll](#prevalidate-cached-content) | Anger om cachelagrat innehåll ska vara tillämplig för tidig validering innan TTL-upphör att gälla.
+[Prevalidate cachelagrat innehåll](#prevalidate-cached-content) | Anger om cachelagrat innehåll är berättigad till tidig validering innan TTL-upphör att gälla.
 [Uppdatera noll Byte cachefiler](#refresh-zero-byte-cache-files) | Bestämmer hur ett HTTP-klientens begäran om en 0 byte cache tillgång hanteras av Microsoft edge-servrar.
 [Ange Cacheable ställs statuskoder](#set-cacheable-status-codes) | Definierar de statuskoder som kan resultera i cachelagrat innehåll.
 [Inaktuella leverans av innehåll vid fel](#stale-content-delivery-on-error) | Avgör om upphört att gälla cachelagrat innehåll levereras när ett fel uppstår under Cachevalidering eller när det begärda innehållet hämtas från ursprungsservern kunden.
@@ -83,7 +83,7 @@ Dessa funktioner är utformade för att lägga till, ändra eller ta bort rubrik
 
 Namn | Syfte
 -----|--------
-[Ålder svarshuvud](#age-response-header) | Anger om en ålder svarshuvud ska inkluderas i svaret som skickas till beställaren.
+[Ålder svarshuvud](#age-response-header) | Anger om en ålder svarshuvud inkluderas i svaret till beställaren.
 [Felsöka Cache-svarshuvuden](#debug-cache-response-headers) | Anger om ett svar kan omfatta svarshuvud X EC Debug som innehåller information om cacheprincipen för den begärda tillgången.
 [Ändra klienten huvudet i begäran](#modify-client-request-header) | Skriver över, lägger till eller tar bort en rubrik i en begäran.
 [Ändra klienten svarshuvud](#modify-client-response-header) | Skriver över, lägger till eller tar bort ett sidhuvud från ett svar.
@@ -96,7 +96,7 @@ Dessa funktioner är utformade för att anpassa de data som lagras i raw loggfil
 
 Namn | Syfte
 -----|--------
-[Anpassad logg fält 1](#custom-log-field-1) | Anger formatet och det innehåll som ska tilldelas fältet anpassad logg i en rå loggfil.
+[Anpassad logg fält 1](#custom-log-field-1) | Anger formatet och innehåll som är kopplat till fältet anpassad logg i en rå loggfil.
 [Loggen frågesträng](#log-query-string) | Anger om en frågesträng lagras tillsammans med URL-Adressen i åtkomstloggar.
 
 
@@ -151,7 +151,7 @@ Dessa funktioner är utformade för att styra hur CDN kommunicerar med en urspru
 Namn | Syfte
 -----|--------
 [Högsta antal Keep-Alive-begäranden](#maximum-keep-alive-requests) | Definierar det maximala antalet begäranden för en Keep-Alive-anslutning innan den är stängd.
-[Proxy särskilda rubriker](#proxy-special-headers) | Definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en edge-server till en ursprungsservern.
+[Proxy särskilda rubriker](#proxy-special-headers) | Definierar en uppsättning CDN-specifika begärandehuvuden som vidarebefordras från en gränsserver till en ursprungsserver som.
 
 
 ## <a name="specialty-features"></a>Särskilda funktioner
@@ -195,9 +195,9 @@ Disabled | Rubriken ålder ingår inte i svaret till beställaren.
 
 ---
 ### <a name="bandwidth-parameters"></a>Parametrar för bandbredd
-**Syfte:** anger om bandbreddsbegränsning parametrarna (till exempel ec_rate och ec_prebuf) ska vara aktiv.
+**Syfte:** avgör om bandbredd bandbreddsbegränsning parametrarna (till exempel ec_rate och ec_prebuf) är aktiva.
 
-Bandbredd bandbreddsbegränsning parametrarna avgör om hastigheten för dataöverföringen för en klientbegäran begränsas till en egen takt.
+Bandbredd bandbreddsbegränsning parametrarna avgör om hastigheten för dataöverföringen för en klientbegäran är begränsade till en egen takt.
 
 Värde|Resultat
 --|--
@@ -296,7 +296,7 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Garanterar att följande åtgärder:<br/> -Skriver över den `Cache-Control` huvud som genererats av den ursprungliga servern. <br/>-Lägger till den `Cache-Control` huvud som genereras av funktionen externa maximal ålder för svaret.
-Skicka vidare|Garanterar att den `Cache-Control` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern producerar en `Cache-Control` sidhuvud, överförs via till slutanvändaren. <br/> Om den ursprungliga servern inte ger en `Cache-Control` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Cache-Control` huvud.
+Genomströmning|Garanterar att den `Cache-Control` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern producerar en `Cache-Control` sidhuvud, överförs via till slutanvändaren. <br/> Om den ursprungliga servern inte ger en `Cache-Control` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Cache-Control` huvud.
 Lägg till om de saknas|Om en `Cache-Control` huvud togs inte emot från den ursprungliga servern och sedan det här alternativet ökar den `Cache-Control` huvud som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att garantera att alla tillgångar tilldelas en `Cache-Control` huvud.
 Ta bort| Det här alternativet ser till att en `Cache-Control` huvud ingår inte i sidhuvud-svaret. Om en `Cache-Control` huvud har redan tilldelats sedan den tas bort från huvud-svaret.
 
@@ -308,23 +308,23 @@ Ta bort| Det här alternativet ser till att en `Cache-Control` huvud ingår inte
 
 ---
 ### <a name="cache-key-query-string"></a>Cachenyckel frågesträng
-**Syfte:** avgör om cache-nyckel ska inkludera eller exkludera frågan string-parametrar som är associerade med en begäran.
+**Syfte:** avgör om cache-nyckeln innehåller eller utesluter frågan string-parametrar som är associerade med en begäran.
 
 Viktig information:
 
-- Ange en eller flera frågan sträng parametern namn. Varje parameternamn måste avgränsas med ett blanksteg.
-- Den här funktionen avgör om frågesträngparametrar ska inkluderas eller uteslutas från cache-nyckel. Ytterligare information har angetts för varje alternativ nedan.
+- Ange en eller flera frågan sträng parametern namn. Deliminate namnge varje parameter med ett blanksteg.
+- Den här funktionen avgör om frågan string-parametrar är inkluderas eller uteslutas från cache-nyckeln. Ytterligare information har angetts för varje alternativ i följande tabell.
 
 Typ|Beskrivning
 --|--
  Ta med|  Anger att varje angiven parameter ska tas med i cache-nyckel. En unik cachenyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen. 
- Omfatta alla  |Anger att en unik cachenyckel kommer att skapas för varje begäran till en tillgång som innehåller en unik frågesträng. Den här typen av konfiguration rekommenderas inte normalt eftersom det kan leda till en liten procentandel träffar i cache. Detta ökar belastningen på den ursprungliga servern eftersom den måste hantera flera begäranden. Den här konfigurationen duplicerar cachelagringsbeteendet kallas ”unik-cachen” på sidan cachelagring av frågesträng. 
- Uteslut | Anger att endast den angivna parametrar kommer att uteslutas från cache-nyckel. Alla andra sträng frågeparametrar inkluderas i cache-nyckel. 
- Undanta alla  |Anger att alla frågeparametrar sträng kommer att uteslutas från cache-nyckeln. Den här konfigurationen duplicerar standard cachelagring av frågesträngar som kallas ”standard-cachen” på sidan cachelagring av frågesträng. 
+ Omfatta alla  |Anger att en unik cachenyckel skapas för varje begäran till en tillgång som innehåller en unik frågesträng. Denna typ av konfiguration rekommenderas vanligtvis inte eftersom det kan leda till en liten procentandel cacheträffar. Ett lågt antal träffar i cache ökar belastningen på den ursprungliga servern eftersom den måste hantera fler begäranden. Den här konfigurationen duplicerar cachelagringsbeteendet kallas ”unik-cachen” på sidan cachelagring av frågesträng. 
+ Uteslut | Anger att endast de angivna parametrarna är undantagen från cache-nyckeln. Alla andra sträng frågeparametrar ingår i cache-nyckel. 
+ Undanta alla  |Anger att alla frågeparametrar sträng undantas från cache-nyckeln. Den här konfigurationen duplicerar ”standard-cache” standard cachelagring av frågesträngar på sidan cachelagring av frågesträng.  
 
-Kraften i regelmotor för HTTP kan du anpassa det sätt som cachelagring av frågesträngar i fråga har implementerats. Du kan till exempel ange att frågan cachelagring av frågesträngar bara utföras på vissa platser eller filtyper.
+Motorn regler kan du anpassa det sätt som cachelagring av frågesträngar i fråga har implementerats. Du kan till exempel ange att cachelagring av frågesträngar i frågan utförs endast på vissa platser eller filtyper.
 
-Om du vill duplicera frågesträngen cachelagring av frågesträngar som kallas ”no-cache” på sidan cachelagring av frågesträng måste skapa en regel som innehåller ett URL-frågan med jokertecken matchar villkor och en kringgå Cache-funktion. URL: en fråga med jokertecken matchar villkoret ska anges till en asterisk (*).
+Skapa en regel som innehåller en URL-frågan med jokertecken matchar villkor och en kringgå Cache-funktionen om du vill duplicera ”no-cache” frågesträngen cachelagring av frågesträngar på sidan cachelagring av frågesträng. Ange URL: en fråga med jokertecken matchar villkoret en asterisk (*).
 
 #### <a name="sample-scenarios"></a>Exempelscenarier
 
@@ -383,13 +383,13 @@ Den här typen av konfiguration skulle generera följande fråga sträng paramet
 ### <a name="cache-key-rewrite"></a>Omarbetning av cache-nyckel
 **Syfte:** skriver om cache-nyckeln som associeras med en begäran.
 
-En cachenyckel måste den relativa sökvägen som identifierar en tillgång för cachelagring. Servrarna kommer med andra ord, söka efter en cachelagrad version av en tillgång enligt dess sökväg som definierats av dess cachenyckel.
+En cachenyckel måste den relativa sökvägen som identifierar en tillgång för cachelagring. Med andra ord Sök servrarna efter en cachelagrad version av en tillgång enligt dess sökväg som definierats av dess cache-nyckel.
 
 Konfigurera den här funktionen genom att definiera båda av följande alternativ:
 
 Alternativ|Beskrivning
 --|--
-Ursprungliga sökväg| Definiera den relativa sökvägen till typerna av begäranden vars cachenyckel ska skrivas. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck.
+Ursprungliga sökväg| Definiera den relativa sökvägen till typerna av begäranden vars cachenyckel skrivs om. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck.
 Ny sökväg|Definiera den relativa sökvägen för den nya cache-nyckeln. En relativ sökväg kan definieras genom att välja en grundläggande ursprungssökväg och sedan definiera ett mönster för reguljärt uttryck. Den här relativa sökvägen kan konstrueras dynamiskt genom att använda HTTP-variabler
 **Standardbeteende:** en begäran cachenyckel bestäms av URI-begäran.
 
@@ -398,7 +398,7 @@ Ny sökväg|Definiera den relativa sökvägen för den nya cache-nyckeln. En rel
 </br>
 
 ---
-### <a name="comment"></a>Kommentera
+### <a name="comment"></a>Kommentar
 **Syfte:** tillåter en kommentar som ska läggas till i en regel.
 
 En används för den här funktionen för att tillhandahålla ytterligare information om generella av en regel eller varför en viss matchar villkoret eller funktionen har lagts till i regeln.
@@ -422,7 +422,7 @@ En partiell cache-miss beskriver Cachestatus för en tillgång som inte hämtade
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
 --->
-En partiell cache-miss inträffar vanligtvis när en användare avbryter en hämtning eller för tillgångar som begärs endast med hjälp av HTTP-begäranden för intervallet. Den här funktionen är mest användbara för stora tillgångar där användare kommer inte vanligtvis hämta dem från början till slut (till exempel videoklipp). Därför kan aktiveras den här funktionen som standard på stora HTTP-plattformen. Den är inaktiverad på alla plattformar.
+En partiell cache-miss inträffar vanligtvis när en användare avbryter en hämtning eller för tillgångar som begärs endast med hjälp av HTTP-begäranden för intervallet. Den här funktionen är mest användbara för stora tillgångar som normalt inte hämtas från början till slut (till exempel videoklipp). Därför kan aktiveras den här funktionen som standard på stora HTTP-plattformen. Den är inaktiverad på alla plattformar.
 
 Behåll standardkonfigurationen för stora HTTP-plattformen, eftersom det minskar belastningen på din kund ursprungsservern och ökar då kunderna hämta ditt innehåll.
 
@@ -431,7 +431,7 @@ På grund av det sätt som i vilken cache inställningar spåras den här funkti
 Värde|Resultat
 --|--
 Enabled|Återställer standardbeteendet. Standardinställningen är att tvinga edge-server för att initiera en bakgrundshämtning tillgångens från den ursprungliga servern. Efter som tillgången ska vara i det lokala cacheminnet i edge-server.
-Disabled|Förhindrar att en gränsserver utför en bakgrundshämtning för tillgången. Detta innebär att nästa begäran om tillgången från den regionen resulterar i edge-server att begära från den ursprungliga servern för kunden.
+Disabled|Förhindrar att en gränsserver utför en bakgrundshämtning för tillgången. Resultatet är att nästa begäran om tillgången från den regionen orsakar edge-server att begära från den ursprungliga servern för kunden.
 
 **Standardbeteende:** aktiverat.
 
@@ -441,7 +441,7 @@ Disabled|Förhindrar att en gränsserver utför en bakgrundshämtning för tillg
 
 ---
 ### <a name="compress-file-types"></a>Komprimera filtyper
-**Syfte:** definierar format som ska komprimeras på servern.
+**Syfte:** definierar filformat för filer som är komprimerade på servern.
 
 Ett filformat kan anges med hjälp av dess Internet medietyp (till exempel Content-Type). Internet medietyp är plattformsoberoende metadata som gör att servrar för att identifiera formatet för en viss tillgång. En lista över vanliga Internet medietyper finns nedan.
 
@@ -450,13 +450,13 @@ Internet-medietyp|Beskrivning
 Text/plain|Filer med oformaterad text
 text/html| HTML-filer
 text/css|Sammanhängande formatmallar (CSS)
-javascript-program/x|Javascript
-program eller javascript|Javascript
+application/x-javascript|Javascript
+application/javascript|Javascript
 Viktig information:
 
 - Ange flera Internet-medietyper genom att avgränsa dem med ett blanksteg. 
-- Den här funktionen Komprimera endast tillgångar vars storlek är mindre än 1 MB. Större tillgångar komprimeras inte av servrar.
-- Vissa typer av innehåll, till exempel bilder, video och ljud tillgångar (till exempel JPG, MP3, MP4, etc.) redan har komprimerats. Ytterligare komprimering på dessa typer av tillgångar kommer inte försämras avsevärt, filstorlek. Därför rekommenderas det att du inte aktivera komprimering på dessa typer av tillgångar.
+- Den här funktionen komprimerar bara tillgångar vars storlek är mindre än 1 MB. Större tillgångar komprimeras inte av servrar.
+- Vissa typer av innehåll, till exempel bilder, video och ljud tillgångar (till exempel JPG, MP3, MP4, etc.) redan har komprimerats. Eftersom ytterligare komprimering på dessa typer av tillgångar inte avsevärt minska filstorleken rekommenderas att du inte aktivera komprimering på dessa.
 - Jokertecken, till exempel asterisker stöds inte.
 - Se till att du ställer in alternativet inaktiverat komprimering på sidan komprimering för den plattform som den här regeln används innan du lägger till den här funktionen till en regel.
 
@@ -470,21 +470,21 @@ Viktig information:
 
 Den här anpassade fält kan du bestämma vilka förfrågan och svar huvudvärden lagras i loggfilerna.
 
-Som standard kallas anpassad loggfältet ”x-ec_custom-1”. Namnet på det här fältet kan dock anpassas från sidan rådata Logginställningar.
+Som standard kallas anpassad loggfältet ”x-ec_custom-1”. Namnet på det här fältet kan anpassas från sidan rådata Logginställningar.
 
-Den formatering som du ska använda för att ange begärande- och svarshuvuden definieras nedan.
+Format för att ange begärande- och svarshuvuden definieras enligt följande:
 
 Rubriktyp|Format|Exempel
 -|-|-
 Huvudet i begäran|%{[RequestHeader]()}[jag]() | % {Acceptera-Encoding} jag <br/> {Referent} jag <br/> % {Auktorisering} i
-Svarshuvud|%{[ResponseHeader]()}[o]()| % {Ålder} o <br/> % {Content-Type} o <br/> % {Cookie} o
+Svarshuvud|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Viktig information:
 
 - En anpassad logg-fältet kan innehålla en kombination av namn på huvudfält och oformaterad text.
 - Giltiga tecken för det här fältet är följande: alfanumeriska (0-9, a-z eller A-Z), bindestreck, kolon, semikolon, apostrofer, kommatecken, punkter, understreck, likhetstecken, parenteser, hakparenteser och blanksteg. Procentandel symbolen och klammerparenteser tillåts endast när används för att ange en huvudfält.
 - Stavningen för varje fält angivna huvudet måste matcha huvudnamnet som önskade begäran och svar.
-- Om du vill ange flera huvuden är vi rekommenderar att du använder en avgränsare för att ange varje sidhuvud. Du kan exempelvis använda en förkortning för varje rubrik. Exempelsyntax finns nedan.
+- Om du vill ange flera huvuden kan du använda en avgränsare för att ange varje sidhuvud. Du kan till exempel använda en förkortning för varje:
     - AE: % {acceptera-Encoding} i A: % {auktorisering} i Datafält: % {Content-Type} o 
 
 **Standardvärde:** -
@@ -495,7 +495,7 @@ Viktig information:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Felsöka Cache-svarshuvuden
-**Syfte:** avgör om ett svar kan innehålla rubriken X EC Debug som innehåller information om cacheprincipen för den begärda tillgången.
+**Syfte:** avgör om ett svar kan innehålla svarshuvud X EC Debug som innehåller information om cacheprincipen för den begärda tillgången.
 
 Felsöka cachesvar huvuden som ska inkluderas i svaret när båda av följande villkor uppfylls:
 
@@ -537,7 +537,7 @@ Viktig information:
 
 - Anger tidsenheten till ”av” tilldelas en intern maximal ålder standardintervallet 7 dagar för begäranden som inte har tilldelats en maximal ålder indikation i sina `Cache-Control` eller `Expires` huvud.
 - Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Kant 
+    - Edge 
     - CNAME-post
     - Begäran sidhuvud Literal
     - Begäran huvud med jokertecken
@@ -578,7 +578,7 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Garanterar att följande åtgärder utförs:<br/>-Skriver över den `Expires` huvud som genererats av den ursprungliga servern.<br/>-Lägger till den `Expires` huvud som genereras av funktionen externa maximal ålder för svaret.
-Skicka vidare|Garanterar att den `Expires` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern genererar ett `Expires` rubrik som är den ska passera till slutanvändaren. <br/>Om den ursprungliga servern inte ger ett `Expires` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Expires` huvud.
+Genomströmning|Garanterar att den `Expires` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern genererar ett `Expires` rubrik som är den ska passera till slutanvändaren. <br/>Om den ursprungliga servern inte ger ett `Expires` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Expires` huvud.
 Lägg till om de saknas| Om en `Expires` huvud togs inte emot från den ursprungliga servern och sedan det här alternativet ökar den `Expires` huvud som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att garantera att alla tillgångar tilldelas en `Expires` huvud.
 Ta bort| Garanterar att en `Expires` huvud ingår inte i sidhuvud-svaret. Om en `Expires` huvud har redan tilldelats sedan den tas bort från huvud-svaret.
 
@@ -641,7 +641,7 @@ Viktig information:
 
 - Tidsenhet till ”av” inaktiveras den här funktionen. Ett internt maximal ålder intervall kommer inte att tilldela begärda tillgångar. Om det ursprungliga huvudet inte innehåller instruktioner för cachelagring, cachelagras tillgången enligt inställningen active i funktionen standard interna Max-ålder.
 - Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Kant 
+    - Edge 
     - CNAME-post
     - Begäran sidhuvud Literal
     - Begäran huvud med jokertecken
@@ -706,7 +706,7 @@ Viktig information:
 - Uppsättningen koder för giltig status för den här funktionen är: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, och 505.
 - Inaktivera funktionen genom att ange ett tomt värde.
 - Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Kant 
+    - Edge 
     - CNAME-post
     - Begäran sidhuvud Literal
     - Begäran huvud med jokertecken
@@ -757,7 +757,7 @@ Viktig information:
 
 - Tidsenhet till ”av” inaktiveras den här funktionen. En cachelagrad tillgång hanteras inte utöver dess normala förfallotid.
 - Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
-    - Kant 
+    - Edge 
     - CNAME-post
     - Begäran sidhuvud Literal
     - Begäran huvud med jokertecken
@@ -831,10 +831,10 @@ Viktig information:
 - Om du tar bort ett sidhuvud förhindras från att vidarebefordras till en ursprungsservern av edge-servrar.
 - Följande huvuden är reserverade och kan inte ändras av den här funktionen:
     - vidarebefordras
-    - värden
+    - värd
     - via
     - Varning
-    - x vidarebefordras för
+    - x-forwarded-for
     - Alla huvud-namn som börjar med ”x ec” är reserverade.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -867,16 +867,16 @@ Viktig information:
     - cachE-Control
 - Tar bort ett sidhuvud kan den vidarebefordras till beställaren.
 - Följande huvuden är reserverade och kan inte ändras av den här funktionen:
-    - Acceptera-kodning
+    - accept-encoding
     - ålder
     - anslutning
-    - Innehållskodning
-    - innehållslängden
-    - innehåll-intervall
-    - Datum
+    - content-encoding
+    - content-length
+    - content-range
+    - datum
     - server
     - släpvagn
-    - Transfer-encoding
+    - transfer-encoding
     - Uppgradera
     - variera
     - via
@@ -981,18 +981,18 @@ Viktig information:
 
 Alternativet huvudet definierar namnet på anpassade begärandehuvudet där klientens IP-adress lagras.
 
-Den här funktionen kan en kund ursprungsservern ta reda på klient-IP-adresser via ett anpassat huvud. Om begäran skickades från cache, kommer den ursprungliga servern inte informeras om klientens IP-adress. Därför rekommenderas det att den här funktionen användas med ADN eller tillgångar som cachelagras.
+Den här funktionen kan en kund ursprungsservern ta reda på klient-IP-adresser via ett anpassat huvud. Om begäran skickades från cache, kommer den ursprungliga servern inte informeras om klientens IP-adress. Därför rekommenderas det att den här funktionen kan användas med objekt som inte är cachelagrade.
 
 Se till att angivna huvudets namn inte matchar något av följande namn:
 
 - Standard begäran sidhuvud namn. En lista över standard sidhuvud namn finns i [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Namn på reserverade huvud:
-    - vidarebefordras för
-    - värden
+    - forwarded-for
+    - värd
     - variera
     - via
     - Varning
-    - x vidarebefordras för
+    - x-forwarded-for
     - Alla huvud-namn som börjar med ”x ec” är reserverade.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -1140,7 +1140,7 @@ Disabled|En token kan anges som ett odefinierat frågesträngparametern i begär
 </br>
 
 ---
-### <a name="url-redirect"></a>URL: en omdirigering
+### <a name="url-redirect"></a>URL Redirect
 **Syfte:** omdirigerar begäranden via plats-huvudet.
 
 Konfigurationen för den här funktionen kräver att ange följande alternativ:
@@ -1158,7 +1158,7 @@ Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna 
 
 Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http://cdn.mydomain.com/resources
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Viktiga punkter:**
 
@@ -1200,13 +1200,13 @@ Det här exemplet visar hur du omdirigera en kant CNAME-URL som motsvarar denna 
 
 Kvalificerade begäranden omdirigeras till den här grundläggande edge CNAME-URL: http://MyOrigin.azureedge.net/resources/
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Exempelscenario 2**
 
 Det här exemplet visar hur du omdirigera en kant CNAME-URL från versaler till gemener med reguljära uttryck.
 
-Den här URL: en omdirigering kan uppnås genom följande konfiguration:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Den här URL: en omdirigering kan uppnås genom följande konfiguration: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Viktiga punkter:**
@@ -1251,5 +1251,5 @@ Den här funktionen innehåller matchar villkoren som måste uppfyllas innan den
 * [Regler modulreferens](cdn-rules-engine-reference.md)
 * [Regler motorn villkorsuttryck](cdn-rules-engine-reference-conditional-expressions.md)
 * [Regler motorn matchar villkor](cdn-rules-engine-reference-match-conditions.md)
-* [Åsidosätta standardbeteendet i HTTP-motorn regler](cdn-rules-engine.md)
-* [Azure CDN-översikt](cdn-overview.md)
+* [Åsidosätta HTTP beteende regler-motorn](cdn-rules-engine.md)
+* [Översikt över Azure CDN](cdn-overview.md)

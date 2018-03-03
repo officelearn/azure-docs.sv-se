@@ -1,5 +1,5 @@
 ---
-title: "Direktuppspelning optimering via Azure innehållsleveransnätverk"
+title: Direktuppspelning optimering via Azure CDN
 description: "Optimera strömmande media-filer för smooth leverans"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Direktuppspelning optimering via Azure innehållsleveransnätverk 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>Direktuppspelning optimering via Azure CDN 
  
 Användning av video med hög definition ökar på Internet, vilket skapar svårigheter för effektiv överföringen av stora filer. Kunder räknar jämn uppspelning av video på begäran eller live video tillgångar på olika nätverk och klienter över hela världen. Snabba och effektiva leveransmekanismen för direktuppspelning filer är viktigt att säkerställa en smidig och roligare användarfunktioner.  
 
@@ -60,7 +60,7 @@ Om Azure Content Delivery Network från Akamai upptäcker att tillgången är en
 Kort negativ cachelagring tiden är användbart för ursprung avlastning när många användare begär ett fragment som ännu inte finns. Ett exempel är en direktsänd dataström där paketen inte är tillgängliga från ursprunget den andra. Längre cachelagring intervallet hjälper också till att förflytta begäranden från ursprunget eftersom videoinnehåll vanligtvis inte ändras.
  
 
-|   | Allmän web leverans | Allmän direktuppspelning | Video-on-demand-direktuppspelning  
+|   | Allmän webbleverans | Allmän mediedirektuppspelning | Video-on-demand-direktuppspelning  
 --- | --- | --- | ---
 Cachelagring: positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |365 dagar | 365 dagar   
 Cachelagring: negativt <br> HTTP 204, 305, 404, <br> och 405 | Ingen | 1 sekund | 1 sekund

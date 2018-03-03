@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Load Balancer Standard översikt över Azure (förhandsversion)
 
@@ -466,6 +466,7 @@ Följande begränsningar gäller vid tidpunkten för förhandsgranskning och kan
 - I samband med tillgänglighet zoner kan zonal offentliga IP-adressen inte flyttas från en zon till en annan.
 - [Azure övervaka aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) stöds inte just nu.
 - Portalen stöder ännu inte utökade preview regioner.  Använd klientverktyg som mallar, Azure CLI 2.0 eller PowerShell som en lösning.
+- Flytta Prenumerationsåtgärder inte stöds.
 
 
 ## <a name="next-steps"></a>Nästa steg

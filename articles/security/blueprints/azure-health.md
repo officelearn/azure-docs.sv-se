@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad modell - HIPAA/HITRUST hälsa Data och AI
 
@@ -40,21 +40,15 @@ Det här utkastet är avsedd att fungera som en modulär grund för kunder att j
 
 -   Kunder ansvarar för att utföra lämpliga säkerhets- och granskning av någon lösning som skapats med denna grundläggande arkitektur.
 
-För en snabb överblick över hur den här lösningen fungerar, titta på den här [video](https://aka.ms/healthblueprintvideo) förklarar och visar dess distribution.
-
 ## <a name="deploying-the-automation"></a>Distribuera automatisering
 
 - Om du vill distribuera lösningen, följer du anvisningarna i vägledning för distribution. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+För en snabb överblick över hur den här lösningen fungerar, titta på den här [video](https://aka.ms/healthblueprintvideo) förklarar och visar dess distribution.
+
 - Vanliga frågor och svar hittar du i den [vanliga frågor och svar](https://aka.ms/healthblueprintfaq) vägledning.
-
-
-## <a name="solution-components"></a>Lösningskomponenter
-
-
-Grundläggande arkitektur består av följande komponenter:
 
 -   **Arkitekturdiagram för.** Diagrammet visar den referens för arkitekturen för modell och exemplet använder Fallstudie.
 
@@ -66,12 +60,16 @@ Grundläggande arkitektur består av följande komponenter:
 -   En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade. 
 -   En installation av PowerShell-skript används för att distribuera lösningen som tillhandahålls via en .zip-fil som innehåller en förskapad demo-funktioner.
 
+## <a name="solution-components"></a>Lösningskomponenter
+
+
+Grundläggande arkitektur består av följande komponenter:
 
 -   **[Hotmodell](https://aka.ms/healththreatmodel)**  en omfattande hotmodell har tillhandahållits i tm7 format för användning med den [hot Modeling verktyget](https://www.microsoft.com/en-us/download/details.aspx?id=49168), visar komponenter i lösningen data som flödar mellan dem och förtroende gränser. Modellen hjälper kunder att förstå punkterna i risken i system-infrastruktur när du utvecklar machine learning komponenter eller andra ändringar.
 
--   **[Kunden ansvar matrisen](https://aka.ms/healthcrmblueprint)**  en Microsoft Excel-arbetsbok innehåller relevant HITRUST kraven och förklarar hur Microsoft och kunden ansvarar för att uppfylla var och en.
+-   **[Kunden implementering matrisen](https://aka.ms/healthcrmblueprint)**  en Microsoft Excel-arbetsbok innehåller relevant HITRUST kraven och förklarar hur Microsoft och kunden ansvarar för att uppfylla var och en.
 
--   ** [Granska hälsa. Lösningen granskades av Coalfire systems, Inc. Hälsotillstånd kompatibiliteten (HIPAA och HITRUST) och vägledning för implementering ger en granskare\'s granskning av lösningen och överväganden för att överföra modell som en produktionsklara-distribution.
+-   **[Granska hälsa.](https://aka.ms/healthreviewpaper)** Lösningen granskades av Coalfire systems, Inc. Hälsotillstånd kompatibiliteten (HIPAA och HITRUST) och vägledning för implementering ger en granskare\'s granskning av lösningen och överväganden för att överföra modell som en produktionsklara-distribution.
 
 # <a name="architectural-diagram"></a>Arkitekturdiagram
 

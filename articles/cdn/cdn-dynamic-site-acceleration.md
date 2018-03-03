@@ -1,10 +1,10 @@
 ---
-title: Dynamiska Acceleration via Azure CDN
+title: Dynamiska acceleration via Azure CDN
 description: "Dynamiska acceleration ingående"
 services: cdn
 documentationcenter: 
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: 
 ms.service: cdn
@@ -12,52 +12,73 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: v-semcev
-ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/01/2018
+ms.author: rli
+ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska Acceleration via Azure CDN
+# <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamiska acceleration via Azure CDN
 
-Med nedbrytning av sociala medier, elektronisk handel och web hyper personliga skapas snabbt ökade procent av det innehåll som visas för slutanvändare i realtid. Användarna förväntar sig att snabb, tillförlitlig och anpassade web-upplevelser, oberoende av deras webbläsare, plats, enhet eller nätverk. Mycket innovationer som gör att dessa erfarenheter så att också långsamma sidan hämtningar och kvaliteten på användarfunktioner medföra risker. 
+Med nedbrytning av sociala medier, elektronisk handel och web hyper personliga skapas snabbt ökade procent av det innehåll som visas för slutanvändare i realtid. Användarna förväntar sig en snabb, tillförlitlig och anpassade webbupplevelse, oberoende av deras webbläsare, plats, enhet eller nätverk. Mycket innovationer som gör att dessa erfarenheter så att också långsamma sidan hämtningar och kvaliteten på användarfunktioner medföra risker. 
 
-Standard CDN kapaciteten inkluderar möjligheten att cachelagra filer närmare till slutanvändare påskynda överföringen av statiska filer. Men med dynamiska webbprogram cachelagring innehållet i platser är inte möjligt eftersom servern genererar innehållet som svar på användarnas beteende. Påskynda överföringen av innehållet är mer komplexa än traditionella edge cachelagring och kräver en slutpunkt till slutpunkt-lösning som finjusterar varje element längs hela sökvägen från Start till leverans. Med Azure CDN dynamiska plats Acceleration (DSA), bättre den webbsidor med dynamiskt innehåll mätbart prestandan.
+Standard content delivery network (CDN) kapaciteten inkluderar möjligheten att cachelagra filer närmare till slutanvändare påskynda överföringen av statiska filer. Men med dynamiska webbprogram cachelagring innehållet i platser är inte möjligt eftersom servern genererar innehållet som svar på användarnas beteende. Påskynda överföringen av innehållet är mer komplexa än traditionella edge cachelagring och kräver en slutpunkt till slutpunkt-lösning som finjusterar varje element längs hela sökvägen från Start till leverans. Med Azure CDN dynamiska acceleration (DSA) optimering bättre prestanda för webbsidor som innehåller dynamiskt innehåll mätbart.
 
-Azure CDN från Akamai och Verizon erbjuder DSA optimering via den **optimerade för** menyn under skapande av slutpunkten.
+**Azure CDN från Akamai** och **Azure CDN från Verizon** båda har DSA optimering via den **optimerade för** menyn under skapande av slutpunkten.
+
+> [!Important]
+> För **Azure CDN från Akamai** profiler, du kan du ändra optimering av CDN-slutpunkten när den har skapats.
+>   
+> **Azure CDN från Verizon** profiler, det går inte att ändra optimering av CDN-slutpunkten efter att den har skapats.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Konfigurera CDN-slutpunkten för att påskynda överföringen av dynamiska filer
 
-Du kan konfigurera CDN-slutpunkten för att optimera leverans av dynamiska filer via Azure-portalen genom att välja den **dynamiska acceleration** alternativ den **optimerade för** egenskap under den Skapa en slutpunkt. Du kan också använda vår REST-API: er eller någon av klient-SDK: er för att göra det via programmering. 
+Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska filer kan du antingen använda Azure-portalen, REST-API: er eller något av klient-SDK: er för att göra det via programmering. 
 
-### <a name="probe-path"></a>Avsökningen sökväg
-Avsökningen sökvägen är en särskild funktion för dynamisk plats Acceleration och ett giltigt krävs för att skapa. DSA använder en liten *avsökningen sökvägen* filen placeras på originalet att optimera routning nätverkskonfigurationer för CDN. Du kan ladda ned och ladda upp vår exempelfilen till din webbplats eller använda en befintlig tillgång på din ursprung är ungefär 10 KB för avsökning sökväg i stället om tillgången finns.
+**Konfigurera en CDN-slutpunkt för DSA-optimering med hjälp av Azure portal:**
+
+1. I den **CDN-profilen** väljer **Endpoint**.
+
+   ![Lägg till en ny CDN-slutpunkt](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
+
+   Fönstret **Lägg till slutpunkt** visas.
+
+2. Under **optimerade för**väljer **dynamiska acceleration**.
+
+    ![Skapa en ny CDN-slutpunkt med DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
+
+3. För **avsökningen sökvägen**, ange en giltig sökväg till en fil.
+
+    Avsökningen sökvägen är en funktion som är specifika för DSA och en giltig sökväg krävs för att skapa. DSA använder en liten *avsökningen sökvägen* filen placeras på den ursprungliga servern för att optimera routning nätverkskonfigurationer för CDN. För filen avsökningen sökväg du ladda ned och ladda upp exempelfilen till din webbplats eller använda en befintlig tillgång på din ursprung är cirka 10 KB.
+
+4. Ange andra nödvändiga endpoint-alternativ (Mer information finns i [skapa en ny CDN-slutpunkt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) och välj **Lägg till**.
+
+   När du har skapat CDN-slutpunkten gäller DSA-optimeringar för alla filer som matchar vissa villkor. 
+
+
+**Så här konfigurerar du en befintlig slutpunkt för DSA (Azure CDN från Akamai-profiler):**
+
+1. I den **CDN-profilen** markerar du den slutpunkt som du vill ändra.
+
+2. I den vänstra rutan, Välj **optimering**. 
+
+   Den **optimering** visas.
+
+3. Under **optimerade för**väljer **dynamiska acceleration**och välj **spara**.
 
 > [!Note]
-> DSA debiteras extra. Mer information finns i [sida med priser](https://azure.microsoft.com/pricing/details/cdn/) för mer information.
-
-Följande skärmbilderna illustrerar processen via Azure-portalen.
- 
-![Lägga till en ny CDN-slutpunkt](./media/cdn-dynamic-site-acceleration/01_Endpoint_Profile.png) 
-
-*Bild 1: Lägga till en ny CDN-slutpunkt från CDN-profilen*
- 
-![Skapa en ny CDN-slutpunkt med DSA](./media/cdn-dynamic-site-acceleration/02_Optimized_DSA.png)  
-
-*Bild 2: Skapa en CDN-slutpunkt med dynamiska acceleration optimering markerat*
-
-När CDN-slutpunkten har skapats gäller DSA-optimeringar för alla filer som matchar vissa villkor. I följande avsnitt beskrivs DSA optimering i detalj.
+> DSA debiteras extra. Mer information finns i [innehållsleveransnätverk priser](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="dsa-optimization-using-azure-cdn"></a>DSA-optimering med hjälp av Azure CDN
 
 Dynamisk plats Acceleration på Azure CDN snabbare leverans av dynamisk tillgångar med hjälp av följande metoder:
 
--   Väg optimering
--   TCP-optimeringar
--   Objektet Prefetch (Akamai)
--   Komprimering av mobila avbildningen (Akamai)
+-   [Väg optimering](#route-optimization)
+-   [TCP-optimeringar](#tcp-optimizations)
+-   [Objektet prefetch (Azure CDN från Akamai endast)](#object-prefetch-azure-cdn-from-akamai-only)
+-   [Komprimering av anpassningsbar avbildningen (Azure CDN från Akamai endast)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
 ### <a name="route-optimization"></a>Väg optimering
 
@@ -73,47 +94,49 @@ Därför helt dynamiska och transaktionell innehållet levereras snabbare och me
 
 ### <a name="tcp-optimizations"></a>TCP-optimeringar
 
-Transmission Control Protocol (TCP) är standard för Internet-protokollsviten som används för att leverera information mellan program på ett IP-nätverk.  Som standard finns flera fram och tillbaka begäranden för att konfigurera en TCP-anslutning, samt gränser att undvika att nätverket congestions, vilket resulterar i ineffektiviteter i större skala. Azure CDN från Akamai behandlar det här problemet genom att optimera tre områden: 
+Transmission Control Protocol (TCP) är standard för Internet-protokollsviten som används för att leverera information mellan program på ett IP-nätverk.  Som standard är flera fram och tillbaka begäranden måste ställa in en TCP-anslutning, samt gränser för att undvika att nätverket congestions, vilket resulterar i ineffektiviteter i större skala. **Azure CDN från Akamai** hanterar det här problemet genom att optimera tre områden: 
 
- - Ta bort långsam start
- - Utnyttja beständiga anslutningar
- - justering av TCP-parametrar för paketet (Akamai)
+ - [Ta bort TCP långsam start](#eliminating-tcp-slow-start)
+ - [Utnyttja beständiga anslutningar](#leveraging-persistent-connections)
+ - [Justera parametrarna för TCP-paket](#tuning-tcp-packet-parameters)
 
-#### <a name="eliminating-slow-start"></a>Ta bort långsam start
+#### <a name="eliminating-tcp-slow-start"></a>Ta bort TCP långsam start
 
-*Långsamma start* är en del av TCP-protokollet som förhindrar överbelastning på nätverket genom att begränsa mängden data som skickas över nätverket. Den startar med små överbelastning fönsterstorlek mellan avsändare och mottagare tills högsta nås eller paketförlust har identifierats.
+TCP *långsamma start* är en algoritm för TCP-protokollet som förhindrar överbelastning på nätverket genom att begränsa mängden data som skickas över nätverket. Den startar med små överbelastning fönsterstorlek mellan avsändare och mottagare tills högsta nås eller paketförlust har identifierats.
 
-Azure CDN från Akamai och Verizon eliminerar långsam startar i tre steg:
+ Båda **Azure CDN från Akamai** och **Azure CDN från Verizon** eliminera TCP långsam starta med följande tre steg:
 
-1.  Både Akamai och Verizons nätverket använda hälsa och övervakning av bandbredd för att mäta bandbredden för anslutningar mellan edge PoP-servrar.
-2. Mätvärdena som delas mellan edge PoP-servrar så att varje server är medveten om nätverkets tillstånd och Servertillstånd POP runtom.  
-3. CDN edge-servrar kan nu göra antaganden om vissa överföring parametrar, till exempel vad optimal fönsterstorlek bör vara vid kommunikation med andra CDN edge-servrar i dess närhet. Det här steget innebär inledande överbelastning fönstrets storlek kan ökas om hälsotillståndet för anslutningen mellan CDN edge-servrarna kan högre paket dataöverföringar.  
+1. Hälsa och övervakning av bandbredden används för att mäta bandbredd för anslutningar mellan edge PoP-servrar.
+    
+2. Mått delas mellan edge PoP-servrar så att varje server är medveten om nätverkets tillstånd och Servertillstånd POP runtom.  
+    
+3. CDN edge servrar gör antaganden om vissa överföring parametrar, till exempel vad optimal fönsterstorlek bör vara vid kommunikation med andra CDN edge-servrar i dess närhet. Det här steget innebär inledande överbelastning fönstrets storlek kan ökas om hälsotillståndet för anslutningen mellan CDN edge-servrarna kan högre paket dataöverföringar.  
 
 #### <a name="leveraging-persistent-connections"></a>Utnyttja beständiga anslutningar
 
-Använder en CDN ansluta färre unika datorer till ursprungsservern direkt jämfört med användare som ansluter direkt till din ursprung. Azure CDN från Akamai och Verizon pooler också användarförfrågningar tillsammans för att skapa färre anslutningar med ursprung.
+Använder en CDN ansluta färre unika datorer till ursprungsservern direkt jämfört med användare som ansluter direkt till din ursprung. Azure CDN pooler också användarförfrågningar tillsammans för att skapa färre anslutningar med ursprung.
 
-Som tidigare nämnts är utför TCP-anslutningar flera begäranden fram och tillbaka i en handskakning att upprätta en ny anslutning. Beständiga anslutningar, även kallat ”HTTP Keep-Alive”, återanvända befintliga TCP-anslutningar för flera HTTP-begäranden att spara fram och åter gånger och snabba upp överföringen. 
+Som tidigare nämnts krävs flera handskakning begäranden för att upprätta en TCP-anslutning. Beständiga anslutningar som implementeras med den `Keep-Alive` HTTP-huvud, återanvända befintliga TCP-anslutningar för flera HTTP-begäranden att spara fram och åter gånger och snabba upp överföringen. 
 
-Nätverkets Verizon skickar också periodiska keep alive-paket via TCP-anslutning för att förhindra att en öppen anslutning stängs.
+**Azure CDN från Verizon** skickar också periodiska keep alive-paket via TCP-anslutning för att förhindra att en öppen anslutning stängs.
 
 #### <a name="tuning-tcp-packet-parameters"></a>Justera parametrarna för TCP-paket
 
-Azure CDN från Akamai också låtar de parametrar som styr server till server-anslutningar och minskar mängden lång drag förfrågningar krävs för att hämta innehåll inbäddat i platsen med hjälp av följande metoder:
+**Azure CDN från Akamai** justerar parametrarna som styr server till server-anslutningar och minskar mängden långa avstånd sändningar som krävs för att hämta innehåll som är inbäddad i platsen med hjälp av följande metoder:
 
-1.  Öka fönstret inledande överbelastning så att flera paket kan skickas utan att vänta på en bekräftelse.
-2.  Minskar den inledande sändningsförsök tidsgränsen så att förlust identifieras och återöverföring sker snabbare.
-3.  Minska timeout-värdet för lägsta och högsta sändningsförsök för att minska väntetiden innan förutsatt att paket gått förlorade under överföringen.
+- Öka fönstret inledande överbelastning så att flera paket kan skickas utan att vänta på en bekräftelse.
+- Minskar den inledande sändningsförsök tidsgränsen så att förlust identifieras och återöverföring sker snabbare.
+- Minska timeout-värdet för lägsta och högsta sändningsförsök för att minska väntetiden innan förutsatt att paket gått förlorade under överföringen.
 
-### <a name="object-prefetch-akamai-only"></a>Objektet Prefetch (Akamai)
+### <a name="object-prefetch-azure-cdn-from-akamai-only"></a>Objektet prefetch (Azure CDN från Akamai endast)
 
 De flesta webbplatser består av en HTML-sida som refererar till andra resurser, till exempel bilder och skript. Normalt när en klient begär en webbsida, webbläsaren först ned Parsar HTML-objekt och gör sedan ytterligare förfrågningar till länkade resurser som krävs för att läsa in sidan fullständigt. 
 
 *Prefetch* är en teknik för att hämta bilder och skript inbäddat i HTML-sidan medan HTML hanteras till webbläsaren och innan webbläsaren gör även dessa begäranden för objektet. 
 
-Med den **förhämtning** alternativet igång vid den tidpunkt då CDN fungerar HTML grundläggande sidan till klientens webbläsare CDN Parsar HTML-fil och kontrollera begäranden för alla länkade resurser och lagra den i sin cache. När klienten skickar begäranden för de länkade resurserna, har de begärda objekten CDN edge-server redan och kan hantera dem direkt utan onödig kommunikation till ursprunget. Denna optimering fördelar både Cacheable ställs och icke Cacheable ställs innehåll.
+Med alternativet prefetch aktiverat vid den tidpunkt då CDN fungerar den grundläggande HTML-sidan till klientens webbläsare CDN Parsar HTML-fil och begär ytterligare för länkade resurser, och lagra den i sin cache. När klienten skickar begäranden för de länkade resurserna, har de begärda objekten CDN edge-server redan och kan hantera dem direkt utan onödig kommunikation till ursprunget. Denna optimering fördelar både Cacheable ställs och icke Cacheable ställs innehåll.
 
-### <a name="adaptive-image-compression-akamai-only"></a>Komprimering av anpassningsbar avbildningen (Akamai)
+### <a name="adaptive-image-compression-azure-cdn-from-akamai-only"></a>Komprimering av anpassningsbar avbildningen (Azure CDN från Akamai endast)
 
 Vissa enheter, särskilt mobila som får då långsammare nätverkshastigheter. Det är bättre för användaren ta emot mindre bilder i deras webbsida snabbare i stället för att vänta så länge för full upplösning bilder i dessa scenarier.
 
@@ -121,21 +144,34 @@ Den här funktionen automatiskt övervakar nätverket kvalitet och använder sta
 
 Komprimering av anpassningsbar avbildningen | Filnamnstillägg  
 --- | ---  
-JPEG-komprimering | JPG, JPEG, jpe, .jig, .jgig, .jgi
+JPEG-komprimering | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Cachelagring
 
-Med DSA, är cachelagring inaktiverat som standard på CDN, även om ursprung inkluderar cache-control/upphör att gälla rubriker i svaret. Den här standardinställningen har inaktiverats eftersom DSA används vanligtvis för dynamiska tillgångar som inte ska cachelagras eftersom de är unik för varje klient och aktivera cachelagring som standard kan dela det här beteendet.
+Med DSA, cachelagring är inaktiverat som standard på CDN, även om ursprung innehåller `Cache-Control` eller `Expires` huvuden i svaret. DSA används vanligtvis för dynamiska tillgångar som inte ska cachelagras eftersom de är unik för varje klient. Cachelagring kan dela det här beteendet.
 
 Om du har en webbplats med en blandning av statiska och dynamiska tillgångar, är det bäst att en hybrid-metod för att få bästa möjliga prestanda. 
 
-Om du använder ADN med Verizon Premium kan aktivera du cachelagring igen för särskilda fall regler-motorn.  
+För **Azure CDN från Verizon Premium** profiler, kan du aktivera cachelagring för särskilda fall med hjälp av den [regelmotor](cdn-rules-engine.md) för DSA-slutpunkter. Alla regler som har skapats påverkas endast slutpunkter som är optimerade för DSA för din profil. 
 
-Ett alternativ är att använda två CDN-slutpunkter. En med DSA att ge dynamiska tillgångar och en annan slutpunkt med en statisk optimering typ, till exempel Internet leverans till leverans Cacheable ställs tillgångar. För att kunna göra detta alternativ kommer det att ändra din webbsida URL: er att länka direkt till tillgången på CDN-slutpunkt som du tänker använda. 
+Öppna regelmotor för DSA-slutpunkter:
+    
+1. Från den **CDN-profilen** väljer **hantera**.  
+    
+    ![CDN-profilen hantera knappen](./media/cdn-rules-engine/cdn-manage-btn.png)
+
+    CDN-hanteringsportalen öppnas.
+
+2. CDN-hanteringsportalen, Välj **ADN**och välj **regelmotor**. 
+
+    ![Regelmotor för DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+
+
+Du kan också använda två CDN-slutpunkter: en slutpunkt som har optimerats med DSA att leverera dynamiskt tillgångar och en annan slutpunkt optimerats med en statisk optimering typ, till exempel allmänna web leverans till leverans Cacheable ställs tillgångar. Ändra din webbsida URL: er att länka direkt till tillgången på CDN-slutpunkt som du tänker använda. 
 
 Till exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och har lästs in från DSA-slutpunkten.  HTML-sidan refererar till flera statiska resurser, t.ex JavaScript-bibliotek och bilder som har lästs in från statisk CDN-slutpunkten som `mystatic.azureedge.net/banner.jpg` och `mystatic.azureedge.net/scripts.js`. 
 
-Du hittar ett exempel [här](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) om hur du använder domänkontrollanter i ASP.NET-webbprogram för att hantera innehåll via en specifik CDN-URL.
+Ett exempel om hur du använder domänkontrollanter i ASP.NET-webbprogram för att hantera innehåll via en specifik CDN-URL finns [innehåll från domänkontrollanten åtgärder via Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
 
 
 

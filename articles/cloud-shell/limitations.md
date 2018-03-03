@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -54,11 +54,11 @@ Moln-gränssnittet är avsedd för interaktiva användningsfall. Därför kan av
 
 ### <a name="user-permissions"></a>Användarbehörigheter
 
-Behörigheterna anges som en vanlig användare utan åtkomst till sudo. En installation utanför din `$Home` eller `clouddrive` directory sparas inte.
+Behörigheterna anges som en vanlig användare utan åtkomst till sudo. En installation utanför din `$Home` directory sparas inte.
 
 ### <a name="editing-bashrc"></a>Redigera .bashrc
 
-Vara försiktig när du redigerar .bashrc, gör det kan orsaka oväntade fel vid Bash i molnet Shell.
+Vara försiktig när du redigerar .bashrc, gör det kan orsaka oväntade fel i moln Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-begränsningar
 
@@ -68,7 +68,7 @@ PowerShell Azure Cloud Shell (förhandsversion) kan ta upp till 60 sekunder att 
 
 ### <a name="no-home-directory-persistence"></a>No $Home directory beständiga
 
-Data som skrivs till `$Home` av alla program (exempel: git vim och andra) inte har behållits över PowerShell-sessioner. En lösning [visas här](troubleshooting.md#powershell-resolutions).
+Data som skrivs till `$Home` av alla program (exempel: git vim och andra) inte har behållits över PowerShell-sessioner. En lösning [visas här](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure enhet:
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigera bort personerna bakom Azure Media Analytics
 ## <a name="overview"></a>Översikt
@@ -52,11 +52,12 @@ Den **analysera** förbikoppling av arbetsflödet två gånger tar en video-inda
 | --- | --- | --- |
 | Inkommande tillgångsinformation |foo.bar |Video i WMV, MPV eller MP4-format |
 | Inkommande config |Jobbet configuration förinställda |{”version”:'1.0 ', 'alternativ': {'mode': 'Analysera'}} |
-| Utdatatillgången |foo_annotations.JSON |Anteckningsdata för platser som står inför i JSON-format. Detta kan bara redigeras av användaren att ändra suddar ut avgränsar rutorna. Se exemplet nedan. |
+| Utdatatillgången |foo_annotations.json |Anteckningsdata för platser som står inför i JSON-format. Detta kan bara redigeras av användaren att ändra suddar ut avgränsar rutorna. Se exemplet nedan. |
 | Utdatatillgången |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Beskuren jpg för varje upptäckt min, där talet anger labelId av de står inför |
 
 #### <a name="output-example"></a>Exempel på utdata:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ Den **analysera** förbikoppling av arbetsflödet två gånger tar en video-inda
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Redigera bort läge
 Det andra steget av arbetsflödet tar ett större antal indata måste kombineras i ett enskilt objekt.
@@ -114,7 +116,7 @@ Utdata från analysera pass innehåller inte den ursprungliga videon. Videon må
 | Fas | Filnamn | Anteckningar |
 | --- | --- | --- |
 | Inkommande tillgångsinformation |foo.bar |Video i WMV, MPV eller MP4-format. Samma video som i steg 1. |
-| Inkommande tillgångsinformation |foo_annotations.JSON |anteckningar metadatafil från den första fasen, med valfria ändringar. |
+| Inkommande tillgångsinformation |foo_annotations.json |anteckningar metadatafil från den första fasen, med valfria ändringar. |
 | Inkommande tillgångsinformation |foo_IDList.txt (valfritt) |Valfria ny rad avgränsade lista över ansikte ID: N till att redigera bort. Om tomt skapar detta oskärpa alla ytor. |
 | Inkommande config |Jobbet configuration förinställda |{”version”:'1.0 ', 'alternativ': {'mode': 'Redigera bort'}} |
 | Utdatatillgången |foo_redacted.mp4 |Video med oskärpa tillämpas baserat på anteckningar |
@@ -138,7 +140,9 @@ Du kan hitta exempel på vilka oskärpa.
 
 ### <a name="example-json"></a>Exempel JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Låg
 
@@ -172,8 +176,16 @@ Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
 2. Skapa ett jobb med framsidan bortredigering uppgiften baserat på en konfigurationsfil som innehåller följande json-förinställda: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Hämta JSON utdatafilerna. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -182,7 +194,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -358,7 +370,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

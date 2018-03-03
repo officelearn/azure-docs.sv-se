@@ -4,20 +4,20 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-integrering med Slack
 
@@ -31,7 +31,7 @@ Integrera Slack med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Slack, behöver du följande:
 
@@ -110,9 +110,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.slack.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.slack.com`
 
-    b. I den **identifierare** textruta anger du URL:`https://slack.com`
+    b. I den **identifierare** textruta anger du URL: `https://slack.com`
 
     > [!NOTE] 
     > Värdet är inte verkliga. Du måste uppdatera värdet med faktiska logga på URL: en. Kontakta [Slack supportteamet](https://slack.com/help/contact) värdet hämtas
@@ -121,14 +121,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Om användaren har **e-postadress** tilldelats med hjälp av Office365 sedan bara det fylls i annat fall den **e-postadress** anspråk visas inte i SAML-Token.
+
 5. I den **användarattribut** avsnitt på den **enkel inloggning** markerar **user.mail** som **användar-ID** och för varje rad som visas i i tabellen nedan, utför följande steg:
     
     | Attributnamn | Attributvärde |
     | --- | --- |
-    | Förnamn | User.givenName |
-    | Efternamn | User.surname |
+    | first_name | user.givenname |
+    | last_name | User.surname |
     | User.Email | User.Mail |  
-    | User.Username | User.userPrincipalName |
+    | User.Username | user.userprincipalname |
 
     a. Klicka på **attributet** att öppna **Redigera attribut** dialogrutan rutan och utför följande steg:
 
@@ -137,8 +140,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **namn** textruta ange attributets namn visas för den raden.
     
     b. Från den **värdet** väljer du det attributvärde som visas för den raden.
+
+    c. Lämna den **Namespace** tomt.
     
-    c. Klicka på **OK**
+    d. Klicka på **OK**
 
 6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

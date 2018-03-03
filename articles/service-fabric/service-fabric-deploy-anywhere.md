@@ -3,7 +3,7 @@ title: "Skapa Azure Service Fabric-kluster på Windows Server- och Linux | Micro
 description: "Service Fabric-kluster som körs på Windows Server- och Linux-, vilket betyder att du ska kunna distribuera- och värd för Service Fabric-program var som helst som du kan köra Windows Server- eller Linux."
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Skapa Service Fabric-kluster på Windows Server- eller Linux
 Ett Azure Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som din mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partition repliker och instanser för det ökade antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrens om åtkomst till minnet. Om noderna i klustret inte används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partition repliker och instanser för det minska antalet noder för att bättre utnyttja maskinvara på varje nod.
@@ -33,7 +33,12 @@ Du kan skapa kluster på virtuella datorer som kör operativsystemen:
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Om du vill distribuera Service Fabric på Windows Server 1709 Observera att (1) det inte är en lång sikt servicing branch, så att du kan behöva flytta versioner i framtiden, och (2) om du distribuerar behållare behållare som bygger på Windows Server 2016 fungerar inte på Windows Server  1709, och vice versa (du måste återskapa dem för att distribuera dem).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Skapa fristående Service Fabric-kluster på lokalt eller med en molntjänstleverantör
 Service Fabric ger ett installera paket att skapa fristående Service Fabric-kluster lokalt eller på alla moln-providern.

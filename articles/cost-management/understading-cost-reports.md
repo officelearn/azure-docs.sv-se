@@ -1,24 +1,24 @@
 ---
 title: "Förstå kostnadsrapporter i Azure kostnaden Management | Microsoft Docs"
-description: "Den här artikeln hjälper dig att förstå Cloudyn rapporter grundläggande struktur och funktioner."
+description: "Den här artikeln hjälper dig att förstå Cloudyn kostnaden management rapporter grundläggande struktur och funktioner."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Förstå kostnadsrapporter
+# <a name="understanding-cost-management-reports"></a>Förstå kostnadsrapporter
 
-Den här artikeln hjälper dig att förstå Cloudyn rapporter grundläggande struktur och funktioner. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. När du har läst den här artikeln är redo att använda alla rapporter. Många funktioner som standard är tillgängliga under olika rapporter, så att du kan navigera i rapporter utan problem. Rapporter kan anpassas och du kan välja mellan flera alternativ för att beräkna och visa resultat.
+Den här artikeln hjälper dig att förstå Cloudyn kostnaden management rapporter grundläggande struktur och funktioner. De flesta Cloudyn rapporter är intuitiva och har ett enhetligt utseende. När du har läst den här artikeln är redo att använda alla rapporter för kostnad-hantering. Många funktioner som standard är tillgängliga under olika rapporter, så att du kan navigera i rapporter utan problem. Rapporter kan anpassas och du kan välja mellan flera alternativ för att beräkna och visa resultat.
 
 ## <a name="report-fields-and-options"></a>Rapportfält och alternativ
 
@@ -77,7 +77,7 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
      - Miljö
      - Kostnad kod
 
-5. **Filter**
+5. **filter**
 
     Använda enkla eller välja flera filter för att ange intervall för valda värden. Ange ett filter, klicka på **Lägg till** och välj sedan filterkategorier och värden.
 
@@ -118,7 +118,7 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
 
     Visa/Dölj alternativet har inte någon effekt i rapporter.
 
-12.   **Format**
+12.   **format**
 
     Använd format för att välja olika vyer av diagrammet eller tabellen.
 
@@ -131,6 +131,27 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
 14. **Åtgärder**
 
     Använd åtgärder för att spara, exportera eller schemalägger rapporten.
+
+## <a name="save-and-schedule-reports"></a>Spara och schemalägga rapporter
+
+När du har skapat en rapport kan du spara den för framtida användning. Sparade rapporter är tillgängliga i **Mina verktyg** > **Mina rapporter**. Om du gör ändringar i en befintlig rapport och spara den sparade rapporten som en ny version. Eller så kan du spara den som en ny rapport.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Spara en rapport i Cloudyn-portal
+
+När du visar en rapport klickar du på **åtgärder** och välj sedan **spara Mina rapporter**. Namn på rapporten och sedan Lägg antingen till en egna URL eller Använd den automatiskt skapade URL: en. Du kan alternativt **dela** rapporten offentligt med andra i din organisation eller du kan dela till din enhet. Om du inte delar rapporten förblir en personlig rapport och som bara kan du visa. Spara rapporten.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Spara en rapport till providern molnlagring
+
+För att spara en rapport i din molntjänstleverantör, måste du redan har konfigurerat ett lagringskonto. När du visar en rapport klickar du på **åtgärder** och välj sedan **schemalägga rapport**. Namn på rapporten och sedan Lägg antingen till en egna URL eller Använd den automatiskt skapade URL: en. Välj **spara till lagring** och välja lagringskontot eller lägga till ett nytt. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj en CSV- eller JSON-filformat och sedan spara rapporten.
+
+### <a name="schedule-a-report"></a>Schemalägg en rapport
+
+Du kan köra rapporter med schemalagda intervall och du kan skickas dem till ett mottagande lista eller cloud service provider storage-konto. När du visar en rapport klickar du på **åtgärder** och välj sedan **schemalägga rapport**. Du kan skicka rapporten via e-post och spara till ett lagringskonto. Under **schema**, ett intervall (varje dag, vecka eller månad). Välj för varje vecka och månad, dag eller datum att leverera och väljer du tid. Spara den schemalagda rapporten. Om du väljer formatet Excel-rapport skickas rapporten som en bifogad fil. När du väljer e-innehållsformat levereras rapportresultat som visas i diagrammet format som ett diagram.
+
+### <a name="export-a-report-as-a-csv-file"></a>Exportera en rapport som en CSV-fil
+
+När du visar en rapport klickar du på **åtgärder** och välj sedan **exportera alla rapportdata**. Ett popup-fönster visas en CSV-fil har överförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

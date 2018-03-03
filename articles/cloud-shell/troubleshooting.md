@@ -12,26 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="troubleshooting-azure-cloud-shell"></a>Felsöka Azure-molnet Shell
+# <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
-Kända lösningar på problem i Azure Cloud Shell inkluderar:
+Kända lösningar för att felsöka problem i Azure Cloud Shell inkluderar:
 
-## <a name="general-resolutions"></a>Allmän lösningar
+## <a name="general-troubleshooting"></a>Allmän felsökning
 
 ### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser Firefox
 - **Information om**: molnet Shell använder en öppen websocket att skicka in-/ utdata till webbläsaren. FireFox har förinställda principer som kan stänga websocket tidigt orsakar timeout för tidigt i molnet Shell.
 - **Lösning**: öppna FireFox och gå till ”om: config” i rutan URL. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Lagring dialogruta - fel: 403 RequestDisallowedByPolicy
-- **Information om**: när du skapar ett lagringskonto via molnet Shell, är det misslyckas på grund av en Azure-princip placeras av din administratör. Felmeddelande innehåller:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Information om**: när du skapar ett lagringskonto via molnet Shell, är det misslyckas på grund av en Azure-princip placeras av din administratör. Felmeddelande innehåller: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure principen neka lagring skapas.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Lagring dialogruta - fel: 400 DisallowedOperation
@@ -42,7 +42,7 @@ Kända lösningar på problem i Azure Cloud Shell inkluderar:
  - **Information om**: molnet Shell kräver möjlighet att upprätta en websocket-anslutning till molnet Shell-infrastruktur.
  - **Lösning**: Kontrollera att du har konfigurerat inställningarna för att aktivera skicka https-förfrågningar och websocket-begäranden till domäner på *. console.azure.com.
 
-## <a name="bash-resolutions"></a>Bash lösningar
+## <a name="bash-troubleshooting"></a>Bash felsökning
 
 ### <a name="cannot-run-az-login"></a>Det går inte att köra az inloggning
 
@@ -54,7 +54,7 @@ Kända lösningar på problem i Azure Cloud Shell inkluderar:
 - **Information om**: molnet Shell använder en behållare som värd för din miljö för shell, kör därför daemon är inte tillåtet.
 - **Lösning**: använda [docker-datorn](https://docs.docker.com/machine/overview/), som installeras som standard för att hantera behållare med docker från en fjärrvärd med Docker.
 
-## <a name="powershell-resolutions"></a>PowerShell-lösningar
+## <a name="powershell-troubleshooting"></a>Felsökning av PowerShell
 
 ### <a name="no-home-directory-persistence"></a>No $Home directory beständiga
 
@@ -71,15 +71,14 @@ Kända lösningar på problem i Azure Cloud Shell inkluderar:
 - **Information om**: om en användare startar en GUI-app, frågan inte returnerar. När en användare klonar en privat GitHub-repo-som är aktiverad för tvåfaktorsautentisering, till exempel visas en dialogruta för att slutföra två faktorautentisering.  
 - **Lösning**: Stäng och öppna gränssnittet.
 
-
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online går inte att öppna hjälpsidan
 
-- **Information om**: om en användare anger `Get-Help Find-Module -online`, något som ser ett felmeddelande visas:`Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
+- **Information om**: om en användare anger `Get-Help Find-Module -online`, något som ser ett felmeddelande visas: `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
 - **Lösning**: Kopiera webbadressen och öppna den manuellt i din webbläsare.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Felsökning av fjärrhantering av virtuella Azure-datorer
 
-- **Information om**: på grund av Windows-brandväggen standardinställningarna för WinRM kan användaren se följande fel:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Information om**: på grund av Windows-brandväggen standardinställningarna för WinRM kan användaren se följande fel: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Lösning**: se till att den virtuella datorn körs. Du kan köra `Get-AzureRmVM -Status` ta reda på VM-statusen.  Lägg sedan till en ny brandväggsregel på fjärranslutna VM att tillåta WinRM anslutningar från alla undernät, t.ex.
 
  ``` Powershell
@@ -93,7 +92,59 @@ Kända lösningar på problem i Azure Cloud Shell inkluderar:
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
 
-### <a name="dir-caches-the-result-in-azure-drive"></a>`dir`cachelagrar resultatet i Azure-enhet
+### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` cachelagrar resultatet i Azure-enhet
 
 - **Information om**: resultatet av `dir` cachelagras i Azure-enheten.
 - **Lösning**: när du skapar eller ta bort en resurs i vyn Azure enhet kör `dir -force` att uppdatera.
+
+## <a name="general-limitations"></a>Allmänna begränsningar
+Azure Cloud Shell har följande kända begränsningar:
+
+### <a name="system-state-and-persistence"></a>Systemtillstånd och beständiga
+
+Den dator som innehåller molnet Shell sessionen är temporär och den återanvänds när sessionen har varit inaktiv i 20 minuter. Molnet Shell kräver en Azure-filresurs som ska monteras. Därför kan måste din prenumeration kunna ställa in lagringsresurser för att få åtkomst till molnet Shell. Andra överväganden omfattar:
+
+* Med monterade storage kan endast ändringar i den `clouddrive` directory sparas. I Bash, din `$Home` directory sparas också.
+* Azure-filresurser kan monteras endast från din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * Kör i Bash, `env` att hitta din region som `ACC_LOCATION`.
+* Azure Files stöder endast lokalt redundant lagring och konton för geo-redundant lagring.
+
+### <a name="browser-support"></a>Stöd för webbläsare
+
+Molnet Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox och Apple Safari. Safari i privat läge stöds inte.
+
+### <a name="copy-and-paste"></a>Kopiera och klistra in
+
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Endast en shell för en viss användare kan vara aktiv
+
+Användare kan endast starta en typ av shell samtidigt, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell körs samtidigt. Växla mellan Bash eller PowerShell orsaker molnet Shell måste startas om, vilket avslutar befintliga sessioner.
+
+### <a name="usage-limits"></a>Användningsgränser
+
+Moln-gränssnittet är avsedd för interaktiva användningsfall. Därför kan avslutas alla icke-interaktiv tidskrävande sessioner utan varning.
+
+## <a name="bash-limitations"></a>Bash-begränsningar
+
+### <a name="user-permissions"></a>Användarbehörigheter
+
+Behörigheterna anges som en vanlig användare utan åtkomst till sudo. En installation utanför din `$Home` directory sparas inte.
+
+### <a name="editing-bashrc"></a>Redigera .bashrc
+
+Vara försiktig när du redigerar .bashrc, gör det kan orsaka oväntade fel i moln Shell.
+
+## <a name="powershell-limitations"></a>PowerShell-begränsningar
+
+### <a name="slow-startup-time"></a>Långsam starten
+
+PowerShell Azure Cloud Shell (förhandsversion) kan ta upp till 60 sekunder att initiera under förhandsgranskningen.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure enhet:
+
+Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna i mappen C:\Users som standard. 
+
+### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
+
+Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Login-AzureRMAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.

@@ -1,193 +1,218 @@
 ---
-title: "Skapa ett virtuellt nätverk - Azure CLI | Microsoft Docs"
-description: "Lär dig hur du skapar ett virtuellt nätverk med Azure CLI."
+title: "Skapa ett virtuellt Azure-nätverk med flera undernät - Azure CLI | Microsoft Docs"
+description: "Lär dig hur du skapar ett virtuellt nätverk med flera undernät med hjälp av Azure CLI."
 services: virtual-network
 documentationcenter: 
 author: jimdial
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 03/01/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: 
+ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
+# <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med flera undernät med hjälp av Azure CLI
 
-[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser kommunicera med Internet och privat med varandra. Skapa flera undernät i ett virtuellt nätverk kan du segmentera nätverket så att du kan filtrera eller kontrollera trafikflödet mellan undernät. I den här artikeln lär du dig hur du:
 
-Azure har två distributionsmodeller: Azure Resource Manager och klassisk. Microsoft rekommenderar att skapa resurser med Resource Manager-distributionsmodellen. Mer information om skillnaderna mellan de två modellerna finns i artikeln [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Förstå Azure-distributionsmodellerna).
+> [!div class="checklist"]
+> * Skapa ett virtuellt nätverk
+> * Skapa ett undernät
+> * Testa nätverkskommunikation mellan virtuella datorer
 
-Du kan också skapa ett virtuellt nätverk via Resource Manager med andra verktyg eller skapa ett virtuellt nätverk med den klassiska distributionsmodellen genom att välja ett annat alternativ från listan nedan:
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-> * [CLI](virtual-networks-create-vnet-arm-cli.md)
-> * [Mall](virtual-networks-create-vnet-arm-template-click.md)
-> * [Portal (klassisk)](virtual-networks-create-vnet-classic-pportal.md)
-> * [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI (klassisk)](virtual-networks-create-vnet-classic-cli.md)
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Om du vill skapa ett virtuellt nätverk med Azure CLI, gör du följande:
+Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
-1. Installera och konfigurera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
+```
 
-2. Skapa en resursgrupp för ditt virtuella nätverk med hjälp av den [az gruppen skapa](/cli/azure/group#az_group_create) kommandot med de `--name` och `--location` argument:
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork* med adressprefixet *10.0.0.0/16*. Kommandot skapar ett undernät med namnet *offentliga*, med adressprefixet *10.0.0.0/24*.
 
-    ```azurecli
-    az group create --name TestRG --location centralus
-    ```
+```azurecli-interactive 
+az network vnet create \
+  --name myVirtualNetwork \
+  --resource-group myResourceGroup \
+  --address-prefixes 10.0.0.0/16 \
+  --subnet-name Public \
+  --subnet-prefix 10.0.0.0/24
+```
 
-3. Skapa ett VNet och ett undernät:
+Eftersom en plats inte har angetts i det föregående kommandot, Azure skapar det virtuella nätverket på samma plats som den *myResourceGroup* resursgruppen finns i. Den **-adressprefix** och **undernätsprefixet** anges i CIDR-notering. Det angivna adressprefixet innehåller 10.0.0.0-10.0.255.254 för IP-adresser. Prefix som har angetts för undernätet måste finnas inom adressprefixet som definierats för det virtuella nätverket. Azure DHCP tilldelas IP-adresser från ett undernät adressprefix resurser har distribuerats i ett undernät. Azure endast tilldelas adresser 10.0.0.4-10.0.0.254 resurser har distribuerats inom den **offentliga** undernät, eftersom Azure reserverar de första fyra adresserna (10.0.0.0-10.0.0.3 för undernät i det här exemplet) och sist adressen ( 10.0.0.255 för undernät i det här exemplet) i varje undernät.
 
-    ```azurecli
-    az network vnet create \
-    --name TestVNet \
-    --resource-group TestRG \
-    --location centralus \
-    --address-prefix 192.168.0.0/16 \
-    --subnet-name FrontEnd \
-    --subnet-prefix 192.168.1.0/24
-    ```
+## <a name="create-a-subnet"></a>Skapa ett undernät
 
-    Förväntad utdata:
+Skapa ett undernät med [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). I följande exempel skapas ett undernät med namnet *privata* inom den *myVirtualNetwork* virtuellt nätverk med adressprefixet *10.0.1.0/24*. Adressprefixet måste vara inom adressprefixet som definierats för det virtuella nätverket och får inte överlappa adressprefixet med andra undernät i det virtuella nätverket.
+
+```azurecli-interactive 
+az network vnet subnet create \
+  --vnet-name myVirtualNetwork \
+  --resource-group myResourceGroup \
+  --name Private \
+  --address-prefix 10.0.1.0/24
+```
+
+Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderar vi att du noggrant bekanta dig med adressutrymme [överväganden](virtual-network-manage-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
+
+## <a name="test-network-communication"></a>Testa nätverkskommunikation
+
+Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser kommunicera med Internet och privat med varandra. En typ av resurs som du kan distribuera till ett virtuellt nätverk är en virtuell dator. Skapa två virtuella datorer i det virtuella nätverket så att du kan testa nätverkskommunikation mellan dem och Internet i ett senare steg.
+
+### <a name="create-virtual-machines"></a>Skapa virtuella datorer
+
+Skapa en virtuell dator med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVmWeb* i den *offentliga* undernät. Den `--no-wait` parametern aktiverar Azure för att köra kommandot i bakgrunden så du kan fortsätta med nästa kommando. Ett lösenord används för att förenkla den här kursen. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran för att slutföra stegen. Mer information om SSH-agentvidarebefordran finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
+
+```azurecli-interactive
+adminPassword="<replace-with-your-password>"
+
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVmWeb \
+  --image UbuntuLTS \
+  --vnet-name myVirtualNetwork \
+  --subnet Public \
+  --admin-username azureuser \
+  --admin-password $adminPassword \
+  --no-wait
+```
+
+Azure tilldelas automatiskt 10.0.0.4 som privata IP-adressen för den virtuella datorn, eftersom 10.0.0.4 är den första tillgängliga IP-adressen i den *offentliga* undernät. 
+
+Skapa en virtuell dator i den *privata* undernät.
+
+```azurecli-interactive 
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVmMgmt \
+  --image UbuntuLTS \
+  --vnet-name myVirtualNetwork \
+  --subnet Private \
+  --admin-username azureuser \
+  --admin-password $adminPassword
+```
+Det tar några minuter att skapa den virtuella datorn. När du har skapat den virtuella datorn returnerar Azure CLI-utdata liknar följande exempel: 
+
+```azurecli 
+{
+  "fqdns": "",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmMgmt",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.1.4",
+  "publicIpAddress": "13.90.242.231",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+Exempel på utdata visas i som den **privateIpAddress** är *10.0.1.4*. Azure skapas ett [nätverksgränssnittet](virtual-network-network-interface.md), kopplade till den virtuella datorn, och tilldelas nätverksgränssnittet en privat IP-adress och en **macAddress**. Azure DHCP automatiskt tilldelas 10.0.1.4 nätverksgränssnittet eftersom det är den första tillgängliga IP-adressen i den *privata* undernät. De privata IP- och MAC-adresserna fortsätter vara tilldelade till nätverksgränssnittet tills nätverksgränssnittet tas bort. 
+
+Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från Internet i ett senare steg. Även om en virtuell dator inte är nödvändigt att ha en offentlig IP-adress som tilldelats, tilldelar Azure en offentlig IP-adress till varje virtuell dator som du skapar som standard. För att kommunicera från Internet till en virtuell dator, måste en offentlig IP-adress tilldelas till den virtuella datorn. Alla virtuella datorer kan kommunicera utgående med Internet, oavsett om en offentlig IP-adress har tilldelats den virtuella datorn. Mer information om utgående Internet-anslutningar i Azure finns [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Kommunikation mellan virtuella datorer och internet
+
+Använd följande kommando för att skapa en SSH-session med den *myVmMgmt* virtuella datorn. Ersätt `<publicIpAddress>` med offentliga IP-adressen för den virtuella datorn. I föregående exempel är den offentliga IP-adressen är *13.90.242.231*. När du uppmanas att ange ett lösenord, ange lösenordet du angav i [skapa virtuella datorer](#create-virtual-machines).
+
+```bash 
+ssh azureuser@<publicIpAddress>
+```
+
+Av säkerhetsskäl är det vanligt att begränsa antalet virtuella datorer som via fjärranslutning kan anslutas till i ett virtuellt nätverk. I den här självstudiekursen den *myVmMgmt* virtuella används för att hantera den *myVmWeb* virtuell dator i det virtuella nätverket. Använd följande kommando för att SSH till den *myVmWeb* virtuell dator från den *myVmMgmt* virtuell dator:
+
+```bash 
+ssh azureuser@myVmWeb
+```
+
+Att kommunicera med den *myVmMgmt* virtuell dator från den *myVmWeb* virtuella datorn, anger du följande kommando från en kommandotolk:
+
+```
+ping -c 4 myvmmgmt
+```
+
+Utdata som liknar följande exempel utdata visas:
     
-    ```json
-    {
-        "newVNet": {
-            "addressSpace": {
-            "addressPrefixes": [
-            "192.168.0.0/16"
-            ]
-            },
-            "dhcpOptions": {
-            "dnsServers": []
-            },
-            "provisioningState": "Succeeded",
-            "resourceGuid": "<guid>",
-            "subnets": [
-            {
-                "etag": "W/\"<guid>\"",
-                "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                "name": "FrontEnd",
-                "properties": {
-                "addressPrefix": "192.168.1.0/24",
-                "provisioningState": "Succeeded"
-                },
-                "resourceGroup": "TestRG"
-            }
-            ]
-            }
-    }
-    ```
+```
+PING myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net (10.0.1.4) 56(84) bytes of data.
+64 bytes from 10.0.1.4: icmp_seq=1 ttl=64 time=1.45 ms
+64 bytes from 10.0.1.4: icmp_seq=2 ttl=64 time=0.628 ms
+64 bytes from 10.0.1.4: icmp_seq=3 ttl=64 time=0.529 ms
+64 bytes from 10.0.1.4: icmp_seq=4 ttl=64 time=0.674 ms
 
-    Parametrar som används:
+--- myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3029ms
+rtt min/avg/max/mdev = 0.529/0.821/1.453/0.368 ms
+```
+      
+Du kan se som adressen till den *myVmMgmt* virtuella datorn är 10.0.1.4. 10.0.1.4 var den första tillgängliga IP-adressen i adressintervallet i *privata* undernät som du har distribuerat den *myVmMgmt* virtuella datorn till i föregående steg.  Du ser att det fullständigt kvalificerade domännamnet för den virtuella datorn är *myvmmgmt.hxehizax3z1udjnrx1r4gr30pg.bx.internal.cloudapp.net*. Även om den *hxehizax3z1udjnrx1r4gr30pg* del av domännamnet är olika för den virtuella datorn, återstående delar av namnet på en domän är samma. Som standard använder alla virtuella Azure-datorer standard Azure DNS-tjänsten. Alla virtuella datorer i ett virtuellt nätverk kan matcha namnen på alla andra virtuella datorer i samma virtuella nätverk med Azures standard DNS-tjänsten. Du kan använda DNS-servern eller den privata förmågan för Azure DNS-tjänsten istället för att använda Azures standard DNS-tjänsten. Mer information finns i [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) eller [med hjälp av Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-    - `--name TestVNet`: Namnet på VNet som ska skapas.
-    - `--resource-group TestRG`: # Resursgruppens namn som styr resursen. 
-    - `--location centralus`: Den plats där du vill distribuera.
-    - `--address-prefix 192.168.0.0/16`: Adressprefixet och block.  
-    - `--subnet-name FrontEnd`: Namnet på undernätet.
-    - `--subnet-prefix 192.168.1.0/24`: Adressprefixet och block.
+Använd följande kommandon för att installera den nginx-servern på den *myVmWeb* virtuell dator:
 
-    Om du vill visa grundläggande information om att använda i nästa kommando, kan du fråga VNet med hjälp av en [frågefilter](/cli/azure/query-az-cli2):
+```bash 
+# Update package source
+sudo apt-get -y update
 
-    ```azurecli
-    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
-    ```
+# Install NGINX
+sudo apt-get -y install nginx
+```
 
-    Vilket resulterar i följande utdata:
+När nginx har installerats kan du stänga den *myVmWeb* SSH-session, vilket lämnar du i Kommandotolken för den *myVmMgmt* virtuella datorn. Ange följande kommando för att hämta nginx välkomstskärmen från den *myVmWeb* virtuella datorn.
 
-        Where      Name      Group
+```bash
+curl myVmWeb
+```
 
-        centralus  TestVNet  TestRG
+Välkomstskärmen nginx returneras.
 
-4. Skapa ett undernät:
+Stäng SSH-session med den *myVmMgmt* virtuella datorn.
 
-    ```azurecli
-    az network vnet subnet create \
-    --address-prefix 192.168.2.0/24 \
-    --name BackEnd \
-    --resource-group TestRG \
-    --vnet-name TestVNet
-    ```
+När Azure skapade den *myVmWeb* virtuell dator, en offentlig IP-adress med namnet *myVmWebPublicIP* också skapades och tilldelade till den virtuella datorn. Hämta den offentliga adressen Azure tilldelade med [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show).
 
-    Förväntad utdata:
+```azurecli-interactive
+az network public-ip show \
+  --resource-group myResourceGroup \
+  --name myVmWebPublicIP \
+  --query ipAddress
+```
 
-    ```json
-    {
-    "addressPrefix": "192.168.2.0/24",
-    "etag": "W/\"<guid> \"",
-    "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-    "ipConfigurations": null,
-    "name": "BackEnd",
-    "networkSecurityGroup": null,
-    "provisioningState": "Succeeded",
-    "resourceGroup": "TestRG",
-    "resourceNavigationLinks": null,
-    "routeTable": null
-    }
-    ```
+Från din dator, ange följande kommando ersätter `<publicIpAddress>` med adressen som returneras från det föregående kommandot:
 
-    Parametrar som används:
+```bash
+curl <publicIpAddress>
+```
 
-    - `--address-prefix 192.168.2.0/24`: Undernät CIDR-block.
-    - `--name BackEnd`: Namnet på det nya undernätet.
-    - `--resource-group TestRG`: Resursgruppen.
-    - `--vnet-name TestVNet`: Namnet på det ägande VNet.
+Det går inte att försöket att curl nginx välkomstskärmen från din dator. Försöket misslyckas eftersom när de virtuella datorerna har distribuerats Azure skapas en nätverkssäkerhetsgrupp för varje virtuell dator som standard. 
 
-5. Fråga om egenskaperna för det nya VNet:
+En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Nätverkssäkerhetsgruppen standard nekar all inkommande trafik från Internet via alla portar för Linux virtuella datorer måste acceptera TCP-port 22 (SSH). Därför kan som standard, du kan också skapa en SSH-session direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 22 öppen på en webbserver. Eftersom den `curl` kommandot kommunicerar via port 80, kommunikationen misslyckas från Internet eftersom det finns ingen regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
 
-    ```azurecli
-    az network vnet show \
-    -g TestRG \
-    -n TestVNet \
-    --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
-    -o table
-    ```
+## <a name="clean-up-resources"></a>Rensa resurser
 
-    Förväntad utdata:
+När du inte längre behöver använda [ta bort grupp az](/cli/azure/group#az_group_delete) att ta bort resursgruppen och alla resurser som den innehåller.
 
-        Name      Where      Group    Status       SubnetCount
-
-        TestVNet  centralus  TestRG   Succeeded              2
-
-6. Fråga om egenskaperna undernät:
-
-    ```azurecli
-    az network vnet subnet list \
-    -g TestRG \
-    --vnet-name testvnet \
-    --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
-    -o table
-    ```
-
-    Förväntad utdata:
-
-        Name      CIDR            Status
-
-        FrontEnd  192.168.1.0/24  Succeeded
-        BackEnd   192.168.2.0/24  Succeeded
+```azurecli-interactive 
+az group delete --name myResourceGroup --yes
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du ansluter:
+I kursen får du har lärt dig hur du distribuerar ett virtuellt nätverk med flera undernät. Du också lära dig att när du skapar en virtuell Linux-dator Azure skapar ett nätverksgränssnitt som den kopplas till den virtuella datorn och skapar en nätverkssäkerhetsgrupp som endast tillåter trafik via port 22, från Internet. Gå vidare till nästa kurs att lära dig att filtrera trafik till undernät i stället för till enskilda virtuella datorer.
 
-- En virtuell dator (VM) till ett virtuellt nätverk genom att läsa den [skapa ett Linux VM](../virtual-machines/linux/quick-create-cli.md) artikel. I stället för att skapa ett virtuellt nätverk och undernät i stegen i artikeln kan du ansluta en virtuell dator till ett befintligt virtuellt nätverk och undernät.
-- Det virtuella nätverket till andra virtuella nätverk genom att läsa artikeln [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) (Ansluta virtuella nätverk).
-- Det virtuella nätverket till ett lokalt nätverk med hjälp av ett virtuellt privat nätverk (VPN) för plats till plats eller en ExpressRoute-krets. Lär dig hur genom att läsa den [ansluta ett virtuellt nätverk till ett lokalt nätverk med hjälp av en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) och [länka ett VNet till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+> [!div class="nextstepaction"]
+> [Filtrera trafik till undernät](./virtual-networks-create-nsg-arm-cli.md)

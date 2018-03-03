@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
@@ -34,6 +34,19 @@ Azure migrera använder den [Tjänstkarta](../operations-management-suite/operat
 Om du vill använda beroende visualiseringen måste hämta och installera agenter på varje lokal dator som du vill analysera.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Behöver jag betala för den?
+
+Azure Migrate är tillgänglig utan extra kostnad. Användning av beroende visualiseringen funktionerna i Azure migrera kräver Tjänstkartan. Vid skapandet av ett projekt för Azure migrera skapas Azure migrera automatiskt en ny logganalys-arbetsyta för din räkning.
+
+> [!NOTE]
+> Beroende visualiseringen funktionen använder Tjänstkarta via en logganalys-arbetsytan. Eftersom 28 februari 2018 är med meddelande om Azure migrera allmän tillgänglighet funktionen nu tillgänglig utan extra kostnad. Du behöver skapa ett nytt projekt att använda arbetsytan ledigt användning. Befintliga arbetsytor innan allmänna availaibility är fortfarande chargable därför rekommenderar vi att du flyttar till ett nytt projekt.
+
+1. Användning av några lösningar än Tjänstkarta i logganalys-arbetsytan kommer avgifter standard logganalys. 
+2. För att stödja Migreringsscenarier utan extra kostnad kommer Tjänstkarta lösningen inga avgifter för de första 180 dagarna från skapandet av Azure migrera-projektet som standard gäller.
+3. På arbetsytan som skapats som en del av projektet har skapats, kommer vara fria för användning.
+
+Använd ID och nyckeln som anges av-projektet på sidan Installera agenten steg när du registrerar agenter till arbetsytan. Du kan inte använda en befintlig arbetsyta och koppla den till Azure migrera projektet.
+
+När projektet Azure migrera tas bort raderas inte arbetsytan tillsammans med den. Efter att projektet, Tjänstkarta användning inte ledigt och varje nod debiteras enligt betald nivå i logganalys-arbetsytan.
 
 Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

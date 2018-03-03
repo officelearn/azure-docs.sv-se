@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet
 ## <a name="overview"></a>Översikt
@@ -135,7 +135,7 @@ Du kan ange IP-adresser som får publicera video i den här kanalen. Tillåtna I
 
 Om inga IP-adresser har angetts och det finns inga Regeldefinitionen tillåts ingen IP-adress. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
-### <a name="channel-preview"></a>Kanal preview
+### <a name="channel-preview"></a>Förhandsgranskning av kanal
 #### <a name="preview-urls"></a>URL: er för förhandsgranskning
 Kanaler ange förhandsgranskningsslutpunkten (förhandsgranskning URL) som används för att förhandsgranska och verifiera strömmen innan ytterligare bearbetning och leverans.
 
@@ -171,15 +171,15 @@ När du stoppar och ta bort programmet kan användarna strömma ditt arkiverade 
 ## <a id="states"></a>Kanal tillstånd och fakturering
 Möjliga värden för det aktuella tillståndet för en kanal är:
 
-* **Stoppats**: Detta är inledningsvis i kanalen när skapandet. Kanal-egenskaper kan uppdateras men strömning tillåts inte i det här tillståndet.
+* **Stoppats**: Detta är inledningsvis i kanalen när skapandet. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
 * **Starta**: kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar, kanalen återgår till den **stoppad** tillstånd.
 * **Kör**: kanalen kan bearbeta live dataströmmar.
 * **Stoppa**: kanalen har stoppats. Inga uppdateringar eller strömning tillåts i det här tillståndet.
 * **Ta bort**: kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
 
-Följande tabell visar hur kanal anger mappning till fakturerings-läge.
+Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 
-| Kanaltillstånd | Portalen UI-indikatorer | Fakturerad? |
+| Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
 | --- | --- | --- | --- |
 | **Starta** |**Starta** |Nej (övergångsläge) |
 | **Kör** |**Redo** (inget program som körs)<p><p>eller<p>**Strömning** (minst ett aktivt program) |Ja |
@@ -193,7 +193,7 @@ Följande tabell visar standarder som stöds för stängd textning och ad infogn
 | --- | --- |
 | CEA 708 och EIA 608 (708/608) |CEA 708 och EIA 608 är textning standarder för USA och Kanada.<p><p>För närvarande stöds textning endast om transporteras i den kodade Indataströmmen. Du måste använda en aktiva mediekodare som kan infoga 608 eller 708 beskrivningar i kodad strömmen som skickades till Media Services. Media Services levererar innehåll med infogade etiketter till dina användare. |
 | TTML i .ismt (Smooth Streaming textspår) |Media Services dynamisk paketering gör det möjligt för dina klienter att strömma innehåll i något av följande format: DASH, HLS eller Smooth Streaming. Om du vill mata in fragmenterad MP4 (Smooth Streaming) med etiketter i .ismt (Smooth Streaming textspår) du kan skicka dataströmmen till endast Smooth Streaming-klienter. |
-| SCTE 35 |SCTE 35 är ett digitalt signaling system som används för att spola reklam infogning. Underordnade mottagarna att signalen splice reklam i dataströmmen för den angivna tiden. SCTE 35 måste skickas som ett null-optimerade spår i Indataströmmen.<p><p>För närvarande endast stöds Indataströmmen formatera som utför ad signaler fragmenterad MP4 (Smooth Streaming). Det går endast att utdata format är också Smooth Streaming. |
+| SCTE-35 |SCTE 35 är ett digitalt signaling system som används för att spola reklam infogning. Underordnade mottagarna att signalen splice reklam i dataströmmen för den angivna tiden. SCTE 35 måste skickas som ett null-optimerade spår i Indataströmmen.<p><p>För närvarande endast stöds Indataströmmen formatera som utför ad signaler fragmenterad MP4 (Smooth Streaming). Det går endast att utdata format är också Smooth Streaming. |
 
 ## <a id="considerations"></a>Överväganden
 När du använder en lokal livekodare för att skicka en dataström med multibithastighet till en kanal, gäller följande begränsningar:
@@ -209,6 +209,10 @@ När du använder en lokal livekodare för att skicka en dataström med multibit
 Här följer andra överväganden som rör arbeta med kanaler och relaterade komponenter:
 
 * Varje gång du konfigurera om livekodaren anropa den **återställa** metod på kanalen. Du måste stoppa programmet innan du återställer kanalen. Starta om programmet när du har återställt kanalen.
+
+  > [!NOTE]
+  > När du startar om programmet, måste du koppla den till en ny tillgång och skapa en ny. 
+  
 * En kanal kan stoppas endast när den är i den **kör** tillstånd och alla program i kanalen har stoppats.
 * Som standard kan du lägga till bara fem kanaler Media Services-kontot. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 * Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [tillstånd och fakturering kanaler](media-services-live-streaming-with-onprem-encoders.md#states) avsnitt.

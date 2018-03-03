@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Distribuera och anropa anpassade API: er från logik app arbetsflöden
 
@@ -35,17 +35,17 @@ Innan du kan anropa ditt anpassade API från en logikapp, kan du distribuera din
 
 2. I appmenyn som öppnas under **API**, Välj **API-definition**. Ange den **plats för API-definition** till URL: en för OpenAPI swagger.json-filen.
 
-   Webbadressen visas vanligtvis i det här formatet:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Webbadressen visas vanligtvis i det här formatet: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Länka till OpenAPI fil för din anpassade API](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Under **API**, Välj **CORS**. Skapa princip för CORS för **tillåtna ursprung** till  **'*'** (Tillåt alla).
+3. Under **API**, Välj **CORS**. Skapa princip för CORS för **tillåtna ursprung** till **' *'** (Tillåt alla).
 
    Den här inställningen tillåter begäranden från logik App Designer.
 
    ![Tillåt begäranden från logik App Designer för ditt anpassade API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Mer information finns i [skapa en Node.js RESTful-API](../app-service/app-service-web-tutorial-rest-api.md).
+Mer information finns i [värd för en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Anropa ditt anpassade API från logik app arbetsflöden
 

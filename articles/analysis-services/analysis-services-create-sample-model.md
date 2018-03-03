@@ -1,6 +1,6 @@
 ---
-title: "Skapa en tabellmodell prov för Azure Analysis Services-server | Microsoft Docs"
-description: "Lär dig hur du skapar en exempel-modell i Azure Analysis Services."
+title: "Lägg till en exempel-tabellmodell för Azure Analysis Services-server | Microsoft Docs"
+description: "Lär dig hur du lägger till en exempel-modell i Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Självstudier: Skapa en exempel-modell
+# <a name="tutorial-add-a-sample-model"></a>Självstudier: Lägga till en exempel-modell
 
-I denna självstudiekurs skapar du en exempel Adventure Works-modell. Exempel modellen är en fullständig version av de Adventure Works Internet försäljning (1200) datamodeller kursen. En exempel-modell är användbart för att testa modellen management, anslutning med verktyg och program och datafrågor modellen.
+I kursen får du lägga till en modell för Adventure Works exempel till servern. Exempel modellen är en fullständig version av de Adventure Works Internet försäljning (1200) datamodeller kursen. En exempel-modell är användbart för att testa modellen management, anslutning med verktyg och program och datafrågor modellen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

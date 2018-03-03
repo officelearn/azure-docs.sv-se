@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överför ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 > [!IMPORTANT]
 > 
-> För närvarande stöds inte prenumerationsöverföringar för en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. En lösning finns [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Överför ägarskapet för en Azure-prenumeration
 
@@ -49,7 +49,12 @@ ms.lasthandoff: 12/22/2017
    ![Fliken abonnemang för Azure-konto](./media/billing-subscription-transfer/image1.png)
 1. Ange mottagaren.
 
+   > [!IMPORTANT]
+   > 
+   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-what-is.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
+
    ![Överföra prenumerationen dialogrutan](./media/billing-subscription-transfer/image2.PNG)
+
 1. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
 
    ![E-post i prenumerationen överföring till mottagare](./media/billing-subscription-transfer/image3.png)
@@ -58,7 +63,7 @@ ms.lasthandoff: 12/22/2017
    ![Prenumerationen överföring webbsida](./media/billing-subscription-transfer/image4.png)
 
    ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
-1. Klar Prenumerationen överförs nu.
+1. Lyckades! Prenumerationen överförs nu.
 
 <a id="EA"></a>
 
@@ -80,27 +85,27 @@ Företagsadministratören kan överföra ägarskap för prenumerationer inom en 
 
 ## <a name="whats-supported"></a>Det här stöds:
 
-Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden och prenumeration typ som anges i följande tabell. För att överföra andra prenumerationer som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller stöder planer, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden och prenumeration typ som anges i följande tabell. För närvarande kan du överföra en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. En lösning finns [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md). Om du vill överföra andra prenumerationer som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller stöder planer, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Erbjudandets namn                                                                             | Erbjudandets nummer |
 |----------------------------------------------------------------------------------------|--------------|
-| [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Betala per användning utveckling och testning](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+| [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Betala per användning utveckling och testning](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\*[Via EA-portalen](#EA)
+\* [Via EA-portal](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
-### <a name="whoisaa"></a>Vem är kontoadministratör för prenumerationen?
+### <a name="whoisaa"></a> Vem är kontoadministratör för prenumerationen?
 
 Kontoadministratören är den person som registrerade sig för eller har köpt Azure-prenumerationen. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra den tjänstadministratör. Om du inte vet som kontoadministratör för en prenumeration, kan du använda följande steg för att ta reda på.
 
@@ -112,7 +117,7 @@ Kontoadministratören är den person som registrerade sig för eller har köpt A
 
 Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) principer som du har konfigurerat överför inte i olika kataloger. Dessutom [app registreringar](../active-directory//develop/active-directory-integrating-applications.md) och andra tjänster för klient-specifika inte överföra längs.
 
-### <a id="no-button"></a>Varför visas inte knappen ”överföra prenumerationen”?
+### <a id="no-button"></a> Varför visas inte knappen ”överföra prenumerationen”?
 
 Självbetjäning prenumerationsöverföring är tyvärr inte tillgänglig för ditt erbjudande eller land. Att överföra din prenumeration, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

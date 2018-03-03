@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
 
@@ -89,7 +89,7 @@ Vi rekommenderar att för att testa redundans du väljer ett nätverk som är is
 
 Även om vi rekommenderar att du använder ett testnätverk som är separat från produktionsnätverket, om du vill testa en disaster recovery detaljerat produktionsnätverket, Tänk på följande: 
 
-- Kontrollera att den primära virtuella datorn är avstängd när du kör redundanstestet. Otherewise det kommer att två virtuella datorer med samma identitet som körs i samma nätverk på samma gång. Detta kan leda till oväntade konsekvenser.
+- Kontrollera att den primära virtuella datorn är avstängd när du kör redundanstestet. Annars kommer det att två virtuella datorer med samma identitet som körs i samma nätverk på samma gång. Detta kan leda till oväntade konsekvenser.
 - Alla ändringar av virtuella datorer som skapades för redundanstestningen försvinner när du rensar bort växling vid fel. Dessa ändringar replikeras inte till den primära virtuella datorn.
 - Testa i produktionsmiljön leder till ett driftstopp för dina produktionsprogram. Användare får inte använda appar som körs på virtuella datorer när du testar redundansen pågår.  
 

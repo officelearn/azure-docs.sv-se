@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure Media Analytics
 ## <a name="overview"></a>Översikt
 Den **Azure Media rörelsedetektor** medieprocessor (HP) kan du effektivt identifiera avsnitt av intresse i ett annat långa och primärdomänkontrollant video. Rörelseidentifiering kan användas på statisk övervakningskameror för att identifiera avsnitt av videon där rörelse inträffar. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den omgivande region där händelsen inträffade.
 
-Riktad mot säkerhet video feeds kan den här tekniken kategorisera rörelse i relevanta händelser och falska positiva identifieringar som skuggor och andra ändringar. På så sätt kan du skapa säkerhetsaviseringar från kameran feeds utan som skräppost med oändlig irrelevanta händelser när kunna extrahera stund intressanta från extremt långa övervakning videor.
+Riktad mot säkerhet video feeds kan den här tekniken kategorisera rörelse i relevanta händelser och falska positiva identifieringar som skuggor och andra ändringar. På så sätt kan du skapa säkerhetsaviseringar från kameran feeds utan som skräppost med oändlig irrelevanta händelser när kunna extrahera stund intressanta från lång övervakning videor.
 
 Den **Azure Media rörelsedetektor** MP är för närvarande under förhandsgranskning.
 
@@ -40,13 +40,15 @@ Du kan använda följande parametrar:
 
 | Namn | Alternativ | Beskrivning | Standard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Sträng: låg, 'medium', 'hög' |Anger Känslighetsnivån på vilka rörelser rapporteras. Justera det här alternativet om du vill justera antalet falska positiva identifieringar. |-medium' |
-| frameSamplingValue |Positivt heltal |Anger frekvensen vid vilken algoritm körs. 1 är lika med varje ram, 2: var 2 ram och så vidare. |1 |
+| sensitivityLevel |Sträng: låg, 'medium', 'hög' |Anger hur känsliga på vilka rörelser rapporteras. Justera det här alternativet om du vill justera antalet falska positiva identifieringar. |'medium' |
+| frameSamplingValue |Positivt heltal |Anger frekvensen vid vilken algoritm körs. 1 är lika med varje ram, 2: alla andra ramen och så vidare. |1 |
 | detectLightChange |Booleskt: 'true', 'false' |Anger om lätta ändringar rapporteras i resultaten |'False' |
-| mergeTimeThreshold |Tid för xs:: Mm: ss<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser kombineras och rapporteras som 1. |00:00:00 |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser är kombineras och rapporteras som 1. |00:00:00 |
 | detectionZones |En matris med identifiering zoner:<br/>-Identifiering zonen är en matris med 3 eller fler punkter<br/>-Platsen är en x och y koordinaten från 0 till 1. |Beskrivs i listan över identifiering av polygona zoner som ska användas.<br/>Resultatet rapporteras med zonerna som ett ID med först en som ”id”: 0 |Zon, som omfattar hela ramen. |
 
 ### <a name="json-example"></a>JSON-exempel
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Du kan använda följande parametrar:
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Videofiler detektor utdata
-Ett jobb för identifiering av rörelse returneras en JSON-fil i utdatatillgången som beskriver rörelse aviseringar och deras kategorier i videon. Filen innehåller information om starttid och varaktighet rörelse upptäcktes i videon.
+Ett jobb för identifiering av rörelse returnerar en JSON-fil i utdatatillgången som beskriver rörelse aviseringar och deras kategorier i videon. Filen innehåller information om starttid och varaktighet rörelse upptäcktes i videon.
 
 Rörelse detektor API innehåller indikatorer när det finns objekt i rörelse i en fast bakgrund video (till exempel övervakning av video). Den rörelsedetektor utbildade att minska falsklarm, till exempel ljus och shadow ändringar. Aktuella begränsningar av algoritmerna är natt vision videor, delvis transparenta objekt och små objekt.
 
@@ -107,8 +109,9 @@ I följande tabell beskrivs element i utdata-JSON-fil.
 | Hakparenteserna] |Varje hakparentes representerar ett intervall i händelsen. Tomma parenteser för intervallet innebär att inga rörelse upptäcktes. |
 | Platser |Den nya posten under händelser visar platsen där rörelse inträffade. Det här är mer specifik än identifiera zoner. |
 
-Följande är exempel på en JSON-utdata
+JSON-exemplet nedan visar utdata:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Följande är exempel på en JSON-utdata
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Begränsningar
 * Inkommande video format som stöds omfattar MP4, MOV och WMV.
 * Rörelseidentifiering är optimerad för stilla bakgrund videor. Algoritmen fokuserar på att minska falsklarm, till exempel ljusförändringar och skuggor.
@@ -164,33 +167,36 @@ Följande program visar hur du:
 1. Skapa en tillgång och överför en mediefil till tillgången.
 2. Skapa ett jobb med en aktivitet för identifiering av video rörelse baserat på en konfigurationsfil som innehåller följande json-förinställda: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Hämta JSON utdatafilerna. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -199,7 +205,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-```
+```csharp
 
 using System;
 using System.Configuration;
@@ -377,7 +383,7 @@ namespace VideoMotionDetection
 ## <a name="related-links"></a>Relaterade länkar
 [Azure Media Services rörelsedetektor blogg](https://azure.microsoft.com/blog/motion-detector-update/)
 
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

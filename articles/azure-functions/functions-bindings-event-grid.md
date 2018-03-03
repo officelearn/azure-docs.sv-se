@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Händelseutlösare rutnät för Azure Functions
 
@@ -148,8 +148,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON |Beskrivning|
 |---------|---------|----------------------|
-| **typ** | Krävs – måste vara inställd på `eventGridTrigger`. |
-| **riktning** | Krävs – måste vara inställd på `in`. |
+| **Typ** | Krävs – måste vara inställd på `eventGridTrigger`. |
+| **Riktning** | Krävs – måste vara inställd på `in`. |
 | **Namn** | Obligatoriskt - variabelnamnet som används i Funktionskoden för den parameter som tar emot informationen om händelsen. |
 
 ## <a name="usage"></a>Användning
@@ -318,7 +318,7 @@ Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [curl](http
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Den `functionName` parameter måste vara metodnamnet kan inte namnet som angetts i den `FunctionName` attribut. Därför, om du har flera funktioner i ett projekt, de måste ha unika metodnamn (inte alla namngivna `Run`) för lokal testning händelse rutnätet utlösare.
+Den `functionName` parametern måste vara namnet som angetts i den `FunctionName` attribut.
 
 Följande skärmbilderna visa radrubriker och begäran i Postman:
 
@@ -379,7 +379,7 @@ Skapa en händelse rutnätet prenumeration av den typ som du vill testa och ge d
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Den `functionName` parameter måste vara metodnamnet kan inte namnet som angetts i den `FunctionName` attribut. Därför, om du har flera funktioner i ett projekt, de måste ha unika metodnamn (inte alla namngivna `Run`) för lokal testning händelse rutnätet utlösare.
+Den `functionName` parametern måste vara namnet som angetts i den `FunctionName` attribut.
 
 Här är ett exempel som använder Azure CLI:
 

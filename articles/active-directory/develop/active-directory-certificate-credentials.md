@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering
 
-Azure Active Directory kan ett program att använda sina egna autentiseringsuppgifter för autentisering, till exempel i flödet för OAuth 2.0 klientens autentiseringsuppgifter Grant och On-Behalf-Of-flöde.
+Azure Active Directory kan ett program att använda sina egna autentiseringsuppgifter för autentisering, till exempel i flödet för OAuth 2.0 klientens autentiseringsuppgifter Grant ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) och On-Behalf-Of-flöde ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 En form av autentiseringsuppgifter som kan användas är en JSON Web Token(JWT) assertion signeras med ett certifikat som programmet äger.
 
 ## <a name="format-of-the-assertion"></a>Formatet på kontrollen
 Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON Web Token](https://jwt.io/) bibliotek på önskat språk. Informationen som token är:
 
-#### <a name="header"></a>Rubrik
+#### <a name="header"></a>Sidhuvud
 
 | Parameter |  Kommentar |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON
 
 | Parameter |  Kommentar |
 | --- | --- | --- |
-| `aud` | Målgrupp: Bör vara **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Målgrupp: Bör vara **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token** |
 | `exp` | Förfallodatum: det datum då token upphör att gälla. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
 | `iss` | Utgivare: bör vara client_id (program-Id för klient-tjänst) |
 | `jti` | GUID: JWT ID |

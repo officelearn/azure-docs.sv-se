@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexering mediefiler med Azure Media Indexer 2 förhandsgranskning
 ## <a name="overview"></a>Översikt
@@ -45,7 +45,7 @@ Ljud-eller
 ### <a name="output-files"></a>Utdatafiler
 En indexering jobb kan generera textning filer i följande format:  
 
-* **SAMISKA**
+* **SAMI**
 * **TTML**
 * **WebVTT**
 
@@ -56,6 +56,7 @@ Skapar en indexering när uppgiften med **Azure Media Indexer 2 Preview**, måst
 
 Följande JSON anger tillgängliga parametrar.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ Följande JSON anger tillgängliga parametrar.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Språk som stöds
 Azure Media Indexer 2 Preview stöder tal till text för följande språk (när du anger språknamnet i uppgiftskonfigurationen, Använd 4-teckenkod inom parentes som visas nedan):
@@ -96,20 +98,23 @@ Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
 2. Skapa ett jobb med en indexering uppgift baserat på en konfigurationsfil som innehåller följande json-förinställda:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Hämta utdatafilerna. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -118,7 +123,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
@@ -293,7 +298,7 @@ namespace IndexContent
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

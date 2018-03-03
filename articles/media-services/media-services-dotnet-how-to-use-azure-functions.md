@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du kommer igång med att skapa Azure-funktioner som 
 
 Om du vill utforska och distribuera Azure Functions som använder Azure Media Services kolla [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagringsplatsen innehåller exempel som använder Media Services för att visa arbetsflöden som rör vill föra in innehåll direkt från blob storage-kodning och skriva innehållet tillbaka till blob storage. Den innehåller också ett exempel på hur du övervakar jobbet meddelanden via WebHooks och köer i Azure. Du kan också utveckla dina funktioner baserat på exemplen i den [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) databasen. Om du vill distribuera funktionerna, trycker du på den **till Azure** knappen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 - Om du ska skapa Azure-funktioner som utför åtgärder på ditt konto i Azure Media Services (AMS) eller lyssna på händelser som skickats av Media Services, bör du skapa en AMS-konto som beskrivs [här](media-services-portal-create-account.md).
@@ -63,11 +63,11 @@ När funktionen appen har distribuerats, du kan hitta den bland **Apptjänster**
 2. Välj den **C#** språk och **databearbetning** scenario.
 3. Välj **BlobTrigger** mall. Den här funktionen utlöses när en blob har överförts till den **inkommande** behållare. Den **inkommande** namn har angetts i den **sökväg**, i nästa steg.
 
-    ![Filer](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![filer](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. När du har valt **BlobTrigger**, några fler kontroller visas på sidan.
 
-    ![Filer](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![filer](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Klicka på **Skapa**. 
 
@@ -75,9 +75,9 @@ När funktionen appen har distribuerats, du kan hitta den bland **Apptjänster**
 
 Din Azure-funktion är associerad med kod och andra filer som beskrivs i det här avsnittet. När du använder Azure-portalen för att skapa en funktion **function.json** och **run.csx** skapas automatiskt. Du måste lägga till eller ladda upp en **project.json** fil. Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
 
-![Filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>Function.JSON
+### <a name="functionjson"></a>function.json
 
 Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningsmiljön använder den här filen för att fastställa händelser att övervaka och hur du överför data till och returnera data från funktionen körning. Mer information finns i [Azure functions HTTP och webhook bindningar](../azure-functions/functions-reference.md#function-code).
 
@@ -86,7 +86,7 @@ Filen function.json definierar bindningarna som funktionen och andra konfigurati
 
 Ersätt innehållet i den befintliga filen function.json med följande kod:
 
-```
+```json
 {
   "bindings": [
     {
@@ -101,13 +101,13 @@ Ersätt innehållet i den befintliga filen function.json med följande kod:
 }
 ```
 
-### <a name="projectjson"></a>Project.JSON
+### <a name="projectjson"></a>project.json
 
 Filen project.json innehåller beroenden. Här är ett exempel på **project.json** fil som innehåller de nödvändiga .NET Azure Media Services-paketen från Nuget. Observera att versionsnumren ändra med de senaste uppdateringarna till paket, så att du bekräftar du de senaste versionerna. 
 
 Lägg till följande definition project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -123,7 +123,7 @@ Lägg till följande definition project.json.
 
 ```
     
-### <a name="runcsx"></a>Run.csx
+### <a name="runcsx"></a>run.csx
 
 Detta är C#-koden för din funktion.  Funktionen som anges nedan Övervakare en lagringsbehållare konto med namnet **inkommande** (som är vad som har angetts i sökvägen) för nya MP4-filer. När en fil har släppts till lagringsbehållare, kör funktionen blob-utlösare.
     
@@ -136,7 +136,7 @@ I verkligheten-scenario som du förmodligen vill spåra jobbförloppet och sedan
 
 Ersätt innehållet i den befintliga filen run.csx med följande kod: när du är klar definiera din funktion klickar du på **spara och kör**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"

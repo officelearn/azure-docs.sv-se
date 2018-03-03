@@ -3,16 +3,17 @@ title: "Azure Stack nätverk: Skillnader och överväganden"
 description: "Läs mer om skillnader och överväganden när du arbetar med nätverk i Azure-stacken."
 services: azure-stack
 keywords: 
-author: ScottNapolitan
-ms.author: victorh
-ms.date: 9/25/2017
+author: mattbriggs
+manager: femila
+ms.author: mabrigg
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Överväganden för Azure-stacken nätverk
 
@@ -29,14 +30,14 @@ Den här artikeln innehåller en översikt över unika överväganden för nätv
 |Tjänst | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- | --- |
 | DNS | Flera innehavare DNS | Stöds| Stöds inte än|
-| |DNS AAAA-poster|Stöds|Stöds inte|
+| |DNS AAAA records|Stöds|Stöds inte|
 | |DNS-zoner per prenumeration|100 (standard)<br>Kan ökas på begäran.|100|
 | |DNS-post anger per zon|5000 (standard)<br>Kan ökas på begäran.|5000|
-||Namnservrar för zondelegering|Azure ange fyra namnservrar för varje användare (klient)-zon som har skapats.|Azure-stacken innehåller två namnservrar för varje användare (klient)-zon som har skapats.|
+||Name servers for zone delegation|Azure ange fyra namnservrar för varje användare (klient)-zon som har skapats.|Azure-stacken innehåller två namnservrar för varje användare (klient)-zon som har skapats.|
 | Virtuellt nätverk|Virtuell nätverkspeering|Ansluta två virtuella nätverk i samma region via Azure stamnät nätverket.|Stöds inte än|
 | |IPv6-adresser|Du kan tilldela en IPv6-adress som en del av den [konfiguration nätverksgränssnitt](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Endast IPv4 stöds.|
 |VPN-gateways|Punkt-till-plats VPN-Gateway|Stöds|Stöds inte än|
-| |Vnet-till-Vnet-Gateway|Stöds|Stöds inte än|
+| |Vnet-to-Vnet Gateway|Stöds|Stöds inte än|
 | |VPN Gateway-SKU: er|Stöd för Basic, GW1, GW2, GW3, Standard hög prestanda, mycket hög prestanda. |Stöd för Basic, Standard och högpresterande SKU: er.|
 |Belastningsutjämnare|IPv6-offentliga IP-adresser|Stöd för att tilldela en offentlig IP-adress för IPv6 till en belastningsutjämnare.|Endast IPv4 stöds.|
 |Network Watcher|Nätverk Watcher klientnätverket övervakningsfunktionerna|Stöds|Stöds inte än|

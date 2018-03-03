@@ -3,8 +3,8 @@ title: "Förstå Azure Stack säkerhetsåtgärder | Microsoft Docs"
 description: "Som tjänstadministratör Lär dig mer om de säkerhetskontroller som tillämpas på Azure-stacken"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure säkerhetstillståndet för Stack-infrastruktur
 
@@ -31,10 +31,10 @@ Det finns två hållningsdata säkerhetsskikt samexisterar i Azure stacken. Det 
 ## <a name="security-approach"></a>Säkerhet, metod
 Azure-stacken med en säkerhetstillståndet har utformats för att skydda mot aktuella hot och har skapats för att uppfylla kraven från större efterlevnadsstandarder. Säkerhetstillståndet Azure Stack-infrastrukturen är därför bygger på två pelare:
 
- - **Anta intrång.** Startar från antagandet att systemet har redan har utsatts för intrång, vi fokusera på *identifiera och begränsa effekten av överträdelser* jämfört med endast försök att förhindra angrepp. 
- - **Härdat som standard.**  Eftersom infrastrukturen som körs på väldefinierade maskinvara och programvara, vi *aktivera, konfigurera och verifiera säkerhetsfunktioner* som vanligtvis finns kvar för kunder att implementera.
+ - **Anta intrång.** Från antagandet att systemet har redan har utsatts för intrång fokusera på *identifiera och begränsa effekten av överträdelser* jämfört med endast försök att förhindra angrepp. 
+ - **Härdat som standard.**  Eftersom infrastrukturen som körs på väldefinierade maskinvara och programvara, *aktivera, konfigurera och verifiera säkerhetsfunktioner* som finns kvar för kunder att implementera.
 
-Eftersom Azure Stack skickas som ett integrerat system har säkerhetstillståndet Azure Stack-infrastrukturen definierats av Microsoft.  Precis som i Azure ansvarar hyresgäster för att definiera säkerhetstillståndet av deras klienternas arbetsbelastningar. Det här dokumentet innehåller grundläggande kunskaper om säkerhetstillståndet Azure Stack-infrastrukturen.
+Eftersom Azure Stack skickas som ett integrerat system har säkerhetstillståndet Azure Stack-infrastrukturen definierats av Microsoft. Precis som i Azure ansvarar hyresgäster för att definiera säkerhetstillståndet av deras klienternas arbetsbelastningar. Det här dokumentet innehåller grundläggande kunskaper om säkerhetstillståndet Azure Stack-infrastrukturen.
 
 ## <a name="data-at-rest-encryption"></a>Data för kryptering av vilande data
 Alla Azure-stacken infrastruktur- och data krypteras vilande med Bitlocker. Denna kryptering skyddar mot fysisk förlust eller stöld av Azure-stacken lagringskomponenter. 
@@ -58,7 +58,7 @@ Auktoriserade koden är signerat av Microsoft eller OEM-partner och den ingår i
 
 Principen Device Guard förhindrar också från tredje part för agenter eller programvara körs i Azure Stack-infrastruktur.
 
-## <a name="credential-guard"></a>Skydd av autentiseringsuppgifter
+## <a name="credential-guard"></a>Credential Guard
 En annan Windows Server 2016 säkerhetsfunktion i Azure-stacken är Windows Defender autentiseringsuppgifter Guard som används för att skydda Azure Stack infrastruktur autentiseringsuppgifterna från Pass-the-Hash- och Pass-the-Ticket-attacker.
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
@@ -71,7 +71,7 @@ Administration i Azure-stacken kontrolleras genom att använda tre startpunkter,
 3. För specifika låg nivå, till exempel data center integration eller stöd för scenarier, Azure Stack Exponerar en PowerShell-slutpunkt som kallas [Privilegierade Endpoint](azure-stack-privileged-endpoint.md). Den här slutpunkten visar endast en godkända uppsättning cmdlets och granskas kraftigt.
 
 ## <a name="network-controls"></a>Nätverkskontroller
-Azure Stack-infrastrukturen har flera lager för network Access Control List(ACL).  ACL: erna förhindra obehörig åtkomst till infrastrukturkomponenter och begränsa infrastruktur kommunikation till av sökvägar som krävs för dess funktion. 
+Azure Stack-infrastrukturen har flera lager för network Access Control List(ACL). ACL: erna förhindra obehörig åtkomst till infrastrukturkomponenter och begränsa infrastruktur kommunikation till av sökvägar som krävs för dess funktion. 
 
 ACL: er för nätverket tillämpas i tre lager:
 1.  Överkant Rack växlar

@@ -3,31 +3,32 @@ title: "Azure stacken datacenter integrering – publicera slutpunkter"
 description: "Lär dig hur du publicerar Azure Stack slutpunkter i ditt datacenter"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stacken datacenter integrering – publicera slutpunkter
-Azure-stacken ställer in flera virtuella IP-adresser (VIP) för sin infrastrukturroller. Dessa virtuella IP-adresser tilldelas från den offentliga IP-adresspoolen. Varje VIP är skyddad med en åtkomstkontrollista (ACL) i nätverkslagret för programvarudefinierade. ACL: er används också för de fysiska växlarna (TORs och BMC) för att ytterligare skydda lösningen. En DNS-post skapas för varje slutpunkt i externa DNS-zonen som angavs vid tidpunkten för distribution.
+Azure-stacken konfigurerar virtuella IP-adresser (VIP) för sin infrastrukturroller. Dessa virtuella IP-adresser tilldelas från den offentliga IP-adresspoolen. Varje VIP är skyddad med en åtkomstkontrollista (ACL) i nätverkslagret för programvarudefinierade. ACL: er används också för de fysiska växlarna (TORs och BMC) för att ytterligare skydda lösningen. En DNS-post skapas för varje slutpunkt i den externa DNS-zon som anges vid tidpunkten för distribution.
 
 
 Arkitekturdiagram för följande visar olika nätverk lager och ACL: er:
 
-![Arkitekturdiagram](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Strukturella bild](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Portar och protokoll (inkommande)
 
-Nedan visas VIP infrastruktur som krävs för publicering Azure Stack-slutpunkter till externa nätverk. I listan visas varje slutpunkt, krävs port och protokoll. Slutpunkter som krävs för ytterligare resursproviders som SQL-resursprovidern och andra, beskrivs i dokumentationen för specifik resurs-providern.
+En uppsättning infrastruktur VIP-adresser krävs för publicering Azure Stack-slutpunkter till externa nätverk. Den *slutpunkt (VIP)* tabellen visar var och en slutpunkt, krävs port och protokoll. Finns i dokumentationen för specifik resurs-providern för slutpunkter som kräver ytterligare resursleverantörer, till exempel SQL-resursprovidern.
 
-Intern infrastruktur för VIP visas inte eftersom de inte krävs för att publicera Azure-stacken.
+Intern infrastruktur för VIP inte visas eftersom de inte krävs för att publicera Azure-stacken.
 
 > [!NOTE]
 > Användaren VIP: er är dynamisk, definieras användarna själva har ingen kontroll av Azure Stack-operatorn.
@@ -70,4 +71,5 @@ Azure-stacken stöder endast transparent proxy-servrar. I en distribution där e
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Krav för Azure-stacken PKI](azure-stack-pki-certs.md)

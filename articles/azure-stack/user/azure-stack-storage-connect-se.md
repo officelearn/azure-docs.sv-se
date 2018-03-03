@@ -3,22 +3,21 @@ title: Ansluta Lagringsutforskaren till en Azure-Stack-prenumeration
 description: "Lär dig att ansluta Exporer lagring till en Azure-Stack-prenumeration"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
-ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Ansluta Lagringsutforskaren till en Azure-Stack-prenumeration
 
@@ -86,8 +85,8 @@ Du är nu redo att ansluta Lagringsutforskaren till en Azure-Stack-prenumeration
     * **Miljönamn**: fältet kan anpassas av användaren.
     * **ARM resurs endpoint** (Slutpunkt för ARM-resurs): exempel på slutpunkter för Azure Resource Manager-resursen:
 
-        * För operatorn i molnet:<br> https://adminmanagement.Local.azurestack.external   
-        * För klient:<br> https://Management.Local.azurestack.external
+        * För operatorn i molnet:<br> https://adminmanagement.local.azurestack.external   
+        * För klient:<br> https://management.local.azurestack.external
  
     * **Klient-Id**: valfria. Värdet anges bara när du måste ange katalogen.
 

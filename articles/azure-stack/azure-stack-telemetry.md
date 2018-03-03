@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/01/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 5cd8d4045764b753c5fdd81ade98d69c72709881
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f7157f8ab826553d8fb638b9f28d5594f68ed6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetri
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure Stack systemdata eller telemetri, överförs automatiskt till Microsoft via användarupplevelsen ansluten. Data som samlas in från Azure-stacken telemetri används av Microsoft-teamen främst för att förbättra vår kundupplevelser och för säkerhet, hälsa, kvalitet och prestanda analys.
+Azure Stack systemdata eller telemetri, överförs automatiskt till Microsoft via användarupplevelsen ansluten. Data som samlas in från Azure-stacken telemetri används av Microsoft-teamen främst för att förbättra kundupplevelser och för säkerhet, hälsa, kvaliteten och analys av minnesprestanda.
 
 Som operatör Azure Stack telemetri kan ge värdefulla insikter om enterprise-distributioner och ger dig en röst som hjälper till att formen framtida versioner av Azure-stacken.
 
@@ -38,11 +38,11 @@ Azure Stack telemetri baseras på komponenten anslutna användarupplevelsen för
 > För att stödja telemetri dataflöde, öppnas port 443 (HTTPS) i nätverket. Komponenten anslutna användarupplevelse och telemetri ansluter till Microsoft Data Management-tjänsten på https://v10.vortex-win.data.microsoft.com. Komponenten anslutna användarupplevelse och telemetri ansluter också till https://settings-win.data.microsoft.com att hämta konfigurationsinformation.
 
 ## <a name="privacy-considerations"></a>Överväganden för sekretess
-ETW-service skickar telemetridata tillbaka till skyddade molnlagring. Principen om lägsta möjliga guider åtkomst till telemetridata. Endast Microsoft-personal med en giltig affärsbehov tillåts åtkomst till telemetridata. Microsoft delar inte personliga data på våra kunder med tredje part, utom gottfinnande kundens eller för begränsad beskrivs i den [sekretesspolicy för Azure-stacken](http://windows.microsoft.com/windows/preview-privacy-statement). Vi delar business rapporter med OEM-tillverkare och partners som innehåller aggregerade, avidentifierade telemetri information. Datadelning beslut görs av en intern Microsoft-teamet inklusive sekretess och juridiska data management intressenter.
+ETW-service skickar telemetridata tillbaka till skyddade molnlagring. Principen om lägsta möjliga guider åtkomst till telemetridata. Endast Microsoft-personal med en giltig affärsbehov tillåts åtkomst till telemetridata. Microsoft delar inte personliga kundinformation med tredje part, utom gottfinnande kundens eller för begränsad beskrivs i den [sekretesspolicy för Microsoft](https://privacy.microsoft.com/PrivacyStatement). Företag rapporter delas med OEM-tillverkare och partners som innehåller aggregerade, avidentifierade telemetri information. Datadelning beslut görs av en intern Microsoft-teamet inklusive sekretess och juridiska data management intressenter.
 
-Microsoft anser i och praxis minimering av information. Vi strävar efter att samla in bara den information som behövs och vi lagra den bara så länge som det behövs för att tillhandahålla en tjänst eller för analys. Information om hur Azure-stacken system och Azure-tjänster fungerar tas bort i sex månader. Sammanfattas eller sammanställda data sparas för en längre period.
+Microsoft anser i och praxis minimering av information. Vi strävar efter att samla in information som krävs och vi lagra den bara så länge som det behövs för att tillhandahålla en tjänst eller för analys. Information om hur Azure-stacken system och Azure-tjänster fungerar tas bort i sex månader. Sammanfattas eller sammanställda data sparas för en längre period.
 
-Vi förstår att sekretess och säkerhet för våra kunder information är mycket viktigt.  Vi har tagit en fina och omfattande metod till kundens integritet och skydd av kundinformation med Azure-stacken. IT-administratörer har kontroller för att anpassa funktioner och inställningar när som helst. Vårt arbete för genomskinlighet och förtroende är tydligt:
+Vi förstår att sekretess och säkerhet kundinformation är viktig.  Vi har tagit en fina och omfattande metod till kundens integritet och skydd av kundinformation med Azure-stacken. IT-administratörer har kontroller för att anpassa funktioner och inställningar när som helst. Vårt arbete för genomskinlighet och förtroende är tydligt:
 - Vi är öppna med kunder om vilka typer av data som vi samlar in.
 - Vi har gjort företagskunder kontrollen – de kan anpassa sina egna sekretessinställningar.
 - Vi placera först kundens integritet och säkerhet.
@@ -59,7 +59,7 @@ Telemetri hjälper också till Microsoft för att bättre förstå hur kunder di
 Några exempel är kundens användning av behållare, lagring och nätverkskonfigurationer som är associerade med Azure Stack-roller. Vi använder också insikter om enheten förbättringar och information om några av våra hantering och övervakning av lösningar.  Detta hjälper kunder att diagnosticera kvalitetsproblem och spara pengar genom att göra färre stöd anrop till Microsoft.
 
 ## <a name="manage-telemetry-collection"></a>Hantera telemetri samling
-Vi rekommenderar inte att inaktivera telemetri i din organisation som telemetri innehåller data som driver förbättrad funktionalitet och stabilitet. Vi känner dock att i vissa situationer kan det vara nödvändigt. 
+Det rekommenderas inte att inaktivera telemetri i din organisation som telemetri innehåller data som driver förbättrad funktionalitet och stabilitet. Vi känner dock att i vissa situationer kan det vara nödvändigt. 
 
 I så fall måste konfigurera du nivån telemetri som skickas till Microsoft genom att använda registret inställningar före distributionen eller med hjälp av telemetri slutpunkter efter distributionen.
 
@@ -92,7 +92,7 @@ Telemetri nivåerna är kumulativa och kategoriserade i fyra nivåer (0-3):
  - Storage-attribut, till exempel antalet enheter, typ och storlek.
 - **Telemetri funktioner**, inklusive procent av överförda händelser, ignorerade händelser och senaste överför tid.
 - **Quality-relaterad information** som hjälper Microsoft att utveckla en grundläggande förståelse av hur Azure-stacken utförs. Ett exempel är antalet kritiska aviseringar på en viss maskinvarukonfiguration.
-- **Kompatibilitetsinformation** som hjälper dig att ge insikt om vilka Resursproviders är installerade på en dator och virtuell dator och identifierar potentiella problem med programkompatibilitet.
+- ** Kompatibilitet data som ger insikt om vilka Resursproviders är installerade på en dator och virtuell dator och identifierar potentiella problem med programkompatibilitet.
 
 **2 (förbättrad)**. Ytterligare information, inklusive: hur operativsystemet och andra Azure-Stack-tjänster används, hur de fungerar, avancerad tillförlitlighetsdata och data från både den grundläggande och säkerhetsnivåer. 
 
@@ -101,7 +101,7 @@ Telemetri nivåerna är kumulativa och kategoriserade i fyra nivåer (0-3):
 > [!NOTE]
 > Standardvärdet för telemetri nivå är 2 (förbättrad).
 
-Observera att inaktivera Windows och Azure-stacken telemetri kommer även att inaktivera SQL telemetri. Ytterligare information om effekterna av Windows Server-telemetri finns inställningar referens i [Windows telemetri Whitepaper](https://aka.ms/winservtelemetry). 
+Inaktivera telemetri för Windows och Azure-stacken inaktiverar även SQL telemetri. Mer information om effekterna av telemetriinställningar för Windows Server finns i [Windows telemetri Whitepaper](https://aka.ms/winservtelemetry). 
 
 > [!IMPORTANT]
 > Dessa nivåer telemetri tillämpas endast på Microsoft Azure-stacken komponenter. Icke-Microsoft-programvarukomponenter och tjänster som körs i maskinvara livscykel värden från Azure-stacken maskinvarupartners kan kommunicera med sina molntjänster utanför dessa telemetri nivåer. Du ska arbeta med din Azure-stacken maskinvaruleverantör att förstå sin princip telemetri och hur du kan anmäla eller avanmäla. 
@@ -109,8 +109,8 @@ Observera att inaktivera Windows och Azure-stacken telemetri kommer även att in
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK och MultiNode: aktivera eller inaktivera telemetri efter distribution
 
 Om du vill aktivera eller inaktivera telemetri efter distributionen, som du behöver ha åtkomst till detta Privilegierade slutpunkt (program) som är exponerad på ERCS virtuella datorer.
-1.  Så här aktiverar du:`Set-Telemetry -Enable`
-2.  Inaktivera:`Set-Telemetry -Disable`
+1.  Så här aktiverar du: `Set-Telemetry -Enable`
+2.  Inaktivera: `Set-Telemetry -Disable`
 
 PARAMETERN detaljer: 
 > . PARAMETERN aktivera – aktivera telemetri dataöverföringen 

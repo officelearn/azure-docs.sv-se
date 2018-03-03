@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en Apptjänst-resursprovidern i Azure stapel
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
@@ -70,7 +70,7 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
-7. Ange information för filresursen och klicka sedan på **nästa**. Adressen till filresursen måste använda fullständigt kvalificerade domännamn på filservern, till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites eller IP-adress, till exempel \\\10.0.0.1\websites.
+7. Ange information för filresursen och klicka sedan på **nästa**. Adressen till filresursen måste använda ett fullständigt kvalificerat domännamn för din filserver eller IP-adress. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
-9. För var och en av de tre filen rutor och klicka på **Bläddra** och navigera till certifikatfil. Du måste ange lösenordet för varje certifikat. Dessa certifikat är de som du skapade i den [skapa nödvändiga certifikat steg](azure-stack-app-service-deploy.md#create-the-required-certificates). Klicka på **nästa** när du har angett all information.
+9. För var och en av de tre filen rutor och klicka på **Bläddra** och navigera till certifikatfil. Du kan ange lösenordet för varje certifikat. Dessa certifikat är de som du skapade i den [skapa nödvändiga certifikat steg](azure-stack-app-service-deploy.md#create-the-required-certificates). Klicka på **nästa** när du har angett all information.
 
     | Box | Exempel på certifikatet namn |
     | --- | --- |
@@ -99,7 +99,7 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Granska rollinstansen och SKU-alternativ. Standardvärdena är fyllda med det minsta antalet instansen och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av vCPU och minneskrav tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
+11. Granska rollinstansen och SKU-alternativ. Standardvärdena fylla med det minsta antalet instansen och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av vCPU och minneskrav tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
 
     > [!NOTE]
     > För Produktionsdistribution följa riktlinjerna i [kapacitetsplanering för Azure App Service-serverroller i Azure-stacken](azure-stack-app-service-capacity-planning.md).

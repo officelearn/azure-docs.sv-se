@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identity-arkitektur för Azure-Stack
 Innan du väljer en identitetsleverantör ska användas med Azure-stacken, Förstå viktiga skillnader mellan alternativen i Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS). 
@@ -86,7 +86,7 @@ Med den här topologin:
 
   Om du vill interagera med dina AD Graph API kräver autentiseringsuppgifter från din AD som har skrivskyddad behörighet Annonsen. 
   - Inbyggda AD FS är baserad på Server 2016. 
-  - Din AD FS och AD måste baseras på Server 2012 eller tidigare. 
+  - Din AD FS och AD måste baseras på Server 2012 eller senare.  
   
   Interaktioner mellan din AD och inbyggda AD FS är inte begränsat till OpenID Connect och kan använda alla ömsesidigt stödda protokoll.  
   - Användarkonton skapas och hanteras i din lokala AD.

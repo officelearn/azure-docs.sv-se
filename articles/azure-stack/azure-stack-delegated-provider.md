@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegera erbjudanden i Azure Stack
 
@@ -58,7 +58,7 @@ I följande avsnitt beskrivs hur du upprättar en delegerad provider, delegera e
 
 ## <a name="set-up-roles"></a>Konfigurera roller
 
-Om du vill se en delegerad provider på arbetet, behöver du ytterligare Azure AD-konton förutom ditt konto för Azure Stack-operator. Om du inte har dem, kan du skapa två konton. Konton kan höra till Azure AD-användare. Vi kallar dem delegerad providern och användaren.
+Om du vill se en delegerad provider på arbetet, behöver du ytterligare Azure AD-konton förutom ditt konto för Azure Stack-operator. Skapa dem om du inte har dessa två konton. Konton kan höra till Azure AD-användare och kallas delegerad providern och användaren.
 
 | **Roll** | **Organisationens rättigheter** |
 | --- | --- |
@@ -71,9 +71,9 @@ Om du vill se en delegerad provider på arbetet, behöver du ytterligare Azure A
 2. Skapa erbjudande som gör att användarna ska bli delegerad providers:
    
    a.  [Skapa en plan](azure-stack-create-plan.md).
-       Planen bör innefatta prenumerationer tjänsten. I den här artikeln använder vi en plan som heter **PlanForDelegation**.
+       Planen bör innefatta prenumerationer tjänsten. Den här artikeln använder en plan som heter **PlanForDelegation**.
    
-   b.  [Skapa ett erbjudande](azure-stack-create-offer.md) baserat på den här planen. I den här artikeln använder vi ett erbjudande som kallas **OfferToDP**.
+   b.  [Skapa ett erbjudande](azure-stack-create-offer.md) baserat på den här planen. Den här artikeln används ett erbjudande som kallas **OfferToDP**.
    
    c.  När den har skapats av erbjudandet delegerad providern lägga till som en prenumerant till det här erbjudandet. Gör detta genom att markera **prenumerationer** > **Lägg till** > **nya Klientprenumeration**.
    
@@ -86,9 +86,9 @@ Om du vill se en delegerad provider på arbetet, behöver du ytterligare Azure A
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack-operatorn skapar delegerad erbjudandet
 
-Du har nu skapat din delegerade leverantör. Nästa steg är att skapa planen och erbjudande som du kommer att delegera och som används av dina kunder. Det är en bra idé att definiera det här erbjudandet precis som du vill att kunderna ska se den eftersom delegerad providern inte kommer att kunna ändra planer och kvoter som den innehåller.
+Du har nu skapat din delegerade leverantör. Nästa steg är att skapa planen och erbjudande som du kommer att delegera och som används av dina kunder. Det är en bra idé att definiera det här erbjudandet precis som du vill att kunderna ska se den eftersom delegerad providern inte kan ändra planer och kvoter som den innehåller.
 
-1. Som operatör Azure Stack [skapar en plan](azure-stack-create-plan.md) och [ett erbjudande](azure-stack-create-offer.md) baserat på den. I den här artikeln använder vi ett erbjudande som kallas **DelegatedOffer.**
+1. Som operatör Azure Stack [skapar en plan](azure-stack-create-plan.md) och [ett erbjudande](azure-stack-create-offer.md) baserat på den. Den här artikeln används ett erbjudande som kallas **DelegatedOffer.**
    
    > [!NOTE]
    > Det här erbjudandet behöver inte vara offentlig. Om du väljer du den offentliga. I de flesta fall, men vill du bara delegerad leverantörer att ha åtkomst till den. När du delegerar privata erbjudande enligt beskrivningen i följande steg har delegerad providern åtkomst till den.
@@ -104,14 +104,14 @@ Du har nu skapat din delegerade leverantör. Nästa steg är att skapa planen oc
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Delegerad providern anpassar erbjudandet
 
-Logga in på användarportalen som delegerad provider. Skapa sedan ett nytt erbjudande med delegerad erbjudandet som en mall.
+Logga in på användarportalen som delegerad provider och sedan skapa ett nytt erbjudande med hjälp av delegerade erbjudandet som en mall.
 
 1. Välj **nya** > **klient erbjuder + planer** > **erbjuder**.
 
     ![Skapa ett nytt erbjudande](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Tilldela ett namn till erbjudandet. Här vi väljer **ResellerOffer**. Välj delegerad erbjudande som du vill basera den och välj sedan **skapa**.
+1. Tilldela ett namn till erbjudandet. Den här artikeln använder **ResellerOffer**. Välj delegerad erbjudande som du vill basera den och välj sedan **skapa**.
    
    ![Tilldela ett namn](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Logga in på användarportalen som delegerad provider. Skapa sedan ett nytt erbj
 
 2. Delegerad providern visar dessa erbjudanden via sina egna portal URL. Dessa erbjudanden visas endast via delegerad portalen. Hitta och ändra den här URL:
    
-    a.  Välj **Bläddra** > **fler tjänster** >  **prenumerationer**. Välj delegerad provider-prenumeration. I vårt fall har **DPSubscription** > **egenskaper**.
+    a.  Välj **Bläddra** > **fler tjänster** > **prenumerationer**. Välj delegerad provider-prenumeration. Till exempel **DPSubscription** > **egenskaper**.
    
     b.  Kopiera portalen URL till en annan plats, till exempel Anteckningar.
    
@@ -134,7 +134,7 @@ Logga in på användarportalen som delegerad provider. Skapa sedan ett nytt erbj
 1. Gå till den delegerade portalen i ett nytt webbläsarfönster URL som du sparade i föregående steg. Logga in på portalen som en användare. 
    
    >[!NOTE]
-   > Använda delegerad portal för det här steget. Delegerad erbjudanden visas inte på annat sätt.
+   >Delegerad erbjudanden visas inte om du inte använder den delegerade portalen. 
 
 2. I instrumentpanelen, väljer **skaffa en prenumeration**. Du kan se att de delegerade erbjudanden som har skapats av delegerade providern är visas för användaren:
 

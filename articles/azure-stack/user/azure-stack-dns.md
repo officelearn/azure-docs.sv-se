@@ -3,22 +3,21 @@ title: DNS i Azure-stacken | Microsoft Docs
 description: DNS i Azure Stack
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>DNS i Azure Stack
 
@@ -82,7 +81,7 @@ Som standard använder Azure Stack DNS-PowerShell Etags blockera samtidiga ändr
 
 På nivån av Azure-stacken DNS-REST API anges Etags med HTTP-huvuden. Deras beteende ges i följande tabell:
 
-| Huvudet | Beteende|
+| Sidhuvud | Beteende|
 |--------|---------|
 | Ingen   | PLACERA lyckas alltid (inga Etag-kontroller)|
 | IF-match| PLACERA lyckas bara om resursen finns och Etag matchar|

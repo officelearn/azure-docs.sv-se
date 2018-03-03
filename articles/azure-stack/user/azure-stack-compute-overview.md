@@ -2,16 +2,17 @@
 title: Introduktion till Azure-stacken virtuella datorer
 description: "Lär dig mer om Azure-stacken virtuella datorer"
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till Azure-stacken virtuella datorer
 
@@ -105,7 +106,7 @@ Följande tabell innehåller information för att komma igång med att skapa den
 |Metod|Artikel|
 |---------|---------|
 |Azure Stack-portalen|Skapa en virtuell Windows-dator med Azure Stack-portalen<br>[Skapa en Linux-dator med hjälp av Azure Stack-portalen](azure-stack-quick-linux-portal.md)|
-|Mallar|Azure Stack-snabbstartsmallar finns på:<br> [https://github.com/Azure/AzureStack-Quickstart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
+|Mallar|Azure Stack-snabbstartsmallar finns på:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
 |PowerShell|[Skapa en Windows-dator med hjälp av PowerShell i Azure-stacken](azure-stack-quick-create-vm-windows-powershell.md)<br>[Skapa en virtuell Linux-dator med hjälp av PowerShell i Azure-stacken](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Skapa en virtuell Windows-dator med hjälp av CLI i Azure-stacken](azure-stack-quick-create-vm-windows-cli.md)<br>[Skapa en virtuell Linux-dator med hjälp av CLI i Azure-stacken](azure-stack-quick-create-vm-linux-cli.md)|
 

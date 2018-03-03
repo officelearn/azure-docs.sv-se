@@ -3,21 +3,21 @@ title: "Skapa ett huvudnamn för tjänsten för Azure-Stack | Microsoft Docs"
 description: "Beskriver hur du skapar ett nytt huvudnamn för tjänsten som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser."
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
-ms.author: helaw
-ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ange program åtkomst till Azure-stacken
 
@@ -57,7 +57,7 @@ Vid inloggning programmässigt, kan du använda ID: T för ditt program och en a
 
 2. Kopiera den **program-ID** och lagra den i din programkod. Program i den [programexempel](#sample-applications) avsnittet refererar till det här värdet som klient-ID.
 
-     ![klient-id](./media/azure-stack-create-service-principal/image12.png)
+     ![klient-ID](./media/azure-stack-create-service-principal/image12.png)
 3. Om du vill generera en autentiseringsnyckel, Välj **nycklar**.
 
 4. Ange en beskrivning av nyckeln och varaktighet för nyckeln. När du är klar väljer **spara**.

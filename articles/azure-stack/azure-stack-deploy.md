@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
@@ -58,7 +58,7 @@ Innan du distribuerar [Azure Stack Development Kit](azure-stack-poc.md), kontrol
 * SAS SSD + SAS-hårddisk
 * NVMe
 
-\*RAID-styrenheter utan direkt funktionen kan inte identifiera medietyp. Sådana styrenheter markerar både HDD och SSD som ospecificerade. I så fall ska SSD användas som permanent lagring i stället för cachelagringsenheter. Därför kan du distribuera development kit på dessa SSD.
+\* RAID-styrenheter utan direkt funktionen kan inte identifiera medietyp. Sådana styrenheter markerar både HDD och SSD som ospecificerade. I så fall ska SSD användas som permanent lagring i stället för cachelagringsenheter. Därför kan du distribuera development kit på dessa SSD.
 
 **Exempel på HBA**: LSI 9207-8i, LSI-9300-8i eller LSI-9265-8i i genomströmningsläge (pass-through)
 
@@ -122,9 +122,9 @@ Kontrollera att det finns en DHCP-server i nätverket som nätverkskortet anslut
 ### <a name="internet-access"></a>Internet-åtkomst
 Azure-stacken kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure-stacken stöder inte konfigurationen av en webbproxy för Internet-åtkomst. Både värd-IP och nya IP-Adressen som tilldelats MAS-BGPNAT01 (med DHCP eller statiska IP-) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under graph.windows.net och login.microsoftonline.com domäner.
 
+F: är det möjligt att köra ASDK på en Azure VM? S: Nej. Från och med idag, officiellt stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 [Hämta Azure Stack development kit distributionspaketet](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Distribuera Azure-stacken development kit](azure-stack-run-powershell-script.md)
-

@@ -3,8 +3,8 @@ title: "Hantera Windows Azure Pack virtuella datorer från Azure-stacken | Micro
 description: "Lär dig hur du hanterar Windows Azure Pack (WAP) virtuella datorer från användarportalen i Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Hantera Windows Azure Pack virtuella datorer från Azure-stacken
 
@@ -65,7 +65,7 @@ När användaren utför en åtgärd på stacken Azure-portalen som riktar in sig
 
 Kit utvecklingsmiljö ha Windows Azure-paket och Azure-stacken oberoende identitetsleverantörer. Användare som har åtkomst till båda miljöerna från stacken Azure-portalen måste ha samma användarnamn huvudnamn (UPN) i båda identitetsleverantörer. Till exempel kontot  *azurestackadmin@azurestack.local*  måste även finnas i STS för Windows Azure-paketet. Om AD FS inte har ställts in för att stödja utgående förtroenderelationer, kommer du upprätta förtroende från Windows Azure Pack-komponenter (klient-API) till Azure Stack-instans av AD FS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="download-the-windows-azure-pack-connector"></a>Hämta Windows Azure Pack Connector
 På den [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc)ladda ned .exe-fil och extraherar du det till den lokala datorn. Senare kan kopiera du innehållet till en dator som har åtkomst till din Windows Azure Pack-miljö.
@@ -95,9 +95,9 @@ Om du vill aktivera läget för flera molntjänster, måste du köra skriptet L�
 
 |  Parameter | Beskrivning | Exempel |   
 | -------- | ------------- | ------- |  
-| AzurePackClouds | URI: er till Windows Azure Pack-kopplingar. Dessa URI: er bör motsvara portaler för Windows Azure Pack-klient. | @{CloudName = ”AzurePack1”; CloudEndpoint = ”https://waptenantportal1:40005"},@{CloudName = ”AzurePack2”; CloudEndpoint = ”https://waptenantportal2:40005”}<br><br>  (Som standard är värdet för porten 40005.) |  
-| AzureStackCloudName | Etikett för att representera det Azure-stacken molnet.| ”AzureStack” |
-| DisableMultiCloud | En växel för att inaktivera flera molnet läge.| Saknas |
+| AzurePackClouds | URI: er till Windows Azure Pack-kopplingar. Dessa URI: er bör motsvara portaler för Windows Azure Pack-klient. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Som standard är värdet för porten 40005.) |  
+| AzureStackCloudName | Etikett för att representera det Azure-stacken molnet.| "AzureStack" |
+| DisableMultiCloud | En växel för att inaktivera flera molnet läge.| Gäller inte |
 | | |
 
 Du kan köra skriptet Lägg till AzurePackConnector.ps1 direkt efter distributionen, eller senare. Kör skriptet direkt efter distributionen med samma Windows PowerShell-session där Azure Stack-distributionen är klar. Annars kan du öppna en ny Windows PowerShell-session som administratör (inloggad som kontot azurestackadmin).
@@ -128,7 +128,7 @@ Du kan köra skriptet Lägg till AzurePackConnector.ps1 direkt efter distributio
     * **AuthenticationIdentityProviderPartner**: innehåller följande värde-par:
         * Autentiseringstoken signeringscertifikat som Windows Azure Pack klient API behöver litar på för att acceptera anrop från stacken Azure-portaltillägg.
 
-        * ”Sfären” som är associerade med signeringscertifikatet. Till exempel: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
+        * ”Sfären” som är associerade med signeringscertifikatet. For example: https://adfs.local.azurestack.global.external/adfs/c1d72562-534e-4aa5-92aa-d65df289a107/.
 
 3.  Bläddra till den mapp som innehåller utdatafilerna (\\su1fileserver\SU1_Infrastructure_1\AzurePackConnectorOutput), och kopierar filerna till den lokala datorn. Filerna kommer att se ut ungefär så här: AzurePack-06-27-15-50.txt.
 
@@ -163,11 +163,11 @@ Använda Windows Azure Pack Connector för den här förhandsversionen endast i 
     ```
      d. Ändra kataloger till **c:\inetpub** och kontrollera att de tre nya platserna är installerade:
 
-       * MgmtSvc-koppling
+       * MgmtSvc-Connector
 
-       * MgmtSvc ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-       * MgmtSvc ConnectorController
+       * MgmtSvc-ConnectorController
 
     e. Från samma **c:\temp\wapconnector\setup\scripts** mapp, kör den **konfigurera Certificates.ps1** skript för att installera certifikat. Som standard använder samma certifikat som är tillgänglig för innehavaren portalwebbplatsen i Windows Azure-paket. Kontrollera att detta är ett giltigt certifikat (betrodd av den virtuella datorn i Azure Stack AzS-WASP01 och alla klientdatorer som ansluter till stacken för Azure-portalen). Annars fungerar kommunikation inte. (Du kan också du uttryckligen överföra ett tumavtryck för certifikat som en parameter med hjälp av parametern - tumavtryck.)
 
@@ -183,7 +183,7 @@ Använda Windows Azure Pack Connector för den här förhandsversionen endast i 
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Innehavarportalen Windows Azure Pack FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | Windows Azure Pack klient API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | Användarportalen Azure Stack FQDN. | Portal.Local.azurestack.external |
+    | AzureStackPortalFQDN | Användarportalen Azure Stack FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell

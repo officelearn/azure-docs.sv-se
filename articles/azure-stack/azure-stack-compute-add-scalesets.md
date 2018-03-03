@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Använda skalningsuppsättningar i virtuella datorer i Azure-stacken
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Skaluppsättningar för den virtuella datorn är en Azure-stacken beräkningsresurser. Du kan använda dem för att distribuera och hantera en uppsättning identiska virtuella datorer. Med alla virtuella datorer konfigureras på samma sätt, skaluppsättningar behöver före etablering av virtuella datorer. Det är enklare att bygga storskaliga tjänster som är riktade till stor beräkning och stordata av arbetsbelastningar.
 
-Det här avsnittet hjälper dig att skalningsuppsättningar i stacken Azure Marketplace. När du har slutfört den här proceduren kan användarna lägga till virtuella skalningsuppsättningarna för sina prenumerationer.
+Den här artikeln guidar dig genom processen för att tillhandahålla skalningsuppsättningar i stacken Azure Marketplace. När du har slutfört den här proceduren kan användarna lägga till virtuella skalningsuppsättningarna för sina prenumerationer.
 
 Skaluppsättningar för virtuell dator på Azure-stacken är som skalningsuppsättningar i virtuella datorer i Azure. Mer information finns i följande videoklipp:
 * [Mark Russinovich berättar om Azure-skalningsuppsättningar](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Skala set galleriobjektet om du vill ta bort en virtuell dator, kör följande P
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> Galleriobjektet kan inte tas bort omedelbart. Du kan behöva uppdatera portalen flera gånger innan den tas bort från Marketplace.
+> Galleriobjektet kan inte tas bort omedelbart. Du natt måste uppdatera portalen flera gånger innan objektet visas som tas bort från på Marketplace.
 
 
 ## <a name="next-steps"></a>Nästa steg

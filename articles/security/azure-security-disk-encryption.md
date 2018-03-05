@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -131,7 +131,7 @@ Om du vill inaktivera hårddiskkryptering för IaaS-VM utför du följande anvis
  > Om du inaktiverar kryptering för OS-disk för Linux stöds inte. Steget dekryptering är endast tillåtna för dataenheter i virtuella Linux-datorer.
 Inaktivera disk datakryptering för Linux stöds inte om OS-enheten är krypterad.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som stöds som beskrivs i avsnittet ”Översikt”, se följande krav:
 
 * Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
@@ -141,34 +141,7 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 > [!NOTE]
 > Windows Server 2008 R2, måste du ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure. Du kan installera det från Windows Update genom att installera valfria Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption stöds på följande Azure-galleriet baserat Linux server-distributioner och versioner:
-
-| Linux-Distribution | Version | Volymtyp som stöds för kryptering|
-| --- | --- |--- |
-| Ubuntu | 16.04-VARJE DAG-LTS | OS- och disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS- och disk |
-| Ubuntu | 12.10 | Datadisk |
-| Ubuntu | 12.04 | Datadisk |
-| RHEL | 7.4 | OS- och disk |
-| RHEL | 7.3 | OS- och disk |
-| RHEL | LVM 7.3 | OS- och disk |
-| RHEL | 7.2 | OS- och disk |
-| RHEL | 6.8 | OS- och disk |
-| RHEL | 6.7 | Datadisk |
-| CentOS | 7.3 | OS- och disk |
-| CentOS | 7.2n | OS- och disk |
-| CentOS | 6.8 | OS- och disk |
-| CentOS | 7.1 | Datadisk |
-| CentOS | 7.0 | Datadisk |
-| CentOS | 6.7 | Datadisk |
-| CentOS | 6.6 | Datadisk |
-| CentOS | 6.5 | Datadisk |
-| openSUSE | 13.2 | Datadisk |
-| SLES | 12 SP1 | Datadisk |
-| SLES | 12-SP1 (Premium) | Datadisk |
-| SLES | HPC 12 | Datadisk |
-| SLES | 11-SP4 (Premium) | Datadisk |
-| SLES | 11 SP4 | Datadisk |
+* Azure Disk Encryption är endast stöds på specifika Azure-galleriet baserat Linux server-distributioner och versioner.  Lista över versioner som stöds för närvarande finns i den [Azure Disk Encryption vanliga frågor och svar](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption kräver att dina nyckelvalvet och virtuella datorer finns i samma Azure-region och prenumeration.
 
@@ -792,7 +765,7 @@ För Windows Server 2008 R2, använder du följande kommando:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbereda systemvolymen för BitLocker med hjälp av`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbereda systemvolymen för BitLocker med hjälp av `bdehdcfg`
 Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker, kör du följande kommando:
 
     bdehdcfg -target c: shrink -quiet
@@ -1284,9 +1257,6 @@ När du ansluter OS-disk, skicka `$KeyEncryptionKey` och `$secretUrl`. URL: en h
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Hämta denna guide
-Du kan hämta den här guiden från den [TechNet-galleriet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Mer information
 [Utforska Azure Disk Encryption med Azure PowerShell - del 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

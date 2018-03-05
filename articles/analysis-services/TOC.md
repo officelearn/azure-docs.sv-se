@@ -33,7 +33,7 @@
 ### [Anslut med Power BI](analysis-services-connect-pbi.md)
 ### [Skapa en ODC-fil](analysis-services-odc.md)
 ## Självstudier
-### [1 – Skapa exempelmodell](analysis-services-create-sample-model.md)
+### [1 – Lägga till en exempelmodell](analysis-services-create-sample-model.md)
 ### [Datamodellering – Adventure Works självstudiekurs](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Skapa ett projekt för tabellmodeller](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Hämta data](tutorials/aas-lesson-2-get-data.md)

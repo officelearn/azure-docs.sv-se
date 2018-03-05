@@ -14,6 +14,7 @@
 # Gör så här för att
 ## Planera och designa
 ### [Designöverväganden](virtual-machine-scale-sets-design-overview.md)
+### [Förstå instans-ID: n](virtual-machine-scale-sets-instance-ids.md)
 
 ## Skapa en mall
 ### [Läs mer om skalningsuppsättningsmallar](virtual-machine-scale-sets-mvss-start.md)

@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Använda Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Ge en virtuell MSI-dator åtkomst till Resource Manager
+    - name: Konfigurera MSI för Azure VMSS
+      items:
+        - name: Använda Azure-portalen
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Använda Azure CLI
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Använda Azure Resource Manager-mall
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Ge en virtuell dator eller VMSS MSI åtkomst till Resource Manager
       items:
         - name: Använda Azure Portal
           href: msi-howto-assign-access-portal.md

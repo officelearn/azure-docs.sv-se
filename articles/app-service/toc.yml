@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python med PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 – Skapa RESTful-API
+    - name: 1 – Agera värd åt RESTful-API
       href: app-service-web-tutorial-rest-api.md
     - name: 2 – Mappa anpassad domän
       href: app-service-web-tutorial-custom-domain.md
@@ -230,7 +230,7 @@
     - name: Kokböcker
       items:
         - name: Referensarkitekturer
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Distributionsskript
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Felsökning

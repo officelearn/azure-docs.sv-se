@@ -108,6 +108,8 @@
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Felsöka anslutna virtuella hårddiskar
+          href: troubleshoot-vhds.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt

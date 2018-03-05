@@ -1,25 +1,25 @@
 ---
-title: "Konfigurera och komma åt serverloggen för PostgreSQL i Azure Portal | Microsoft Docs"
+title: "Konfigurera och komma åt serverloggen för PostgreSQL i Azure Portal"
 description: "Den här artikeln beskriver hur du konfigurerar och komma åt de server-loggarna i Azure-databas för PostgreSQL från Azure Portal."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurera och åtkomst loggas i Azure-portalen
 
 Du kan konfigurera, visa och hämta den [Azure-databas för PostgreSQL serverloggen](concepts-server-logs.md) från Azure-portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att gå igenom den här instruktioner:
 - [Azure-databas för PostgreSQL-server](quickstart-create-server-database-portal.md)
 
@@ -36,19 +36,13 @@ Konfigurera åtkomst till frågeloggar och i felloggarna.
 
 4. Markera rubriken **Klicka här för att aktivera loggar och konfigurera parametrar för loggen** att se de server-parametrarna.
 
-5. Välj den **visa fler** expander att se en utökad lista över tillgängliga parametrar. 
-
-   Mer information om definitionerna av parametrar finns i dokumentationen för PostgreSQL på [felrapportering och loggning](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Kort lista över loggen parametrar. Klicka på Visa fler för lång](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Ändra de parametrar som du måste justera. Alla ändringar du gör i den här sessionen är markerade i lila.
+5. Ändra de parametrar som du måste justera. Alla ändringar du gör i den här sessionen är markerade i lila.
 
    När du har ändrat parametrarna kan du klicka på **spara**. Du kan också **Ignorera** ändringarna. 
 
    ![Lång lista med parametrar med ändringar att spara eller ta bort](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Återgå till listan loggar genom att klicka på den **stängningsknappen** (X ikonen) på den **serverparametrar** sidan.
+6. Återgå till listan loggar genom att klicka på den **stängningsknappen** (X ikonen) på den **serverparametrar** sidan.
 
 ## <a name="view-list-and-download-logs"></a>Visa lista och hämta loggar
 När loggningen börjar kan du visa en lista över tillgängliga loggar och hämta individuella loggfiler i rutan i serverloggen. 

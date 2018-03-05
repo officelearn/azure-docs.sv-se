@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Använda rollbaserad åtkomstkontroll för att hantera distributioner av Azure Site Recovery
 
@@ -45,9 +45,9 @@ En användare behöver följande behörigheter till fullständig replikering av 
 > [!IMPORTANT]
 >Kontrollera att relevanta behörigheter läggs per distributionsmodell (Resource Manager / klassiska) används för distribution av resursen.
 
-| **Resurstyp** | Distributionsmodell | **Behörighet** |
+| **Resurstyp** | **Distributionsmodell** | **Behörighet** |
 | --- | --- | --- |
-| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| Beräkna | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -66,7 +66,7 @@ En användare behöver följande behörigheter till fullständig replikering av 
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Klassisk | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Lagring | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Klassisk | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |

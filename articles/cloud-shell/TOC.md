@@ -4,10 +4,9 @@
 ## [Bash – snabbstart](quickstart.md)
 ## [PowerShell – snabbstart](quickstart-powershell.md)
 
-# Begrepp
+# Funktioner och verktyg
 ## [Bash – funktioner och verktyg](features.md)
 ## [PowerShell – funktioner och verktyg](features-powershell.md)
-## [Begränsningar](limitations.md)
 
 # Så här gör du
 ## [Bash – bestående lagring](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Bädda in Cloud Shell](embed-cloud-shell.md)
 
-# [Felsökning](troubleshooting.md)
+# [Felsökning och begränsningar](troubleshooting.md)
 
 # Referens
 ## [Azure CLI](/cli/azure)

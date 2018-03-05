@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
 *Gäller för: Azure stacken Development Kit*
 
-Innan du distribuerar [Azure Stack Development Kit](azure-stack-poc.md), kontrollera att datorn uppfyller följande krav:
+Innan du distribuerar den [Azure Stack Development Kit (ASDK)](azure-stack-poc.md), kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
 
+> [!NOTE]
+> ASDK måste installeras på en fysisk värddator. Det går inte att installera ASDK på en Azure VM.
 
 ## <a name="hardware"></a>Maskinvara
 | Komponent | Minimum | Rekommenderas |
@@ -122,7 +124,6 @@ Kontrollera att det finns en DHCP-server i nätverket som nätverkskortet anslut
 ### <a name="internet-access"></a>Internet-åtkomst
 Azure-stacken kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure-stacken stöder inte konfigurationen av en webbproxy för Internet-åtkomst. Både värd-IP och nya IP-Adressen som tilldelats MAS-BGPNAT01 (med DHCP eller statiska IP-) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under graph.windows.net och login.microsoftonline.com domäner.
 
-F: är det möjligt att köra ASDK på en Azure VM? S: Nej. Från och med idag, officiellt stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 [Hämta Azure Stack development kit distributionspaketet](https://azure.microsoft.com/overview/azure-stack/try/?v=try)

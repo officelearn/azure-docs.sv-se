@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integrering överväganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -30,6 +30,15 @@ Om du är intresserad av en Azure-stacken integrerat system, bör du förstå n�
 Du måste förse din leverantör planeringsinformation innan distribution startas för att gå smidigt och snabbt processen för att distribuera Azure-stacken. Adressintervall upplysningar över nätverk, säkerhet och identitetsinformation med många viktiga beslut som kan kräva att information från många olika områden och beslutsfattare. Därför kanske du måste dra in personer från flera team i din organisation så att du har all nödvändig information som är klar innan du påbörjar distributionen. Det hjälper dig för att tala med din maskinvaruleverantör vid insamling av den här informationen som de kan ha råd bra att fattar ditt beslut.
 
 Du kan behöva göra vissa före distributionen konfigurationsändringar i din nätverksmiljö när du undersöker och samla in nödvändig information. Det kan vara att reservera IP-adressutrymmen för Azure-stacken lösningen, hur du konfigurerar dina routrar, växlar och brandväggar för att förbereda för anslutningen till de nya Azure-stacken lösning växlarna. Se till att ha ämne området experten sida upp till hjälpa dig med planeringen.
+
+## <a name="capacity-planning-considerations"></a>Kapacitetsplaneringsöverväganden
+När du utvärderar en Azure-stacken lösning för göras maskinvara konfigurationsalternativ som har en direkt inverkan på den totala kapaciteten i sin Azure Stack-lösning. Dessa inkluderar klassiska val av CPU, minne densitet, lagringskonfiguration och övergripande lösning skala (t.ex. antalet servrar). Till skillnad från en traditionell virtualiseringslösning gäller inte enkla aritmetiska för dessa komponenter för att avgöra kapaciteten som kan användas. Det första skälet är att Azure-stacken är konstruerad för att vara värd för infrastruktur eller hantering av komponenterna i själva lösningen. Den andra orsaken är att några av lösningens kapacitet är reserverad för att stödja återhämtning; uppdatering av lösningens programvara på ett sätt som minimerar avbrott i klienternas arbetsbelastningar. 
+
+Den [Azure Stack kapacitet planner kalkylblad](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) sätt att göra informerat beslut om att planera kapaciteten på två sätt: antingen den genom att välja ett erbjudande för maskinvara och försök att passa en kombination av resurser eller genom att definiera den arbetsbelastning som Azure-stacken är avsedd att köras för att visa tillgängliga SKU: er som stöds av maskinvaran. Slutligen är kalkylbladet avsedd som en guide för att fatta beslut som rör Azure Stack planering och konfiguration. 
+
+Kalkylbladet är inte avsedd att fungera som en ersättning för egna undersökningar och analys.  Microsoft lämnar inga garantier, uttryckliga eller underförstådda, avseende informationen i kalkylbladet.
+
+
 
 ## <a name="management-considerations"></a>Hanteringsanmärkningar
 Azure-stacken är ett förseglat system där infrastrukturen som är låst både från en behörigheter och perspektiv. Nätverket åtkomstkontrollistor (ACL) används för att blockera all inkommande trafik som obehörig och all onödig kommunikation mellan infrastrukturkomponenter. Detta gör det svårare för obehöriga användare att komma åt systemet.

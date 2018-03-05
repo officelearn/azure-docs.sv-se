@@ -3,7 +3,7 @@ title: Distribuera SSIS-paket till Azure | Microsoft Docs
 description: "Den här artikeln förklarar hur du distribuerar SSIS-paket till Azure-SSIS Integration Runtime som tillhandahålls av Azure Data Factory."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 2199808533619ed7d9ef8201363f0cef04b0f50f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: abdf09900c59081821467229f81141bea2d7c15c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Distribuera SQL Server Integration Services-paket i Azure
 Den här självstudien innehåller steg för att distribuera en Azure SSIS Integration Runtime (IR) i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure. I den här självstudien gör du följande:
@@ -46,8 +46,8 @@ Den här självstudien innehåller steg för att distribuera en Azure SSIS Integ
 - **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps). Du använder PowerShell för att köra ett skript för att etablera en Azure-SSIS Integration Runtime som kör SSIS-paket i molnet. 
 
 > [!NOTE]
-> - Du kan skapa en datafabrik med version 2 i följande regioner: USA, Öst, USA, Öst 2, Sydostasien och Europa, västra. 
-> - Du kan skapa en Azure-SSIS-IR inom följande områden: USA, Öst, USA, Öst 2, USA, Central, Europa, norra, Europa, västra och Australien, östra.
+> - Du kan skapa en datafabrik med version 2 i följande regioner: USA, östra; USA, östra 2; Asien, sydöstra och Europa, västra. 
+> - Du kan skapa en integreringskörning för Azure-SSIS i följande regioner: USA, östra; USA, östra 2; USA, centrala; Europa, norra; Europa, västra och Australien, östra.
 
 ## <a name="launch-windows-powershell-ise"></a>Starta Windows PowerShell ISE
 Starta **Windows PowerShell ISE** med administratörsprivilegier. 

@@ -22,6 +22,7 @@
 ## [Kontrollera en hanterad domäns hälsostatus](active-directory-ds-check-health.md)
 ## [Använda Azure AD Domain Services i Azure CSP-prenumerationer](active-directory-ds-csp.md)
 ## [Aktivera Azure AD Domain Services med PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Kontrollera hälsan för domänen](active-directory-ds-check-health.md)
 ## Anslut till en hanterad domän
 ### [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Virtuell Windows Server-dator från mall](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Konfigurera säker LDAP för en hanterad domän
 #### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

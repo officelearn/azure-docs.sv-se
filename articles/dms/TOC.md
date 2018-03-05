@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Om Database Migration Service](dms-overview.md)
 
 # Snabbstarter
@@ -19,4 +18,5 @@
 ## [Prissättning](https://aka.ms/dms-pricing)
 ## [Översikt över förutsättningar](pre-reqs.md)
 ## [Vanliga frågor och svar](faq.md)
+## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=database-migration)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET
 
@@ -34,6 +34,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en enda 
 
 ### <a name="json-preset"></a>JSON förinställda
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ Följande JSON- och XML förinställningen kan användas för att skapa en enda 
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>XML-förinställda
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en enda 
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Exempel på en förinställning för ”antal JPEG-bilder”
 
@@ -86,6 +90,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en upps�
 
 ### <a name="json-preset"></a>JSON förinställda
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ Följande JSON- och XML förinställningen kan användas för att skapa en upps�
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML-förinställda
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en upps�
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exempel på en förinställning ”en bild på en specifik tidsstämpel”
 
@@ -142,6 +150,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en JPEG-
 
 ### <a name="json-preset"></a>JSON förinställda
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ Följande JSON- och XML förinställningen kan användas för att skapa en JPEG-
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>XML-förinställda
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ Följande JSON- och XML förinställningen kan användas för att skapa en JPEG-
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Exempel på en förinställning ”miniatyrbilder med olika upplösning”
 
 Följande förinställda kan användas för att generera miniatyrbilder med olika upplösning i en aktivitet. I det här exemplet på positioner 5% 15%,..., 95% av inkommande tidslinjen kodaren genererar två bilder – en 100% av inkommande video upplösning och andra vid 50%.
@@ -200,6 +211,7 @@ Observera användningen av {upplösning} makro i filnamn. Anger att encoder anv�
 
 ### <a name="json-preset"></a>JSON förinställda
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Observera användningen av {upplösning} makro i filnamn. Anger att encoder anv�
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>XML-förinställda
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Observera användningen av {upplösning} makro i filnamn. Anger att encoder anv�
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Exempel på genererar en miniatyrbild vid kodning
 
 När alla ovanstående exempel har beskrivs hur du kan skicka en kodning uppgift som bara ger bild kan kan du också kombinera ljud och kodning miniatyr generation. Berätta för följande JSON- och XML förinställningen **Media Encoder Standard** att generera en miniatyrbild under kodning.
@@ -269,6 +283,7 @@ När alla ovanstående exempel har beskrivs hur du kan skicka en kodning uppgift
 ### <a id="json"></a>JSON förinställda
 Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt26
         }
       ]
     }
+```
 
 ### <a id="xml"></a>XML-förinställda
 Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt26
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Koda video och generera miniatyr med .NET
 
@@ -400,7 +418,7 @@ Följande kodexempel använder Media Services .NET SDK för att utföra följand
 
 Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md) artikel för instruktioner om hur du ställer in din utvecklingsmiljö.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

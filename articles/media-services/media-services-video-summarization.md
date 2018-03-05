@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video-miniatyrer för att skapa en sammanfattning av Video
 ## <a name="overview"></a>Översikt
@@ -44,7 +44,11 @@ Här följer några exempel på vad Azure Media Video-miniatyrer medieprocessor 
 ## <a name="task-configuration-preset"></a>Uppgiftskonfigurationen (förinställda)
 När du skapar en video miniatyr uppgift med **Azure Media Video-miniatyrer**, måste du ange en konfiguration förinställning. Miniatyrer exemplet ovan har skapats med följande grundläggande JSON-konfiguration:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 För närvarande kan du ändra följande parametrar:
 
@@ -63,6 +67,7 @@ I följande tabell beskrivs standardlängden när **maxMotionThumbnailInSecs** a
 
 Följande JSON anger tillgängliga parametrar.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ Följande JSON anger tillgängliga parametrar.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Exempelkod för .NET
 
@@ -78,15 +84,18 @@ Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
 2. Skapar ett jobb med en video miniatyr aktivitet baserat på en konfigurationsfil som innehåller följande json-förinställda: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Hämtar utdatafilerna. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -95,6 +104,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Miniatyrer videoutgång
 [Miniatyrer videoutgång](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
@@ -273,7 +284,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

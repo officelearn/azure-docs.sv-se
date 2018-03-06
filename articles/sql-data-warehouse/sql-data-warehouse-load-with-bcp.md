@@ -174,7 +174,7 @@ Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. Da
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-När du designar din inläsning kan du läsa [Inläsningsöversikt] (sql-data-warehouse-design-elt-data-loading].  
+När du designar din inläsning kan du läsa [Inläsningsöversikt](sql-data-warehouse-design-elt-data-loading.md).  
 
 
 

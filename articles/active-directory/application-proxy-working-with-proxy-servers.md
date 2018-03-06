@@ -16,10 +16,10 @@ ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -108,8 +108,8 @@ Det finns fyra olika aspekter att tänka på utgående proxy:
 #### <a name="proxy-outbound-rules"></a>Proxy utgående regler
 Tillåt åtkomst till följande slutpunkter för connector service åtkomst:
 
-* *. msappproxy.net
-* *. servicebus.windows.net
+* *.msappproxy.net
+* *.servicebus.windows.net
 
 Tillåt åtkomst till följande slutpunkter för inledande registrering:
 

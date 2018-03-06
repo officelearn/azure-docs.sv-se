@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux diagnostiska tillägget för att övervaka mått och loggar
 
@@ -189,8 +189,8 @@ Version 3.0 av Linux diagnostiska tillägget stöder två typer av mottagare: Ev
 
 ”SasURL”-post innehåller en fullständig URL, inklusive SAS-token för Händelsehubben som data ska publiceras. LAD kräver en SAS namngivning av en princip som gör att skicka ett anspråk. Ett exempel:
 
-* Skapa ett namnområde för Händelsehubbar kallas`contosohub`
-* Skapa en Händelsehubb i namnområdet som kallas`syslogmsgs`
+* Skapa ett namnområde för Händelsehubbar kallas `contosohub`
+* Skapa en Händelsehubb i namnområdet som kallas `syslogmsgs`
 * Skapa en princip för delad åtkomst på Händelsehubben med namnet `writer` som gör att skicka anspråk
 
 Om du har skapat en SAS bra till midnatt UTC på den 1 januari 2018 kan sasURL värdet vara:
@@ -319,13 +319,13 @@ counterSpecifier | Identifierar specifikt mått i Azure mått-namnområdet.
 tillstånd | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer sammanställning över alla instanser av objektet. Mer information finns i [ `builtin` måttdefinitioner](#metrics-supported-by-builtin).
 sampleRate | ÄR 8601 tidsintervall som anger den hastighet som rådata prover för det här måttet har samlats in. Om inte ange intervall för insamling anges med värdet [sampleRateInSeconds](#ladcfg). Kortaste stöds samplingsfrekvens är 15 sekunder (PT15S).
 enhet | Måste vara ett av de här strängarna: ”antal”, ”byte”, ”sekunder”, ”procent”, ”CountPerSecond”, ”BytesPerSecond”, ”millisekunder”. Definierar enheten för måttet. Konsumenter av insamlade data förväntas värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
-Visningsnamn | Etikett (på det språk som anges av den associerade språkinställningen) som ska kopplas till dessa data i Azure mått. LAD ignorerar det här fältet.
+displayName | Etikett (på det språk som anges av den associerade språkinställningen) som ska kopplas till dessa data i Azure mått. LAD ignorerar det här fältet.
 
 CounterSpecifier är ett valfritt ID. Konsumenter av statistik, som Azure portal diagram och aviseringar funktion använder counterSpecifier som ”nyckeln” som identifierar ett mått eller en instans av ett mått. För `builtin` statistik, rekommenderar vi du använder counterSpecifier värden som börjar med `/builtin/`. Om du samlar in en specifik instans av ett mått, rekommenderar vi du bifoga identifierare för instansen med värdet counterSpecifier. Några exempel:
 
-* `/builtin/Processor/PercentIdleTime`-Inaktivitetstid var i genomsnitt över alla vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)`-Ledigt utrymme för /mnt filsystemet
-* `/builtin/Disk/FreeSpace`-Ledigt utrymme som var i genomsnitt över alla monterade filsystem
+* `/builtin/Processor/PercentIdleTime` -Inaktivitetstid var i genomsnitt över alla vCPUs
+* `/builtin/Disk/FreeSpace(/mnt)` -Ledigt utrymme för /mnt filsystemet
+* `/builtin/Disk/FreeSpace` -Ledigt utrymme som var i genomsnitt över alla monterade filsystem
 
 Förväntar sig counterSpecifier-värde som matchar alla mönster varken LAD eller Azure-portalen. Vara konsekvent i hur du skapar counterSpecifier värden.
 

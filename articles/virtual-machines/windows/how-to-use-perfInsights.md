@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights 
 
@@ -57,7 +57,7 @@ Detta är en passiv insamling av information som inte bör påverka systemet.
 >[!Note]
 >Det här scenariot ingår automatiskt i var och en av följande scenarier.
 
-### <a name="benchmarking"></a>Prestandamätningar
+### <a name="benchmarking"></a>Benchmarking
 
 Det här scenariot körs den [Diskspd](https://github.com/Microsoft/diskspd) benchmark-test (IOPS och Mbit/s) för alla enheter som är kopplade till den virtuella datorn. 
 
@@ -89,15 +89,15 @@ Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans 
 | Svarstid      | Medel s/begäran         |
 |              | Medel s/diskläsning                 |
 |              | Medel s/diskskrivning                |
-| I/o-storlek      | Genomsn. Begäran om byte-Data       |
-|              | Genomsn. Lästa byte /               |
-|              | Genomsn. Byte/skrivning              |
+| I/o-storlek      | Avg. Begäran om byte-Data       |
+|              | Avg. Bytes/Read               |
+|              | Avg. Byte/skrivning              |
 | Dataflöde   | Byte/sek                |
 |              | Lästa byte/sek                |
 |              | Skrivna byte/s               |
-| Kölängd | Genomsn. Läs Kölängd        |
-|              | Genomsn. Skriva Kölängd       |
-|              | Genomsn. Kölängd för data        |
+| Queue Length | Avg. Läs Kölängd        |
+|              | Avg. Skriva Kölängd       |
+|              | Avg. Kölängd för data        |
 
 ### <a name="custom-slow-vm-analysis"></a>Anpassade långsam VM-analys 
 
@@ -113,7 +113,7 @@ Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandar
 
 |Data som samlas in                              |  |  | Scenarier för prestanda |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Samla in grundläggande konfiguration | Prestandamätningar | Långsam VM analys | Långsam VM-analys och prestandamätningar | Azure filer analys | Anpassade långsam VM-analys |
+|                              | Samla in grundläggande konfiguration | Benchmarking | Långsam VM analys | Långsam VM-analys och prestandamätningar | Azure filer analys | Anpassade långsam VM-analys |
 | Information från händelseloggar      | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Systeminformation               | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Volymen karta                       | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
@@ -159,8 +159,8 @@ Samlar in följande prestandaräknare:
 
 #### <a name="for-sql-server-instances"></a>För SQL Server-instanser
 - \SQL server: bufferthanteraren \SQLServer:Resource Pool statistik och \SQLServer:SQL Statistics\
-- \SQLServer:locks \SQLServer:General statistik
-- \SQLServer:Access metoder
+- \SQLServer:Locks, \SQLServer:General, Statistics
+- \SQLServer:Access Methods
 
 #### <a name="for-azure-files"></a>För Azure-filer
 \SMB Klientresurser
@@ -332,7 +332,7 @@ Den **diagnostiska** fliken innehåller information om högsta CPU, disk och min
 
 Diskspd är ett lagring belastningen generator och prestanda test från Microsoft. Mer information finns i [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf är ett kommandoradsverktyg för att fånga in spårningar från Windows Performance Toolkit. Mer information finns i [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

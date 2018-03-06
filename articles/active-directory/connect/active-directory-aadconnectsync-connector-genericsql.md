@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Teknisk referens för allmän SQL Connector
 Den här artikeln beskriver allmänna SQL-anslutningen. Artikeln gäller för följande produkter:
@@ -250,9 +250,9 @@ Gör följande:
 
 * Om du har mycket data, rekommenderas det att implementera sidbrytning med din lagrade procedurer.
 * För den lagrade proceduren att stödja sidbrytning, måste du ange starta Index och End Index. Se: [effektivt växling till stora mängder Data](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndexoch @EndIndex ersätts under körning med respektive värdet för sidstorlek konfigurerats på **konfigurera steg** sidan. Till exempel, när kopplingen hämtar första sidan och sidstorleken anges 500, i en sådan situation @StartIndex skulle värdet vara 1 och @EndIndex 500. Dessa värden ökar när koppling hämtar de efterföljande sidorna och ändra den @StartIndex & @EndIndex värde.
+* @StartIndex och @EndIndex ersätts under körning med respektive värdet för sidstorlek konfigurerats på **konfigurera steg** sidan. Till exempel, när kopplingen hämtar första sidan och sidstorleken anges 500, i en sådan situation @StartIndex skulle värdet vara 1 och @EndIndex 500. Dessa värden ökar när koppling hämtar de efterföljande sidorna och ändra den @StartIndex & @EndIndex värde.
 * Om du vill köra parametriserade lagrad procedur ange parametrar i `[Name]:[Direction]:[Value]` format. Ange varje parameter på en separat rad (tryck på Ctrl + Retur att hämta en ny rad).
-* Allmän SQL kopplingen stödjer också importen från länkade servrar i Microsoft SQL Server. Om information ska hämtas från en tabell i länkade servern bör tabell anges i formatet:`[ServerName].[Database].[Schema].[TableName]`
+* Allmän SQL kopplingen stödjer också importen från länkade servrar i Microsoft SQL Server. Om information ska hämtas från en tabell i länkade servern bör tabell anges i formatet: `[ServerName].[Database].[Schema].[TableName]`
 * Allmän SQL Connector stöder endast de objekt som har liknande struktur (både alias namn och datatyp) mellan köra steg information och schema-identifiering. Om det markerade objektet från schemat och informationen i kör steget skiljer sig, kan SQL-anslutningen inte stöder den här typen av scenarier.
 
 **SQL-fråga**  
@@ -269,7 +269,7 @@ Gör följande:
 Delta importera konfigurationen kräver vissa ytterligare konfiguration jämfört med fullständig Import.
 
 * Om du väljer det utlösare eller ögonblicksbild sättet att spåra deltaändringar och ange sedan Historiktabellen eller en ögonblicksbild av databasen i **Historiktabellen eller ögonblicksbild databasnamnet** rutan.
-* Du måste också ange kopplingsvillkor mellan historiktabellen och den överordnade tabellen, till exempel`Employee.ID=History.EmployeeID`
+* Du måste också ange kopplingsvillkor mellan historiktabellen och den överordnade tabellen, till exempel `Employee.ID=History.EmployeeID`
 * För att spåra transaktionen på den överordnade tabellen från tabellen tidigare, måste du ange kolumnnamnet som innehåller informationen för åtgärden (Lägg till/Uppdatera/ta bort).
 * Om du väljer vattenstämpel att spåra deltaändringar Ange kolumnnamnet som innehåller informationen igen i **vattenstämplar markera kolumnnamnet**.
 * Den **ändra Typattributet** krävs för ändringstyp. Den här kolumnen mappar en ändring som uppstår i den primära tabellen eller Flervärde tabell till en ändring i delta-vyn. Den här kolumnen kan innehålla Modify_Attribute ändra typen för attributet nivå ändra eller lägga till, ändra, eller ta bort ändra typ av en ändring på objektnivå. Om det är något annat än standardvärdet Lägg till, kan ändra eller ta bort och du definiera dessa värden med hjälp av det här alternativet.
@@ -306,7 +306,7 @@ Om du väljer SQL frågealternativet kräver Export tre olika frågor för att u
 * **Infoga frågan**: den här frågan körs om alla objekt som kommer till anslutningstjänsten för infogning i respektive tabell.
 * **Uppdatera fråga**: den här frågan körs om alla objekt som kommer till anslutningstjänsten för uppdatering i respektive tabell.
 * **Ta bort frågan**: den här frågan körs om alla objekt som kommer att anslutningen ska tas bort i tabellen respektive.
-* Filattributet från schemat som används som ett parametervärde till i frågan, t ex`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* Filattributet från schemat som används som ett parametervärde till i frågan, t ex `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Felsökning
 * Information om hur du aktiverar loggning för att felsöka anslutningen finns i [hur du aktiverar ETW-spårning för kopplingar](http://go.microsoft.com/fwlink/?LinkId=335731).

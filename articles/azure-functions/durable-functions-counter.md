@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Tillståndskänsliga singletons i varaktiga funktioner - räknaren exempel
+
+> [!NOTE]
+> Vi skriva om det här exemplet. Kodavsnitten har tagits bort och en ny artikel för en ny exemplet ersätts av den.
 
 Tillståndskänsliga singletons är långvariga (potentiellt eternal) orchestrator funktioner som kan lagra tillstånd och anropas och med andra funktioner. Tillståndskänsliga singletons liknar den [aktören modellen](https://en.wikipedia.org/wiki/Actor_model) i distribuerad datoranvändning.
 
@@ -28,7 +31,7 @@ När inte en korrekt ”aktör”-implementering har orchestrator-funktioner må
 
 Den här artikeln visar hur du kör den *räknaren* exempel. Exemplet visar en singletonobjekt som stöder *ökning* och *minska* åtgärder och uppdateras det interna tillståndet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ instruktionerna i [installera varaktiga funktioner](durable-functions-install.md) att ställa in provet.
 * Den här artikeln förutsätter att du redan har gått igenom de [Hello sekvens](durable-functions-sequence.md) exempel genomgången.
@@ -55,19 +58,19 @@ I följande avsnitt beskrivs den kod som används för utveckling av Visual Stud
 
 Filen function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Filen run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
-### <a name="precompiled-c"></a>Förkompilerade C# 
+### <a name="precompiled-c"></a>Precompiled C# 
 
 I följande avsnitt beskrivs den kod som används för utveckling av Visual Studio.
 
 Här är den kod som implementerar funktionen orchestrator:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Förklaring av koden
 
@@ -85,7 +88,7 @@ En unik egenskap för den här funktionen för orchestrator är effektivt har in
 > [!NOTE]
 > Den `ContinueAsNew` metoden har andra användningsfall förutom eternal orkestreringarna. Mer information finns i [Eternal orkestreringarna](durable-functions-eternal-orchestrations.md).
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
 Du kan starta orchestration genom att skicka följande HTTP POST-begäran. Att tillåta `counterState` ska börja på noll (standardvärdet för `int`), det finns inget innehåll i denna begäran.
 

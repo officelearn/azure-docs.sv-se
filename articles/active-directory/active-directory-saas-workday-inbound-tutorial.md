@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -245,7 +245,7 @@ Följ instruktionerna för att konfigurera användarkonto etablering från Workd
 
 8.  Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
-   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. **Ska se ut ungefär:username@contoso4**
+   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. **Ska se ut ungefär: username@contoso4**
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
@@ -346,7 +346,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa och uppdatera |
 | **PostalCode**  |   Postnummer  |     | Skapa och uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |
-| **Ersätt (Mid (Ersätt (\[EmployeeID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
+| **Ersätt (Mid (Ersätt (\[EmployeeID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **CountryRegionReference** |  St     |     | Skapa och uppdatera |
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
@@ -500,7 +500,7 @@ I följande avsnitt beskrivs hur du konfigurerar en anslutning mellan Workday oc
 
 8.  Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
-   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. Ska se ut ungefär:username@contoso4
+   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. Ska se ut ungefär: username@contoso4
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
@@ -605,7 +605,7 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
 8.  Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
-   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. Ska se ut ungefär:username@contoso4
+   * **Admin Username** – ange användarnamnet för system-kontot Workday-integrering med klienten domännamnet tillagt. Ska se ut ungefär: username@contoso4
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
@@ -743,7 +743,7 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 8. För **typen**, Välj typ som motsvarar korrekt till attribut (**sträng** är de vanligaste).
 
-9. För **API uttryck**, ange det XPath-uttryck som du kopierade från Workday Studio. Exempel:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. För **API uttryck**, ange det XPath-uttryck som du kopierade från Workday Studio. Exempel: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Välj **lägga till attributet**.
 

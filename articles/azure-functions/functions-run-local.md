@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -35,14 +35,6 @@ Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras m
 
 >[!NOTE]  
 > Innan du installerar någon version, måste du [installera NodeJS](https://docs.npmjs.com/getting-started/installing-node), som innehåller npm. För version 2.x verktyg, endast Node.js 8.5 och senare versioner stöds. 
-
-### <a name="version-1x-runtime"></a>Version 1.x runtime
-
-Den ursprungliga versionen av verktygen använder funktioner 1.x runtime. Den här versionen använder .NET Framework och stöds endast på Windows-datorer. Använd följande kommando för att installera version 1.x-verktyg:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Version 2.x runtime
 
@@ -69,6 +61,14 @@ När du installerar i macOS och Linux, du kan behöva ta de `unsafe-perm` flagga
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Version 1.x runtime
+
+Den ursprungliga versionen av verktygen använder funktioner 1.x runtime. Den här versionen använder .NET Framework och stöds endast på Windows-datorer. Använd följande kommando för att installera version 1.x-verktyg:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Köra verktyg för Azure Functions kärnor

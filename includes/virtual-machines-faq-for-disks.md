@@ -141,7 +141,7 @@ Ja, du kan välja att gå över till en virtuell dator med hanterade diskar.
 
 **Finns det någon effekt av migrering på virtuella Azure-datorer skyddas av Azure Site Recovery (ASR) via Azure Azure replikering?**
 
-Ja. ASR Azure till Azure-skydd stöds inte för virtuella datorer med hanterade diskar. Den kommer att stödjas i slutet av F1 CY2018. 
+Ja. ASR Azure till Azure-skydd för virtuella datorer med hanterade diskar är för närvarande endast tillgängligt som en förhandsversion av tjänst.
 
 **Kan jag migrera virtuella datorer med ohanterad diskar som finns på lagringskonton som är eller krypterats till hanterade diskar?**
 

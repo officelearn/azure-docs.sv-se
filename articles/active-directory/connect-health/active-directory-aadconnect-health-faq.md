@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.
@@ -128,12 +128,7 @@ Health-agenten kan inte kan registreras på grund av följande anledningar:
 
 **F: Jag är få ett meddelande om att ”Hälsotjänstens data inte är uppdaterad”. Hur felsöker problemet?**
 
-Azure AD Connect Health genererar en avisering när den inte får alla datapunkter från servern under de senaste två timmarna. Det kan finnas flera orsaker till den här aviseringen.
-
-* Agenten kan inte kommunicera med de nödvändiga slutpunkterna eftersom en brandvägg blockerar trafik. Detta är särskilt vanligt på webbprogramproxyservrarna. Kontrollera att du har tillåtit utgående kommunikation till de nödvändiga slutpunkterna och portar. Finns det [avsnittet krav](active-directory-aadconnect-health-agent-install.md#requirements) mer information.
-* Utgående kommunikation är föremål för SSL-kontroll av nätverksnivån. Detta gör att det certifikat som använder agenten som ska ersättas med inspektion server/entiteten och processen inte kan överföra data till Azure AD Connect Health-tjänsten.
-* Du kan använda kommandot anslutningen inbyggda i agenten. [Läs mer](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Agenterna stöder också utgående anslutning via en oautentiserad HTTP-Proxy. [Läs mer](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health genererar en avisering när den inte får alla datapunkter från servern under de senaste två timmarna. [Läs mer](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Operations frågor
 **F: behöver jag att aktivera granskning på web application proxy-servrar?**

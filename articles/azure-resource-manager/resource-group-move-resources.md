@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -178,7 +178,7 @@ Hanterade diskar stöder inte flytta. Den här begränsningen innebär att flera
 * Ögonblicksbilder som skapats från hanterade diskar
 * Tillgänglighetsuppsättningar med virtuella datorer med hanterade diskar
 
-Virtuella datorer som skapats från Marketplace resurser kan inte flyttas mellan prenumerationer. Ta bort etableringen av den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
+Virtuella datorer som skapats från Marketplace-resurser med planer kopplade kan inte flyttas mellan resursgrupper eller prenumerationer. Ta bort etableringen av den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 
 Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp med samma prenumeration, men inte alla prenumerationer.
 
@@ -365,7 +365,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Om du vill flytta till en ny prenumeration, ange den `--destination-subscription-id` parameter.
 
-## <a name="use-rest-api"></a>Använd REST-API
+## <a name="use-rest-api"></a>Använda REST-API
 
 För att flytta befintliga resurser till en annan resursgrupp eller prenumeration, kör du:
 

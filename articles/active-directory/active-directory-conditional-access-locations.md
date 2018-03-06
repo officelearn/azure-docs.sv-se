@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Plats-villkor i Azure Active Directory för villkorlig åtkomst 
 
@@ -120,9 +120,12 @@ Med det här alternativet kan du välja en eller flera namngivna platser. För e
 
 Principer för villkorlig åtkomst utvärderas när: 
 
-- En användare loggar först in 
+- En användare loggar först in på ett webbprogram för appen, Mobil eller skrivbordet. 
 
-- Azure AD utfärdar en token för principen för villkorlig åtkomst har ställts in på molnappen. 
+- En mobil- eller datorprogram program som använder modern autentisering använder en uppdateringstoken för att få en ny åtkomsttoken. Som standard är detta en gång i timmen. 
+
+Detta betyder för mobila enheter och program med modern autentisering, en ändring i plats skulle kunna identifieras inom en timme att ändra en nätverksplats nedan. Principen har tillämpats på varje Tokenbegäran för bärbara och stationära program som inte använder modern autentisering. Frekvensen för begäran kan variera beroende på programmet. På samma sätt tillämpas vid första inloggningen principen för webbprogram och är bra för livslängden för sessionen på webbprogrammet. På grund av skillnader i sessionen livslängd för program varierar även tiden mellan principutvärdering. Varje gång programmet begär en ny token inloggning har principen tillämpats.
+
 
 Azure AD utfärdar en token timme som standard. När du har flyttat av företagets nätverk, inom en timme aktiveras principen för program som använder modern autentisering.
 

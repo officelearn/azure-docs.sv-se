@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
 För att dra nytta av funktionerna i Azure N-serien virtuella datorer som kör Linux GPU installera stöd för grafik drivrutinerna. Den här artikeln innehåller drivrutinen konfigurationsstegen när du distribuerar en virtuell dator i N-serien. Inställningsinformation för drivrutinen är också tillgängligt för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 N-serien VM specifikationerna, lagringskapacitet, och diskinformation finns [GPU Linux VM-storlekar](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Installera CUDA drivrutiner för NC, NCv2 och ND virtuella datorer
+## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Installera CUDA drivrutiner för NC, NCv2, NCv3 och ND-serien virtuella datorer
 
-Här följer stegen för att installera drivrutinerna på Linux NC virtuella datorer från NVIDIA CUDA Toolkit. 
+Här följer stegen för att installera drivrutinerna från NVIDIA CUDA Toolkit på N-serien virtuella datorer. 
 
 C och C++ utvecklare kan välja att installera fullständig Toolkit för att skapa GPU-snabbare program. Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats.
@@ -113,9 +109,9 @@ sudo reboot
 2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
  
   cd LISISO
  
@@ -152,16 +148,13 @@ sudo reboot
 
 5. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 
-
 ### <a name="verify-driver-installation"></a>Verifiera installation av drivrutiner
-
 
 Fråga Enhetsstatus GPU SSH till den virtuella datorn och kör den [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyg som installeras med drivrutinen. 
 
 Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar 0% om du använder en GPU arbetsbelastning på den virtuella datorn. Din version av drivrutinen och information GPU kan skilja sig från de som visas.
 
 ![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi.png)
-
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
@@ -180,9 +173,9 @@ Distribuera RDMA-kompatibla N-serien virtuella datorer från en avbildning i Azu
 > 
 
 
-## <a name="install-grid-drivers-for-nv-vms"></a>Installera drivrutiner för rutnät för NV virtuella datorer
+## <a name="install-grid-drivers-for-nv-series-vms"></a>Installera drivrutiner för rutnät för NV-serien virtuella datorer
 
-Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslutning på varje virtuell dator och följer du stegen för Linux-distribution. 
+Göra en SSH-anslutning för varje virtuell dator för att installera drivrutiner för NVIDIA RUTNÄTET på NV-serien virtuella datorer, och följ anvisningarna för Linux-distribution. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -265,9 +258,9 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 3. Starta om den virtuella datorn, återansluta och installera de senaste Linux integreringstjänsterna för Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
 
   cd LISISO
 
@@ -348,7 +341,6 @@ Den här filen kan anropas som rot på Start genom att skapa en post för den i 
 ## <a name="troubleshooting"></a>Felsökning
 
 * Du kan ange beständiga med hjälp av `nvidia-smi` så resultatet av kommandot är snabbare när du behöver fråga kort. Om du vill ange beständiga läge kan köra `nvidia-smi -pm 1`. Observera att om den virtuella datorn har startats om inställningen för läge försvinner. Du kan alltid skript inställningen för läge för att köra vid start.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

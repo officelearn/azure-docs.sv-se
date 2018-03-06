@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: d91985849bd2483e8a28a01d63d253960190829d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Använd data transformeringar för förberedelse av data i Azure Machine Learning
 
@@ -48,7 +48,7 @@ Du kan markera kolumner innan du anropar transformeringen. När Redigeraren för
 En mer detaljerad förklaring av de **härledd kolumn efter exempel** transformeringen tillsammans med flera sampel, se [härledd kolumn efter exempel referens](data-prep-derive-column-by-example.md).  
 
 ## <a name="split-column-by-example"></a>Delad kolumn efter exempel
-Den här transformeringen tar en befintlig kolumn och försöker med ”med hjälp av exempel”-motorn kan dela i kolumnen  *n*  andra kolumner. Du kan köra auto-delning på efterföljande genererade kolumner.
+Den här transformeringen tar en befintlig kolumn och försöker med ”med hjälp av exempel”-motorn kan dela i kolumnen *n* andra kolumner. Du kan köra auto-delning på efterföljande genererade kolumner.
 
 En mer detaljerad förklaring av de **delad kolumn efter exempel** transformeringen tillsammans med flera sampel, se [delad kolumn av exempel referens](data-prep-split-column-by-example.md).
 

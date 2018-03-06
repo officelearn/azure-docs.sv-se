@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrera ditt data warehouse till premium-lagring
 Azure SQL Data Warehouse som nyligen lades [premium-lagring för bättre prestanda förutsägbarhet][premium storage for greater performance predictability]. Befintligt datalager för närvarande på standardlagring kan nu migreras till premium-lagring. Du kan dra nytta av automatisk migrering av, eller om du föredrar att reglera när du migrerar (som inbegriper vissa avbrott), kan du göra migreringen själv.
@@ -116,7 +116,7 @@ I detta exempel anta att ditt befintliga data warehouse på standardlagring med 
 **Krav:**
 
 - Datalagret ska köras med 1 000 informationslagerenheter eller högre (se [skala beräkningskraft][scale compute power]).
-- Användaren som kör skriptet måste vara i den [mediumrc rollen] [ mediumrc role] eller högre. Lägg till en användare i den här rollen, kör du följande:````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- Användaren som kör skriptet måste vara i den [mediumrc rollen] [ mediumrc role] eller högre. Lägg till en användare i den här rollen, kör du följande: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -173,7 +173,7 @@ Om det uppstår problem med ditt data warehouse [skapa ett supportärende] [ cre
 [Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[scale compute power]: quickstart-scale-compute-portal.md
 [mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->

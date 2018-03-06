@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Härledd kolumn av exempel omvandling
 
@@ -115,9 +115,9 @@ Antal exempel som krävs för det här fallet: 3
 |LAGER AVE & OAKDALE ARA;  HORSHAM; Station 352; 2015-12-10 @ 16:46:48;|Horsham|
 |COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Station 336; 2015-12-10 @ 16:17:05;|Skippack|
 |MAIN ST & gamla SUMNEYTOWN GÄDDA;  LÄGRE SALFORD; Station 344; 2015-12-10 @ 16:51:42;|Lägre Salford|
-|BLUEROUTE & RAMP I476 NB TILL KEMISKA RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|ARTEN RD & COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10.|Plymouth|
+|BLUEROUTE &AMP; RAMP I476 NB TILL KEMISKA RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
+|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
+|ARTEN RD &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10.|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Formatet för datum manipulering under Extraheringen av sträng
 
@@ -127,10 +127,10 @@ Antal exempel som krävs för det här fallet: 1
 |:-----|:-----|
 |MONTGOMERY AVE & WOODSIDE RD;  LÄGRE MERION; Station 313; 2015-12-11 @ 04:11:35.|**12 Nov 2015 04: 00**|
 |DREYCOTT LN & W LANCASTER ARA;  LÄGRE MERION; Station 313; 2015-12-11 @ 01:29:52.|12 Nov 2015 1 AM|
-|E LEVERING FABRIKEN RD & CONSHOHOCKEN TILLSTÅND RD; LÄGRE MERION; 2015-12-11 @ 07:29:58;|12 Nov 2015 7 AM|
+|E LEVERING FABRIKEN RD &AMP; CONSHOHOCKEN TILLSTÅND RD; LÄGRE MERION; 2015-12-11 @ 07:29:58;|12 Nov 2015 7 AM|
 |SANDBERG DAL RD & MANOR RD;  LÄGRE MERION; Station 313; 2015-12-10 @ 20:53:30.|12 dessa 2015 20: 00|
-|BELMONT AVE & OVERHILL RD; LÄGRE MERION; 2015-12-10 @ 23:02:27;|12 dessa 2015 kl|
-|W MONTGOMERY AVE & PENNSWOOD RD; LÄGRE MERION; 2015-12-10 @ 19:25:22.|12 dessa 2015 kl|
+|BELMONT AVE &AMP; OVERHILL RD; LÄGRE MERION; 2015-12-10 @ 23:02:27;|12 dessa 2015 kl|
+|W MONTGOMERY AVE &AMP; PENNSWOOD RD; LÄGRE MERION; 2015-12-10 @ 19:25:22.|12 dessa 2015 kl|
 |ROSEMONT AVE & DEAD avslutas.  LÄGRE MERION; Station 313; 2015-12-10 @ 18:43:07;|12 dessa 2015 18: 00|
 |AVIGNON DR & DEAD avslutas. LÄGRE MERION; 2015-12-10 @ 20:01:29-station: STA24;|12 dessa 2015 20: 00|
 
@@ -152,7 +152,7 @@ Antal exempel som krävs för det här fallet: 1
 |Anna Marie|W|Karlsson|Anna Marie· W· Karlsson|
 |Rico||Ropp|Rico··Ropp|
 |Lauren-May||Fullmer|Lauren-May··Fullmer|
-|Pressrester|t|Maine|Marc· T· Maine|
+|Pressrester|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie··Adelman|
 |John-Paul||Smith|John-Paul··Smith|
 |Låt|W|Staller|Song·W·Staller|
@@ -290,16 +290,16 @@ Antal exempel som krävs för det här fallet: 1
 
 Dessa datumdelar extraherades med olika av exempel omformningar på samma datauppsättning. Fetstil strängar representerar exemplen som gavs i sina respektive omvandling.
 
-|DateTime|veckodag|Date|Månad|År|Timme|Minut|Andra|
+|DateTime|veckodag|Date|Månad|År|Timme|Minut|Sekund|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Ons|17|Jan|1990|13|32|01|
 |14-Feb-2034 05:36:07|Tis|14|Feb|2034|5|36|07|
-|14-Mar-2002 13:16:16|Tor|14|Mar|2002|13|16|16|
+|14-Mar-2002 13:16:16|Tor|14|Mars|2002|13|16|16|
 |21-Jan-1985 05:44:43|Mån|21|Jan|1985|5|44|**43**|
 |16-Aug-1985 01:11:56|Fre|16|Aug|1985|1|11|56|
 |20-Dec-2033 18:36:29|Tis|20|Dec|2033|18|36|29|
-|16-Jul-1984 10:21:59|Mån|16|Jul|1984|10|21|59|
+|16-Jul-1984 10:21:59|Mån|16|Juli|1984|10|21|59|
 |13-Jan-2038 10:59:36|Ons|13|Jan|2038|10|59|36|
 |14-Aug-1982 15:13:54|Lör|14|Aug|1982|15|13|54|
 |22-Nov-2030 08:18:08|Fre|22|Nov|2030|8|18|08|
@@ -308,9 +308,9 @@ Dessa datumdelar extraherades med olika av exempel omformningar på samma dataup
 |29-Apr-2031 04:59:45|Tis|29|Apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|Tor|29|Jan|2032|2|38|36|
 |11-maj-2028 15:31:52|Tor|11|Maj|2028|15|31|52|
-|15-Jul-1977 12:45:39|Fre|15|Jul|1977|12|45|39|
+|15-Jul-1977 12:45:39|Fre|15|Juli|1977|12|45|39|
 |27-Jan-2029 05:55:41|Lör|27|Jan|2029|5|55|41|
-|03-Mar-2024 10:17:49|Sön|3|Mar|2024|10|17|49|
+|03-Mar-2024 10:17:49|Sön|3|Mars|2024|10|17|49|
 |14-Apr-2010 00:23:13|Ons|14|Apr|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formatering av datum

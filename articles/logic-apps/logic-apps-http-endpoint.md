@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Anropa utlösare eller kapsla arbetsflöden med HTTP-slutpunkter i logikappar
 
@@ -30,12 +30,12 @@ Du kan lägga till dessa utlösare så att dina logic apps kan ta emot inkommand
 
 * [Förfrågan](../connectors/connectors-native-reqres.md)
 
-* [API-anslutning Webhooken](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API-anslutning Webhooken](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP-webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Även om våra exempel använder den **begära** utlösare, du kan använda någon av de listade HTTP-utlösarna och identiskt gäller alla principer för andra typer av utlösare.
+   > Även om de här exemplen använder den **begära** utlösare, du kan använda någon av de listade HTTP-utlösarna och identiskt gäller alla principer för andra typer av utlösare.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Ställ in en HTTP-slutpunkt för din logikapp
 
@@ -157,7 +157,7 @@ Om du vill HTTP slutpunkts-URL att acceptera parametrar kan anpassa din utlösar
 
     HTTP-slutpunkt-URL innehåller nu relativ sökväg, till exempel: 
 
-    https & # 58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. Om du vill testa HTTP-slutpunkt, kopiera och klistra in den uppdaterade URL: en i ett nytt webbläsarfönster, men Ersätt `{customerID}` med `123456`, och tryck på RETUR.
 
@@ -166,6 +166,7 @@ Om du vill HTTP slutpunkts-URL att acceptera parametrar kan anpassa din utlösar
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Token genereras från JSON-scheman för din logikapp
 
 När du anger ett JSON-schema i din **begära** utlösaren logik App Designer genererar token för egenskaper i schemat. Du kan sedan använda dessa token för att skicka data via logik app arbetsflödet.
@@ -206,6 +207,9 @@ Du kan kapsla arbetsflöden i din logikapp genom att lägga till andra logikappa
 
 När du har skapat HTTP-slutpunkten kan du utlösa logikappen via en `POST` metod för att en fullständig URL. Logikappar har inbyggt stöd för direkt åtkomst slutpunkter.
 
+> [!NOTE] 
+> Om du vill köra en logikapp manuellt när som helst i verktygsfältet logik App Designer eller logik App kodvy väljer **kör**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Referensinnehåll från en inkommande begäran
 
 Om det innehåll av typen `application/json`, kan du referera egenskaper från den inkommande begäranden. Annars behandlas innehåll som en binär enhet som du kan skicka till andra API: er. Om du vill referera till det här innehållet i arbetsflödet, måste du konvertera innehållet. Om du skickar till exempel `application/xml` innehåll, kan du använda `@xpath()` för ett XPath-extrahering eller `@json()` för att konvertera XML till JSON. Lär dig mer om [arbeta med innehållstyper](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Du kanske vill besvara vissa begäranden som startar en logikapp genom att retur
 
 ### <a name="construct-the-response"></a>Skapa svaret
 
-Du kan inkludera mer än ett sidhuvud och varje typ av innehåll i brödtext för svar. I vårt exempelsvar huvudet anger att svaret har innehållstyp `application/json`. och innehåller `title` och `name`, baserat på JSON-schema som tidigare har uppdaterats för den **begära** utlösare.
+Du kan inkludera mer än ett sidhuvud och varje typ av innehåll i brödtext för svar. I exempel-svaret huvudet anger att svaret har innehållstyp `application/json`. och innehåller `title` och `name`, baserat på JSON-schema som tidigare har uppdaterats för den **begära** utlösare.
 
 ![Åtgärd för HTTP-svar][3]
 
@@ -242,9 +246,9 @@ Svar har följande egenskaper:
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| statusCode |Anger HTTP-statuskod för svarar på inkommande begäran. Den här koden kan vara en giltig statuskod som börjar med 2xx, 4xx eller 5xx. 3xx statuskoder är inte tillåtna. |
-| Rubriker |Definierar valfritt antal huvuden ska ingå i svaret. |
-| Brödtext |Anger ett body-objekt som kan vara en sträng, en JSON-objekt eller även binära innehåll som refereras från föregående steg. |
+| statuskod |Anger HTTP-statuskod för svarar på inkommande begäran. Den här koden kan vara en giltig statuskod som börjar med 2xx, 4xx eller 5xx. 3xx statuskoder är inte tillåtna. |
+| rubriker |Definierar valfritt antal huvuden ska ingå i svaret. |
+| brödtext |Anger ett body-objekt som kan vara en sträng, en JSON-objekt eller även binära innehåll som refereras från föregående steg. |
 
 Här är JSON-schema ser ut nu för den **svar** åtgärd:
 
@@ -300,7 +304,7 @@ S: här är en sammanfattning om dessa ändringar:
 | Konfigurera grundläggande eller OAuth-autentisering |via API-hantering |
 | Konfigurera HTTP-metoden |Under **visa avancerade alternativ**, Välj en HTTP-metod |
 | Konfigurera relativ sökväg |Under **visa avancerade alternativ**, lägga till en relativ sökväg |
-| Referera till inkommande brödtexten via`@triggerOutputs().body.Content` |Referens till`@triggerOutputs().body` |
+| Referera till inkommande brödtexten via `@triggerOutputs().body.Content` |Referens till `@triggerOutputs().body` |
 | **Skicka HTTP-svar** åtgärd på HTTP-lyssnare |Klicka på **svarar på HTTP-begäran** (ingen API-App krävs) |
 
 ## <a name="get-help"></a>Få hjälp

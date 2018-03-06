@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att göra från kommandoraden eller från portalen att skapa en Linux-dator (VM). Den här kursen visar hur du se till att du har konfigurerat den för att optimera prestandan på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa Linux virtuella datorer med hjälp av [egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -58,7 +58,7 @@ På Ubuntu molnet bilder, måste du använda molnet init för att konfigurera v�
 
 För bilder utan stöd för molnet init har VM-avbildningar som distribueras från Azure Marketplace en virtuell Linux-agenten integrerat med Operativsystemet. Den här agenten kan den virtuella datorn att interagera med olika Azure-tjänster. Under förutsättning att du har distribuerat en standardiserad avbildning från Azure Marketplace, måste du göra följande för att konfigurera Linux växlingsfilens inställningar på rätt sätt:
 
-Leta upp och ändra två poster i den **/etc/waagent.conf** fil. De styr förekomsten av en dedikerad växlingsfil och storleken på växlingsfilen. De parametrar som du vill ändra är `ResourceDisk.EnableSwap=N` och`ResourceDisk.SwapSizeMB=0` 
+Leta upp och ändra två poster i den **/etc/waagent.conf** fil. De styr förekomsten av en dedikerad växlingsfil och storleken på växlingsfilen. De parametrar som du vill ändra är `ResourceDisk.EnableSwap=N` och `ResourceDisk.SwapSizeMB=0` 
 
 Ändra parametrarna för följande inställningar:
 
@@ -131,8 +131,7 @@ Kom ihåg att du behöver utföra tester före och efter varje ändring av åtg�
 
 Vissa länkar till ytterligare resurser: 
 
-* [Premium Storage: Lagring med höga prestanda för Azure Virtual Machines-arbetsbelastningar](../windows/premium-storage.md)
-* [Användarhandboken för Azure Linux-Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Optimera MySQL prestanda på virtuella Azure Linux-datorer](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Konfigurera programvarubaserad RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Premium Storage: Lagring med höga prestanda för Azure Virtual Machines-arbetsbelastningar](premium-storage.md)
+* [Användarhandboken för Azure Linux-Agent](agent-user-guide.md)
+* [Optimera MySQL prestanda på virtuella Azure Linux-datorer](classic/optimize-mysql.md)
+* [Konfigurera programvarubaserad RAID på Linux](configure-raid.md)

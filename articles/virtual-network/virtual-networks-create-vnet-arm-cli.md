@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med flera undernät med hjälp av Azure CLI
 
@@ -126,6 +126,8 @@ Det tar några minuter att skapa den virtuella datorn. När du har skapat den vi
 Exempel på utdata visas i som den **privateIpAddress** är *10.0.1.4*. Azure skapas ett [nätverksgränssnittet](virtual-network-network-interface.md), kopplade till den virtuella datorn, och tilldelas nätverksgränssnittet en privat IP-adress och en **macAddress**. Azure DHCP automatiskt tilldelas 10.0.1.4 nätverksgränssnittet eftersom det är den första tillgängliga IP-adressen i den *privata* undernät. De privata IP- och MAC-adresserna fortsätter vara tilldelade till nätverksgränssnittet tills nätverksgränssnittet tas bort. 
 
 Anteckna den **publicIpAddress**. Den här adressen används för åtkomst till den virtuella datorn från Internet i ett senare steg. Även om en virtuell dator inte är nödvändigt att ha en offentlig IP-adress som tilldelats, tilldelar Azure en offentlig IP-adress till varje virtuell dator som du skapar som standard. För att kommunicera från Internet till en virtuell dator, måste en offentlig IP-adress tilldelas till den virtuella datorn. Alla virtuella datorer kan kommunicera utgående med Internet, oavsett om en offentlig IP-adress har tilldelats den virtuella datorn. Mer information om utgående Internet-anslutningar i Azure finns [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+De virtuella datorerna som skapats i den här artikeln har ett [nätverksgränssnittet](virtual-network-network-interface.md) med en IP-adress som tilldelas dynamiskt till nätverksgränssnittet. När du har distribuerat den virtuella datorn, kan du [lägga till flera offentliga och privata IP-adresser eller ändra tilldelningsmetod för IP-adress till statisk](virtual-network-network-interface-addresses.md#add-ip-addresses). Du kan [Lägg till nätverksgränssnitt](virtual-network-network-interface-vm.md#vm-add-nic), upp till den gräns som stöds av den [VM-storlek](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att du väljer när du skapar en virtuell dator. Du kan också [aktivera single-root I/O virtualization (SR-IOV)](create-vm-accelerated-networking-cli.md) för en virtuell dator, men bara när du skapar en virtuell dator med en VM-storlek som stöder kapaciteten.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Kommunikation mellan virtuella datorer och internet
 

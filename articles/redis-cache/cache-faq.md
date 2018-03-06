@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache.
@@ -135,7 +135,7 @@ Vi kan upprätta följande slutsatser från den här tabellen:
 | Prisnivå | Storlek | Processorkärnor | Tillgänglig bandbredd | 1 KB storlek | 1 KB storlek |
 | --- | --- | --- | --- | --- | --- |
 | **Standard cache-storlekar** | | |**Megabit per sekund (Mb/s) / megabyte per sekund (MB/s)** |**Förfrågningar per andra (RPS) icke-SSL** |**Förfrågningar per andra (RPS) SSL** |
-| C0 |250 MB |Delad |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Delad |100 / 12.5 |15,000 |7 500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
@@ -246,9 +246,7 @@ Du kan använda någon av de kommandon som finns på [Redis kommandon](http://re
 * Du kan också använda Redis-kommandoradsverktyg. Utför följande steg för att använda dem:
 * Hämta den [Redis kommandoradsverktyg](https://github.com/MSOpenTech/redis/releases/).
 * Ansluta till en cache med hjälp av `redis-cli.exe`. Skicka in den cache-slutpunkten med den -h växla och nyckeln med - a som visas i följande exempel:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > Kommandoradsverktyg för Redis fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` för att ansluta säkert verktygen till SSL-porten genom att följa anvisningarna i den [om ASP.NET Sessionstillståndsprovider för Redis-förhandsgranskning Versionen](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
@@ -270,7 +268,7 @@ Ja, om du vill använda Azure Redis-Cache som en PHP-sessionscachen ange anslutn
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Om nyckeln inte är URL-kodade, kan du få ett undantag med meddelandet som:`Failed to parse session.save_path`
+> Om nyckeln inte är URL-kodade, kan du få ett undantag med meddelandet som: `Failed to parse session.save_path`
 >
 >
 

@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning experiment Service configuration-filer
 
@@ -32,9 +32,9 @@ Följande är relevanta filer under den här mappen:
 >Du normalt har en beräkning målfilen och kör konfigurationsfilen för varje compute-mål som du skapar. Du kan dock skapa dessa filer oberoende och har flera kör konfigurationsfiler som pekar på samma mål för beräkning.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Den här filen är en [conda miljö filen](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) som anger Python körtidsversion och paket som är beroende av din kod. När Azure ML-arbetsstationen kör ett skript i ett dockerbehållare eller HDInsight-kluster, skapas en [conda miljö](https://conda.io/docs/using/envs.html) att köra skriptet. 
+Den här filen är en [conda miljö filen](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) som anger Python körtidsversion och paket som är beroende av din kod. När Azure ML-arbetsstationen kör ett skript i ett dockerbehållare eller HDInsight-kluster, skapas en [conda miljö](https://conda.io/docs/using/envs.html) för skriptet ska köras på. 
 
-Ange Python-paket som behöver för ditt skript för körning i den här filen. Azure ML experiment tjänsten skapar conda miljön i Docker-avbildningen enligt din lista över beroenden. Här listan paket måste kunna nås av motorn för körning. Därför måste paket som ska visas i kanaler:
+Ange Python-paket som behöver för ditt skript för körning i den här filen. Azure ML experiment tjänsten skapar conda miljö enligt din lista över beroenden. Paket som anges här måste kunna nås av motorn för körning via kanaler som:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ Ange Python-paket som behöver för ditt skript för körning i den här filen. 
 * andra kan nås av motorn för körning
 
 >[!NOTE]
->När du kör på HDInsight-kluster skapar en conda miljö för din Azure ML-arbetsstationen. Detta gör att olika användare ska köras på olika python-miljöer i samma kluster.  
+>När du kör på HDInsight-kluster, skapar en conda miljö för dina specifika kör Azure ML-arbetsstationen. Detta gör att olika användare ska köras på olika python-miljöer i samma kluster.  
 
 Här är ett exempel på en typisk **conda_dependencies.yml** fil.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML-arbetsstationen använder samma conda miljö utan att återskapa så länge den **conda_dependencies.yml** intakt. Om något ändras i den här filen resulterar det dock i återskapa Docker-bild.
+Azure ML-arbetsstationen använder samma conda miljö utan att återskapa den så länge som den **conda_dependencies.yml** är densamma. Den återskapas miljön ändrar dina beroenden.
 
 >[!NOTE]
 >Om du riktar körning mot _lokala_ compute sammanhang **conda_dependencies.yml** filen **inte** används. Paketberoenden för din lokala Azure ML-arbetsstationen Python-miljö måste installeras manuellt.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Den här filen anger namnet på Spark-programmet när du skickar ett PySpark-skript och Spark-paket som måste installeras. Du kan också ange någon offentlig Maven databasen samt Spark-paket som finns i dessa Maven-databaser.
+Den här filen anger namnet på Spark-programmet när du skickar ett PySpark-skript och Spark-paket som behöver installeras. Du kan också ange en offentlig Maven databas samt Spark-paket som finns i dessa Maven-databaser.
 
 Här är ett exempel:
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->Prestandajustering klusterparametrar, till exempel worker storlek, kärnor ska gå till avsnittet ”configuration” i filen spark_dependecies.yml 
+>Klustret justera parametrar, till exempel worker storlek och kärnor ska gå till avsnittet ”configuration” i filen spark_dependecies.yml 
 
 >[!NOTE]
->Om du kör skriptet i Python-miljö, *spark_dependencies.yml* ignoreras. Det har endast effekt om du kör mot Spark (antingen i Docker eller HDInsight-kluster).
+>Om du kör skriptet i Python-miljö, *spark_dependencies.yml* ignoreras. Den används endast om du kör mot Spark (antingen i Docker eller HDInsight-kluster).
 
 ## <a name="run-configuration"></a>Kör konfigurationen
-Om du vill ange en specifik kör konfiguration krävs ett par med filer. De genereras vanligtvis med kommandot CLI. Men du kan också klona avslutas viktiga, byta namn på dem och redigera dem.
+Om du vill ange en specifik kör konfiguration, behöver du en .compute-fil och en .runconfig-fil. Dessa skapas vanligtvis med kommandot CLI. Du kan också klona avslutas viktiga, byta namn på dem och redigera dem.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ Detta kommando skapar ett par filer baserat på den angivna beräkning måltypen
 > _lokala_ eller _docker_ namn för kör konfigurationsfilerna är valfri. Azure ML-arbetsstationen lägger till dessa två kör konfigurationer när du skapar ett tomt projekt för din bekvämlighet. Du kan byta namn på ”<run configuration name>.runconfig” filer som medföljer projektmallen eller skapa nya med vilket namn som helst.
 
 ### <a name="compute-target-namecompute"></a>\<Beräkna målnamn > .compute
-_\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfiguration för beräknings-målet. Det är en lista över namn / värde-par. Följande är inställningarna som stöds.
+_\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfiguration för beräknings-målet. Det är en lista över namn / värde-par. Följande är inställningarna som stöds:
 
 **typen**: typ av beräknings-miljö. Värden som stöds är:
   - lokal
+  - Fjärråtkomst
   - docker
   - remotedocker
   - kluster
@@ -147,8 +148,10 @@ _\<Beräkna målnamn > .compute_ filen anger information om anslutning och konfi
 
 **nativeSharedDirectory**: den här egenskapen anger baskatalogen (till exempel: _~/.azureml/share/_) där filer kan sparas för att delas mellan körs på samma mål för beräkning. Om den här inställningen används när körs på en dockerbehållare med _sharedVolumes_ måste anges till true. Annars misslyckas körning.
 
+**userManagedEnvironment**: den här egenskapen anger om det här målet för beräkning är hanteras av användaren direkt eller via experiment-tjänsten.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<Kör Konfigurationsnamnet > .runconfig
-_\<Kör Konfigurationsnamnet > .runconfig_ anger Azure ML experimentera körningsbeteende. Du kan konfigurera körning beteenden, till exempel spårning körningshistorik eller vad compute mål för att använda tillsammans med många andra. Namnen på de kör konfigurationsfilerna används för att fylla i körningen kontexten listrutan i Azure ML-arbetsstationen skrivbordsprogram.
+_\<Kör Konfigurationsnamnet > .runconfig_ anger Azure ML experimentera körningsbeteende. Du kan konfigurera körningsbeteende, till exempel spårning som kör tidigare eller vad compute mål för att använda tillsammans med många andra. Namnen på de kör konfigurationsfilerna används för att fylla i körningen kontexten listrutan i Azure ML-arbetsstationen skrivbordsprogram.
 
 **ArgumentVector**: det här avsnittet anger skriptet ska köras som en del av den här körning och parametrar för skriptet. Om du har följande kodavsnitt i till exempel din ”<run configuration name>.runconfig” fil 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-De här miljövariablerna kan nås i användarens kod. Till exempel skrivs phyton koden miljövariabel som heter ”EXAMPLE_ENV_VAR”
+De här miljövariablerna kan nås i användarens kod. Till exempel skrivs Python-kod miljövariabel som heter ”EXAMPLE_ENV_VAR”
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```

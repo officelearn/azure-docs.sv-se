@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 1a05e2dd5596f5d2e0ba1d14b0fe05a2d517434d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (FAQ) virtuella Azure-nätverket
 
@@ -78,7 +78,7 @@ Ja. Du kan skapa en routingtabell och koppla den till ett undernät. Mer informa
 Nej. Multicast- och broadcast stöds inte.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Vilka protokoll inom Vnet kan jag använda?
-Du kan använda TCP och UDP ICMP TCP/IP-protokoll inom Vnet. Unicast stöds inom Vnet, med undantag för dynamiska värden Configuration Protocol (DHCP) via Unicast (källport UDP/68 / mål port UDP/67). Multicast, broadcast, kapslas in IP-i-IP-paket och allmänna Routing Encapsulation (GRE) paket blockeras inom Vnet. 
+Du kan använda TCP och UDP ICMP TCP/IP-protokoll inom Vnet. Unicast stöds inom Vnet, med undantag för DHCP Dynamic Host Configuration Protocol () via Unicast (källport UDP/68 / mål port UDP/67). Multicast, broadcast, kapslas in IP-i-IP-paket och allmänna Routing Encapsulation (GRE) paket blockeras inom Vnet. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Kan jag Pinga standard-routrar inom ett VNet?
 Nej.

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Schemalägga aktiviteter och arbetsflöden som körs regelbundet med logic apps
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Skapa och schemalägga aktiviteter som regelbundet körs med Azure Logikappar
 
 Om du vill schemalägga aktiviteter, åtgärder, arbetsbelastningar eller processer som körs regelbundet, kan du skapa ett arbetsflöde för logik app som börjar med den **schema - upprepning** [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts). Du kan ange ett datum och tid för att starta återkommande och ett återkommande schema för att utföra uppgifter som att de här exemplen och mer med den här utlösaren:
 
@@ -34,8 +34,8 @@ Om du vill schemalägga aktiviteter, åtgärder, arbetsbelastningar eller proces
 
 Den här utlösaren stöder många mönster, till exempel:
 
-* Kör omedelbart och Upprepa var  *n*  antal sekunder, minuter, timmar, dagar, veckor eller månader.
-* Starta vid en viss tid och sedan köra och Upprepa var  *n*  antal sekunder, minuter, timmar, dagar, veckor eller månader.
+* Kör omedelbart och Upprepa var *n* antal sekunder, minuter, timmar, dagar, veckor eller månader.
+* Starta vid en viss tid och sedan köra och Upprepa var *n* antal sekunder, minuter, timmar, dagar, veckor eller månader.
 * Kör och upprepa på en eller flera gånger varje dag, till exempel 8:00:00 och 17:00.
 * Kör och upprepa varje vecka, men endast för särskilda dagar, till exempel lördag och söndag.
 * Kör och upprepa varje vecka, men endast för särskilda dagar och tidpunkter, till exempel måndag-fredag på 8:00:00 och 17:00.
@@ -102,14 +102,14 @@ Du kan konfigurera dessa egenskaper för upprepning utlösaren.
 | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbetsflödet körs baserat på hur ofta. <p>Standardintervallet är 1. Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
 | **Tidszon** | Nej | Tidszon | Sträng | Gäller endast när du anger en starttid eftersom utlösaren inte acceptera [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. | 
 | **Starttid** | Nej | startTime | Sträng | Ange en starttid i det här formatet: <p>ÅÅÅÅ-MM-ddTHH om du väljer en tidszon <p>ELLER <p>ÅÅÅÅ-MM-ddTHH om du inte väljer en tidszon <p>Exempelvis om du vill 18 September 2017 2:00 PM, anger du ”2017-09-18T14:00:00” och välj en tidszon som Pacific Time. Alternativt kan du ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 dag tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. ”Z” refererar till motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkel scheman starttiden är den första förekomsten medan för komplexa scheman utlösaren inte utlösa en snabbare än starttiden. [*Vad är hur kan jag använda startdatum och starttid?*](#start-time) | 
-| **På följande dagar** | Nej | weekDays | Sträng eller strängmatris | Om du väljer ”vecka”, kan du välja en eller flera dagar när du vill köra arbetsflödet: **måndag**, **tisdag**, **onsdag**, **torsdag** , **Fredag**, **lördag**, och **söndag** | 
+| **Dessa dagar** | Nej | weekDays | Sträng eller strängmatris | Om du väljer ”vecka”, kan du välja en eller flera dagar när du vill köra arbetsflödet: **måndag**, **tisdag**, **onsdag**, **torsdag** , **Fredag**, **lördag**, och **söndag** | 
 | **Vid dessa timmar** | Nej | hours | Heltal eller heltalsmatris | Om du väljer ”dag” eller ”vecka” kan du välja ett eller flera heltal mellan 0 och 23 som tidpunkter på dagen när du vill köra arbetsflödet. <p>Till exempel, om du anger ”10”, ”12” och ”14”, får du 10 AM och 12 PM 14: 00 som timme markerar. | 
 | **Vid dessa minuter** | Nej | minutes | Heltal eller heltalsmatris | Om du väljer ”dag” eller ”vecka” kan du välja ett eller flera heltal mellan 0 och 59 minuter för den när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut märket och använder det föregående exemplet för tidpunkter på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
 ||||| 
 
 ## <a name="json-example"></a>JSON-exempel
 
-Här är ett exempel upprepning utlösardefinition:
+Här är ett exempel [upprepning utlösardefinition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

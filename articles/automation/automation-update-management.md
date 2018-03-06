@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering i Azure
 
@@ -56,8 +56,8 @@ I följande tabell visas en lista över operativsystem som stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows Server 2008 och senare     | Stöder endast uppdatera bedömningar         |
-|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5 och WMF 5.0 eller senare krävs för Windows Server 2008 R2 SP1<br>Nano Server stöds inte         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder endast uppdatera bedömningar         |
+|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5 och WMF 5.0 eller senare krävs för Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -70,7 +70,7 @@ I följande tabell visas de operativsystem som inte stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows-klient     | Klientens operativsystem (Windows 7, Windows 10, etc.) stöds inte.        |
-|Nano Server     | Nano server är en del av Windows 2016.        |
+|Windows Server 2016 Nano Server     | Stöds inte       |
 
 ### <a name="client-requirements"></a>Klientkrav
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modul från Azure portal till en windowsenhet - förhandsgranskning
 
@@ -122,6 +122,12 @@ docker logs -f tempSensor
 
 Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill ta bort den simulerade enheten som du skapade, tillsammans med Docker-behållare som har startats för varje modul, använder du följande kommando: 
+
+```cmd
+iotedgectl uninstall
+```
 
 När du inte längre behöver IoT-hubb som du har skapat kan du använda den [az iot-hubb delete] [ lnk-delete] för att ta bort resursen och alla enheter som är kopplade till den:
 

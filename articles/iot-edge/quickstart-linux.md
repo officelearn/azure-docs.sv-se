@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modulen till en enhet med Linux- eller Mac - Förhandsgranska
 
@@ -70,22 +70,22 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Först underlättar IoT kant agenten distribution och övervakning av moduler på IoT gränsenheten. Gräns för IoT-hubb hanterar andra, kommunikation mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. 
 
 Hämta skriptet IoT kant kontroll på datorn där du kör IoT gränsenheten:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Starta körningen:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Kontrollera Docker för att se att IoT kant-agenten körs som en modul:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ I Snabbstart, skapas en ny IoT Edge-enhet och installerat IoT kant-körningsmilj
 
 Öppna Kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet körs på enheten IoT kant:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 Visa meddelanden som skickas från modulen tempSensor till molnet:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill ta bort den simulerade enheten som du skapade, tillsammans med Docker-behållare som har startats för varje modul, använder du följande kommando: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 När du inte längre behöver IoT-hubb som du har skapat kan du använda den [az iot-hubb delete] [ lnk-delete] för att ta bort resursen och alla enheter som är kopplade till den:
 

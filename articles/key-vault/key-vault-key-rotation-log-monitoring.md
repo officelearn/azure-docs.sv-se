@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -rotation från slutpunkt till slutpunkt
 ## <a name="introduction"></a>Introduktion
 När du har skapat ditt nyckelvalv kommer du att kunna börja använda det valvet för att lagra dina nycklar och hemligheter. Dina program inte längre behöver spara dina nycklar och hemligheter, utan i stället begär dem från nyckelvalvet efter behov. På så sätt kan du uppdatera nycklar och hemligheter utan att påverka beteendet för programmet, vilket öppnar ett brett möjligheter runt din nyckel och hemliga hantering.
+
+>[!IMPORTANT]
+> Exemplen i den här artikeln tillhandahålls endast för illustration. De är inte avsedda för produktion. 
 
 Den här artikeln beskriver hur ett exempel på hur Azure Key Vault för att lagra en hemlighet i det här fallet en nyckel för Azure Storage-konto som används av ett program. Här visas också implementering av en schemalagd rotation av den lagringskontonyckel. Slutligen går den igenom en demonstration av hur du övervakar nyckelvalv granskningsloggar och generera aviseringar när oväntat begäranden som görs.
 

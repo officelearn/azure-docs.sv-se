@@ -1,10 +1,27 @@
+---
+title: ta med fil
+description: ta med fil
+services: biztalk-services
+author: MandiOhlinger
+ms.service: biztalk-services
+ms.topic: include
+ms.date: 11/09/2017
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/05/2018
+---
 > [!IMPORTANT]
-> Microsoft Azure BizTalk Services (MABS) håller på att tas bort och ersättas av Azure Logic Apps. Om du använder MABS kan du läsa avsnittet [Move from BizTalk Services to Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) (Flytta från BizTalk Services till Logic Apps) som beskriver hur du flyttar dina integreringslösningar till Logic Apps. 
+> Microsoft Azure BizTalk-tjänster (MABS) tas bort och ersätts med Azure Logikappar.
+> Om du använder MABS, granska den här artikeln som vägledning om att migrera dina lösningar för katalogintegrering till Logic Apps: [flytta från BizTalk-tjänst till Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
-> Om Logic Apps är helt nytt för dig föreslår vi att du börjar här: 
+> Om du inte har arbetat med Logic Apps kan du försöka starta här: 
 > 
-> - [Vad är Logic Apps?](../articles/logic-apps/logic-apps-what-are-logic-apps.md)  
+> * [Vad är Azure Logic Apps?](../articles/logic-apps/logic-apps-overview.md)  
 > 
-> - [Skapa din första logikapp](../articles/logic-apps/logic-apps-create-a-logic-app.md), eller kom snabbt igång med en [färdig mall](../articles/logic-apps/logic-apps-use-logic-app-templates.md)  
+> * [Skapa din första logikapp](../articles/logic-apps/quickstart-create-first-logic-app-workflow.md), eller snabbt komma igång med en [förskapad mallen](../articles/logic-apps/logic-apps-use-logic-app-templates.md).
 > 
-> - [Visa alla tillgängliga anslutningsprogram](../articles/connectors/apis-list.md) du kan använda i en logikapp
+> * [Granska alla kopplingar](../articles/connectors/apis-list.md) som du kan använda i en logikapp.

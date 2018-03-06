@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Skapa ett virtuellt nätverk med flera undernät med Azure-portalen
 
@@ -53,8 +53,8 @@ Logga in på Azure Portal på http://portal.azure.com.
 2. Välj **undernät** och välj sedan **+ undernät**som visas i följande bild:
 
      ![Lägg till ett undernät](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
-
-3. I den **Lägg till undernät** som visas anger *privata* för **namn**, ange *10.0.1.0/24* för **adressintervall**, och välj sedan **OK**. 
+     
+3. I den **Lägg till undernät** som visas anger *privata* för **namn**, ange *10.0.1.0/24* för **adressintervall**, och välj sedan **OK**.  Ett undernät-adressintervall kan inte överlappa adressintervallen i andra undernät i ett virtuellt nätverk. 
 
 Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderar vi att du noggrant bekanta dig med adressutrymme [överväganden](virtual-network-manage-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
 
@@ -83,6 +83,8 @@ Ett virtuellt nätverk gör det möjligt för flera typer av Azure-resurser komm
 7. Slutför steg 1 – 6 igen, men ange *myVmMgmt* för den **namn** av den virtuella datorn och välj **privata** för den **undernät**.
 
 De virtuella datorerna ta några minuter att skapa. Fortsätt inte med stegen tills både virtuella datorer har skapats.
+
+De virtuella datorerna som skapats i den här artikeln har ett [nätverksgränssnittet](virtual-network-network-interface.md) med en IP-adress som tilldelas dynamiskt till nätverksgränssnittet. När du har distribuerat den virtuella datorn, kan du [lägga till flera offentliga och privata IP-adresser eller ändra tilldelningsmetod för IP-adress till statisk](virtual-network-network-interface-addresses.md#add-ip-addresses). Du kan [Lägg till nätverksgränssnitt](virtual-network-network-interface-vm.md#vm-add-nic), upp till den gräns som stöds av den [VM-storlek](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att du väljer när du skapar en virtuell dator. Du kan också [aktivera single-root I/O virtualization (SR-IOV)](create-vm-accelerated-networking-powershell.md) för en virtuell dator, men bara när du skapar en virtuell dator med en VM-storlek som stöder kapaciteten.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Kommunikation mellan virtuella datorer och internet
 
@@ -127,7 +129,9 @@ De virtuella datorerna ta några minuter att skapa. Fortsätt inte med stegen ti
         Minimum = 0ms, Maximum = 0ms, Average = 0ms
     ```
       
-    Du kan se som adressen till den *myVmMgmt* virtuella datorn är 10.0.1.4. 10.0.1.4 var den första tillgängliga IP-adressen i adressintervallet i *privata* undernät som du har distribuerat den *myVmMgmt* virtuella datorn till i föregående steg.  Du ser att det fullständigt kvalificerade domännamnet för den virtuella datorn är *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Även om den *dar5p44cif3ulfq00wxznl3i3f* del av domännamnet är olika för den virtuella datorn, återstående delar av namnet på en domän är samma. Som standard använder alla virtuella Azure-datorer standard Azure DNS-tjänsten. Alla virtuella datorer i ett virtuellt nätverk kan matcha namnen på alla andra virtuella datorer i samma virtuella nätverk med Azures standard DNS-tjänsten. Du kan använda DNS-servern eller den privata förmågan för Azure DNS-tjänsten istället för att använda Azures standard DNS-tjänsten. Mer information finns i [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) eller [med hjälp av Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Du kan se som adressen till den *myVmMgmt* virtuella datorn är 10.0.1.4. 10.0.1.4 var den första tillgängliga IP-adressen i adressintervallet i *privata* undernät som du har distribuerat den *myVmMgmt* virtuella datorn till i föregående steg.  Du ser att det fullständigt kvalificerade domännamnet för den virtuella datorn är *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Även om den *dar5p44cif3ulfq00wxznl3i3f* del av domännamnet är olika för den virtuella datorn, återstående delar av namnet på en domän är samma. 
+
+    Som standard använder alla virtuella Azure-datorer standard Azure DNS-tjänsten. Alla virtuella datorer i ett virtuellt nätverk kan matcha namnen på alla andra virtuella datorer i samma virtuella nätverk med Azures standard DNS-tjänsten. Du kan använda DNS-servern eller den privata förmågan för Azure DNS-tjänsten istället för att använda Azures standard DNS-tjänsten. Mer information finns i [namnmatchning med hjälp av DNS-servern](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) eller [med hjälp av Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 9. Installera Internet Information Services (IIS) för Windows Server på den *myVmWeb* virtuella datorn, anger du följande kommando från en PowerShell-session:
 
@@ -137,13 +141,12 @@ De virtuella datorerna ta några minuter att skapa. Fortsätt inte med stegen ti
 
 10. När installationen av IIS är klar, kan du koppla från den *myVmWeb* fjärrskrivbords-session, vilket lämnar du i den *myVmMgmt* fjärrskrivbords-sessionen. Öppna en webbläsare och gå till http://myvmweb. Du kan se IIS välkomstsidan.
 11. Koppla från den *myVmMgmt* fjärrskrivbords-sessionen.
-12. Försök att se IIS välkomstsidan från din dator. När Azure skapade den *myVmWeb* virtuell dator, en offentlig IP-adressresurs med namnet *myVmWeb* också skapades och tilldelade till den virtuella datorn. Du kan se att 52.170.5.92 har tilldelats den *myVmMgmt* virtuell dator i bilden i steg 2. Att hitta den offentliga IP-adress som tilldelats den *myVmWeb* virtuell dator, Sök efter *myVmWeb* i sökrutan, markerar den när den visas i sökresultaten. 
+12. Hitta den offentliga IP-adressen för den *myVmWeb* virtuella datorn. När Azure skapade den *myVmWeb* virtuell dator, en offentlig IP-adressresurs med namnet *myVmWeb* också skapades och tilldelade till den virtuella datorn. Du kan se att 52.170.5.92 tilldelades **offentliga IP-adressen** till den *myVmMgmt* virtuell dator i bilden i steg 2. Att hitta den offentliga IP-adress som tilldelats den *myVmWeb* virtuell dator, Sök efter *myVmWeb* i sökrutan på portalen, markerar den när den visas i sökresultaten.
 
     Även om en virtuell dator inte är nödvändigt att ha en offentlig IP-adress som tilldelats, tilldelar Azure en offentlig IP-adress till varje virtuell dator som du skapar som standard. För att kommunicera från Internet till en virtuell dator, måste en offentlig IP-adress tilldelas till den virtuella datorn. Alla virtuella datorer kan kommunicera utgående med Internet, oavsett om en offentlig IP-adress har tilldelats den virtuella datorn. Mer information om utgående Internet-anslutningar i Azure finns [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. På din egen dator går du till den offentliga IP-adressen för den *myVmWeb* virtuella datorn. Det går inte att försöka Se IIS välkomstsidan från din dator. Försöket misslyckas eftersom när de virtuella datorerna har distribuerats Azure skapas en nätverkssäkerhetsgrupp för varje virtuell dator som standard. 
 
-    På din egen dator går du till den offentliga IP-adressen för den *myVmWeb* virtuella datorn. Det går inte att försöka Se IIS välkomstsidan från din dator. Försöket misslyckas eftersom när de virtuella datorerna har distribuerats Azure skapas en nätverkssäkerhetsgrupp för varje virtuell dator som standard. 
-
-    En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Nätverkssäkerhetsgruppen standard nekar all inkommande trafik från Internet via alla portar för Windows-datorer måste acceptera TCP-port 3389 (RDP). Därför kan som standard kan du också RDP direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 3389 öppen på en webbserver. Eftersom webbsurfning kommunicerar via port 80, misslyckas kommunikation från Internet eftersom det inte finns någon regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
+     En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Nätverkssäkerhetsgruppen standard nekar all inkommande trafik från Internet via alla portar för Windows-datorer måste acceptera TCP-port 3389 (RDP). Därför kan som standard kan du också RDP direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 3389 öppen på en webbserver. Eftersom webbsurfning kommunicerar via port 80, misslyckas kommunikation från Internet eftersom det inte finns någon regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

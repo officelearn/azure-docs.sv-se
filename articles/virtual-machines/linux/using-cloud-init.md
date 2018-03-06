@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 5c1d4eb0825d132037cc3a20a17c1f417578d35d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Molnet init-stöd för virtuella datorer i Azure
 Den här artikeln innehåller information som finns för [moln init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure.  
@@ -64,7 +64,7 @@ Nästa steg är att skapa en fil i din aktuella shell med namnet *moln init.txt*
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 Tryck på `ctrl-X` avsluta filen, skriva `y` att spara filen och klicka på `enter` bekräfta filnamnet avslutas.
 

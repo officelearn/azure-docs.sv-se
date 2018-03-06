@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler
 
@@ -33,11 +33,11 @@ Den här artikeln innehåller anvisningar och exempel för att använda vissa av
 
 ## <a name="subscription-and-account-limits"></a>Prenumerationen och gränser
 
-* **Kvoter och gränser** – [dedikerade kärnor kvot per Batch-kontot](batch-quota-limit.md#resource-quotas) kan begränsa antalet eller typen av noder som du kan lägga till en Batch-pool. Det är mer sannolikt att nå en kvot när du väljer RDMA-kompatibla GPU-aktiverade eller andra flera kärnor VM-storlekar. En separat kvot gäller [VM med låg prioritet](batch-low-pri-vms.md), om du använder dem. 
+* **Kvoter och gränser** – [kärnor kvot per Batch-kontot](batch-quota-limit.md#resource-quotas) kan begränsa antalet noder i en given storlek som du kan lägga till en Batch-pool. Det är mer sannolikt att nå en kvot när du väljer RDMA-kompatibla GPU-aktiverade eller andra flera kärnor VM-storlekar. 
 
-  Dessutom Använd vissa VM-familjer i Batch-kontot som NCv2 och ND, är begränsade på grund av begränsad kapacitet. Användning av dessa grupper är endast tillgänglig genom att begära en ökad kvot från standardvärdet 0 kärnor.  
+  Dessutom är användningen av vissa VM-familjer i Batch-kontot, till exempel NCv2, NCv3 och ND, begränsade på grund av begränsad kapacitet. Användning av dessa grupper är endast tillgänglig genom att begära en ökad kvot från standardvärdet 0 kärnor.  
 
-  Om du måste begära en ökad kvot, öppna ett [online kundsupport](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad.
+  Om du behöver [begära en ökad kvot](batch-quota-limit.md#increase-a-quota) utan kostnad.
 
 * **Regional tillgänglighet** - beräkningsintensiva virtuella datorer kanske inte är tillgänglig i regioner där du skapar Batch-konton. Du kan kontrollera att det finns en storlek [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 | Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, eller<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC NCv2, ND serien *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varierar mellan serier) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 eller 7.4, eller<br/>CentOS 7.3 eller 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivrutiner | Gäller inte | 
-| [NV serien](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA RUTNÄTET drivrutiner | Gäller inte |
+| [NC NCv2, NCv3, ND serien *](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar mellan serier) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 eller 7.4, eller<br/>CentOS 7.3 eller 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivrutiner | Gäller inte | 
+| [NV serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA RUTNÄTET drivrutiner | Gäller inte |
 
-* RDMA-anslutningar på NC24r och NC24rs_v2 ND24r virtuella datorer stöds i Ubuntu 16.04 LTS (från Azure Marketplace) med Intel MPI.
+* RDMA-anslutningar på virtuella datorer RDMA-kompatibla N-serien kan kräva [ytterligare konfiguration](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) som varierar beroende på distributionsplatsen.
 
 
 
@@ -64,15 +64,15 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 | Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-tillägget | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC NCv2, ND serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar mellan serier) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller drivrutiner för CUDA Toolkit| Gäller inte | 
+| [NC NCv2, NCv3, ND serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar mellan serier) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller drivrutiner för CUDA Toolkit| Gäller inte | 
 | [NV serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>2012 R2 (Azure Marketplace) | NVIDIA RUTNÄTET drivrutiner | Gäller inte |
 
-* RDMA-anslutningar på NC24r och NC24rs_v2 ND24rs virtuella datorer stöds på Windows Server 2016 eller Windows Server 2012 R2 (från Azure Marketplace) med tillägget HpcVMDrivers och Microsoft MPI eller Intel MPI.
+* RDMA-anslutningar på RDMA-kompatibla N-serien virtuella datorer stöds på Windows Server 2016 eller Windows Server 2012 R2 (från Azure Marketplace) med tillägget HpcVMDrivers och Microsoft MPI eller Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows - pooler i Cloud services-konfiguration
 
 > [!NOTE]
-> N-serien storlekar stöds inte i Batch-pooler med cloud services-konfiguration.
+> N-serien storlekar stöds inte i Batch-pooler med Cloud Service configuration.
 >
 
 | Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
@@ -123,8 +123,8 @@ Om du vill köra Windows MPI program på en pool med Azure A8 noder som du behö
 
 Om du vill köra CUDA program på en pool med Linux NC-noder som du behöver installera CUDA Toolkit 9.0 på noderna. Verktyget installerar nödvändiga NVIDIA Tesla GPU-drivrutiner. Här följer exempel steg för att distribuera en anpassad avbildning Ubuntu 16.04 LTS med GPU-drivrutiner:
 
-1. Distribuera ett Azure NC6 virtuell dator som kör Ubuntu 16.04 LTS. Till exempel skapa den virtuella datorn i oss södra centrala region. Se till att du skapar den virtuella datorn med en hanterad disk.
-2. Följ stegen för att ansluta till den virtuella datorn och [CUDA drivrutinsinstallation](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Distribuera ett Azure NC-serien virtuell dator som kör Ubuntu 16.04 LTS. Till exempel skapa den virtuella datorn i oss södra centrala region. Se till att du skapar den virtuella datorn med en hanterad disk.
+2. Följ stegen för att ansluta till den virtuella datorn och [CUDA drivrutinsinstallation](../virtual-machines/linux/n-series-driver-setup.md).
 3. Ta bort etableringen av Linux-agenten och sedan [avbildning Linux VM](../virtual-machines/linux/capture-image.md).
 4. Skapa ett Batch-konto i en region som stöder NC virtuella datorer.
 5. Skapa en pool med Batch-API: er eller Azure-portalen [med hjälp av den anpassade avbildningen](batch-custom-images.md) och med önskat antal noder och skala. I följande tabell visas exempel processpool-inställningar för avbildningen:
@@ -132,7 +132,7 @@ Om du vill köra CUDA program på en pool med Linux NC-noder som du behöver ins
 | Inställning | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
-| Anpassad avbildning | Namnet på avbildningen |
+| **Anpassad avbildning** | Namnet på avbildningen |
 | **Noden agent SKU** | batch.node.ubuntu 16.04 |
 | **Nodstorlek** | NC6 Standard |
 

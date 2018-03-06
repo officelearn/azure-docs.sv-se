@@ -4,7 +4,7 @@ description: "Läs ett nätverksgränssnitt är och hur du skapar, ändra instä
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -30,12 +30,12 @@ Om du behöver lägga till, ändra eller ta bort IP-adresser för ett nätverksg
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Utför följande uppgifter innan du slutför alla steg i alla avsnitt i den här artikeln:
+Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här artikeln:
 
-- Granska de [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikeln innehåller information om begränsningar för nätverksgränssnitt.
-- Logga in på Azure [portal](https://portal.azure.com), Azure-kommandoradsgränssnittet (CLI) eller Azure PowerShell med ett Azure-konto. Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
-- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln [installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Se till att du har den senaste versionen av Azure PowerShell-kommandon som är installerad. Om du vill få hjälp med PowerShell-kommandon med exempel på, skriver `get-help <command> -full`.
-- Om Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln [installera och konfigurera Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Se till att du har den senaste versionen av Azure CLI installerad. Om du vill få hjälp med CLI-kommandon, Skriv `az <command> --help`. Du kan använda Azure Cloud-gränssnittet i stället för att installera CLI och dess krav. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Om du vill använda molnet Shell klickar du på molnet Shell **> _** längst upp i den [portal](https://portal.azure.com).
+- Om du inte redan har ett Azure-konto, registrera dig för en [ledigt utvärderingskonto](https://azure.microsoft.com/free).
+- Om du använder portalen, öppna https://portal.azure.com och logga in med ditt Azure-konto.
+- Om du använder PowerShell-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här kursen kräver Azure PowerShell Modulversion 5.2.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att utföra åtgärder i den här artikeln, antingen köra kommandona i det [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här kursen kräver Azure CLI version 2.0.26 eller senare. Kör `az --version` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du använder Azure CLI lokalt, måste du också köra `az login` att skapa en anslutning med Azure.
 
 ## <a name="create-a-network-interface"></a>Skapa ett nätverksgränssnitt
 
@@ -163,7 +163,7 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som har tilldelats
 
 ## <a name="delete-a-network-interface"></a>Ta bort ett nätverksgränssnitt
 
-Du kan ta bort ett nätverksgränssnitt så länge det inte är kopplat till en virtuell dator. Om den är kopplad till en virtuell dator, måste du först placera den virtuella datorn i tillståndet Stoppad (frigjord) sedan ta bort nätverksgränssnittet från den virtuella datorn innan du kan ta bort nätverksgränssnittet. Om du vill koppla ett nätverksgränssnitt från en virtuell dator, slutför du stegen i den [ta bort en nätverksgränssnittet från en virtuell dator](virtual-network-network-interface-vm.md#vm-remove-nic) avsnitt i den [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) artikel. Om du tar bort en virtuell dator kopplas från alla nätverksgränssnitt som är kopplade till den, men tar inte bort nätverksgränssnitt.
+Du kan ta bort ett nätverksgränssnitt så länge det inte är kopplat till en virtuell dator. Om den är kopplad till en virtuell dator, måste du först placera den virtuella datorn i tillståndet Stoppad (frigjord) sedan ta bort nätverksgränssnittet från den virtuella datorn innan du kan ta bort nätverksgränssnittet. Om du vill koppla ett nätverksgränssnitt från en virtuell dator, slutför du stegen i den [ta bort en nätverksgränssnittet från en virtuell dator](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) avsnitt i den [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) artikel. Om du tar bort en virtuell dator kopplas från alla nätverksgränssnitt som är kopplade till den, men tar inte bort nätverksgränssnitt.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten klickar du på den.

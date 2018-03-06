@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 03/02/2018
 ms.author: sethm
-ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="event-hubs-features-overview"></a>Översikt över Event Hubs funktioner
 
@@ -52,7 +52,7 @@ Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token 
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs avbilda](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Händelsehubbar och spara den på ditt val av en Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange minsta storlek och tidsfönstret för avbildningen. Med Event Hubs avbilda kan ange du egna Azure Blob Storage-konto och en behållare eller ett Azure Data Lake Service-kontot som används för att lagra den insamlade data. Insamlade data skrivs i Apache Avro-formatet.
+[Event Hubs avbilda](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Händelsehubbar och spara den på ditt val av en Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange minsta storlek och tidsfönstret för avbildningen. Med Event Hubs avbilda kan ange du egna Azure Blob Storage-konto och en behållare eller ett Azure Data Lake Service-konto, varav används för att lagra den insamlade data. Insamlade data skrivs i Apache Avro-formatet.
 
 ## <a name="partitions"></a>Partitioner
 

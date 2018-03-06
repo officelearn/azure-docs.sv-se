@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
@@ -122,7 +122,7 @@ Databasen delar minnestilldelningen för en fråga bland alla operatorer i fråg
 
 Utforma belastningen fråga att fokusera på att frågan läses in. Om du behöver köra omvandlingar på data köra dem separat från frågan belastningen. Till exempel mellanlagra data i en heap-tabell, kör omvandlingarna och sedan ladda mellanlagringstabellen i columnstore-indexet. Du kan också läsa in data först och sedan använda MPP-systemet för att omvandla data.
 
-### <a name="adjust-maxdop"></a>Justera MAXDOP
+### <a name="adjust-maxdop"></a>Adjust MAXDOP
 
 Varje distributionsplats komprimerar rowgroups till columnstore parallellt om det inte finns fler än en CPU-kärnor per distribution. Parallellitet kräver ytterligare minne, vilket kan leda till minnesbelastning och radgrupps trimning.
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 DWU storlek och användaren resursklassen tillsammans bestämmer du hur mycket minne som är tillgängligt för en användarfråga. För att öka minnestilldelningen för en load-fråga kan du öka antalet dwu: er eller öka resursklassen.
 
-- Om du vill öka de dwu: er Se [hur skala prestanda?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Om du vill öka de dwu: er Se [hur skala prestanda?](quickstart-scale-compute-portal.md)
 - Om du vill ändra resursklassen för en fråga, se [ändra ett exempel på användaren resurs klassen](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Till exempel på DWU 100 kan användare i resursklassen smallrc använda 100 MB minne för varje distribution. Mer information, se [samtidighet i SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).

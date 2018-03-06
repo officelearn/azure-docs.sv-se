@@ -4,18 +4,18 @@ description: Azure Machine Learning modellen Data Collection API-referens.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning modellen Data Collection API-referens
 
@@ -48,7 +48,7 @@ Importera data collector modulen och ModelDataCollector klass i bedömningsprofi
 ## <a name="model-data-collector-instantiation"></a>Modellen data collector instansiering
 Skapa en instans av en ny instans av en ModelDataCollector:
 
-DC = ModelDataCollector (modellnamn, identifierare = 'default' feature_names = ingen model_management_account_id = 'okänt', webservice_name = 'okänt', model_id = 'okänt', model_version = 'okänt')
+dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 Se klassen och parametern information:
 
@@ -62,13 +62,13 @@ Se klassen och parametern information:
 
 | Namn | Typ | Beskrivning |
 |-------------|------------|-------------------------|
-| modellnamn | Sträng | namnet på den modell som vilka data som samlas in |
-| Identifierare | Sträng | platsen i kod som identifierar dessa data, dvs. 'RawInput' eller 'Förutsägelse' |
+| model_name | sträng | namnet på den modell som vilka data som samlas in |
+| identifier | sträng | platsen i kod som identifierar dessa data, dvs. 'RawInput' eller 'Förutsägelse' |
 | feature_names | lista med strängar | en lista med funktionsnamn som blivit csv-huvudet när anges |
-| model_management_account_id | Sträng | identifierare för hanteringskontot modell där den här modellen lagras. Det fylls i automatiskt när modeller operationalized via AML |
-| webservice_name | Sträng | namnet på den webbtjänst som den här modellen för närvarande har distribuerats. Det fylls i automatiskt när modeller operationalized via AML |
-| model_id | Sträng | Den unika identifieraren för den här modellen i samband med ett konto för hantering av modellen. Det fylls i automatiskt när modeller operationalized via AML |
-| model_version | Sträng | versionsnummer för den här modellen i samband med ett konto för hantering av modellen. Det fylls i automatiskt när modeller operationalized via AML |
+| model_management_account_id | sträng | identifierare för hanteringskontot modell där den här modellen lagras. Det fylls i automatiskt när modeller operationalized via AML |
+| webservice_name | sträng | namnet på den webbtjänst som den här modellen för närvarande har distribuerats. Det fylls i automatiskt när modeller operationalized via AML |
+| model_id | sträng | Den unika identifieraren för den här modellen i samband med ett konto för hantering av modellen. Det fylls i automatiskt när modeller operationalized via AML |
+| model_version | sträng | versionsnummer för den här modellen i samband med ett konto för hantering av modellen. Det fylls i automatiskt när modeller operationalized via AML |
 
 
 
@@ -93,5 +93,5 @@ Se metoden och parametern information:
 | Namn | Typ | Beskrivning |
 |-------------|------------|-------------------------|
 | input_data | flera typer | data samlas in (för närvarande accepterar listan över filtyper, numpy.array, pandas. DataFrame, pyspark.sql.DataFrame). För dataframe typer om en rubrik med funktionsnamn, information om detta finns i data-målet (utan att behöva skicka uttryckligen funktionsnamn i konstruktorn ModelDataCollector) |
-| user_correlation_id | Sträng | ett valfritt Korrelations-id som kan anges av användaren för att korrelera denna förutsägelse |
+| user_correlation_id | sträng | ett valfritt Korrelations-id som kan anges av användaren för att korrelera denna förutsägelse |
 

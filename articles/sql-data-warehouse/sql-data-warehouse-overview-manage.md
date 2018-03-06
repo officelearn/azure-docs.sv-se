@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Hantera databaser i Azure SQL Data Warehouse
 SQL Data Warehouse automatiserar många aspekter av att hantera dina databaser. Om du vill skala prestanda behöver du bara att justera och betala för rätt nivå av beräkningsresurser och därefter låta SQL Data Warehouse gör allt arbete med skala ut och skala tillbaka.
@@ -34,13 +34,13 @@ Den här översikten beskrivs dessa aspekter av att hantera SQL Data Warehouse.
 * Bästa praxis för prestanda
 * Övervakning av frågan
 * Säkerhet
-* Säkerhetskopiering och återställning
+* Säkerhetskopiera och återställa
 
 ## <a name="management-tools"></a>Hanteringsverktyg
 Du kan använda en mängd olika verktyg för att hantera databaser i SQL Data Warehouse. När du hanterar databaser utvecklar du inställningar för varje typ av uppgift som du behöver utföra.
 
 ### <a name="azure-portal"></a>Azure Portal
-Den [Azure-portalen] [ Azure portal] är en webbaserad portal där du kan skapa, uppdatera, och ta bort databaser och övervaka databasresurser. Det här verktyget är bra om du precis har börjat med Azure, hantera ett litet antal databaser för datalager, eller gör så snabbt.
+Den [Azure-portalen] [ Azure portal] är en webbaserad portal där du kan skapa, uppdatera, och ta bort databaser och övervaka databasresurser. Det här verktyget är bra om du precis har börjat med Azure, hantera ett litet antal data datalagerdatabaserna eller behöver göra något snabbt.
 
 Om du vill komma igång med Azure-portalen, se [skapa ett SQL Data Warehouse (Azure portal)][Create a SQL Data Warehouse (Azure portal)].
 
@@ -59,7 +59,7 @@ Av DMV: er är bröd och smör för att hantera SQL Data Warehouse. Nästan alla
 
 Om du vill komma igång finns [Anslut och fråga med sqlcmd][Connect and query with sqlcmd], och [skapa en databas (PowerShell)][Create a database (PowerShell)].
 
-## <a name="scale-compute"></a>Skala bearbetning
+## <a name="scale-compute"></a>Skala beräkning
 Du kan snabbt skala ut eller igen genom att öka eller minska beräkningsresurser av CPU, minne och i/o-bandbredd i SQL Data Warehouse. Om du vill skala prestanda är allt du behöver göra justera antalet informationslagerenheter (dwu: er) som SQL Data Warehouse allokerar till din databas. SQL Data Warehouse snabbt gör ändringen och hanterar alla underliggande ändringar av maskinvara eller programvara.
 
 Mer information om att skala dwu: er finns [skala prestanda].
@@ -84,8 +84,8 @@ För att underhålla en säker, måste du vara på aviseringen och skydda datorn
 
 Mer information om att hantera säkerhet, gå till den [Säkerhetsöversikt][Security overview].
 
-## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
-Med tillförlitlig backps av dina data är en viktig del av en produktionsdatabas. SQL Data Warehouse hålls data säker genom att säkerhetskopiera active databaserna automatiskt med jämna mellanrum. Dessa säkerhetskopior kan du återställa från scenarier där du har skadade data eller av misstag bort data eller databasen.  Data schemat för säkerhetskopiering, bevarandeprincip och hur du återställer en databas, finns i [återställning från ögonblicksbild][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa
+Med tillförlitlig säkerhetskopiering av dina data är en viktig del av en produktionsdatabas. SQL Data Warehouse hålls data säker genom att säkerhetskopiera active databaserna automatiskt med jämna mellanrum. Dessa säkerhetskopior kan du återställa från scenarier där du har skadade data eller av misstag bort data eller databasen.  Data schemat för säkerhetskopiering, bevarandeprincip och hur du återställer en databas, finns i [återställning från ögonblicksbild][Restore from snapshot].
 
 ## <a name="next-steps"></a>Nästa steg
 Med bra design principer gör det enklare att hantera dina databaser i SQL Data Warehouse. Mer information, gå till den [utvecklingsöversikt][Development overview].
@@ -100,10 +100,10 @@ Med bra design principer gör det enklare att hantera dina databaser i SQL Data 
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[skala prestanda]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[skala prestanda]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

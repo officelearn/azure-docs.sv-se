@@ -2,7 +2,7 @@
 title: "Gränser och -konfiguration – Azure Logic Apps | Microsoft Docs"
 description: "Tjänsten gränser och konfigurationsvärden för Azure Logic Apps"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
@@ -28,13 +28,13 @@ Den här artikeln beskriver aktuella begränsningar och konfigurationsinformatio
 
 ### <a name="http-request-limits"></a>HTTP-begäran gränser
 
-Dessa begränsningar gäller för en enskild HTTP-begäran eller ett anrop för anslutningen.
+Här följer gränser för en enskild HTTP-begäran eller ett anrop för anslutningen:
 
 #### <a name="timeout"></a>Timeout
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Timeout för begäran | 120 sekunder | En [asynk.mönster](../logic-apps/logic-apps-create-api-app.md) eller [tills loop](logic-apps-loops-and-scopes.md) kan kompensera efter behov |
+| Timeout för begäran | 120 sekunder | En [asynk.mönster](../logic-apps/logic-apps-create-api-app.md) eller [tills loop](logic-apps-control-flow-loops.md) kan kompensera efter behov | 
 |||| 
 
 #### <a name="message-size"></a>Meddelandestorlek
@@ -56,28 +56,21 @@ Dessa begränsningar gäller för en enskild HTTP-begäran eller ett anrop för 
 
 ### <a name="run-duration-and-retention"></a>Kör varaktighet och lagring
 
-Dessa begränsningar gäller för en enkel logikapp som körs.
+Här följer gränser för en enkel logikapp som kör:
 
-| Namn | Standard | Gräns |
-| ---- | ------- | ----- |
-| Kör varaktighet   | 90 dagar | 7 till 90 dagarna |
-| Kvarhållning av lagring | 90 dagar från kör starttid |  7 till 90 dagar från kör starttid |
-||||
+| Namn | Gräns | 
+| ---- | ----- | 
+| Kör varaktighet | 90 dagar | 
+| Kvarhållning av lagring | 90 dagar från kör starttid | 
+| Min upprepningsintervallet | 1 sekund </br>För logic apps med en App Service-Plan: 15 sekunder | 
+| Max upprepningsintervallet | 500 dagar | 
+||| 
 
-Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontakta produktteamet](mailto://logicappsemail@microsoft.com) att få hjälp med dina krav.
-
-
-### <a name="recurrence-interval"></a>Upprepningsintervall
-
-| Namn | Gräns |
-| ---- | ------- |
-| Min upprepningsintervallet | 1 sekund </br>För logic apps med en App Service-Plan: 15 sekunder |
-| Max upprepningsintervallet | 500 dagar |
-|||
+Att överskrida för kör varaktighet eller lagring kvarhållning i flödet för normala bearbetningen [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
 
 ### <a name="looping-and-debatching-limits"></a>Slingor och debatching gränser
 
-Dessa begränsningar gäller för en enkel logikapp som körs.
+Här följer gränser för en enkel logikapp som kör:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Dessa begränsningar gäller för en enkel logikapp som körs.
 
 ### <a name="throughput-limits"></a>Genomströmning gränser
 
-Dessa begränsningar gäller för en enskild logik app resurs.
+Här följer gränser för en enskild logik app-instansen:
 
 | Namn | Gräns | Anteckningar | 
 | ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 |<p>Gränsen kan ökas till 300,000 genom att köra en logikapp i `High Througput` läge. Hög genomströmning läge kan konfigureras genom att ange den `operationOptions` egenskap under`runtimeConfiguration` av arbetsflödet resursen ska `OptimizedForHighThroughput`. <p>Observera att hög genomströmning läge i förhandsgranskning. En arbetsbelastning kan också distribueras över flera appar efter behov. | 
+| Åtgärder körningar per 5 minuter | 100,000 | Om du vill öka gränsen för 300,000, kan du köra en logikapp i `High Througput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` av arbetsflödet resurs, ange den `operationOptions` egenskapen `OptimizedForHighThroughput`. <p>**Obs**: hög genomströmning läge är en förhandsversion. Du kan också distribuera en arbetsbelastning över flera appar efter behov. | 
 | Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: samtidiga inkommande samtal |~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
 | Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appar efter behov. | 
 | Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 |Kan fördela belastningen över flera appar efter behov. | 
 |||| 
 
-Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontakta produktteamet](mailto://logicappsemail@microsoft.com) att få hjälp med dina krav.
+Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina krav.
 
 ### <a name="logic-app-definition-limits"></a>Logik app definition gränser
 
-Dessa begränsningar gäller för en enskild logik app definition.
+Här följer gränser för en enskild logik app definition:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Dessa begränsningar gäller för anpassade kopplingar som du kan skapa från we
 
 ### <a name="integration-account-limits"></a>Gränser för integrering
 
-Dessa begränsningar gäller för artefakter som du kan lägga till ett konto för integrering.
+Här följer gränser för artefakter som du kan lägga till ett konto för integrering.
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Dessa begränsningar gäller för antalet artefakter som du kan lägga till ett 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
 | Avtal | 10 | | 
-| Andra typer av artefakt | 25 |Artefakt typer är partners, scheman, certifikat och kartor. Varje typ kan ha upp till maximalt antal artefakter. | 
+| Andra typer av artefakt | 25 | Artefakt typer är partners, scheman, certifikat och kartor. Varje typ kan ha upp till maximalt antal artefakter. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Standard prisnivå
@@ -167,7 +160,7 @@ Dessa begränsningar gäller för antalet artefakter som du kan lägga till ett 
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Meddelandestorlek B2B-protokoll (AS2 X12 EDIFACT)
 
-Dessa begränsningar gäller för B2B-protokollen.
+Här följer gränser som gäller för B2B-protokoll:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 

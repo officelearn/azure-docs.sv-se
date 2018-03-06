@@ -7,7 +7,7 @@
 | Pooler per Batch-konto | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Standardgränser varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnor kvoter som visas är för Batch-konton i batchläge för tjänsten.
+> Standardgränser varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnor kvoter som visas är för Batch-konton i batchläge för tjänsten. [Visa kvoter i Batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> kan du öka antalet dedicerade kärnor per Batch-kontot, men det maximala antalet är okänt. Kontakta Azure-supporten att diskutera öka alternativ.
 

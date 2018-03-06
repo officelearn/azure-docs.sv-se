@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln innehåller svar på vanliga frågor om Azure Backup-komponenter. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,7 +30,7 @@ Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkar
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Från och med September 2016 kan skapa du 25 Recovery Services-valv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
+Ja. Från och med januari 2018, kan du skapa upp till 25 Recovery Services-valv, per region för stöds av Azure Backup per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
 Du kan registrera upp till 200 Azure virtuella datorer per valvet. Om du använder MAB Agent kan du registrera upp till 50 MAB agenter per valvet. Och du kan registrera 50 MAB servrar/DPM-servrar ett valv.
@@ -164,7 +164,7 @@ Det finns ingen gräns för antalet återställningar från Azure Backup.
 Nej. Återställningarna är gratis och du debiteras inte för den utgående trafiken.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Vad händer när jag ändrar min säkerhetskopieringsprincip?
-När en ny princip används följs schema och lagring av den nya principen. Om kvarhållning utökas markeras befintliga återställningspunkter för att hålla dem enligt ny princip. Om kvarhållning minskar är de markerad för rensning i nästa rensningsjobbet och därefter tas bort.
+När en ny princip används följs schema och lagring av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup-kryptering
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Krypteras informationen som skickas till Azure? <br/>

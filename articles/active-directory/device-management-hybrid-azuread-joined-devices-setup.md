@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -33,6 +33,8 @@ Om du har en lokal Active Directory-miljö och du vill ansluta till din domänan
 Innan du börjar konfigurera hybrid Azure AD anslutna enheter i din miljö bör du bekanta dig med scenarierna som stöds och begränsningar.  
 
 Om du förlita dig på den [systemförberedelseverktyget (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), se till att du skapar bilder från en installation av Windows som inte ännu har registrerats med Azure AD.
+
+Alla domänanslutna enheter som kör Windows 10 årsdagar Update och Windows Server 2016 registreras automatiskt med Azure AD vid omstart av enheten eller användaren logga in när de konfigurationssteg som anges nedan är uppfyllda. Om automatisk registrering problemet inte är prioriterad eller eventuellt en kontrollerad distribution, följ instruktionerna i avsnittet kontrollen distribution och distributionen nedan först för att selektivt aktivera eller inaktivera automatisk distributionen innan du följer den andra konfigurationssteg.  
 
 För att förbättra läsbarhet beskrivningar, används det här avsnittet följande villkor: 
 
@@ -204,7 +206,7 @@ Definitionen hjälper dig att kontrollera om värdena finns eller om du behöver
 
 ### <a name="issue-account-type-claim"></a>Problemet konto typen anspråk
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Detta anspråk måste innehålla ett värde av **DJ**, som identifierar enheten som en domänansluten dator. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Detta anspråk måste innehålla ett värde av **DJ**, som identifierar enheten som en domänansluten dator. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -219,7 +221,7 @@ Definitionen hjälper dig att kontrollera om värdena finns eller om du behöver
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Utfärda objectGUID av datorn kontot Lokal
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Detta anspråk måste innehålla den **objectGUID** värdet för det lokala datorkontot. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Detta anspråk måste innehålla den **objectGUID** värdet för det lokala datorkontot. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -241,7 +243,7 @@ Definitionen hjälper dig att kontrollera om värdena finns eller om du behöver
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Utfärda objectSID för den dator kontot Lokalt
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Detta anspråk måste innehålla den den **objectSid** värdet för det lokala datorkontot. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Detta anspråk måste innehålla den den **objectSid** värdet för det lokala datorkontot. I AD FS kan du lägga till en regel för omvandling av utfärdande som ser ut så här:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -258,7 +260,7 @@ Definitionen hjälper dig att kontrollera om värdena finns eller om du behöver
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Utfärda issuerID för datorn när flera verifierat domännamn i Azure AD
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Detta anspråk måste innehålla den identifierare URI (Uniform Resource) för någon av de verifierade domännamn som ansluter med federationstjänsten lokalt (AD FS eller 3 part) utfärdar token. Du kan lägga till regler för utfärdandetransformering som liknar de nedan i den specifika ordningen när de ovan i AD FS. Observera att en regel att uttryckligen utfärda regeln för användare är nödvändigt. En första regel som identifierar användare eller datorautentisering läggs till i reglerna nedan.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Detta anspråk måste innehålla den identifierare URI (Uniform Resource) för någon av de verifierade domännamn som ansluter med federationstjänsten lokalt (AD FS eller 3 part) utfärdar token. Du kan lägga till regler för utfärdandetransformering som liknar de nedan i den specifika ordningen när de ovan i AD FS. Observera att en regel att uttryckligen utfärda regeln för användare är nödvändigt. En första regel som identifierar användare eller datorautentisering läggs till i reglerna nedan.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -304,7 +306,7 @@ Definitionen hjälper dig att kontrollera om värdena finns eller om du behöver
 
 I anspråket ovan
 
-- `<verified-domain-name>`är en platshållare som du behöver ersätta med en av dina verifierat domännamn i Azure AD. Till exempel Value = ”http://contoso.com/adfs/services/trust/”
+- `<verified-domain-name>` är en platshållare som du behöver ersätta med en av dina verifierat domännamn i Azure AD. Till exempel Value = ”http://contoso.com/adfs/services/trust/”
 
 
 
@@ -315,7 +317,7 @@ Om du vill hämta en lista över företagets verifierade domäner som du kan anv
 
 ### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Utfärda ImmutableID för datorn när en användare finns (t.ex. Alternativt inloggnings-ID har angetts)
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`**-Detta anspråk måste innehålla ett giltigt värde för datorer. I AD FS kan du skapa en regel för omvandling av utfärdande som följer:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Detta anspråk måste innehålla ett giltigt värde för datorer. I AD FS kan du skapa en regel för omvandling av utfärdande som följer:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -512,7 +514,7 @@ Du måste lägga till transformeringen regeluppsättningarna som överför via a
 2. Högerklicka på Microsoft Office 365-Identitetsplattformen förlitande part förtroende-objekt och välj sedan **redigera Anspråksregler**.
 3. På den **regler för Utfärdandetransformering** väljer **Lägg till regel**.
 4. I den **anspråksregel** mall-listan, Välj **skicka anspråk med en anpassad regel**.
-5. Välj **nästa**.
+5. Välj **Nästa**.
 6. I den **Regelnamn för anspråk** skriver **Auth metoden Anspråksregel**.
 7. I den **anspråksregel** skriver följande regel:
 
@@ -566,7 +568,8 @@ Om du vill kontrollera installationen av aktuella Windows-datorer, bör du distr
    > [!NOTE]
    > Den här mallen har ändrats från tidigare versioner av konsolen Grupprinciphantering. Om du använder en tidigare version av konsolen, gå till `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Välj **aktiverad**, och klicka sedan på **tillämpa**.
+7. Välj **aktiverad**, och klicka sedan på **tillämpa**. Du måste välja **inaktiverad** om du vill att principen ska blockera enheter som styrs av grupprincipen registrerar automatiskt med Azure AD.
+
 8. Klicka på **OK**.
 9. Länka grupprincipobjektet till en plats. Du kan till exempel länka den till en viss organisationsenhet. Dessutom kan du länka det till en viss säkerhetsgrupp för datorer som automatiskt att ansluta med Azure AD. Länka grupprincipobjektet till domänen för att ställa in principen för alla domänanslutna Windows 10 och Windows Server 2016 datorer i din organisation.
 

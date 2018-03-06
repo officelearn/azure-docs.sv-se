@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -43,6 +43,14 @@ Storage-emulatorn ansluter till SQL Server eller LocalDB med Windows-autentiseri
 Det finns vissa skillnader i funktionalitet mellan storage-emulatorn och Azure storage-tjänster. Mer information om skillnaderna finns i [skillnader mellan storage-emulatorn och Azure Storage](#differences-between-the-storage-emulator-and-azure-storage) senare i den här artikeln.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Starta och initiera storage-emulatorn
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Kör Azure storage-emulatorn i Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Med hjälp av SDK
+
 Så här startar Azure storage-emulatorn:
 1. Välj den **starta** knappen eller tryck på den **Windows** nyckel.
 1. Börja skriva `Azure Storage Emulator`.
@@ -140,9 +148,9 @@ Följande adress kan till exempel användas för åtkomst till en blobb i storag
 
 Service-slutpunkter för storage-emulatorn är:
 
-* BLOB-tjänsten:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Kötjänsten:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Tabelltjänsten:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* BLOB-tjänsten: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Kötjänsten: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Tabelltjänsten: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Kontot som sekundär med RA-GRS-adressering
 Från och med version 3.1, stöder storage-emulatorn geo-redundant replikering för läsbehörighet (RA-GRS). För lagringsresurser både i molnet och lokala emulatorn, du kan komma åt den sekundära platsen genom att lägga till - sekundär i kontonamnet. Följande adress kan till exempel användas för att komma åt en blob med skrivskyddad sekundär i storage-emulatorn:

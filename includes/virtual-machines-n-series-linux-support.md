@@ -1,7 +1,22 @@
+---
+title: ta med fil
+description: ta med fil
+services: virtual-machines-linux
+author: dlepow
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 03/01/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 22d37ca30f1319f46a52b96be1c527f6f56719ab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/05/2018
+---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
-
-### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>Instanser av NC-NCv2 och ND - NVIDIA CUDA drivrutiner
+### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-cuda-drivers"></a>NC, NCv2, NCv3 och ND-serien - NVIDIA CUDA drivrutiner
 | Distribution | Drivrutin |
 | --- | --- | 
 | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/> CentOS 7.3 eller 7.4 | NVIDIA CUDA 9.1, drivrutinen gren R390 |
@@ -10,8 +25,7 @@
 > Se till att du installerar eller uppgraderar till de senaste drivrutinerna för CUDA för din distribution. Drivrutiner som är äldre än version R390 kan ha problem med uppdaterade Linux kärnor.
 >
 
-### <a name="nv-instances---nvidia-grid-drivers"></a>NV-instanser – NVIDIA GRID-drivrutiner
-
+### <a name="nv-series---nvidia-grid-drivers"></a>NV-serien - NVIDIA RUTNÄTET drivrutiner
 
 | Distribution | Drivrutin |
 | --- | --- | 

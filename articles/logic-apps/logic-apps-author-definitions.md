@@ -1,7 +1,7 @@
 ---
-title: "Definiera arbetsflöden med JSON - Azure Logic Apps | Microsoft Docs"
-description: "Hur du skriver arbetsflödesdefinitioner i JSON för logic apps"
-author: jeffhollan
+title: "Bygger på logiken app definitioner med JSON - Azure Logic Apps | Microsoft Docs"
+description: "Lägg till parametrar, bearbeta strängar, skapa parametern maps och hämta data med datumfunktioner"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,197 +13,202 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 03/29/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 01/31/2018
+ms.author: LADocs; estfan
+ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Skapa arbetsflödesdefinitioner för logic apps med JSON
+# <a name="build-on-your-logic-app-definition-with-json"></a>Skapa på logiken app definition med JSON
 
-Du kan skapa arbetsflödesdefinitioner för [Azure Logikappar](logic-apps-overview.md) med enkla, deklarativa JSON-språk. Om du inte redan gjort först granska [hur du skapar din första logikapp med logik App Designer](quickstart-create-first-logic-app-workflow.md). Se även den [fullständig referens för arbetsflödet Definition Language](http://aka.ms/logicappsdocs).
+För mer avancerade aktiviteter med [Azure Logikappar](../logic-apps/logic-apps-overview.md), du kan använda kodvyn för att redigera din logik app definition, som använder enkla, deklarativa JSON-språk. Om du inte redan gjort först granska [hur du skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se även den [fullständig referens för arbetsflödet Definition Language](http://aka.ms/logicappsdocs).
 
-## <a name="repeat-steps-over-a-list"></a>Upprepa steg över en lista
+> [!NOTE]
+> Vissa funktioner som parametrar, Azure Logic Apps är bara tillgängliga när du arbetar i kodvy för definition av din logikapp. Parametrar kan du återanvända värden i hela din logikapp. Om du vill använda samma e-postadress över flera åtgärder du till exempel definiera den e-postadressen som en parameter.
 
-Gå igenom en matris som har upp till 10 000 objekt och utföra en åtgärd för varje objekt genom att använda den [foreach typen](logic-apps-loops-and-scopes.md).
+## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Visa och redigera dina logic app definition i JSON
 
-## <a name="handle-failures-if-something-goes-wrong"></a>Hantera fel om något går fel
+1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal").
 
-Vanligtvis du vill inkludera en *reparation steg* – vissa logik som kör *endast om* misslyckas för en eller flera av dina anrop. Det här exemplet hämtar data från olika platser, men om anropet misslyckas, vi vill skicka ett meddelande någonstans så att vi kan spåra att fel senare:  
+2. Välj den vänstra menyn **fler tjänster**. Välj **Logikappar** under **Enterprise-integration**. Välj din logikapp.
 
+3. Logik för app-menyn under **utvecklingsverktyg**, Välj **logik App kodvy**.
+
+   Fönstret Visa kod öppnas och visar din app logik-definition.
+
+## <a name="parameters"></a>Parametrar
+
+Parametrar kan du återanvända värden i hela din logikapp och är bra för att ersätta värdena som du kan ändra ofta. Om du har en e-postadress som du vill använda på flera platser, bör du till exempel definiera den e-postadressen som en parameter. 
+
+Parametrar är också användbara när du vill åsidosätta parametrar i olika miljöer, Lär dig mer om [parametrar för distribution av](#deployment-parameters) och [REST API för Logikappar i Azure-dokumentation](https://docs.microsoft.com/rest/api/logic).
+
+> [!NOTE]
+> Parametrar är bara tillgängliga i kodvy.
+
+I den [första exempel logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), du har skapat ett arbetsflöde som skickar e-postmeddelanden när nya poster visas i en webbplats RSS-feed. Feed-URL: en är hårdkodad, så det här exemplet illustrerar hur du ersätter värdet frågan med en parameter så att du kan ändra feed-URL: en enklare.
+
+1. I kodvyn, hitta den `parameters : {}` objekt och lägger till en `currentFeedUrl` objekt:
+
+   ``` json
+     "currentFeedUrl" : {
+      "type" : "string",
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+   }
+   ```
+
+2. I den `When_a_feed-item_is_published` åtgärd, hitta den `queries` avsnittet och Ersätt värdet för frågan med `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+
+   **Innan du**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
+       }
+   },   
+   ```
+
+   **Efter**
+   ``` json
+   }
+      "queries": {
+          "feedUrl": "#@{parameters('currentFeedUrl')}"
+       }
+   },   
+   ```
+
+   För att ansluta två eller flera strängar kan du också använda den `concat` funktion. 
+   Till exempel `"@concat('#',parameters('currentFeedUrl'))"` fungerar på samma sätt som i föregående exempel.
+
+3.  När du är klar väljer du **Spara**. 
+
+Nu kan du ändra webbplatsens RSS-feed genom att ange en annan URL till den `currentFeedURL` objekt.
+
+<a name="deployment-parameters"></a>
+
+## <a name="deployment-parameters-for-different-environments"></a>Distributionsparametrarna för olika miljöer
+
+Vanligtvis har distribution livscykler miljöer för utveckling, mellanlagring och produktion. Du kan till exempel använda samma logik app definition i dessa miljöer men använder olika databaser. På samma sätt kan du använda samma definition över olika regioner för hög tillgänglighet, utan varje logik app-instansen som använder den regionen databas. 
+
+> [!NOTE] 
+> Det här scenariot skiljer sig från tar parametrar på *runtime* där du ska använda den `trigger()` fungerar i stället.
+
+Här är en grundläggande definition:
+
+``` json
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "request": {
+          "type": "request",
+          "kind": "http"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
 ```
+I den faktiska `PUT` begäran för logic apps kan du ange parametern `uri`. Varje miljö kan du ange ett annat värde för den `connection` parameter. Eftersom det finns inte längre ett standardvärde, kräver den här parametern logik app nyttolasten:
+
+``` json
+{
+    "properties": {},
+        "definition": {
+          /// Use the definition from above here
+        },
+        "parameters": {
+            "connection": {
+                "value": "https://my.connection.that.is.per.enviornment"
+            }
+        }
+    },
+    "location": "westus"
+}
+``` 
+
+Mer information finns i [REST API för Logikappar i Azure-dokumentation](https://docs.microsoft.com/rest/api/logic/).
+
+## <a name="process-strings-with-functions"></a>Processen strängar med funktioner
+
+Logic Apps har olika funktioner för att arbeta med strängar. Anta att du vill skicka ett företagsnamn från en order till ett annat system. Men du inte vet om korrekt hantering för teckenkodning. Du kan utföra base64-kodning på den här strängen, men för att undvika visar i URL: en kan du ersätta flera tecken i stället. Dessutom behöver du bara en understräng för företagets namn eftersom de första fem tecknen inte används. 
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1",
+        "companyName": "NAME=Contoso"
+      },
+      "type": "Object"
+    }
+  },
   "triggers": {
-    "Request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "postToErrorMessageQueue": {
-      "type": "ApiConnection",
-      "inputs": "...",
-      "runAfter": {
-        "readData": [
-          "Failed"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Du vill ange att `postToErrorMessageQueue` körs bara `readData` har `Failed`, använda den `runAfter` egenskap, till exempel vill ange en lista över möjliga värden så att `runAfter` kan vara `["Succeeded", "Failed"]`.
-
-Slutligen, eftersom det här exemplet hanterar nu felet, vi inte längre markera kör som- `Failed`. Eftersom vi har lagt till steg för att hantera detta fel i det här exemplet kör har `Succeeded` även om ett steg `Failed`.
-
-## <a name="execute-two-or-more-steps-in-parallel"></a>Köra två eller flera steg parallellt
-
-Att köra flera åtgärder parallellt, den `runAfter` egenskapen måste ha samma vid körning. 
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "triggers": {
-    "Request": {
-      "kind": "http",
-      "type": "Request"
-    }
-  },
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      }
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-I det här exemplet både `branch1` och `branch2` är inställd på att köras `readData`. Därför körs båda grenar parallellt. Tidsstämpel för båda filialer är identiska.
-
-![Parallell](media/logic-apps-author-definitions/parallel.png)
-
-## <a name="join-two-parallel-branches"></a>Ansluta två parallella grenar
-
-Du kan delta i två åtgärder som körs parallellt genom att lägga till objekt i den `runAfter` egenskapen som i föregående exempel.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
-  "actions": {
-    "readData": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {}
-    },
-    "branch1": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "branch2": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "readData": [
-          "Succeeded"
-        ]
-      }
-    },
-    "join": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://myurl"
-      },
-      "runAfter": {
-        "branch1": [
-          "Succeeded"
-        ],
-        "branch2": [
-          "Succeeded"
-        ]
-      }
-    }
-  },
-  "parameters": {},
-  "triggers": {
-    "Request": {
+    "request": {
       "type": "Request",
-      "kind": "Http",
+      "kind": "Http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
       "inputs": {
-        "schema": {}
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
-  "contentVersion": "1.0.0.0",
   "outputs": {}
 }
 ```
 
-![Parallell](media/logic-apps-author-definitions/join.png)
+Här beskrivs hur det här exemplet bearbetar denna sträng kan arbeta från insidan till utsidan:
 
-## <a name="map-list-items-to-a-different-configuration"></a>Mappa objekt till en annan konfiguration
-
-Sedan anta att vi vill hämta olika innehåll baserat på värdet för en egenskap. Vi kan skapa en karta över värden till mål som en parameter:  
-
+``` 
+"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
+
+1. Hämta den [ `length()` ](../logic-apps/logic-apps-workflow-definition-language.md) för företagets namn, så du får det totala antalet tecken.
+
+2. För att få en kortare sträng, subtrahera `5`.
+
+3. Nu att få en [ `substring()` ](../logic-apps/logic-apps-workflow-definition-language.md). Startar vid index `5`, och gå till resten av strängen.
+
+4. Konvertera den här delsträng som en [ `base64()` ](../logic-apps/logic-apps-workflow-definition-language.md) sträng.
+
+5. Nu [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) alla de `+` tecken med `-` tecken.
+
+6. Slutligen [ `replace()` ](../logic-apps/logic-apps-workflow-definition-language.md) alla de `/` tecken med `_` tecken.
+
+## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mappa listobjekt till egenskapsvärden och sedan använda maps som parametrar
+
+Om du vill ha olika resultat baserat ett egenskapsvärde, du kan skapa en karta som matchar varje egenskapsvärde till ett resultat och sedan använda som mappar som en parameter. 
+
+Det här arbetsflödet definierar till exempel vissa kategorier som parametrar och en karta som matchar de kategorierna med en specifik URL. Först hämtar arbetsflödet en lista över artiklar. Arbetsflödet använder sedan kartan för att hitta URL-Adressen matchar kategorin för varje artikel.
+
+*   Den [ `intersection()` ](../logic-apps/logic-apps-workflow-definition-language.md) funktionen kontrollerar om kategorin matchar en definierad känd kategori.
+
+*   När en matchande kategori, hämtar exemplet objekt från mappningen med hakparenteser: `parameters[...]`
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -271,21 +276,29 @@ Sedan anta att vi vill hämta olika innehåll baserat på värdet för en egensk
 }
 ```
 
-I det här fallet hämta vi först en lista över artiklar. Det andra steget används baserat på den kategori som har definierats som en parameter, en karta för att slå upp URL: en för att hämta innehållet.
+## <a name="get-data-with-date-functions"></a>Hämta data med datumfunktioner
 
-Vissa tidpunkter Observera: 
+Att hämta data från en datakälla som inte har inbyggt stöd *utlösare*, kan du använda datum fungerar för att arbeta med tid och datum i stället. Det här uttrycket hittar till exempel hur länge det här arbetsflödet steg tar, fungerar inifrån på utsidan:
 
-*   Den [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) funktionen kontrollerar om kategorin matchar ett av de angivna kategorierna kända.
-
-*   När vi har fått kategorin hämtar vi objekt från mappningen med hakparenteser:`parameters[...]`
-
-## <a name="process-strings"></a>Process-strängar
-
-Du kan använda olika funktioner för att ändra strängar. Anta exempelvis att vi har en sträng som vi ska skickas till ett system, men vi inte är säker på om korrekt hantering för teckenkodning. Ett alternativ är att base64 koda den här strängen. Men om du vill undvika undantagstecken i URL-adresser ska ersätta några tecken. 
-
-Vi vill även en understräng i den ordning namn eftersom de första fem tecknen inte används.
-
+``` json
+"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
+
+1. Från den `order` åtgärd, extrahera det `startTime`. 
+2. Hämta den aktuella tiden med `utcNow()`.
+3. Ta bort en sekund:
+
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+
+   Du kan använda andra tidsenheter, som `minutes` eller `hours`. 
+
+3. Nu kan du jämföra två gånger. 
+
+   Om det första värdet är mindre än det andra värdet och sedan mer än en sekund har gått sedan ordern gjordes.
+
+Om du vill formatera datum, kan du använda string-formaterare. Exempelvis kan använda för att få RFC1123 [ `utcnow('r')` ](../logic-apps/logic-apps-workflow-definition-language.md). Lär dig mer om [datum formatering](../logic-apps/logic-apps-workflow-definition-language.md).
+
+``` json
 {
   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
   "contentVersion": "1.0.0.0",
@@ -293,58 +306,7 @@ Vi vill även en understräng i den ordning namn eftersom de första fem tecknen
     "order": {
       "defaultValue": {
         "quantity": 10,
-        "id": "myorder1",
-        "orderer": "NAME=Contoso"
-      },
-      "type": "Object"
-    }
-  },
-  "triggers": {
-    "request": {
-      "type": "request",
-      "kind": "http"
-    }
-  },
-  "actions": {
-    "order": {
-      "type": "Http",
-      "inputs": {
-        "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-      }
-    }
-  },
-  "outputs": {}
-}
-```
-
-Arbeta från inuti till utanför:
-
-1. Hämta den [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) för den orderer namn, så vi få tillbaka det totala antalet tecken.
-
-2. Subtrahera 5 eftersom vi vill att en kortare sträng.
-
-3. Faktiskt, ta den [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Vi börjar vid index `5` och gå resten av strängen.
-
-4. Konvertera den här delsträng som en [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) sträng.
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)alla de `+` tecken med `-` tecken.
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)alla de `/` tecken med `_` tecken.
-
-## <a name="work-with-date-times"></a>Arbeta med datum
-
-Datum kan vara användbart, särskilt när du försöker hämta data från en datakälla som inte stöder naturligt *utlösare*. Du kan också använda datum för att söka efter hur länge olika steg tar.
-
-```
-{
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "order": {
-      "defaultValue": {
-        "quantity": 10,
-        "id": "myorder1"
+        "id": "myorder-id"
       },
       "type": "Object"
     }
@@ -386,67 +348,13 @@ Datum kan vara användbart, särskilt när du försöker hämta data från en da
 }
 ```
 
-I det här exemplet vi extrahera den `startTime` från föregående steg. Sedan vi hämta den aktuella tiden och ta bort en sekund:
 
-[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
+## <a name="next-steps"></a>Nästa steg
 
-Du kan använda andra tidsenheter, som `minutes` eller `hours`. Slutligen kan vi Jämför dessa två värden. Om det första värdet är mindre än det andra värdet och sedan mer än en sekund har gått sedan ordern gjordes.
-
-Vi kan använda sträng formaterare för att formatera datum. Till exempel för att få RFC1123 kan vi använda [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Läs om datumformatering i [språk i arbetsflödesdefinitionen](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
-
-## <a name="deployment-parameters-for-different-environments"></a>Distributionsparametrarna för olika miljöer
-
-Distribution livscykler har vanligtvis en utvecklingsmiljö, en mellanlagringsmiljön och en produktionsmiljö. Du kan till exempel använda samma definition i dessa miljöer men använder olika databaser. På samma sätt kan du använda samma definition över olika regioner för hög tillgänglighet, utan varje logik app-instansen tala med den regionen databasen.
-Det här scenariot skiljer sig från tar parametrar på *runtime* där i stället du bör använda den `trigger()` fungera som i föregående exempel.
-
-Du kan börja med en grundläggande definition som det här exemplet:
-
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-
-I den faktiska `PUT` begäran för logic apps kan du ange parametern `uri`. Eftersom det finns inte längre ett standardvärde, kräver den här parametern logik app nyttolasten:
-
-```
-{
-    "properties": {},
-        "definition": {
-          // Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-``` 
-
-Varje miljö kan du ange ett annat värde för den `connection` parameter. 
-
-Alla de alternativ som du har för att skapa och hantera logic apps finns i [REST API-dokumentation](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+* [Köra steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Kör steg baserat på olika värden (switch-satser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Kör och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Kör- eller merge-parallella åtgärder (grenar)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Kör steg baserat på grupperade Åtgärdsstatus (scope)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* Lär dig mer om den [språk i Arbetsflödesdefinitionen för schemat för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
+* Lär dig mer om [arbetsflödesåtgärder och utlösare för Logic Apps i Azure](../logic-apps/logic-apps-workflow-actions-triggers.md)

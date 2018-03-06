@@ -1,24 +1,8 @@
----
-title: Hantera certifikat i ett Azure Service Fabric-kluster | Microsoft Docs
-description: "Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+--Rubrik: hantera certifikat i ett Azure Service Fabric-kluster | Microsoft Docs beskrivning: Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster.
+tjänster: service fabric dokumentationcenter: .net författare: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägg till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och känna till de [kluster säkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett certifikat för klustret och som används för, innan du fortsätter ytterligare.
@@ -49,6 +33,8 @@ Ta bort ett sekundärt certifikat används för klustret säkerhet, navigera til
 Om din avsikt är att ta bort certifikat som har markerats primära, måste växla med sekundärt först och sedan ta bort sekundärt när uppgraderingen har slutförts.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Lägg till ett sekundärt certifikat med hjälp av hanteraren för filserverresurser Powershell
+> [! Uppdatera] nu har vi ett bättre och enklare sätt att lägga till ett sekundärt certifikat med hjälp av [Lägg till AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Du behöver inte följa resten av stegen i det här avsnittet om du använder Lägg till AzureRmServiceFabricClusterCertificate.
+
 
 Dessa instruktioner förutsätter att du känner till hur Resource Manager fungerar och har distribuerat minst en Service Fabric-kluster med hjälp av en Resource Manager-mall och har den mall som du använde för att konfigurera klustret praktiska. Det förutsätts även att du är nöjd med JSON.
 

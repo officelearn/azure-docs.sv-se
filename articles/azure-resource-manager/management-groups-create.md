@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 7c5aeca5afe8921ab39040e9afc2921b1711c447
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 Hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Skapa dessa behållare för att bygga en effektiv hierarki som kan användas med [Azure princip](../azure-policy/azure-policy-introduction.md) och [baserat åtkomstkontroller i Azure rollen](../active-directory/role-based-access-control-what-is.md). Mer information om hanteringsgrupper finns [ordna dina resurser med Azure hanteringsgrupper ](management-groups-overview.md). 
@@ -47,14 +47,14 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 I PowerShell, kan du använda Lägg till AzureRmManagementGroups-cmdlets.   
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso 
+C:\> New-AzureRmManagementGroup -GroupName Contoso 
 ```
 Den **GroupName** är en unik identifierare som håller på att skapas. Detta ID används av andra kommandon för att referera till den här gruppen och kan inte ändras senare.
 
 Om du vill använda hanteringsgruppen som visar ett annat namn på Azure-portalen kan du lägga till den **DisplayName** parameter med strängen. Om du vill skapa en hanteringsgrupp med GroupName Contoso och visningsnamnet för ”Contoso-grupp” kan du använda följande cmdlet: 
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
+C:\> New-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
 ``` 
 Använd den **ParentId** parametern ska ha den här hanteringsgruppen skapas under en annan hanteringsserver.  
 

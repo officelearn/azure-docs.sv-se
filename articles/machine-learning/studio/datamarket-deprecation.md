@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/01/2018
 ms.author: LuisCa
-ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec301869b08f9f3811c0536c85366619738945a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datamarket-is-now-deprecated"></a>DataMarket är nu föråldrad.
 
@@ -32,9 +32,3 @@ Tidigare DataMarket Text Analytics API-kunder bör börja använda den [kognitiv
 Kognitiva Services Text Analytics API stöder alla scenarier som den tidigare versionen av DataMarket, samt ytterligare scenarier, till exempel identifiera språk och avsnittet identifiering.
 
 
-## <a name="recommendations-api"></a>API för rekommendationer 
-
-Tidigare DataMarket rekommendationer API-kunder bör börja använda den [kognitiva Services rekommendationer API](https://www.microsoft.com/cognitive-services/recommendations-api).
-Kognitiva Services rekommendationer API: et stöder alla scenarier som den tidigare versionen av DataMarket, samt ytterligare scenarier, till exempel batch-stöd och bättre offline mått för att utvärdera kvaliteten på modeller. 
-
-Mer information om hur du startar med kognitiva Services rekommendationer API finns [migrera till Azure kognitiva Services rekommendationer API](http://aka.ms/recomigrate).

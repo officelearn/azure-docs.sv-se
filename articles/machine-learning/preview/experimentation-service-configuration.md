@@ -5,21 +5,21 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurera Azure Machine Learning experiment Service
 
 ## <a name="overview"></a>Översikt
-Azure Machine Learning experiment-tjänsten kan data forskare att köra deras experiment med Azure Machine Learning-körningen och köra hanteringsfunktioner. Det ger ett ramverk för flexibel experiment med snabb iterationer. Azure Machine Learning arbetsstationen kan du börja med lokala körs på datorn och ger en enkel sökväg för att skala uppåt och utåt till andra miljöer, till exempel remote datavetenskap VMs med GPU eller HDInsight-kluster som kör Spark.
+Azure Machine Learning experiment-tjänsten kan data forskare att köra deras experiment med Azure Machine Learning-körningen och köra hanteringsfunktioner. Det ger ett ramverk för flexibel experiment med snabb iterationer. Azure Machine Learning arbetsstationen kan du börja med lokala körs på din dator och en enkel sökväg för att skala uppåt och utåt till andra miljöer, till exempel remote datavetenskap VMs med GPU eller HDInsight-kluster som kör Spark.
 
 Experiment tjänsten är utformad för att tillhandahålla isolerade reproduceras och konsekvent körs från dina experiment. Det hjälper dig att hantera din beräknings-mål, körning miljöer och köra konfigurationer. Med hjälp av Azure Machine Learning arbetsstationen körning och kör hanteringsfunktioner, kan du enkelt flytta mellan olika miljöer. 
 
@@ -27,9 +27,10 @@ Du kan köra en Python eller PySpark-skript i ett projekt för arbetsstationen l
 
 Du kan köra skript på: 
 
-* Miljö för Python (3.5.2) på den lokala datorn som installerats av arbetsstationen.
+* Miljö för Python (3.5.2) på den lokala datorn som installerats av Workbench
 * Conda Python-miljö inuti en dockerbehållare på lokal dator
-* Conda Python miljö inuti en dockerbehållare på en fjärrdator Linux. Till exempel en [Ubuntu-baserade DSVM på Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* På en Python-miljö som du äger och hanterar på en fjärrdator Linux
+* Conda Python miljö inuti en dockerbehållare på en fjärrdator Linux. Till exempel en [Ubuntu-baserade DSVM på Azure] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) på Azure
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ _Koppla AZ ml computetarget_ kommando i CLI kan du skapa ett beräknings-mål so
 Stöds beräkning mål är:
 * Lokala Python (3.5.2)-miljön på datorn installeras av arbetsstationen.
 * Lokala Docker på datorn
+* Användarhanterat, Python-miljön på fjärranslutna Ubuntu Linux virtuella datorer. Till exempel en [Ubuntu-baserade DSVM på Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Remote Docker på Ubuntu Linux virtuella datorer. Till exempel en [Ubuntu-baserade DSVM på Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [HDInsight för Spark-kluster](https://azure.microsoft.com/services/hdinsight/apache-spark/) på Azure
 
@@ -69,14 +71,14 @@ Conda används för att hantera Docker lokala och fjärranslutna Docker körning
 ### <a name="run-configuration"></a>Kör konfigurationen
 Förutom beräkning mål och körning av miljön, Azure Machine Learning ger ett ramverk för att definiera och ändra *kör konfigurationer*. Olika körningar av experimentet kan kräva olika konfigurationer som en del av repetitiva försök. Du kan omfattande annan områden med olika datakällor och justera spark-parametrar. Experiment Service ger ett ramverk för att hantera kör konfigurationer.
 
-Kör _az ml computetarget bifoga_ kommandot ger två filer i din **aml_config** mappen i projektet: en .compute och en .runconfig efter denna konvention: _< your_ computetarget_name > .compute_ och _< your_computetarget_name > .runconfig_. Filen .runconfig skapas automatiskt för din bekvämlighet när du skapar ett mål för beräkning. Du kan skapa och hantera andra kör konfigurationer med hjälp av _az ml runconfigurations_ i CLI. Du kan också skapa och redigera dem på din dator.
+Kör _az ml computetarget bifoga_ kommandot ger två filer i din **aml_config** mappen i projektet: ”.compute” och en ”.runconfig” följa denna konvention: _< your_ computetarget_name > .compute_ och _< your_computetarget_name > .runconfig_. Filen .runconfig skapas automatiskt för din bekvämlighet när du skapar ett mål för beräkning. Du kan skapa och hantera andra kör konfigurationer med hjälp av _az ml runconfigurations_ i CLI. Du kan också skapa och redigera dem på din dator.
 
 Kör konfigurationen i arbetsstationen kan du ange miljövariabler. Du kan ange miljövariabler och använda dem i din kod genom att lägga till följande avsnitt i filen .runconfig. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 De här miljövariablerna kan användas i koden. Till exempel skrivs den här phyton kodstycke miljövariabel som heter ”EXAMPLE_ENV_VAR1”
@@ -91,7 +93,7 @@ _**Följande bild visar det övergripande flödet för första körningen av exp
 I det här avsnittet vi fördjupa dig i körningen scenarier och lär dig mer om hur Azure Machine Learning körs experiment, särskilt körs ett experiment lokalt på en fjärransluten virtuell dator och på ett HDInsight-kluster. Det här avsnittet är en genomgång från att skapa en beräknings-mål för att köra dina experiment.
 
 >[!NOTE]
->För resten av den här artikeln använder du CLI (Command-line-interface)-kommandon för att visa koncept och funktioner. Funktioner som beskrivs här kan också användas från arbetsstationen.
+>I resten av den här artikeln använder du CLI (Command-line-interface)-kommandon för att visa koncept och funktioner. Funktioner som beskrivs här kan också användas från arbetsstationen.
 
 ## <a name="launching-the-cli"></a>Starta CLI
 Ett enkelt sätt att starta CLI öppnar ett projekt i arbetsstationen och navigera till **filen--> Öppna Kommandotolken**.
@@ -101,7 +103,7 @@ Ett enkelt sätt att starta CLI öppnar ett projekt i arbetsstationen och navige
 Detta kommando startar ett terminalfönster där du kan ange kommandon för att köra skript i den aktuella projektmappen. Den här terminalfönster har konfigurerats med Python 3.5.2 miljön, som installeras med arbetsstationen.
 
 >[!NOTE]
-> När du kör någon _az ml_ kommando du behöver autentiseras mot Azure i kommandofönstret. CLI använder en oberoende authentication cache och klicka sedan på skrivbordsappen så logga in på arbetsstationen innebär inte du är autentiserad i CLI-miljö. Följ stegen nedan för att autentisera. Autentiseringstoken cachelagras lokalt för en viss tidsperiod, så du behöver bara Upprepa dessa steg när token upphör att gälla. När token upphör att gälla eller om du ser autentiseringsfel, kör du följande kommandon:
+> När du kör någon _az ml_ kommando du behöver autentiseras mot Azure i kommandofönstret. CLI använder en oberoende authentication cache och klicka sedan på skrivbordsappen så logga in på arbetsstationen innebär inte du är autentiserad i CLI-miljö. För att autentisera, Använd följande stegen. Autentiseringstoken cachelagras lokalt för en viss tidsperiod, så du behöver bara Upprepa dessa steg när token upphör att gälla. När token upphör att gälla eller om du ser autentiseringsfel, kör du följande kommandon:
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Kör skript och experiment
 Med arbetsstationen, kan du köra dina Python och PySpark-skript på olika beräkna mål med hjälp av den _az ml experiment skicka_ kommando. Kommandot kräver en konfigurationsdefinition av kör. 
 
-Arbetsstationen skapar en motsvarande .runconfig-fil när du skapar ett beräknings-mål, men du kan skapa ytterligare kör konfigurationer med hjälp av _az ml runconfiguration skapa_ kommando. Du kan också manuellt redigera kör konfigurationsfilerna.
+Arbetsstationen skapar en motsvarande runconfig-fil när du skapar ett beräknings-mål, men du kan skapa ytterligare kör konfigurationer med hjälp av _az ml runconfiguration skapa_ kommando. Du kan också manuellt redigera kör konfigurationsfilerna.
 
 Kör konfigurationer visas som en del av experimentet körning i arbetsstationen. 
 
@@ -213,9 +215,50 @@ Docker konstruktionen processen för fjärranslutna virtuella datorer är exakt 
 >[!TIP]
 >Om du vill undvika fördröjning som introducerades av Docker-avbildning för din första gången du kör använda du följande kommando för att förbereda mål beräkning innan du kör skriptet. AZ ml experiment förbereda - c remotedocker
 
-
 _**Översikt över fjärråtkomst vm-körning för Python-skriptet:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Köra ett skript på en fjärransluten VM riktad användarhanterat miljöer
+Experiment tjänsten stöder också köra ett skript på användarens egna Python-miljö i en fjärransluten Ubuntu virtuell dator. På så sätt kan du hantera din egen miljö för körning och fortfarande använda Azure Machine Learning-funktioner. 
+
+Följ anvisningarna nedan om du vill köra skriptet i din egen miljö.
+* Förbereda din miljö för Python på en fjärransluten Ubuntu-VM eller en DSVM installera dina beroenden.
+* Installera Azure Machine Learning krav med följande kommando.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>I vissa fall kan behöva du köra det här kommandot i sudo läge beroende på din behörighet. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* Använd följande kommando för att skapa både definition av beräkning mål och kör konfigurationen för användarhanterat körs på den fjärranslutna VM körningar.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>Detta anger ”userManagedEnvironment”-parametern i konfigurationsfilen .compute till true.
+
+* Ange platsen för Python-körning körbara i .compute-filen. Du måste referera till den fullständiga sökvägen för din körbara python. 
+```
+pythonLocation: python3
+```
+
+När du konfigurerar beräknings-mål, kan du använda följande kommando för att köra skriptet.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> När du kör på en DSVM, bör du använda följande kommandon
+
+Om du vill köra direkt på DSVMS globala python-miljö kan du köra kommandot.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Köra ett skript på ett HDInsight-kluster

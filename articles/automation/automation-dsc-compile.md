@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 02/07/2017
+ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -58,7 +58,7 @@ Du kan använda [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/modul
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 ```
 
-`Start-AzureRmAutomationDscCompilationJob`Returnerar ett jobbobjekt som du kan använda för att spåra dess status för kompilering. Du kan sedan använda detta jobbobjekt för kompilering med [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) att avgöra status för kompileringsjobbet och [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) att visa dess dataströmmar (utdata). Följande exempelkod startar sammanställning av den **SampleConfig** konfiguration, väntar tills den har slutförts och visar sedan dess dataströmmar.
+`Start-AzureRmAutomationDscCompilationJob` Returnerar ett jobbobjekt som du kan använda för att spåra dess status för kompilering. Du kan sedan använda detta jobbobjekt för kompilering med [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) att avgöra status för kompileringsjobbet och [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) att visa dess dataströmmar (utdata). Följande exempelkod startar sammanställning av den **SampleConfig** konfiguration, väntar tills den har slutförts och visar sedan dess dataströmmar.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
@@ -238,7 +238,7 @@ Referenser för tillgången är samma i Azure Automation DSC-konfigurationer och
 
 ### <a name="credential-assets"></a>Inloggningstillgångar
 
-När DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar med **Get-AzureRmAutomationCredential**, inloggningstillgångar kan också överföras via parametrar, om så önskas. Om en konfiguration tar en parameter av **PSCredential** skriver, måste du skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång som att parametervärdet, i stället för ett PSCredential-objekt. I bakgrunden, hämtas och skickades till konfigurationen Azure Automation-autentiseringsuppgiftstillgång med det namnet.
+När DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar med **Get-AutomationPSCredential**, inloggningstillgångar kan också överföras via parametrar, om så önskas. Om en konfiguration tar en parameter av **PSCredential** skriver, måste du skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång som att parametervärdet, i stället för ett PSCredential-objekt. I bakgrunden, hämtas och skickades till konfigurationen Azure Automation-autentiseringsuppgiftstillgång med det namnet.
 
 Att hålla autentiseringsuppgifter kräver säker nodkonfigurationer (MOF configuration dokument) kryptering av autentiseringsuppgifter i noden configuration MOF-filen. Azure Automation tar ytterligare ett steg och krypterar hela MOF-filen. Men måste för närvarande du ange PowerShell DSC går bra autentiseringsuppgifter mängden i klartext under noden configuration MOF generation, eftersom PowerShell DSC inte vet att Azure Automation kryptera hela MOF-filen efter dess generation via en kompileringsjobbet.
 
@@ -249,7 +249,7 @@ I följande exempel visas en DSC-konfiguration som använder en Automation-auten
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
+    $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {

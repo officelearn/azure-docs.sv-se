@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Checklista för Azure operativ säkerhet
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar cloud program i produktion praktiskt att ha en checklista för att hjälpa dig att utvärdera programmet mot en lista över viktiga och rekommenderade operativ säkerhetsåtgärder som du bör tänka.
@@ -52,6 +52,6 @@ Många organisationer har distribuerats och drivas sina molnprogram i Azure. Che
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet introducerades säkerhets- och granskningslösningen i OMS. Mer information om säkerheten i OMS finns i följande artiklar:
 
-- [Operations Management Suite (OMS) översikt](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Operations Management Suite (OMS) översikt](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Design- och operativ säkerhet](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Planera för Azure Security Center och åtgärder](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

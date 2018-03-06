@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric-säkerhetsmetoder
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar ditt moln program i produktion bör granska vår lista över viktiga och rekommenderade säkerhetsmetoder för att implementera skyddade kluster i ditt program.
@@ -64,7 +64,7 @@ Dina kluster måste skyddas för att förhindra att obehöriga användare från 
 Det finns tre [scenarier](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att implementera säkerhet för klustret med hjälp av olika tekniker:
 
 -   Nod till nod säkerhet: det här scenariot skyddar kommunikationen mellan virtuella datorer och datorer i klustret. Den här typen av säkerhet säkerställer att endast de datorer som har behörighet att ansluta till klustret kan vara värd för program och tjänster i klustret.
-I det här scenariot, som körs på Azure eller fristående kluster som körs på Windows kan använda antingen [certifikat säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) eller [Windows-säkerhet](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) för Windows Server-datorer.
+I det här scenariot, som körs på Azure eller fristående kluster som körs på Windows kan använda antingen [certifikat säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) eller [Windows-säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) för Windows Server-datorer.
 -   Klient-till-nod säkerhet: det här scenariot skyddar kommunikationen mellan en klient för Service Fabric och enskilda noder i klustret.
 -   Rollbaserad åtkomstkontroll (RBAC): det här scenariot använder separata identiteter (certifikat, Azure AD, och så vidare) för varje administratörs- och klient-roll som har åtkomst till klustret. Du kan ange roll identiteter när du skapar klustret.
 
@@ -125,7 +125,7 @@ Varje aktören definieras som en instans av aktörstyp, samma sätt som ett .NET
 Konfigurationer för replikatorn konfigurera replikatorn som ansvarar för att göra tillståndet aktören Tillståndsprovidern hög tillförlitlig.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Konfigurera SSL för Azure Service Fabric
-Server-autentiseringen [autentiserar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) att klustret management slutpunkter management-klienten. Management-klienten identifierar sedan att det pratar till verkliga klustret. Det här certifikatet ger också en [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS.
+Server-autentiseringen [autentiserar](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) att klustret management slutpunkter management-klienten. Management-klienten identifierar sedan att det pratar till verkliga klustret. Det här certifikatet ger också en [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS.
 Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
 
 Om du vill konfigurera SSL för ett program måste du först skaffa ett SSL-certifikat som har signerats av en Certifikatutfärdare. Certifikatutfärdaren är betrodd tredje part som utfärdar certifikat för SSL-säkerhetsskäl. Om du inte redan har ett SSL-certifikat, måste du skaffa ett från ett företag som säljer SSL-certifikat.

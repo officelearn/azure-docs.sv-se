@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Felsöka Storm med Azure HDInsight
 
@@ -28,7 +28,7 @@ Läs mer om de vanligaste problemen och sina lösningar för att arbeta med Apac
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur kommer jag åt Storm-Användargränssnittet på ett kluster?
 Har du två alternativ för att komma åt Storm-Användargränssnittet från en webbläsare:
 
-### <a name="ambari-ui"></a>Ambari UI
+### <a name="ambari-ui"></a>Ambari-gränssnittet
 1. Gå till instrumentpanelen Ambari.
 2. Välj i listan över tjänster, **Storm**.
 3. I den **snabblänkar** väljer du **Storm-Användargränssnittet**.
@@ -91,7 +91,7 @@ Storm-binärfiler för den aktuella HDP-stacken är i /usr/hdp/current/storm-cli
  
 Det kan finnas flera binärfiler för specifika HDP versioner i /usr/hdp (till exempel /usr/hdp/2.5.0.1233/storm). Mappen /usr/hdp/current/storm-client är symlinked till den senaste versionen som körs på klustret.
 
-Mer information finns i [Anslut till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Storm](http://storm.apache.org/).
+Mer information finns i [Anslut till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hur vet topologi för distribution av ett Storm-kluster?
 Först identifiera alla komponenter som installeras med Storm på HDInsight. Ett Storm-kluster består av fyra nod:
@@ -127,10 +127,10 @@ Storm arbetarnoder kör följande tjänster:
 Mer information om hur du använder Storm event hub kanal .jar filer med din topologi finns i följande resurser.
  
 ### <a name="java-based-topology"></a>Java-baserad topologi
-[Bearbeta händelser från Azure Event Hubs med Storm på HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (Java))
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserade topologi (Mono på HDInsight 3.4 + Linux Storm-kluster)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (C#))
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (C#))
  
 ### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Storm event hub-kanalen binärfiler för HDInsight 3.5 + Linux Storm-kluster
 Information om hur du använder den senaste Storm event hub-kanal som fungerar med HDInsight 3.5 + Linux Storm-kluster finns mvn-lagringsplatsen [Readme-filen](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

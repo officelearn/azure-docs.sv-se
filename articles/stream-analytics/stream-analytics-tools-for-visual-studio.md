@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Använda Azure Stream Analytics-verktyg för Visual Studio
 Azure Stream Analytics-verktyg för Visual Studio är nu allmänt tillgänglig. Dessa verktyg aktivera en rikare upplevelse för Stream Analytics användare att felsöka samt skriva komplexa frågor och skriva även frågor lokalt. Du kan också exportera ett Stream Analytics-jobb i Visual Studio-projekt.
@@ -40,7 +40,7 @@ Följande förutsättningar för att kunna slutföra den här kursen behöver du
 
 * Slutför stegen upp till ”skapa ett Stream Analytics-jobb” i självstudiekursen [skapar en IoT-lösning med Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Installera Visual Studio 2017, Visual Studio 2015 eller Visual Studio 2013 uppdatering 4. Enterprise (Ultimate/Premium), Professional och Community-versioner stöds. Express edition stöds inte. 
-* Följ den [Installationsinstruktioner](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) installera Stream Analytics-verktyg för Visual Studio.
+* Följ den [Installationsinstruktioner](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) installera Stream Analytics-verktyg för Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Skapa ett Stream Analytics-projekt
 I Visual Studio väljer **filen** > **nytt projekt**. Välj i listan mallar till vänster **Stream Analytics**, och välj sedan **Azure Stream Analytics-programmet**.

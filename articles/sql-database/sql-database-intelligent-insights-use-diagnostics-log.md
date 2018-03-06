@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd Intelligent insikter Azure SQL Database prestanda diagnostik loggen
 
@@ -139,13 +139,13 @@ Den sista delen av Intelligent insikter prestanda loggen gäller automatiserade 
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Du kan använda Intelligent insikter prestandalogg med [Azure logganalys]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) eller en fristående lösning för anpassade DevOps varningar och rapporteringsfunktioner.
+Du kan använda Intelligent insikter prestandalogg med [Azure logganalys]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en fristående lösning för anpassade DevOps varningar och rapporteringsfunktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [Intelligent insikter](sql-database-intelligent-insights.md) begrepp.
 - Lär dig hur du [felsöka Azure SQL Database prestandaproblem med Intelligent insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Lär dig hur du [övervaka Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Lär dig hur du [övervaka Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

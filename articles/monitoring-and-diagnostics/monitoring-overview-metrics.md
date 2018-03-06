@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
@@ -89,11 +89,11 @@ Följande är en snabb genomgång av hur du skapar ett mått diagram med hjälp 
 ## <a name="access-metrics-via-the-rest-api"></a>Åtkomst till mätvärden via REST API
 Azure mått kan nås via API: er för Azure-Monitor. Det finns två API: er som hjälper dig identifiera och komma åt mått:
 
-* Använd den [mått för Azure-Monitor definitioner REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) att komma åt listan över mått och dimensioner som är tillgängliga för en tjänst.
-* Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) segmentera, filtrera och komma åt data faktiska mått.
+* Använd den [mått för Azure-Monitor definitioner REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) att komma åt listan över mått och dimensioner som är tillgängliga för en tjänst.
+* Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) segmentera, filtrera och komma åt data faktiska mått.
 
 > [!NOTE]
-> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/en-us/rest/api/monitor/) för Azure-resurser. API-versionen för den nya måttdefinitioner och mått API: er är 2017-05-01-preview. Äldre måttdefinitioner och mått kan nås med API-version 2014-04-01.
+> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/rest/api/monitor/) för Azure-resurser. API-versionen för den nya måttdefinitioner och mått API: er är 2017-05-01-preview. Äldre måttdefinitioner och mått kan nås med API-version 2014-04-01.
 >
 >
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bläddra bland och hantera lagringsresurser med hjälp av Server Explorer
 
@@ -162,7 +162,7 @@ Följande bild visar en kö som innehåller två meddelanden:
 För mer information om storage services köer, se [komma igång med Azure Queue storage med hjälp av .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Information om webbtjänsten för lagringstjänster köer, finns [kötjänst-koncept](http://go.microsoft.com/fwlink/?LinkId=264788). Information om hur du skickar meddelanden till en kö för storage-tjänster med hjälp av Visual Studio finns [skicka meddelanden till en kö för Storage Services](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Tjänster lagringsköer skiljer sig från Azure Service Bus-köer. Läs mer om Service Bus-köer, [Service Bus-köer, ämnen och prenumerationer](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Tjänster lagringsköer skiljer sig från Azure Service Bus-köer. Läs mer om Service Bus-köer, [Service Bus-köer, ämnen och prenumerationer](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Arbeta med resurser för tabellen
 

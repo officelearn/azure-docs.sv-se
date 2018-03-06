@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: ebb78c9ae4e0ae02f9f9d74f4909d9108cd8aef7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: df0a319cdeabef8c854d7c60c7b90ef775be3ce1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från moln till enheten med IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -193,5 +193,5 @@ Mer information om hur du utvecklar lösningar med IoT-hubb finns i [IoT-hubb Ut
 [IoT-hubb Utvecklarhandbok]: iot-hub-devguide.md
 [Kom igång med IoT-hubb]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT-enhet SDK]: iot-hub-devguide-sdks.md

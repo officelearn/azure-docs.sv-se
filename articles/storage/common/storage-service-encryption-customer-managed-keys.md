@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Lagringstjänstens kryptering med hjälp av kunden hanterade nycklar i Azure Key Vault
 
@@ -50,7 +50,7 @@ Du kan aktivera SSE för storage-konto med den [Azure-portalen](https://portal.a
 ![Skärmbild som visar Portal krypteringsalternativet](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Aktivera SSE för Blob-tjänsten*
 
-Om du vill programmässigt, aktivera eller inaktivera Storage Service-kryptering på ett lagringskonto kan du använda den [Azure Storage Resource Provider REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), [Storage-klientbiblioteket för .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), eller [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Om du vill programmässigt, aktivera eller inaktivera Storage Service-kryptering på ett lagringskonto kan du använda den [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), [Storage-klientbiblioteket för .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), eller [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 På den här sidan om du inte ser kryssrutan ”Använd din egen nyckel” har du inte godkänts för förhandsgranskningen. Skicka ett e-postmeddelande till [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) och begära godkännande.
 
@@ -71,10 +71,10 @@ Du kan köra följande kommando använder Azure Powershell för att bevilja åtk
 Du kan också ge åtkomst via Azure portal genom att gå till Azure Key Vault i Azure-portalen och bevilja åtkomst till lagringskontot.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Steg 4: Kopiera data till storage-konto
-Om du vill överföra data till det nya kontot så att den är krypterad, se [steg 3 av komma igång i Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Om du vill överföra data till det nya kontot så att den är krypterad, se [steg 3 av komma igång i Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Steg 5: Fråga status för krypterade data
-Om du vill fråga status för krypterade data, referera till [steg 4 i komma igång i Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Om du vill fråga status för krypterade data, referera till [steg 4 i komma igång i Lagringstjänstens kryptering av vilande Data](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Vanliga frågor om Storage Service-kryptering för Data i vila
 **F: Jag använder Premium-lagring. kan jag använda SSE med hanterade Kundnycklar?**
@@ -91,7 +91,7 @@ S: det kostar för att använda Azure Key Vault. Mer information finns [Key Vaul
 
 **F: kan jag återkalla åtkomst till krypteringsnycklarna?**
 
-S: Ja, du kan återkalla åtkomst när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) och [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla BLOB storage-kontot eftersom kontot krypteringsnyckeln är otillgänglig genom Azure Storage.
+S: Ja, du kan återkalla åtkomst när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla BLOB storage-kontot eftersom kontot krypteringsnyckeln är otillgänglig genom Azure Storage.
 
 **F: kan jag skapa ett lagringskonto och en nyckel i annan region?**
 
@@ -123,6 +123,6 @@ A: Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com
 
 ## <a name="next-steps"></a>Nästa steg
 
-*   Mer information om en omfattande uppsättning säkerhet funktioner som hjälper utvecklare att skapa säkra program, finns det [säkerhetsguiden för lagring](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Mer information om Azure Key Vault finns [vad är Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*   Mer information om en omfattande uppsättning säkerhet funktioner som hjälper utvecklare att skapa säkra program, finns det [säkerhetsguiden för lagring](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Mer information om Azure Key Vault finns [vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *   Komma igång på Azure Key Vault finns [komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md).

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrering av SQL Server-databas till SQL Database i molnet
 Den här artikeln beskriver de två huvudmetoderna för att migrera en SQL Server 2005-databas (eller senare) till Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
@@ -39,11 +39,11 @@ Nedan visas det allmänna arbetsflödet en SQL Server Database-migrering med den
 
   ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Utvärdera](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av den [Data migrering Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Utvärdera](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av den [Data migrering Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Förbered nödvändiga korrigeringar som Transact-SQL-skript.
 3. Källdatabasen transaktionellt konsekvent kopiera migreras - och se till att inga ytterligare ändringar görs för källdatabasen (eller kan du manuellt koppla sådana ändringar när migreringen är klar). Det finns många metoder för att inaktivera en databas, från att inaktivera klientanslutningarna till att skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Distribuera Transact-SQL-skripten för att tillämpa korrigeringar på databaskopian.
-5. [Migrera](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) databaskopian till en ny Azure SQL-databas med hjälp av Data Migration Assistant.
+5. [Migrera](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) databaskopian till en ny Azure SQL-databas med hjälp av Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimera prestanda för dataöverföring under migreringen 
 

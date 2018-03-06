@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server du använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer från eventuella Azure stöds Windows Server plattformsavbildning eller anpassade Windows-avbildningar. Den här artikeln går över stegen på hur du distribuerar nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server finns i licens- och besparingar i [Azure Hybrid-förmån för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -58,10 +58,10 @@ Du kan distribuera dessa avbildningar direkt från Azure-portalen. För användn
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-Du kan följa stegen för att [skapar en virtuell Windows-dator med PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) och skicka LicenseType = ”Windows_Server”. Det här alternativet kan du använda din befintliga Windows Server-licens i Azure.
+Du kan följa stegen för att [skapar en virtuell Windows-dator med PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) och skicka LicenseType = ”Windows_Server”. Det här alternativet kan du använda din befintliga Windows Server-licens i Azure.
 
 ### <a name="portal"></a>Portalen
-Du kan följa stegen för att [skapa en Windows-dator med Azure-portalen](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) och väljer alternativet att använda din befintliga Windows Server-licens.
+Du kan följa stegen för att [skapa en Windows-dator med Azure-portalen](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) och väljer alternativet att använda din befintliga Windows Server-licens.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Konvertera en befintlig virtuell dator med hjälp av Azure Hybrid-förmån för Windows Server
 Om du har en befintlig virtuell dator som du vill konvertera om du vill dra nytta av Azure Hybrid-förmån för Windows Server kan du uppdatera den Virtuella datorns licenstypen enligt följande:
@@ -181,17 +181,17 @@ I den virtuella datorn skaluppsättning för Resource Manager-mallar, en extra p
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-Du kan också [skapa och distribuera en virtuella datorns skaluppsättning](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) och egenskapen LicenseType
+Du kan också [skapa och distribuera en virtuella datorns skaluppsättning](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) och egenskapen LicenseType
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [så spara pengar med förmån för Azure-Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Lär dig mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+Lär dig mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 Lär dig mer om [med hjälp av Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md)
 
 Lär dig mer om [Azure Hybrid-förmån för Windows Server och Azure Site Recovery göra migrera program till Azure ännu mer kostnadseffektivt](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Lär dig mer om [Windows 10 på Azure med Multitenant värd höger](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+Lär dig mer om [Windows 10 på Azure med Multitenant värd höger](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Läs mer om [vanliga frågor och svar](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

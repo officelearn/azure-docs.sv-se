@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Utforma riktlinjer för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln ger rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse-schemat. Använd de här rekommendationerna för att förbättra prestanda genom att minska komplexiteten för data movement och fråga.
@@ -47,7 +47,7 @@ Replikerade tabeller fungerar bra för små dimensionstabeller i ett stjärnsche
 
 Överväg att använda en replikerad tabell när:
 
-- Tabellen är på disken mindre än 2 GB, oavsett hur många rader. Du kan använda för att söka efter storleken på en tabell i [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) kommando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- Tabellen är på disken mindre än 2 GB, oavsett hur många rader. Du kan använda för att söka efter storleken på en tabell i [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) kommando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - Tabellen används i kopplingar som annars skulle kräva dataflyttning. Exempelvis kräver en koppling för hash-distribuerade tabeller dataflyttning när anslutande kolumner inte är samma kolumn i distributionen. Om en distribuerad hash-tabeller är liten du en replikerad tabell. En koppling för en tabell som resursallokering kräver dataflyttning. Vi rekommenderar att du använder replikerade tabeller i stället för resursallokering tabeller i de flesta fall. 
 
 

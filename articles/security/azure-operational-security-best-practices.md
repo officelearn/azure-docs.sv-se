@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure Operational säkerhetsmetoder
 Azure operativ säkerhet refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda sina data, program och andra resurser i Microsoft Azure. Azure operativ säkerhet bygger på ett ramverk som innehåller kunskap via olika funktioner som är unika för Microsoft, inklusive den Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program och djup medvetenhet om hotbild cybersecurity.
@@ -156,7 +156,7 @@ Kunder kan du skapa ett nätverk i Azure genom att samordna och skapa olika ensk
 Övervaka och diagnostisera nätverksproblem utan att logga in på dina virtuella datorer (VM) med Network Watcher. Utlösaren [paketinsamling](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) genom att konfigurera aviseringar och få tillgång till prestandainformation i realtid på paketnivå. När du ser ett problem kan du undersöka i detalj för att få bättre diagnoser.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Få insikt i din nätverkstrafik med flödesloggar
-Skapa en bättre förståelse av din trafik mönster med [Nätverkssäkerhetsgruppen flöde loggar](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information som tillhandahålls av flödet loggar hjälper dig att samla in data för godkännande, granskning och övervakning av din säkerhet nätverksprofil.
+Skapa en bättre förståelse av din trafik mönster med [Nätverkssäkerhetsgruppen flöde loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Information som tillhandahålls av flödet loggar hjälper dig att samla in data för godkännande, granskning och övervakning av din säkerhet nätverksprofil.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnostisera VPN-anslutningsproblem
 Nätverksbevakaren ger dig möjlighet att [diagnostisera dina mest vanliga problem med VPN-Gateway och anslutningar](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Så att du inte bara för att identifiera problemet, men också för att använda de detaljerade loggar som skapats för att undersöka.

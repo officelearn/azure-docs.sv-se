@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure krypteringstekniker: skydda personliga data vilande med kryptering
 
@@ -57,7 +57,7 @@ Azure-tjänster ger flera verktyg och tekniker för att hjälpa dig att skydda p
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) tillhandahåller säker lagring för nycklar som används för att kryptera vilande data i Azure-tjänster och är den rekommenderade viktiga lagring och hantering av lösningen. Hantering av nycklar för kryptering är viktigt att skydda lagrade data.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) tillhandahåller säker lagring för nycklar som används för att kryptera vilande data i Azure-tjänster och är den rekommenderade viktiga lagring och hantering av lösningen. Hantering av nycklar för kryptering är viktigt att skydda lagrade data.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Hur använder Azure Key Vault för att skydda för att kryptera personliga data?
 
@@ -79,13 +79,13 @@ Azure Key Vault kan tillhandahålla en programvaruskyddad nyckel för dig, eller
 
 Du kan också skapa en nyckel i din lokala HSM och överföra den till HSM: er i Key Vault-tjänsten utan att lämna HSM-gräns nyckel.
 
-För detaljerade anvisningar om hur du använder Azure Key Vault följer du stegen i [Kom igång med Azure Key Vault.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+För detaljerade anvisningar om hur du använder Azure Key Vault följer du stegen i [Kom igång med Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-En lista med PowerShell-Cmdlets som används med Azure Key Vault finns [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+En lista med PowerShell-Cmdlets som används med Azure Key Vault finns [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Azure Disk Encryption för Windows
 
-[Azure Disk Encryption för Windows och Linux IaaS-VM](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) skyddar personliga data i vila på virtuella Azure-datorer och kan integreras med Azure Key Vault. Azure Disk Encryption använder [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) i Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att kryptera både Operativsystemet och datadiskar. Azure Disk Encryption stöds på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 och på Windows 8 och Windows 10-klienter.
+[Azure Disk Encryption för Windows och Linux IaaS-VM](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) skyddar personliga data i vila på virtuella Azure-datorer och kan integreras med Azure Key Vault. Azure Disk Encryption använder [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) i Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att kryptera både Operativsystemet och datadiskar. Azure Disk Encryption stöds på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 och på Windows 8 och Windows 10-klienter.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Hur använder Azure Disk Encryption för att skydda personliga data?
 
@@ -103,11 +103,11 @@ När du ställer in nyckelvalvet som stöd för Azure Disk Encryption kan du lä
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Detaljerade anvisningar för specifika distributionsscenarier och användarupplevelser ingår i [Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Detaljerade anvisningar för specifika distributionsscenarier och användarupplevelser ingår i [Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Kryptering av Azure-lagringstjänst
 
-[Azure Storage Service kryptering (SSE) för Data i vila](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Azure Storage krypterar dina data med hjälp av 256-bitars AES-kryptering innan beständighet till lagring, och automatiskt dekrypterar före hämtning. Den här tjänsten är tillgänglig för Azure-BLOB och filer.
+[Azure Storage Service kryptering (SSE) för Data i vila](https://docs.microsoft.com/azure/storage/storage-service-encryption) hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Azure Storage krypterar dina data med hjälp av 256-bitars AES-kryptering innan beständighet till lagring, och automatiskt dekrypterar före hämtning. Den här tjänsten är tillgänglig för Azure-BLOB och filer.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Hur använder Lagringstjänstens kryptering skyddar personuppgifter?
 
@@ -129,13 +129,13 @@ Nya data att krypteras. Data i befintliga filer i det här lagringskontot kommer
 
 När du aktiverar kryptering, kopiera data till lagringskontot genom att använda någon av följande metoder:
 
-1. Kopiera BLOB eller filer med den [AzCopy kommandoradsverktyget](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Kopiera BLOB eller filer med den [AzCopy kommandoradsverktyget](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Montera en filresurs med hjälp av SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) så att du kan använda ett verktyg, exempelvis Robocopy för att kopiera filer.
+2. [Montera en filresurs med hjälp av SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) så att du kan använda ett verktyg, exempelvis Robocopy för att kopiera filer.
 
-3. Kopiera blob eller filen data till och från blobblagring eller mellan lagringskonton med [Lagringsklientbiblioteken, till exempel .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Kopiera blob eller filen data till och från blobblagring eller mellan lagringskonton med [Lagringsklientbiblioteken, till exempel .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Använd en [Lagringsutforskaren](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) att överföra blobbar till ditt lagringskonto med kryptering aktiverat.
+4.  Använd en [Lagringsutforskaren](https://docs.microsoft.com/azure/storage/storage-explorers) att överföra blobbar till ditt lagringskonto med kryptering aktiverat.
 
 ### <a name="transparent-data-encryption"></a>Transparent datakryptering
 
@@ -159,7 +159,7 @@ Du kan konfigurera TDE via Azure-portalen med hjälp av REST API eller med hjäl
 
 ![Aktivera kryptering av data](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Instruktioner om hur du aktiverar TDE och information om dekryptera TDE-skyddade databaser och mer finns i artikeln [Transparent datakryptering med Azure SQL Database.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Instruktioner om hur du aktiverar TDE och information om dekryptera TDE-skyddade databaser och mer finns i artikeln [Transparent datakryptering med Azure SQL Database.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -169,10 +169,10 @@ Företaget kan använda Azure Key Vault för att skydda de nycklar som används 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Felsökningsguide för Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Felsökningsguide för Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Kryptera en virtuell Azure-dator](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Kryptera en virtuell Azure-dator](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Kryptering av data i Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Kryptering av data i Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Azure DB Cosmos databaskryptering i vila](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Azure DB Cosmos databaskryptering i vila](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

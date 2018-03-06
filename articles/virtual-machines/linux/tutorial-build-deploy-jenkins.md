@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Distribuera din app till Linux virtuella datorer med hjälp av Jenkins och Team Services
 
@@ -40,7 +40,7 @@ Du kommer att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Du behöver åtkomst till en Jenkins-server. Om du inte har skapat en Jenkins server, se [skapa ett Jenkins original på en virtuell dator i Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Du behöver åtkomst till en Jenkins-server. Om du inte har skapat en Jenkins server, se [skapa ett Jenkins original på en virtuell dator i Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Logga in på ditt Team Services-konto (**https://{youraccount}.visualstudio.com**). 
   Du kan få en [kostnadsfritt konto Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Du kommer att:
   > [!NOTE]
   > Mer information finns i [Anslut till Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  Du behöver en Linux-dator för ett mål för distribution.  Mer information finns i [skapa och hantera virtuella Linux-datorer med Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Du behöver en Linux-dator för ett mål för distribution.  Mer information finns i [skapa och hantera virtuella Linux-datorer med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Öppna inkommande port 80 för den virtuella datorn. Mer information finns i [skapa nätverkssäkerhetsgrupper med hjälp av Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Öppna inkommande port 80 för den virtuella datorn. Mer information finns i [skapa nätverkssäkerhetsgrupper med hjälp av Azure portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Hämta sample-appen
 
@@ -132,7 +132,7 @@ Du behöver en [distributionsgruppen](https://www.visualstudio.com/docs/build/co
    > I följande procedur, måste du installera nödvändiga komponenter och *inte köra skriptet med sudo-behörighet.*
 
 1. Öppna den **versioner** för den **skapa &amp; versionen** hubben, öppna **distributionsgrupper**, och välj **+ ny**.
-2. Ange ett namn för distributionsgruppen och en valfri beskrivning. Välj sedan **skapa**.
+2. Ange ett namn för distributionsgruppen och en valfri beskrivning. Välj sedan **Skapa**.
 3. Välj operativsystem för din distribution av virtuella måldatorn. Välj exempelvis **Ubuntu 16.04 +**.
 4. Välj **använder en personlig åtkomsttoken i skriptet för autentisering**.
 5. Välj den **systemkraven** länk. Installera förutsättningar för ditt operativsystem.

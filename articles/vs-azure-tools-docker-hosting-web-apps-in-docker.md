@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Distribuera ett ASP.NET-behållare till Docker fjärrvärden
 ## <a name="overview"></a>Översikt
 Docker är en förenklad behållaren motor likheter till en virtuell dator som du kan använda till värd-program och tjänster.
-Den här självstudiekursen vägleder dig genom med hjälp av den [Visual Studio Tools för Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) tillägg för att distribuera en ASP.NET Core app till en Docker-värd i Azure med hjälp av PowerShell.
+Den här självstudiekursen vägleder dig genom med hjälp av den [Visual Studio Tools för Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) tillägg för att distribuera en ASP.NET Core app till en Docker-värd i Azure med hjälp av PowerShell.
 
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att slutföra den här självstudiekursen:

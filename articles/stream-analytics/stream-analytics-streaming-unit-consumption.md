@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera enheter för strömning
 
@@ -27,7 +27,7 @@ Azure Stream Analytics aggregerar prestanda ”vikt” för ett jobb som körs i
 
 För att uppnå låg latens strömning bearbetning Azure Stream Analytics-jobb som utför all bearbetning i minnet. Direktuppspelningsjobbet misslyckas när du kör slut på minne. Därför för ett produktionsjobb är det viktigt att övervaka ett direktuppspelningsjobb Resursanvändning och kontrollera att det finns tillräckligt med resurser som allokerats för att skydda de jobb som är igång 24/7.
 
-Måttet är en procent tal mellan 0% till 100%. SU % användning mått är vanligtvis mellan 10 och 20% för en strömmande jobbet med minimala storleken. Det är bäst att hålla mått under 80% för tillfällig toppar.  Du kan ange en avisering på måttet (se [här om du vill ställa in aviseringar för mått](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+Måttet är en procent tal mellan 0% till 100%. SU % användning mått är vanligtvis mellan 10 och 20% för en strömmande jobbet med minimala storleken. Det är bäst att hålla mått under 80% för tillfällig toppar.  Du kan ange en avisering på måttet (se [här om du vill ställa in aviseringar för mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ För att kunna antagande problem som orsakas av hög kardinalitet i den föregå
 
 När frågan är utpartitionerad sprids den ut över flera noder. Därför minskas antalet clusterid som kommer till varje nod vilket minskar kardinalitet i gruppen med operatorn. 
 
-Vara bör partitionerade Event Hub partitioner med gruppering för att undvika att behöva ett minska steg. Ytterligare information beskrivs [här](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Vara bör partitionerade Event Hub partitioner med gruppering för att undvika att behöva ett minska steg. Ytterligare information beskrivs [här](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Tidsbestämd koppling
 Tillstånd storleken på en temporal koppling är proportionell mot antalet händelser i temporal handlingsfrihet av koppling som är inkommande händelsehastighet multiplicera genom att skaka några gånger... Rumsstorlek. 
 

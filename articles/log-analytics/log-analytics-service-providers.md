@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Log Analytics funktioner för leverantörer
 Logganalys hjälper hanterade tjänsteleverantörer (MSPs), stora företag, oberoende programvaruleverantörer (ISV) och värdleverantörer hantera och övervaka servrar i kundens lokala eller molninfrastruktur. 
@@ -26,7 +26,7 @@ Logganalys hjälper hanterade tjänsteleverantörer (MSPs), stora företag, ober
 Stora företag dela många likheter med leverantörer, särskilt när det finns en central IT-teamet som ansvarar för att hantera IT-avdelningen för många olika affärsenheter. För enkelhetens skull använder det här dokumentet termen *tjänstleverantör* men samma funktion är också tillgängligt för företag och andra kunder.
 
 ## <a name="cloud-solution-provider"></a>Cloud Solution Provider
-Partners och leverantörer som är en del av den [Cloud Solution Providers (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics är en av Azure-tjänster finns i [Azure CSP prenumeration](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Partners och leverantörer som är en del av den [Cloud Solution Providers (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics är en av Azure-tjänster finns i [Azure CSP prenumeration](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 För Log Analytics följande funktioner är aktiverade i *leverantör* prenumerationer.
 

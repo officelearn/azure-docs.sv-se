@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -261,7 +261,7 @@ Följ dessa steg för att lägga till en lösning:
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 
-Du kan se erbjudanden och prisnivåer för OMS hanteringslösningar [här](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Du kan se erbjudanden och prisnivåer för OMS hanteringslösningar [här](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Anpassa vyer
 
@@ -410,8 +410,8 @@ Exempel egenskaper:
 
 * [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS logganalys](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Azure logganalys REST-API](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Azure OMS logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure logganalys REST-API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

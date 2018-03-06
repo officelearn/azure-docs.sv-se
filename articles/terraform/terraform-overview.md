@@ -7,11 +7,11 @@ author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 61b7677b2941fe95106e43012eee458692a3cc43
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="terraform-with-azure"></a>Terraform med Azure
 
@@ -44,6 +44,6 @@ Terraform är ett populärt verktyget alternativ för flera scenarier, där likn
 
 Nu när du har en översikt över Terraform och dess fördelar finns här föreslagna nästa steg:
 
-- Kom igång genom att [installera Terraform och konfigurera den för att använda Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure).
-- [Skapa en virtuell Azure-dator med hjälp av Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Kom igång genom att [installera Terraform och konfigurera den för att använda Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
+- [Skapa en virtuell Azure-dator med hjälp av Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - Utforska den [Azure Resource Manager-modulen för Terraform](https://www.terraform.io/docs/providers/azurerm/) 

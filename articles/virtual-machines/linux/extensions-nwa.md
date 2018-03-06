@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Nätverk Watcher Agent tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-[Azure Nätverksbevakaren](https://review.docs.microsoft.com/en-us/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
+[Azure Nätverksbevakaren](https://review.docs.microsoft.com/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
 
 Det här dokumentet beskriver de plattformar som stöds och distributionsalternativ för tillägget för virtuell dator Network Watcher Agent för Linux.
 
@@ -49,7 +49,7 @@ Observera att virtuell CoreOS inte stöds just nu.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Inte kan upprätta utgående anslutningar vissa Network Watcher Agent-funktioner kan fungera helt eller inte tillgänglig. Mer information finns i [Nätverksbevakaren dokumentationen](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Inte kan upprätta utgående anslutningar vissa Network Watcher Agent-funktioner kan fungera helt eller inte tillgänglig. Mer information finns i [Nätverksbevakaren dokumentationen](https://review.docs.microsoft.com/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 

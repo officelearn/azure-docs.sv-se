@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 
@@ -32,7 +32,7 @@ Om du vill säkerställa att utvecklingsprocessen är säker, skapas verktygsupp
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET och .NET core-program
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Spara inställningarna för hemliga i användaren hemlighet store som ligger utanför kontrollen källmapp
-Om du gör en snabb prototyp eller om du inte har tillgång till internet, börja med flytta inställningarna hemliga utanför källmapp kontroll till användaren hemlighet store. Hemlig användararkivet är en fil som sparats under användarens profileraren mapp så hemligheter inte kontrolleras till källkontroll. Följande diagram visar hur [användaren hemlighet](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) fungerar.
+Om du gör en snabb prototyp eller om du inte har tillgång till internet, börja med flytta inställningarna hemliga utanför källmapp kontroll till användaren hemlighet store. Hemlig användararkivet är en fil som sparats under användarens profileraren mapp så hemligheter inte kontrolleras till källkontroll. Följande diagram visar hur [användaren hemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) fungerar.
 
 ![Användaren hemlighet håller hemliga inställningar utanför källkontroll](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Om du utvecklar ett grupprojekt och behöver dela källkoden på ett säkert sä
 
     ![Skapa Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Bevilja du och dina gruppmedlemmar åtkomst till Nyckelvalvet. Om du har en stor grupp, kan du skapa en [Azure Active Directory-grupp](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) och lägga till den säkerhetsgrupp åtkomstbehörighet till Nyckelvalvet. I den *hemlighet behörigheter* listrutan Kontrollera *hämta* och *lista* under *hemlighet hanteringsåtgärder*.
+2. Bevilja du och dina gruppmedlemmar åtkomst till Nyckelvalvet. Om du har en stor grupp, kan du skapa en [Azure Active Directory-grupp](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) och lägga till den säkerhetsgrupp åtkomstbehörighet till Nyckelvalvet. I den *hemlighet behörigheter* listrutan Kontrollera *hämta* och *lista* under *hemlighet hanteringsåtgärder*.
 
     ![Lägg till princip för Key Vault-åtkomst](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

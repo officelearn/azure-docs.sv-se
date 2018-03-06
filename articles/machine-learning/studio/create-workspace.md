@@ -1,24 +1,22 @@
 ---
-title: Skapa en arbetsyta i Machine Learning | Microsoft Docs
+title: Skapa Machine Learning Studio-arbetsytan | Microsoft Docs
 description: "Skapa en arbetsyta för Azure Machine Learning Studio"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Skapa och dela en Azure Machine Learning-arbetsyta
 Den här menyn innehåller länkar till avsnitt som beskriver hur du ställer in de olika datavetenskap miljöer som används av Cortana Analytics processen (CAP).
@@ -39,16 +37,16 @@ Om du vill använda Azure Machine Learning Studio, behöver du en Machine Learni
 
 2. Klicka på **+ nytt**
 
-3. Välj **Intelligence + analys**, klickar du på **Machine Learning-arbetsytan**, klicka på **skapa**
+3. I sökrutan skriver **Machine Learning Studio-arbetsytan** och välj det matchande objektet. Klicka på Välj **skapa** längst ned på sidan.
 
-4. Ange arbetsyteinformation om
+4. Ange din arbetsyteinformation:
 
     - Den *Arbetsytenamn* får vara högst 260 tecken som inte avslutas med ett blanksteg. Namnet får inte innehålla följande tecken:`< > * % & : \ ? + /`
     - Den *web service-plan* du välja (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
 
     ![Skapa en ny arbetsyta](./media/create-workspace/create-new-workspace.png)
 
-5. Klicka på **Skapa**
+5. Klicka på **Skapa**.
 
 När arbetsytan har distribuerats kan öppna du den i Machine Learning Studio.
 

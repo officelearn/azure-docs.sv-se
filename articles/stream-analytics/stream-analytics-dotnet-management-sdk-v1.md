@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: samacha
-ms.openlocfilehash: cd8f4e0dd07be8878d6bbb1739fb84a3cc96a186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x: Ställ in och kör analytics-jobb med hjälp av Azure Stream Analytics-API: et för .NET
 Lär dig hur du ställer in och kör analytics-jobb med hjälp av Stream Analytics-API för .NET med hantering av .NET SDK. Ställ in ett projekt, skapa inkommande och utgående källor, omvandlingar och starta och stoppa jobb. För analytics-jobb kan du strömma data från Blob-lagring eller från en händelsehubb.
@@ -29,7 +29,7 @@ Finns det [management referensdokumentationen för Stream Analytics-API för .NE
 Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, hög tillgänglighet, skalbarhet, komplexa händelsebearbetning över strömmande data i molnet. Stream Analytics ger kunder möjlighet att konfigurera direktuppspelningsjobb för att analysera dataströmmar, vilket gör att enheten nära analys i realtid.  
 
 > [!NOTE]
-> Exempelkoden i den här artikeln använder fortfarande äldre (1.x) versionen av Azure Stream Analytics Management .NET SDK. Exempelkod med den uppdaterade SDK-versionen, se [använder Management .NET SDK för Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
+> Exempelkoden i den här artikeln använder fortfarande äldre (1.x) versionen av Azure Stream Analytics Management .NET SDK. Exempelkod med den uppdaterade SDK-versionen, se [använder Management .NET SDK för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
 
 ## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här artikeln måste du ha:

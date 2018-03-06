@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Översikt över säkerheten i Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en plattform för distribuerade system som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric löser betydande problem för utveckling och hantering av molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara.
@@ -50,7 +50,7 @@ Kluster som körs på Azure eller fristående kluster som körs på Windows kan 
 
 Service Fabric använder X.509-servercertifikat som du anger när du skapar ett kluster. En snabb överblick över dessa certifikat är och hur du kan hämta eller skapa dem finns [arbetar med certifikat](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Du konfigurerar Certifikatsäkerhet när du skapar klustret, antingen via Azure-portalen, Azure Resource Manager-mallar eller en fristående JSON-mall. Du kan ange ett certifikat för primär och en valfri sekundärt certifikat som används för certifikatet överrullningar. De primära och sekundära certifikat som du anger bör vara ett annat än administratörsklient och skrivskyddad klientcertifikat som du anger för [klient-till-nod säkerhet](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Du konfigurerar Certifikatsäkerhet när du skapar klustret, antingen via Azure-portalen, Azure Resource Manager-mallar eller en fristående JSON-mall. Du kan ange ett certifikat för primär och en valfri sekundärt certifikat som används för certifikatet överrullningar. De primära och sekundära certifikat som du anger bör vara ett annat än administratörsklient och skrivskyddad klientcertifikat som du anger för [klient-till-nod säkerhet](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Klient-till-nod-säkerhet
 Du kan konfigurera säkerhet för klient-till-nod med hjälp av klienten identiteter. För att upprätta förtroende mellan en klient och ett kluster, måste du konfigurera klustret så att du vet vilken klient identiteter som den kan lita på. Detta kan göras på två olika sätt:

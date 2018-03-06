@@ -18,11 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genomgång av Azure övervakning REST API
 Den här artikeln visar hur du autentisera så att din kod kan använda den [Microsoft Azure övervakaren REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -93,7 +93,7 @@ Efter autentisering, kan du sedan köra frågor mot Azure övervakaren REST API.
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Hämta Måttdefinitioner (flerdimensionella API)
 
-Använd den [mått för Azure-Monitor definitioner REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) att komma åt listan över mått som är tillgängliga för en tjänst.
+Använd den [mått för Azure-Monitor definitioner REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) att komma åt listan över mått som är tillgängliga för en tjänst.
 
 **Metoden**: hämta
 

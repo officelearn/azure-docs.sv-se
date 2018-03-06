@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
@@ -32,7 +32,7 @@ Du vill konfigurera en plats-till-plats-anslutning mellan Azure och lokala med F
 
 1. Virtuella nätverkets Gateway - VPN-Gateway på Azure
 1. Lokal nätverksgateway - den [lokalt (FortiGate) VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representation i Azure-molnet
-1. Plats-till-plats-anslutning (route baserat) - [anslutningen mellan VPN-Gateway och den lokala routern](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Plats-till-plats-anslutning (route baserat) - [anslutningen mellan VPN-Gateway och den lokala routern](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Konfigurera FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Detaljerade steg-för-steg-guiden för att konfigurera en plats-till-plats-konfiguration kan hittas genom att besöka: [skapa ett VNet med en plats-till-plats-anslutning med hjälp av Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

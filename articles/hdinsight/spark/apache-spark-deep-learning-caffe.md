@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe för distribuerade djup learning på Azure HDInsight Spark
 
@@ -42,7 +42,7 @@ Det finns fyra viktiga steg för att den fungerar på HDInsight.
 3. Distribuera bibliotek som krävs för alla arbetarnoder
 4. Skapa en Caffe modell och kör det på ett sätt som är distribuerade.
 
-Eftersom HDInsight är en PaaS-lösning, erbjuder bra funktioner - så att det är enkelt att utföra vissa uppgifter. En av de funktioner som vi använder kraftigt i det här blogginlägget kallas [skriptåtgärd](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), som du kan köra shell-kommandon för att anpassa klusternoder (huvudnod, arbetsnoden eller kantnod).
+Eftersom HDInsight är en PaaS-lösning, erbjuder bra funktioner - så att det är enkelt att utföra vissa uppgifter. En av de funktioner som vi använder kraftigt i det här blogginlägget kallas [skriptåtgärd](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), som du kan köra shell-kommandon för att anpassa klusternoder (huvudnod, arbetsnoden eller kantnod).
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Steg 1: Installera de nödvändiga beroendena på alla noder
 
@@ -71,14 +71,14 @@ Det finns två steg i skriptåtgärden. Det första steget är att installera bi
 
 Det andra steget är att hämta, kompilera och installera protobuf 2.5.0 för Caffe under körningen. Protobuf 2.5.0 [krävs](https://github.com/yahoo/CaffeOnSpark/issues/87), men den här versionen inte är tillgängligt som ett paket på Ubuntu 16, så vi behöver kompileras från källkoden. Det finns också några resurser på Internet om hur du kompilera den. Mer information finns i [här](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-För att komma igång, kan du bara köra den här skriptåtgärden mot ditt kluster för alla arbetarnoder och huvudnoderna (för HDInsight 3.5). Du kan köra skriptåtgärder på ett befintligt kluster eller Använd skriptåtgärder när klustret skapas. Mer information om åtgärderna som skript finns i dokumentationen [här](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+För att komma igång, kan du bara köra den här skriptåtgärden mot ditt kluster för alla arbetarnoder och huvudnoderna (för HDInsight 3.5). Du kan köra skriptåtgärder på ett befintligt kluster eller Använd skriptåtgärder när klustret skapas. Mer information om åtgärderna som skript finns i dokumentationen [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Skriptåtgärder att installera beroenden](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Steg 2: Skapa Caffe på Spark för HDInsight på huvudnoden
 
-Det andra steget är att skapa Caffe på headnode och sedan distribuera de kompilerade bibliotek för alla arbetarnoder. I det här steget måste du [ssh till din headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Sedan kan du följa den [CaffeOnSpark Byggprocessen](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Nedan visas de skript som du kan använda för att skapa CaffeOnSpark med några ytterligare steg. 
+Det andra steget är att skapa Caffe på headnode och sedan distribuera de kompilerade bibliotek för alla arbetarnoder. I det här steget måste du [ssh till din headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Sedan kan du följa den [CaffeOnSpark Byggprocessen](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Nedan visas de skript som du kan använda för att skapa CaffeOnSpark med några ytterligare steg. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive

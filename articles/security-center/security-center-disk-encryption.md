@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
@@ -26,7 +26,7 @@ Azure Security Center varnar dig om du har virtuella datorer som inte är krypte
 ![Rekommendation för kryptering av disk](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Informationen i detta dokument gäller för kryptering av virtuella datorer utan att använda en krypteringsnyckel (som krävs för att säkerhetskopiera virtuella datorer med Azure Backup). Läs artikeln [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) (Azure Disk Encryption för Windows och virtuella Linux-datorer i Azure) om du vill ha information om hur man använder en krypteringsnyckel för att ge Azure Backup stöd för krypterade virtuella Azure-datorer.
+> Informationen i detta dokument gäller för kryptering av virtuella datorer utan att använda en krypteringsnyckel (som krävs för att säkerhetskopiera virtuella datorer med Azure Backup). Läs artikeln [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) (Azure Disk Encryption för Windows och virtuella Linux-datorer i Azure) om du vill ha information om hur man använder en krypteringsnyckel för att ge Azure Backup stöd för krypterade virtuella Azure-datorer.
 >
 >
 

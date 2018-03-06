@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med Intelligent insikter
 
@@ -52,7 +52,7 @@ Intelligent insikter identifierar automatiskt prestandaproblem med SQL Database 
 | [Priser för nedgradering av nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | En prisnivå nivå nedgradering åtgärd minskade tillgängliga resurser som påverkar prestanda för SQL-databasen. |
 
 > [!TIP]
-> Kontinuerlig prestandaoptimering av SQL-databas, aktivera [Azure SQL Database automatisk justering](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Den här unika funktionen för SQL-databas inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller frågan körning plan korrigeringar.
+> Kontinuerlig prestandaoptimering av SQL-databas, aktivera [Azure SQL Database automatisk justering](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Den här unika funktionen för SQL-databas inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller frågan körning plan korrigeringar.
 >
 
 I följande avsnitt beskrivs tidigare angivna kan upptäckas prestandamönster i detalj.
@@ -63,7 +63,7 @@ I följande avsnitt beskrivs tidigare angivna kan upptäckas prestandamönster i
 
 Det här mönstret kan upptäckas prestanda kombinerar prestandaproblem som är relaterade till når tillgänglig resurs för gränser, worker begränsningar och sessionsgränser. När det här prestandaproblemet upptäcks anger en beskrivningsfält diagnostik loggens om prestandaproblem är relaterad till resursen, worker eller tidsgränser för sessioner.
 
-Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). De består av en blandning av processor- och i/o (data och transaktionen loggning i/o) resurser. Mönstret nå gränserna kan identifieras när frågan prestandaförsämring orsakas av når någon uppmätta resurs-gränser.
+Resurser på SQL-databas är vanligtvis kallas [DTU-resurser](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). De består av en blandning av processor- och i/o (data och transaktionen loggning i/o) resurser. Mönstret nå gränserna kan identifieras när frågan prestandaförsämring orsakas av når någon uppmätta resurs-gränser.
 
 Resursen session gränser som anger antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda kan identifieras när program som är anslutna till SQL-databaser har uppnått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda flera sessioner än vad som är tillgängliga på en databas, påverkas prestanda för frågor.
 
@@ -75,7 +75,7 @@ Diagnostik-loggen matar ut frågan hash-värden för frågor som påverkar prest
 
 Om du har uppnått de tillgängliga session gränserna, kan du optimera dina program genom att minska antalet inloggningar som gjorts i databasen. Om du inte kan minska antalet inloggningar från ditt program till databasen, bör du öka prisnivån för din databas. Eller dela upp och flytta databasen till flera databaser för en mer avvägd arbetsbelastningsfördelning.
 
-Fler förslag om hur du löser tidsgränser för sessioner, se [hantera gränserna för SQL maximala databasinloggningar](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Om du vill veta tillgänglig resurs för gränser för din prenumeration nivå [gränserna för SQL-databas](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Fler förslag om hur du löser tidsgränser för sessioner, se [hantera gränserna för SQL maximala databasinloggningar](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Om du vill veta tillgänglig resurs för gränser för din prenumeration nivå [gränserna för SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Ökning av arbetsbelastning
 
@@ -145,7 +145,7 @@ Konfigurationsalternativet MAXDOP server på SQL-databas används för att styra
 
 Diagnostik-loggen matar ut frågan hashvärden relaterade till frågor som varaktigheten för körning av ökat eftersom de har mer än de skulle ha varit paralleliserad. Loggen visar också CXP väntetiden. Den här gången representerar den tid som en enda organizer/coordinator tråd (tråden 0) väntar på att andra trådar slutförts innan du kopplar resultaten och flytta vidare. Dessutom diagnostik loggen matar ut väntetiden som frågorna dålig prestanda väntade övergripande körning. Du kan använda den här informationen som grund för felsökning.
 
-Först optimera eller förenkla komplexa frågor. Praxis är att dela upp långa batchjobb i mindre. Kontrollera dessutom att du har skapat index för att stödja dina frågor. Du kan också manuellt tillämpa högsta grad av parallellitet (MAXDOP) för en fråga som har flaggats som dålig utför. Om du vill konfigurera den här åtgärden med hjälp av T-SQL finns [konfigurera MAXDOP serverkonfigurationsalternativet](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Först optimera eller förenkla komplexa frågor. Praxis är att dela upp långa batchjobb i mindre. Kontrollera dessutom att du har skapat index för att stödja dina frågor. Du kan också manuellt tillämpa högsta grad av parallellitet (MAXDOP) för en fråga som har flaggats som dålig utför. Om du vill konfigurera den här åtgärden med hjälp av T-SQL finns [konfigurera MAXDOP serverkonfigurationsalternativet](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Ange MAXDOP-server konfigurationsalternativet till noll (0) som standard anger som SQL-databas kan använda alla tillgängliga logiska processorkärnor parallelize trådar för att köra en enskild fråga. Ange MAXDOP till en (1) anger att endast en kärna kan användas för körning av en enskild fråga. I praktiken innebär detta att parallellitet är avstängd. Beroende på den per fall till fall tillgängliga kärnor till databasen och diagnostik logga information, du kan finjustera MAXDOP alternativet att antal kärnor som används för parallell frågekörning som kan lösa problemet i ditt fall.
 
@@ -231,7 +231,7 @@ Det här mönstret kan upptäckas prestanda anger prestandavillkor database där
 
 Diagnostik-loggen matar ut tempDB konkurrens information. Du kan använda informationen som startpunkt för felsökning. Det finns två saker du kan välja om du vill minska den här typen av konkurrens och öka genomflödet av övergripande arbetsbelastningen: du kan sluta använda de temporära tabellerna. Du kan också använda minnesoptimerade tabeller. 
 
-Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Elastisk Pool DTU lite
 
@@ -328,10 +328,10 @@ Om du minskar din prisnivå och därför tillgängliga för SQL Database dtu: er
 > [!TIP]
 > Välj flödesschema för att hämta en PDF-version.
 
-Intelligent insikter behöver du normalt en timme för att utföra en Rotorsaksanalys av prestandaproblem. Om du inte kan hitta ditt problem i Intelligent insikter och det är viktigt att du kan använda Query Store för att identifiera orsaken till prestandaproblemet manuellt. (Normalt problemen är mindre än en timme gamla.) Mer information finns i [övervaka prestanda genom att använda Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent insikter behöver du normalt en timme för att utföra en Rotorsaksanalys av prestandaproblem. Om du inte kan hitta ditt problem i Intelligent insikter och det är viktigt att du kan använda Query Store för att identifiera orsaken till prestandaproblemet manuellt. (Normalt problemen är mindre än en timme gamla.) Mer information finns i [övervaka prestanda genom att använda Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs [Intelligent insikter](sql-database-intelligent-insights.md) begrepp.
 - Använd den [Intelligent insikter Azure SQL Database prestanda diagnostik loggen](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Övervakaren [Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Övervakaren [Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -42,12 +42,13 @@
 
 ## Skapa och hantera pooler
 ### [Automatisk skalning för beräkningsnoder](batch-automatic-scaling.md)
-### [Beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
+### [Välja en VM-storlek för beräkningsnoder](batch-pool-vm-sizes.md)
 ### [Konfigurera åtkomst till beräkningsnoder](pool-endpoint-configuration.md)
 ### [Skapa en pool med en anpassad bild](batch-custom-images.md)
 ### [Skapa en pool i ett virtuellt nätverk](batch-virtual-network.md)
-### [Linux-beräkningsnoder](batch-linux-nodes.md)
-### [Lågprioriterade virtuella datorer](batch-low-pri-vms.md)
+### [Använda beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
+### [Använda Linux-beräkningsnoder](batch-linux-nodes.md)
+### [Använda lågprioriterade virtuella datorer](batch-low-pri-vms.md)
 
 ## Hantera jobb och uppgifter
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)

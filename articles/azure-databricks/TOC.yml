@@ -9,6 +9,12 @@
   items:
     - name: Skapa en Databricks-arbetsyta
       href: quickstart-create-databricks-workspace-portal.md
+- name: Instruktionsguider
+  items:
+    - name: 'Ansluta till Excel, R och Python'
+      href: connect-databricks-excel-python-r.md
+    - name: Använda Databricks CLI från Azure Cloud Shell
+      href: databricks-cli-from-azure-cloud-shell.md
 - name: Resurser
   items:
     - name: Vanliga frågor

@@ -346,7 +346,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa och uppdatera |
 | **PostalCode**  |   Postnummer  |     | Skapa och uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |
-| **Ersätt (Mid (Ersätt (\[EmployeeID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
+| **Ersätt(Mid(Ersätt(\[EmployeeID\]”, (\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])”” , ”,), 1, 20)”, ([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **CountryRegionReference** |  St     |     | Skapa och uppdatera |
 | **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |

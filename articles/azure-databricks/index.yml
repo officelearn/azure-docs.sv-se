@@ -13,13 +13,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: 11d900597fecce1a0f421f21d1cce231f7108fcf
-  ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+  ms.openlocfilehash: cc51070b4ff41107700585160cff8bbe41cc5d7d
+  ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/29/2017
+  ms.lasthandoff: 03/05/2018
 abstract:
   description: "Lär dig hur du använder Azure Databricks med snabbstarten och de andra länkarna här. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster. Databricks har utformats med grundarna av Apache Spark och är integrerat med Azure för att tillhandahålla konfiguration med ett klick, effektiva arbetsflöden och en interaktiv arbetsyta som möjliggör samarbete mellan dataanalytiker, dataingenjörer och affärsanalytiker."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Introduktion till Azure Databricks (3:38)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    width: 250
 sections:
 - title: "Snabbstarter på 5 minuter"
   items:

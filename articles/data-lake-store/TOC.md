@@ -5,6 +5,7 @@
 ## [Jämför Azure Data Lake Store med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store för bearbetning av stordata](data-lake-store-data-scenarios.md)
 ## [Program med öppen källkod som fungerar med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Tips på hur du använder Data Lake Store](data-lake-store-best-practices.md)
 
 # Kom igång
 ## [Använda portalen](data-lake-store-get-started-portal.md)

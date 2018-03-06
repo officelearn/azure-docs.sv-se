@@ -113,6 +113,7 @@
 #### [Konfigurera namngivna platser](active-directory-named-locations.md)
 #### [Hitta aktivitetsrapporter](active-directory-reporting-migration.md)
 #### [Använd innehållspaketet för Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Åtgärda användare som har flaggats för risk](active-directory-report-security-user-at-risk-remediation.md)
 ### Referens
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)

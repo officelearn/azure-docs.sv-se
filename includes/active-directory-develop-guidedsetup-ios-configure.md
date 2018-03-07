@@ -11,7 +11,7 @@ Nu måste du registrera ditt program i den *Microsoft Programregistreringsportal
 1.  Gå till [Portal för Microsoft-program](https://apps.dev.microsoft.com/portal/register-app)
 2.  Ange ett namn för ditt program och din e-post
 3.  Kontrollera att alternativet för interaktiv installation är markerat
-4.  Klicka på `Add Platform`och välj `Native Application` och klicka på`Save`
+4.  Klicka på `Add Platform`och välj `Native Application` och klicka på `Save`
 5.  Gå tillbaka till Xcode. I `ViewController.swift`, ersätter den rad som börjar med '`let kClientID`' med program-ID som du just har registrerat:
 
 ```swift
@@ -21,7 +21,7 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-CTRL + klicka <code>Info.plist</code> öppna snabbmenyn och klicka sedan på: <code>Open As</code>> <code>Source Code</code>
+CTRL + klicka <code>Info.plist</code> öppna snabbmenyn och klicka sedan på: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
 Under den <code>dict</code> rot nod, Lägg till följande:

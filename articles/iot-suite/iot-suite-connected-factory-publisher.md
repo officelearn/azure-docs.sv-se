@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>OPC utgivaren för Azure IoT kant
 
@@ -44,7 +44,7 @@ Det här programmet använder grunden OPC OPC UA referens stack och därför lic
 
 Du hittar källkoden OPC utgivare i den [OPC utgivaren för Azure IoT kant](https://github.com/Azure/iot-edge-opc-publisher) GitHub-lagringsplatsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att skapa programmet måste den [.NET Core SDK 1.1.](https://docs.microsoft.com/dotnet/core/sdk) för ditt operativsystem.
 
@@ -131,9 +131,9 @@ Om du vill se hur programmet använder den `--help` kommandoradsalternativ. I f�
 OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 ```
 
-`applicationname`är namnet på programmet OPC UA ska användas. Den här parametern krävs. Programnamnet används också för att registrera utgivaren i enhetsregistret IoT-hubb.
+`applicationname` är namnet på programmet OPC UA ska användas. Den här parametern krävs. Programnamnet används också för att registrera utgivaren i enhetsregistret IoT-hubb.
 
-`IoT Hubconnectionstring`är anslutningssträngen för IoT-hubb ägare. Den här parametern är valfri.
+`IoT Hubconnectionstring` är anslutningssträngen för IoT-hubb ägare. Den här parametern är valfri.
 
 Stöd för följande alternativ:
 

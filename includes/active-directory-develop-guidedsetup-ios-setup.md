@@ -12,7 +12,7 @@ Carthage Pakethanteraren används i förhandsversionen av MSAL – den kan integ
 
 ## <a name="creating-your-application"></a>Skapar ditt program
 
-1.  Öppna Xcode och välj`Create a new Xcode project`
+1.  Öppna Xcode och välj `Create a new Xcode project`
 2.  Välj `iOS`  >  `Single view Application` och på *nästa*
 3.  Ge ett produktnamn och klicka på *nästa*
 4.  Välj en mapp för att skapa din app och klicka på *skapa*
@@ -42,10 +42,10 @@ carthage update
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Lägg till MSAL framework i ditt program
 1.  I Xcode öppnar den `General` fliken
-2.  Gå till den `Linked Frameworks and Libraries` avsnittet och klicka på`+`
+2.  Gå till den `Linked Frameworks and Libraries` avsnittet och klicka på `+`
 3.  Välj `Add other…`
 4.  Välj: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` och på *öppna*. Du bör se `MSAL.framework` läggs till i listan.
-5.  Gå till `Build Phases` och på `+` ikon, Välj`New Run Script Phase`
+5.  Gå till `Build Phases` och på `+` ikon, Välj `New Run Script Phase`
 6.  Lägg till följande innehåll till den *skript området*:
 
 ```text
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Skapa programmets användargränssnitt
 En Main.storyboard-fil ska skapas automatiskt som en del av projektmallen för. Följ anvisningarna nedan för att skapa UI-app:
 
-1.  CTRL + klicka `Main.storyboard` öppna snabbmenyn och klicka sedan på:`Open As` > `Source Code`
+1.  CTRL + klicka `Main.storyboard` öppna snabbmenyn och klicka sedan på: `Open As` > `Source Code`
 2.  Ersätt den `<scenes>` nod med koden nedan:
 
 ```xml

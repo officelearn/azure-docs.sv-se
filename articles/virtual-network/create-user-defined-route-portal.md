@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Skapa en användardefinierad väg - Azure-portalen
 
@@ -32,7 +32,7 @@ I de här självstudierna skapar du ett virtuellt nätverk med offentliga och pr
 
 ![Användardefinierade vägar](./media/create-user-defined-route/user-defined-routes.png)
 
-Den här artikeln innehåller steg för att skapa en användardefinierad väg genom distributionsmodell hanteraren för filserverresurser, som är den distributionsmodell som vi rekommenderar att du använder när du skapar användardefinierade vägar. Om du behöver skapa en användardefinierad väg (klassisk), se [skapa en användardefinierad väg (klassisk)](virtual-network-create-udr-classic-ps.md). Om du inte är bekant med Azures distributionsmodeller [förstå Azure distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Mer information om användardefinierade vägar finns [användardefinierade vägar översikt](virtual-networks-udr-overview.md#user-defined).
+Den här artikeln innehåller steg för att skapa en användardefinierad väg genom distributionsmodell hanteraren för filserverresurser, som är den distributionsmodell som vi rekommenderar att du använder när du skapar användardefinierade vägar. Om du behöver skapa en användardefinierad väg (klassisk), se [skapa en användardefinierad väg (klassisk)](virtual-network-create-udr-classic-ps.md). Om du inte är bekant med Azures distributionsmodeller [förstå Azure distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Mer information om användardefinierade vägar finns i [översikten över användardefinierade vägar](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Skapa vägar och virtuell nätverksenhet
 
@@ -63,7 +63,7 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
 
         |Inställning|Värde|
         |---|---|
-        |Namn|myVm Nva|
+        |Namn|myVm-Nva|
         |Användarnamn|azureuser|
         |Lösenord och Bekräfta lösenord|Ett lösenord som du väljer|
         |Prenumeration|Välj din prenumeration|
@@ -82,7 +82,7 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
     - På den **söka resurser** överst på sidan, ange *myVm Nva*.
     - Klicka på **myVm Nva** när den visas i sökresultaten.
     - Klicka på **nätverk** under **inställningar** på vänster sida.
-    - Klicka på namnet på nätverksgränssnittet under **myVm Nva - nätverksgränssnitt**. Namnet är **myvm nva***X*, där *X* är ett tal som tilldelats av portalen.
+    - Klicka på namnet på nätverksgränssnittet under **myVm Nva - nätverksgränssnitt**. Namnet är **myvm nva *** X*, där *X* är ett tal som tilldelats av portalen.
     - Klicka på **IP-konfigurationer** under **inställningar** för nätverksgränssnittet, enligt följande bild:
 
         ![Inställningar för nätverksgränssnitt](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,7 +102,7 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
 
         |Inställning|Värde|
         |---|---|
-        |Namn|myRouteTable offentliga|
+        |Namn|myRouteTable-Public|
         |Prenumeration|Välj din prenumeration|
         |Resursgrupp|Välj **använda befintliga**och välj **myResourceGroup**|
         |Plats|Östra USA|
@@ -118,7 +118,7 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
         |Inställning|Värde|Förklaring|
         |---|---|---|
         |Vägnamnet|ToPrivateSubnet|Den här vägen dirigerar trafik till det privata undernätet via virtuell nätverksenhet.|
-        |Adressprefixet|10.0.1.0/24| All trafik som skickas till alla adresser i det här adressprefixet (10.0.1.0 - 10.0.1.254) skickas till virtuell nätverksenhet.|
+        |Adressprefix|10.0.1.0/24| All trafik som skickas till alla adresser i det här adressprefixet (10.0.1.0 - 10.0.1.254) skickas till virtuell nätverksenhet.|
         |Nexthop-typ| Välj **virtuell installation**||
         |Nexthop-adress|10.0.2.4| Statisk privat IP-adressen för nätverksgränssnittet som är kopplad till virtuell nätverksenhet. Är den enda nexthop-typ som du kan ange en adress för **virtuell installation**.|
 
@@ -132,7 +132,7 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
     |Inställning|Värde|Förklaring|
     |---|---|---|
     |Vägnamnet|ToPublicSubnet|Den här vägen dirigerar trafik till det offentliga undernätet via virtuell nätverksenhet.|
-    |Adressprefixet|10.0.0.0/24| All trafik som skickas till alla adresser i det här adressprefixet (10.0.0.0 - 10.0.1.254) skickas till virtuell nätverksenhet.|
+    |Adressprefix|10.0.0.0/24| All trafik som skickas till alla adresser i det här adressprefixet (10.0.0.0 - 10.0.1.254) skickas till virtuell nätverksenhet.|
     |Nexthop-typ| Välj **virtuell installation**||
     |Nexthop-adress|10.0.2.4||
 

@@ -5,7 +5,7 @@ Den här guiden visar hur interna iOS-program (Swift) kan anropa API: er som kr�
 
 När du har slutfört övningarna i den här guiden kan programmet anropa skyddade API från alla företag eller organisation som har Azure AD. Programmet kan göra skyddade API-anrop med hjälp av personliga konton, till exempel outlook.com och live.com, samt arbets-eller skolkonton.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - XCode version 8.x krävs för som skapas i den här guiden. Du kan hämta XCode från den [iTunes webbplats](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode hämta URL").
 - Den [Carthage](https://github.com/Carthage/Carthage) beroende manager krävs för hantering av paketet.
 

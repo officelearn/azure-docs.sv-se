@@ -2,17 +2,17 @@
 title: "Kom igång med Azure Service Fabric CLI"
 description: "Lär dig hur du använder Azure Service Fabric CLI. Lär dig hur du ansluter till ett kluster och hanterar program."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -32,7 +32,8 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~=3)  | Senaste (~=6,.0)            |
+| Senaste (~=4)  | Senaste (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 Alternativt kan du ange en målversion av CLI för installation genom att ange suffixet `==<version>` för kommandot `pip install`. Till exempel skulle syntaxen för version 1.1.0 vara:
@@ -108,7 +109,7 @@ Om installationen på Windows-undersystemet för Linux misslyckas med felaktiga 
 sudo pip3 install sfctl
 ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
 
 Kör sedan följande kommandon för att installera Service Fabric CLI på Redhat:
 

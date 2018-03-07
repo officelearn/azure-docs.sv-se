@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs artikel för funktioner för förhandsgranskning av Azure Machine Learning - kommandoradsgränssnittet | Microsoft Docs"
-description: "Den här självstudiekursen gå igenom steg som krävs för att slutföra en Iris klassificering slutpunkt till slutpunkt från kommandoradsgränssnittet."
+title: "Självstudieartikel för förhandsfunktioner i Azure Machine Learning – Kommandoradsgränssnitt | Microsoft Docs"
+description: "Den här självstudien visar alla steg som krävs för att slutföra en Iris-klassificering från slutpunkt till slutpunkt från kommandoradsgränssnittet."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger, ritbhat
@@ -11,47 +11,49 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudier: Klassificera Iris med hjälp av kommandoradsgränssnittet
-Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
+# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudie: Klassificera Iris med hjälp av kommandoradsgränssnittet
+Azure Machine Learning-tjänsterna (förhandsversionen) är en integrerad lösning för datavetenskap och analys från slutpunkt till slutpunkt som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
-I kursen får du lära dig att använda kommandoradsgränssnittet (CLI) verktyg i Azure Machine Learning preview funktioner: 
+I självstudien får du lära dig att använda CLI-verktyg (kommandoradsgränssnitt) i Azure Machine Learnings förhandsversionsfunktioner: 
 > [!div class="checklist"]
-> * Skapa ett experiment-konto och skapa en arbetsyta
+> * Konfigurera ett experimenteringskonto och skapa en arbetsyta
 > * Skapa ett projekt
-> * Skicka ett experiment till flera beräknings-mål
-> * Flytta upp och registrera en tränad modell
-> * Distribuera en webbtjänst för att samla in nya data
+> * Skicka ett experiment till flera beräkningsmål
+> * Flytta upp och registrera en träningsmodell
+> * Distribuera en webbtjänst för att rangordna nya data
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+För att slutföra den här kursen behöver du:
+- Åtkomst till en Azure-prenumeration och behörighet att skapa resurser i prenumerationen. 
+  
+  Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
-- Du behöver åtkomst till en Azure-prenumeration och behörigheter att skapa resurser i den prenumerationen. 
-- Du måste installera Azure-datorn Learing arbetsstationen programmet genom att följa den [installera och skapa Quickstart](quickstart-installation.md). 
+- Azure Machine Learning Workbench-programmet installeras enligt beskrivningen i [Snabbstart: Installera och starta Azure Machine Learning-tjänster](quickstart-installation.md). 
 
-  >[!NOTE]
-  >Du behöver bara installera Azure Machine Learning arbetsstationen lokalt. Du behöver bara följer du stegen i avsnitt rätt installera Azure Machine Learning arbetsstation sedan skapa konto och skapa ett nytt projekt steg kommer att göras via kommandoraden i den här artikeln.
+  >[!IMPORTANT]
+  >Skapa inte Azure Machine Learning-tjänstkonton. Du kommer att göra det med hjälp av CLI:n i den här artikeln.
  
 ## <a name="getting-started"></a>Komma igång
-Azure Machine Learning-kommandoradsgränssnittet (CLI) kan du utföra alla uppgifter som krävs för en slutpunkt till slutpunkt datavetenskap arbetsflöde. Du kan komma åt CLI-verktygen på följande sätt:
+Med Azure Machine Learning-kommandoradsgränssnittet (CLI) kan du utföra alla uppgifter som krävs för ett arbetsflöde för datavetenskap från slutpunkt till slutpunkt. Du kan komma åt CLI-verktygen på följande sätt:
 
-### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Alternativ 1. Starta Azure ML CLI från Azure ML-arbetsstationen logg i dialogrutan
-När du startar Azure ML-arbetsstationen och logga in för första gången, och om du inte redan har åtkomst till ett experiment konto, visas följande skärm:
+### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Alternativ 1. starta Azure ML CLI från dialogrutan för Azure ML Workbench-inloggning
+När du startar Azure ML Workbench och loggar in för första gången, och om du inte redan har åtkomst till ett experimenteringskonto redan, visas följande skärm:
 
-![Inget konto hittas](media/tutorial-iris-azure-cli/no_account_found.png)
+![inget konto hittas](media/tutorial-iris-azure-cli/no_account_found.png)
 
-Klicka på den **kommandoradsfönster** länken i dialogrutan för att öppna fönstret för kommandoraden.
+Klicka på länken **Kommandoradsfönster** i dialogrutan för att starta kommandotolken.
 
-### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>Alternativ 2. Starta Azure ML CLI från Azure ML-arbetsstationen app
-Om du redan har åtkomst till ett experiment-konto kan du logga in korrekt. Och du kan öppna fönstret kommandoraden genom att klicka på **filen** --> **Öppna kommandot Prompt** menyn.
+### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>Alternativ 2. starta Azure ML CLI från Azure ML Workbench-programmet
+Om du redan har åtkomst till ett experimenteringskonto kan du logga in direkt. Du kan sedan öppna kommandoradsfönstret genom att klicka på **Arkiv** --> **Öppna kommandotolken**.
 
-### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Alternativ 3. Aktivera Azure ML-CLI i en godtycklig kommandoradsfönster
-Du kan också aktivera Azure ML-CLI i alla kommandoradsfönster. Bara starta Kommandotolken och ange följande kommandon:
+### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Alternativ 3. aktivera Azure ML CLI i ett godtyckligt kommandoradsfönster
+Du kan också aktivera Azure ML CLI i alla kommandoradsfönster. Gör detta genom att starta kommandotolken och ange följande kommandon:
 
 ```sh
 # Windows Command Prompt
@@ -63,15 +65,15 @@ $env:Path = $env:LOCALAPPDATA+"\amlworkbench\Python;"+$env:LOCALAPPDATA+"\amlwor
 # macOS Bash Shell
 PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
-Du kan använda för att göra ändringarna permanenta `SETX` i Windows. Du kan använda för macOS, `setenv`.
+Du kan använda `SETX` i Windows för att göra ändringen permanent. I macOS kan du använda `setenv`.
 
 >[!TIP]
->Du kan aktivera Azure CLI i din favorit terminalfönster genom att ange ovan miljövariabler.
+>Du kan aktivera Azure CLI i din favoritterminalfönster genom att ange föregående miljövariabler.
 
 ## <a name="step-1-log-in-to-azure"></a>Steg 1. Logga in på Azure
-Det första steget är att öppna CLI från AMLWorkbench App (Arkiv > Öppna Kommandotolken). På så sätt vi använder rätt python-miljön och vi har ML CLI kommandon som är tillgängliga. 
+Det första steget är att öppna CLI:n från AMLWorkbench (Arkiv > Öppna kommandotolken). Detta innebär att du har rätt Python-miljö och att dina ML CLI-kommandon är tillgängliga. 
 
-Vi måste ange rätt kontext i din CLI för att komma åt och hantera Azure-resurser.
+Nu kan du ange rätt kontext i din CLI för att komma åt och hantera Azure-resurser.
  
 ```azure-cli
 # log in
@@ -84,11 +86,12 @@ $ az account list -o table
 $ az account set -s <subscription id or name>
 ```
 
-## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Steg 2. Skapa en ny Azure Machine Learning-experiment konto och arbetsytan
-Vi börjar med att skapa ett nytt experiment-konto och en ny arbetsyta. Se [Azure Machine Learning begrepp](overview-general-concepts.md) för mer information om undersökningar konton och arbetsytor.
+## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Steg 2. Skapa ett konto och en arbetsyta för Azure Machine Learning-experimentering
+
+I det här steget skapar du ett nytt experimenteringskonto och en ny arbetsyta. Se [Azure Machine Learning-begrepp](overview-general-concepts.md) för mer information om experimenteringskonton och arbetsytor.
 
 > [!NOTE]
-> Experiment konton kräver ett lagringskonto som används för att lagra utdata för dina experiment körs. Lagringskontonamnet måste vara globalt unikt i Azure eftersom det är en url som är kopplade till den. Om du inte anger ett befintligt lagringskonto används kontonamnet experiment för att skapa ett nytt lagringskonto. Se till att använda ett unikt namn och du får ett fel som _”lagringskontonamnet \<storage_account_name > är upptaget”._ Du kan också använda den `--storage` argumentet att ange ett befintligt lagringskonto.
+> Experimenteringskonton kräver ett lagringskonto som används till att lagra utdata från dina experimentkörningar. Lagringskontonamnet måste vara globalt unikt i Azure eftersom det finns en URL som är kopplad till det. Om du inte anger något befintligt lagringskonto används experimenteringskontots namn till att skapa ett nytt lagringskonto. Om du inte använder ett unikt namn visas felet _”Lagringskontonamnet \<storage_account_name > är upptaget”._ Du kan också använda argumentet `--storage` för ett befintligt lagringskonto.
 
 ```azure-cli
 # create a resource group 
@@ -104,8 +107,8 @@ $ az ml account experimentation create --name <experimentation account name>  --
 az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
-## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Steg 2.a (valfritt) dela en arbetsyta med medarbetare
-Här förklarar vi hur du dela åtkomst till en arbetsyta med en medarbetare. Steg för att dela åtkomst till ett experiment konto eller ett projekt skulle vara samma. Endast sätt för att få Azure resurs-ID måste uppdateras.
+## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Steg 2.a (valfritt) Dela en arbetsyta med medarbetarna
+Här kan du se hur du delar åtkomst till en arbetsyta med en medarbetare. Stegen för att dela åtkomst till ett experimenteringskonto eller ett projekt är likadana. Det enda sättet för att få ett Azure-resurs-ID är att vara uppdaterad.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -116,10 +119,10 @@ $az role assignment create --assignee bob@contoso.com --role owner --scope <work
 ```
 
 > [!TIP]
-> `bob@contoso.com`i kommandot ovan måste vara en giltig Azure AD identity i katalogen när den aktuella prenumerationen tillhör.
+> `bob@contoso.com` i kommandot ovan måste vara en giltig Azure AD-identitet i den katalog som den aktuella prenumerationen tillhör.
 
 ## <a name="step-3-create-a-new-project"></a>Steg 3. Skapa ett nytt projekt
-Vår nästa steg är att skapa ett nytt projekt. Det finns flera sätt att komma igång med ett nytt projekt.
+Nästa steg är att skapa ett nytt projekt. Det finns flera sätt att komma igång med ett nytt projekt.
 
 ### <a name="create-a-new-blank-project"></a>Skapa ett nytt tomt projekt
 
@@ -128,27 +131,27 @@ Vår nästa steg är att skapa ett nytt projekt. Det finns flera sätt att komma
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path>
 ```
 
-### <a name="create-a-new-project-with-a-default-project-template"></a>Skapa ett nytt projekt med en standardmall för projektet
+### <a name="create-a-new-project-with-a-default-project-template"></a>Skapa ett nytt projekt med en standardprojektmall
 Du kan skapa ett nytt projekt med en standardmall.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template
 ```
 
-### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Skapa ett nytt projekt som är kopplade till ett moln Git-lagringsplats
-Vi kan skapa ett nytt projekt som är associerade med en VSTS (Visual Studio Team Service) Git-lagringsplats. Varje gång ett experiment skickas, värnar en ögonblicksbild av hela projektmappen fjärransluten Git-lagringsplatsen. Se [med Git-lagringsplats med ett projekt för Azure Machine Learning arbetsstationen](using-git-ml-project.md) för mer information.
+### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Skapa ett nytt projekt som är associerat med en Git-lagringsplats i molnet
+Du kan skapa ett nytt projekt som är associerat med en VSTS (Visual Studio Team Service) Git-lagringsplats. Varje gång ett experiment skickas, allokeras en ögonblicksbild av hela projektmappen till den fjärranslutna Git-lagringsplatsen. Se [Använda en Git-lagringsplats med ett Azure Machine Learning Workbench-projekt](using-git-ml-project.md) för mer information.
 
 > [!NOTE]
-> Azure Machine Learning stöder endast tomt Git repor som skapats i VSTS.
+> Azure Machine Learning stöder endast tomma Git-lagringsplatser som skapas i VSTS.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Om du får ett fel ”databasen url kan vara ogiltig eller användaren kanske inte har åtkomst”, kan du skapa en säkerhetstoken i VSTS (under _säkerhet_, _lägger till personliga åtkomsttoken_ menyn) och använda `--vststoken`argumentet när du skapar ditt projekt. 
+> Om du får felet ”Lagringsplatsens URL kan vara ogiltig eller användaren kanske inte har åtkomst”, kan du skapa en säkerhetstoken i VSTS (under _Säkerhet_, _Lägg till personliga åtkomsttokens_) och använda `--vststoken`-argumentet när du skapar ditt projekt. 
 
-### <a name="sample_create"></a>Skapa ett nytt projekt från ett prov
-I det här exemplet skapar vi ett nytt projekt med ett exempel på projekt som en mall.
+### <a name="sample_create"></a>Skapa ett nytt projekt från ett exempel
+I det här exemplet skapar du ett nytt projekt med ett projektexempel som mall.
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -157,13 +160,13 @@ $ az ml project sample list
 # Create a new project from the sample
 az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
 ```
-När projektet har skapats kan du använda `cd` kommando för att ange projektkatalogen.
+När projektet har skapats kan du använda `cd`-kommandot för att ange projektkatalogen.
 
-## <a name="step-4-run-the-training-experiment"></a>Steg 4 kör experimentet utbildning 
-Stegen nedan förutsätter att du har ett projekt med exemplet Iris (se [skapa ett nytt projekt från en online exemplet](#sample_create)).
+## <a name="step-4-run-the-training-experiment"></a>Steg 4 Kör träningsexperimentet 
+Följande steg förutsätter att du har ett projekt med Iris-exemplet (se [Skapa ett nytt projekt från ett online-exempel](#sample_create)).
 
 ### <a name="prepare-your-environment"></a>Förbered din miljö 
-Vi behöver installera matplotlib för Iris-exemplet.
+Du måste installera matplotlib för Iris-exemplet.
 
 ```azure-cli
 $ pip install matplotlib
@@ -176,53 +179,53 @@ $ pip install matplotlib
 $ az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
-### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Iterera ditt experiment med fallande regularization priser
-Med vissa Kreativitet är det enkelt att sätta ihop Python-skriptet som skickar experiment med olika regularization priser. (Du kan behöva redigera filen så att den pekar till rätt projektsökvägen.)
+### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Iterera ditt experiment med fallande regulariseringspriser
+Med lite kreativitet är det enkelt att sätta ihop ett Python-skript som skickar experiment med olika regulariseringspriser. (Du kan behöva redigera filen så att den pekar till rätt projektsökväg.)
 
 ```azure-cli
 $ python run.py
 ```
 
 ## <a name="step-5-view-run-history"></a>Steg 5. Visa körningshistorik
-Följande kommando visar alla tidigare körs utförs. 
+Följande kommando visar alla tidigare körningar som utförts. 
 
 ```azure-cli
 $ az ml history list -o table
 ```
-Kör kommandot ovan visas en lista över alla körningar som hör till det här projektet. Du kan se att Precision och regularization hastighet mått visas för. Den här funktionen för att göra det lättare att identifiera bäst köras i listan.
+Om du kör föregående kommando visas en lista med alla körningar som hör till det här projektet. Du kan även se mått för precision och regulariseringshastighet. Detta gör det enkelt att identifiera den bästa körningen i listan.
 
-## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Steg 5.a visa bifogad fil skapas av en viss körning 
-Vi kan använda kommandot information av körningshistorik om du vill visa den bifogade filen som är associerad med en viss körning. Hitta en kör id för en specifik körning i listan ovan.
+## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Steg 5.a Visa den bifogade fil som skapas av en viss körning 
+Du kan använda informationskommandot i körningshistoriken om du vill se den bifogade fil som är associerad med en viss körning. Hitta ett körnings-ID för en specifik körning i listan ovan.
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
 ```
 
-Du kan använda nedan kommando för att ladda ned artefakter från en kördes:
+Du kan använda nedanstående kommando för att ladda ned artefakter från en körning:
 
 ```azure-cli
 # Stream a given attachment 
 $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
-## <a name="step-6-promote-artifacts-of-a-run"></a>Steg 6. Befordra artefakter av en körning 
-En av körs som vi har gjort är bättre AUC, så vi vill använda den för att skapa en bedömningsprofil webbtjänst för att distribuera till produktion. För att göra så vi måste först uppgradera artefakter till en tillgång.
+## <a name="step-6-promote-artifacts-of-a-run"></a>Steg 6. Flytta upp artefakter i en körning 
+En av körningarna har en bättre AUC, så vi använder den när vi skapar en bedömning av webbtjänsten som ska distribueras till produktionen. För att kunna göra det måste du först uppgradera artefakterna till en tillgång.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
 ```
 
-Detta skapar en `assets` mappen i projektkatalogen med en `model.pkl.link` fil. Den här länkfilen används för att referera till en upphöjt tillgång.
+Detta skapar en `assets`-mapp i projektkatalogen med en `model.pkl.link`-fil. Länkfilen används för att referera till en upphöjd tillgång.
 
-## <a name="step-7-download-the-files-to-be-operationalized"></a>Steg 7. Hämta filerna som ska vara operationalized
-Vi behöver nu hämta upphöjt modellen, så vi kan använda dem för att skapa våra förutsägelse-webbtjänsten. 
+## <a name="step-7-download-the-files-to-be-operationalized"></a>Steg 7. Ladda ned filerna som ska operationaliseras
+Ladda ned den uppflyttade modellen så att du kan använda den för att skapa en webbtjänst för förutsägelser. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>Steg 8. Konfigurera din miljö för hantering av modellen 
-Vi skapa en miljö för att distribuera webbtjänster. Vi kan köra webbtjänsten på den lokala datorn med Docker. Eller distribuera den till en ACS-kluster för hög skalningsåtgärder. 
+## <a name="step-8-set-up-your-model-management-environment"></a>Steg 8. Konfigurera din modellhanteringsmiljö 
+Skapa en miljö för att distribuera webbtjänster. Du kan köra webbtjänsten på den lokala datorn med Docker. Eller distribuera den till ett ACS-kluster för åtgärder med hög skalbarhet. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -231,22 +234,22 @@ $ az ml env setup -l <supported Azure region> -n <env name>
 $ az ml env set -g <resource group name> -n <env name>
 ```
 
-## <a name="step-9-create-a-model-management-account"></a>Steg 9. Skapa ett konto för hantering av modellen 
-Ett konto för hantering av modellen krävs för att distribuera och spåra modeller i produktionen. 
+## <a name="step-9-create-a-model-management-account"></a>Steg 9. Skapa ett modellhanteringskonto 
+Ett modellhanteringskonto krävs för att distribuera och spåra modeller i produktionen. 
 
 ```azure-cli
 $ az ml account modelmanagement create -n <model management account name> -g <resource group name> -l <supported Azure region>
 ```
 
 ## <a name="step-10-create-a-web-service"></a>Steg 10. Skapa en webbtjänst
-Vi kan sedan skapa en webbtjänst som returnerar en förutsägelse med hjälp av modellen som vi har distribuerats. 
+Skapa en webbtjänst som returnerar en förutsägelse med hjälp av modellen som du distribuerade. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>Steg 10. Kör webbtjänst
-Med hjälp av web service-id från utdata från föregående steg, vi anropa webbtjänsten och testa den. 
+## <a name="step-11-run-the-web-service"></a>Steg 11. Köra webbtjänsten
+Använd webbtjänst-ID:t från utdatan i föregående steg till att anropa webbtjänsten och testa den. 
 
 ```azure-cli
 # Get web service usage infomration
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>Ta bort alla resurser 
-Vi den här kursen genom att ta bort alla resurser som vi har skapat, såvida du inte vill fortsätta att arbeta på det! 
+## <a name="step-12-deleting-all-the-resources"></a>Steg 12. Ta bort alla resurser 
+Låt oss avsluta den här självstudien genom att ta bort alla resurser som har skapats, såvida du inte vill fortsätta att arbeta med dem. 
 
-Gör vi helt enkelt ta bort resursgruppen som innehåller alla våra resurser. 
+Gör detta genom att ta bort resursgruppen som innehåller resurserna. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får lärt du dig att använda funktioner i Azure Machine Learning-preview till 
+I den här självstudien har du lärt dig att använda Azure Machine Learning för att: 
 > [!div class="checklist"]
-> * Skapa ett experiment konto, skapa arbetsyta
+> * Konfigurera ett experimenteringskonto och skapa en arbetsyta
 > * Skapa projekt
-> * Skicka experiment till flera beräknings-mål
-> * Flytta upp och registrera en tränad modell
-> * Skapa ett konto för hantering av modellen för modellhantering av
-> * Skapa en miljö för att distribuera en webbtjänst
-> * Distribuera ett webbtjänsten och poängsätta nya data
+> * Skicka experiment till flera beräkningsmål
+> * Flytta upp och registrera en träningsmodell
+> * Skapa ett modellhanteringskonto för modellhantering
+> * Skapa en miljö för att distribuera webbtjänster
+> * Distribuera en webbtjänst och rangordna nya data

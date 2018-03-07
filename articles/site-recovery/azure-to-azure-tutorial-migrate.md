@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -77,7 +78,7 @@ Skapa valvet i valfri region, utom i källregionen.
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
 2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
 3. I **Namn** anger du det egna namnet **ContosoVMVault**. Om du har mer än en prenumeration väljer du den lämpligaste.
-4. Skapa en resursgrupp **ContosoRG**.
+4. Skapa en resursgrupp med namnet **ContosoRG**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
 
@@ -123,7 +124,8 @@ Site Recovery hämtar en lista med de virtuella datorer som är kopplade till pr
 2. I **Redundans** väljer du **Senaste**. Inställningen för krypteringsnyckeln är inte relevant för det här scenariot.
 3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
-5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det slutför migreringsprocessen och avslutar replikeringen för den virtuella datorn.
+5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Genomför**. Detta avslutar migreringsprocessen,
+6. När genomförandet är klart klickar du på **Inaktivera replikering**.  Detta stoppar replikeringen för den virtuella datorn.
 
 
 

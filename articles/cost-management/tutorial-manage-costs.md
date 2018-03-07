@@ -1,22 +1,22 @@
 ---
-title: Hantera kostnader med Azure Cost Management | Microsoft Docs
-description: "Hantera kostnader med hjälp av kostnadsallokering och detaljerad kostnadsrapportering."
+title: "Självstudie – Hantera kostnader med Azure Cost Management | Microsoft Docs"
+description: "I den här självstudien lär du dig att hantera kostnader med hjälp av kostnadsallokering, showback- och chargeback-rapporter."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Hantera kostnader med Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Självstudie: Hantera kostnader med Azure Cost Management
 
 Du hanterar kostnader och skapar showback-rapporter i Azure Cost Management by Cloudyn genom att allokera kostnader baserat på taggar. Vid kostnadsallokeringen tilldelas kostnader till dina förbrukade molnresurser. Kostnaderna är helt allokerade när alla resurser är kategoriserade med taggar. När kostnaderna har allokerats kan du visa showback- eller chargeback-information för användarna på instrumentpaneler och i rapporter. Många resurser kanske däremot inte är taggade eller inte kan taggas när du börjar använda Cost Management.
 
@@ -27,6 +27,13 @@ I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Använder anpassade taggar för allokering av kostnader.
 > * Skapar showback- och chargeback-rapporter.
+
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Du måste ha ett Azure-konto.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Använda anpassade taggar för allokering av kostnader
 
@@ -122,7 +129,7 @@ I den här självstudiekursen lärde du dig att:
 
 
 
-Mer information om att komma igång med Cloudyn och att använda alla funktioner finns i Cloudyn-dokumentationen.
+Gå vidare till nästa självstudie om du vill lära dig att styra åtkomsten till data.
 
 > [!div class="nextstepaction"]
-> [Cloudyn-dokumentationen](https://support.cloudyn.com/hc/)
+> [Styra åtkomsten till data](tutorial-user-access.md)

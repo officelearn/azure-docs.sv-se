@@ -1,22 +1,22 @@
 ---
-title: "Tilldela åtkomst i Azure Cost Management | Microsoft Docs"
-description: "Tilldela åtkomst till Cost Management-data med användarkonton som definierar åtkomstnivåer till entiteter."
+title: "Självstudie – Tilldela åtkomst i Azure Cost Management | Microsoft Docs"
+description: "I den här självstudien lärde du dig att tilldela åtkomst till kostnadshanteringsdata med användarkonton som definierar åtkomstnivåer till entiteter."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Självstudie: Tilldela åtkomst till kostnadshanteringsdata
 
 Åtkomsten till Cost Management-data hanteras med hjälp av användare och entiteter. Cloudyn-användarkontot avgör åtkomsten till *entiteter* och administrativa funktioner. Det finns två typer av åtkomst: administratör och användare. Om administratörsåtkomsten inte modifieras per användare så ger den obegränsad tillgång till alla funktioner i Cloudyn-portalen, inklusive användarhantering, hantering av mottagarlistor och rotåtkomst till alla entitetsdata. Användaråtkomsten är avsedd för slutanvändare som vill visa och skapa rapporter för de entitetsdata de har åtkomst till.
 
@@ -29,7 +29,12 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 > * Skapa en användare med användaråtkomst
 > * Skapa entiteter
 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Du måste ha ett Azure-konto.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
 
 ## <a name="create-a-user-with-admin-access"></a>Skapa en användare med administratörsåtkomst
 
@@ -83,7 +88,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en användare med användaråtkomst
 > * Skapa entiteter
 
-Gå vidare till nästa självstudie om du vill lära dig att göra prognoser för utgifter med hjälp av historiska data.
+Om du inte redan har aktiverat Azure Resource Manager API-åtkomst för dina konton, fortsätter du till följande artikel.
 
 > [!div class="nextstepaction"]
-> [Prognostisera framtida utgifter](tutorial-forecast-spending.md)
+> [Aktivera Azure-prenumerationer och -konton](activate-subs-accounts.md)

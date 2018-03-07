@@ -1,22 +1,25 @@
 ---
-title: "Granska användning och kostnader i Azure Cost Management | Microsoft Docs"
-description: "Granska användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa aviseringar."
+title: "Självstudie – Granska användning och kostnader i Azure Cost Management | Microsoft Docs"
+description: "I den här självstudien granskar du användning och kostnader för att spåra trender, identifiera ineffektivitet och skapa aviseringar."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Granska användning och kostnader
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Självstudie: Granska användning och kostnader
 
 I Azure Cost Management by Cloudyn ser du användning och kostnader så att du kan spåra trender, identifiera ineffektivitet och skapa aviseringar. Alla data om användning och kostnader visas på instrumentpaneler och i rapporter i Cloudyn. I exemplen i den här självstudien får du lära dig hur du granskar användning och kostnader med instrumentpaneler och rapporter. I den här guiden får du lära dig hur man:
 
@@ -25,7 +28,12 @@ I Azure Cost Management by Cloudyn ser du användning och kostnader så att du k
 > * Identifierar ineffektivitet i användningen
 > * Skapar aviseringar för onormalt höga kostnader
 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+- Du måste ha ett Azure-konto.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Azure Cost Management.
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
@@ -98,7 +106,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapar aviseringar för onormalt höga kostnader
 
 
-Gå vidare till nästa självstudie om du vill lära dig att styra åtkomsten till data.
+Gå vidare till nästa självstudie om du vill lära dig att göra prognoser för utgifter med hjälp av historiska data.
 
 > [!div class="nextstepaction"]
-> [Styra åtkomsten till data](tutorial-user-access.md)
+> [Prognostisera framtida utgifter](tutorial-forecast-spending.md)

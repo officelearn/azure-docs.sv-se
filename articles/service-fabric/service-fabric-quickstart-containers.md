@@ -1,6 +1,6 @@
 ---
 title: "Skapa ett Windows-behållarprogram i Azure Service Fabric | Microsoft Docs"
-description: "Skapa din första Windows-behållarapp på Azure Service Fabric."
+description: "I den här snabbstarten skapar du ditt första Windows-behållarprogram i Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuera ett Service Fabric Windows-behållarprogram i Azure
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snabbstart: Distribuera ett Windows-behållarprogram för Service Fabric i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
 
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-behållaravbildning i ett Service Fabric-program. När du har slutfört kursen har du en fungerande Windows Server 2016-baserad Nano Server- och IIS-behållare. Den här snabbstarten beskriver hur du distribuerar en Windows-behållare. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-behållare.
@@ -48,21 +48,25 @@ Starta Visual Studio som Administratör.  Välj **Arkiv** > **Nytt** > **Projekt
 
 Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
 
-Välj **Behållare** i listan med **tjänstmallar**.
+Välj **Behållare** från mallarna **Hosted Containers and Applications** (Värdbaserade behållare och program).
 
 I **Avbildningsnamn** anger du "microsoft/iis:nanoserver", [Windows Server Nano Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft/iis/). 
 
 Ge tjänsten namnet ”MyContainerService” och klicka på **OK**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Konfigurera kommunikation och portmappning mellan behållare och värd
-Tjänsten behöver en slutpunkt för kommunikation.  Nu kan du lägga till protokollet, porten och typen för en `Endpoint` i filen ServiceManifest.xml. I den här snabbstarten lyssnar tjänsten på port 80: 
+Tjänsten behöver en slutpunkt för kommunikation.  I den här snabbstarten lyssnar behållartjänsten på port 80.  I Solution Explorer öppnar du *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Uppdatera den befintliga filen `Endpoint` i ServiceManifest.xml och lägg till protokoll, port och URI-schema: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Genom att tillhandahålla `UriScheme` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
 
-Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml.  I den här snabbstarten är `ContainerPort` 80 och `EndpointRef` ”MyContainerServiceTypeEndpoint” (slutpunkten som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 80 mappas till port 80 på behållaren.  
+Konfigurera behållarens portmappning från port till värd så att inkommande begäranden till tjänsten på port 80 mappas till port 80 i behållaren.  I Solution Explorer öppnar du *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* och anger en `PortBinding`-princip i `ContainerHostPolicies`.  I den här snabbstarten är `ContainerPort` 80 och `EndpointRef` ”MyContainerServiceTypeEndpoint” (slutpunkten som definierats i tjänstmanifestet).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Konfigurera behållarens portmappning (port till värd) genom att ange en `PortB
 En fullständig ApplicationManifest.xml -exempelfil finns i slutet av den här artikeln.
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du antingen välja att gå med i ett partykluster eller [skapa ett eget kluster på Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. 
+Om du vill distribuera programmet till ett kluster i Azure kan du välja att ansluta till ett partykluster. Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. 
 
 Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Certifikatet och värdet **Anslutningens slutpunkt** används i följande steg.
 
@@ -108,7 +110,7 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
 
 Högerklicka på **MyFirstContainer** i Solution Explorer och välj **Publicera**. Dialogrutan Publicera visas.
 
-Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och fyll i följande information.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades i föregående steg. 
+Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och kontrollera anslutningsinformationen för parametern.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades i föregående steg. 
 
 ![Dialogrutan Publicera](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Här är de fullständiga tjänst- och programmanifesten som används i den här
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -1,6 +1,6 @@
 ---
 title: Skala ett Azure Service Fabric-kluster | Microsoft Docs
-description: "Lär dig hur du snabbt skalar ett Service Fabric-kluster."
+description: "I den här självstudiekursen lär du dig hur du snabbt skalar ett Service Fabric-kluster."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Skala ett Service Fabric-kluster
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Självstudiekurs: Skala ett Service Fabric-kluster
 
 Det här är den andra delen i en kurs. I den här delen visas hur du skalar ut och in ditt befintliga kluster. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.
 

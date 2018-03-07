@@ -1,21 +1,21 @@
 ---
-title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Azure Storage Explorer | Microsoft Docs"
-description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Azure Storage Explorer"
+title: "Snabbstart för Azure – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure Storage Explorer | Microsoft Docs"
+description: "I den här snabbstarten använder du Azure Storage Explorer för att skapa ett lagringskonto och en behållare. Du använder sedan Storage Explorer för att ladda upp en blob till Azure Storage och lista blobarna i en behållare."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure Storage Explorer
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett användargränssnitt för flera plattformar som används för att hantera innehållet i dina lagringskonton. I den här guiden beskriver vi hur du använder Azure Storage Explorer för att överföra filer mellan en lokal disk och Azure Blob Storage.
 

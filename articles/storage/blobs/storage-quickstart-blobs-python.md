@@ -1,22 +1,22 @@
 ---
-title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Python | Microsoft Docs"
-description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Python"
+title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Python | Microsoft Docs"
+description: "I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Python
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
+
 I den här snabbstarten får du lära dig att använda Python för att ladda upp, ladda ned och lista blockblobar i Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

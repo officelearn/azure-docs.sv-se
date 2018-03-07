@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Felsöka problem med att säkerhetskopiera Azure Files
 
@@ -26,8 +26,14 @@ Azure Files Backup är en förhandsversion. Följande säkerhetskopieringsscenar
 - Skydd av filresurser i lagringskonton som har virtuella nätverk aktiverade.
 - Säkerhetskopiering av Azure Files med PowerShell eller CLI.
 
+### <a name="limitations"></a>Begränsningar
+- Högsta antalet #Scheduled-backup per dag är 1.
+- Högsta antalet #On-Demand-backup per dag är 4.
+- Använd resurslås på lagringskontot för att förhindra oavsiktlig borttagning av säkerhetskopior i Recovery Services-valvet.
+- Ta inte bort ögonblicksbilder som skapats av Azure Backup. Om du tar bort ögonblicksbilder kan du förlora återställningspunkter det kan uppstå återställningsfel
+
 ## <a name="configuring-backup"></a>Konfigurera säkerhetskopiering
-Följande tabell används för att konfigurera säkerhetskopieringen.
+Följande tabell används för att konfigurera säkerhetskopieringen:
 
 | Konfigurera säkerhetskopiering | Lösningstips |
 | ------------------ | ----------------------------- |
@@ -47,7 +53,7 @@ Följande tabell används för att konfigurera säkerhetskopieringen.
 | Lagringskontot hittades inte eller stöds inte. | <ul><li>Kontrollera att lagringskontot finns i resursgruppen, och inte har tagits bort eller flyttats från resursgruppen efter den senaste verifieringen. <li> Kontrollera att lagringskontot är ett lagringskonto som stöder säkerhetskopiering av filresurser.|
 | Du har nått maxgränsen för ögonblicksbilder för den här filresursen. Du kan ta fler när de äldsta förfaller. | <ul><li> Det här felet kan uppstå när du skapar flera säkerhetskopieringar på begäran för en fil. <li> Det finns en gräns på 200 ögonblicksbilder per filresurs, inklusive de som tas av Azure Backup. Äldre schemalagda säkerhetskopieringar (eller ögonblicksbilder) rensas automatiskt. Säkerhetskopieringar på begäran (eller ögonblicksbilder) måste tas bort om den maximala gränsen har nåtts.<li> Ta bort säkerhetskopieringar på begäran (ögonblicksbilder av Azure-filresurser) från Azure Files-portalen. **Obs!** Återställningspunkterna går förlorade om du tar bort ögonblicksbilder som skapats av Azure Backup. |
 | Säkerhetskopieringen eller återställningen av filresurser misslyckades på grund av begränsningar i lagringstjänsten. Detta kan bero på att lagringstjänsten är upptagen med andra begäranden för det angivna lagringskontot.| Försök igen efter en stund. |
-| Återställningen misslyckades med ett felmeddelande om att det inte gick att hitta målfilresursen. | <ul><li>Kontrollera att det valda lagringskontot finns och att målfilresursen inte har tagits bort. <li> Kontrollera att lagringskontot är ett lagringskonto som stöder säkerhetskopiering av filresurser. |
+| Återställningen misslyckades med ett felmeddelande om att det inte gick att hitta målfilresursen. | <ul><li>Kontrollera att det valda lagringskontot finns och att målfilresursen inte har tagits bort. <li> Kontrollera att ditt lagringskonto är ett lagringskonto som stöder säkerhetskopiering av filresurser. |
 | Azure Backup stöds för närvarande inte för Azure Files i lagringskonton med virtuella nätverk aktiverade. | Inaktivera virtuella nätverk på ditt lagringskonto så att säkerhetskopieringarna eller återställningarna kan slutföras. |
 | Säkerhetskopierings- eller återställningsjobb misslyckas på grund av att lagringskontot är i ett låst tillstånd. | Ta bort låset för lagringskontot eller använd raderingslås i stället för läslås och försök igen. |
 | Återställningen misslyckades på grund av att antalet filer som misslyckades överskred tröskelvärdet. | <ul><li> Orsaker till återställningsfel visas i en fil (sökvägen finns i Jobbinformation). Åtgärda felen och försök att köra återställningsåtgärden på nytt för bara de filer som misslyckades. <li> Vanliga orsaker till filåterställningsfel: <br/> – Kontrollera att filerna som misslyckades inte används för närvarande. <br/> – En katalog med samma namn som filen som misslyckades finns i den överordnade katalogen. |

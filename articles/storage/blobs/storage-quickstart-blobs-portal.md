@@ -1,23 +1,21 @@
 ---
-title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Azure Portal | Microsoft Docs"
-description: "Lär dig att använda Azure Portal för att ladda upp, ladda ned och lista blobar i Azure Blob Storage."
+title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure-portalen| Microsoft Docs"
+description: "I den här snabbstarten använder du Azure-portalen för att skapa ett lagringskonto och en behållare. Sedan använder du Azure-portalen och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure Portal
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure-portalen
 
 I den här snabbstarten får du lära dig att använda [Azure Portal](https://portal.azure.com/) för att skapa en behållare i Azure Storage, samt ladda upp och ladda ned blockblobar i den behållaren.
 

@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs för Azure Security Center – skydda dina resurser med Azure Security Center | Microsoft Docs"
-description: "Den här kursen visar hur du konfigurerar bara komma åt princip och en princip för åtkomstkontroll i tid VM."
+title: "Azure Security Center-självstudie – Skydda dina resurser med Azure Security Center | Microsoft Docs"
+description: "I den här självstudien får du se hur du konfigurerar en princip för Just-in-time-åtkomst till virtuell dator och en princip för programkontroll."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,126 +9,127 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: f0a32f90e68101f805a52427fab2d5bb29b94939
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
-Security Center begränsar din utsättas för hot med hjälp av kontroller åtkomst- och blockera skadlig aktivitet. Precis i tid virtuell dator (VM) minskar åtkomst din risken för attacker genom att aktivera du neka beständig åtkomst till virtuella datorer. I stället kan du ange kontrollerade och granskad åtkomst till virtuella datorer bara när de behövs. Anpassningsbar programkontroller hjälpa att skydda virtuella datorer mot skadlig kod genom att kontrollera vilka program kan köras på din virtuella dator. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudie: Skydda dina resurser ed Azure Security Center
+Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-time-åtkomst till virtuell dator (VM) minskar din exponering för attacker genom att göra det möjligt för dig att neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera bara tidpunkt VM åtkomstprincip
-> * Konfigurera en princip för åtkomstkontroll
+> * Konfigurera just-in-time-åtkomstprincip för virtuell dator
+> * Konfigurera en princip för programkontroll
 
-Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
-Du måste vara i Security Center Standard prisnivån för att gå igenom de funktioner som beskrivs i den här kursen. Du kan försöka Security Center Standard för de första 60 dagarna utan kostnad. Snabbstart [Onboard din Azure-prenumeration till Security Center Standard](security-center-get-started.md) vägleder dig igenom hur du uppgraderar till Standard.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
-## <a name="manage-vm-access"></a>Hantera VM-åtkomst
-Precis i tid kan VM åtkomst användas för att låsa inkommande trafik till din virtuella Azure-datorer minskar risken för attacker och enkel åtkomst till att ansluta till virtuella datorer när de behövs.
+## <a name="manage-vm-access"></a>Hantera åtkomst till virtuella datorer
+Just in time-åtkomst till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till virtuella datorer när du behöver.
 
-Precis i tid är VM-åtkomst i förhandsgranskningen.
+Just-in-time-åtkomst till virtuell dator är i förhandsversion.
 
-Hanteringsportar behöver inte vara öppen när som helst. De behöver bara vara öppen när du är ansluten till den virtuella datorn, till exempel för att utföra uppgifter för hantering och underhåll. När precis i tid är aktiverat, använder Security Center Nätverkssäkerhetsgrupp (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
+Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När Just-in-time är aktiverat använder Security Center NSG-regler (Network Security Group), vilket begränsar åtkomsten till hanteringsportar så de inte kan nås av angripare.
 
-1. På huvudmenyn Security Center, Välj **precis i tid VM access** under **DEFENSE ADVANCED molnet**.
+1. På huvudmenyn i Security Center väljer du **Just-in-time-åtkomst till virtuell dator** under **Avancerat molnskydd**.
 
   ![Just-in-time-åtkomst till virtuell dator][1]
 
-  **Just-in-time-åtkomst för VM** innehåller information om tillståndet för dina virtuella datorer:
+  **Just-in-time-åtkomst till virtuell dator** tillhandahåller information om dina virtuella datorers status:
 
-  - **Konfigurerad** -virtuella datorer som har konfigurerats för att stödja just-in-time VM-åtkomst.
-  - **Rekommenderade** -virtuella datorer som stöder just-in-time-åtkomst för VM men inte har konfigurerats att.
-  - **Ingen rekommendation** -orsaker till att en virtuell dator inte till rekommenderas är:
+  - **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer.
+  - **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det.
+  - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
 
-    - NSG - på samma sätt som saknas i tid lösning kräver en NSG ska vara på plats.
-    - Klassiska VM - Security Center just-in-time-åtkomst för VM stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager.
-    - Andra - en virtuell dator finns i den här kategorin om den bara i tid lösningen har inaktiverats i säkerhetsprincipen för prenumerationen eller resursgruppen och att den virtuella datorn saknar en offentlig IP-adress och inte har en NSG på plats.
+    - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
+    - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager.
+    - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
 
-2. Välj en rekommenderad virtuell dator och klicka på **aktivera JIT på 1 VM** så här konfigurerar du bara i principen för tid för den virtuella datorn:
+2. Välj en rekommenderad virtuell dator och klicka på alterantivet för att **aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-time-princip för den virtuella datorn:
 
-  Du kan spara standard portar som Security Center rekommenderar eller du kan lägga till och konfigurera en ny port som du vill aktivera den bara i Tidslösning. I den här kursen ska vi lägga till en port genom att välja **Lägg till**.
+  Du kan spara standardportarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
 
-  ![Lägg till portinställningar][2]
+  ![Lägga till portkonfiguration][2]
 
-3. Under **Lägg till Portkonfiguration**, identifierar du:
+3. Under **Lägg till portkonfiguration** identifierar du:
 
   - Porten
-  - Vilken typ av protokoll
-  - Tillåtna käll-IP-adresser - IP-adressintervall som tillåts för att få åtkomst vid ett godkänt förfrågan
-  - Tid för maximal begäran - maximala tidsperioden som kan öppna en specifik port
+  - Protokolltypen
+  - Tillåtna käll-IP-adresser – Tillåtna IP-intervall för att få åtkomst vid en godkänd förfrågan
+  - Maximal begärandetid – den maximala tidsperioden som en specifik port kan öppnas under
 
-4. Välj **OK** att spara.
+4. Välj **OK** för att spara.
 
-## <a name="harden-vms-against-malware"></a>Skydda virtuella datorer mot skadlig kod
-Anpassningsbar programkontroller hjälpa dig att definiera en uppsättning program som tillåts att köra på konfigurerade resursgrupper, vilket bland andra fördelar som hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
+## <a name="harden-vms-against-malware"></a>Förstärka virtuella mot skadlig programvara
+Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade resursgrupper, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
-Anpassningsbar programkontroller är i förhandsgranskningen. Den här funktionen är endast tillgängligt för Windows-datorer.
+Adaptiva programkontroller är i förhandsversion. Den här funktionen är endast tillgänglig för Windows-datorer.
 
-1. Gå tillbaka till huvudmenyn Security Center. Under **DEFENSE ADVANCED molnet**väljer **anpassningsbar programkontroller**.
+1. Gå tillbaka till Security Center-menyn. Under **Avancerat molnskydd** väljer du **Anpassningsbara programkontroller**.
 
    ![Anpassningsbara programkontroller][3]
 
-  Den **resursgrupper** avsnittet innehåller tre flikar:
+  Avsnittet **Resursgrupper** innehåller tre flikar:
 
-  - **Konfigurerad**: listan över resurs grupper som innehåller de virtuella datorerna som har konfigurerats med programkontrollen.
-  - **Rekommenderade**: listan över resursgrupper för vilket program kontroll rekommenderas.
-  - **Ingen rekommendation**: listan över resurs grupper med virtuella datorer utan några rekommendationer för kontroll av programmet. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+  - **Konfigurerad**: lista över resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
+  - **Rekommenderas**: lista över resursgrupper som programkontroll rekommenderas för.
+  - **Ingen rekommendation**: lista över resursgrupper som innehåller virtuella datorer utan rekommendationer för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
 
-2. Välj den **rekommenderas** fliken för en lista över resursgrupper med rekommendationer för kontroll av programmet.
+2. Markera fliken **Rekommenderas** för att visa en lista över resursgrupper med rekommendationer för programkontroll.
 
-  ![Rekommendationer för kontroll av programmet][4]
+  ![Rekommendationer för programkontroll][4]
 
-3. Välj en resursgrupp att öppna den **skapa regler för åtkomstkontroll av programmet** alternativet. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
+3. Välj en resursgrupp för att öppna alternativet **Skapa regler för programkontroll**. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
 
-  - **NAMNET**: fullständig programsökväg
-  - **PROCESSER**: hur många program som finns på varje sökväg
-  - **VANLIGA**: ”Ja” anger att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen
-  - **UTVINNINGSBARA**: en varningsikon anger om program som kan användas av en angripare för att kringgå vitlistning av program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
+  - **NAMN**: den fullständiga programsökvägen
+  - **PROCESSER**: Hur många program som finns på varje sökväg
+  - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorerna i den här resursgruppen
+  - **EXPLOATERBAR**: En varningsikon anger om programmen skulle kunna användas av en angripare för att kringgå listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
 
-4. När du är klar med dina val välja **skapa**.
+4. När du är färdig med dina val klickar du på **Skapa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Andra Snabbstart och självstudiekurser i den här samlingen bygger på denna Snabbstart. Om du vill fortsätta på att arbeta med efterföljande Snabbstart och självstudier fortsätta köras standardnivån och automatisk etablering aktiverad. Om du inte planerar att fortsätta eller om du vill gå tillbaka till den kostnadsfria nivån:
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
-1. Återgå till huvudmenyn Security Center och välja **säkerhetsprincip**.
-2. Välj den prenumeration eller princip som du vill gå tillbaka till ledig. **Säkerhetsprincip** öppnas.
-3. Under **princip komponenter**väljer **prisnivå**.
-4. Välj **lediga** ändra prenumerationen från standarden nivå till den kostnadsfria nivån.
+1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
+2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
+3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
+4. Välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
 5. Välj **Spara**.
 
-Om du vill inaktivera automatisk etablering:
+Om du vill avaktivera automatisk etablering:
 
-1. Återgå till huvudmenyn Security Center och välja **säkerhetsprincip**.
-2. Välj den prenumeration som du vill inaktivera automatisk etablering.
-3. Under **säkerhetsprincip – datainsamling**väljer **av** under **Onboarding** att inaktivera automatisk etablering.
+1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
+2. Välj den prenumeration du vill avaktivera automatisk etablering för.
+3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
 4. Välj **Spara**.
 
 >[!NOTE]
-> Inaktivera automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Inaktivera automatisk etablering gränser säkerhetsövervakning för dina resurser.
+> Inaktivering av automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
 >
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen beskrivs hur du begränsar din utsättas för hot genom att:
+I den här självstudien har du lärt dig att begränsa din exponering för hot genom att:
 
 > [!div class="checklist"]
-> * Konfigurera bara i tid VM access princip för att tillhandahålla kontrolleras och granskas åtkomst till virtuella datorer bara vid behov
-> * Konfigurera en anpassad princip för kontroller att styra vilka program kan köras på din virtuella dator
+> * Konfigurera en princip för Just-in-time-åtkomst till virtuell dator för att tillhandahålla kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs
+> * Konfigurera en princip för anpassningsbara programkontroller för att kontrollera vilka program som kan köras på din virtuella dator
 
-Gå vidare till nästa kurs att lära dig om att svara på säkerhetsincidenter.
+Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Svara på säkerhetsincidenter](tutorial-security-incident.md)
+> [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

@@ -1,27 +1,21 @@
 ---
-title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av PowerShell"
+title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Azure PowerShell | Microsoft Docs"
+description: "I den här snabbstarten använder du Azure PowerShell för att skapa ett lagringskonto och en behållare. Sedan använder du PowerShell och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
 services: storage
-documentationcenter: storage
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ffed1eea8d159ccd05331d741624d8bc9e84b50
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. I den här guiden beskriver vi hur du använder PowerShell för att överföra filer mellan en lokal disk och Azure Blob Storage.
 

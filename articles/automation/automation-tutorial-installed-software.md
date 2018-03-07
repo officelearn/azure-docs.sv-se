@@ -5,16 +5,16 @@ services: automation
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Identifiera vilken programvara som är installerad på dina datorer med och utan Azure
 
@@ -27,7 +27,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Visa installerade program
 > * Sök inventeringsloggar för installerad programvara
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
@@ -41,35 +41,17 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
-Först måste du aktivera Ändringsspårning och inventering för dina virtuella datorer för att genomföra den här självstudien. Om du redan har aktiverat någon annan automatiseringslösning för en virtuell dator kan du hoppa över det här steget.
+Först måste du aktivera Ändringsspårning och inventering för dina virtuella datorer för att genomföra den här självstudien. Om du redan har aktiverat en lösning för **Ändringsspårning** för en virtuell dator kan du hoppa över det här steget.
 
 1. På menyn till vänster väljer du **Virtuella datorer** och väljer en virtuell dator på listan
 2. På den vänstra menyn, under avsnittet **Åtgärder** klickar du på **Inventering**. Sidan **Ändringsspårning och inventering** öppnas.
 
-Verifieringen utförs för att fastställa om inventering är aktiverat för den här virtuella datorn.
-Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen är i arbetsytan.
+![Publicering av konfigurationsbanderoll för Inventering](./media/automation-tutorial-installed-software/enableinventory.png)
+
+För att aktivera lösningen konfigurerar du platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klickar på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
-
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Hybrid Worker.
-Den här agenten används för att kommunicera med den virtuella datorn och hämta information om installerad programvara.
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
-
-Om förutsättningarna inte uppfylls visas en banderoll som ger dig möjlighet att aktivera lösningen.
-
-![Publicering av konfigurationsbanderoll för Inventering](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Klicka på banderollen för att aktivera lösningen.
-Om några av följande krav saknades efter verifieringen läggs de till automatiskt:
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta
-* [Automation](./automation-offering-get-started.md)
-* En [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
-
-Skärmen **Ändringsspårning och inventering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
-
-![Aktivera fönstret Lösning för ändringsspårning](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
 När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Log Analytics.
@@ -137,4 +119,4 @@ I den här självstudiekursen har du lärt dig att visa programvaruinventering, 
 Fortsätt till översikten över lösningen för ändringsspårning och inventering för att läsa mer om det.
 
 > [!div class="nextstepaction"]
-> [Ändringshantering och inventeringslösning](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Ändringshantering och inventeringslösning](automation-change-tracking.md)

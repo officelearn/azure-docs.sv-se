@@ -1,22 +1,22 @@
 ---
-title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Ruby | Microsoft Docs"
-description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Ruby"
+title: "Azure-snabbstart – Ladda upp, ladda ned och lista blobar i Azure Storage med Ruby | Microsoft Docs"
+description: "I den här snabbstarten skapar du ett lagringskonto och en behållare. Sedan använder du lagringsklientbiblioteket för Ruby och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare."
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/18/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 649099f045639c8c506fb4a4be65736626044fe6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Ruby
+# <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Ruby
+
 I den här snabbstarten får du lära dig att använda Ruby för att ladda upp, hämta och lista blockblobar i Azure Blob-lagring. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter

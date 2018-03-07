@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Quickstart - publicera Linux-datorer till Security Center | Microsoft Docs
-description: "Den här snabbstarten visar hur du integrerar dina Linux-datorer till Security Center."
+title: "Azure Security Center-snabbstart – Publicera dina Linux-datorer till Security Center | Microsoft Docs"
+description: "I den här snabbstarten får du veta hur du publicerar dina Linux-datorer till Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,82 +9,83 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 365afd2199b1b8b2e70d882f6a729384edbdffbc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstartsguide: Publicera Linux-datorer till Azure Security Center
-När du hanterar dina Azure-prenumerationer du kan aktivera Security Center för Linux-resurser som körs utanför Azure, för exempel på lokalt eller i andra moln genom att etablera Linux-agenten.
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
+När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
 
-Den här snabbstarten visar hur du installerar Linux-agenten på en Linux-dator.
+I den här snabbstarten får du lära dig att installera Linux-agenten på en Linux-dator.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-Du måste vara på Security Center Standard prisnivån innan du påbörjar den här snabbstartsguide. Se [Onboard din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för uppgraderingen. Du kan försöka Security Center Standard utan kostnad för de första 60 dagarna.
+Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna.
 
-## <a name="add-new-linux-computer"></a>Lägg till nya Linux-datorn
+## <a name="add-new-linux-computer"></a>Lägga till ny Linux-dator
 
 1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
-2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center - översikt** öppnas.
+2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
  ![Översikt över Security Center][2]
 
-3. Välj under huvudmenyn Security Center **Onboarding till avancerad säkerhet**.
-4. Välj **du vill lägga till Azure-datorer**.
-   ![Publicera till avancerad säkerhet][3]
+3. På huvudmenyn i Security Center väljer du **Kom igång med avancerad säkerhet**.
+4. Välj **Vill du lägga till datorer som inte är Azure-datorer?**.
+   ![Kom igång med avancerad säkerhet][3]
 
-5. På **lägga till nya Azure-datorer**, visas en lista över logganalys-arbetsytor. Listan innehåller, om tillämpligt, standardarbetsytan skapade av Security Center när automatisk etablering har aktiverats. Välj den här arbetsytan eller en annan arbetsyta som du vill använda.
+5. Vid **Lägg till datorer som inte är Azure-datorer** visas en lista över dina Log Analytics-arbetsytor. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-    ![Lägg till Azure-dator][4]
+    ![Lägga till en dator som inte är en Azure-dator][4]
 
-6.  På den **direkt Agent** sidan under **ladda ned och publicera AGENT för LINUX**, Välj den **kopiera** för att kopiera den *wget* kommando.
+6.  På sidan **Direktagent**, under **LADDA NED OCH INTEGRERA AGENT FOR LINUX** väljer du **kopieringsknappen** för att kopiera kommandot *wget*.
 
-7.  Öppna Anteckningar och klistra in det här kommandot. Spara filen på en plats som kan nås från Linux-dator.
+7.  Öppna Anteckningar och klistra in det här kommandot. Spara den här filen på en plats som kan nås från din Linux-dator.
 
 ## <a name="install-the-agent"></a>Installera agenten
 
-1.  Öppna filen som tidigare sparats på Linux-dator. Markera hela innehållet från, kopia, öppna konsolen terminal och klistra in kommandot.
-2.  När installationen är klar kan du kontrollera att den *omsagent* har installerats genom att köra den *pgrep* kommando. Kommandot returnerar den *omsagent* PID (Process-ID) enligt nedan:
+1.  På Linux-datorn öppnar du filen du sparade tidigare. Markera hela innehållet, kopiera, öppna en terminalkonsol och klistra in kommandot.
+2.  När installationen är klar kan du kontrollera att *omsagent* är installerat genom att köra kommandot *pgrep*. Kommandot returnerar PIP (process-ID:t) *omsagent* som det visas nedan:
 
   ![Installera agenten][5]
 
-I Security Center-Agent för Linux-loggarna finns på: */var/opt/microsoft/omsagent/<workspace id>/log/*
+Loggarna för Security Center-agenten för Linux finns på: */var/opt/microsoft/omsagent/<workspace id>/log/*
 
   ![Loggar för agent][6]
 
-Efter en tid kan det ta upp till 30 minuter, den nya Linux-datorn visas i Security Center.
+Efter en stund visas den nya Linux-datorn i Security Center. Det kan ta upp till 30 minuter.
 
-Nu kan du övervaka dina virtuella Azure-datorer och Azure-datorer på samma plats. Under **Compute**, du har en översikt över alla virtuella datorer och datorer samt rekommendationer. Varje kolumn representerar en uppsättning rekommendationer. Färgen som representerar den Virtuella datorns eller datorns aktuella säkerhetsstatus för denna rekommendation. Security Center hämtar också alla identifieringar för datorerna i säkerhetsaviseringar.
+Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-datorer på ett ställe. Under **Compute** har du en översikt över alla virtuella datorer och datorer tillsammans med rekommendationer. I varje kolumn finns en typ av rekommendationer. Färgen representerar den virtuella datorns eller datorns aktuella säkerhetsstatus för den rekommendationen. Security Center visar också eventuella identifieringar för dessa datorer i Säkerhetsaviseringar.
 
-  ![Compute-bladet][7] det finns två typer av ikoner på den **Compute** bladet:
+  ![Compute-blad][7] Det finns två typer av ikoner på **Compute**-bladet:
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När de inte längre behövs kan du ta bort agenten från Linux-datorn.
+När den inte längre behövs kan du ta bort agenten från Linux-datorn.
 
-Ta bort agenten:
+Så här tar du bort agenten:
 
-1. Hämta Linux-agenten [universal skriptet](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) till datorn.
-2. Kör .sh samlingsfilen med den *--Rensa* argumentet på datorn som helt tar bort agenten och dess konfiguration.
+1. Ladda ned Linux-agenten [universal script](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) till datorn.
+2. Kör paketets SH-fil med argumentet *--purge* på datorn, som fullständigt tar bort agenten och dess konfiguration.
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstartsguide etablerats agenten på en Linux-dator. Mer information om hur du använder Security Center fortsätta kursen för att konfigurera en säkerhetsprincip och utvärdera säkerheten för dina resurser.
+I den här snabbstarten etablerade du agenten på en Linux-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

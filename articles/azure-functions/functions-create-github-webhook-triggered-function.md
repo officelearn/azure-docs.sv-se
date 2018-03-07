@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Skapa en funktion som utlöses av en GitHub-webhook
 
@@ -28,7 +28,7 @@ Lär dig hur du skapar en funktion som utlöses av en HTTP-webhookbegäran med e
 
 ![Github-webhookutlöst funktion i Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Ett GitHub-konto med minst ett projekt.
 + En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -67,7 +67,7 @@ Skapa sedan en webhook i GitHub-lagringsplatsen.
 
 ## <a name="configure-the-webhook"></a>Konfigurera webhooken
 
-1. Navigera till en lagringsplats du äger i GitHub. Du kan också använda en lagringsplats du har förgrenat. Om du behöver förgrena en lagringsplats använder du <https://github.com/Azure-Samples/functions-quickstart>.
+1. Navigera till en lagringsplats du äger i GitHub. Du kan också använda en lagringsplats du har förgrenat. Om du behöver förgrena en databas kan du använda <https://github.com/Azure-Samples/functions-quickstart>.
 
 1. Klicka på **Inställningar**, klicka på **Webhooks** och klicka sedan på **Lägg till webhook**.
 
@@ -80,8 +80,8 @@ Skapa sedan en webhook i GitHub-lagringsplatsen.
 | Inställning | Föreslaget värde | Beskrivning |
 |---|---|---|
 | **Payload URL** (Webbadress för nyttolast) | Kopierat värde | Använd värdet som returnerades med **</> Hämta funktionswebbadress**. |
-| **Hemlighet**   | Kopierat värde | Använd värdet som returnerades med **</> Hämta GitHub-hemlighet**. |
 | **Innehållstyp** | application/json | Funktionen förväntar sig en JSON-nyttolast. |
+| **Hemlighet**   | Kopierat värde | Använd värdet som returnerades med **</> Hämta GitHub-hemlighet**. |
 | Händelseutlösare | Låt mig välja enskilda händelser | Vi vill bara utlösa för händelser med ärendekommentarer.  |
 | | Ärendekommentar |  |
 
@@ -107,7 +107,7 @@ Nu har webhooken konfigurerats för att utlösa din funktion när en ny ärendek
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en funktion som körs när en begäran tas emot från en GitHub-webhook.
+Du har skapat en funktion som utlöses när en begäran tas emot från en GitHub-webhook.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

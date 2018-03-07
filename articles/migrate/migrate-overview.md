@@ -4,14 +4,14 @@ description: "Ger en översikt över tjänsten Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -31,7 +31,7 @@ Med Azure Migrate får du hjälp med att:
 - För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5)
 
 > [!NOTE]
-> Stöd för Hyper-V planeras och kommer att aktiveras snart. Under tiden kan rekommenderar vi att du använder [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migrering av Hyper-V-arbetsbelastningar. 
+> Stöd för Hyper-V planeras och kommer att aktiveras inom kort. Under tiden kan rekommenderar vi att du använder [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migrering av Hyper-V-arbetsbelastningar. 
 
 - Du kan identifiera upp till 1 000 virtuella datorer i en identifiering och upp till 1500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 400 virtuella datorer i en enda utvärdering. Om du behöver identifiera eller utvärdera mer kan du öka antalet identifieringar eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
 - Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
@@ -48,7 +48,7 @@ En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala vir
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Azure-platsen du vill migrera till. Målplatsen är som standard angiven som USA, västra 2. 
+**Målplats** | Azure-platsen du vill migrera till.<br/><br/>För närvarande stöder Azure Migrate 30 regioner, bland andra: Australien – östra, Australien – sydöstra, Brasilien – södra, Kanada – centrala, Kanada – östra, Indien – centrala, USA – centrala, Kina – östra, Kina – norra, Asien – östra (Asien och stillahavsområdet), USA – östra, Tyskland – centrala, Tyskland – nordöstra, USA –  östra 2, Japan – östra, Japan – västra, Korea – centrala, Korea – södra, USA – norra centrala, Europa – norra, USA – södra centrala, Asien – sydost, Indien – södra, Storbritannien – södra, Storbritannien – västra, USA – västra centrala, Europa – västra, Indien – västra, USA – västra och USA – västra 2. Målplatsen är som standard angiven som USA, västra 2. 
 **Lagringsredundans** | Den typ av [lagringsredundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy) som de virtuella Azure-datorerna kommer att använda efter migreringen. Standardvärdet är lokalt redundant lagring (LRS). Lägg märke till att Azure Migrate enbart stöder utvärderingar som baseras på hanterade diskar och att hanterade diskar endast stöder LRS. Därför finns för närvarande bara LRS-alternativet. 
 **Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan storleksanpassa antingen baserat på *prestandahistorik* för de lokala virtuella datorerna eller storleksanpassa de virtuella datorerna *som lokala* för Azure utan att räkna in prestandahistorik. Standardvärdet är prestandabaserad storlek.
 **Prisavtal** | För kostnadsberäkningar överväger en utvärdering om du har Software Assurance och om du är berättigad för [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Den tittar också på [Azure-erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som du är registrerad för, och låter dig ange prenumerationsspecifika rabatter (%) som du kan få utöver erbjudandet. 

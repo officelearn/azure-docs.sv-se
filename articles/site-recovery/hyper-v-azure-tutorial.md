@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -36,7 +36,7 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azur
 ## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
 
 
-1. I **Alla tjänster** > **Recovery Services-valv** klickar du på namnet på det valv som vi förberedde i den tidigare självstudiekursen, d.v.s. **ContosoVMVault**.
+1. I **Alla tjänster** > **Recovery Services-valv** klickar du på det valv som vi förberedde i den tidigare självstudiekursen, d.v.s. **ContosoVMVault**.
 2. I **Komma igång** klickar du på **Site Recovery**. Klicka sedan på **Förbered infrastrukturen**.
 3. I **Skyddsmål** > **Var finns dina datorer?** väljer du **Lokalt**.
 4. I **Till vilken plats ska dina datorer replikeras?** väljer du **Till Azure**.
@@ -49,10 +49,10 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-hyper-v-to-azur
 Om du vill konfigurera källmiljön lägger du till Hyper-V-värden på en Hyper-V-plats, laddar ned och installerar Azure Site Recovery-providern och Azure Recovery Services-agenten och registrerar Hyper-V-platsen i valvet. 
 
 1. Klicka på **Källa** i **Förbereda infrastrukturen**.
-2. Klicka på **+Hyper-V-plats** och ange namnet på den plats som vi skapade i den tidigare kursen, d.v.s. **ContosoHyperVSite**.
+2. Klicka på **+Hyper-V-platsen** och ange namnet på den plats som vi skapade i den tidigare självstudiekursen, d.v.s. **ContosoHyperVSite**.
 3. Klicka på **+Hyper-V Server**.
 4. Ladda ned installationsfilen för providern.
-5. Ladda ned valvregistreringsnyckeln. Du behöver den när du kör installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
+5. Ladda ned valvregistreringsnyckeln. Du behöver den här nyckeln för att köra installationsprogrammet för providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
     ![Ladda ned providern](./media/hyper-v-azure-tutorial/download.png)
     
@@ -68,7 +68,7 @@ Kör installationsfilen för providern (AzureSiteRecoveryProvider.exe) på varje
 5. I **Proxyinställningar** väljer du **Anslut direkt till Azure Site Recovery utan proxyserver**.
 6. När servern har registrerats i valvet klickar du på **Slutför** i **Registrering**.
 
-Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery-infrastruktur** > **Hyper-V-värdar**. Det här kan ta upp till 30 minuter.
+Metadata från Hyper-V-servern hämtas av Azure Site Recovery och servern visas i **Site Recovery-infrastruktur** > **Hyper-V-värdar**. Processen kan ta upp till 30 minuter.
 
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
@@ -82,7 +82,10 @@ Välj och kontrollera målresurserna.
 Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
 
-## <a name="set-up-a-replication-policy"></a>Konfigurera en replikeringsprincip
+## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
+
+> [!NOTE]
+> Vad gäller replikeringspolicyer för Hyper-V till Azure så dras alternativet 15-minuters kopieringsfrekvens tillbaka och ersätts av inställningarna 5 minuter och 30 sekunder. Replikeringspolicyer med inställningen 15 minuter uppdateras automatiskt till kopieringsfrekvensen 5 minuter. Kopieringsinställningarna 5 minuter och 30 sekunder ger bättre replikeringsprestanda och återställningspunkter jämfört med 15 minuter. Inverkan på bandbreddsanvändning och dataöverföringsvolymer är minimal.
 
 1. Klicka på **Förbered infrastruktur** > **Replikeringsinställningar** > **+Skapa och koppla**.
 2. I **Princip för att skapa och koppla** anger du principnamnet **ContosoReplicationPolicy**.

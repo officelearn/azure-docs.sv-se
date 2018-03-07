@@ -1,6 +1,6 @@
 ---
 title: "Paketera och distribuera ett Service Fabric-behållarprogram | Microsoft Docs"
-description: "Lär dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet."
+description: "I den här självstudiekursen lär du dig skapa en Azure Service Fabric-programdefinition med Yeoman och att paketera programmet."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paketera och distribuera behållare som ett Service Fabric-program
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Självstudiekurs: Paketera och distribuera behållare som ett Service Fabric-program
 
 Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera behållare till Service Fabric. I den här självstudiekursen får du lära du dig att: 
 

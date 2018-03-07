@@ -1,59 +1,66 @@
 ---
-title: "Skapa virtuella datorer som kör en SQL- &#92; IIS &#92;. NET stack i Azure | Microsoft Docs"
-description: "Självstudiekurs – installera en Azure SQL, IIS, .NET stacken på en Windows-datorer."
+title: "Skapa virtuella datorer som kör en SQL&#92;IIS&#92;.NET-stack i Azure| Microsoft Docs"
+description: "Självstudie – installera en Azure SQL-, IIS-, .NET-stack på virtuella Windows-datorer."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/24/2017
+ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6533ab205e07243e2f757ea0a66028e1d140c52b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: ad84d6e8f74fa184ac2359ff7f08e6c8143d419a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Installera en SQL &#92; IIS &#92;. NET stack i Azure
+# <a name="install-a-sql92iis92net-stack-in-azure"></a>Installera en SQL&#92;IIS&#92;.NET-stack i Azure
 
-Den här självstudiekursen installera en SQL &#92; IIS &#92;. NET stacken med hjälp av Azure PowerShell. Den här stack består av två virtuella datorer som kör Windows Server 2016 med IIS och .NET och andra med SQL Server.
+I den här självstudien installerar vi en SQL&#92;IIS&#92;.NET-stack med Azure PowerShell. Stacken består av två virtuella datorer som kör Windows Server 2016, en med IIS och .NET och den andra med SQL Server.
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator med hjälp av ny AzVM
+> * Skapa en virtuell dator 
 > * Installera IIS och .NET Core SDK på den virtuella datorn
 > * Skapa en virtuell dator som kör SQL Server
-> * Installera SQL Server-tillägg
+> * Installera SQL Server-tillägget
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 5.1.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver AzureRM.Compute-modul version 4.3.1 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="create-a-iis-vm"></a>Skapa en virtuell IIS-dator 
 
-I det här exemplet använder vi den [ny AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet i PowerShell-gränssnittet för moln att snabbt skapa en virtuell Windows Server 2016-dator och installera IIS och .NET Framework. IIS och SQL virtuella datorer dela en resursgrupp och virtuella nätverk, så vi skapa variabler för dessa namn.
+I det här exemplet använder vi cmdleten [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) i PowerShell Cloud Shell för att snabbt skapa en virtuell dator i Windows Server 2016 och sedan installera IIS och .NET Framework. De virtuella IIS- och SQL-datorerna delar en resursgrupp och ett virtuellt nätverk, så vi skapar variabler för de namnen.
 
-Klicka på den **prova** knappen längst upp till höger i kodblocket ska starta molnet Shell i det här fönstret. Du blir ombedd att ange autentiseringsuppgifter för den virtuella datorn cmd i Kommandotolken.
 
 ```azurepowershell-interactive
-$vmName = "IISVM$(Get-Random)"
+$vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name $vmName `
+    -Location "East US" `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "myIISSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -AddressPrefix 192.168.0.0/16 `
+    -PublicIpAddressName "myIISPublicIpAddress" `
+    -OpenPorts 80,3389 
 ```
 
-Installera IIS och .NET framework med tillägget för anpassat skript.
+Installera IIS och .NET Framework med det anpassade skripttillägget.
 
 ```azurepowershell-interactive
-
-Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+Set-AzureRmVMExtension `
+    -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
     -VMName $vmName `
     -Publisher Microsoft.Compute `
@@ -63,66 +70,72 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -Location EastUS
 ```
 
-## <a name="azure-sql-vm"></a>Azure SQL VM
+## <a name="create-another-subnet"></a>Skapa ett nytt undernät
 
-Vi använder en förkonfigurerad Azure marketplace-avbildning av en SQLServer för att skapa SQL-VM. Vi först skapa den virtuella datorn och sedan vi installerar SQL Server-tillägget på den virtuella datorn. 
-
+Skapa ett till undernät för den virtuella SQL-datorn. Hämta vNet med [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}.
 
 ```azurepowershell-interactive
-# Create user object. You get a pop-up prompting you to enter the credentials for the VM.
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create a subnet configuration
-$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $resourceGroup
-Add-AzureRmVirtualNetworkSubnetConfig -Name mySQLSubnet -VirtualNetwork $vNet -AddressPrefix "192.168.2.0/24"
-Set-AzureRmVirtualNetwork -VirtualNetwork $vNet
-
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location eastus `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location eastus `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name mySQLNic -ResourceGroupName $resourceGroup -Location eastus `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName mySQLVM -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName mySQLVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftSQLServer -Offer SQL2014SP2-WS2012R2 -Skus Enterprise -Version latest | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create the VM
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location eastus -VM $vmConfig
+$vNet = Get-AzureRmVirtualNetwork `
+   -Name $vNetName `
+   -ResourceGroupName $resourceGroup
 ```
 
-Använd [Set AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) att lägga till den [SQL Server-tillägget](/sql/virtual-machines-windows-sql-server-agent-extension.md) för SQL-VM.
+Skapa en konfiguration för undernätet med [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+
 
 ```azurepowershell-interactive
-Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
+Add-AzureRmVirtualNetworkSubnetConfig `
+   -AddressPrefix 192.168.0.0/24 `
+   -Name mySQLSubnet `
+   -VirtualNetwork $vNet `
+   -ServiceEndpoint Microsoft.Sql
+```
+
+Uppdatera vNet med den nya undernätsinformationen med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
+   
+```azurepowershell-interactive   
+$vNet | Set-AzureRmVirtualNetwork
+```
+
+## <a name="azure-sql-vm"></a>Virtuell Azure SQL-dator
+
+Använd en förkonfigurerad Azure Marketplace-avbildning av en SQL-server för att skapa den virtuella SQL-datorn. Först skapar vi den virtuella datorn och sedan installerar vi SQL Server-tillägget på den virtuella datorn. 
+
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName $resourceGroup `
+    -Name "mySQLVM" `
+    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+    -Location eastus `
+    -VirtualNetworkName $vNetName `
+    -SubnetName "mySQLSubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "mySQLPublicIpAddress" `
+    -OpenPorts 3389,1401 
+```
+
+Använd [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) för att lägga till [SQL Server-tillägget](/sql/virtual-machines-windows-sql-server-agent-extension.md) till den virtuella SQL-datorn.
+
+```azurepowershell-interactive
+Set-AzureRmVMSqlServerExtension `
+   -ResourceGroupName $resourceGroup  `
+   -VMName mySQLVM `
+   -Name "SQLExtension" `
+   -Location "EastUS"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får installerat du en SQL &#92; IIS &#92;. NET stacken med hjälp av Azure PowerShell. Du har lärt dig att:
+I den här självstudien har du installerat en SQL&#92;IIS&#92;.NET-stack med Azure PowerShell. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator med hjälp av ny AzVM
+> * Skapa en virtuell dator 
 > * Installera IIS och .NET Core SDK på den virtuella datorn
 > * Skapa en virtuell dator som kör SQL Server
-> * Installera SQL Server-tillägg
+> * Installera SQL Server-tillägget
 
-Gå vidare till nästa kurs att lära dig hur du skyddar IIS-webbserver med SSL-certifikat.
+Gå vidare till nästa självstudiekurs där du får lära dig att skydda IIS-webbservern med SSL-certifikat.
 
 > [!div class="nextstepaction"]
 > [Säker IIS-webbserver med SSL-certifikat](tutorial-secure-web-server.md)

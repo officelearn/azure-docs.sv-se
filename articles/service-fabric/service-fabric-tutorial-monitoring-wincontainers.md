@@ -1,6 +1,6 @@
 ---
-title: "Övervaknings- och diagnostikfunktionerna för Windows-behållare i Azure Service Fabric | Microsoft Docs"
-description: "Konfigurera övervakning och diagnostik för Windows-behållaren styrd på Azure Service Fabric."
+title: "Övervakning och diagnostik för Windows-behållare i Azure Service Fabric | Microsoft Docs"
+description: "Det här är en självstudiekurs om att ställa in övervakning och diagnostik för Windows-behållare dirigerad i Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,39 +15,39 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Övervaka Windows-behållare i Service Fabric med OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Självstudiekurs: Övervaka Windows-behållare i Service Fabric med OMS
 
-Detta är en del tre i självstudiekursen och vägleder dig genom att ställa in OMS för att övervaka din Windows-behållare för samordnade på Service Fabric.
+Det här är del tre i självstudiekursen. Den vägleder dig genom att ställa in OMS för att övervaka Windows-behållare som dirigeras i Service Fabric.
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Konfigurera OMS för Service Fabric-kluster
-> * En OMS-arbetsyta kan du visa och fråga loggar från behållare och noder
-> * Konfigurera OMS-agent för behållaren och nod-mått
+> * konfigurerar OMS för Service Fabric-kluster
+> * använder en OMS-arbetsyta till att visa och fråga loggar från behållare och noder
+> * konfigurerar OMS-agenten så att behållare och nodvärden hämtas in.
 
-## <a name="prerequisites"></a>Krav
-Innan du börjar den här kursen bör du:
-- Har ett kluster i Azure, eller [skapa ett med den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Distribuera en av programmet till den](service-fabric-host-app-in-a-container.md)
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar de här självstudierna bör du:
+- ha ett kluster i Azure, eller [skapa ett via den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [distribuera ett program i behållare till det](service-fabric-host-app-in-a-container.md).
 
 ## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Konfigurera OMS med klustret i Resource Manager-mall
 
-I de fall som du använde den [-mall](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) i den första delen av kursen den ska innehålla följande tillägg till en allmän Service Fabric Azure Resource Manager-mall. I fallet om söker att du har ett kluster med din egen som du om du vill konfigurera för övervakning av behållare med OMS:
-* Gör följande ändringar i Resource Manager-mallen.
-* Distribuera den med hjälp av PowerShell så här uppgraderar du klustret med [distribuerar mallen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager inser att resursen finns, så görs det som en uppgradering.
+Om du använde [mallen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) i den första delen av självstudiekursen bör den omfatta följande tillägg till en allmän Service Fabric Azure Resource Manager-mall. Om du har ett eget kluster som du vill konfigurera för behållarövervakning med OMS ska du:
+* göra följande ändringar i Resource Manager-mallen
+* distribuera med PowerShell för att uppgradera klustret genom att [distribuera mallen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager ser att resursen finns, så den lanseras som en uppgradering.
 
-### <a name="adding-oms-to-your-cluster-template"></a>Lägger till OMS i mallen för kluster
+### <a name="adding-oms-to-your-cluster-template"></a>Lägga till OMS i klustermallen
 
-Gör följande ändringar i din *template.json*:
+Gör följande ändringar i *template.json*:
 
-1. Lägga till OMS-arbetsytan platsen och att din *parametrar* avsnitt:
+1. Lägga till OMS-arbetsytan, position och namn, i avsnittet *parametrar*:
     
     ```json
     "omsWorkspacename": {
@@ -71,16 +71,16 @@ Gör följande ändringar i din *template.json*:
     }
     ```
 
-    Det värde som används för att ändra lägga till samma parametrar på din *template.parameters.json* och ändra värdena används där.
+    Om du vill ändra något av värdena lägger du till samma parametrar i *template.parameters.json* och ändrar värdena som används där.
 
-2. Lägg till lösningens namn och lösningen på din *variabler*: 
+2. Lägg till lösningsnamnet och lösningen i dina *variabler*: 
     
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
     ```
 
-3. Lägg till OMS Microsoft Monitoring Agent som ett tillägg för virtuell dator. Hitta virtuella datorn anger resurs: *resurser* > *”apiVersion”: ”[variables('vmssApiVersion')]”*. Under den *egenskaper* > *virtualMachineProfile* > *extensionProfile* > *tillägg*, Lägg till följande tillägg beskrivning under den *ServiceFabricNode* tillägg: 
+3. Lägg till OMS Microsoft Monitoring Agent som tillägg för virtuell dator. Hitta resursen skalningsuppsättningar för virtuella datorer: *resurser* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* lägger du till följande tilläggsbeskrivning under tillägget *ServiceFabricNode*: 
     
     ```json
     {
@@ -100,7 +100,7 @@ Gör följande ändringar i din *template.json*:
     },
     ```
 
-4. Lägg till OMS-arbetsyta som en enskild resurs. I *resurser*efter att virtuella datorns skaluppsättning anger resursen, Lägg till följande:
+4. Lägg till OMS-arbetsytan som enskild resurs. I *resources*, efter resursen för skalningsuppsättningar för virtuella datorer, lägger du till följande:
     
     ```json
     {
@@ -180,54 +180,54 @@ Gör följande ändringar i din *template.json*:
     },
     ```
 
-[Här](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) är en exempelmall (används i del 1 av den här självstudiekursen) som har alla de här ändringarna som du kan referera till efter behov. De här ändringarna lägger till en OMS logganalys-arbetsytan till resursgruppen. Arbetsytan konfigureras för att hämta Service Fabric-plattformen händelser från storage-tabeller som har konfigurerats med den [Windows Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md) agent. OMS-agent (Microsoft Monitoring Agent) har också lagts till varje nod i klustret som ett tillägg för virtuell dator - detta innebär att när du skalar klustret agenten är automatiskt konfigurerade på varje dator och kopplat till samma arbetsyta.
+[Här](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) är en exempelmall (används i del 1 i den här guiden). I den finns alla ändringarna, att referera till vid behov. De här ändringarna lägger till en OMS Log Analytics-arbetsytan i resursgruppen. Arbetsytan konfigureras så att den hämtar upp Service Fabric-plattformshändelser från lagringstabeller som har konfigurerats med [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agenten. OMS-agenten (Microsoft Monitoring Agent) har också lagts till i varje nod i klustret som tillägg för virtuell dator. Det innebär att agenten konfigureras automatiskt på varje dator och kopplas till samma arbetsyta när du skalanpassar klustret.
 
-Distribuera mallen med din nya ändringar för att uppgradera din aktuella klustret. Du bör se OMS-resurser i resursgruppen när detta har slutförts. När klustret är klar kan du distribuera av programmet till den. I nästa steg ska ställa vi in övervakning behållarna.
+Distribuera mallen med dina ändringar för att uppgradera det aktuella klustret. Du bör se OMS-resurserna i resursgruppen när det här har slutförts. När klustret är klart kan du distribuera program i behållare till det. I nästa steg ställer vi in behållarövervakning.
 
-## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Lägg till behållaren övervakning lösningen till OMS-arbetsyta
+## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Lägga till lösning för övervakning av behållare i OMS-arbetsytan
 
-Om du vill konfigurera lösningen behållare i din arbetsyta, söka efter *lösning för övervakning av behållare* och skapa en behållare resurs (under övervakning + Management kategori).
+När du vill konfigurera behållarlösningen i arbetsyta söker du efter *Lösning för övervakning av behållare* och skapar en behållarresurs (i kategorin Övervakning och hantering).
 
-![Lägga till behållare lösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
+![Lägga till behållarlösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-När du tillfrågas om den *OMS-arbetsytan*, markera arbetsytan som skapades i resursgruppen och på **skapa**. Detta lägger till en *lösning för övervakning av behållare* till din arbetsyta blir automatiskt OMS-agenten distribueras med mallen ska börja samla in docker loggar och statistik. 
+När du tillfrågas om *OMS-arbetsytan* markerar du den arbetsyta som skapades i resursgruppen och klickar på **Skapa**. Det här lägger till en *lösning för övervakning av behållare*  på arbetsytan. Det gör automatiskt att OMS-agenten som driftsattes av mallen börjar samla in dockerloggar och statistik. 
 
-Gå tillbaka till din *resursgruppen*, där du bör nu se nyligen tillagda övervakningslösning. Om du klickar på den landningssida ska visa du antalet behållare avbildningar som du kör. 
+Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du klickar på den visar landningssidan antalet behållaravbildningar som körs. 
 
-*Observera att jag har kört 5 instanser av min fabrikam behållare från [del två](service-fabric-host-app-in-a-container.md) av kursen*
+*Observera att jag körde 5 instanser av fabrikam-behållaren från [del två](service-fabric-host-app-in-a-container.md) i självstudiekursen*
 
-![Landningssida för behållaren lösning](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
+![Landningssida för behållarlösning](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Att klicka på den **behållare övervakaren lösning** tar dig vidare till en mer detaljerad instrumentpanel där du kan bläddra igenom flera paneler som kör frågor i logganalys. 
+När du klickar på **lösningen för övervakning av behållare** dirigeras du till en mer detaljerad instrumentpanel där du kan bläddra igenom flera paneler och köra frågor i Log Analytics. 
 
-*Observera att från och med September 2017 lösningen gå igenom några uppdateringar - ignorera eventuella fel som du kan få om Kubernetes händelser när vi arbetar med att integrera flera orchestrators i samma lösning.*
+*Observera att från och med september 2017 genomförs några uppdateringar för lösningen. Ignorera eventuella fel om Kubernetes-händelser. Vi arbetar med att integrera flera initierare i samma lösning.*
 
-Eftersom agenten plocka upp docker loggar, används som standard visar *stdout* och *stderr*. Om du bläddrar till höger visas behållaren image lager, status, mått och exempelfrågor som du kan köra för att få fler användbara data. 
+Eftersom agenten plocka upp dockerloggar är standardinställningen att *stdout* och *stderr* visas. Om du bläddrar åt höger ser du ett bibliotek med behållaravbildningar, status, mått och exempelfrågor som du kan köra för att få mer användbara data. 
 
-![Behållaren lösning instrumentpanelen](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
+![Instrumentpanel för behållarlösning](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Att klicka på någon av dessa paneler tar dig vidare till logganalys-frågan som genererar det visa värdet. Ändra frågan så att  *\**  att se olika typer av loggar som fångas upp. Härifrån kan du fråga eller filter för behållaren prestanda, loggar eller titta på händelser för Service Fabric-plattformen. Agenterna också ständigt avger något pulsslag från varje nod som du kan granska och kontrollera data samlas fortfarande från alla datorer om klusterkonfigurationen ändras.   
+Om du klickar på någon av dessa paneler dirigeras du till Log Analytics-frågan som genererar det visade värdet. Ändra frågan till *\** så att du ser alla olika typer av loggar som hämtas in. Härifrån kan du fråga eller filtrera efter behållares prestanda och loggar och titta på händelser för Service Fabric-plattformen. Agenterna avger dessutom ständigt pulsslag från varje nod. Du kan ta en titt på dem och kontrollera att data fortfarande samlas in från alla datorer om klusterkonfigurationen ändras.   
 
-![Behållaren fråga](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
+![Behållarfråga](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Konfigurera OMS-agent för prestandaräknare
+## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Konfigurera OMS-agent för att hämta in prestandaräknare
 
-En annan fördel med OMS-agenten är möjligheten att ändra de prestandaräknare som du vill hämta OMS UI-miljö, i stället för att behöva konfigurera Azure diagnostics agent och gör en resurshanterare mallen baseras uppgraderingen varje gång. Om du vill göra det, klickar du på **OMS-portalen** på Landningssida för din lösning för övervakning av behållare (eller Service Fabric).
+En annan fördel med att använda OMS-agenten är möjligheten att ändra de prestandaräknare som du hämtar in i OMS UI-miljön. Du slipper att konfigurera Azure-diagnostikagenten och genomföra en uppgradering baserad på resurshanteringsmallen varje gång. För att göra det klickar du på **OMS-portal** på landningssidan för lösningen för övervakning av behållare (eller Service Fabric).
 
 ![OMS-portalen](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
 
-Detta kommer ta dig till din arbetsyta i OMS-portalen där du kan visa dina lösningar, skapa anpassade instrumentpaneler, samt konfigurera OMS-agent. 
-* Klicka på den **kugge hjul** i övre högra hörnet av skärmen för att öppna den *inställningar* menyn.
-* Klicka på **anslutna källor** > **Windows-servrar** att kontrollera att du har *5 Windows-datorer anslutna*.
-* Klicka på **Data** > **Windows prestandaräknare** att söka efter och lägga till nya prestandaräknare. Här visas en lista över rekommendationerna från OMS för prestandaräknarna du kan samla in samt alternativet för att söka efter andra räknare. Klicka på **Lägg till valda prestandaräknare** att börja samla in föreslagna mått.
+Det här tar dig till arbetsytan i OMS-portalen där du kan visa dina lösningar, skapa anpassade instrumentpaneler och konfigurera OMS-agenten. 
+* Klicka på **kugghjulet** i det övre högra hörnet på skärmen och öppna menyn *Inställningar*.
+* Klicka på **Anslutna källor** > **Windows-servrar** för att kontrollera att du har *5 anslutna Windows-datorer*.
+* Klicka på **Data** > **Windows-prestandaräknare** för att söka efter och lägga till nya prestandaräknare. Här visas en lista över rekommendationer från OMS för prestandaräknare som du kan samla in samt alternativet för att söka efter andra räknare. Klicka på **Lägg till valda prestandaräknare** för att börja samla in föreslagna mått.
 
-    ![Prestandaräknarna](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
+    ![Prestandaräknare](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
-Tillbaka i Azure-portalen **uppdatera** behållare övervakning lösningen i några minuter och du ska starta att se *datorprestanda* data kommer in. Detta hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten att fatta rätt beslut om skalning av klustret eller för att bekräfta om ett kluster belastningsutjämning din som förväntat.
+I Azure-portalen **uppdaterar du** lösningen för övervakning av behållare efter några minuter. Du ska nu se information om *datorprestanda* komma in. Det här hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten till att fatta rätt beslut om skalning av klustret och för att bekräfta om ett kluster balanserar ut belastningen som förväntat.
 
-*Obs: Kontrollera din tidsfilter är inställda på rätt sätt som du kan använda de här måtten.* 
+*Obs! Kontrollera tidsfiltren är inställda på rätt sätt så att du kan använda de här måtten.* 
 
-![Prestandaräknarna 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
+![Prestandaräknare 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -235,13 +235,13 @@ Tillbaka i Azure-portalen **uppdatera** behållare övervakning lösningen i nå
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera OMS för Service Fabric-kluster
-> * En OMS-arbetsyta kan du visa och fråga loggar från behållare och noder
-> * Konfigurera OMS-agent för behållaren och nod-mått
+> * konfigurerar OMS för Service Fabric-kluster
+> * använder en OMS-arbetsyta till att visa och fråga loggar från behållare och noder
+> * konfigurerar OMS-agenten så att behållare och nodvärden hämtas in.
 
-Nu när du har konfigurerat övervakning för tillämpningsprogrammet av du testa följande:
+Nu när du har ställt in övervakning för programmet i behållaren kan du testa följande:
 
-* Ställ in OMS för ett Linux-kluster, följa liknande steg som ovan. Referens [mallen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) att göra ändringar i Resource Manager-mall.
-* Konfigurera OMS att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
-* Utforska Service Fabric-lista över [rekommenderas prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) du konfigurerar för ditt kluster.
-* Hämta bekantat med den [logga sökning och hämtning av](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av logganalys.
+* Ställ in OMS för ett Linux-kluster, via liknande steg som ovan. Referera till [den här mallen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) och gör ändringar i Resource Manager-mallen.
+* Konfigurera OMS och ställ in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) för att underlätta identifiering och diagnostik.
+* Utforska Service Fabric-listan över [rekommenderade prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) för att konfigurera klustren.
+* Bekanta dig med funktionerna [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) i Log Analytics.

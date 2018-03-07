@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Använd SQL-frågeredigeraren för att ansluta och fråga data
+# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: Använd SQL-frågeredigeraren för att ansluta och fråga efter data
 
-SQL-frågeredigeraren är ett verktyg för frågor i webbläsare som tillhandahåller ett effektivt och enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse utan att behöva lämna Azure Portal. Den här snabbstarten visar hur du använder frågeredigeraren för att ansluta till en SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
+SQL-frågeredigeraren är ett frågeverktyg för webbläsare och ett effektivt och enkelt sätt att köra SQL-frågor i Azure SQL Database och Azure SQL Data Warehouse utan att lämna Azure Portal. Den här snabbstarten visar hur du ansluter till en SQL-databas med frågeredigeraren och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -33,18 +33,19 @@ Den här snabbstarten använder resurser som har skapats i någon av dessa snabb
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> Kontrollera att alternativet ”Tillåt åtkomst till Azure-tjänster” är inställt på ”PÅ” i inställningarna för SQL Server-brandväggen. Det här alternativet ger SQL-frågeredigeraren åtkomst till dina databaser och datalager.
+
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Anslut med SQL-autentisering
-> [!NOTE]
-> Kontrollera att alternativet ”Tillåt åtkomst till Azure-tjänster” är inställt på ”PÅ” i inställningarna för SQL Server-brandväggen. Det här alternativet ger SQL-frågeredigeraren åtkomst till dina databaser och datalager.
 
 1. Klicka på **SQL-databaser** på den vänstra menyn och klicka på databasen som du vill fråga.
 
-2. På SQL-databassidan för din databas letar du reda på och klickar på **Datautforskaren (förhandsversion)** på den vänstra menyn.
+2. På SQL Database-sidan för databasen letar du reda på och klickar på **Frågeutforskaren (förhandsversion)** på den vänstra menyn.
 
     ![hitta frågeredigerare](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

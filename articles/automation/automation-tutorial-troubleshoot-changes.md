@@ -5,15 +5,15 @@ services: automation
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -30,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Utlösa en händelse
 > * Visa ändringar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här kursen behöver du:
 
@@ -47,37 +47,19 @@ Logga in på Azure Portal på http://portal.azure.com.
 Först måste du aktivera Ändringsspårning och inventering för dina virtuella datorer för att genomföra den här självstudien. Om du redan har aktiverat någon annan automatiseringslösning för en virtuell dator kan du hoppa över det här steget.
 
 1. På menyn till vänster väljer du **Virtuella datorer** och väljer en virtuell dator på listan
-1. På den vänstra menyn, under avsnittet **Åtgärder** klickar du på **Inventering**. Sidan **Ändringsspårning och inventering** öppnas.
+1. På den vänstra menyn, under avsnittet **ÅTGÄRDER** klickar du på **Inventering**. Sidan **Ändringsspårning** öppnas.
 
-Verifieringen utförs för att fastställa om Ändringsspårning och inventering är aktiverat för den här virtuella datorn.
-Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen är i arbetsytan.
+![Aktivera ändring](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Skärmen **Ändringsspårning** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Hybrid Worker.
+Under publiceringen etableras den virtuella datorn med MMA och Hybrid Worker.
 Den här agenten används för att kommunicera med den virtuella datorn och hämta information om installerad programvara.
-Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
-
-Om förutsättningarna inte uppfylls visas en banderoll som ger dig möjlighet att aktivera lösningen.
-
-![Publicering av konfigurationsbanderoll för Ändringsspårning och Inventering](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Klicka på banderollen för att aktivera lösningen.
-Om några av följande krav saknades efter verifieringen läggs de till automatiskt:
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta
-* [Automation](./automation-offering-get-started.md)
-* En [Hybrid runbook worker](./automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
-
-Skärmen **Ändringsspårning och inventering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
-
-![Aktivera fönstret Lösning för ändringsspårning](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
 När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Log Analytics.
 Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Använda Ändringsspårning i Log Analytics
 
@@ -107,40 +89,47 @@ I fönstret **Arbetsytekonfiguration** lägger du till Windows-registernycklarna
 1. På fliken **Windows-registret** väljer du **Lägg till**.
     Fönstret **Lägg till Windows-register för ändringsspårning** öppnas.
 
-   ![Ändringsspårning – lägg till register](./media/automation-vm-change-tracking/change-add-registry.png)
+3. I **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och klickar på **Spara**
 
-2. Under **Aktiverad** väljer du **True**.
-3. I rutan **Objektnamn** anger du ett eget namn.
-4. (Valfritt) I rutan **Grupp** anger du ett gruppnamn.
-5. I rutan **Windows-registernyckel** anger du namnet på den registernyckel du vill spåra.
-6. Välj **Spara**.
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Enabled     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Lägga till en Windows-fil
 
 1. På fliken **Windows-filer** väljer du **Lägg till**. Fönstret **Lägg till Windows-fil för ändringsspårning** öppnas.
 
-   ![Ändringsspårning – lägg till Windows-fil](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. I **Lägg till Windows-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-2. Under **Aktiverad** väljer du **True**.
-3. I rutan **Objektnamn** anger du ett eget namn.
-4. (Valfritt) I rutan **Grupp** anger du ett gruppnamn.
-5. I rutan **Ange sökväg** anger du det fullständiga namnet på sökvägen och filen du vill spåra.
-6. Välj **Spara**.
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Enabled     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”       |
 
 ### <a name="add-a-linux-file"></a>Lägga till en Linux-fil
 
 1. På fliken **Linux-filer** väljer du **Lägg till**. Fönstret **Lägg till Linux-fil för ändringsspårning** öppnas.
 
-   ![Ändringsspårning – lägg till Linux-fil](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. I **Lägg till Linux-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**
 
-2. Under **Aktiverad** väljer du **True**.
-3. I rutan **Objektnamn** anger du ett eget namn.
-4. (Valfritt) I rutan **Grupp** anger du ett gruppnamn.
-5. I rutan **Ange sökväg** anger du det fullständiga namnet på sökvägen och filen du vill spåra.
-6. I rutan **Typ av sökväg** väljer du antingen **Fil** eller **Katalog**.
-7. Under **Rekursion** väljer du **Av** för att spåra ändringar för den angivna sökvägen och alla filer och sökvägar under den. Om du endast vill spåra den valda sökvägen eller filen väljer du **Av**.
-8. Under **Använd Sudo** väljer du **På** för att spåra filer som kräver kommandot `sudo` för åtkomst. Annars väljer du **Av**.
-9. Välj **Spara**.
+|Egenskap  |Beskrivning  |
+|---------|---------|
+|Enabled     | Fastställer om inställningen tillämpas        |
+|Objektnamn     | Eget namn på filen som ska spåras        |
+|Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |
+|Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är Fil och Katalog        |
+|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
+|Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
+|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – Ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger<br>**Följ** – Följer de symboliska länkarna under rekursion och inkluderar refererade filer/kataloger<br>**Hantera** – Följer de symboliska länkarna och tillåter ändring av behandling av returnerat innehåll      |
+
+   > [!NOTE]   
+   > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
 
 ## <a name="enable-activity-log-connection"></a>Aktivera aktivitetslogganslutning
 
@@ -188,4 +177,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till översikten över lösningen för ändringsspårning och inventering för att läsa mer om det.
 
 > [!div class="nextstepaction"]
-> [Ändringshantering och inventeringslösning](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Ändringshantering och inventeringslösning](automation-change-tracking.md)

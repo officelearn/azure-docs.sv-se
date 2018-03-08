@@ -14,18 +14,18 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: ad022eb8d3a0a22e679962d75c05eed799976ece
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Den här självstudien beskriver steg för steg hur du implementerar en enkel leveranstjänst för videoinnehåll med Azure Media Services med hjälp av Java-klientens SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krävs för att kunna genomföra kursen:
 
@@ -42,7 +42,7 @@ Om ditt byggverktyg till exempel är `gradle` så lägger du till följande bero
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->Från och med `azure-media` paketversion `0.9.8` har SDK lagt till stöd för Azure Active Directory (AAD)-autentisering och tagit bort stöd för autentisering med Azure Access Control Service (ACS). ACS-tjänsterna kommer att bli inaktuella den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt. Läs artikeln [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Ansluta till API:et för Azure Media Services med Azure AD-autentisering) för mer information om migrering.
+>Från och med `azure-media`-paketversion `0.9.8` har stöd för AAD-autentisering (Azure Active Directory) lagts till i SDK, och stödet för ACS-autentisering (Azure Access Control) har tagits bort. ACS-tjänsterna kommer att bli inaktuella den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt. Läs artikeln [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Ansluta till API:et för Azure Media Services med Azure AD-autentisering) för mer information om migrering.
 
 >[!NOTE]
 >Du hittar källkoden för Azure Media Services Java SDK i [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Se till att växla till grenen 0,9 och inte till mastergrenen. 
@@ -66,6 +66,7 @@ Du kan skapa ett Azure AD-program och hämta föregående konfigurationsvärden 
 
 Koden förlitar sig även på en lokalt lagrad videofil. Du måste redigera koden för att ange en egen lokal fil att ladda upp.
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -298,7 +299,7 @@ Koden förlitar sig även på en lokalt lagrad videofil. Du måste redigera kode
             }
         }
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
 
@@ -30,10 +30,11 @@ I efterföljande självstudier distribuerar du programmet Azure Vote till klustr
 
 I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Aktivera förhandsversionen av AKS i din Azure-prenumeration
+## <a name="enable-aks-preview"></a>Aktivera AKS-förhandsversion
+
 Så länge AKS tillhandahålls i förhandsversion måste du lägga till en funktionsflagga i prenumerationen för att få skapa nya kluster. Du kan begära den här funktionen i valfritt antal prenumerationer. Använd kommandot `az provider register` för att registrera AKS-providern:
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -77,10 +78,32 @@ Resultat:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 När självstudien är utförd har du ett AKS-kluster som är redo för arbetsbelastningar. I senare självstudier distribuerar du ett program med flera behållare i det här klustret, skalar ut programmet, uppdaterar och övervakar det.
+
+## <a name="configure-acr-authentication"></a>Konfigurera ACR-autentisering
+
+Autentisering måste konfigureras mellan AKS-klustret och ACR-registret. Detta innebär att du beviljar tillräcklig behörighet till ACS-identiteten för att hämta avbildningar från ACR-registret.
+
+Först hämtar du ID:t för tjänstens huvudnamn som konfigurerats för AKS. Uppdatera resursgruppens namn och AKS-klusternamnet så att de matchar din miljö.
+
+```azurecli
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+Hämta ACR-registrets resurs-id. Uppdatera registernamnet till ACR-registrets namn och resursgruppen till den resursgrupp där ACR-registret finns.
+
+```azurecli
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Skapa rolltilldelningen, vilket ger lämplig åtkomst.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Prestandametodtips för SQL Server på virtuella Azure-datorer
 
@@ -171,4 +171,4 @@ Vissa distributioner kan uppnå ytterligare prestandafördelarna med mer avancer
 
 Metodtips för säkerhet, se [säkerhetsaspekter för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Granska andra artiklar för virtuell dator med SQL Server på [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md).
+Granska andra artiklar för virtuell dator med SQL Server på [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md). Om du har frågor om SQL Server-datorer finns i [vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).

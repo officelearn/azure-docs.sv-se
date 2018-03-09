@@ -1,5 +1,5 @@
 ---
-title: "Matchar villkoren för Azure CDN regelmotor | Microsoft Docs"
+title: Azure CDN regler motorn matchar villkoren | Microsoft Docs
 description: "I referensdokumentationen för Azure Content Delivery Network regler motorn matchar villkoren."
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Matchar villkoren för Azure CDN regelmotor
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN regelmotor matchar villkoren 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
 
 Den andra delen av en regel är matchar villkoret. En matchar villkoret identifierar vissa typer av begäranden som en uppsättning funktioner kommer att utföras.
@@ -71,7 +71,7 @@ Begäran matchar villkoren identifiera förfrågningar baserat på deras egenska
 Namn | Syfte
 -----|--------
 [Klientens IP-adress](#client-ip-address) | Identifierar förfrågningar som kommer från en viss IP-adress.
-[Cookie-Parameter](#cookie-parameter) | Kontrollerar cookies som är associerade med varje begäran för det angivna värdet.
+[Cookie Parameter](#cookie-parameter) | Kontrollerar cookies som är associerade med varje begäran för det angivna värdet.
 [Cookie-parametern Regex](#cookie-parameter-regex) | Kontrollerar cookies som är associerade med varje begäran för det angivna reguljära uttrycket.
 [Edge Cname](#edge-cname) | Identifierar begäranden som pekar på en specifik kant CNAME-post.
 [Refererande domän](#referring-domain) | Identifierar begäranden som har hänvisats från de angivna värdnamn.
@@ -308,7 +308,7 @@ En WURFL funktion accepterar vanligtvis en kombination av siffror, bokstäver oc
 Typ     | Beskrivning
 ---------|------------
 Literalen  | Välj det här alternativet för att förhindra att de flesta tecken tar på särskild innebörd med hjälp av sina [teckenvärde](cdn-rules-engine-reference.md#literal-values).
-Jokertecken | Välj det här alternativet om du vill dra nytta av alla [jokertecken] ([jokertecken värden](cdn-rules-engine-reference.md#wildcard-values).
+Wildcard | Välj det här alternativet om du vill dra nytta av alla [jokertecken] ([jokertecken värden](cdn-rules-engine-reference.md#wildcard-values).
 Regex    | Välj det här alternativet att använda [reguljära uttryck](cdn-rules-engine-reference.md#regular-expressions). Reguljära uttryck är användbara för att definiera ett mönster med tecken.
 
 #### <a name="wurfl-capabilities"></a>WURFL funktioner
@@ -321,26 +321,26 @@ I följande tabell visas WURFL funktioner och deras variabler för regler-motorn
 
 Funktion | Variabel | Beskrivning | Exempelvärden
 -----------|----------|-------------|----------------
-Varumärke | % {wurfl_cap_brand_name} | En sträng som anger namnet på enheten. | Samsung
-Enhetens OS | % {wurfl_cap_device_os} | En sträng som anger operativsystemet installerat på enheten. | IOS
-Operativsystemsversion för enhet | % {wurfl_cap_device_os_version} | En sträng som anger versionsnumret för operativsystemet installerat på enheten. | 1.0.1
-Dubbla orientering | % {wurfl_cap_dual_orientation} | Ett booleskt värde som anger om enheten har stöd för dubbel orientering. | sant
-HTML önskad DTD | % {wurfl_cap_html_preferred_dtd} | En sträng som anger den mobila enheten prioriterade dokumenttypsdefinition (DTD) för HTML-innehåll. | ingen<br/>xhtml_basic<br/>HTML5
-Bild Inlining | % {wurfl_cap_image_inlining} | Ett booleskt värde som anger om enheten stöder Base64-kodade bilder. | falskt
-Är Android | % {wurfl_vcap_is_android} | Ett booleskt värde som anger om enheten använder i Android OS. | sant
-Är IOS | % {wurfl_vcap_is_ios} | Ett booleskt värde som anger om enheten använder iOS. | falskt
-Är Smart TV | % {wurfl_cap_is_smarttv} | Ett booleskt värde som anger om enheten är en smart TV. | falskt
-Är Smartphone | % {wurfl_vcap_is_smartphone} | Ett booleskt värde som anger om enheten är en smartphone. | sant
-Är Tablet | % {wurfl_cap_is_tablet} | Ett booleskt värde som anger om enheten är en surfplatta. Den här beskrivningen är oberoende av Operativsystemet. | sant
-Är trådlösa enheter | % {wurfl_cap_is_wireless_device} | Ett booleskt värde som anger om enheten betraktas som en trådlös enhet. | sant
-Marknadsföring namn | % {wurfl_cap_marketing_name} | En sträng som anger marknadsföring enhetsnamn. | BlackBerry 8100 Pearl
-Mobila webbläsare | % {wurfl_cap_mobile_browser} | En sträng som anger den webbläsare som används för att begära innehåll från enheten. | Chrome
-Mobila webbläsarversion | % {wurfl_cap_mobile_browser_version} | En sträng som anger versionen av webbläsaren som används för att begära innehåll från enheten. | 31
-Modellnamnet | % {wurfl_cap_model_name} | En sträng som anger enhetens namn. | S3
-Progressiv hämtning | % {wurfl_cap_progressive_download} | Ett booleskt värde som anger om enheten har stöd för uppspelning av ljud och video medan den hämtas fortfarande. | sant
-Utgivningsdatum | % {wurfl_cap_release_date} | En sträng som anger år och månad då enheten har lagts till WURFL-databasen.<br/><br/>Format:`yyyy_mm` | 2013_december
-Lösning höjd | % {wurfl_cap_resolution_height} | Ett heltal som anger enhetens höjd i bildpunkter. | 768
-Lösning bredd | % {wurfl_cap_resolution_width} | Ett heltal som anger enhetens bredd i bildpunkter. | 1024
+Varumärke | %{wurfl_cap_brand_name} | En sträng som anger namnet på enheten. | Samsung
+Enhetens OS | %{wurfl_cap_device_os} | En sträng som anger operativsystemet installerat på enheten. | IOS
+Operativsystemsversion för enhet | %{wurfl_cap_device_os_version} | En sträng som anger versionsnumret för operativsystemet installerat på enheten. | 1.0.1
+Dubbla orientering | %{wurfl_cap_dual_orientation} | Ett booleskt värde som anger om enheten har stöd för dubbel orientering. | true
+HTML önskad DTD | %{wurfl_cap_html_preferred_dtd} | En sträng som anger den mobila enheten prioriterade dokumenttypsdefinition (DTD) för HTML-innehåll. | ingen<br/>xhtml_basic<br/>html5
+Bild Inlining | %{wurfl_cap_image_inlining} | Ett booleskt värde som anger om enheten stöder Base64-kodade bilder. | false
+Is Android | %{wurfl_vcap_is_android} | Ett booleskt värde som anger om enheten använder i Android OS. | true
+Är IOS | %{wurfl_vcap_is_ios} | Ett booleskt värde som anger om enheten använder iOS. | false
+Är Smart TV | %{wurfl_cap_is_smarttv} | Ett booleskt värde som anger om enheten är en smart TV. | false
+Är Smartphone | %{wurfl_vcap_is_smartphone} | Ett booleskt värde som anger om enheten är en smartphone. | true
+Är Tablet | %{wurfl_cap_is_tablet} | Ett booleskt värde som anger om enheten är en surfplatta. Den här beskrivningen är oberoende av Operativsystemet. | true
+Är trådlösa enheter | %{wurfl_cap_is_wireless_device} | Ett booleskt värde som anger om enheten betraktas som en trådlös enhet. | true
+Marknadsföring namn | %{wurfl_cap_marketing_name} | En sträng som anger marknadsföring enhetsnamn. | BlackBerry 8100 Pearl
+Mobila webbläsare | %{wurfl_cap_mobile_browser} | En sträng som anger den webbläsare som används för att begära innehåll från enheten. | Chrome
+Mobila webbläsarversion | %{wurfl_cap_mobile_browser_version} | En sträng som anger versionen av webbläsaren som används för att begära innehåll från enheten. | 31
+Modellnamnet | %{wurfl_cap_model_name} | En sträng som anger enhetens namn. | s3
+Progressiv hämtning | %{wurfl_cap_progressive_download} | Ett booleskt värde som anger om enheten har stöd för uppspelning av ljud och video medan den hämtas fortfarande. | true
+Utgivningsdatum | %{wurfl_cap_release_date} | En sträng som anger år och månad då enheten har lagts till WURFL-databasen.<br/><br/>Format: `yyyy_mm` | 2013_december
+Lösning höjd | %{wurfl_cap_resolution_height} | Ett heltal som anger enhetens höjd i bildpunkter. | 768
+Lösning bredd | %{wurfl_cap_resolution_width} | Ett heltal som anger enhetens bredd i bildpunkter. | 1024
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -466,12 +466,12 @@ Viktig information:
 ---
 ### <a name="request-method"></a>Metod för begäran
 Metoden matchar villkoret är uppfyllt endast när tillgångar har begärts via metoden begäran som valts. Begäran om tillgängliga metoderna är:
-- GET
+- HÄMTA
 - HUVUDET 
 - POST 
 - ALTERNATIV 
-- PUT 
-- DELETE 
+- PLACERA 
+- TA BORT 
 - SPÅRNING 
 - ANSLUTA 
 
@@ -593,7 +593,7 @@ Den här matchar villkor när den hittar URL: er som slutar med följande filnam
 - ASP
 - .aspx
 - .php
-- .HTML
+- .html
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -754,10 +754,10 @@ Exempel konfigurationer i tabellen nedan förutsätter att den här matchar vill
 Värde                   | Relativt till    | Resultat 
 ------------------------|----------------|-------
 */test.HTML */test.php  | Rot- eller ursprung | Det här mönstret matchas av begäranden för tillgångar med namnet ”test.html” eller ”test.php” i en mapp.
-/ 80ABCD/ursprung/text / *   | Rot           | Det här mönstret matchas när den begärda tillgången uppfyller följande kriterier: <br />-Det måste finnas på en kund ursprung som kallas ”ursprung”. <br />-Den relativa sökvägen måste börja med en mapp med namnet ”text”. Det vill säga kan den begärda tillgången finnas antingen i mappen ”text” eller en av dess rekursiv undermappar.
+/80ABCD/origin/text/*   | Rot           | Det här mönstret matchas när den begärda tillgången uppfyller följande kriterier: <br />-Det måste finnas på en kund ursprung som kallas ”ursprung”. <br />-Den relativa sökvägen måste börja med en mapp med namnet ”text”. Det vill säga kan den begärda tillgången finnas antingen i mappen ”text” eller en av dess rekursiv undermappar.
 */CSS/* */js/*          | Rot- eller ursprung | Det här mönstret matchas av alla CDN eller edge CNAME-adresser som innehåller en css- eller js mapp.
 *.jpg *.gif *.png       | Rot- eller ursprung | Det här mönstret matchas av alla CDN eller edge CNAME URL: er med JPG, GIF eller .png. Ett annat sätt att ange det här mönstret är med i [URL-sökvägen tillägget matchar villkoret](#url-path-extension).
-/ bilder / * / media / *      | Ursprung         | Det här mönstret matchas av CDN eller edge CNAME-URL: er vars relativa sökvägar som börjar med en mapp ”bilder” eller ”media”. <br />-CDN URL: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/images/sales/event1.png<br />-Exempel edge CNAME-URL: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/* /media/*      | Ursprung         | Det här mönstret matchas av CDN eller edge CNAME-URL: er vars relativa sökvägar som börjar med en mapp ”bilder” eller ”media”. <br />-CDN URL: http:\//wpc.0001.&lt; Domän&gt;/800001/myorigin/images/sales/event1.png<br />-Exempel edge CNAME-URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -781,10 +781,10 @@ Viktig information:
     
 - Vissa tecken kräver URL-kodning. Använd procentandel symbolen till URL: en koda följande tecken:
 
-   Tecken | URL-kodning
+   Tecken | URL Encoding
    ----------|---------
-   Blanksteg     | % 20
-   &         | % 25
+   Blanksteg     | %20
+   &         | %25
 
 - På grund av det sätt som i vilken cache inställningar spåras är det här matchar villkoret inte kompatibel med följande funktioner:
    - Slutföra Cache Fill
@@ -817,10 +817,10 @@ Viktig information:
    - Varje parameter värdet mönster kan bestå av en eller flera asterisker (*), där varje asterisk kan matcha en sekvens med ett eller flera tecken.
    - Vissa tecken kräver URL-kodning. Använd procentandel symbolen till URL: en koda följande tecken:
 
-       Tecken | URL-kodning
+       Tecken | URL Encoding
        ----------|---------
-       Blanksteg     | % 20
-       &         | % 25
+       Blanksteg     | %20
+       &         | %25
 
 - Ange parametervärden för flera frågan sträng genom att avgränsa dem med ett blanksteg. Den här matchar villkoret är uppfyllt när en begäran innehåller ett av de angivna namnvärde kombinationerna.
 
@@ -832,9 +832,9 @@ Viktig information:
 
      - Den här konfigurationen matchar följande sträng frågeparametrar:
 
-       Parameter1 = ValueA
+       Parameter1=ValueA
     
-       Parameter1 = ValueB
+       Parameter1=ValueB
 
    - Exempel 2:
 
@@ -844,9 +844,9 @@ Viktig information:
 
      - Den här konfigurationen matchar följande sträng frågeparametrar:
 
-       Parameter1 = värde % 20A
+       Parameter1=Value%20A
 
-       Parameter1 = värde % 20B
+       Parameter1=Value%20B
 
 - Den här matchar villkoret är uppfyllt när det finns en exakt matchning i minst en av de angivna fråga sträng namn/värde-kombinationerna.
 
@@ -894,10 +894,10 @@ Viktig information:
     
 - Vissa tecken kräver URL-kodning. Använd procentandel symbolen till URL: en koda följande tecken:
 
-   Tecken | URL-kodning | Värde
+   Tecken | URL Encoding | Värde
    ----------|--------------|------
-   Blanksteg     | % 20          | \%20
-   &         | % 25          | \%25
+   Blanksteg     | %20          | \%20
+   &         | %25          | \%25
 
    Observera att procentandel symboler måste hoppas.
 
@@ -936,10 +936,10 @@ Viktig information:
    - Varje parameter värdet mönster kan bestå av en eller flera asterisker (*), där varje asterisk kan matcha en sekvens med ett eller flera tecken.
    - Vissa tecken kräver URL-kodning. Använd procentandel symbolen till URL: en koda följande tecken:
 
-     Tecken | URL-kodning
+     Tecken | URL Encoding
      ----------|---------
-     Blanksteg     | % 20
-     &         | % 25
+     Blanksteg     | %20
+     &         | %25
 
 - Ange flera värden genom att avgränsa dem med ett blanksteg.
 
@@ -962,7 +962,7 @@ I följande exempel visar hur det här alternativet fungerar i vissa situationer
  Namn                 | Beskrivning
  ---------------------|------------
 användare = joe              | Det här mönstret matchas när frågesträngen för en begärd URL är ”? användare = joe”.
-\*användare =\* \*optout =\* | Det här mönstret matchas när CDN URL-frågan innehåller användaren eller optout parametern.
+\*user=\* \*optout=\* | Det här mönstret matchas när CDN URL-frågan innehåller användaren eller optout parametern.
 
 [Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 

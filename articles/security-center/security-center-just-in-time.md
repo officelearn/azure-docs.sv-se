@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Hantera virtuella åtkomst med hjälp av precis i tid (förhandsgranskning)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera virtuella åtkomst med hjälp av precis i tid
 
 Precis i tid virtuell dator (VM) kan åtkomst användas för att låsa inkommande trafik till din virtuella Azure-datorer minskar risken för attacker och enkel åtkomst till att ansluta till virtuella datorer när de behövs.
 
 > [!NOTE]
-> Den bara i tiden funktionen är i förhandsvisning och finns på standardnivån av Security Center.  Se [priser](security-center-pricing.md) att lära dig mer om Security Center prisnivåer.
+> Den bara i tiden funktionen är tillgänglig på standardnivån av Security Center.  Se [priser](security-center-pricing.md) att lära dig mer om Security Center prisnivåer.
 >
 >
 
@@ -33,7 +33,7 @@ Precis i tid virtuell dator (VM) kan åtkomst användas för att låsa inkommand
 
 Brute force-attacker ofta målportar för hantering som ett sätt att få åtkomst till en virtuell dator. Om det lyckas, kan en angripare ta kontroll över den virtuella datorn och upprätta en fot i din miljö.
 
-Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa den tid som en port är öppen. Hanteringsportar behöver inte vara öppen när som helst. De behöver bara vara öppen när du är ansluten till den virtuella datorn, till exempel för att utföra uppgifter för hantering och underhåll. När precis i tid är aktiverat, Security Center använder [Nätverkssäkerhetsgruppen](../virtual-network/virtual-networks-nsg.md) (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
+Ett sätt att minska risken för ett nyckelsökningsangrepp är att begränsa den tid som en port är öppen. Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När precis i tid är aktiverat, Security Center använder [Nätverkssäkerhetsgruppen](../virtual-network/virtual-networks-nsg.md) (NSG) regler som begränsar åtkomsten till hanteringsportar och de inte kan riktas av angripare.
 
 ![Precis i tid scenario][1]
 
@@ -60,14 +60,14 @@ Den **precis i tid VM access** öppnas.
 
 ![Precis i tid VM åtkomst panelen][10]
 
-**Just-in-time-åtkomst för VM** innehåller information om tillståndet för dina virtuella datorer:
+**Just-in-time-åtkomst till virtuell dator** tillhandahåller information om dina virtuella datorers status:
 
-- **Konfigurerad** -virtuella datorer som har konfigurerats för att stödja just-in-time VM-åtkomst. Data som visas för den senaste veckan och innehåller antalet godkända begäranden, datumet och tiden och senast användare för varje virtuell dator.
-- **Rekommenderade** -virtuella datorer som stöder just-in-time-åtkomst för VM men inte har konfigurerats att. Vi rekommenderar att du aktiverar precis i tid VM åtkomstkontroll för dessa virtuella datorer. Se [konfigurerar bara i tid åtkomstprincip](#configuring-a-just-in-time-access-policy).
-- **Ingen rekommendation** -orsaker till att en virtuell dator inte till rekommenderas är:
-  - NSG - på samma sätt som saknas i tid lösning kräver en NSG ska vara på plats.
-  - Klassiska VM - Security Center just-in-time-åtkomst för VM stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager. Klassisk distribution stöds inte av den bara i Tidslösning.
-  - Andra - en virtuell dator finns i den här kategorin om den bara i tid lösningen har inaktiverats i säkerhetsprincipen för prenumerationen eller resursgruppen och att den virtuella datorn saknar en offentlig IP-adress och inte har en NSG på plats.
+- **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer. Data som visas för den senaste veckan och innehåller antalet godkända begäranden, datumet och tiden och senast användare för varje virtuell dator.
+- **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det. Vi rekommenderar att du aktiverar precis i tid VM åtkomstkontroll för dessa virtuella datorer. Se [konfigurerar bara i tid åtkomstprincip](#configuring-a-just-in-time-access-policy).
+- **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
+  - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
+  - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager. Klassisk distribution stöds inte av den bara i Tidslösning.
+  - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Konfigurera bara i tid åtkomstprincip
 

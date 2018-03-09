@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Viktiga funktioner och koncept i Azure-stacken
 
@@ -91,6 +91,7 @@ Prenumerationer kan organisera och åtkomst till molnresurser och tjänster.
 
 För administratören skapas en prenumeration på Default leverantör under distributionen. Den här prenumerationen kan användas för att hantera Azure-stacken, distribuera ytterligare resursproviders och skapa planer och erbjudanden för klienter. Det bör inte användas för att köra kundens arbetsbelastningar och program. 
 
+
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Med Azure Resource Manager kan arbeta du med din för infrastrukturresurser i en mallbaserade deklarativ modell.   Det ger ett enda gränssnitt som du kan använda för att distribuera och hantera dina komponenter. Fullständig information och anvisningar finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ Azure Queue Storage innehåller molnmeddelandehantering mellan programkomponente
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP ger hantering och granskning av hemligheter, till exempel lösenord och certifikat. Exempelvis kan en klient använda KeyVault RP ange administratörslösenord eller nycklar under distribution av Virtuella datorer.
+
+## <a name="high-availability-for-azure-stack"></a>Hög tillgänglighet för Azure-stacken
+*Gäller för: Azure Stack 1802 eller senare versioner*
+
+För att uppnå hög tillgänglighet för en multi-VM produktionssystem i Azure placeras virtuella datorer i en tillgänglighetsuppsättning som sprids dem över flera feldomäner och update-domäner. På så sätt kan [virtuella datorer som distribueras i tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) är fysiskt isolerade från varandra på separata serverrack att tillåta för återhämtning av fel som visas i följande diagram:
+
+  ![Azure Stack hög tillgänglighet](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Tillgänglighet anger i Azure-stacken
+När infrastrukturen i Azure-stacken är redan motståndskraftiga mot fel, den underliggande tekniken (failover clustering) fortfarande ådrar sig vissa avbrott för virtuella datorer på en fysisk server som påverkas om ett maskinvarufel. Azure-stacken stöder med en tillgänglighetsuppsättning med högst tre feldomäner överensstämmer med Azure.
+
+- **Fault domäner**. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer vara fysiskt isolerade från varandra genom att sprida dem jämnt som möjligt över flera feldomäner (Azure Stack noder). I händelse av ett maskinvarufel kommer virtuella datorer från misslyckade feldomänen att startas om om andra feldomäner, men om möjligt sparas i separata feldomäner från de andra virtuella datorerna i samma tillgänglighetsuppsättning. När maskinvaran är tillbaka online, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet. 
+ 
+- **Uppdatera domäner**. Uppdatera domäner är ett annat Azure koncept som ger hög tillgänglighet i tillgänglighetsuppsättningar. En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan genomgår underhåll på samma gång. Virtuella datorer finns i samma uppdateringsdomän startas tillsammans under planerat underhåll. Eftersom klienter kan du skapa virtuella datorer i en tillgänglighetsuppsättning, Azure-plattformen automatiskt distribuerar virtuella datorer mellan dessa uppdatera domäner. I Azure-stacken är live migreras över online värddatorerna i klustret innan den underliggande värden uppdateras. Eftersom det inte finns inget driftstopp klient under en uppdatering av värden, finns funktionen domän på Azure-stacken endast för kompatibilitet med Azure. 
+
+### <a name="upgrade-scenarios"></a>Uppgraderingsscenarier 
+Virtuella datorer i tillgänglighetsuppsättningar innan Azure Stack version 1802 ges ett antal fel och uppdatera domäner standard (1 och 1 respektive). För att uppnå hög tillgänglighet för virtuella datorer i dessa befintliga tillgänglighetsuppsättningar, måste du först ta bort de befintliga virtuella datorerna och distribuera dem till en ny tillgänglighetsuppsättning med rätt fel- och update domän antal enligt beskrivningen i [ändringen i tillgänglighetsuppsättning för en Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+Skalningsuppsättningar, en tillgänglighetsuppsättning har skapats internt med en standard domän och uppdatera feldomänsantalet (3 och 5 respektive). Alla VM skala innan 1802 uppdateringen kommer att placeras i en tillgänglighetsuppsättning med antal för standard-fel och uppdatera domän anger (1 och 1 respektive). Skala ut skalningsuppsättningar efter antalet instanser som fanns före uppdateringen av 1802 och ta sedan bort de äldre instanserna av skalningsuppsättningar om du vill uppdatera dessa VM scale set-instanser för att uppnå nyare spridning. 
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
 Du kan använda RBAC för att bevilja åtkomst till systemet till behöriga användare, grupper och tjänster genom att tilldela dem roller på en prenumeration, resursgrupp eller enskild resurs. Varje roll definierar den åtkomstnivå som en användare, grupp eller tjänst har över Microsoft Azure-stacken resurser.

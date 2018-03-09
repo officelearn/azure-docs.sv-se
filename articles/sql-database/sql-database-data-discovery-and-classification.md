@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasinformation identifiering och klassificering
 Identifiering av data & klassificering (för närvarande i förhandsversion) ger avancerade funktioner finns inbyggda i Azure SQL Database för **identifiera**, **klassificera**, **etiketter**  &  **skyddar** känsliga data i databasen.
@@ -95,12 +95,12 @@ Klassificeringen innehåller två metadataattribut:
 
 En viktig del av information protection paradigmet är möjligheten att övervaka åtkomsten till känsliga data.
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar känslighet klassificeringar (etiketter) den faktiska data som returnerades av frågan.
+[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) har förbättrats så att ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar känslighet klassificeringar (etiketter) den faktiska data som returnerades av frågan.
 
 ![Navigeringsfönstret][11]
 
 ## <a id="subheading-4"></a>Nästa steg
-Överväg att konfigurera [Azure SQL Database Auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) för övervakning och granskning av åtkomst till dina klassificerad känsliga data.
+Överväg att konfigurera [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) för övervakning och granskning av åtkomst till dina klassificerad känsliga data.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

@@ -1,6 +1,6 @@
 ---
 title: Skydda dina personliga data med Azure identitets- och kontroller | Microsoft Docs
-description: "Med hjälp av Azure identitets- och kontroller för att hjälpa dig att skydda dina personliga data"
+description: "Azure identitets- och styr hjälper dig att skydda personliga data och kan vara till hjälp som överensstämmer med allmänna Data Protection förordning (BNPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory och Multi-Factor Authentication: skydda personuppgifter med identitets- och kontroller
 
-Den här artikeln innehåller information och procedurer som du kan använda för att skydda personliga data med Azure Active Directory och Multi-Factor authentication-säkerhetsfunktioner och tjänster.
+Den här artikeln innehåller information och procedurer som du kan använda för att skydda personliga data med Azure Active Directory och Multi-Factor authentication-säkerhetsfunktioner och tjänster. Informationen i den här artikeln kan vara användbart i du ansträngningar för att vara kompatibel med allmänna Data Protection förordning (BNPR).
 
 ## <a name="scenario"></a>Scenario
 

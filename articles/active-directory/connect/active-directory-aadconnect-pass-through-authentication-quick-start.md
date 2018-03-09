@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory direkt-autentisering: Snabbstart
 
@@ -116,20 +116,38 @@ I det här skedet kan användare från alla hanterade domäner i din klient logg
 
 ## <a name="step-5-ensure-high-availability"></a>Steg 5: Garantera hög tillgänglighet
 
-Om du planerar att distribuera direkt autentisering i en produktionsmiljö bör du installera en fristående autentiseringsagent. Installera Agent på den här andra autentisering på en server _andra_ än en körs Azure AD Connect och första autentiseringsagent. Den här inställningen ger hög tillgänglighet för begäranden att logga in. Följ instruktionerna för att distribuera en fristående autentiseringsagent:
+Om du planerar att distribuera direkt autentisering i en produktionsmiljö bör du installera minst en mer fristående autentiseringsagent. Installerar dessa autentisering-agenter på servrar _andra_ än en körs Azure AD Connect. Den här inställningen ger hög tillgänglighet för inloggning användarförfrågningar.
 
-1. Hämta den senaste versionen av agenten för autentisering (version 1.5.193.0 eller senare). Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med globala administratörsbehörigheter för din klient.
+Följ dessa instruktioner för att hämta autentiseringsagent programvaran:
+
+1. Hämta den senaste versionen av agenten för autentisering (version 1.5.193.0 eller senare), logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med globala administratörsbehörigheter för din klient.
 2. Välj **Azure Active Directory** i den vänstra rutan.
 3. Välj **Azure AD Connect**väljer **direkt autentisering**, och välj sedan **hämta Agent**.
 4. Välj den **accepterar villkoren och ladda ned** knappen.
-5. Installera den senaste versionen av agenten autentisering genom att köra den körbara filen som hämtades i föregående steg. Ange din klient global administratörsautentiseringsuppgifter när du tillfrågas.
 
 ![Azure Active Directory Administrationscenter: hämta autentiseringsagent knappen](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory Administrationscenter: hämta Agent-fönstret](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Du kan också hämta de [Azure Active Directory Authentication agenten](https://aka.ms/getauthagent). Se till att du granskar och godkänner den autentiseringsagent [användarvillkoren](https://aka.ms/authagenteula) _innan_ installera den.
+>Du kan också direkt hämta programmet autentiseringsagent [här](https://aka.ms/getauthagent). Granska och Godkänn den autentiseringsagent [användarvillkoren](https://aka.ms/authagenteula) _innan_ installera den.
+
+Det finns två sätt att distribuera en fristående autentiseringsagent:
+
+Först måste kan du göra det interaktivt genom att bara köra den hämtade autentiseringsagent körbara och anger autentiseringsuppgifter global administratör för din klient när du uppmanas.
+
+Därefter kan du skapa och köra ett distributionsskript för obevakad. Detta är användbart när du vill distribuera flera autentisering agenter samtidigt eller installera agenter för autentisering på Windows-servrar som inte har aktiverat användargränssnittet eller som du kan inte komma åt med fjärrskrivbord. Här följer instruktioner om hur du använder den här metoden:
+
+1. Kör följande kommando för att installera en Agent för autentisering: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Du kan registrera agenten autentisering med vår tjänst med hjälp av Windows PowerShell. Skapa ett PowerShell-autentiseringsuppgifter objekt `$cred` som innehåller en global administratörsanvändarnamn och lösenord för din klient. Kör följande kommando ersätter  *\<användarnamn\>*  och  *\<lösenord\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Gå till **C:\Program Files\Microsoft Azure AD Connect autentiseringsagent** och kör följande skript med den `$cred` objekt som du skapat:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Nästa steg
 - [Smartkort kontoutelåsning](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Lär dig hur du konfigurerar Smart kontoutelåsning kapaciteten på din klient skydda användarkonton.

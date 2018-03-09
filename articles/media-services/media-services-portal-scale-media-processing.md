@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Ändra den reserverade enhetstypen
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Om du vill hämta den senaste versionen av Java SDK och börja utveckla med Java Se [komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure paketet i den [Packagist databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Översikt
 
@@ -54,11 +54,10 @@ Om du vill ändra vilken enhet och antalet reserverade enheter måste du göra f
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. I den **inställningar** väljer **mediereserverade enheter**.
    
-    Du kan ändra antalet reserverade enheter för den valda reserverade enhetstypen den **Media hanteras enheter** skjutreglaget.
+    Du kan ändra antalet reserverade enheter för den valda reserverade enhetstypen den **Media hanteras enheter** skjutreglaget längst upp på skärmen.
    
-    Så här ändrar du den **RESERVERADE ENHETSTYP**, tryck på S1, S2 och S3.
+    Så här ändrar du den **RESERVERADE ENHETSTYP**, klickar du på den **hastighet reserverade enheter** fältet. Markera den prisnivå som du behöver: S1, S2 och S3.
    
-    ![Sidan processorer](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Tryck på knappen SPARA för att spara ändringarna.
    
     Nya reserverade enheter tilldelas när du trycker på Spara.

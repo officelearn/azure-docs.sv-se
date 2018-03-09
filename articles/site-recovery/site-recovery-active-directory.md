@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
 
@@ -73,7 +73,7 @@ För att undvika påverkan på produktionsarbetsbelastningar, inträffar testa r
 
 De flesta program kräver förekomsten av en domänkontrollant eller en DNS-server. Därför innan programmet växlar, måste du skapa en domänkontrollant i isolerat nätverk som ska användas för att testa redundans. Det enklaste sättet att göra detta är att använda Site Recovery replikera en virtuell dator som är värd för en domänkontrollant eller DNS. Sedan kör ett redundanstest för den domain controller virtuella datorn innan du kör ett redundanstest av återställningsplan för programmet. Här visas hur du gör det:
 
-1. Använd Site Recovery [replikera](site-recovery-replicate-vmware-to-azure.md) den virtuella datorn som är värd för domänkontrollanten eller DNS.
+1. Använd Site Recovery [replikera](vmware-azure-tutorial.md) den virtuella datorn som är värd för domänkontrollanten eller DNS.
 2. Skapa ett isolerat nätverk. Alla virtuella nätverk som du skapar i Azure är isolerad från andra nätverk som standard. Vi rekommenderar att du använder samma IP-adressintervallet för det här nätverket som du använder i företagets nätverk. Aktivera inte plats-till-plats-anslutning i nätverket.
 3. Ange ett DNS-IP-adress i isolerat nätverk. Använd IP-adressen som du förväntar dig att den virtuella datorn i DNS-få. Om du replikerar till Azure kan du ange IP-adressen för den virtuella datorn som används vid redundans. Ange IP-adressen i den replikerade virtuella datorn i den **beräknings- och nätverksinställningar** inställningar, väljer den **mål-IP** inställningar.
 

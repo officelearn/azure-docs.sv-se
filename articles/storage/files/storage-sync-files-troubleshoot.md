@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -51,7 +51,7 @@ Granska installer.log om du vill ta reda på orsaken till att installationen mis
 Överför PDC-rollen till en annan domän domänkontrollanten kör Windows Server 2012 R2 eller senare för att lösa, och sedan installera synkronisering.
 
 <a id="agent-installation-websitename-failure"></a>**Agentinstallationen misslyckas med felet: ”lagring Sync Agent guiden avslutades för tidigt”**  
-Det här problemet kan inträffa om standardnamnet för IIS-webbplatsen har ändrats. Undvik det här problemet Byt namn på standardwebbplatsen för IIS som ”Default Web Site” och försök installera igen. Problemet korrigeras i en kommande uppdatering av agenten. 
+Det här problemet kan uppstå med version 1.x agent och om IIS-webbplatsen standard namn ändras. Undvik problemet genom att använda våra 2.0.11+-agenten.
 
 <a id="server-registration-missing"></a>**Servern visas under registrerade servrar i Azure-portalen**  
 Om en server inte visas **registrerade servrar** för en tjänst för synkronisering av lagring:

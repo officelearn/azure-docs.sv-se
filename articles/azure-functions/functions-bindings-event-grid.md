@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Händelseutlösare rutnät för Azure Functions
 
@@ -33,6 +33,16 @@ Om du vill kan kan du använda en HTTP-utlösare för att hantera händelsen rut
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Paket
+
+Händelsen rutnätet utlösaren har angetts i den [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet. Källkoden för paketet är i den [azure-funktioner-eventgrid-tillägget](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub-lagringsplatsen.
+
+Paketet används för [C# class library development](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) och [fungerar v2 bindning tilläggsregistrering](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
+
+<!--
+If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
+-->
+
 ## <a name="example"></a>Exempel
 
 Se språkspecifika exemplet för en händelse rutnätet utlösare:
@@ -45,24 +55,58 @@ Ett HTTP-utlösaren exempel finns [hur du använder HTTP-utlösaren](#use-an-htt
 
 ### <a name="c-example"></a>C#-exempel
 
-Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som loggar vissa fält som är gemensamma för alla händelser och alla händelsespecifika data.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som binder till `JObject`:
 
 ```cs
-[FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Company.Function
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        {
+            log.Info(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
 }
 ```
 
-Den `EventGridTrigger` attribut har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+<!--
+The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        {
+            log.Info("C# Event Grid function processed a request.");
+            log.Info($"Subject: {eventGridEvent.Subject}");
+            log.Info($"Time: {eventGridEvent.EventTime}");
+            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+        }
+    }
+}
+```
+-->
+
+Mer information finns i [paket](#packages), [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
 
 ### <a name="c-script-example"></a>Exempel på C#-skript
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen loggar vissa fält som är gemensamma för alla händelser och alla händelsespecifika data.
+I följande exempel visas en utlösare-bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
 
 Här är de bindande data den *function.json* fil:
 
@@ -79,12 +123,30 @@ Här är de bindande data den *function.json* fil:
 }
 ```
 
-Här är skriptkod C#:
+Här är C# skriptkod som binder till `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+<!--
+Here's C# script code that binds to `EventGridEvent`:
 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
+#r "Microsoft.Azure.EventGrid"
+
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+Using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
@@ -94,10 +156,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
     log.Info($"Data: {eventGridEvent.Data.ToString()}");
 }
 ```
+-->
+
+Mer information finns i [paket](#packages), [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen loggar vissa fält som är gemensamma för alla händelser och alla händelsespecifika data.
+I följande exempel visas en utlösare-bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen.
 
 Här är de bindande data den *function.json* fil:
 
@@ -128,13 +193,13 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) attribut.
 
 Här är ett `EventGridTrigger` attribut i en signatur:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] EventGridEvent eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
 {
     ...
 }
@@ -154,7 +219,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="usage"></a>Användning
 
-För C# och F #, ange utlösaren indata ska vara `EventGridEvent` eller en anpassad typ. För en anpassad typ försöker Functions-runtime parsa händelsen JSON att ange objektets egenskaper.
+Du kan använda följande parametertyper för händelsen rutnätet utlösaren för C# och F # funktioner är:
+
+* `JObject`
+* `string`
+* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`-Definierar egenskaperna för fält som är gemensamma för alla händelsetyper. **Den här typen är inaktuell**, men dess ersättare inte publicerats till NuGet ännu.
 
 För JavaScript-funktioner med namnet parametern med det *function.json* `name` egenskapen har en referens till event-objektet.
 
@@ -315,7 +384,7 @@ Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [curl](http
 * Efter att URL-Adressen för händelsen rutnätet utlösaren-funktionen med följande mönster:
 
 ```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 Den `functionName` parametern måste vara namnet som angetts i den `FunctionName` attribut.
@@ -376,7 +445,7 @@ Ngrok URL: en få inte särskild hantering av händelse rutnätet så att din fu
 Skapa en händelse rutnätet prenumeration av den typ som du vill testa och ge den ngrok slutpunkten, med hjälp av följande mönster:
 
 ```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
+https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
 
 Den `functionName` parametern måste vara namnet som angetts i den `FunctionName` attribut.

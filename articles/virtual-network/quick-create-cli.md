@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ff27d557f221be61a7384f6aaf6e57cef5cebb81
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
 
@@ -153,4 +153,4 @@ az group delete --name myResourceGroup --yes
 Du har distribuerat en standard virtuellt nätverk med ett undernät i den här artikeln. Mer information om hur du skapar en anpassad virtuellt nätverk med flera undernät, även fortsättningsvis självstudierna för att skapa egna virtuella nätverk.
 
 > [!div class="nextstepaction"]
-> [Skapa en anpassad virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Skapa en anpassad virtuellt nätverk](virtual-networks-create-vnet-arm-cli.md)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Olika administrativa roll i Azure Active Directory-PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +50,7 @@ Privileged Identity Management kan du tilldela användare till vanliga administr
   > 
 * **Administratör för användarhantering** återställer lösenord, övervakar tjänstens hälsa och hanterar användarkonton, användargrupper och tjänstbegäranden. Användaren management admin kan inte ta bort en global administratör, skapa andra administratörsroller eller återställa lösenord för faktureringsadministratörer, globala och tjänsten administratörer.
 * **Exchange-administratören** har administrativ åtkomst till Exchange Online via administrationscentret för Exchange (EAC) och kan utföra nästan alla uppgifter i Exchange Online.
-* **SharePoint-administratör** har administrativ åtkomst till SharePoint Online via administrationscentret för SharePoint Online och kan utföra nästan alla uppgifter i SharePoint Online.
+* **SharePoint-administratör (förhandsgranskning)** har administrativ åtkomst till SharePoint Online via administrationscentret för SharePoint Online och kan utföra nästan alla uppgifter i SharePoint Online. Den här rollen är för närvarande under förhandsgranskning. Behöriga användare kan uppstå fördröjningar som använder den här rollen i SharePoint efter aktivering i PIM.
 * **Skype för företag administratör** har administrativ åtkomst till Skype för företag genom Skype för företag administrationscentret och kan utföra nästan alla uppgifter i Skype för företag – Online.
 
 Läs följande artiklar innehåller mer information om [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles-azure-portal.md) och [Tilldela administratörsroller i Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).

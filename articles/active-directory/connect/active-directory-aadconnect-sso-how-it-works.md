@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0a28cd9016588d266670aa5a7fcbdd854d7ebce0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: tekniska ingående
 
@@ -26,9 +26,10 @@ Den här artikeln får du teknisk information till hur funktionen Azure Active D
 
 ## <a name="how-does-seamless-sso-work"></a>Hur fungerar sömlös SSO?
 
-Det här avsnittet har två delar:
+Det här avsnittet har tre delar:
 1. Inställningarna för sömlös SSO-funktionen.
-2. Hur fungerar en enskild användare logga in transaktion med sömlös SSO.
+2. Hur fungerar en enskild användare logga in transaktion i en webbläsare med sömlös SSO.
+3. Hur fungerar en enskild användare logga in transaktion på en intern klient med sömlös SSO.
 
 ### <a name="how-does-set-up-work"></a>Hur ställa in arbete?
 
@@ -43,30 +44,52 @@ Sömlös SSO aktiveras med Azure AD Connect enligt [här](active-directory-aadco
 >[!IMPORTANT]
 >Hög rekommenderar vi att du [rulla över krypteringsnyckel Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) av den `AZUREADSSOACC` datorkonto minst var 30 dagar.
 
-### <a name="how-does-sign-in-with-seamless-sso-work"></a>Hur logga in med sömlös SSO arbete?
+När inställningen är klar fungerar sömlös SSO på samma sätt som alla andra inloggning som använder integrerad Windows Windowsautentisering (IWA).
 
-När inställningen är klar fungerar sömlös SSO på samma sätt som alla andra inloggning som använder integrerad Windows Windowsautentisering (IWA). Flödet är följande:
+### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>Hur logga in i en webbläsare med sömlös SSO arbete?
 
-1. Användaren försöker komma åt ett program (till exempel Outlook Web App - https://outlook.office365.com/owa/) från en domänansluten företagets enheter i företagsnätverket.
+Flödet i en webbläsare är följande:
+
+1. Användaren försöker komma åt ett webbprogram (till exempel Outlook Web App - https://outlook.office365.com/owa/) från en domänansluten företagets enheter i företagsnätverket.
 2. Om användaren inte redan har signerats omdirigeras användaren till sidan för Azure AD.
+3. Användaren skriver sitt användarnamn till inloggningssidan för Azure AD.
 
   >[!NOTE]
-  >Om Azure AD-inloggning begäran innehåller en `domain_hint` (identifiera klient - till exempel, contoso.onmicrosoft.com) eller `login_hint` (identifiera användare – till exempel user@contoso.onmicrosoft.com eller user@contoso.com) parametern sedan steg 2 hoppas över.
+  >För [vissa program](./active-directory-aadconnect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steg 2 och 3 hoppas över.
 
-3. Användaren skriver sitt användarnamn till inloggningssidan för Azure AD.
 4. Azure AD anropar med hjälp av JavaScript i bakgrunden, webbläsaren via ett 401 obehörig svar att tillhandahålla en Kerberos-biljett.
 5. Webbläsaren kan i sin tur begär en tjänstbiljett från Active Directory för den `AZUREADSSOACC` datorkontot (som representerar Azure AD).
 6. Active Directory hittar datorkontot och returnerar en Kerberos-biljett till webbläsaren som krypterats med det datorkonto hemlighet.
-7. Webbläsaren vidarebefordrar Kerberos-biljetten som hämtades från Active Directory till Azure AD (på en av de [Azure AD-URL: er tidigare lagts till i webbläsarens intranät Zoninställningar](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+7. Webbläsaren vidarebefordrar Kerberos-biljetten som hämtades från Active Directory till Azure AD.
 8. Azure AD dekrypterar Kerberos-biljett, som innehåller identiteten hos användaren loggat in på företagets enheter med tidigare delad nyckel.
 9. Efter utvärderingen, Azure AD returnerar en token tillbaka till programmet eller ombeds användaren att utföra ytterligare bevis, till exempel Multi-Factor Authentication.
 10. Om användaren loggar in lyckas kan användaren komma åt programmet.
 
 Följande diagram illustrerar alla komponenter och steg som ingår.
 
-![Sömlös för enkel inloggning](./media/active-directory-aadconnect-sso/sso2.png)
+![Sömlös enkel inloggning på - Web app-flöde](./media/active-directory-aadconnect-sso/sso2.png)
 
 Sömlös SSO är opportunistisk, vilket innebär att om det misslyckas inloggningen faller tillbaka till sitt vanliga beteende - dvs, användaren måste ange sitt lösenord för inloggning.
+
+### <a name="how-does-sign-in-on-a-native-client-with-seamless-sso-work"></a>Hur logga in på en intern klient med sömlös SSO arbete?
+
+Flödet på en intern klient är följande:
+
+1. Användaren försöker komma åt ett program (till exempel Outlook-klienten) som skapades från en domänansluten företagets enheter i företagsnätverket.
+2. Om användaren inte redan har signerats hämtar det ursprungliga programmet användarnamnet för användaren från enhetens Windows-sessioner.
+3. Appen skickar användarnamnet till Azure AD och hämtar din klient WS-Trust MEX-slutpunkt.
+4. Appen frågar sedan WS-Trust MEX-slutpunkt för att se om integrerad autentisering slutpunkt är tillgänglig.
+5. Om steg 4 lyckas, utfärdas en Kerberos-utmaning.
+6. Om appen är att hämta Kerberos-biljetten vidarebefordrar det upp till Azure AD-integrerad autentisering slutpunkt.
+7. Azure AD dekrypterar Kerberos-biljetten och validerar den.
+8. Loggar användaren i Azure AD och utfärdar en SAML-token till appen.
+9. Appen skickar sedan SAML-token till Azure AD OAuth2-token för slutpunkt.
+10. Azure AD validerar SAML-token och skickar till appen med en åtkomst-token och en uppdateringstoken för den angivna resursen en id-token.
+11. Användaren får åtkomst till appens resurs.
+
+Följande diagram illustrerar alla komponenter och steg som ingår.
+
+![Sömlös enkel inloggning - inbyggd app-flöde](./media/active-directory-aadconnect-sso/sso14.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

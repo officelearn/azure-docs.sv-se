@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med din IoT-hubb med MQTT-protokollet
 
@@ -100,6 +100,8 @@ Om en enhet inte kan använda enheten SDK: er, kan den fortfarande ansluta till 
 
 MQTT ansluta och koppla från paket, IoT-hubb utfärdar en händelse på den **Operations Monitoring** kanal. Den här händelsen har ytterligare information som kan hjälpa dig att felsöka problem med nätverksanslutningen.
 
+Enheten appen kan ange en **kommer** meddelande i den **Anslut** paket. Enhetsapp ska använda `devices/{device_id}/messages/events/{property_bag}` eller `devices/{device_id}/messages/events/{property_bag}` som den **kommer** avsnittsnamn definiera **kommer** meddelanden ska vidarebefordras som meddelandet telemetri. I det här fallet om nätverksanslutningen är stängt, men en **FRÅNKOPPLING** paket togs inte emot tidigare från enheten, IoT-hubb och skickar sedan den **kommer** meddelandet som anges i den **Anslut** paket telemetri-kanalen. Telemetri kanalen kan vara antingen standard **händelser** slutpunkt eller en anpassad slutpunkt som definieras av IoT-hubb routning. Meddelandet har den **iothub MessageType** egenskapen med värdet **kommer** kopplade till den.
+
 ### <a name="tlsssl-configuration"></a>TLS/SSL-konfiguration
 
 För att använda MQTT direkt, protokollet klienten *måste* ansluta över TLS/SSL. Försöker hoppa över det här steget misslyckas med anslutningen.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Detta `{property_bag}` -elementet använder samma kodning som frågesträngar i HTTPS-protokollet.
 
-Appen enheten kan också använda `devices/{device_id}/messages/events/{property_bag}` som den **kommer avsnittsnamn** att definiera *kommer meddelanden* vidarebefordras som meddelandet telemetri.
+Följande är en lista över IoT-hubb implementering-specifika funktioner:
 
 * IoT-hubben har inte stöd för QoS-2-meddelanden. Om en enhetsapp publicerar ett meddelande med **QoS 2**, IoT-hubb stänger nätverksanslutningen.
 * IoT-hubb sparas inte behålla meddelanden. Om en enhet skickar ett meddelande med den **behålla** -flaggan inställd på 1, IoT-hubb lägger till den **x-opt-behålla** programegenskapen i meddelandet. I det här fallet i stället för att spara behålla meddelandet skickar IoT-hubb den till backend-app.

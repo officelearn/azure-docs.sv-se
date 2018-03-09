@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 02/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artiklar i Utvecklarhandbok för Azure AD
 Följande är en lista över alla avsnitt som beskrivs i Utvecklarhandbok för Azure Active Directory.
@@ -43,6 +43,7 @@ Dessa artiklar beskriver specifika begrepp och funktioner i Azure Active Directo
 | [Office 365-instrumentpanel för försäljning](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Hur du publicerar ett program på instrumentpanelen för försäljning O365 |
 | [Visual Studio anslutna tjänster](vs-active-directory-dotnet-getting-started.md)                                               | Hur du använder Azure AD-integrering med MVC-projekt i Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Hur du integrerar med lokala Active Directory med AD FS |
+| [Metodtips för felhantering för ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Hur du integrerar med lokala Active Directory med AD FS |
 
 ## <a name="reference"></a>Referens
 Dessa artiklar innehåller en grund för REST och autentiseringsbibliotek, protokoll, fel, kodexempel och slutpunkter.

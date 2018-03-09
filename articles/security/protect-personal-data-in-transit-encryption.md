@@ -1,6 +1,6 @@
 ---
 title: "Skydda personliga data under överföringen med kryptering i Azure | Microsoft Docs"
-description: "Använder kryptering i Azure för att skydda personliga data"
+description: "information om Azure kryptering skyddar personuppgifter kan vara användbart i ansträngningar för att vara kompatibel med allmänna Data Protection förordning (BNPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure krypteringstekniker: skydda personliga data under överföringen med kryptering
 
-Den här artikeln hjälper dig att förstå och använda Azure krypteringstekniker att skydda data under överföringen. 
-
-Skydd av personliga data över nätverket är en viktig del av en flera lager skydd på djupet säkerhetsstrategi. Kryptering under överföring är utformat för att hindra en angripare fångar upp överföringar från att visa eller använda data.
+Den här artikeln hjälper dig att förstå och använda Azure krypteringstekniker att skydda data under överföringen. Skydd av personliga data över nätverket är en viktig del av en flera lager skydd på djupet säkerhetsstrategi. Kryptering under överföring är utformat för att hindra en angripare fångar upp överföringar från att visa eller använda data. Informationen i den här artikeln kan vara användbart i en organisation ansträngningar för att följa med allmänna Data Protection förordning (BNPR).
 
 ## <a name="scenario"></a>Scenario
 

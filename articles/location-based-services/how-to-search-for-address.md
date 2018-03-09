@@ -2,17 +2,17 @@
 title: "Hur du söker efter en adress med hjälp av Azure baserad platstjänster (förhandsgranskning) söktjänsten | Microsoft Docs"
 description: "Lär dig att söka efter en adress med Azure plats baserat Services (förhandsversion) söktjänsten"
 services: location-based-services
-keywords: "Inte lägga till eller Redigera nyckelord utan samråd med din SEO-champ."
-author: philmea
-ms.author: philmea
+keywords: "Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Så här hittar du en adress som använder tjänsten Azure baserad platstjänster (förhandsgranskning) Search
 Söktjänsten är en RESTful uppsättning API: er som utformats för utvecklare att söka efter adresser, platser, punkter av intresse, företag och andra geografisk information. Söktjänsten tilldelar latitud/longitud till en specifik adress mellan gata, geografiska funktion eller intressant (POI). Latitud och longitud värden som returneras av söktjänsten API: er kan användas som parametrar i andra Azure baserad platstjänster, till exempel flödet och trafiken flödar API: er.
@@ -40,7 +40,7 @@ De flesta sökningar som standard ' maxFuzzyLevel = 1' för att få prestanda oc
 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Fråge-URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Auktorisering | Ingen autentisering |
 
@@ -92,7 +92,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Fråge-URL | https://atlas.microsoft.com/search/address/json? |
     | Auktorisering | Ingen autentisering |
 
@@ -119,7 +119,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | typeahead | sant |
+    | typeahead | true |
 
     Den **typeahead** flaggan talar om Sök-API-adress för att behandla frågan som en partiell indata och returnerar en matris med förutsägande värden.
 
@@ -132,7 +132,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Fråge-URL | https://atlas.microsoft.com/search/address/reverse/json? |
     | Auktorisering | Ingen autentisering |
     
@@ -154,7 +154,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | nummer | sant |
+    | nummer | true |
 
     Om den [nummer](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter skickas med begäran, svaret kan omfatta sida av gata (åt vänster och höger) och en offset position för talet.
     
@@ -162,7 +162,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | spatialKeys | sant |
+    | spatialKeys | true |
 
     När den [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts, svaret innehåller egna geo-spatiala viktig information för en angiven plats.
 
@@ -170,7 +170,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | returnSpeedLimit | sant |
+    | returnSpeedLimit | true |
     
     När den [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts returnerar svaret för anslagna hastighetsgränsen.
 
@@ -178,7 +178,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | returnRoadUse | sant |
+    | returnRoadUse | true |
 
     När den [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts, svaret returnerar väg Använd matris för reversegeocodes på Gata nivå.
 
@@ -186,7 +186,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
 
     | Nyckel | Värde |
     |-----|------------|
-    | roadUse | sant |
+    | roadUse | true |
 
     Du kan begränsa omvänd geocode frågan till en viss typ av väg användning med den [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern.
     
@@ -200,7 +200,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Fråge-URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Auktorisering | Ingen autentisering |
     

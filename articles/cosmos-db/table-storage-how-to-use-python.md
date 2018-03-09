@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mimig
-ms.openlocfilehash: 2c8c7dc6d3bdb6ba34818d7e36739297cffbe2d2
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Kom igång med Azure Table storage med hjälp av Python
 
@@ -42,7 +42,7 @@ När du arbetar via scenarier i den här kursen får du vill referera till den [
 Du behöver följande för att slutföra den här kursen:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 eller 3,6
-- [Azure Cosmos DB tabell SDK 1.01 för Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK ansluter med både Azure Table storage och Azure Cosmos DB tabell API.
+- [Azure Cosmos DB tabell SDK för Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK ansluter med både Azure Table storage och Azure Cosmos DB tabell API.
 - [Azure Storage-konto](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) eller [Azure DB som Cosmos-konto](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]

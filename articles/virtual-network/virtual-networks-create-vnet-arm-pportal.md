@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Skapa ett virtuellt nätverk med flera undernät med Azure-portalen
 
@@ -41,7 +41,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Välj **+ skapa en resurs** i övre vänstra hörnet på Azure-portalen.
 2. Välj **nätverk**, och välj sedan **för virtuella nätverk**.
-3. I följande bild visas ange *myVirtualNetwork* för **namn**, **myResourceGroup** för **resursgruppen**, *Offentliga* för undernätet **namn**, 10.0.0.0/24 för undernätet **adressintervall**, Välj en **plats** och  **Prenumerationen**återstående standardvärdena och välj sedan **skapa**:
+3. I följande bild visas ange *myVirtualNetwork* för **namn**, *10.0.0.0/16* för **adressutrymmet**, ** myResourceGroup** för **resursgruppen**, *offentliga* för undernätet **namn**, 10.0.0.0/24 för undernätet **adressintervall**väljer en **plats** och **prenumeration**återstående standardvärdena och välj sedan **skapa**:
 
     ![Skapa ett virtuellt nätverk](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -146,7 +146,7 @@ De virtuella datorerna som skapats i den här artikeln har ett [nätverksgränss
     Även om en virtuell dator inte är nödvändigt att ha en offentlig IP-adress som tilldelats, tilldelar Azure en offentlig IP-adress till varje virtuell dator som du skapar som standard. För att kommunicera från Internet till en virtuell dator, måste en offentlig IP-adress tilldelas till den virtuella datorn. Alla virtuella datorer kan kommunicera utgående med Internet, oavsett om en offentlig IP-adress har tilldelats den virtuella datorn. Mer information om utgående Internet-anslutningar i Azure finns [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. På din egen dator går du till den offentliga IP-adressen för den *myVmWeb* virtuella datorn. Det går inte att försöka Se IIS välkomstsidan från din dator. Försöket misslyckas eftersom när de virtuella datorerna har distribuerats Azure skapas en nätverkssäkerhetsgrupp för varje virtuell dator som standard. 
 
-     En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Nätverkssäkerhetsgruppen standard nekar all inkommande trafik från Internet via alla portar för Windows-datorer måste acceptera TCP-port 3389 (RDP). Därför kan som standard kan du också RDP direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 3389 öppen på en webbserver. Eftersom webbsurfning kommunicerar via port 80, misslyckas kommunikation från Internet eftersom det inte finns någon regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
+     En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande och utgående nätverkstrafik genom porten och IP-adress. Standard-nätverkssäkerhetsgruppen Azure skapas tillåter kommunikation via alla portar mellan resurser i samma virtuella nätverk. Windows-datorer nekar nätverkssäkerhetsgruppen standard all inkommande trafik från Internet via alla portar, utom TCP-port 3389 (RDP). Därför kan som standard kan du också RDP direkt till den *myVmWeb* virtuell dator från Internet, även om du inte vill port 3389 öppen på en webbserver. Eftersom webbsurfning kommunicerar via port 80, misslyckas kommunikation från Internet eftersom det inte finns någon regel i standard nätverkssäkerhetsgruppen tillåter trafik via port 80.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

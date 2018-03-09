@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Windows-operativsystemet i Service Fabric-kluster
 
@@ -136,7 +136,9 @@ Automatiska uppdateringar kan det leda till förlust av tillgänglighet eftersom
 
 ## <a name="download-the-app-package"></a>Hämta app-paket
 
-Hämta programmet från den [Hämta länk](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Program tillsammans med installationsskript kan hämtas från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Program i sfpkg format kan hämtas från [sfpkg länk](https://go.microsoft.com/fwlink/?linkid=869567). Detta är praktiskt för [Azure Resource Manager baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -361,8 +363,12 @@ En administratör måste ingripa och fastställa varför programmet eller kluste
 ### <a name="version-111"></a>Version 1.1.1
 - Fast ett programfel i SetupEntryPoint av NodeAgentService som förhindrade installationen av NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Version 1.2.0 (Latest)
+### <a name="version-120"></a>Version 1.2.0
 
 - Felkorrigeringar runt system starta om arbetsflödet.
 - Buggfix för att skapa RM uppgifter på grund av vilka hälsotillstånd Kontrollera under förberedelserna reparera uppgifter inte händer som förväntat.
 - Ändra startmetoden för windows-tjänst POANodeSvc från automatisk till fördröjd auto.
+
+### <a name="version-121-latest"></a>Version 1.2.1 (senaste)
+
+- Buggfix i klustret skala ned arbetsflöde. Introducerade skräp samling logik för upp reparera uppgifter som hör till obefintligt noder.

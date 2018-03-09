@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Hur du skapar och konfigurerar Self-hosted integrering Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla data integrationsmöjligheter mellan olika nätverksmiljöer. Mer information om IR finns [integrering Runtime översikt](concepts-integration-runtime.md).
@@ -65,6 +65,7 @@ Här är ett övergripande dataflöde för sammanfattning av steg för att kopie
 - Automatisk värdbaserade integration runtime måste användas för att stödja dataintegrering i Azure Virtual Network.
 - Hantera din datakälla som en lokal datakälla (som finns bakom en brandvägg) även om du använder **ExpressRoute**. Använda automatisk värdbaserade integration körningsmiljön för att upprätta en anslutning mellan service och datakällan.
 - Du måste använda automatisk värdbaserade integration runtime även om datalagret finns i molnet på ett **Azure IaaS-virtuella**.
+- Uppgifter kan misslyckas på en Self-hosted Integration som är installerad på en Windows-Server på vilken FIPS-kompatibla kryptering är aktiverat. Undvik problemet genom att inaktivera FIPS-kompatibla kryptering på servern.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -182,7 +183,7 @@ Integration runtime Host-tjänsten startas om automatiskt när du sparar de uppd
 När automatisk värdbaserade integration runtime har registrerats, om du vill visa eller uppdatera proxyinställningarna, använda Integration Runtime Configuration Manager.
 
 1.  Starta **Konfigurationshanteraren för Microsoft Integration Runtime**.
-2.  Växla till den **inställningar** fliken.
+2.  Växla till fliken **Settings** (Inställningar).
 3.  Klicka på **ändra** länken i **HTTP-Proxy** avsnittet för att starta den **ange HTTP-Proxy** dialogrutan.
 4.  När du klickar på den **nästa** knappen, visas ett varningsmeddelande som ber om din tillåtelse för att spara Proxyinställningen och starta om tjänsten Integration Runtime.
 

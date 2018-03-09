@@ -8,14 +8,14 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använd Ansible för att hantera dina Azure dynamiska inventeringar
-Ansible kan användas för att hämta inventeringsinformation från olika källor (inklusive molnet källor, till exempel Azure) till en *dynamiska inventering*. I den här artikeln använder du den [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tagga en de virtuella datorerna om du vill konfigurera en Ansible Azure dynamiska inventering som du skapar två virtuella datorer och installera Nginx på taggade virtuell dator.
+Ansible kan användas för att hämta inventeringsinformation från olika källor (inklusive molnet källor, till exempel Azure) till en *dynamiska inventering*. I den här artikeln använder du den [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tagga en av de virtuella datorerna för att konfigurera en Ansible Azure dynamiska inventering som du skapar två virtuella datorer och installera Nginx på taggade virtuell dator.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -59,11 +59,11 @@ Du kan [ordna dina Azure-resurser med hjälp av taggar](https://docs.microsoft.c
 Ange följande [az Resurstagg](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) kommando för att tagga den virtuella datorn `ansible-inventory-test-vm1` med nyckel `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Generera en dynamisk inventering
-När du har de virtuella datorerna definierade (och taggade), är det dags att generera den dynamiska inventeringen. Ansible innehåller en Python-skript som heter [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) som genererar en dynamisk inventering av Azure-resurser genom att göra API-begäranden till Azure Resource Manager. I följande steg beskriver hur du använder den `azure_rm.py` skript för att ansluta till två testa virtuell Azure-dator:
+När du har de virtuella datorerna definierade (och taggade), är det dags att generera den dynamiska inventeringen. Ansible innehåller en Python-skript som heter [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) som genererar en dynamisk inventering av Azure-resurser genom att göra API-begäranden till Azure Resource Manager. I följande steg beskriver hur du använder den `azure_rm.py` skript för att ansluta till två testa virtuella Azure-datorer:
 
 1. Använd GNU `wget` kommando för att hämta den `azure_rm.py` skript:
 

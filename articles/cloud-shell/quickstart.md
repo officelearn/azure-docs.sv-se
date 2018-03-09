@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabbstart för Bash i Azure-molnet Shell
 
@@ -37,7 +37,7 @@ Det här dokumentet beskriver hur du använder Bash i Azure Cloud-gränssnittet 
 > Du autentiseras automatiskt i varje sesssion för Azure CLI 2.0.
 
 ### <a name="select-the-bash-environment"></a>Välj Bash-miljö
-1. Välj den miljö som nedrullningsbara från den till vänster i fönstret shell <br>
+1. Välj den miljö nedrullningsbara från vänster sida av fönstret shell <br>
 ![](media/quickstart/env-selector.png)
 2. Välj Bash
 
@@ -65,7 +65,7 @@ Ditt användarnamn på den här virtuella datorn kommer att ditt användarnamn s
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH till den virtuella Linux-datorn
 1. Sök efter ditt namn på virtuell dator i Azure portal sökfältet
-2. Klicka på ”Anslut” och kör:`ssh username@ipaddress`
+2. Klicka på ”Anslut” och kör: `ssh username@ipaddress`
 
 ![](media/quickstart/sshcmd-copy.png)
 

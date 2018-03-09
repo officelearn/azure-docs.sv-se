@@ -1,6 +1,6 @@
 ---
 title: Skydda personliga data i Microsoft Azure | Microsoft Docs
-description: "Första artikeln i en serie artiklar som hjälper dig att använda Azure för att skydda personliga data"
+description: "Den här artikeln hjälper dig att använda Azure att skydda personliga data och överensstämma med allmänna Data Protection förordning (BNPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Skydda personliga data i Microsoft Azure
 
-Den här artikeln introducerar ett antal artiklar som hjälper dig använda Azure säkerhetstekniker och tjänster för att skydda personliga data. Detta är ett krav för många företag och industrin efterlevnad och styrning initiativ. Scenario, problem och företagets mål ingår.
+Den här artikeln introducerar ett antal artiklar som hjälper dig använda Azure säkerhetstekniker och tjänster för att skydda personliga data. Detta är ett krav för många företag och industrin efterlevnad och styrning initiativ. Exempelvis kan du använda informationen i den här serien med artiklar i enlighet med allmänna Data Protection förordning (BNPR). Scenario, problem och företagets mål ingår.
 
 ## <a name="scenario-and-problem-statement"></a>Scenariot och problembeskrivningen
 

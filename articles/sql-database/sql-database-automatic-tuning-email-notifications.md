@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postaviseringar för automatisk justering
 
 SQL-databas prestandajustering rekommendationer genereras av Azure SQL Database [automatisk justering](sql-database-automatic-tuning.md). Den här lösningen övervakar kontinuerligt och analyserar arbetsbelastningar för SQL-databaser att tillhandahålla anpassade justera rekommendationer för varje enskild databas som rör skapandet av index, ta bort indexet och optimering av frågeplaner för körning.
 
-SQL-databas automatisk justering rekommendationer som kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtas med [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) anropar eller med hjälp av [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln är baserad på använda ett PowerShell-skript för att hämta automatisk justering rekommendationer.
+SQL-databas automatisk justering rekommendationer som kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtas med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) anropar eller med hjälp av [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) kommandon. Den här artikeln är baserad på använda ett PowerShell-skript för att hämta automatisk justering rekommendationer.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatisera e-postaviseringar för automatisk justering rekommendationer
 
@@ -34,7 +34,7 @@ Följande lösning automatiserar sändning av e-postmeddelanden som innehåller 
 
 ## <a name="create-azure-automation-account"></a>Skapa en Azure Automation-konto
 
-Det första steget är att skapa ett automation-konto och konfigurera den med Azure-resurser ska användas för körning av PowerShell-skript för att använda Azure Automation. Läs mer om Azure Automation och dess funktioner i [komma igång med Azure automation](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Det första steget är att skapa ett automation-konto och konfigurera den med Azure-resurser ska användas för körning av PowerShell-skript för att använda Azure Automation. Läs mer om Azure Automation och dess funktioner i [komma igång med Azure automation](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Följ dessa steg om du vill skapa en Azure Automation-kontot via metoden för att välja och konfigurera Automation-app från Marketplace:
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill skapa en Azure Automation-kontot via metoden för at
 
 - En gång i ”Skapa ett Automation konto”-rutan klickar du på ”**skapa**”
 - Fyll i informationen som krävs: Ange ett namn för det här automatiseringskontot, Välj din Azure-prenumeration ID och Azure-resurser som ska användas för PowerShell-skriptkörning
-- För den ”**skapa kör som-kontot Azure**” väljer **Ja** så här konfigurerar du typ av konto under vilket PowerShell-skriptet körs med hjälp av Azure Automation. Mer information om kontotyper finns [kör som-konto](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- För den ”**skapa kör som-kontot Azure**” väljer **Ja** så här konfigurerar du typ av konto under vilket PowerShell-skriptet körs med hjälp av Azure Automation. Mer information om kontotyper finns [kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Avslutar skapandet av automation-kontot genom att klicka på **skapa**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Om du har flera Azure-prenumerationer som du vill skapa samma automatisering, m�
 
 ## <a name="update-azure-automation-modules"></a>Uppdatera Azure Automation-moduler
 
-PowerShell-skript för att hämta automatisk justering rekommendation använder [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) och [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) kommandon för vilka Azure-moduler att uppdatera den version 4 och senare krävs.
+PowerShell-skript för att hämta automatisk justering rekommendation använder [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) och [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) kommandon för vilka Azure-moduler att uppdatera den version 4 och senare krävs.
 
 Följ dessa steg om du vill uppdatera Azure PowerShell-moduler:
 
@@ -195,7 +195,7 @@ Skapa ett automation-flöde i Microsoft Flow som består av tre åtgärder (jobb
 2. ”**Azure Automation - Get-jobbutdata**” – används för att hämta utdata från det körda PowerShell-skriptet
 3. ”**Office 365 Outlook – skicka ett e-post**” – används för att skicka e-post. E-postmeddelanden skickas ut med Office 365-konto på den person som skapar flödet.
 
-Mer information om funktionerna i Microsoft Flow finns [komma igång med Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Mer information om funktionerna i Microsoft Flow finns [komma igång med Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Förutsättning för det här steget är att registrera dig för [Microsoft Flow](https://flow.microsoft.com) konto och logga in. En gång i lösningen, Följ dessa steg att ställa in en **nya flödet**:
 

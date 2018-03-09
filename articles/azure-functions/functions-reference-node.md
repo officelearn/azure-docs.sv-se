@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarhandbok för Azure Functions JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -118,10 +118,10 @@ Gör att du kan skriva till direktuppspelningsloggar konsolen på standardnivå 
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **fel (_meddelandet_)**   | Skriver till Felnivån loggningen eller lägre.   |
-| **Varna (_meddelandet_)**    | Skriver till varningsnivå loggningen eller lägre. |
-| **Info (_meddelandet_)**    | Skriver till info-nivån loggningen eller lägre.    |
-| **utförlig (_meddelandet_)** | Skriver till nivån utförlig loggning.           |
+| **error(_message_)**   | Skriver till Felnivån loggningen eller lägre.   |
+| **warn(_message_)**    | Skriver till varningsnivå loggningen eller lägre. |
+| **info(_message_)**    | Skriver till info-nivån loggningen eller lägre.    |
+| **verbose(_message_)** | Skriver till nivån utförlig loggning.           |
 
 I följande exempel skriver till konsolen vid spårningsnivån varning:
 
@@ -208,12 +208,12 @@ Den `request` objektet har följande egenskaper:
 
 | Egenskap      | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _brödtext_        | Ett objekt som innehåller brödtexten i begäran.               |
-| _rubriker_     | Ett objekt som innehåller huvuden för begäran.                   |
-| _metoden_      | HTTP-metod för begäran.                                |
+| _Brödtext_        | Ett objekt som innehåller brödtexten i begäran.               |
+| _Rubriker_     | Ett objekt som innehåller huvuden för begäran.                   |
+| _Metoden_      | HTTP-metod för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
-| _parametrar_      | Ett objekt som innehåller parametrar routning av begäran. |
-| _frågan_       | Ett objekt som innehåller Frågeparametrar.                  |
+| _Parametrar_      | Ett objekt som innehåller parametrar routning av begäran. |
+| _Frågan_       | Ett objekt som innehåller Frågeparametrar.                  |
 | _rawBody_     | Innehållet i meddelandet som en sträng.                           |
 
 
@@ -223,8 +223,8 @@ Den `response` objektet har följande egenskaper:
 
 | Egenskap  | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
-| _brödtext_    | Ett objekt som innehåller brödtexten i svaret.         |
-| _rubriker_ | Ett objekt som innehåller svarshuvuden.             |
+| _Brödtext_    | Ett objekt som innehåller brödtexten i svaret.         |
+| _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formateringen ignoreras för svaret.    |
 | _status_  | HTTP-statuskod i svaret.                     |
 
@@ -265,7 +265,15 @@ När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran och svar objek
     ```  
 
 ## <a name="node-version-and-package-management"></a>Version och package hantering
-Nod-versionen är låst på `6.5.0`. Vi undersöker att lägga till stöd för flera versioner och gör det konfigureras.
+
+I följande tabell visas Node.js-version som används av varje högre version av körningsmiljön funktioner:
+
+| Funktioner version | Node.js-version | 
+|---|---|
+| 1.x | 6.11.2 (låst av körningen) |
+| 2.x  |> = 8.4.0 med aktuella LTS 8.9.4 rekommenderas. Ange version med hjälp av WEBSITE_DEFAULT_NODE_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+Du kan se den aktuella versionen med hjälp av körningsmiljön genom att skriva ut `process.version` från någon funktion.
 
 Följande steg kan du inkludera paket i funktionen appen: 
 

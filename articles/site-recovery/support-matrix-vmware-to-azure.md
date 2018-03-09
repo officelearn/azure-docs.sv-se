@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
-ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 10d7db60ef584632a45fd7cdc5877461fa45af03
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -70,13 +70,13 @@ Operativsystemets (Linux) | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.
 
 **Komponent** | **Stöds**
 --- | ---
-Filsystem | ext3, ext4 ReiserFS (endast Suse Linux Enterprise Server), XFS
+Filsystem | ext3, ext4, XFS
 Volymhanterare | LVM2
-Programvara för flera sökvägar | Enheten Mapper
-Paravirtualized lagringsenheter | Enheter som exporteras av paravirtualized drivrutiner som inte stöds.
+Paravirtualized lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kön blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenheten HP CCISS | Stöds ej.
 Kataloger | Dessa kataloger (om konfigurerad som separata partitioner /-filsystem) måste vara på samma OS-disk på källservern: / (rot)-/ Boot/usr, /usr/local, /var, / etc. </br></br> Om / (rot) volymen är LVM volym och sedan/Boot måste finnas på en separat partition på samma disk och inte en LVM volym.<br/><br/>
+|Krav på ledigt diskutrymme| 2 GB på/Root-partition <br/>250 MB på installationsmappen
 XFSv5 | XFSv5 funktioner på XFS filsystem, till exempel metadata kontrollsumma, stöds från 9.10 version av Mobilitetstjänsten och senare. Använda verktyget xfs_info för att kontrollera XFS superblock för partitionen. Om ftype har angetts till 1, är funktioner för XFSv5 används.
 
 
@@ -171,7 +171,7 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven fö
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystemet | Kontrollera [operativsystem](#replicated machines). | Kravkontroll misslyckas om stöds inte.
+**Gästoperativsystemet** | Kontrollera [operativsystem](#replicated machines). | Kravkontroll misslyckas om stöds inte.
 **Gästen operativsystemets arkitektur** | 64-bitars | Kravkontroll misslyckas om stöds inte.
 **Storlek på operativsystemdisk** | Upp till 2 048 GB | Kravkontroll misslyckas om stöds inte.
 **Antal operativsystemdiskar** | 1 | Kravkontroll misslyckas om stöds inte.

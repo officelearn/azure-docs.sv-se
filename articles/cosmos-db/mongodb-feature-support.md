@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB-API-stöd för MongoDB-funktioner och syntax
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 Vänster förankrad uttryck kan indexsökning i $regex frågor. Dock med ”i” modifierare (detta) och 'M ' modifierare (multiline) medför samling genomsökningen i alla uttryck.
 När det är nödvändigt att innehålla '$' eller ' |', är det bäst att skapa två (eller fler) regex-frågor. Till exempel få följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})```, den måste ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Den första delen använder indexet för att begränsa sökningen till dessa dokument från och med ^ abc och den andra delen matchar exakt samma värden. I fältet operator ' |' fungerar som en ”eller” funktion - frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokument-whin vilket fält 'x' har ett värde som börjar med ”abc” eller ”def”. Om du vill använda indexet rekommenderar vi för att dela frågan i två olika frågor ansluten av $eller operatör: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Den första delen använder indexet för att begränsa sökningen till dessa dokument från och med ^ abc och den andra delen matchar exakt samma värden. I fältet operator ' |' fungerar som en ”eller” funktion - frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokument i vilka fält 'x' har värden som börjar med ”abc” eller ”def”. Om du vill använda indexet rekommenderar vi för att dela frågan i två olika frågor ansluten av $eller operatör: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Uppdatera operatorer
 

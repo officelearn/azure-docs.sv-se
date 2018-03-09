@@ -1,17 +1,23 @@
 
 
 
-**Dokumentera senaste uppdatering**: 22 januari 3:00 PM PST.
+**Dokumentera senaste uppdatering**: 6 mars 10:00 AM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  
 
 Den infrastruktur som kör Azure och isolerar kundens arbetsbelastningar från varandra är skyddad.  Detta innebär att andra kunder som körs på Azure inte kan angrepp ditt program med hjälp av dessa problem.
 
 > [!NOTE] 
-> Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den senaste [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen.
+> Sen februari 2018 Intel Corporation publicerade uppdaterade [mikrokod Revision vägledning](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) statusen för sina mikrokod-versioner som förbättrar stabiliteten och skyddar mot de senaste säkerhetsrisker som visas av [Google projektet noll](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Ändringar gjorda av Azure [3 januari 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) påverkas inte av Intels mikrokod uppdateringen. Microsoft placera redan starkt åtgärder som skyddar Azure-kunder från andra Azure-klienter.  
 >
-> Vi kommer att fortsätta att uppdatera tipsen som vi får mikrokod uppdateringar från maskinvarutillverkare. Kontrollera uppdaterade riktlinjer för.
+> Intels mikrokod adresser variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) att skydda mot attacker som endast är tillämpliga där du kör delade eller ej betrodda arbetsbelastningar i din virtuella dator på Azure. Våra tekniker testar stabiliteten för att minimera påverkan på prestanda för mikrokod innan du gör den tillgänglig för Azure-kunder.  Som ett fåtal kunder köra ej betrodda arbetsbelastningar inom deras virtuella datorer, behöver de flesta kunder inte aktivera den här funktionen ut en gång. 
 >
+> Den här sidan kommer att uppdateras när finns mer information.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Uppdatera ditt operativsystem kontinuerligt
 
@@ -43,7 +49,7 @@ Ingen ytterligare kunden åtgärd krävs om du inte kör icke betrodd kod. Om du
 
 
 ### <a name="windows"></a>Windows 
-Om du använder Windows och värd icke betrodd kod, bör du även aktivera en Windows-funktion som kallas Kernel virtuell adress (KVA) skuggning som ger ytterligare skydd mot spekulativ exekvering sida-kanal säkerhetsproblem. Den här funktionen är inaktiverad som standard och kan påverka prestanda om aktiverat. Följ [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruktioner för att aktivera skydd på servern. Om du använder Azure Cloud Services, kontrollera att du kör WA-GUEST-OS-5.15_201801-01 eller WA-GÄST-OS-4.50_201801-01 (tillgänglig från den 10 januari) och aktivera registret nyckel via en startaktivitet.
+Om du använder Windows och värd icke betrodd kod, bör du även aktivera en Windows-funktion som kallas Kernel virtuell adress (KVA) skuggning som ger ytterligare skydd mot spekulativ exekvering sida-kanal säkerhetsproblem. Den här funktionen är inaktiverad som standard och kan påverka prestanda om aktiverat. Följ [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instruktioner för att aktivera skydd på servern. Om du använder Azure Cloud Services, kontrollera att du kör WA-GÄST-OS-5.15_201801-01 eller WA-GUEST-OS-4.50_201801-01 (tillgänglig från på 10 januari 2018) och aktivera registret nyckel via en startaktivitet.
 
 
 ### <a name="linux"></a>Linux

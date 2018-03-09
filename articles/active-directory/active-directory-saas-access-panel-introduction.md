@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -67,6 +67,9 @@ Du kan interagera med de program som administratören har integrerat med katalog
 ## <a name="web-browser-requirements"></a>Webbläsarkrav
 
 Minst åtkomstpanelen kräver en webbläsare som stöder JavaScript och har aktiverat för CSS. Om du vill logga in på program via lösenordsbaserade enkel inloggning (SSO), måste du ha åtkomst till panelen tillägget installeras i webbläsaren. Tillägget laddas ned automatiskt när du väljer ett program som har konfigurerats för lösenordsbaserad enkel inloggning.
+
+Installationsprogrammet är arkitektur-specifik. Om du klickar på länken kan hämta du bara installationsprogrammet för OS-arkitektur som du för närvarande körs på. Om du är administratör för distribution av programmet, kontrollerar du att du besöker hämtningslänken från en 64-bitars och 32-bitars enheten för att få både installationsprogram.
+
 
 Tillägget för åtkomst-panelen är tillgängligt för:
 - **Edge**: på Windows 10 årsdagar Edition eller senare. 

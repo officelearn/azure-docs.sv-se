@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -34,7 +34,7 @@ Innan du börjar konfigurera hybrid Azure AD anslutna enheter i din miljö bör 
 
 Om du förlita dig på den [systemförberedelseverktyget (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), se till att du skapar bilder från en installation av Windows som inte ännu har registrerats med Azure AD.
 
-Alla domänanslutna enheter som kör Windows 10 årsdagar Update och Windows Server 2016 registreras automatiskt med Azure AD vid omstart av enheten eller användaren logga in när de konfigurationssteg som anges nedan är uppfyllda. Om automatisk registrering problemet inte är prioriterad eller eventuellt en kontrollerad distribution, följ instruktionerna i avsnittet kontrollen distribution och distributionen nedan först för att selektivt aktivera eller inaktivera automatisk distributionen innan du följer den andra konfigurationssteg.  
+Alla domänanslutna enheter som kör Windows 10 årsdagar Update och Windows Server 2016 registreras automatiskt med Azure AD vid omstart av enheten eller användaren logga in när de konfigurationssteg som anges nedan är uppfyllda. **Om problemet automatiskt registrera inte rekommenderas, eller om en kontrollerad distribution önskas**, följ instruktionerna i avsnittet ”steg 4: kontroll distribution och distribution” för att selektivt aktivera eller inaktivera automatisk distributionen innan följande andra konfigurationssteg.  
 
 För att förbättra läsbarhet beskrivningar, används det här avsnittet följande villkor: 
 
@@ -542,7 +542,7 @@ När du har slutfört nödvändiga steg är domänanslutna enheter redo att auto
 
 ### <a name="remarks"></a>Kommentarer
 
-- Du kan använda ett grupprincipobjekt för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer.
+- Du kan använda ett grupprincipobjekt för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer. **Om du inte vill att enheterna registreras automatiskt med Azure AD eller om du vill styra registreringen**, och du måste distribuera en grupprincip som inaktiverar automatisk registrering till dessa enheter först innan du börjar med konfigurationen steg. När du är klar konfigurerar, och när du är redo att testa, du måste distribuera grupprinciper för att aktivera automatisk registrering till testenheter och sedan till alla andra enheter som du väljer.
 
 - Windows 10 November 2015 Update kopplas automatiskt med Azure AD **endast** om grupprincipobjektet för distribution har angetts.
 

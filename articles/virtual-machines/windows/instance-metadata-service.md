@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -32,14 +32,14 @@ Azures instans Metadata Service är en REST-slutpunkt som är tillgängliga för
 > Den här tjänsten är **allmänt tillgänglig** i alla Azure-regioner.  Den tar emot uppdateringar för att exponera ny information om virtuell datorinstans regelbundet. Den här sidan visar den uppdaterade [datakategorier](#instance-metadata-data-categories) tillgängliga.
 
 ## <a name="service-availability"></a>Tjänsttillgänglighet
-Tjänsten är tillgänglig i alla allmänt tillgänglig alla Azure-regioner. Inte alla API-versionen kan finnas i alla Azure-regioner.
+Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Inte alla API-versionen kan finnas i alla Azure-regioner.
 
 Regioner                                        | Tillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alla allmänt tillgänglig Global Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02
+[Alla allmänt tillgänglig Global Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01, 2017-12-01(This version is not available in UK regions)
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02,2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02,2017-08-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02,2017-08-01
 
 Den här tabellen uppdateras när det finns uppdateringar av tjänsten och eller när nya versioner som stöds är tillgänglig
 
@@ -48,7 +48,7 @@ Om du vill testa tjänsten instans Metadata, skapa en virtuell dator från [Azur
 ## <a name="usage"></a>Användning
 
 ### <a name="versioning"></a>Versionshantering
-Tjänsten instans Metadata är en ny version. Versioner är obligatoriska och den aktuella versionen på Global Azure är `2017-08-01`. Aktuella versioner som stöds är (2017-04-02, 2017-08-01)
+Tjänsten instans Metadata är en ny version. Versioner är obligatoriska och den aktuella versionen på Global Azure är `2017-12-01`. Aktuella versioner som stöds är (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
 > Tidigare förhandsvisningarna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att inaktualiseras i framtiden.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Förfrågan**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Svar**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
 tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 resourceGroupName | [Resursgruppen](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 placementGroupId | [Placering av grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för din virtuella skala ange | 2017-08-01
+vmScaleSetName | [Virtuella ScaleSet Name] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för din virtuella skala ange | 2017-12-01
+zon | [Tillgänglighet zonen](../../availability-zones/az-overview.md) i den virtuella datorn | 2017-12-01 
 ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
 ipv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
 subnet/address | Undernätsadress av den virtuella datorn | 2017-04-02 
 subnet/prefix | Undernätets prefix, exempel 24 | 2017-04-02 
 ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
 macAddress | VM mac-adress | 2017-04-02 
-scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-03-01
+scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Exempelscenarier för användning  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Placering av behållare, partitioner data baserat fel/uppdatera domän 
 
 För vissa scenarier, placering av olika repliker är av yttersta vikt. Till exempel [HDFS replik placering](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) eller placering av behållare via en [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) kanske du behöver känna till den `platformFaultDomain` och `platformUpdateDomain` den virtuella datorn körs på.
+Du kan också använda [tillgänglighet zoner](../../availability-zones/az-overview.md) för instanserna för dessa beslut.
 Du kan fråga data direkt via tjänsten instans Metadata.
 
 **Förfrågan**

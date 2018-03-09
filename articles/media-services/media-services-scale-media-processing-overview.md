@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Skalning bearbetning av Media: översikt
 Den här sidan ger en översikt över hur och varför ska man skala media bearbetning. 
@@ -34,7 +34,7 @@ Tabellen nedan hjälper dig att fatta beslut om att välja mellan olika kodning 
 | Scenarier | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Avsedda användningsfall |Enkel bithastighet kodning. <br/>Filer på SD eller under lösningar, tid inte känsliga, låg kostnad. |Enkel bithastighet och flera bithastighet kodning.<br/>Normal användning för både SD och HD kodning. |Enkel bithastighet och flera bithastighet kodning.<br/>Videor för fullständig HD och 4K lösning. Tid som känsliga och snabbare tidsåtgången kodning. |
-| Prestandamått |[Indatafilen: 5 minuter långa 640x360p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Kodning för en enda bithastighet MP4-fil med samma upplösning tar ungefär 11 minuter. |[Indatafilen: 5 minuter långa 1280x720p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>Kodningen med ”H264 enkel bithastighet 720p” förinställda tar cirka 5 minuter.<br/><br/>Kodningen med ”H264 Multibithastighet 720p” förinställda tar ungefär 11,5 minuter. |[Indatafilen: 5 minuter långa 1920x1080p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>Kodningen med ”H264 enkel bithastighet 1080p” förinställda tar cirka 2.7 minuter.<br/><br/>Kodningen med ”H264 Multibithastighet 1080p” förinställda tar ungefär 5.7 minuter. |
+| Benchmark |[Indatafilen: 5 minuter långa 640x360p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Kodning för en enda bithastighet MP4-fil med samma upplösning tar ungefär 11 minuter. |[Indatafilen: 5 minuter långa 1280x720p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>Kodningen med ”H264 enkel bithastighet 720p” förinställda tar cirka 5 minuter.<br/><br/>Kodningen med ”H264 Multibithastighet 720p” förinställda tar ungefär 11,5 minuter. |[Indatafilen: 5 minuter långa 1920x1080p på 29,97 bildrutor per sekund](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>Kodningen med ”H264 enkel bithastighet 1080p” förinställda tar cirka 2.7 minuter.<br/><br/>Kodningen med ”H264 Multibithastighet 1080p” förinställda tar ungefär 5.7 minuter. |
 
 ## <a name="considerations"></a>Överväganden
 > [!IMPORTANT]
@@ -44,8 +44,6 @@ Tabellen nedan hjälper dig att fatta beslut om att välja mellan olika kodning 
 
 * Reserverade enheter fungerar för parallelizing all bearbetning av media, inklusive indexering jobb med hjälp av Azure Media Indexer.  Men till skillnad från kodning bearbetas inte indexeringsjobb snabbare med snabbare reserverade enheter.
 * Om du använder den delade poolen, det vill säga har utan några reserverade enheter sedan koda aktiviteterna samma prestanda som med S1 RUs. Men det finns ingen övre gräns till dess att aktiviteterna kan spendera i köade tillstånd och samtidigt, högst endast en aktivitet körs.
-* Följande Datacenter erbjuder inte den **S2** reserverade enhetstyp: södra och västra Indien.
-* Följande Datacenter erbjuder inte den **S3** reserverade enhetstyp: Indien, västra.
 
 ## <a name="billing"></a>Fakturering
 
@@ -66,8 +64,8 @@ Uppnå skalning media bearbetning aktiviteten med någon av dessa tekniker:
 > 
 
 > [!NOTE]
-> Om du vill hämta den senaste versionen av Java SDK och börja utveckla med Java Se [komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure paketet i den [Packagist databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

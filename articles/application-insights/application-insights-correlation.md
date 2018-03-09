@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korrelation telemetri i Application Insights
 
@@ -57,8 +57,8 @@ I resultatet visa anteckningen som delar alla telemetri objekt roten `operation_
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Lagrets sida                |              | STYz               | STYz         |
 | beroende | GET/Home/Stock           | qJSXU        | STYz               | STYz         |
-| Begäran    | GET-Home/Stock            | KqKwlrSt9PA = | qJSXU              | STYz         |
-| beroende | Hämta /api/stock/value      | bBrf2L7mm2g = | KqKwlrSt9PA =       | STYz         |
+| Begäran    | GET-Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| beroende | Hämta /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Nu när anropet `GET /api/stock/value` görs till en extern tjänsten som du vill veta identiteten för servern. Du kan ange `dependency.target` fältet på lämpligt sätt. När den externa tjänsten inte stöder övervakning - `target` har angetts till värdnamnet för tjänsten som `stock-prices-api.com`. Men om tjänsten identifierar sig genom att returnera en fördefinierad HTTP-huvudet - `target` innehåller tjänstidentiteten som tillåter Application Insights att skapa distribuerade spårning genom att fråga telemetri från tjänsten. 
 
@@ -66,8 +66,8 @@ Nu när anropet `GET /api/stock/value` görs till en extern tjänsten som du vil
 
 Vi arbetar på RFC förslag för den [korrelation HTTP-protokollet](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Den här förslag definierar två huvuden:
 
-- `Request-Id`utföra globalt unikt id för anropet
-- `Correlation-Context`-utföra namn värde-par mängden distribuerade trace-egenskaper
+- `Request-Id` utföra globalt unikt id för anropet
+- `Correlation-Context` -utföra namn värde-par mängden distribuerade trace-egenskaper
 
 Standarden definierar också två scheman för `Request-Id` generation - platta och hierarkiska. Flat schemat, det är en välkänd `Id` key som definierats för den `Correlation-Context` samling.
 
@@ -77,11 +77,11 @@ Application Insights definierar den [tillägget](https://github.com/lmolkova/cor
 
 [Öppna spårning](http://opentracing.io/) och Application Insights data modeller ser ut 
 
-- `request`, `pageView` mappar till **Span** med`span.kind = server`
-- `dependency`mappar till **Span** med`span.kind = client`
-- `id`för en `request` och `dependency` mappar till **Span.Id**
-- `operation_Id`mappar till **TraceId**
-- `operation_ParentId`mappar till **referens** av typen`ChildOf`
+- `request`, `pageView` mappar till **Span** med `span.kind = server`
+- `dependency` mappar till **Span** med `span.kind = client`
+- `id` för en `request` och `dependency` mappar till **Span.Id**
+- `operation_Id` mappar till **TraceId**
+- `operation_ParentId` mappar till **referens** av typen `ChildOf`
 
 Se [datamodellen](application-insights-data-model.md) för Application Insights typer och modell.
 
@@ -90,15 +90,15 @@ Se [specifikationen](https://github.com/opentracing/specification/blob/master/sp
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetri korrelation i .NET
 
-.NET definierats flera olika sätt att korrelera telemetri och diagnostik loggar över tid. Det finns `System.Diagnostics.CorrelationManager` att tillåta för att spåra [LogicalOperationStack och ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource`och Windows ETW definiera metoden [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger`använder [loggen scope](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF- och HTTP-överföring in ”aktuella” kontexten spridning.
+.NET definierats flera olika sätt att korrelera telemetri och diagnostik loggar över tid. Det finns `System.Diagnostics.CorrelationManager` att tillåta för att spåra [LogicalOperationStack och ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` och Windows ETW definiera metoden [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` använder [loggen scope](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF- och HTTP-överföring in ”aktuella” kontexten spridning.
 
-De här metoderna inte men aktivera stöd för automatisk distribuerade spårning. `DiagnosticsSource`är ett sätt att stödja automatisk mellan datorn korrelation. .NET-biblioteken stöder diagnostik och Tillåt automatisk mellan datorn spridning av korrelation kontexten via transport som http.
+De här metoderna inte men aktivera stöd för automatisk distribuerade spårning. `DiagnosticsSource` är ett sätt att stödja automatisk mellan datorn korrelation. .NET-biblioteken stöder diagnostik och Tillåt automatisk mellan datorn spridning av korrelation kontexten via transport som http.
 
 Den [guide till aktiviteter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) förklarar grunderna i Aktivitetsspårning i diagnostik källan. 
 
 ASP.NET Core 2.0 stöder extrahering av Http-huvuden och sedan starta den nya aktiviteten. 
 
-`System.Net.HttpClient`startversion `<fill in>` stöder automatisk injektion av korrelationen Http-huvuden och spåra http-anrop som en aktivitet.
+`System.Net.HttpClient` startversion `4.1.0` stöder automatisk injektion av korrelationen Http-huvuden och spåra http-anrop som en aktivitet.
 
 Det finns en ny Http-modul [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) för ASP.NET-klassisk. Den här modulen implementerar telemetri korrelation med DiagnosticsSource. Startar aktivitet baserat på inkommande begärandehuvuden. Den också korrelerar telemetri från de olika stegen i behandling av begäranden. Även i fall när varje steg i processen för IIS körs på en annan hantera trådar.
 

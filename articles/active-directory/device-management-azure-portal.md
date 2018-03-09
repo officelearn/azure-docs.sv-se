@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
 
@@ -112,6 +112,7 @@ Med båda alternativen du en vy som:
 
 ![Alla enheter](./media/device-management-azure-portal/51.png)
 
+Enhetsnamn som innehåller apostrofer kan potentiellt använda olika tecken som ser ut som apostrofer för vissa iOS-enheter. Så söker efter sådana enheter är lite komplicerade - om du inte ser sökresultat korrekt, kontrollera att strängen innehåller matchande apostroftecknet.
 
 ## <a name="device-management-tasks"></a>Enhetens hanteringsuppgifter
 
@@ -230,7 +231,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 - Aktivitet
 - Datumintervall
 - Mål
-- Initierad av (aktören)
+- Initierad av (aktör)
 
 Utöver filter kan du söka efter specifika poster.
 

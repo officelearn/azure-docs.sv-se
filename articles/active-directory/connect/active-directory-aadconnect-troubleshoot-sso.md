@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
 Den här artikeln får du hittar felsökningsinformation om vanliga problem om Azure Active Directory (AD Azure) sömlös enkel inloggning (sömlös SSO).
 
-## <a name="known-problems"></a>Kända problem
+## <a name="known-issues"></a>Kända problem
 
 - I några fall kan det ta upp till 30 minuter att aktivera sömlös SSO.
 - Om du inaktiverar och återaktivera sömlös SSO på din klient kan får användarna inte enkel inloggning till deras cachelagrade Kerberos-biljetter, oftast giltigt för 10 timmar har upphört att gälla.
 - Det finns inte stöd för Edge-webbläsare.
-- Starta Office-klienter, särskilt i scenarier med delad dator gör prompter extra inloggning för användare. Användare måste ange sina användarnamn ofta, men inte sina lösenord.
 - Om det lyckas sömlös SSO, användaren inte har möjlighet att välja **Håll mig inloggad**. På grund av det här beteendet fungerar inte SharePoint och OneDrive mappning scenarier.
+- Office-klienterna under version 16.0.8730.xxxx stöder inte icke-interaktiv inloggning med sömlös SSO. Användare måste ange sina användarnamn, men inte lösenord, logga in på dessa klienter.
 - Sömlös SSO fungerar inte i privata webbläsarens läge i Firefox.
 - Sömlös SSO fungerar inte i Internet Explorer när förbättrad skyddat läge är aktiverat.
 - Sömlös SSO fungerar inte på mobila webbläsare på iOS och Android.
 - Om du synkroniserar 30 eller flera Active Directory-skogar, kan du inte aktivera sömlös SSO via Azure AD Connect. Som en tillfällig lösning kan du [manuellt aktivera](#manual-reset-of-azure-ad-seamless-sso) funktionen på din klient.
-- Lägga till URL: er till Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) i zonen Tillförlitliga platser i stället för den lokala intranätzonen *hindrar användare från att logga in*.
+- Att lägga till URL: en (https://autologon.microsoftazuread-sso.com) för Azure AD-tjänsten i zonen Tillförlitliga platser i stället för den lokala intranätzonen *hindrar användare från att logga in*.
+- Inaktivera användningen av den **RC4_HMAC_MD5** krypteringstyp för Kerberos i inställningarna för Active Directory bryts sömlös SSO. I Redigeraren för Grupprinciphantering-verktyget kontrollerar du att principvärdet **RC4_HMAC_MD5** under **Datorkonfiguration -> Windows-inställningar -> säkerhetsinställningar -> lokala principer -> säkerhetsalternativ - > ”Nätverkssäkerhet: Konfigurera krypteringstyper som tillåts för Kerberos”** är ”aktiverad”.
 
-## <a name="check-the-status-of-the-feature"></a>Kontrollera status för funktionen
+## <a name="check-status-of-feature"></a>Kontrollera statusen för funktionen
 
 Kontrollera att funktionen sömlös SSO är fortfarande **aktiverad** på din klient. Du kan kontrollera statusen genom att gå till den **Azure AD Connect** -fönstret på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
 
 ![Azure Active Directory Administrationscenter: Azure AD Connect-fönstret](./media/active-directory-aadconnect-sso/sso10.png)
+
+Klicka här för att se alla AD-skogar som har aktiverats för sömlös SSO.
+
+![Azure Active Directory Administrationscenter: sömlös SSO-fönstret](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Inloggningsfel orsaker i Azure Active Directory Administrationscenter (måste ha en Premium-licens)
 
@@ -70,7 +75,7 @@ Använd följande checklista för att felsöka problem med sömlös SSO:
 
 - Se till att sömlös SSO-funktionen är aktiverad i Azure AD Connect. Om du inte kan aktivera funktionen (t.ex, på grund av en blockerad-port), se till att du har alla de [krav](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) på plats.
 - Om du har aktiverat båda [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös SSO på din klient, kontrollera att problemet inte är med Azure AD Join. Enkel inloggning från Azure AD Join företräde framför sömlös SSO om enheten är registrerad med Azure AD såväl som ingår i domänen. Med enkel inloggning från Azure AD Join ser användaren en inloggning panel med texten ”ansluten till Windows”.
-- Kontrollera att båda Azure AD (https://autologon.microsoftazuread-sso.com och https://aadg.windows.net.nsatc.net) är en del av användarens intranätsinställningar för zonen.
+- Kontrollera att Azure AD-URL (https://autologon.microsoftazuread-sso.com) är en del av användarens intranätsinställningar för zonen.
 - Se till att företagets enheter är anslutna till Active Directory-domänen.
 - Se till att användaren är inloggad på enheten via ett domänkonto för Active Directory.
 - Kontrollera att användarkontot har från en Active Directory-skog där sömlös SSO har ställts in.

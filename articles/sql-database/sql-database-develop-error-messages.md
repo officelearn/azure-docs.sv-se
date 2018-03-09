@@ -6,7 +6,7 @@ ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.cus
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
-Den här artikeln innehåller SQL-felkoder för SQL Database-klientprogram, inklusive anslutningsfel i databasen, tillfälligt fel (kallas även tillfälliga problem), resurs styrning fel, kopiera databasproblem, elastisk pool och andra fel. De flesta kategorier är specifika för Azure SQL Database och gäller inte för Microsoft SQL Server. Se även [system felmeddelanden](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
+Den här artikeln innehåller SQL-felkoder för SQL Database-klientprogram, inklusive anslutningsfel i databasen, tillfälligt fel (kallas även tillfälliga problem), resurs styrning fel, kopiera databasproblem, elastisk pool och andra fel. De flesta kategorier är specifika för Azure SQL Database och gäller inte för Microsoft SQL Server. Se även [system felmeddelanden](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Fel vid anslutning till databasen, tillfälligt fel och andra tillfälliga fel
 I följande tabell beskrivs felkoder för SQL för anslutningsfel går förlorade och andra tillfälliga fel som kan uppstå när programmet försöker få åtkomst till SQL-databas. Komma igång Självstudier om hur du ansluter till Azure SQL Database finns [ansluta till Azure SQL Database](sql-database-libraries.md).

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Skapa och använda anpassade attribut i en anpassad profil redigera principen
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 I den här artikeln, skapa ett anpassat attribut i Azure AD B2C-katalogen och använda den här nya attributet som ett anpassat anspråk i profilen Redigera användare transporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i artikeln [komma igång med principer för anpassade](active-directory-b2c-get-started-custom.md).
 
@@ -57,7 +57,7 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
 1. Ange följande rekommenderade poster:
   * Ange ett namn för webbprogrammet: **WebApp-GraphAPI-DirectoryExtensions**
   * Programtyp: webb-app/API
-  * URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions inloggning
+  * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
 1. Välj ** Skapa. Åtgärden lyckades visas i den **meddelanden**
 1. Välj det nyligen skapade webbprogrammet: **WebApp-GraphAPI-DirectoryExtensions**
 1. Välj inställningar: **nödvändiga behörigheter**
@@ -65,8 +65,8 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
 1. Markera programbehörigheter: **läsning och skrivning katalogdata**, och **spara**
 1. Välj **bevilja behörigheter** och bekräfta **Ja**.
 1. Kopiera till Urklipp och spara följande identifierare från WebApp-GraphAPI-DirectoryExtensions > Inställningar > Egenskaper >
-*  **Program-ID** . Exempel:`103ee0e6-f92d-4183-b576-8c3739027780`
-* **Objekt-ID**. Exempel:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Program-ID** . Exempel: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Objekt-ID**. Exempel: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -96,7 +96,7 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
 ```
 
 >[!NOTE]
->Den <TechnicalProfile Id="AAD-Common"> kallas för ”gemensamma” eftersom dess element ingår i och återanvändas i alla de Azure Active Directory TechnicalProfiles med hjälp av element:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+>Den <TechnicalProfile Id="AAD-Common"> kallas för ”gemensamma” eftersom dess element ingår i och återanvändas i alla de Azure Active Directory TechnicalProfiles med hjälp av element: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >När TechnicalProfile skriver för första gången till den nyligen skapade utökade egenskapen, kan det uppstå ett enstaka fel.  Den utökade egenskapen skapas första gången den används.  
@@ -152,7 +152,7 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Egenskaper för webbtjänsttillägg finns bara i kontexten för ett program som 
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>

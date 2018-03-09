@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning)
 
@@ -64,7 +64,7 @@ Data blir tillgängliga i cirka 30 minuter och panelen Application Insights uppd
 Andra punkter att tänka på:
 
 - Du kan bara koppla Application Insights appar till en logganalys-arbetsytan.
-- Du kan bara koppla [Standard eller Premium Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till logganalys. Du kan dock använda den kostnadsfria nivån av logganalys.
+- Du kan bara koppla [grundläggande eller Enterprise Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till logganalys. Du kan dock använda den kostnadsfria nivån av logganalys.
 
 ## <a name="management-packs"></a>Hanteringspaket
 
@@ -117,7 +117,7 @@ När du klickar någonstans i den **undantag** bladet finns en visualisering som
 
 ![Application Insights undantag bladet](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Oavsett om du klickar på något en den **Application Insights Connector** instrumentpanelen, inom den **Sök** sidan, alla frågor som returnerar Application Insights-data visar Application Insights perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
+Oavsett om du klickar på något en den **Application Insights Connector** instrumentpanelen, inom den **Sök** sidan, alla frågor som returnerar Application Insights-data visar Application Insights perspektiv. Om du visar Application Insights-data, till exempel en  **&#42;**  frågan också visar fliken perspektiv som på följande bild:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Hantera personliga data i Microsoft Azure | Microsoft Docs
-description: anvisningar om hur du korrigera, uppdatera, ta bort och exportera personliga data i Azure Active Directory och Azure SQL Database
+description: "hur du korrigera, uppdatera, ta bort och exportera personliga data som hjälper dig att vara kompatibel med allmänna Data Protection förordning (BNPR) i Azure Active Directory och Azure SQL Database"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Hantera personliga data i Microsoft Azure
 
-Den här artikeln innehåller råd om hur du korrigera, uppdatera, ta bort och exportera personliga data i Azure Active Directory och Azure SQL Database.
+Den här artikeln innehåller råd om hur du korrigera, uppdatera, ta bort och exportera personuppgifter för att följa med allmänna Data Protection förordning (BNPR) i Azure Active Directory och Azure SQL Database.
 
 ## <a name="scenario"></a>Scenario
 

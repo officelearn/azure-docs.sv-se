@@ -6,18 +6,18 @@ author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
-ms.date: 01/03/2018
+ms.date: 03/02/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrididentitetslösningar
 [Microsoft Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrididentitetslösningar gör det möjligt att synkronisera lokala katalogobjekt med Azure AD när fortfarande hantera användare lokalt. Det första beslutet att fatta när du planerar att synkronisera dina lokala Windows Server Active Directory med Azure AD är om du vill använda synkroniserade identitet eller federerad identitet. Synkroniserade identiteter och eventuellt lösenordshashvärden, att användarna kan använda samma lösenord för åtkomst till både lokala och molnbaserade organisationens resurser. För mer avancerade krav för scenarier, till exempel enkel inloggning (SSO) eller lokal MFA som du behöver distribuera Active Directory Federation Services (AD FS) för att federera identiteter. 
@@ -50,9 +50,6 @@ Direkt-autentisering har konfigurerats med Azure AD Connect, som använder en en
 
 - Windows Server 2012 R2 eller senare
 - Ansluten till en domän i skogen som användare verifieras
-
-Direkt-autentisering stöds inte för närvarande när med hjälp av Windows 10-enheter anslutna till Azure AD. Men du kan använda synkronisering av lösenords-hash som en automatisk användning av stöd för Windows 10 och äldre klienter tidigare nämnts. Under förhandsgranskningen inkluderas är lösenord hash-synkronisering aktiverad som standard när direktautentisering är markerad som inloggningsalternativ i Azure AD Connect.
-
 
 ## <a name="federated-identity-ad-fs"></a>Federerade identiteter (AD FS)
 För mer kontroll över hur användare kommer åt Office 365 och andra molntjänster som du kan ställa in katalogsynkronisering med enkel inloggning (SSO) [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Federering användarens inloggningar med AD FS delegerar autentisering till en lokal server som validerar användarens autentiseringsuppgifter. Lokala Active Directory-autentiseringsuppgifter skickas aldrig till Azure AD i den här modellen.

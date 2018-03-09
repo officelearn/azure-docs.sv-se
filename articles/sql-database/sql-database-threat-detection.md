@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Hotidentifiering för SQL-databas
 
@@ -30,7 +30,7 @@ SQL-Hotidentifiering ger ett nytt lager av säkerhet som ger kunder möjlighet a
 
 Till exempel är SQL injection en av säkerhetsproblem för vanliga Web program på Internet, används till att attackera datadrivna program. Angripare dra nytta av programmet säkerhetsproblem att mata in skadlig SQL-instruktioner i programmet fält, brott mot eller ändra data i databasen.
 
-SQL-Hotidentifiering integreras med [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), och varje skyddade SQL Database-server faktureras till samma pris som Azure Security Center Standard nivå på $15/nod/månad, där var och en skyddad SQL-databas Server räknas som en nod.  
+SQL-Hotidentifiering integreras med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och varje skyddade SQL Database-server faktureras till samma pris som Azure Security Center Standard nivå på $15/nod/månad, där var och en skyddad SQL-databas Server räknas som en nod.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Ställ in hotidentifiering för din databas i Azure-portalen
 1. Starta Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
@@ -54,13 +54,13 @@ Ett exempel på skript finns [konfigurera granskning och hotidentifiering identi
    E-postmeddelandet innehåller information om händelsen misstänkta säkerhet inklusive uppbyggnad avvikande aktiviteter, databasens namn, servernamn, programnamn och tidpunkt för händelsen. Dessutom e-postmeddelandet innehåller information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minska den potentiella risken till databasen.<br/>
      
     ![Navigeringsfönstret][4]
-2. E-postavisering innehåller en direktlänk till SQL granskningsloggen. När du klickar på den här länken startar Azure portal och öppnar SQL granskningsposter vid ungefär samma tidpunkt misstänkta händelsen. Klicka på en granskningspost om du vill visa mer information om misstänkt databasaktiviteter, vilket gör det lättare att hitta SQL-instruktioner som utfördes (som nås vad tyckte och när) och ta reda på om händelsen var ogiltigt eller skadliga (t.ex. ett program säkerhetsproblem för SQL injection var de utnyttjas, någon utsatts för intrång känsliga data, osv.).<br/>
+2. E-postavisering innehåller en direktlänk till SQL granskningsloggen. När du klickar på den här länken startar Azure portal och öppnar SQL granskningsposter vid ungefär samma tidpunkt misstänkta händelsen. Klicka på en granskningspost om du vill visa mer information om misstänkt databas verksamhet, vilket gör det lättare att hitta SQL-instruktioner som utfördes (som nås vad tyckte och när) och ta reda på om händelsen var ogiltigt eller skadliga (t.ex. ett program säkerhetsproblem för SQL injection var de utnyttjas, någon utsatts för intrång känsliga data, osv.).<br/>
    ![Navigeringsfönstret][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Utforska hotidentifieringsaviseringar för din databas i Azure-portalen
 
-SQL-databasen Hotidentifiering integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). En levande panel SQL i databas på Azure-portalen spårar status för aktiva hot. 
+SQL-databasen Hotidentifiering integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En levande panel SQL i databas på Azure-portalen spårar status för aktiva hot. 
 
    ![Navigeringsfönstret][6]
    
@@ -75,10 +75,10 @@ SQL-databasen Hotidentifiering integrerar dess aviseringar med [Azure Security C
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Hotidentifiering den [Azure blogg](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Läs mer om Hotidentifiering den [Azure blogg](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Lär dig mer om [Azure SQL Database Auditing](sql-database-auditing.md)
 * Lär dig mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Mer information om priser finns i [prissättning för SQL-databas](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Mer information om priser finns i [prissättning för SQL-databas](https://azure.microsoft.com/pricing/details/sql-database/)  
 * Exempel en PowerShell-skript finns [konfigurera granskning och hotidentifiering identifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

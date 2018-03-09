@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Distribuera Azure Stack Development Kit
 
@@ -70,6 +70,7 @@ Innan du kan installera ASDK på värddatorn, måste du förbereda miljön ASDK.
 3. Kör följande skript för att hämta installationsfilen för development kit (asdk installer.ps1) från den [Azure Stack GitHub verktyg databasen](https://github.com/Azure/AzureStack-Tools) till den **C:\AzureStack_Installer** mapp på din värddatorn för Development kit:
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -226,8 +227,8 @@ Om din miljö **inte** har DHCP aktiverat och sedan måste du inkludera följand
 |DNSForwarder|Valfri|En DNS-server har skapats som en del av distributionen av Azure-stacken. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen för att matcha namn utanför stämpeln. DNS-servern i stämpel vidarebefordras okänt namn på den här servern.|
 |NatIPv4Address|Krävs för DHCP NAT-stöd|Anger en statisk IP-adress för MAS BGPNAT01. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
 |NatIPv4Subnet|Krävs för DHCP NAT-stöd|IP-undernät prefix som används för DHCP över NAT-stöd. Använd enbart den här parametern om DHCP inte kan tilldela en giltig IP-adress för att få åtkomst till Internet.|
-|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). Till exempel.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Kör|Valfri|Använd den här flaggan igen för distribution. Alla tidigare indata används. Återinföra informationen tidigare stöds inte eftersom flera unika värden genereras och används för distribution.|
+|PublicVlanId|Valfri|Anger VLAN-ID. Använd bara den här parametern om värden och MAS BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
+|Kör om|Valfri|Använd den här flaggan igen för distribution. Alla tidigare indata används. Återinföra informationen tidigare stöds inte eftersom flera unika värden genereras och används för distribution.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Aktivera portaler administratör och klient
 Du måste aktivera både Azure Stack-administratör och klienten portaler när distributioner som använder Azure AD. Den här aktiveringen samtycker till att ge Azure-Stack-portalen och Azure Resource Manager rätt behörigheter (som visas på sidan medgivande) för alla användare av katalogen.

@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server katastrofåterställning
 
@@ -36,7 +36,7 @@ I tabell sammanfattas de nödvändiga förutsättningar för distribution av den
 | IIS | -Ingen befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställning  <br> -Ingen befintlig webbplats/program som lyssnar på port 443<br>|
 | NIC-typ | VMXNET3 (när distribueras som en VM VMware) |
 | IP-adresstyp | Statisk |
-| Internet-åtkomst | Servern behöver åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skalbara processervrar) <br> - time.nist.gov <br> - time.windows.com |
+| Internet-åtkomst | Servern behöver åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (krävs inte för skalbara processervrar) <br> - time.nist.gov <br> - time.windows.com |
 | Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)|
 
 ## <a name="download-the-latest-installation-file"></a>Hämta installationsfilen för senaste
@@ -164,7 +164,7 @@ Du kan ändra proxyinställningar för den configuration server-datorn på följ
   ```
 
   >[!WARNING]
-  Om du har ytterligare processer servrar som är kopplade till konfigurationsservern måste du [åtgärda proxyinställningarna på alla servrar som skalbara processen](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) i distributionen.
+  Om du har ytterligare processer servrar som är kopplade till konfigurationsservern måste du [åtgärda proxyinställningarna på alla servrar som skalbara processen](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) i distributionen.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrera en konfigurationsserver med samma valvet
   1. Logga in på din av konfigurationsservern.
@@ -184,7 +184,7 @@ Du kan ändra proxyinställningar för den configuration server-datorn på följ
       ```
 
   >[!WARNING]
-  Om du har flera processervern, behöver du [registrera dem](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Om du har flera processervern, behöver du [registrera dem](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en server configuration med ett annat valv
 
@@ -233,8 +233,8 @@ Uppgradera servern på följande sätt:
 > [!WARNING]
 > Kontrollera följande innan du börjar inaktivering av serverns konfiguration.
 > 1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under den här konfigurationen-servern.
-> 2. [Avassociera](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) och [ta bort](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
-> 3. [Ta bort](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) alla Vcenter-servrar/vSphere-värdar som är kopplade till konfigurationsservern.
+> 2. [Avassociera](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
+> 3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla Vcenter-servrar/vSphere-värdar som är kopplade till konfigurationsservern.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Ta bort konfigurationsservern från Azure-portalen

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Regler och hur dessa regler påverkar konfigurationen dokumenterat. Även vägleder dig genom standardkonfigurationen av Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.
@@ -50,7 +50,7 @@ Följande användarobjekt är **inte** synkroniseras till Azure AD:
 * Synkronisera inte objekt som inte fungerar i Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Den här bitmask (& H21C07000) filtrerar ut följande objekt:
-  * E-postaktiverade offentlig mapp
+  * E-postaktiverade offentlig mapp (i förhandsversion från och med version 1.1.524.0)
   * System till postlåda
   * Postlåda databasen postlåda (System-postlåda)
   * Universell säkerhetsgrupp (inte gäller för en användare, men finns äldre skäl)
@@ -217,7 +217,7 @@ Prioritet för Synkroniseringsregler som anges i grupper av installationsguiden.
 ### <a name="putting-it-all-together"></a>Alltihop
 Vi nu vet hur Synkroniseringsregler för att kunna förstå hur konfigurationen fungerar med olika regler för synkronisering. Om du tittar på en användare och de attribut som bidrog till metaversum regler i följande ordning:
 
-| Namn | Kommentera |
+| Namn | Kommentar |
 |:--- |:--- |
 | I från AD-användare ansluta till |Regel för att ansluta till koppling utrymme objekt med metaversum. |
 | I från AD – UserAccount aktiverad |Attribut som krävs för inloggning till Azure AD och Office 365. Vi vill attributen från aktiverat konto. |

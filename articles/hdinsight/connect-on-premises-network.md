@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Anslut HDInsight till lokalt nätverk
 
@@ -273,13 +273,13 @@ Du kan använda nätverkssäkerhetsgrupper (NSG) eller användardefinierade väg
 
 > [!WARNING]
 > HDInsight kräver inkommande åtkomst från särskilda IP-adresser i Azure-molnet och obegränsad utgående åtkomst. När du använder NSG: er eller udr: er för att styra trafik, måste du utföra följande steg:
->
-> 1. Hitta IP-adresser för den plats som innehåller det virtuella nätverket. En lista över nödvändiga IP-adresser per plats, se [krävs IP-adresser](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Tillåta inkommande trafik från IP-adresser.
->
->    * __NSG__: Tillåt __inkommande__ trafik på port __443__ från den __Internet__.
->    * __UDR__: Ange den __nästa hopp__ typ för vägen som __Internet__.
+
+1. Hitta IP-adresser för den plats som innehåller det virtuella nätverket. En lista över nödvändiga IP-adresser per plats, se [krävs IP-adresser](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. För IP-adresser identifierades i steg 1, tillåter inkommande trafik från den IP-adresser.
+
+   * Om du använder __NSG__: Tillåt __inkommande__ trafik på port __443__ för IP-adresser.
+   * Om du använder __UDR__: Ange den __nästa hopp__ typ för vägen som __Internet__ för IP-adresser.
 
 Ett exempel på hur Azure PowerShell eller Azure CLI för att skapa NSG: er finns i [utöka HDInsight med Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) dokumentet.
 

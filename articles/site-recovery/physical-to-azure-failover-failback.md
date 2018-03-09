@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a3328e8aa42876f48960f7ccd32a5c819435019
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Växla över och återställas tillbaka fysiska servrar som replikeras till Azure
 
@@ -41,7 +41,7 @@ Kontrollera serveregenskaperna för och kontrollera att den överensstämmer med
 
 ## <a name="run-a-failover-to-azure"></a>Köra en redundans i Azure
 
-1. I **inställningar** > **replikerade objekt** klickar du på datorn > **redundans**.
+1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
    - **Senaste** (standard): Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senaste bearbetas**: det här alternativet växlar datorn till den senaste återställningspunkten som bearbetas av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
@@ -62,7 +62,7 @@ Processervern tar emot data från den virtuella Azure-datorn och skickar den til
 
 - Om du har en Azure ExpressRoute-anslutning för testning, kan du använda den lokala processervern som installerades automatiskt på konfigurationsservern.
 - Om du har en VPN-anslutning eller om du kör återställning efter fel i en produktionsmiljö, måste du konfigurera en virtuell dator i Azure som en Azure-baserad processerver för återställning efter fel.
-- Följ instruktionerna i [i den här artikeln](site-recovery-vmware-setup-azure-ps-resource-manager.md) att ställa in en processerver i Azure.
+- Följ instruktionerna i [i den här artikeln](vmware-azure-set-up-process-server-azure.md) att ställa in en processerver i Azure.
 
 ## <a name="configure-the-master-target-server"></a>Konfigurera huvudmålservern
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -348,15 +348,15 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**Riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar den tabell eller en entitet i funktionskoden. | 
-|**tableName** | **TableName** | Namnet på tabellen.| 
-|**partitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**rowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**take** |**Ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**tableName** | **tableName** | Namnet på tabellen.| 
+|**PartitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**RowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**take** |**ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,16 +366,14 @@ Table storage inkommande bindningen stöder följande scenarion:
 
 * **Läs en rad i C# eller C#-skript**
 
-  Ange `partitionKey` och `rowKey`. Komma åt informationen med hjälp av en metodparameter `T <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`Vanligtvis är en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Den `filter` och `take` egenskaper inte används i det här scenariot. 
+  Ange `partitionKey` och `rowKey`. Komma åt informationen med hjälp av en metodparameter `T <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` Vanligtvis är en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Den `filter` och `take` egenskaper inte används i det här scenariot. 
 
 * **Läs en eller flera rader i C# eller C#-skript**
 
-  Komma åt informationen med hjälp av en metodparameter `IQueryable<T> <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att utföra filtrering krävs. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot.  
+  Komma åt informationen med hjälp av en metodparameter `IQueryable<T> <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att utföra filtrering krävs. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot.  
 
 > [!NOTE]
-> `IQueryable`fungerar inte i .NET Core, så att den inte fungerar i den [Functions-runtime v2](functions-versions.md).
-
-  Ett alternativ är att använda en `CloudTable paramName` Metodparametern att läsa tabellen med hjälp av Azure Storage SDK: N.
+> `IQueryable` stöds inte i den [Functions-runtime v2](functions-versions.md). Ett alternativ är att [använder en CloudTable paramName metodparameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) att läsa tabellen med hjälp av Azure Storage SDK: N.
 
 * **Läs en eller flera rader i JavaScript**
 
@@ -607,13 +605,13 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
-|**riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**Riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar den tabell eller enhet. Ange till `$return` att referera till returvärde för funktion.| 
-|**tableName** |**TableName** | Namnet på tabellen.| 
-|**partitionKey** |**PartitionKey** | Partitionsnyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
-|**rowKey** |**RowKey** | Raden nyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+|**tableName** |**tableName** | Namnet på tabellen.| 
+|**PartitionKey** |**PartitionKey** | Partitionsnyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
+|**RowKey** |**RowKey** | Raden nyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
+|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -623,11 +621,11 @@ Table storage utdata bindningen stöder följande scenarier:
 
 * **Skriv en rad med valfritt språk**
 
-  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter som `out T paramName` eller funktionen returvärde. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`kan vara en serialiserbar typ. Om partitionsnyckel och radnyckel som tillhandahålls av den *function.json* filen eller `Table` attribut. Annars `T` måste vara en typ som innehåller `PartitionKey` och `RowKey` egenskaper. I det här scenariot `T` vanligtvis implementerar `ITableEntity` eller härleds från `TableEntity`, men det behöver inte.
+  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter som `out T paramName` eller funktionen returvärde. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` kan vara en serialiserbar typ. Om partitionsnyckel och radnyckel som tillhandahålls av den *function.json* filen eller `Table` attribut. Annars `T` måste vara en typ som innehåller `PartitionKey` och `RowKey` egenskaper. I det här scenariot `T` vanligtvis implementerar `ITableEntity` eller härleds från `TableEntity`, men det behöver inte.
 
 * **Skriv en eller flera rader i C# eller C#**
 
-  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `ICollectorAsync<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
+  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `ICollectorAsync<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T` Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
 
   Ett alternativ är att använda en `CloudTable paramName` Metodparametern att skriva till tabellen med hjälp av Azure Storage SDK: N.
 

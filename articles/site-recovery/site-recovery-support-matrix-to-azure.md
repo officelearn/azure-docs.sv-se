@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
-ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9c52ef47992474465111f106fc15779cadd825be
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery stöd matrix för replikering från lokal till Azure
 
@@ -82,7 +82,7 @@ I följande tabell sammanfattas replikerade operativsystem i olika distributions
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu kernel-versioner som stöds för VMware/fysiska servrar
 
-**Versionen** | **Mobilitetstjänstversionen** | Kernel-version |
+**Versionen** | **Mobilitetstjänstversionen** | **Kernel-version** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-128-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-91-generic |
@@ -96,9 +96,8 @@ I följande tabell sammanfattas replikerade operativsystem i olika distributions
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Filsystem som stöds och Gäst lagringskonfigurationer på Linux (VMware/fysiska servrar)
 
 Följande filsystem och program för konfiguration av lagring stöds på Linux-servrar som körs på VMware eller fysiska servrar:
-* Filsystem: ext3 ext4, ReiserFS (Suse Linux Enterprise Server bara), XFS
+* Filsystem: ext3 ext40, XFS
 * Volymhanterare: LVM2
-* Programvara för flera sökvägar: enheten Mapper
 
 Paravirtualized lagringsenheter (exporteras av paravirtualized drivrutiner) stöds inte.<br/>
 Flera kön blockera-i/o-enheter stöds inte.<br/>
@@ -134,7 +133,7 @@ Flera nätverkskort | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Det gick inte över Azure VM nätverkskonfigurationen
 
-Azure-nätverk | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
+**Azure-nätverk** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
 Express Route | Ja | Ja
 ILB | Ja | Ja
@@ -215,20 +214,20 @@ Hanterade diskar | Ja | Ja<br/><br/>Återställning till det lokala från Azure 
 
 Du kan distribuera Site Recovery för att replikera virtuella datorer och fysiska servrar som kör ett operativsystem som stöds av Azure. Detta omfattar de flesta versioner av Windows och Linux. Lokala virtuella datorer som du vill replikera måste överensstämma med följande krav för Azure vid replikering till Azure.
 
-**Entitet** | Krav | **Detaljer**
+**Entitet** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystemet | Hyper-V till Azure-replikering: Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> För VMware och fysiska servrar replikering: Kontrollera Windows- och Linux [krav](site-recovery-vmware-to-azure-classic.md) | Kravkontrollen misslyckas om stöds inte.
+**Gästoperativsystemet** | Hyper-V till Azure-replikering: Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> För VMware och fysiska servrar replikering: Kontrollera Windows- och Linux [krav](site-recovery-vmware-to-azure-classic.md) | Kravkontrollen misslyckas om stöds inte.
 **Gästen operativsystemets arkitektur** | 64-bitars | Kravkontrollen misslyckas om stöds inte
-**Operativsystemdisken** | Upp till 2 048 GB om du replikerar **virtuella VMware-datorer eller fysiska servrar till Azure**.<br/><br/>Upp till 2048 GB för **Hyper-V Generation 1** virtuella datorer.<br/><br/>Upp till 300 GB för **Hyper-V Generation 2 virtuella datorer**.  | Kravkontrollen misslyckas om stöds inte
-**Operativsystemet disk antal** | 1 | Kravkontrollen misslyckas om stöds inte.
-**Datadiskar** | 64 eller mindre om du replikerar **virtuella VMware-datorer till Azure**; 16 eller mindre om du replikerar **Hyper-V virtuella datorer till Azure** | Kravkontrollen misslyckas om stöds inte
-**Datadisken för virtuell Hårddisk** | Upp till 4095 GB | Kravkontrollen misslyckas om stöds inte
-**Nätverkskort** | Flera nätverkskort som stöds |
-**Delad virtuell Hårddisk** | Stöds inte | Kravkontrollen misslyckas om stöds inte
+**Storlek på operativsystemdisk** | Upp till 2 048 GB om du replikerar **virtuella VMware-datorer eller fysiska servrar till Azure**.<br/><br/>Upp till 2048 GB för **Hyper-V Generation 1** virtuella datorer.<br/><br/>Upp till 300 GB för **Hyper-V Generation 2 virtuella datorer**.  | Kravkontrollen misslyckas om stöds inte
+**Antal operativsystemdiskar** | 1 | Kravkontrollen misslyckas om stöds inte.
+**Antal datadiskar** | 64 eller mindre om du replikerar **virtuella VMware-datorer till Azure**; 16 eller mindre om du replikerar **Hyper-V virtuella datorer till Azure** | Kravkontrollen misslyckas om stöds inte
+**VHD-storlek för datadisk** | Upp till 4 095 GB | Kravkontrollen misslyckas om stöds inte
+**Nätverkskort** | Flera nätverkskort stöds |
+**Delad VHD** | Stöds inte | Kravkontrollen misslyckas om stöds inte
 **FC-disk** | Stöds inte | Kravkontrollen misslyckas om stöds inte
-**Format för hårddisk** | VHD <br/><br/> VHDX | Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
-**Bitlocker** | Stöds inte | BitLocker måste inaktiveras innan du skyddar en virtuell dator.
-**Namn på virtuell dator** | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namn måste börja och sluta med en bokstav eller siffra. | Uppdatera värdet i egenskaperna för virtuella datorn i Site Recovery.
+**Format för hårddisk** | VHD <br/><br/> VHDX | Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till VHD när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
+**BitLocker** | Stöds inte | BitLocker måste inaktiveras innan du skyddar en virtuell dator.
+**Namn på virtuell dator** | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i egenskaperna för virtuella datorn i Site Recovery.
 **VM-typ** | Generation 1<br/><br/> Generation 2 – Windows | Generation 2 virtuella datorer med en OS-disktyp av grundläggande (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme stöds.<br></br>Linux Generation 2 virtuella datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Stöd för åtgärder som Recovery Services-valvet

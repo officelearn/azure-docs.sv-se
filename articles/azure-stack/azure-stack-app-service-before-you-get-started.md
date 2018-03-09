@@ -3,8 +3,8 @@ title: "Innan du distribuerar Apptjänst Azure stacken | Microsoft Docs"
 description: "Steg för att slutföra innan du distribuerar Apptjänst Azure-stacken"
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/02/2018
+ms.author: anwestg
+ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
+
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra krav i den här artikeln.
@@ -44,10 +44,18 @@ Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra kr
 
 Azure Apptjänst Azure stacken kan för närvarande tillhandahåller hög tillgänglighet eftersom Azure Stack distribuerar arbetsbelastningar till endast en feldomän.
 
-Distribuera obligatoriska file server och SQL Server-instans i en konfiguration med hög tillgänglighet för att förbereda Azure App Service på Azure-stacken för hög tillgänglighet. Om Azure-stacken stöder flera feldomäner har ger vi vägledning om hur du aktiverar Azure App Service på Azure-stacken i en konfiguration med hög tillgänglighet.
-
+Distribuera obligatoriska file server och SQL Server-instans i en konfiguration med hög tillgänglighet för att förbereda Azure App Service på Azure-stacken för hög tillgänglighet. När Azure stacken stöder flera feldomäner, ges vägledning om hur du aktiverar Azure App Service på Azure-stacken i en konfiguration med hög tillgänglighet.
 
 ## <a name="get-certificates"></a>Hämta certifikat
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-rotcertifikatet för Azure-stacken
+
+I en PowerShell-session som körs som azurestack\CloudAdmin på en dator som kan nå Privilegierade slutpunkten på Azure-stacken integrerat System eller Azure Stack Development Kit värddatorn kör skriptet Get-AzureStackRootCert.ps1 från mappen där du extraherade helper-skript. Skriptet skapar ett rotcertifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
+
+| Get-AzureStackRootCert.ps1 parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Krävs | AzS-ERCS01 | Privilegierade slutpunkt |
+| CloudAdminCredential | Krävs | AzureStack\CloudAdmin | Domän-autentiseringsuppgift konto för Azure-stacken molnet administratörer |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certifikat som krävs för Azure-stacken Development Kit
 
@@ -56,9 +64,9 @@ Första skriptet fungerar med Azure Stack certifikatutfärdare att skapa fyra ce
 | Filnamn | Användning |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Apptjänst standard SSL-certifikat |
-| Api.appservice.local.azurestack.external.pfx | App Service API SSL-certifikat |
+| api.appservice.local.azurestack.external.pfx | App Service API SSL-certifikat |
 | ftp.appservice.local.azurestack.external.pfx | Apptjänst publisher SSL-certifikat |
-| Sso.appservice.local.azurestack.external.pfx | Apptjänst identitetscertifikat program |
+| sso.appservice.local.azurestack.external.pfx | Apptjänst identitetscertifikat program |
 
 Kör skriptet på Azure-stacken Development Kit värden och kontrollera att du kör PowerShell som azurestack\CloudAdmin:
 
@@ -74,18 +82,19 @@ Kör skriptet på Azure-stacken Development Kit värden och kontrollera att du k
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Certifikat som krävs för en Produktionsdistribution av Azure App Service på Azure-stacken
 
-Du måste ange följande fyra certifikat för att fungera resursprovidern i produktion.
+För att fungera resursprovidern i produktion, måste du ange följande fyra certifikat:
 
 #### <a name="default-domain-certificate"></a>Standardcertifikat
 
 Standard Domäncertifikat är placerad på frontend-rollen. Användarprogram för begäranden med jokertecken eller standard domän till Azure App Service använda det här certifikatet. Certifikatet används också för källa kontrollåtgärder (Kudu).
 
-Certifikatet måste vara i PFX-format och ska vara ett jokerteckencertifikat med två ämne. Detta gör att ett certifikat att täcka både standarddomänen och SCM-slutpunkten för kontroller som källa.
+Certifikatet måste vara i PFX-format och ska vara ett jokerteckencertifikat med tre ämne. Detta gör att ett certifikat att täcka både standarddomänen och SCM-slutpunkten för kontroller som källa.
 
 | Format | Exempel |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API-certifikat
 
@@ -101,11 +110,12 @@ Certifikatet för rollen Publisher säkrar FTPS trafiken för programmet ägare 
 
 | Format | Exempel |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identitetscertifikat
 
 Certifikatet för programmets identitet kan:
+
 - Integrering mellan Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) directory, Azure-stacken och Apptjänst till stöd för integrering med compute-resursprovidern.
 - Enkel inloggning scenarier för avancerad utvecklingsverktygen i Azure App Service på Azure-stacken.
 
@@ -115,15 +125,15 @@ Certifikat för identitet måste innehålla ett ämne som matchar följande form
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Resource Manager-rotcertifikatet för Azure-stacken
+## <a name="virtual-network"></a>Virtual Network
 
-Kör skriptet Get-AzureStackRootCert.ps1 från mappen där du extraherade helper-skript i ett PowerShell-session som körs som azurestack\CloudAdmin. Skriptet skapar fyra certifikat i samma mapp som skriptet som Apptjänst behöver för att skapa certifikat.
+Azure Apptjänst Azure stacken kan du distribuera resursprovidern i ett befintligt virtuellt nätverk.  På så sätt kan du använda interna IP-adresser ska ansluta till filservern och SQLServer krävs för Azure App Service på Azure-stacken.  Det virtuella nätverket konfigureras med följande adressintervallet och undernät innan du installerar Azure App Service på Azure Stack:
 
-| Get-AzureStackRootCert.ps1 parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Krävs | AzS-ERCS01 | Privilegierade slutpunkt |
-| CloudAdminCredential | Krävs | AzureStack\CloudAdmin | Domän-autentiseringsuppgift konto för Azure-stacken molnet administratörer |
+Virtual Network - /16
 
+Undernät
+
+ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Förbereda filservern
 
@@ -131,8 +141,11 @@ Azure Apptjänst kräver användning av en filserver. För Produktionsdistributi
 
 Azure-stacken Development Kit distributioner kan du använda den [exempel Azure Resource Manager Distributionsmall](https://aka.ms/appsvconmasdkfstemplate) att distribuera en konfigurerad enkelnods-filserver. Enkelnods-filserver ska finnas i en arbetsgrupp.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
+>[!IMPORTANT]
+> Om du vill distribuera Apptjänst i ett befintligt virtuellt nätverk som servern ska distribueras till ett separat undernät från Apptjänst.
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
 
 1. Skapa följande Active Directory globala säkerhetsgrupper:
    - FileShareOwners
@@ -216,6 +229,7 @@ net localgroup Administrators FileShareOwners /add
 Kör följande kommandon i en upphöjd kommandotolk på filservern eller redundansklusternoden som är aktuella resursägaren för klustret. Ersätt värdena i kursiv stil med värden som är specifika för din miljö.
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +242,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Arbetsgrupp
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +265,21 @@ SQL Server-instansen för Azure App Service på Azure-stacken måste vara tillg�
 
 Du kan använda en standardinstans eller namngiven instans för SQL Server-roller. Om du använder en namngiven instans, måste du manuellt starta tjänsten SQL Server Browser och öppna port 1434.
 
+>[!IMPORTANT]
+> Om du vill distribuera Apptjänst i ett befintligt virtuellt nätverk som SQL Server ska distribueras till ett separat undernät från App Service och filservern.
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
 
 Konfigurera en Azure AD-tjänstens huvudnamn för att stödja följande:
-- Virtuella skaluppsättning för integrering på worker nivåerna
-- Enkel inloggning för Azure Functions portalen och avancerad utvecklingsverktygen
+
+- Virtuella skaluppsättning för integrering på worker nivåerna.
+- Enkel inloggning för Azure Functions portalen och avancerad utvecklingsverktygen.
 
 De här stegen gäller för Azure AD-skyddad Azure Stack-miljöer.
 
 Administratörer måste konfigurera enkel inloggning till:
+
 - Aktivera Avancerad utvecklingsverktygen i App Service (Kudu).
 - Aktivera användning av Azure Functions-portaler.
 
@@ -276,7 +297,8 @@ Följ de här stegen:
 10. Välj **App registreringar**.
 11. Sök efter program-ID som returneras som en del i steg 7. Ett program med App Service anges.
 12. Välj **programmet** i listan.
-13. Välj **nödvändiga behörigheter** > **bevilja behörigheter** > **Ja**.
+13. Klicka på **inställningar**.
+14. Välj **nödvändiga behörigheter** > **bevilja behörigheter** > **Ja**.
 
 | Create-AADIdentityApp.ps1  parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
@@ -290,10 +312,12 @@ Följ de här stegen:
 ## <a name="create-an-active-directory-federation-services-application"></a>Skapa ett Active Directory Federation Services-program
 
 För miljöer med Azure-stacken skyddas av AD FS måste du konfigurera en AD FS-tjänstens huvudnamn för att stödja följande:
-- Virtuella skaluppsättning för integrering på worker nivåerna
-- Enkel inloggning för Azure Functions portalen och avancerad utvecklingsverktygen
+
+- Virtuella skaluppsättning för integrering på worker nivåerna.
+- Enkel inloggning för Azure Functions portalen och avancerad utvecklingsverktygen.
 
 Administratörer måste konfigurera enkel inloggning till:
+
 - Konfigurera ett huvudnamn för tjänsten för virtuell dator scale set integrering på worker nivåer.
 - Aktivera Avancerad utvecklingsverktygen i App Service (Kudu).
 - Aktivera användning av Azure Functions-portaler.
@@ -303,9 +327,9 @@ Följ de här stegen:
 1. Öppna ett PowerShell-instans som azurestack\AzureStackAdmin.
 2. Gå till platsen för de skript som du hämtade och installerade i den [nödvändiga steg](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Installera PowerShell för Azure-stacken](azure-stack-powershell-install.md).
-4.  Kör den **skapa ADFSIdentityApp.ps1** skript.
-5.  I den **autentiseringsuppgifter** fönster, ange ditt AD FS molnet administratörskonto och lösenord. Välj **OK**.
-6.  Ange sökväg för certifikatet och lösenordet för den [certifikat som skapades tidigare](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Certifikatet som skapats för det här steget som standard är **sso.appservice.local.azurestack.external.pfx**.
+4. Kör den **skapa ADFSIdentityApp.ps1** skript.
+5. I den **autentiseringsuppgifter** fönster, ange ditt AD FS molnet administratörskonto och lösenord. Välj **OK**.
+6. Ange sökväg för certifikatet och lösenordet för den [certifikat som skapades tidigare](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Certifikatet som skapats för det här steget som standard är **sso.appservice.local.azurestack.external.pfx**.
 
 | Create-ADFSIdentityApp.ps1  parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
@@ -314,7 +338,6 @@ Följ de här stegen:
 | CloudAdminCredential | Krävs | Null | Konto-domänautentiseringsuppgifterna för Azure-stacken molnet administratörer. Ett exempel är Azurestack\CloudAdmin. |
 | CertificateFilePath | Krävs | Null | Sökvägen till programmet identitet certifikatets PFX-fil. |
 | CertificatePassword | Krävs | Null | Lösenordet som hjälper dig att skydda den privata nyckeln för certifikatet. |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

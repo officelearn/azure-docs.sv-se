@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: ffa77e95387f3595d8ff69e89d29b7af5cf9c69d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Med hjälp av Azure för värd för och köra SAP arbetsbelastningsscenarier
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (SAP produkten tillgänglighet matris)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -298,7 +298,7 @@ Genom att välja Microsoft Azure som partnern SAP redo moln ska du kunna tillfö
 
 Förutom värd SAP NetWeaver scenarier med olika DBMS på Azure, du kan vara värd för olika andra scenarier för SAP arbetsbelastning, som SAP BI i Azure. Dokumentation om SAP NetWeaver distributioner på Azure interna virtuella datorer finns i avsnittet ”SAP NetWeaver på Azure Virtual Machines”.
 
-Azure har inbyggda virtuella Azure-erbjudanden som någonsin växer i storlek på processor och minne resurser för att täcka SAP arbetsbelastning som utnyttjar SAP HANA. Mer information om det här avsnittet, leta upp dokument under avsnittet SAP HANA på Azure Virtual Machines ”.
+Azure har inbyggda virtuella Azure-erbjudanden som någonsin växer i storlek på processor och minne resurser för att täcka SAP arbetsbelastning som utnyttjar SAP HANA. Mer information om det här området slå upp dokument under avsnittet SAP HANA på Azure Virtual Machines ”.
 
 Unik Azure för SAP HANA är ett unikt erbjudande som anger Azure förutom konkurrens. För att aktivera värd mer minne och processoranvändning dedikerade krävande SAP scenarier som involverar SAP HANA Azure erbjuder användningen av kunden bare metal-maskinvara för att köra SAP HANA-distributioner som kräver upp till 20 TB (60 TB skalbar) minne för S/4HANA eller andra SAP HANA-arbetsbelastning. Den här unika Azure lösningen för SAP HANA i Azure (stora instanser) kan du köra SAP HANA på den särskilda bare metal-maskinvaran med SAP programnivå eller arbetsbelastning i mitten-ware lager i interna virtuella datorer i Azure som värd. Den här lösningen dokumenteras i flera dokument i avsnittet ”SAP HANA i Azure (stora instanser)”.   
 
@@ -310,7 +310,7 @@ Värdscenario SAP arbetsbelastning i Azure kan också skapa kraven i Identity in
 ### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Översikt över och arkitektur för SAP HANA i Azure (stora instanser)
 Rubrik: Översikt och arkitektur för SAP HANA i Azure (stora instanser)
 
-Sammanfattning: Den här arkitekturen och tekniska distributionsguiden innehåller information som hjälper dig att distribuera SAP på den nya SAP HANA i Azure (stora instanser) i Azure. Det är inte avsedd att vara en heltäckande handbok som omfattar specifika inställningar för SAP-lösningar, men i stället användbar information i ditt första distributionen och pågående drift. Det bör inte ersätta SAP-dokumentation som rör installationen av SAP HANA (eller de många SAP stöd anteckningar omfattar avsnittet). Det ger dig en översikt och innehåller ytterligare information för att installera SAP HANA i Azure (stora instanser).
+Sammanfattning: Den här arkitekturen och tekniska distributionsguiden innehåller information som hjälper dig att distribuera SAP på den nya SAP HANA i Azure (stora instanser) i Azure. Det är inte avsedd att vara en heltäckande handbok som omfattar specifika inställningar för SAP-lösningar, men i stället användbar information i ditt första distributionen och pågående drift. Det bör inte ersätta SAP-dokumentation som rör installationen av SAP HANA (eller de många SAP stöd anteckningar omfattar området). Det ger dig en översikt och innehåller ytterligare information för att installera SAP HANA i Azure (stora instanser).
 
 Uppdaterad: Oktober 2017
 
@@ -337,7 +337,7 @@ Uppdaterad: Juli 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Hög tillgänglighet och katastrofåterställning återställning av SAP HANA i Azure (stora instanser)
 Rubrik: Hög tillgänglighet och katastrofåterställning för SAP HANA i Azure (stora instanser)
 
-Sammanfattning: Hög tillgänglighet och Disaster Recovery (DR) är mycket viktiga aspekter av din verksamhetskritiska SAP HANA körs på Azure (stora instanser) servrar. Det är importera att arbeta med SAP, din systemintegreraren och/eller Microsoft skapa och implementera rätt hr/DR-strategi för du korrekt. Viktiga saker som mål för återställning-plats (RPO) och återställning tid mål för Återställningstid, specifika för din miljö måste beaktas.  Det här dokumentet beskriver alternativen för att aktivera din önskade nivå med hög tillgänglighet och Katastrofåterställning.
+Sammanfattning: Hög tillgänglighet och Disaster Recovery (DR) är viktiga aspekter av din verksamhetskritiska SAP HANA körs på Azure (stora instanser) servrar. Det är importera att arbeta med SAP, din systemintegreraren och/eller Microsoft skapa och implementera rätt hr/DR-strategi för du korrekt. Viktiga saker som mål för återställning-plats (RPO) och återställning tid mål för Återställningstid, specifika för din miljö måste beaktas.  Det här dokumentet beskriver alternativen för att aktivera din önskade nivå med hög tillgänglighet och Katastrofåterställning.
 
 Uppdaterad: Oktober 2017
 

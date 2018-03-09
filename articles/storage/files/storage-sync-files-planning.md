@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -92,7 +92,7 @@ Framtida versioner av Windows Server läggs när de blir tillgängliga. Tidigare
 | Referenspunkter | Hoppades över | |
 | NTFS-komprimering | Fullt stöd | |
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men de synkroniseras till molnet som en fullständig fil. Ändrar filens innehåll i molnet (eller på en annan server), är filen inte längre sparse när ändringen har hämtats. |
-| Alternativa dataströmmar (ADS) | Bevaras, men inte synkroniserats | |
+| Alternativa dataströmmar (ADS) | Bevaras, men inte synkroniserats | Till exempel synkroniserats klassificering taggar som skapats av Filklassificeringsinfrastrukturen har inte. Den befintliga klassificering taggar på filer på varje server-slutpunkter är orörda. |
 
 > [!Note]  
 > NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
@@ -142,7 +142,7 @@ Säkerhetskopieringslösningar kan orsaka återkallar nivåindelade filer som an
 Stöd för krypteringslösningar beror på hur de är implementerade. Azure filsynkronisering är känt att arbeta med:
 
 - BitLocker-kryptering
-- Azure Rights Management Services (Azure RMS) (och äldre Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) och Active Directory RMS
 
 Azure filsynkronisering känns inte arbeta med:
 

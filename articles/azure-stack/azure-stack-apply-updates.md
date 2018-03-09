@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure-stacken
 
@@ -67,7 +67,7 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
  
     ![Visar var du ska överföra varje paketfil](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. 
+8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. Importera inte filen kompletterande Notice.txt om ingår.
 9. När du är klar kan du granska meddelanden (i det övre högra hörnet av portal klockikonen). Meddelanden bör ange att överföringen är klar. 
 10. Gå tillbaka till Update-ikonen på instrumentpanelen. Panelen ska ange att en uppdatering är tillgänglig. Klicka på panelen om du vill granska nyligen tillagda uppdateringspaketet.
 11. Välj det paket som har markerats som om du vill installera uppdateringen **redo** och högerklicka på paketet och välj **Uppdatera nu**, eller klicka på den **Uppdatera nu** åtgärd längst upp .

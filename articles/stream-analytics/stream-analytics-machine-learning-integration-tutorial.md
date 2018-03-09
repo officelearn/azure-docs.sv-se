@@ -4,7 +4,7 @@ description: "Hur du använder en användardefinierad funktion och Machine Learn
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra sentiment analys med hjälp av Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt ställa in ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du använder en Machine Learning sentiment analytics modell från Cortana Intelligence Gallery analysera strömmande textdata och fastställa sentiment poäng i realtid. Med hjälp av Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa av bygger en sentiment analytics modell.
@@ -57,9 +57,7 @@ På en hög nivå för att slutföra de uppgifter som visas i den här artikeln 
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Skapa en lagringsbehållare och ladda upp CSV indatafilen
 Du kan använda CSV-fil, till exempel en tillgänglig från GitHub för det här steget.
 
-1. I Azure-portalen klickar du på **skapar du en resurs** &gt; **lagring** &gt; **lagringskonto**.
-
-   ![Skapa nytt lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. I Azure-portalen klickar du på **skapar du en resurs** > **lagring** > **lagringskonto**.
 
 2. Ange ett namn (`samldemo` i exemplet). Namnet kan använda bara gemena bokstäver och siffror, och den måste vara unikt i Azure. 
 
@@ -67,7 +65,7 @@ Du kan använda CSV-fil, till exempel en tillgänglig från GitHub för det här
 
     ![Ange information om lagringskonto](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
 
-4. Välj lagringskonto i Azure-portalen. I bladet storage-konto klickar du på **behållare** och klicka sedan på  **+ &nbsp;behållare** att skapa blob-lagring.
+4. Välj lagringskonto i Azure-portalen. I bladet storage-konto klickar du på **behållare** och klicka sedan på ** + &nbsp;behållare** att skapa blob-lagring.
 
     ![Skapa blob-behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 
@@ -81,9 +79,7 @@ Du kan använda CSV-fil, till exempel en tillgänglig från GitHub för det här
 
     ![Överför knapp för en behållare](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. I den **överför blob** bladet anger du den CSV-fil som du vill använda för den här självstudiekursen. För **Blob typen**väljer **blockblob** och Ställ in blockstorleken på 4 MB, vilket är tillräcklig för den här kursen.
-
-    ![Överför blob-fil](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. I den **överför blob** bladet, överför den **sampleinput.csv** filen som du hämtade tidigare. För **Blob typen**väljer **blockblob** och Ställ in blockstorleken på 4 MB, vilket är tillräcklig för den här kursen.
 
 9. Klicka på den **överför** längst ned på bladet.
 
@@ -130,8 +126,6 @@ Du kan nu skapa ett Stream Analytics-jobb som läser exempel tweets från CSV-fi
 
 2. Klicka på **skapar du en resurs** > **Sakernas Internet** > **Stream Analytics-jobbet**. 
 
-   ![Azure portal sökvägen för att hämta ett nytt Stream Analytics-jobb](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. Namnge jobbet `azure-sa-ml-demo`, ange en prenumeration, ange en befintlig resursgrupp eller skapa en ny och välj en plats för jobbet.
 
    ![Ange inställningar för nya Stream Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +134,43 @@ Du kan nu skapa ett Stream Analytics-jobb som läser exempel tweets från CSV-fi
 ### <a name="configure-the-job-input"></a>Konfigurera jobbet indata
 Jobbet hämtar indata från CSV-fil som du tidigare har överförts till blob storage.
 
-1. När jobbet har skapats under **jobbet topologi** i jobb-bladet klickar du på den **indata** rutan.  
+1. När jobbet har skapats under **jobbet topologi** i jobb-bladet klickar du på den **indata** alternativet.    
+
+2. I den **indata** bladet, klickar du på **lägga till Strömindata** >**Blob storage**
+
+3. Fyll i den **Blob Storage** bladet med dessa värden:
+
    
-   !['Indata-rutan i Stream Analytics-jobbet bladet](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Fält  |Värde  |
+   |---------|---------|
+   |**Ett inmatat alias** | Använd namn `datainput` och välj **Välj blob storage från prenumerationen**       |
+   |**Lagringskonto**  |  Välj lagringskontot som du skapade tidigare.  |
+   |**Behållaren**  | Markera den behållare som du skapade tidigare (`azuresamldemoblob`)        |
+   |**Händelsen serialiseringsformat**  |  Välj **CSV**       |
 
-2. I den **indata** bladet, klickar du på **+ Lägg till**.
+   ![Inställningar för nya jobb indata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![”Knappen Lägg till' för att lägga till indata till Stream Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Fyll i den **nya indata** bladet med dessa värden:
-
-    * **Ett inmatat alias**: Använd namnet `datainput`.
-    * **Typ av datakälla**: Välj **dataströmmen**.
-    * **Källan**: Välj **Blob storage**.
-    * **Importera alternativet**: Välj **använda blob storage från aktuell prenumeration**. 
-    * **Lagringskontot**. Välj lagringskontot som du skapade tidigare.
-    * **Behållaren**. Markera den behållare som du skapade tidigare (`azuresamldemoblob`).
-    * **Händelsen serialiseringsformat**. Välj **CSV**.
-
-    ![Inställningar för nya jobb indata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. Klicka på **Skapa**.
+4. Klicka på **Spara**.
 
 ### <a name="configure-the-job-output"></a>Konfigurera jobbutdata
 Jobbet skickar resultaten till samma blob storage där den hämtar indata. 
 
-1. Under **jobbet topologi** i jobb-bladet klickar du på den **utdata** rutan.  
-  
-   ![Skapa nya utdata för Streaming Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. Under **jobbet topologi** i jobb-bladet klickar du på den **utdata** alternativet.  
 
-2. I den **utdata** bladet, klickar du på **+ Lägg till**, och sedan lägga till utdata med aliaset `datamloutput`. 
+2. I den **utdata** bladet, klickar du på **Lägg till** >**Blob storage**, och sedan lägga till utdata med aliaset `datamloutput`. 
 
-3. För **Sink**väljer **Blob storage**. Fyll i resten av utdata-inställningar med hjälp av samma värden som du använde för blob-lagring för indata:
+3. Fyll i den **Blob Storage** bladet med dessa värden:
 
-    * **Lagringskontot**. Välj lagringskontot som du skapade tidigare.
-    * **Behållaren**. Markera den behållare som du skapade tidigare (`azuresamldemoblob`).
-    * **Händelsen serialiseringsformat**. Välj **CSV**.
+   |Fält  |Värde  |
+   |---------|---------|
+   |**Kolumnalias** | Använd namn `datainput` och välj **Välj blob storage från prenumerationen**       |
+   |**Lagringskonto**  |  Välj lagringskontot som du skapade tidigare.  |
+   |**Behållaren**  | Markera den behållare som du skapade tidigare (`azuresamldemoblob`)        |
+   |**Händelsen serialiseringsformat**  |  Välj **CSV**       |
 
    ![Inställningar för nya jobbutdata](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Klicka på **Skapa**.   
+4. Klicka på **Spara**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Lägg till Machine Learning-funktion 
@@ -189,22 +180,19 @@ I det här avsnittet av kursen definierar du en funktion i dataströmmen Analysi
 
 1. Kontrollera att du har den web service URL: en och API-nyckeln som du hämtade tidigare i Excel-arbetsboken.
 
-2. Gå tillbaka till bladet jobbet Översikt.
+2. Gå till jobb-bladet > **funktioner** > **+ Lägg till** > **AzureML**
 
-3. Under **inställningar**väljer **funktioner** och klicka sedan på **+ Lägg till**.
+3. Fyll i den **Azure Machine Learning-funktionen** bladet med dessa värden:
 
-   ![Lägga till en funktion i Stream Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Ange `sentiment` som funktionen alias och Fyll ut resten av bladet med hjälp av dessa värden:
-
-    * **Funktionen typen**: Välj **Azure ML**.
-    * **Importera alternativet**: Välj **importera från en annan prenumeration**. Detta ger dig möjlighet att ange URL och nyckel.
-    * **URL: en**: klistra in URL för webbtjänsten.
-    * **Nyckeln**: klistra in API-nyckeln.
+   |Fält  |Värde  |
+   |---------|---------|
+   | **Funktionen alias** | Använd namn `sentiment` och välj **ger Azure Machine Learning-funktionsinställningar manuellt** som ger dig ett alternativ för att ange URL och nyckel.      |
+   | **URL**| Klistra in URL för webbtjänsten.|
+   |**Nyckel** | Klistra in API-nyckeln. |
   
-    ![Inställningar för att lägga till en Machine Learning-funktionen i Stream Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Inställningar för att lägga till en Machine Learning-funktionen i Stream Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Klicka på **Skapa**.
+4. Klicka på **Spara**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Skapa en fråga för att omvandla data
 
@@ -213,8 +201,6 @@ Stream Analytics använder en deklarativ, SQL-baserade frågan för att kontroll
 1. Gå tillbaka till bladet jobbet Översikt.
 
 2.  Under **jobbet topologi**, klicka på den **frågan** rutan.
-
-    ![Skapa en fråga för Streaming Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. Ange följande fråga:
 
@@ -241,8 +227,6 @@ Du kan nu starta Stream Analytics-jobbet.
 1. Gå tillbaka till bladet jobbet Översikt.
 
 2. Klicka på **starta** längst upp på bladet.
-
-    ![Skapa en fråga för Streaming Analytics-jobbet](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. I den **startjobb**väljer **anpassade**, och välj sedan en dag före när du har överfört CSV-filen till blob storage. När du är klar klickar du på **starta**.  
 

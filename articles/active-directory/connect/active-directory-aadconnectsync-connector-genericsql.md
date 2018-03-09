@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Teknisk referens för allmän SQL Connector
 Den här artikeln beskriver allmänna SQL-anslutningen. Artikeln gäller för följande produkter:
@@ -152,7 +152,7 @@ Från och med mars 2017 uppdateringen är nu ett alternativ för ”*” när de
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- Från och med kan 2017 den ”*” aka **något alternativ** har ändrats för att stödja importera och exportera flödet. Om du vill använda det här alternativet ska med flera värden tabellen/vyn ha ett attribut som innehåller objekttypen av.
+ Från och med kan 2017 den ”\*” aka **något alternativ** har ändrats för att stödja importera och exportera flödet. Om du vill använda det här alternativet ska med flera värden tabellen/vyn ha ett attribut som innehåller objekttypen av.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

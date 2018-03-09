@@ -14,17 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ebfd44098a81b4a9d8863623458460ceb25f0d5d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Vad är Azure SQL Database servicenivåer?
 
-[Azure SQL Database](sql-database-technical-overview.md) erbjuder **grundläggande**, **Standard**, och **Premium** tjänstnivåer för både [enkel databaser](sql-database-single-database-resources.md) och [elastiska pooler](sql-database-elastic-pool.md). Tjänstnivåer särskiljs främst med hjälp av ett intervall av prestandanivå och lagringsalternativ för storlek och pris.  Alla tjänstnivåer ger flexibilitet för att ändra storlek på prestanda nivå och lagring.  Enskilda databaser och elastiska pooler faktureras timvis baserat på tjänstnivå och prestandanivå lagringsstorlek.   
+[Azure SQL Database](sql-database-technical-overview.md) erbjuder **grundläggande**, **Standard**, och **Premium** tjänstnivåer för både [enkel databaser](sql-database-single-database-resources.md) och [elastiska pooler](sql-database-elastic-pool.md). SQL-databas erbjuder en tjänstnivå för generella för [Azure SQL-hanterade databasinstans](sql-database-managed-instance.md#managed-instance-service-tier). Tjänstnivåer särskiljs främst med hjälp av ett intervall av prestandanivå och lagringsalternativ för storlek och pris.  Alla tjänstnivåer ger flexibilitet för att ändra storlek på prestanda nivå och lagring.  Enskilda databaser och elastiska pooler faktureras timvis baserat på tjänstnivå och prestandanivå lagringsstorlek.   
+
+> [!IMPORTANT]
+> SQL-hanterade databasinstans erbjuder för närvarande i förhandsversion, en enda allmänna tjänstnivå. Mer information finns i [Azure SQL-hanterade databasinstans](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
 
 ## <a name="choosing-a-service-tier"></a>Välja tjänstnivå
 
@@ -42,7 +45,7 @@ Om du väljer en tjänstnivå beror huvudsakligen på kontinuitet för företag-
 
 ## <a name="performance-level-and-storage-size-limits"></a>Storleksbegränsningar för prestanda och lagring
 
-Prestandanivåer uttrycks i Database Transaction Units (Dtu) för enskilda databaser och elastiska Datatransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er?](sql-database-what-is-a-dtu.md)
+Prestandanivåer uttrycks i DTU (Database Transaction Unit) för enkla databaser och eDTU (elastic Database Transaction Unit) för elastiska pooler. Mer information om dtu: er och edtu: er Se [vad är dtu: er och edtu: er?](sql-database-what-is-a-dtu.md)
 
 ### <a name="single-databases"></a>Enkla databaser
 

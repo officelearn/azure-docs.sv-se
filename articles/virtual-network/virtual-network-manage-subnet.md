@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
@@ -44,7 +44,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
     - **Namnet**: namnet måste vara unika inom det virtuella nätverket.
     - **Adressintervall**: intervallet måste vara unika inom adressutrymmet för det virtuella nätverket. Intervallet får inte överlappa med andra undernät adressintervall i det virtuella nätverket. Adressutrymmet måste anges med hjälp av Classless Inter-Domain Routing CIDR-notering. Du kan till exempel definiera en undernätsadressutrymmet 10.0.0.0/24 i ett virtuellt nätverk med adressutrymme 10.0.0.0/16. Det minsta intervall som du kan ange är /29, vilket möjliggör åtta IP-adresser för undernätet. Azure reserverar de första och sista adressen i varje undernät för protokollet överensstämmelse. Tre ytterligare adresser är reserverade för användning i Azure-tjänsten. Därför definiera ett undernät med en /29 adressen resulterar i tre användbara IP-adresser i undernätet. Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway, måste du skapa en gateway-undernätet. Lär dig mer om [specifik adressintervallet överväganden för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adressintervallet när undernätet läggs vissa villkor. Information om hur du ändrar ett adressintervall för undernätet finns [ändra undernätsinställningar](#change-subnet-settings).
     - **Nätverkssäkerhetsgruppen**: du kan associera noll eller en befintlig säkerhetsgrupp för nätverk till ett undernät att filtrera inkommande och utgående nätverkstrafik för undernätet. Nätverkssäkerhetsgruppen måste finnas i samma prenumeration och plats som det virtuella nätverket. Lär dig mer om [nätverkssäkerhetsgrupper](security-overview.md) och [hur du skapar en nätverkssäkerhetsgrupp](virtual-networks-create-nsg-arm-pportal.md).
-    - **Routningstabellen**: du kan associera noll eller en befintlig routningstabellen till ett undernät för att styra nätverksroutning trafik till andra nätverk. Routningstabellen måste finnas i samma prenumeration och plats som det virtuella nätverket. Lär dig mer om [Azure routning](virtual-networks-udr-overview.md) och [hur du skapar en routningstabell](create-user-defined-route-portal.md)
+    - **Routningstabellen**: du kan associera noll eller en befintlig routningstabellen till ett undernät för att styra nätverksroutning trafik till andra nätverk. Routningstabellen måste finnas i samma prenumeration och plats som det virtuella nätverket. Lär dig mer om [Azure routning](virtual-networks-udr-overview.md) och [hur du skapar en routningstabell](tutorial-create-route-table-portal.md)
     - **Tjänstens slutpunkter:** ett undernät kan ha noll eller flera tjänstslutpunkter som aktiverats för den. Om du vill aktivera en tjänstslutpunkt för en tjänst, Välj den eller de tjänster som du vill aktivera Tjänsteslutpunkter för från den **Services** lista. Om du vill ta bort en tjänstslutpunkt avmarkerar du tjänsten som du vill ta bort tjänstslutpunkten för. Läs mer om Tjänsteslutpunkter i [översikt över virtuella nätverk service slutpunkter](virtual-network-service-endpoints-overview.md). När du aktiverar en tjänstslutpunkt för en tjänst, måste du också aktivera nätverksåtkomst för undernätet för en resurs som skapas med tjänsten. Om du aktiverar tjänstslutpunkten för till exempel *Microsoft.Storage*, måste du även aktivera nätverksåtkomst till alla Azure Storage-konton som du vill bevilja åtkomst till. Du har aktiverat tjänstslutpunkten för mer information om hur du aktivera nätverksåtkomst till undernät som en tjänstslutpunkt har aktiverats för finns i dokumentationen för enskild tjänst.
 6. Om du vill lägga till undernätet i det virtuella nätverket som du har valt, Välj **OK**.
 

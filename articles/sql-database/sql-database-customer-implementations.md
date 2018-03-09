@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database kunden implementering tekniska undersökningar
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 
 - [Kvorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): kvorum fördubblar viktiga databasen arbetsbelastning och sänka DTU med 70% med SQL-databas.
 
-- [Begäran om förnyelse](https://customers.microsoft.com/en-US/story/quest): begäran om förnyelse erbjuder dess Spotlight på SQL Server Enterprise service med ett mål i åtanke: att ge professionella bästa verktyg som finns tillgängliga för att skydda data, flyttar data runt och övervakning databasåtgärder. Med Spotlight, med hjälp av Microsoft Azure och Azure SQL Database kan databasadministratörer för SQL Server övervaka, identifiera, diagnostisera och ger dig ett sätt att lösa problem med prestanda i SQL Server, oavsett om de är placerad på skrivbordet eller arbetar hemma.
+- [Begäran om förnyelse](https://customers.microsoft.com/story/quest): begäran om förnyelse erbjuder dess Spotlight på SQL Server Enterprise service med ett mål i åtanke: att ge professionella bästa verktyg som finns tillgängliga för att skydda data, flyttar data runt och övervakning databasåtgärder. Med Spotlight, med hjälp av Microsoft Azure och Azure SQL Database kan databasadministratörer för SQL Server övervaka, identifiera, diagnostisera och ger dig ett sätt att lösa problem med prestanda i SQL Server, oavsett om de är placerad på skrivbordet eller arbetar hemma.
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): den här korta fallstudien visar bästa praxis och erfarenheter från Dynamics 365 för Operations produktteamets upplevelse av att migrera till Azure SQL Database för att ge en helt hanterad programvara som kunder en tjänst (SaaS) erbjuder. Med Azure SQL Database, Dynamics 365 för driftteamet kunde hantera och använda tjänsten med betydligt mindre personal och skala enkelt med out box hanteringsfunktioner, till exempel automatiska säkerhetskopieringar, databasen lagring av säkerhetskopior. , hög tillgänglighet och katastrofåterställning återställningsfunktioner. Detta tillsammans med möjligheten att etablera databaser med trivial automation lånade ut Azure SQL Database har en utmärkt plattform för stående storskaliga Services.
 

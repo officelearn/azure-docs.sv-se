@@ -1,10 +1,10 @@
-Uppdateringar av Azure filsynkronisering agenten släpps regelbundet att lägga till nya funktioner och åtgärda eventuella problem som har identifierats. Vi rekommenderar att du konfigurerar Microsoft Update för att få alla uppdateringar till Azure filsynkronisering agenten som vi frigörs. Vi förstår att vissa organisationer vilja kontrollera noggrant och testa uppdateringar. 
+Azure filsynkronisering agenten uppdateras regelbundet kan lägga till nya funktioner och åtgärda problem. Vi rekommenderar att du konfigurerar Microsoft Update för att hämta uppdateringar för agenten Azure filsynkronisering som de är tillgängliga. Vi förstår att vissa organisationer vilja kontrollera noggrant och testa uppdateringar.
 
 För distributioner som använder tidigare versioner av Azure filsynkronisering agenten:
 
-- Synkronisera lagringstjänsten godkänner den föregående huvudversionen för tre månader efter den första versionen av en ny högre version. Synkroniseringstjänsten lagring stöder till exempel version 1. \* tre månader efter lanseringen av version 2. \*.
-- När tre månader har gått börjar synkronisera lagringstjänsten att blockera registrerade servrar som använder den har upphört att gälla versionen från att synkronisera med deras synkroniseringsgrupper.
-- Inom tre månader för föregående huvudversion gå alla felkorrigeringar bara till den aktuella huvudversionen.
+- Efter den första versionen av en ny högre version godkänner Sync lagringstjänsten tidigare huvudversion för tre månader. Synkroniseringstjänsten lagring stöder till exempel version 1. \* för tre månader efter lanseringen av version 2. \*.
+- Efter tre månader har gått blockerar Sync lagringstjänsten registrerade servrar med den utgångna versionen från att synkronisera med deras synkroniseringsgrupper.
+- Under tre månader som har lösts in tidigare huvudversion går alla felkorrigeringar enbart för den aktuella (nya) huvudversionen.
 
 > [!Note]  
-> Vi meddelar dig via popup-meddelande i Azure Portal om du använder en version av Azure File Sync som upphör att gälla inom de kommande tre månaderna.
+> Om din version av Azure filsynkronisering går ut inom tre månader kan meddelas du via popup-meddelande i Azure-portalen.

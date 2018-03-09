@@ -3,7 +3,7 @@ title: Konfigurera Azure AD Privileged Identity Management | Microsoft Docs
 description: "Ett avsnitt som förklarar vad Azure AD Privileged Identity Management är och hur du förbättrar säkerheten för molnet med hjälp av PIM."
 services: active-directory
 documentationcenter: 
-author: barclayn
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,21 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
 Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Detta inbegriper tillgång till resurser i Azure AD och Azure-resurser (förhandsversion) och andra Microsoft Online Services som Office 365 eller Microsoft Intune.
 
 > [!NOTE]
-> Privileged Identity Management är tillgänglig för hela organisationen när du licensierar dina administratörer med Premium P2-versionen av Azure Active Directory. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+> När du aktiverar Privileged Identity Management för din klient en giltig Azure AD Premium P2 eller Enterprise Mobility + Security E5 betald eller utvärderingslicens krävs för varje användare som interagerar med eller tar emot en fördel från tjänsten. Exempel användare och användare > en grupp som är:
+>
+>- Tilldelats rollen Administratör av Privilegierade roller 
+>- Tilldelade som är berättigade till andra directory roller som hanteras via PIM 
+>- Möjlighet att godkänna/avvisa förfrågningar i PIM 
+>- En Azure-resurs-rollen med precis i tid, eller direkt (klockslag) tilldelningar  
+>- Tilldelad till en åtkomst-granskning
+>
+>Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
 
 Organisationer som vill minimera antalet personer som har åtkomst till säkra information eller resurser, eftersom som minskar risken för att en obehörig användare komma att åtkomst eller en behörig användare oavsiktligt påverkar en känsliga resurs.  Dock användare fortfarande behöver utföra Privilegierade åtgärder i Azure AD Azure, Office 365 eller SaaS-appar. Organisationer kan ge användare privilegierad åtkomst till Azure-resurser som prenumerationer och Azure AD. Det finns behov av tillsyn för vad användarna gör med deras administratörsrättigheter. Azure AD Privileged Identity Management hjälper till att minska risken för långa, onödiga eller felanvändning åtkomsträttigheter.
 
@@ -54,7 +62,7 @@ Du kan börja använda Azure AD Privileged Identity Management i den [Azure-port
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för din katalog.
 2. Om din organisation har mer än en katalog väljer du ditt användarnamn längst upp till höger på Azure-portalen. Välj den katalog där du ska använda Azure AD Privileged Identity Management.
-3. Välj **alla tjänster** och använda Filter-textrutan för att söka efter **Azure AD Privileged Identity Management**.
+3. Välj **Alla tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
 Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog och du navigerar till Azure AD directory roller och du navigerar till Azure AD directory roller, en [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md) vägleder dig genom första tilldelningsupplevelse. Därefter blir du automatiskt först **säkerhetsadministratör** och **administratör av Privilegierade roller** av katalogen.

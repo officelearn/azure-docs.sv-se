@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Allmänna riktlinjer för att arbeta med Wingtip biljetter exempel SaaS-appar
 
@@ -28,12 +28,12 @@ Den här artikeln innehåller allmänna riktlinjer för att köra de Wingtip bil
 Körbara innehållet (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När skript från en zip-fil, **Följ stegen nedan för att låsa upp ZIP-filen innan du extraherar**. Detta säkerställer att skript tillåts köra.
 
 1. Bläddra till Wingtip biljetter SaaS GitHub-lagringsplatsen för databasen innehavare mönstret som du vill utforska: 
-    - [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Klicka på **kloning eller hämta**.
 3. Klicka på **hämta zip** och spara filen.
-4. Högerklicka på zip-filen och välj **egenskaper**. Namnet på zip-filen motsvarar namnet på lagringsplatsen. (t.ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+4. Högerklicka på zip-filen och välj **egenskaper**. Namnet på zip-filen motsvarar namnet på lagringsplatsen. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. På den **allmänna** väljer **avblockera**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
@@ -86,8 +86,8 @@ Distributionen har ursprungligen klienter och katalogservrar för SQL-databas f�
 För att säkerställa en lyckad demo-anslutning, alla servrar som har en [brandväggsregel](sql-database-firewall-configure.md) så att alla IP-adresser via.
 
 
-1. Öppna *SSMS* och ansluta till den hyresgäster. Servernamnet är beroende av databasen innehavare mönstret som du har valt (se nedan för information):
-    - **Fristående program:** servrar för enskilda klienter (t.ex. *contosoconcerthall -&lt;användare&gt;. database.windows.net*) 
+1. Öppna *SSMS* och ansluta till klienterna. Servernamnet är beroende av databasen innehavare mönstret som du har valt (se nedan för information):
+    - **Fristående program:** servrar för enskilda klienter (t.ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Databasen per klient:** *tenants1-dpt -&lt;användaren&gt;. database.windows.net*
     - **Flera innehavare databasen:** *tenants1-huvudmålservern -&lt;användaren&gt;. database.windows.net* 
 2. Klicka på **anslut** > **databasmotor...** :
@@ -97,7 +97,7 @@ För att säkerställa en lyckad demo-anslutning, alla servrar som har en [brand
 3. Autentiseringsuppgifterna för demot är: inloggningsnamn = *developer*, lösenord = *P@ssword1*
 
     Bilden nedan visar inloggningen för den *databas per klient* mönster. 
-    ![anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![Anslutning](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 

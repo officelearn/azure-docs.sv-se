@@ -1,34 +1,27 @@
 ---
 title: "Azure Active Directory-auth - Azure SQL (översikt) | Microsoft Docs"
-description: "Lär dig mer om hur du använder Azure Active Directory för autentisering med SQL Database och SQL Data Warehouse"
+description: "Lär dig mer om hur du använder Azure Active Directory för autentisering med SQL-databas, hanterade-instans och SQL Data Warehouse"
 services: sql-database
-documentationcenter: 
 author: GithubMirek
 manager: johammer
-editor: 
-tags: 
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 09/12/2017
+ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: ff6e4405819d1e7134eb5cdfd7d8ad712dc2a654
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9745fef33bf00e7249c1cb550c5164474bf5c3ee
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Använda Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse
+# <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Använda Azure Active Directory-autentisering för autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse
 Azure Active Directory-autentisering är en mekanism för anslutning till Microsoft Azure SQL Database och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). Med Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera användare och förenklar hantering av behörighet. Följande: fördelar
 
 * Det ger ett alternativ till SQL Server-autentisering.
 * Hjälper till att stoppa spridning av användaridentiteter över databasservrar.
 * Tillåter lösenord rotation i en enda plats
-* Kunder kan hantera databasen med hjälp av externa (AAD)-grupper.
+* Kunder kan hantera databasen med hjälp av externa (Azure AD)-grupper.
 * Men du kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
 * Azure AD-autentisering använder oberoende databasanvändare för att autentisera identiteter på databasnivå.
 * Azure AD stöder tokenbaserad autentisering för program som ansluter till SQL-databas.
@@ -42,13 +35,13 @@ Konfigurationsstegen innehåller följande procedurer för att konfigurera och a
 
 1. Skapa och fylla i Azure AD.
 2. Valfritt: Koppla eller ändra active directory som associeras med din Azure-prenumeration.
-3. Skapa en Azure Active Directory-administratör för Azure SQL server eller [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+3. Skapa en Azure Active Directory-administratör för Azure SQL Database-server, hanterade-instans eller [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. Konfigurera klientdatorer.
 5. Skapa oberoende databasanvändare i din databas som mappats till Azure AD identiteter.
 6. Ansluta till databasen med hjälp av Azure AD identiteter.
 
 > [!NOTE]
-> Information om hur du skapar och fylla i Azure AD och konfigurera Azure AD med Azure SQL Database och SQL Data Warehouse finns [konfigurera Azure AD med Azure SQL Database](sql-database-aad-authentication-configure.md).
+> Information om hur du skapar och fylla i Azure AD och konfigurera Azure AD med Azure SQL Database, hanterade-instans och SQL Data Warehouse finns [konfigurera Azure AD med Azure SQL Database](sql-database-aad-authentication-configure.md).
 >
 
 ## <a name="trust-architecture"></a>Förtroendearkitektur
@@ -61,23 +54,38 @@ Följande diagram visar federation, förtroende och värdrelationer som gör att
 ![prenumerationen relation][2]
 
 ## <a name="administrator-structure"></a>Administratören struktur
-När du använder Azure AD-autentisering, finns det två administratörskonton för SQL Database-servern. den ursprungliga SQL Server-administratören och Azure AD-administratör. Samma koncept gäller för SQL Data Warehouse. Endast administratören baserat på en Azure AD-kontot kan skapa den första databasanvändaren för Azure AD finns i en användardatabas. Inloggningen för Azure AD-administratör kan vara en Azure AD-användare eller en grupp i Azure AD. När administratören är ett gruppkonto, kan den användas av en gruppmedlem så att flera Azure AD-administratörer för SQL Server-instansen. Med hjälp av gruppkontot som administratör förbättrar hanterbarhet genom att du kan lägga till och ta bort medlemmar i Azure AD utan att ändra användare eller behörighet i SQL-databas centralt. Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras när som helst.
+När du använder Azure AD-autentisering, finns det två administratörskonton för SQL Database-server och hanterade instans; den ursprungliga SQL Server-administratören och Azure AD-administratör. Samma koncept gäller för SQL Data Warehouse. Endast administratören baserat på en Azure AD-kontot kan skapa den första databasanvändaren för Azure AD finns i en användardatabas. Inloggningen för Azure AD-administratör kan vara en Azure AD-användare eller en grupp i Azure AD. När administratören är ett gruppkonto, kan den användas av en gruppmedlem så att flera Azure AD-administratörer för SQL Server-instansen. Med hjälp av gruppkontot som administratör förbättrar hanterbarhet genom att du kan lägga till och ta bort medlemmar i Azure AD utan att ändra användare eller behörighet i SQL-databas centralt. Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras när som helst.
 
 ![Admin-struktur][3]
 
 ## <a name="permissions"></a>Behörigheter
 Om du vill skapa nya användare, måste du ha den `ALTER ANY USER` behörighet i databasen. Den `ALTER ANY USER` behörighet kan beviljas åtkomst till alla databasanvändare. Den `ALTER ANY USER` behörighet också innehas av server-administratörskonton och databasanvändare med den `CONTROL ON DATABASE` eller `ALTER ON DATABASE` behörighet för den här databasen och av medlemmar i den `db_owner` databasrollen.
 
-Om du vill skapa en innesluten databasanvändare i Azure SQL Database eller SQL Data Warehouse, måste du ansluta till databasen med en Azure AD-identitet. Om du vill skapa den första användaren innesluten databas måste du ansluta till databasen med hjälp av en Azure AD-administratör (som är ägare till databasen). Detta visas i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md). Alla Azure AD-autentisering är bara möjligt om Azure AD-administratör har skapats för Azure SQL Database eller SQL Data Warehouse-server. Om Azure Active Directory-administratören har tagits bort från servern, kan befintliga Azure Active Directory-användare som skapade tidigare i SQL Server inte längre ansluta till databasen med sina Azure Active Directory-autentiseringsuppgifter.
+Om du vill skapa en innesluten databasanvändare i Azure SQL Database, hanteras instans eller SQL Data Warehouse, måste du ansluta till databasen eller -instans med en Azure AD-identitet. Om du vill skapa den första användaren innesluten databas måste du ansluta till databasen med hjälp av en Azure AD-administratör (som är ägare till databasen). Detta visas i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md). Alla Azure AD-autentisering är bara möjligt om Azure AD-administratör har skapats för Azure SQL Database eller SQL Data Warehouse-server. Om Azure Active Directory-administratören har tagits bort från servern, kan befintliga Azure Active Directory-användare som skapade tidigare i SQL Server inte längre ansluta till databasen med sina Azure Active Directory-autentiseringsuppgifter.
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD-funktioner och begränsningar
 Följande medlemmar av Azure AD kan etableras i Azure SQL-server eller SQL Data Warehouse:
 
-* Intern medlemmar: en medlem som skapats i Azure AD i den hanterade domänen eller en kund-domän. Mer information finns i [lägga till ditt eget domännamn i Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-* Federerad domänmedlemmar: en medlem som skapats i Azure AD med en federerad domän. Mer information finns i [Microsoft Azure stöder nu federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
-* Importerade medlemmar från andra Azure AD som är medlemmar i en intern eller extern domän.
-* Active Directory-grupper skapas som säkerhetsgrupper.
+- Intern medlemmar: en medlem som skapats i Azure AD i den hanterade domänen eller en kund-domän. Mer information finns i [lägga till ditt eget domännamn i Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+- Federerad domänmedlemmar: en medlem som skapats i Azure AD med en federerad domän. Mer information finns i [Microsoft Azure stöder nu federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+- Importerade medlemmar från andra Azure AD som är medlemmar i en intern eller extern domän.
+- Active Directory-grupper skapas som säkerhetsgrupper.
 
+Azure AD-begränsningar som rör hanterade instans:
+- Endast Azure AD-administratör kan skapa databaser, Azure AD-användare är begränsade till en enda DB och har inte denna behörighet
+- Ägarskap för databasen:
+  - Azure AD-säkerhetsobjekt kan inte ändra ägarskap för databasen (ändra TILLSTÅNDET för databas) och kan inte anges som ägare.
+  - Ingen ägare har angetts för databaser som skapats i Azure AD-administratör (owner_sid fält i sys.sysdatabases är 0x1)
+- SQL-agenten kan inte hanteras när du har loggat in med Azure AD-säkerhetsobjekt. 
+- Azure AD-administratör kan inte personifieras med EXECUTE AS
+- DAC-anslutning stöds inte med Azure AD-säkerhetsobjekt. 
+
+Dessa systemfunktioner returnera NULL-värden när den körs under Azure AD säkerhetsobjekt:
+- `SUSER_ID()`
+- `SUSER_NAME(<admin ID>)`
+- `SUSER_SNAME(<admin SID>)`
+- `SUSER_ID(<admin name>)`
+- `SUSER_SID(<admin name>)`
 
 ## <a name="connecting-using-azure-ad-identities"></a>Ansluta med hjälp av Azure AD identiteter
 
@@ -90,20 +98,20 @@ Azure Active Directory-autentisering stöder följande metoder för att ansluta 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 
 * Om du vill förbättra hanterbarhet vi rekommenderar att du etablerar en dedikerad Azure AD som en administratör.   
-* Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras för en Azure SQL-server eller Azure SQL Data Warehouse när som helst.   
-* Endast en Azure AD-administratör för SQL Server kan först ansluta till Azure SQL server- eller Azure SQL Data Warehouse med ett Azure Active Directory-konto. Active Directory-administratören kan konfigurera följande Azure AD-databas användare.   
+* Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras för en Azure SQL Database-server, hanteras instans eller Azure SQL Data Warehouse när som helst.   
+* Endast en Azure AD-administratör för SQL Server kan först ansluta till Azure SQL Database-server, hanteras instans eller Azure SQL Data Warehouse med ett Azure Active Directory-konto. Active Directory-administratören kan konfigurera följande Azure AD-databas användare.   
 * Vi rekommenderar att du anger timeout för anslutningen till 30 sekunder.   
-* SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1April 2016 eller senare) stöder Azure Active Directory-autentisering. (Azure AD-autentisering stöds av den **.NET Framework-dataprovider för SqlServer**; minst version .NET Framework 4.6). De senaste versionerna av dessa verktyg och -datanivåprogram (DAC och .bacpac) kan därför använda Azure AD-autentisering.   
+* SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1April 2016 eller senare) stöder Azure Active Directory-autentisering. (Azure AD-autentisering stöds av den **.NET Framework-dataprovider för SqlServer**; minst version .NET Framework 4.6). Därför de senaste versionerna av dessa verktyg och -datanivåprogram (DAC och. BACPAC) kan använda Azure AD-autentisering.   
 * [ODBC version 13,1](https://www.microsoft.com/download/details.aspx?id=53339) stöder Azure Active Directory-autentisering men `bcp.exe` kan inte ansluta med Azure Active Directory-autentisering, eftersom den använder en äldre ODBC-provider.   
-* `sqlcmd`stöder Azure Active Directory-autentisering från och med version 13,1 som är tillgängliga från den [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).   
+* `sqlcmd` stöder Azure Active Directory-autentisering från och med version 13,1 som är tillgängliga från den [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).   
 * SQL Server Data Tools för Visual Studio 2015 kräver minst April 2016-versionen av Data Tools (version 14.0.60311.1). Azure AD-användare visas för närvarande inte i SSDT Object Explorer. Som en tillfällig lösning kan du visa användarna i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Microsoft JDBC Driver 6.0 för SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) stöder Azure AD-autentisering. Se även [inställning av anslutningsegenskaper](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase kan inte autentiseras med hjälp av Azure AD-autentisering.   
 * Azure AD-autentisering stöds för SQL-databas i Azure Portal **Importera databas** och **exportera databasen** blad. Importera och exportera med Azure AD-autentisering stöds också från PowerShell-kommandot.   
-* Azure AD-autentisering stöds för SQL Database och SQL Data Warehouse med hjälp av CLI. Mer information finns i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md) och [SQL Server - az SQLServer](https://docs.microsoft.com/cli/azure/sql/server).
+* Azure AD-autentisering stöds för SQL-databas, hanterade-instans och SQL Data Warehouse med hjälp av CLI. Mer information finns i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md) och [SQL Server - az SQLServer](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Nästa steg
-- Information om hur du skapar och fylla i Azure AD och konfigurera Azure AD med Azure SQL Database eller Azure SQL Data Warehouse finns [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md).
+- Information om hur du skapar och fylla i Azure AD och konfigurera Azure AD med Azure SQL Database eller Azure SQL Data Warehouse finns [konfigurera och hantera Azure Active Directory-autentisering med SQL-databas, hanteras instans eller SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
 - En översikt över åtkomst och kontroll i SQL Database finns i [Åtkomst och kontroll för SQL Database](sql-database-control-access.md).
 - En översikt över inloggningar, användare och databasroller i SQL Database finns i [Inloggningar, användare och databasroller](sql-database-manage-logins.md).
 - Mer information om huvudkonton finns i [Huvudkonton](https://msdn.microsoft.com/library/ms181127.aspx).

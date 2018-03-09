@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
@@ -27,14 +27,13 @@ I den här guiden får du lära dig hur man:
 > * Distribuera en Azure Machine Learning-modul till din IoT-Edge-enhet
 > * Visa genererade data
 
-Azure Machine Learning-modul som du skapar i den här kursen läser temperatur data som genereras av enheten och endast skickar meddelanden uppströms till Azure IoT Hub när den beräknar ett fel (kallas en avvikelseidentifiering). 
-
+Azure Machine Learning-modul som du skapar i den här kursen läser miljön data som genereras av enheten och etiketter meddelanden som avvikande eller inte. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
 * IoT-hubb anslutningssträngen för IoT-hubb som din IoT insticksenhet ansluter till.
-* Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
+* Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
 * Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Skapa Azure ML-behållare
@@ -75,11 +74,11 @@ Windows:
    iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password> 
    ```
 
-## <a name="run-the-solution"></a>Köra lösningen
+## <a name="run-the-solution"></a>Kör lösningen
 
 1. På den [Azure-portalen](https://portal.azure.com), navigera till din IoT-hubb.
-1. Gå till **IoT kant (förhandsgranskning)** och välj IoT-Edge-enhet.
-1. Välj **ange moduler**.
+1. Gå till **IoT Edge (förhandsversion)** och välj IoT Edge-enhet.
+1. Välj **Ange moduler**.
 1. Om du har redan distribuerats modulen tempSensor till din IoT insticksenhet, får den autopopulate. Om det inte redan finns i listan över moduler, kan du lägga till den.
     1. Välj **lägga till IoT kant modul**.
     2. I den **namn** anger `tempSensor`.
@@ -87,10 +86,10 @@ Windows:
     4. Välj **Spara**.
 1. Lägg till datorn lärmodulen som du skapade.
     1. Välj **lägga till IoT kant modul**.
-    1. I den **namn** anger`machinelearningmodule`
+    1. I den **namn** anger `machinelearningmodule`
     1. I den **bild** , ange din adress bild, till exempel `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Välj **Spara**.
-1. I den **Lägg till moduler** steg, Välj **nästa**.
+1. I steget **Lägg till moduler** väljer du **Nästa**.
 1. I den **ange vägar** steg, kopiera JSON nedan i textrutan. Första vägen transporter meddelanden från temperatursensor till datorn lärmodulen via slutpunkten ”amlInput”, vilket är den slutpunkt som använder alla moduler i Azure Machine Learning. Andra vägen transporter meddelanden från machine learning-modulen till IoT-hubb. I den här vägen '' amlOutput'' slutpunkten med alla Azure Machine Learning-moduler som utdata och '' uppströms$ '' anger IoT-hubb. 
 
     ```json
@@ -102,13 +101,13 @@ Windows:
     }
     ``` 
 
-1. Välj **nästa**. 
-1. I den **granska mallen** steg, Välj **skicka**. 
-1. Gå tillbaka till informationssidan om enheten och välj **uppdatera**.  Du bör se den nya **machinelearningmodule** körs tillsammans med den **tempSensor** modulen och moduler för IoT-Edge-körning.
+1. Välj **Nästa**. 
+1. I steget för att **granska mallen** väljer du **Skicka**. 
+1. Återgå till informationssidan om enheten och välj **Uppdatera**.  Du bör se den nya **machinelearningmodule** körs tillsammans med den **tempSensor** modulen och moduler för IoT-Edge-körning.
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-Du kan visa meddelanden enhet till moln som din IoT insticksenhet skickar med hjälp av Azure IoT Toolkit-tillägget för Visual Studio-koden. 
+Du kan visa meddelanden enhet till moln som din IoT insticksenhet skickar med hjälp av den [IoT-hubb explorer](https://github.com/azure/iothub-explorer) eller Azure IoT Toolkit-tillägget för Visual Studio-koden. 
 
 1. Välj i Visual Studio Code **IoT Hub-enheter**. 
 2. Välj **...**  Välj **ange anslutningssträngen för IoT-hubb** på menyn. 
@@ -117,7 +116,7 @@ Du kan visa meddelanden enhet till moln som din IoT insticksenhet skickar med hj
 
 3. Ange anslutningssträngen iothubowner för din IoT-hubb i textrutan som visas överst på sidan. Enheten IoT kant ska visas i listan över IoT Hub-enheter.
 4. Välj **...**  igen Välj **börja övervaka D2C meddelandet**.
-5. Se de meddelanden som kommer från tempSensor var femte sekund, vilka machinelearningmodule lägger till med dess bedömning av enhetens hälsotillstånd. 
+5. Se de meddelanden som kommer från tempSensor var femte sekund. Meddelandetexten innehåller en egenskap som kallas **avvikelseidentifiering** där machinelearningmodule har värdet true eller false. Den **AzureMLResponse** egenskap innehåller värdet ”OK” om modellen har körts. 
 
    ![Azure ML-svar i meddelandetexten](./media/tutorial-deploy-machine-learning/ml-output.png)
 

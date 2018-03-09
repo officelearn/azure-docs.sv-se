@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# för utvecklare
 
@@ -134,7 +134,50 @@ Den genererade *function.json* filen innehåller en `configurationSource` egensk
 }
 ```
 
-Den *function.json* Filgenerering utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.funktioner](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Källkoden finns i GitHub-repo [azure\-funktioner\-vs\-skapa\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet-paketet
+
+Den *function.json* Filgenerering utförs av NuGet-paketet [Microsoft\.NET\.Sdk\.funktioner](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Samma paket som används för både version 1.x och 2.x för Functions-runtime. Målversionen av framework är vad särskiljer ett 1.x-projekt från ett 2.x-projekt. Här följer de relevanta delarna av *.csproj* filer, med olika mål ramverk och samma `Sdk` paketet:
+
+**Fungerar 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Fungerar 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Bland de `Sdk` paketberoenden är utlösare och bindningar. En instruktion i 1.x-projektet refererar till 1.x utlösare och bindningar eftersom de mål .NET Framework, medan 2.x utlösare och bindningar mål .NET Core.
+
+Den `Sdk` paketet beror också på [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), och indirekt på [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Dessa beroenden se till att projektet använder versioner av de paket som fungerar med versionen av körningsmiljön funktioner som mål för projektet. Till exempel `Newtonsoft.Json` har version 11 för .NET Framework 4.6.1, men Functions-runtime som riktar sig till .NET Framework 4.6.1 är endast kompatibel med `Newtonsoft.Json` 9.0.1. Så att Funktionskoden i projektet har även att använda `Newtonsoft.Json` 9.0.1.
+
+Källkoden för `Microsoft.NET.Sdk.Functions` finns i GitHub-repo [azure\-funktioner\-vs\-skapa\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Körningsversion
+
+Visual Studio använder den [Azure Functions grundläggande verktyg](functions-run-local.md#install-the-azure-functions-core-tools) att köra funktioner projekt. Grundläggande verktyg är ett kommandoradsgränssnitt för Functions-runtime.
+
+Om du installerar verktygen Core via npm, inte som påverkar den grundläggande verktyg-version som används av Visual Studio. För versionen av körningsmiljön funktioner 1.x, Visual Studio lagrar grundläggande verktyg versioner i *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* och använder den senaste versionen lagras det. För funktioner 2.x, grundläggande verktyg ingår i den **Azure Functions och jobb Webbverktyg** tillägg. Du kan se vilken version som används i konsolens utdata när du kör ett projekt med funktioner för både 1.x och 2.x:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Typer som stöds för bindningar
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Azure strömmen diagnostiska loggar till en händelsehubb
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI.
@@ -83,10 +83,10 @@ Den nya inställningen visas i din lista över inställningar för den här resu
 Strömning den [Azure PowerShell-Cmdlets](insights-powershell-samples.md), du kan använda den `Set-AzureRmDiagnosticSetting` med följande parametrar:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-Regel-ID för Service Bus är en sträng med formatet: `{Service Bus resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Du välja för närvarande inte en viss händelse hubbnamn med PowerShell.
+Event Hub auktorisering regel-ID är en sträng med formatet: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Du välja för närvarande inte en viss händelse hubbnamn med PowerShell.
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den `insights diagnostic set` kommandot så här:
@@ -95,7 +95,7 @@ Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den `insigh
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Använd samma format för Service Bus regel-ID som förklaras för PowerShell-cmdleten. För närvarande kan du välja en viss händelse hubbnamn med Azure CLI.
+Använd samma format för Event Hub auktorisering regel-ID som förklaras för PowerShell-cmdleten. För närvarande kan du välja en viss händelse hubbnamn med Azure CLI.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Hur jag för att använda loggdata från Event Hubs?
 Här är exempel utdata från Händelsehubbar:

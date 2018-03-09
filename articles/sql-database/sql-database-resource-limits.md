@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
+
+> [!IMPORTANT]
+> Gränserna för med Azure SQL-hanterade databasinstans, se [hanteras SQL-databasinstans](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Databas: lagringsstorlekar och prestandanivåer
 
@@ -79,7 +82,6 @@ Följande tabeller visar de tillgängliga resurserna på varje servicenivå för
 
 > [!NOTE]
 > Resurs-gränserna för enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför pooler baserat på dtu: er och tjänstnivån. Högsta antal samtidiga arbetare för en S2-databas är till exempel 120 arbetare. Högsta antal samtidiga arbetare för en databas i en Standardpool är därför också 120 arbetare om max DTU per databas i poolen är 50 dtu: er (som motsvarar S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

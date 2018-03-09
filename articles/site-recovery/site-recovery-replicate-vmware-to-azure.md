@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Replikera program som körs på virtuella VMware-datorer till Azure
 
@@ -67,7 +67,7 @@ När du replikerar virtuella VMware-datorer:
 8. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling. Nätverket måste finnas i samma region som Recovery Services-valvet. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. Om du inte har ett nätverk kan du behöva [skapar du en](#set-up-an-azure-network). Klicka för att skapa ett nätverk med hjälp av hanteraren för filserverresurser **Skapa nytt**. Om du vill skapa ett nätverk med hjälp av den klassiska modellen gör det [i Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Välj ett undernät, om tillämpligt, och klicka sedan på **OK**.
 
     ![Aktivera replikering Målinställningar](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. I **virtuella datorer** > **Välj virtuella datorer**, markerar du varje dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
+9. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
 
     ![Aktivera replikering väljer virtuella datorer](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. I **egenskaper** > **konfigurera egenskaper för**, väljer du det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn.  
@@ -75,7 +75,7 @@ När du replikerar virtuella VMware-datorer:
 
     ![Aktivera replikering konfigurerar du egenskaper](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-12. I **replikeringsinställningarna** > **konfigurerar replikeringsinställningar**, kontrollera att rätt replikeringsprinciper har valts. Du kan ändra inställningar för replikering i **inställningar** > **replikeringsprinciper** > (principnamn) > **redigera inställningar för**. Du ändrar en princip gäller även för replikering och nya datorer.
+12. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts. Du kan ändra inställningar för replikering i **inställningar** > **replikeringsprinciper** > (principnamn) > **redigera inställningar för**. Du ändrar en princip gäller även för replikering och nya datorer.
 13. Aktivera **konsekvens för flera** om du vill samla datorer i en replikeringsgrupp. Ange ett namn för gruppen och klicka sedan på **OK**. 
 
     > [!NOTE]

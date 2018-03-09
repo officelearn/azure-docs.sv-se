@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Loggen aviseringar i Azure-Monitor - aviseringar (förhandsgranskning)
-Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure varningar (förhandsversion) och beskrivs skillnaderna mellan olika typer av loggen Varningsregler.
+Den här artikeln innehåller information om hur Varningsregler i Analytics-frågor fungerar i Azure varningar (förhandsversion) och beskrivs skillnaderna mellan olika typer av loggen Varningsregler. Mer information om måttet aviseringar via loggar avser [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
 
 För närvarande Azure aviseringar (förhandsversion) stöder Logga varningar på frågor från [Azure logganalys](../log-analytics/log-analytics-tutorial-viewdata.md) och [Programinsikter](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,7 +40,7 @@ Sedan när [skapar en avisering om loggen i aviseringar (förhandsgranskning)](m
 
 ## <a name="log-alert-rules"></a>Logga Varningsregler
 
-Aviseringar skapas med Azure-aviseringar (förhandsgranskning) automatiskt köra loggen frågor med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som skickar data till externt program med hjälp av [json-baserade webhook](monitor-alerts-unified-log-webhook.md)med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
+Aviseringar skapas av aviseringar i Azure (förhandsversion) för att köra frågor i loggen automatiskt med jämna mellanrum.  Om resultatet av logg-fråga matchar särskilda villkor, skapas en avisering post. Regeln kan sedan automatiskt köra en eller flera åtgärder för att proaktivt meddelar dig om aviseringen eller anropa en annan process som skickar data till externt program med hjälp av [json-baserade webhook](monitor-alerts-unified-log-webhook.md)med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). Olika typer av Varningsregler använda olika logik för att utföra den här analysen.
 
 Varningsregler definieras av följande information:
 
@@ -75,7 +75,7 @@ I vissa fall kanske du vill skapa en avisering om en händelse.  En process kan 
 **Varna frekvens:** fem minuter<br>
 **Tröskelvärde:** bra än 0<br>
 
-Sedan körs aviseringen frågan var femte minut med 30 minuter data - att leta efter en post där Resultatkod var 500. Om även en post hittas utlöses aviseringen och utlösare åtgärd som konfigurerats.
+Sedan körs aviseringen frågan var femte minut med 30 minuter data - att leta efter en post där Resultatkod var 500. Om även en post hittas utlöses aviseringen och utlöser den åtgärd som konfigurerats.
 
 ## <a name="metric-measurement-alert-rules"></a>Mått mätning Varningsregler
 
@@ -96,7 +96,7 @@ Sedan körs aviseringen frågan var femte minut med 30 minuter data - att leta e
 
 **Intervallet**: definierar det tidsintervall under vilken data sammanställs.  Till exempel om du har angett **fem minuter**, skapas en post för varje instans av fältet samman med 5 minuters intervall under tidsfönster som angetts för aviseringen.
 > [!NOTE]
-> Bin-funktionen måste användas i frågan. Om olika tidsintervall produceras för tidsfönster med hjälp av funktionen Bin - kommer avisering i stället använda bin_at-funktionen i stället att säkerställa att en fast punkt
+> Bin-funktionen måste användas i frågan. Eftersom bin() kan leda till olika tidsintervall - avisering ska i stället använda bin_at funktionen med lämplig tidpunkt vid körning, så resultatet med en fast punkt
 
 **Tröskelvärde för**: tröskelvärdet för mått mätning Varningsregler definieras av ett samlat värde och ett antal intrång.  Om varje datapunkt i loggen sökningen överskrider detta värde, anses det har ett intrång.  Om antalet överträdelser i för alla objekt i resultaten överskrider det angivna värdet, skapas en avisering för objektet.
 

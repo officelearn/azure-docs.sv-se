@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager med Azure Site Recovery
 
@@ -49,11 +44,11 @@ I en katastrof händelse företag A kan utlösa en [redundans](site-recovery-fai
 
 Beroende på företagets krav, **företag A** kan välja en högre eller lägre [sökning frekvens](../traffic-manager/traffic-manager-monitoring.md) växla mellan lokalt till Azure i en händelse för katastrofåterställning och se till att minimal avbrottstid för användare.
 
-Inneslutna haveriet **företag A** kan återställning från Azure till sin lokala miljö ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) eller [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) med hjälp av Azure Site Recovery. Nu när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, det automatiskt använder den **primära** slutpunkt i dess DNS-svar.
+Inneslutna haveriet **företag A** kan återställning från Azure till sin lokala miljö ([VMware](vmware-azure-failback.md) eller [Hyper-V](hyper-v-azure-failback.md)) med hjälp av Azure Site Recovery. Nu när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, det automatiskt använder den **primära** slutpunkt i dess DNS-svar.
 
 ## <a name="on-premises-to-azure-migration"></a>Lokalt till Azure-migreringen
 
-Förutom katastrofåterställning, Azure Site Recovery kan också [migrering till Azure](site-recovery-migrate-to-azure.md). Med funktioner för Azure Site Recovery kraftfulla testa redundans bedöma kunder programprestanda på Azure utan att påverka deras lokala miljö. Och när kunder är redo att migrera, kan de välja att migrera hela arbetsbelastningar tillsammans eller välja att migrera och skala gradvis.
+Förutom katastrofåterställning, Azure Site Recovery kan också [migrering till Azure](migrate-overview.md). Med funktioner för Azure Site Recovery kraftfulla testa redundans bedöma kunder programprestanda på Azure utan att påverka deras lokala miljö. Och när kunder är redo att migrera, kan de välja att migrera hela arbetsbelastningar tillsammans eller välja att migrera och skala gradvis.
 
 Azure Traffic Manager [viktat](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routningsmetoden kan användas för att styra vissa delar av inkommande trafik till Azure när dirigera flesta till den lokala miljön. Den här metoden kan hjälpa dig att bedöma skala prestanda som du kan fortsätta att öka vikten som tilldelats Azure när du migrerar mer och mer av dina arbetsbelastningar till Azure.
 

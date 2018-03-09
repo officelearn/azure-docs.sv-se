@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -52,14 +52,15 @@ Om du vill skapa och distribuera funktioner, måste du också:
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
-
-När du skapar ett nytt projekt med hjälp av Azure Functions-mall kan få du ett tomt C#-projekt som innehåller följande filer:
+Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Functions` NuGet-paketet och anger Målversionen av framework. Fungerar 1.x mål .NET Framework och fungerar 2.x mål .NET Standard. Det nya projektet innehåller följande filer:
 
 * **Host.JSON**: kan du konfigurera funktioner värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [host.json referens](functions-host-json.md).
     
 * **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de används av den [Azure Functions grundläggande verktyg](functions-run-local.md). Använd den här filen för att ange inställningar, till exempel anslutningssträngar till andra Azure-tjänster. Lägg till en ny nyckel till den **värden** matris för varje anslutning som krävs av funktionerna i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i avsnittet om Azure Functions grundläggande verktyg.
+
+Mer information finns i [funktioner klassbiblioteksprojektet](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
 Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa typer än HTTP och webhooks, måste du ange den **Values.AzureWebJobsStorage** nyckel till en giltig anslutningssträng för Azure Storage-konto. 
 
@@ -147,5 +148,6 @@ Du kan också hantera inställningar för program på något av dessa andra sät
 
 Mer information om Azure Functions verktyg finns i avsnittet vanliga frågor för den [Visual Studio 2017 verktyg för Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogginlägg.
 
-Läs mer om Azure Functions grundläggande verktyg i [koden och testa Azure functions lokalt](functions-run-local.md).  
+Läs mer om Azure Functions grundläggande verktyg i [koden och testa Azure functions lokalt](functions-run-local.md).
+
 Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns [Azure Functions C#-utvecklare](functions-dotnet-class-library.md). Det här avsnittet innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 082953eb860197d2188851f6c8be260797d6ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Felhantering Metodtips för klienter för Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Det finns en uppsättning fel som genereras av operativsystemet, vilket kan krä
 
 Det är grunden, två fall av AcquireTokenSilent fel:
 
-| Fall | Beskrivning |
+| Ärende | Beskrivning |
 |------|-------------|
 | **Fall 1**: fel kan matchas med en interaktiv inloggning | En interaktiv begäran är nödvändiga för fel som orsakats av brist på giltig token. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken ett AcquireToken-anrop för att lösa.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan du göra en interaktiv begäran omedelbart efter användarinteraktion (till exempel träffa en inloggningsknapp) eller senare. Det beror på önskat beteende för programmet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den.|
 | **Fall 2**: fel kan inte matchas med en interaktiv inloggning | För nätverket och tillfälligt/tillfälliga fel eller andra fel löser utför en interaktiv AcquireToken begäran inte problemet. Onödiga frågor för interaktiv inloggning kan också vara frustrerande för användare. ADAL försöker automatiskt en enda retry för de flesta fel på AcquireTokenSilent fel.<br><br>Klientprogrammet kan även ett nytt försök förr eller senare, men när och hur du gör det är beroende av programmets beteende och önskade slutanvändarens upplevelse. Programmet kan till exempel göra en AcquireTokenSilent försök igen efter några minuter eller som svar på en åtgärd som slutanvändaren. En omedelbara försök resulterar i programmet begränsas och inte ska testas.<br><br>Efterföljande försök igen med samma fel innebär inte klienten gör en interaktiv begäran med hjälp av AcquireToken, eftersom den inte åtgärda felet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den. |
@@ -479,6 +479,9 @@ Vi har skapat en [fullständigt exempel](https://github.com/Azure-Samples/active
 
 ## <a name="error-and-logging-reference"></a>Referens för fel och loggning
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Loggning personligt identifierbar Information (PII) & organisationens identifierbar Information (OII)
+Som standard ADAL loggning inte samla in och logga all personligt Identifierbar eller OII. Biblioteket kan apputveckling aktivera detta via en setter i klassen meddelandeloggfiler. Genom att aktivera personligt Identifierbar eller OII ansvarar appen för att hantera mycket känslig data och uppfyller alla krav på ett säkert sätt.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL-biblioteket fel
@@ -487,7 +490,7 @@ Utforska specifika ADAL-fel källkoden i den [azure-activedirectory-biblioteket-
 
 #### <a name="guidance-for-error-logging-code"></a>Vägledning för loggning av felkod
 
-ADAL .NET loggning ändras beroende på plattform som har arbetat med. Referera till den [loggning dokumentationen](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) för koden på hur du aktiverar loggning.
+ADAL .NET loggning ändras beroende på plattform som har arbetat med. Referera till den [loggning wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) för koden på hur du aktiverar loggning.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Utforska specifika ADAL-fel källkoden i den [azure activedirectory-biblioteket-
 
 #### <a name="operating-system-errors"></a>Fel i operativsystemet
 
-Android OS-fel är tillgängliga via AuthenticationException i ADAL kan identifieras som ”SERVER_INVALID_REQUEST” och kan vara mer detaljerade via felbeskrivningar av. De två framträdande meddelanden som en app kan välja att visa Användargränssnittet är:
+Android OS-fel är tillgängliga via AuthenticationException i ADAL kan identifieras som ”SERVER_INVALID_REQUEST” och kan vara mer detaljerade via felbeskrivningar av. 
 
-- SSL-fel 
-  - [Slutanvändaren använder Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Kedja har ett certifikat som har markerats som extra hämta (användare måste kontakta IT-administratör)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - Rot-CA är inte betrodd av enheten. Kontakta IT-administratören. 
-- Relaterade nätverksfel 
-  - [Nätverk problem som potentiellt rör verifiering av SSL-certifikat](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), kan ett nytt försök enda
+En fullständig lista över vanliga fel och vilka steg som ska vidta när din app eller användarna stöter på dem, finns det [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Vägledning för loggning av felkod
 
@@ -522,6 +520,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// PII or OII will NOT be logged
+Logger.getInstance().setEnablePII(false);
+
+
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
 ```
@@ -536,7 +543,7 @@ Utforska specifika ADAL-fel källkoden i den [azure-activedirectory-biblioteket-
 
 iOS-fel kan uppstå under inloggning när användare använder Webbvyer och typen av autentisering. Detta kan bero på villkor som SSL-fel, timeout eller nätverksfel:
 
-- Inloggningar är inte beständiga rätt delas, och cachen visas tomt. Du kan lösa genom att lägga till följande kodrad nyckelringen:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Inloggningar är inte beständiga rätt delas, och cachen visas tomt. Du kan lösa genom att lägga till följande kodrad nyckelringen: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Åtgärden ändras beroende på logiken app för uppsättningen NsUrlDomain för fel. Finns det [NSURLErrorDomain referensdokumentationen](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) för specifika instanser som kan hanteras.
 - Se [ADAL Obj C vanliga problem](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) lista över vanliga fel som underhålls av ADAL Objective-C-teamet.
 

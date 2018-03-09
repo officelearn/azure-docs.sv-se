@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Anspråk mappning i Azure Active Directory (förhandsversion)
 
@@ -30,7 +30,7 @@ Den här funktionen används av innehavaradministratörer anpassa anspråk som h
 - Välj eller ändra datakällan som hänvisas till i specifika anspråk.
 
 >[!NOTE]
->Den här funktionen är för närvarande i förhandsversion. Var beredd på att återställa eller ta bort alla ändringar. Funktionen är tillgänglig i alla Azure Active Directory (Azure AD)-prenumeration under förhandsversion. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure Active Directory premium-prenumeration.
+>Den här funktionen är för närvarande i förhandsversion. Var beredd på att återställa eller ta bort alla ändringar. Funktionen är tillgänglig i alla Azure Active Directory (Azure AD)-prenumeration under förhandsversion. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure Active Directory premium-prenumeration. Konfigurera principer för mappning av anspråk för WS-Fed, SAML, OAuth och OpenID Connect protokoll har stöd för den här funktionen.
 
 ## <a name="claims-mapping-policy-type"></a>Anspråk mappning Principtyp
 I Azure AD, en **princip** -objektet representerar en uppsättning regler som tillämpas på enskilda program, eller på alla program i en organisation. Varje princip har ett unikt struktur med en uppsättning egenskaper som sedan tillämpas på objekt som de har tilldelats.
@@ -67,7 +67,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |app_res|
 |appctx|
 |appctxsender|
-|AppID|
+|appid|
 |appidacr|
 |kontrollen|
 |at_hash|
@@ -79,7 +79,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |azpacr|
 |c_hash|
 |ca_enf|
-|Kopia|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -88,7 +88,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |Koden|
 |kontroller|
 |credential_keys|
-|CSR|
+|csr|
 |csr_type|
 |DeviceID|
 |dns_names|
@@ -98,7 +98,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |e-post|
 |slutpunkt|
 |enfpolids|
-|EXP|
+|exp|
 |expires_on|
 |grant_type|
 |graf|
@@ -107,19 +107,19 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationInstant|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/EXPIRED|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/Name|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/NameIdentifier|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
 |identityprovider|
 |IDP|
 |in_corp|
 |instans|
-|ADR|
+|ipaddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,10 +132,10 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|NBF|
+|nbf|
 |netbios_name|
 |temporärt ID|
-|OID|
+|oid|
 |on_prem_id|
 |onprem_sam_account_name|
 |onprem_sid|
@@ -159,7 +159,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |roles|
 |Omfång|
 |SCP|
-|SID|
+|sid|
 |Signatur|
 |signin_state|
 |src1|
@@ -173,7 +173,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |tokenAutologonEnabled|
 |trustedfordelegation|
 |unique_name|
-|UPN|
+|upn|
 |user_setting_sync_url|
 |användarnamn|
 |uti|
@@ -186,52 +186,52 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 #### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabell 2: Security Assertion Markup Language (SAML) begränsad anspråksuppsättning
 |Anspråkstyp (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/EXPIRED|
-|http://schemas.microsoft.com/Identity/Claims/accesstoken|
-|http://schemas.microsoft.com/Identity/Claims/openid2_id|
-|http://schemas.microsoft.com/Identity/Claims/identityprovider|
-|http://schemas.microsoft.com/Identity/Claims/objectidentifier|
-|http://schemas.microsoft.com/Identity/Claims/PUID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/NameIdentifier [MR1] |
-|http://schemas.microsoft.com/Identity/Claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationInstant|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/AccessControlService/2010/07/Claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/groups|
-|http://schemas.microsoft.com/Claims/groups.Link|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/role|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/Claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/Claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/Claims/ismanaged|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.microsoft.com/identity/claims/accesstoken|
+|http://schemas.microsoft.com/identity/claims/openid2_id|
+|http://schemas.microsoft.com/identity/claims/identityprovider|
+|http://schemas.microsoft.com/identity/claims/objectidentifier|
+|http://schemas.microsoft.com/identity/claims/puid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+|http://schemas.microsoft.com/identity/claims/tenantid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
+|http://schemas.microsoft.com/claims/groups.link|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
+|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
+|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
+|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
 |http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/Claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/Identity/Claims/Actor|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/Authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/SID|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/UPN|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/GroupSID|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/SPN|
-|http://schemas.microsoft.com/ws/2008/06/Identity/Claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/Identity/Claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/Identity/Claims/scope|
+|http://schemas.microsoft.com/claims/authnmethodsreferences|
+|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
+|http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Anspråk mappning Principegenskaper
 Använd egenskaperna för ett anspråk mappning av princip för att styra vilka anspråk som släpps och där data kommer från. Om ingen princip har angetts utfärdar token som innehåller kärnor anspråksuppsättningen och den grundläggande anspråksuppsättningen valfria anspråk som programmet har valt att ta emot i systemet.
@@ -284,18 +284,18 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |-----|-----|-----|
 |Användare|Efternamn|Efternamn|
 |Användare|givenName|Förnamn|
-|Användare|visningsnamn|Visningsnamn|
+|Användare|displayname|Visningsnamn|
 |Användare|objekt-ID|ObjectId|
 |Användare|E-post|E-postadress|
-|Användare|userPrincipalName|Användarens huvudnamn|
+|Användare|userprincipalname|Användarens huvudnamn|
 |Användare|Avdelning|Avdelning|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
 |Användare|NetBIOS-namn|NetBios-namn|
-|Användare|DNS-domännamn|DNS-domännamn|
+|Användare|dnsdomainname|DNS-domännamn|
 |Användare|onpremisesecurityidentifier|lokala säkerhetsidentifierare|
 |Användare|Företagsnamn|Organisationens namn|
 |Användare|streetAddress|Gatuadress|
-|Användare|Postnummer|Postnummer|
+|Användare|postalcode|Postnummer|
 |Användare|preferredlanguange|Önskat språk|
 |Användare|onpremisesuserprincipalname|lokal UPN|
 |Användare|mailNickname|Smeknamn för e-post|
@@ -321,7 +321,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |Användare|befattning|Befattning|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|facsimiletelephonenumber|Fax telefonnummer|
-|program, resurs, målgrupp|visningsnamn|Visningsnamn|
+|program, resurs, målgrupp|displayname|Visningsnamn|
 |program, resurs, målgrupp|objekt|ObjectId|
 |program, resurs, målgrupp|tags|Tjänstens huvudnamn tagg|
 |Företag|tenantcountry|Klientens land|
@@ -381,7 +381,7 @@ Baserat på vilken metod som valts, förväntas en uppsättning av in- och utdat
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
 |Användare|E-post|E-postadress|
-|Användare|userPrincipalName|Användarens huvudnamn|
+|Användare|userprincipalname|Användarens huvudnamn|
 |Användare|onpremisessamaccountname|På lokala Sam-kontonamn|
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|extensionattribute1|Attributet för anknytning 1|

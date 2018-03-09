@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -34,6 +34,11 @@ I Azure AD representerar ett grupprincipobjekt en uppsättning regler som tillä
 
 Du kan ange en princip som standardprincipen för din organisation. Principen tillämpas på alla program i organisationen, så länge det inte åsidosätts av en princip med högre prioritet. Du kan också tilldela en princip till specifika program. Prioritetsordningen varierar beroende på principtypen.
 
+> [!NOTE]
+> Konfigurerbara livslängd för token principen stöds inte för SharePoint Online.  Även om du har möjlighet att skapa den här principen via PowerShell, SharePoint Online kommer inte är medveten om den här principen. Referera till den [SharePoint Online-bloggen](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) vill veta mer om hur du konfigurerar timeout för inaktiv session.
+>* Standardlivstid för SharePoint Online åtkomsttoken är 1 timme. 
+>* Standard max inaktiva tiden för SharePoint Online uppdateringstoken är 90 dagar.
+>
 
 ## <a name="token-types"></a>Typer av token
 

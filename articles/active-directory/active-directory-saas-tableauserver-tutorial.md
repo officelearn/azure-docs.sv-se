@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ba94f4f90f49fb7850f4cad2bb49ab4faa3fa92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Självstudier: Azure Active Directory-integrering med Tableau Server
 
@@ -31,7 +31,7 @@ Integrera Tableau Server med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Tableau Server behöver du följande:
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://azure.<domain name>.link`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://azure.<domain name>.link`
     
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://azure.<domain name>.link`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://azure.<domain name>.link`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
      
     > [!NOTE] 
     > Föregående värden är inte verkliga värden. Senare kan uppdatera du värdena med faktiska URL och identifierare från konfigurationssidan Tableau Server. 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
-    | användarnamn | *User.DisplayName* |
+    | användarnamn | *user.mailnickname* |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

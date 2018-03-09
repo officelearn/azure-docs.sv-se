@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: cynthn
-ms.openlocfilehash: d802ba16ecb4e32e2adb7be3a8e99c72a1625841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Överför en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -158,11 +158,17 @@ Spara den **mål-URI** sökväg som ska användas senare om du ska skapa en hant
 Du kan också ladda upp en virtuell Hårddisk till ditt lagringskonto med hjälp av något av följande:
 
 - [AzCopy](http://aka.ms/downloadazcopy)
-- [Azure Storage kopiera Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure Storage Explorer överför Blobbar](https://azurestorageexplorer.codeplex.com/)
 - [Storage Import/Export Service REST API-referens](https://msdn.microsoft.com/library/dn529096.aspx)
 -   Du rekommenderas att använda Import/Export Service om överföring tid är längre än 7 dagar. Du kan använda [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) att uppskatta storlek och överför dataenheten tidpunkt. 
     Import/Export kan användas för att kopiera till ett standardlagringskonto. Du måste kopiera från standardlagring till premium storage-konto med ett verktyg som AzCopy.
+
+> [!IMPORTANT]
+> Om du använder AzCopy överför den virtuella Hårddisken till Azure, kontrollerar du att du har angett [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) överför innan du kör skriptet. Om målet är en blob och det här alternativet inte anges som standard skapas en blockblobb AzCopy.
+> 
+> 
+
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Skapa en hanterad avbildning från den överförda virtuella Hårddisken 

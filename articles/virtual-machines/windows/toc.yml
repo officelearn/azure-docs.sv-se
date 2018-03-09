@@ -201,8 +201,6 @@
           href: maintenance-notifications.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
-        - name: Vanliga frågor och svar om accelererat underhåll
-          href: accelerated-maintenance.md
         - name: Schemalagda händelser
           href: scheduled-events.md
         - name: Övervaka metadata

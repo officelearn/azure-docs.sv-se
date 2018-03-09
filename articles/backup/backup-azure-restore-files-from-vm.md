@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från en säkerhetskopia av virtuell Azure-dator
 
 Azure-säkerhetskopiering ger möjlighet att återställa [Azure virtuella datorer (VM) och diskar](./backup-azure-arm-restore-vms.md) från Virtuella Azure-säkerhetskopiering, även kallat återställningspunkter. Den här artikeln förklaras hur du återställer filer och mappar från en virtuell dator i Azure-säkerhetskopiering. Återställa filer och mappar är bara tillgängligt för Azure virtuella datorer distribueras med Resource Manager-modellen och skyddas i ett Recovery services-valv.
 
 > [!Note]
+> Den här funktionen är tillgänglig för Azure virtuella datorer distribueras med Resource Manager-modellen och skyddas i Recovery Services-valvet.
 > Filåterställning från en krypterad säkerhetskopiering av VM stöds inte.
 >
 
@@ -154,7 +155,7 @@ Följande kommando visar information om alla raid-diskar.
 ```
 $ mdadm –detail –scan
 ```
- Relevanta RAID disken visas som`/dev/mdm/<RAID array name in the protected VM>`
+ Relevanta RAID disken visas som `/dev/mdm/<RAID array name in the protected VM>`
 
 Använd monteringskommandot om RAID-disken har fysiska volymer.
 ```

@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Designa tjänster med hög tillgänglighet med hjälp av Azure SQL Database
 
 När du skapar och distribuerar tjänster med hög tillgänglighet på Azure SQL Database, använder du [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att tillhandahålla återhämtning i regionala avbrott och oåterkalleligt fel. Snabb återställning till de sekundära databaserna kan också. Den här artikeln fokuserar på vanliga program mönster och beskriver fördelar och avvägningarna med varje alternativ. Information om aktiv geo-replikering med elastiska pooler finns [elastisk Pool strategi för katastrofåterställning](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Om du använder Premium-databaser och pooler du dem flexibel regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration (för närvarande under förhandsgranskning). Se [redundantzonen databaser](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Använda två Azure-regioner för företagskontinuitet med minimal avbrottstid
 I det här scenariot har programmen följande egenskaper: 
@@ -47,8 +50,7 @@ Följande diagram visar den här konfigurationen innan ett avbrott:
 Efter ett avbrott i den primära regionen identifierar SQL Database-tjänsten att den primära databasen inte är tillgänglig och utlöser redundans till den sekundära regionen baserat på parametrarna för automatisk redundans principen (1). Du kan konfigurera Respitperiod som styr tiden mellan identifiering av avbrottet och växling vid fel sig beroende på SERVICENIVÅAVTAL för programmet. Det är möjligt att traffic manager initierar slutpunkten för växling vid fel innan gruppen redundans utlöser redundans för databasen. I så fall att webbprogrammet omedelbart inte ansluta till databasen. Men återanslutningar slutförs automatiskt så snart databasen redundansväxlingen är klar. När den misslyckade regionen är återställda och online igen, återansluter den gamla primärt automatiskt som en ny sekundär. Diagrammet nedan visar konfigurationen efter växling vid fel.
  
 > [!NOTE]
-> Alla transaktioner efter redundansväxlingen går förlorade vid återanslutning. När redundansväxlingen är klar kan programmet i region B återansluta och starta om bearbetningen av användarbegäranden. Både webbprogrammet och den primära databasen är nu i region B och samordnas. 
-n>
+> Alla transaktioner efter redundansväxlingen går förlorade vid återanslutning. När redundansväxlingen är klar kan programmet i region B återansluta och starta om bearbetningen av användarbegäranden. Både webbprogrammet och den primära databasen är nu i region B och samordnas. n>
 
 ![Scenario 1. Konfigurationen efter växling vid fel](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

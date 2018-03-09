@@ -1,6 +1,6 @@
 ---
 title: Identifiera, identifiera och klassificera personliga data i Microsoft Azure | Microsoft Docs
-description: "Lär dig mer om sökning, klassificera, upptäcka och identifiera data"
+description: "sökning, klassificera, upptäcka och identifiera data i Azure kan hjälpa dig att vara kompatibel med allmänna Data Protection förordning (BNPR)"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Identifiera, identifiera och klassificera personliga data i Microsoft Azure
 
-Den här artikeln innehåller information om hur du identifierar, identifiera och klassificera personliga data i flera Azure-verktyg och tjänster, inklusive användning av Azure Data Catalog, Azure Active Directory, SQL-databas, Power Query för Hadoop-kluster i Azure HDInsight, Azure Informationsskydd, Azure Search och SQL-frågor för Azure Cosmos DB.
+Den här artikeln innehåller information om hur du identifierar, identifiera och klassificera personliga data i flera Azure-verktyg och tjänster, inklusive användning av Azure Data Catalog, Azure Active Directory, SQL-databas, Power Query för Hadoop-kluster i Azure HDInsight, Azure Informationsskydd, Azure Search och SQL-frågor för Azure Cosmos DB. Dessa verktyg och processer kan användas för att vara kompatibel med allmänna Data Protection förordning (BNPR)
 
 ## <a name="scenario-problem-statement-and-goal"></a>Scenario, problembeskrivning och mål
 
@@ -114,7 +114,7 @@ Ta reda på hur du skapar din databas sätt den [skapa en enda Azure SQL-databas
 >[!Note]
 Windows-administratörer tenderar att använda PowerShell, men några av dem föredrar Azure CLI.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Hur jag söker efter personliga data i SQL-databas på Azure-portalen? **
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Hur jag för att söka efter personliga data i SQL-databas i Azure portal?
 
 Du kan använda den inbyggda frågan Redigeraren för i Azure-portalen för att söka efter personlig data. Du måste logga in till verktyget med din SQL server-administratören inloggningsnamn och lösenord och sedan ange en fråga.
 

@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 12/19/2017
 ms.author: anoopkv
 ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Hantera en processerver som körs i Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
-> * [Klassisk](./site-recovery-vmware-setup-azure-ps-classic.md)
+> * [Klassisk ](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 Under återställning efter fel rekommenderas att distribuera processerver i Azure om det är fördröjningar mellan det virtuella Azure-nätverket och ditt lokala nätverk. Den här artikeln beskriver hur du kan skapa, konfigurera och hantera processen-servrar som körs i Azure.
 

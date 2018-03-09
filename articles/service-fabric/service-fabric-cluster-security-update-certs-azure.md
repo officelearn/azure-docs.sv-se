@@ -1,8 +1,24 @@
---Rubrik: hantera certifikat i ett Azure Service Fabric-kluster | Microsoft Docs beskrivning: Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster.
-tjänster: service fabric dokumentationcenter: .net författare: ChackDan manager: timlt editor: ''
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: Hantera certifikat i ett Azure Service Fabric-kluster | Microsoft Docs
+description: "Beskriver hur du lägger till nya certifikat, förnyelsecertifikat, och ta bort certifikat till eller från ett Service Fabric-kluster."
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägg till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och känna till de [kluster säkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett certifikat för klustret och som används för, innan du fortsätter ytterligare.

@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
 
 * Antalet nodtyper klustret måste börja med
 * Egenskaperna för varje nodtyp (storlek, primära internetuppkopplad, antalet virtuella datorer, osv.)
-* Tillförlitlighet och hållbarhet egenskaper i klustret
+* Klustrets egenskaper för tillförlitlighet och hållbarhet
 
 Låt oss gå igenom objekten.
 
 ## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Antalet nodtyper klustret måste börja med
 Du måste först ta reda på vad du skapar klustret som ska användas för och vilka typer av program som du planerar att distribuera till det här klustret. Om du inte avmarkera på syftet med klustret du troligen ännu inte är redo för att ange process för kapacitetsplanering.
 
-Fastställ antalet nodtyper klustret måste börja med.  Varje nodtyp mappas till en Virtual Machine Scale Set. Varje nodtyp kan sedan skalas upp eller ned separat, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Så handlar beslut av antalet nodtyper i stort sett om att följande överväganden:
+Fastställ antalet nodtyper klustret måste börja med.  Varje nodtyp mappas till en Virtual Machine Scale Set. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Så handlar beslut av antalet nodtyper i stort sett om att följande överväganden:
 
 * Har ditt program flera tjänster och någon av dem måste vara public eller mot internet? Vanliga program innehåller en frontend-gateway-tjänst som tar emot indata från en klient och en eller flera backend-tjänster som kommunicerar med frontend-tjänster. Så i detta fall kan få du med minst två nodtyper.
 * Har dina tjänster (som utgör ditt program) annan infrastrukturbehov som större RAM-minne eller högre CPU-cykler? Låt oss anta att det program som du vill distribuera innehåller en frontend-tjänst och en backend tjänst. Frontend-tjänsten kan köras på mindre virtuella datorer (VM-storlekar som D2) som har portar är öppna till internet.  Backend-tjänsten, men beräkning intensiva och behöver köras på större virtuella datorer (med VM-storlekar som D4 D6, D15) som inte är internet riktas.
@@ -88,10 +88,11 @@ Du får välja hållbarhet nivå för var och en av dina nodtyper. Du kan välja
  
 1. Distributioner till Skalningsuppsättning i virtuell dator och andra relaterade Azure-resurser) kan vara fördröjd, kan tar för lång tid eller blockeras helt efter problem i klustret eller på infrastrukturnivå. 
 2. Ökar antalet [replik Livscykelhändelser](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (till exempel primära växlingar) på grund av automatiserad nod avaktiveringar under Azure-infrastrukturen.
+3. Tar noder out-of-service för tidsperioder när programuppdateringar för Azure-plattformen eller maskinvara Underhåll aktiviteter som utförs. Du kan se noder med status inaktiverar/inaktiverad under dessa aktiviteter. Detta minskar kapaciteten på klustret tillfälligt, men inte ska påverka tillgängligheten för ditt kluster eller ett program.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Rekommendationer för när du ska använda Silver eller guld hållbarhet nivåer
 
-Använd Silver eller guld hållbarhet för alla nodtyper som värd för tillståndskänsliga tjänster som du förväntar dig att skala i (minska VM-instanser) ofta, och du föredrar att fördröjas distributionsåtgärder för att förenkla dessa åtgärder för skalan. Skalbar-scenarier (lägga till instanser för virtuella datorer) play inte till valet av hållbarhetsnivån, endast skala-modulen utför.
+Använda Silver eller guld hållbarhet för alla nodtyper som värd för tillståndskänsliga tjänster som du förväntar dig att skala i (minska VM-instanser) ofta, och du föredrar att distributionsåtgärder förskjutas och kapacitet minskas för att förenkla dessa skala i åtgärder. Skalbar-scenarier (lägga till instanser för virtuella datorer) play inte till valet av hållbarhetsnivån, endast skala-modulen utför.
 
 ### <a name="changing-durability-levels"></a>Ändra hållbarhet nivåer
 - Nodtyper med hållbarhet Silver eller guld kan inte nedgraderas till Brons.

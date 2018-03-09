@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Spara ändringarna och arbetar med stora filer
 Du kan konfigurera olika mål för körning med tjänsten Azure Machine Learning-experiment. Vissa mål är lokal kan till exempel en lokal dator eller en dockerbehållare på en lokal dator. Andra användare är fjärranslutna till exempel en dockerbehållare på en fjärrdator eller ett HDInsight-kluster. Mer information finns i [översikt av Azure Machine Learning experimentera körningstjänsten](experimentation-service-configuration.md). 
@@ -191,7 +191,7 @@ def attach_storage_container(spark, account, key):
 attach_storage_container(spark, "<storage account name>", "<storage key>”)
 ```
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Eftersom Azure Machine Learning kör skript genom att kopiera hela projektmappen till målet compute kontext, noggrann med stora indata, utdata och mellanliggande filer. För stora filöverföringar, kan du använda mappen särskilda utdata, den delade mappen som kan nås via de `AZUREML_NATIVE_SHARE_DIRECTORY` miljövariabeln eller extern beständig lagring. 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6daf69574d45eeb1c91508d082bd7294b6e40f70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6829ca9ad5ef76b6a96eed1f2cc461d32c0e51cf
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -41,7 +41,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Välj **+ ny** > **nätverk** > **för virtuella nätverk**.
+1. Välj **+ skapa en resurs** > **nätverk** > **för virtuella nätverk**.
 2. Ange eller Välj värden för följande inställningar och sedan **skapa**:
     - **Namnet**: namnet måste vara unikt i den [resursgruppen](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) att du väljer för att skapa det virtuella nätverket i. Du kan inte ändra namnet när det virtuella nätverket har skapats. Du kan skapa flera virtuella nätverk över tid. Namnge förslag finns [namngivningskonventioner](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Följa en namngivningskonvention hjälper gör det enklare att hantera flera virtuella nätverk.
     - **Adressutrymmet**: adressutrymmet för ett virtuellt nätverk består av en eller flera icke-överlappande adressintervall som anges i CIDR-notering. Adressintervallet som du definierar kan vara public eller private (RFC 1918). Om du definierar adressintervallet som offentligt eller privat adressintervallet kan nås från inom ett virtuellt nätverk och virtuella nätverk och från alla lokala nätverk som du har anslutit till det virtuella nätverket. Du kan inte lägga till följande adressintervall:
@@ -179,5 +179,5 @@ Om du vill utföra åtgärder på virtuella nätverk måste ditt konto måste ha
 
 - Om du vill skapa en virtuell dator och koppla den till ett virtuellt nätverk, se [skapa ett virtuellt nätverk och ansluta virtuella datorer](quick-create-portal.md#create-virtual-machines).
 - Om du vill filtrera nätverkstrafiken mellan undernät i ett virtuellt nätverk finns [skapa nätverkssäkerhetsgrupper](virtual-networks-create-nsg-arm-pportal.md).
-- To-peer-ett virtuellt nätverk till ett annat virtuellt nätverk, se [skapa ett virtuellt nätverk som peering](virtual-network-create-peering.md#portal).
+- To-peer-ett virtuellt nätverk till ett annat virtuellt nätverk, se [skapa ett virtuellt nätverk som peering](tutorial-connect-virtual-networks-portal.md).
 - Mer information om alternativ för att ansluta ett virtuellt nätverk till ett lokalt nätverk, se [om VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

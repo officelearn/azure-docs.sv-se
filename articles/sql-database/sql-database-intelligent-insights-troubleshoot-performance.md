@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med Intelligent insikter
 
@@ -39,8 +39,8 @@ Intelligent insikter identifierar automatiskt prestandaproblem med SQL Database 
 | [Ökning av arbetsbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Arbetsbelastningen ökning eller kontinuerlig anhopning av arbetsbelastningen på databasen identifierades, vilket gör SQL Database prestandaproblem. |
 | [Minnesbelastning](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Anställda som har begärt minne ger måste vänta tills minnesallokering för statistiskt stora mängder tid. Eller så finns det en ökad anhopning av de anställda som har begärt minne beviljar, som påverkar prestanda för SQL-databasen. |
 | [Låsning](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Långa databasen låsning upptäcktes, som påverkar prestanda för SQL-databasen. |
-| [Ökad MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Den maximala graden av parallellitet alternativet (MAXDOP) har ändrats och det påverkar frågan körning effektiviteten. |
-| [Pagelatch konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch konkurrens identifierades som påverkar prestanda för SQL-databasen. Flera trådar försöker samtidigt komma åt sidorna buffert samma data i minnet. Detta resulterar i ökad väntetiden som påverkar prestanda för SQL-databasen. |
+| [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Den maximala graden av parallellitet alternativet (MAXDOP) har ändrats och det påverkar frågan körning effektiviteten. |
+| [Pagelatch Contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch konkurrens identifierades som påverkar prestanda för SQL-databasen. Flera trådar försöker samtidigt komma åt sidorna buffert samma data i minnet. Detta resulterar i ökad väntetiden som påverkar prestanda för SQL-databasen. |
 | [Index som saknas](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | En saknas index problemet upptäcktes, som påverkar prestanda för SQL-databasen. |
 | [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | En ny fråga identifierades som påverkar prestandan för SQL-databas. |
 | [Onormal vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Väntetiden för ovanliga databas har upptäckts som påverkar prestanda för SQL-databasen. |
@@ -129,9 +129,9 @@ Diagnostik-loggen matar ut låsning information som du kan använda som underlag
 
 Det enklaste och säkraste sättet att åtgärda problemet är att hålla transaktionerna kort och minska Lås storleken för de dyraste frågorna. Du kan dela upp en stor grupp med åtgärder på mindre åtgärder. Praxis är att minska frågan Lås storleken genom att göra frågan så effektivt som möjligt. Minska stora sökningar eftersom de ökar risken för deadlocks och påverkar prestandan för databasen. Du kan skapa nya index eller lägga till kolumner i det befintliga indexet för att undvika tabellsökningar för identifierade frågor som orsakar låsning. 
 
-Fler förslag finns [hur du löser blockerande problem som orsakas av Lås eskalering i SQL Server](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Fler förslag finns [hur du löser blockerande problem som orsakas av Lås eskalering i SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
-## <a name="increased-maxdop"></a>Ökad MAXDOP
+## <a name="increased-maxdop"></a>Increased MAXDOP
 
 ### <a name="what-is-happening"></a>Vad händer
 
@@ -289,7 +289,7 @@ Databas-omfattande konfigurationsändringar kan anges för varje enskild databas
 
 Diagnostiken logga utdata databas-omfattande konfigurationsändringar som gjordes nyligen som orsakade försämrade prestanda jämfört med föregående sju dagar arbetsbelastning beteendet. Du kan återställa konfigurationsändringar i föregående värden. Du kan även finjustera värde med värde tills önskad prestandanivå har uppnåtts. Du kan kopiera databasen scope konfigurationsvärden från en liknande databas med tillfredsställande prestanda. Om det inte går att felsöka prestanda återgå till standardvärden för SQL Database Standard och försöker finjustera från och med denna baslinje.
 
-Mer information om hur du optimerar databas-omfattande konfiguration och T-SQL-syntax för att ändra konfigurationen finns [Alter databas-omfattande configuration (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Mer information om hur du optimerar databas-omfattande konfiguration och T-SQL-syntax för att ändra konfigurationen finns [Alter databas-omfattande configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>Långsam klienten
 

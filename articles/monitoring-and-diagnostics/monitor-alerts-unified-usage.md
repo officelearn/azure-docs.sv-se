@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor - aviseringar (förhandsgranskning)
 
@@ -71,7 +71,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     > [!NOTE]
 
-    > Nya funktioner för mått för snabb aviseringar endast ingår i signaltyper som mått från platform-tjänsten
+    >  Alla [nära realtid aviseringar](monitoring-near-real-time-metric-alerts.md) resurser som kan visas med övervakningstjänsten **plattform** och skicka en signal typ som **mått**
 
 6. *Mått aviseringar*: när signalen är markerad logik för aviseringar kan anges. För referens anger historiska data för signal visas med alternativet för att justera tid fönster med **visa tidigare**, olika senaste sex timmar till föregående vecka. Med visualiseringen på plats, **avisering logik** kan väljas från visas alternativ för villkor, sammanställning och slutligen tröskelvärdet. Som förhandsgranskning av logiken som visas villkoret i visualiseringen tillsammans med signal historik att indikera när aviseringen skulle ha utlösts. Slutligen anger för vilken varaktighet, aviseringen ska söka efter de angivna villkoren genom att välja den **Period** alternativet tillsammans med hur ofta aviseringen ska köras genom att välja **frekvens**.
 

@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategi för katastrofåterställning för program som använder SQL-databas elastiska pooler
 Vi har lärt dig att molntjänster inte felsäker och oåterkalleligt incidenter inträffa under åren. SQL-databasen innehåller flera funktioner som kan ge för Företagskontinuitet för programmet när dessa händelser inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöd för samma typ av funktioner för katastrofåterställning. Den här artikeln beskriver flera DR strategier för elastiska pooler som utnyttjar funktionerna för verksamhetskontinuitet dessa SQL-databas.
@@ -30,6 +30,9 @@ Den här artikeln använder följande kanoniska SaaS ISV programmet mönster:
 <i>En modern molnbaserad webbprogrammet etablerar en SQL-databas för varje slutanvändare. ISV: er har många kunder och därför använder många databaser, kallas även klient databaser. Eftersom klient-databaser har vanligtvis oförutsägbart aktivitet mönster, använder ISV en elastisk pool för att göra databasen kostar mycket förutsägbar under en längre tid. Den elastiska poolen också förenklas prestanda när användaraktiviteten ger spikar i diagrammet. Förutom databaserna som klienten använder programmet också flera databaser att hantera användarprofiler, säkerhet, samla in användningsmönster osv. Tillgängligheten för enskilda klienter påverkar inte programmets tillgänglighet som helhet. Dock tillgänglighet och prestanda för hantering av databaser är avgörande för programmets funktionen och om hantering av databaser är offline hela programmet är offline.</i>  
 
 Den här artikeln beskrivs DR strategier som omfattar ett antal scenarier från kostnaden känsliga Start program till sådana som har stränga tillgänglighet.
+
+> [!NOTE]
+> Om du använder Premium-databaser och pooler du dem flexibel regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration (för närvarande under förhandsgranskning). Se [redundantzonen databaser](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kostnad känsliga Start
 <i>Jag är en start-företag och är mycket kostar känslig.  Jag vill förenkla distribution och hantering av programmet och det kan ha en begränsad SLA för enskilda kunder. Men jag vill se till att programmet som helhet aldrig är offline.</i>
@@ -109,7 +112,7 @@ När den primära regionen återställs med Azure *när* du har återställt pro
 Nyckeln **nytta** av den här strategin är att det ger högsta SLA för betalande kunder. Det garanterar att de nya försök är blockerad som utvärderingsversion DR-poolen har skapats. Den **kompromiss** är att den här installationen ökar den totala kostnaden för databaser för innehavare av kostnaden för den sekundära DR-poolen för betald kunder. Dessutom om sekundära poolen har olika storlekar, prestanda betalande kunder lägre efter redundans tills poolen i DR region uppgraderingen. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografiskt distribuerade program med nivåindelade service
-<i>Jag har en mogen SaaS-program med nivåindelade service erbjudanden. Jag vill erbjuda ett mycket aggressiv SERVICENIVÅAVTAL till min betald kunder och minska risken för påverkan när avbrott inträffar eftersom även kort avbrott kan orsaka kunden klagomål. Det är viktigt att betalande kunder alltid kan komma åt sina data. Försök är gratis och ett SLA erbjuds inte under utvärderingsperioden.</i> 
+<i>Jag har en mogen SaaS-program med nivåindelade service erbjudanden. Jag vill erbjuda ett mycket aggressiv SERVICENIVÅAVTAL till min betald kunder och minska risken för påverkan när avbrott inträffar eftersom även kort avbrott kan orsaka kunden klagomål. Det är viktigt att betalande kunder alltid kan komma åt sina data. Försök är gratis och ett SLA erbjuds inte under utvärderingsperioden. </i> 
 
 Stöd för det här scenariot, använda tre separata elastiska pooler. Etablera två lika storlek pooler med hög edtu: er per databas i två olika områden ska innehålla betald kundernas klient databaser. Tredje poolen innehåller utvärderingsversioner för klienter kan ha lägre edtu: er per databas och tillhandahållas i någon av de två regionerna.
 

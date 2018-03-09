@@ -2,25 +2,20 @@
 title: "Återställning efter fel i Azure Site Recovery | Microsoft Docs"
 description: "Den här artikeln innehåller en översikt över olika typer av återställning efter fel och varningar beaktas vid misslyckas tillbaka till lokala med Azure Site Recovery-tjänsten."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Översikt över återställning efter fel
+
 När du har redundansväxlats till Azure, kan du växla tillbaka till den lokala platsen. Det finns två olika typer av återställning som är möjliga med Azure Site Recovery: 
 
 - Växla tillbaka till den ursprungliga platsen 
@@ -55,5 +50,5 @@ Om den lokala virtuella datorn inte finns innan du skydda den virtuella datorn k
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ stegen för att utföra den [återställning efter fel igen](site-recovery-how-to-failback-azure-to-vmware.md).
+Följ stegen för att utföra den [återställning efter fel igen](vmware-azure-failback.md).
 

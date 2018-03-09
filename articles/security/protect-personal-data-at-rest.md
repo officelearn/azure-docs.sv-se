@@ -1,6 +1,6 @@
 ---
 title: Azure skydda personliga data vilande med kryptering | Microsoft Docs
-description: "Den här artikeln är en del av en serie kan du använda Azure för att skydda personliga data"
+description: "Den här artikeln kan användas i effforts för att uppfylla bransch eller statliga krav, till exempel allmänna Data Protection förordning (BNPR)."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure krypteringstekniker: skydda personliga data vilande med kryptering
 
 Den här artikeln hjälper dig att förstå och använda Azure krypteringstekniker för att skydda data i vila.
 
-Kryptering av vilande data är mycket viktigt som bästa praxis att skydda känsliga eller personliga data och för att uppfylla efterlevnads- och sekretesskrav.
-Kryptering i vila är utformat för att förhindra angripare från att komma åt den okrypterade data genom att säkerställa att data krypteras på disken.
+Kryptering av vilande data är mycket viktigt som bästa praxis att skydda känsliga eller personliga data och för att uppfylla efterlevnads- och sekretesskrav. Kryptering i vila är utformat för att förhindra angripare från att komma åt den okrypterade data genom att säkerställa att data krypteras på disken. Informationen i den här artikeln kan användas för att följa med allmänna Data Protection förordning (BNPR).
 
 ## <a name="scenario"></a>Scenario 
 

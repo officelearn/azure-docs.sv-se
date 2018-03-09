@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Vanliga frågor och svar (FAQ)
+# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Allmänt
@@ -106,8 +106,9 @@ Vid vanlig replikering replikeras data till geo-redundant Azure-lagring och du b
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Kan jag automatisera Site Recovery-scenarier med en SDK?
 Ja. Du kan automatisera Site Recovery-arbetsflöden med hjälp av REST-API:et, PowerShell och Azure SDK. Scenarier som stöds för närvarande för att distribuera Site Recovery med hjälp av PowerShell:
 
-* [Replikera virtuella Hyper-V-datorer i VMMs moln till Azure PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Replikera virtuella Hyper-V-datorer utan VMM till Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Replikera virtuella Hyper-V-datorer i VMMs moln till Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Replikera virtuella Hyper-V-datorer utan VMM till Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [Replikera VMware till Azure med PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Vilken typ av lagringskonto behöver jag om jag replikerar till Azure?
 Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina data är flexibla i händelse av ett regionalt strömavbrott, eller om det inte går att återställa den primära regionen. Kontot måste finnas i samma region som Recovery Services-valvet. Premium-lagring stöds för VMware VM, Hyper-V virtuell och fysisk server replication när du distribuerar Site Recovery på Azure-portalen.
@@ -123,7 +124,7 @@ Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Fee
 Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Kan jag undanta specifika diskar från replikeringen?
-Detta stöds när du är [replikera virtuella VMware-datorer och datorer med Hyper-V](site-recovery-exclude-disk.md) till Azure med Azure-portalen.
+Detta stöds när du replikera virtuella VMware-datorer och Hyper-V virtuella datorer till Azure med Azure-portalen.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Kan jag replikera virtuella datorer med dynamiska diskar?
 Dynamiska diskar stöds vid replikering av virtuella Hyper-V-datorer. De stöds också vid replikering av virtuella VMware-datorer och fysiska datorer till Azure. Operativsystemdisken måste vara en standarddisk.

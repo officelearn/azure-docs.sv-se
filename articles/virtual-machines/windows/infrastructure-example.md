@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exemplet Azure-infrastrukturen genomgång för virtuella Windows-datorer
 Den här artikeln beskriver hur bygga ut infrastruktur för ett exempel. Vi i detalj utformar en infrastruktur för en enkel onlinebutik som sammanför de riktlinjer och beslut runt namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar virtuella datorer (VM).
@@ -61,7 +61,7 @@ Alla ovanstående följer du dessa namngivningsregler:
 Adventure Works Cycles använder sin Enterprise-prenumeration med namnet Adventure Works Enterprise prenumeration för att förse faktureringen för den här IT-arbetsbelastning.
 
 ## <a name="storage"></a>Lagring
-Adventure Works Cycles fastställt att de ska använda Azure hanterade diskar. När du skapar virtuella datorer används både tillgängligt lagringsutrymme lagringsnivåer:
+Adventure Works Cycles fastställt att de ska använda Azure hanterade diskar. När du skapar virtuella datorer används både tillgängliga lagringsnivåer:
 
 * **Standardlagring** för webbservrar, programservrar och domänkontrollanter och deras datadiskar.
 * **Premium-lagring** för SQL Server-datorer och deras datadiskar.
@@ -71,7 +71,7 @@ Eftersom det virtuella nätverket inte behöver ha en anslutning till Adventure 
 
 De skapade ett virtuellt nätverk som endast molnbaserad med följande inställningar med hjälp av Azure portal:
 
-* Namn: AZOS-Använd-VN01
+* Name: AZOS-USE-VN01
 * Plats: Östra USA 2
 * Virtuellt nätverks-adressutrymme: 10.0.0.0/8
 * Första undernätet:

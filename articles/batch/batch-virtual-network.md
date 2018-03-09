@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: danlep
-ms.openlocfilehash: 626319a458575d255af4c4f8de93fca542b48890
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9748ae5cc58c64412ab6e51e6cd502abc3505c51
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
@@ -70,4 +70,4 @@ När du lägger till en användardefinierad väg definiera vägen för varje rel
 ## <a name="next-steps"></a>Nästa steg
 
 - En detaljerad översikt över Batch finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md).
-- Mer information om hur du skapar en användardefinierad väg finns [skapa en användardefinierad väg - Azure-portalen](../virtual-network/create-user-defined-route-portal.md).
+- Mer information om hur du skapar en användardefinierad väg finns [skapa en användardefinierad väg - Azure-portalen](../virtual-network/tutorial-create-route-table-portal.md).

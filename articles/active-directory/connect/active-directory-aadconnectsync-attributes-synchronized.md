@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -36,7 +36,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Attributnamn | Användare | Kommentera |
+| Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X |Anger om ett konto har aktiverats. |
 | cn |X | |
@@ -48,7 +48,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | userPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="exchange-online"></a>exchange online
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | Installationsassistenten |X |X | | |
@@ -83,7 +83,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |Det här attributet används för närvarande inte för grupper. |
-| Initialer |X |X | | |
+| initialer |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -172,7 +172,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>sharepoint online
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | authOrig |X |X |X | |
@@ -254,7 +254,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (nu kallat Skype för företag)
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
@@ -303,7 +303,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | cn |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
@@ -319,7 +319,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | userPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="intune"></a>Intune
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | c |X |X | | |
@@ -378,7 +378,7 @@ Den här gruppen är en uppsättning attribut som används som minimal attribut 
 
 Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalog inte används som stöd för Office 365, Dynamics eller Intune. Den har en liten uppsättning core attribut.
 
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | cn |X | |X | |
@@ -399,7 +399,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 ## <a name="windows-10"></a>Windows 10
 En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkronisera alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten dator i Windows 10 identifieras genom att låta den attributet userCertificate fylls i.
 
-| Attributnamn | Enhet | Kommentera |
+| Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
@@ -413,7 +413,7 @@ En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till 
 
 Dessa attribut för **användaren** är utöver de andra apparna som du har valt.  
 
-| Attributnamn | Användare | Kommentera |
+| Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
 | domainFQDN |X |Kallas även DNS-domännamn. Till exempel contoso.com. |
 | domainNetBios |X |Kallas även NetBIOS-namn. Till exempel CONTOSO. |
@@ -421,22 +421,22 @@ Dessa attribut för **användaren** är utöver de andra apparna som du har valt
 ## <a name="exchange-hybrid-writeback"></a>Tillbakaskrivning av Exchange-hybrid
 Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när du väljer för att aktivera **Exchange hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.
 
-| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Härleds från cloudAnchor i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
-| msExchBlockedSendersHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchSafeRecipientsHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchSafeSendersHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
-| msExchUCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstmeddelanden: används av Microsoft Lync Server integrering för att indikera att Lync Server lokalt att användaren har röstmeddelanden i online-tjänster. |
-| msExchUserHoldPolicies |X | | |Tvister Hold: Aktiverar molntjänster att avgöra vilka användare som är under tvister håller. |
-| proxyAddresses |X |X |X |Endast x500 adressen från Exchange Online infogas. |
-| publicDelegates |X | | |Gör en Exchange Online-postlådan för att erhålla SendOnBehalfTo behörigheter för användare med lokala Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
+| Attributnamn (ansluta UI) |Attributnamn (lokala AD) | Användare | Kontakt | Grupp | Kommentar |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Härleds från cloudAnchor i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrering: Skrivs tillbaka lokalt filtrering och online säkert och blockerade sändaren data från klienter. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstmeddelanden: används av Microsoft Lync Server integrering för att indikera att Lync Server lokalt att användaren har röstmeddelanden i online-tjänster. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Tvister Hold: Aktiverar molntjänster att avgöra vilka användare som är under tvister håller. |
+| proxyAddresses| proxyAddresses |X |X |X |Endast x500 adressen från Exchange Online infogas. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Gör en Exchange Online-postlådan för att erhålla SendOnBehalfTo behörigheter för användare med lokala Exchange-postlåda. Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 
 ## <a name="exchange-mail-public-folder"></a>Offentlig mapp för Exchange-e-post
 Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du väljer för att aktivera **offentlig mapp för Exchange-e-post**.
 
-| Attributnamn | PublicFolder | Kommentera |
+| Attributnamn | PublicFolder | Kommentar |
 | --- | :---:| --- |
 | displayName | X |  |
 | E-post | X |  |
@@ -448,7 +448,7 @@ Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du
 ## <a name="device-writeback"></a>Tillbakaskrivning av enheter
 Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som är anslutna till Azure AD eller domänanslutna Windows 10-datorer.
 
-| Attributnamn | Enhet | Kommentera |
+| Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |

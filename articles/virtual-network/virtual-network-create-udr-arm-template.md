@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Skapa användardefinierade vägar (UDR) med hjälp av en mall
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [Mall](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klassisk)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassisk)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Om du vill associera UDR frontend-undernät som du behöver ändra definitionen 
 
 Lägg märke till samma som utfördes för NSG för backend- och backend-undernät i mallen.
 
-Du måste också se till att den **FW1** VM har den IP-vidarebefordring egenskapen nätverkskortet som ska användas för att ta emot och vidarebefordra paket. Avsnittet nedan visar definitionen av nätverkskortet för FW1 i filen azuredeploy-nsg-udr.json baserat på scenariot ovan.
+Du måste också se till att den **FW1** VM har den IP-vidarebefordring egenskapen nätverkskortet som ska användas för att ta emot och vidarebefordra paket. I följande avsnitt beskrivs definitionen av nätverkskortet för FW1 i filen azuredeploy-nsg-udr.json baserat på scenariot.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Du måste också se till att den **FW1** VM har den IP-vidarebefordring egenskap
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuera mallen genom att klicka för att distribuera
-Exempelmallen som är tillgänglig i den offentliga databasen använder en parameterfil som innehåller standardvärdena som används för att generera scenariot som beskrivs ovan. Om du vill distribuera den här mallen genom att klicka för att distribuera följer du [den här länken](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), klickar på **Deploy to Azure** (Distribuera till Azure), ersätter standardparametervärdena om det behövs och följer anvisningarna på portalen.
+Tillgängliga exempelmall i offentliga databasen använder en parameterfil som innehåller standard värden används för att generera det scenario som beskrivs ovan. Om du vill distribuera den här mallen genom att klicka för att distribuera följer du [den här länken](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), klickar på **Deploy to Azure** (Distribuera till Azure), ersätter standardparametervärdena om det behövs och följer anvisningarna på portalen.
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 2. Kör följande kommando för att skapa en resursgrupp:
@@ -173,7 +173,7 @@ Exempelmallen som är tillgänglig i den offentliga databasen använder en param
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuera mallen med hjälp av Azure CLI
 
-Om du vill distribuera ARM-mallen med hjälp av Azure CLI, gör du följande:
+För att distribuera Azure Resource Manager-mallen med hjälp av Azure CLI, gör du följande:
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
 2. Kör följande kommando för att växla till Resource Manager-läge:
@@ -182,11 +182,11 @@ Om du vill distribuera ARM-mallen med hjälp av Azure CLI, gör du följande:
     azure config mode arm
     ```
 
-    Här är den utdata som förväntas för det ovanstående kommandot:
+    Här är utdata som förväntas för det föregående kommandot:
 
         info:    New mode is arm
 
-3. Från din webbläsare, navigerar du till **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, kopiera innehållet i json-filen och klistra in i en ny fil i datorn. Du skulle kopiera värden under till en fil med namnet för det här scenariot **c:\udr\azuredeploy.parameters.json**.
+3. Från din webbläsare, navigerar du till **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, kopiera innehållet i json-filen och klistra in i en ny fil i datorn. Kopiera följande värden till en fil med namnet för det här scenariot **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Om du vill distribuera ARM-mallen med hjälp av Azure CLI, gör du följande:
         }
     ```
 
-4. Kör följande kommando för att distribuera det nya VNet med hjälp av mallen och parametern filerna som du hämtade och ändrade ovan:
+4. Kör följande kommando för att distribuera det nya VNet med hjälp av mallen och parametern filerna som du hämtade och ändrade tidigare:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Om du vill distribuera ARM-mallen med hjälp av Azure CLI, gör du följande:
             info:    group show command OK
 
 > [!TIP]
-> Om du inte ser alla resurser som kör den `azure group deployment show` kommandot för att kontrollera etableringsstatusen för distributionen är *lyckad*.
+> Om du inte ser alla resurser som kör den `azure group deployment show` kommandot för att kontrollera etableringsstatusen för distributionen är *lyckades*.
 > 

@@ -13,43 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 973f713028217efa667ec111fdfcac750c243f11
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
-En Azure SQL database är en hanterad databas i Microsoft Azure som skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region. 
+SQL-databas erbjuder tre typer av databaser:
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>En Azure SQL database kan vara en enskild, grupperade eller partitionerade databas
+- En enskild databas som skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md). En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+- En databas som skapats som en del av en [pool av databaser](sql-database-elastic-pool.md) inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning [beräkning och lagring resurser för olika arbetsbelastningar](sql-database-service-tiers.md) som är delas med alla databaser i poolen. En Azure SQL database är associerad med en logisk server från Azure SQL Database som skapas i en viss Azure-region.
+- En [instans av en SQLServer](sql-database-managed-instance.md) skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med en definierad uppsättning resurser för beräkning och lagring för alla databaser på den serverinstansen. En hanterad instans innehåller både system- och databaser. Hanterade instans är utformat för att aktivera databasen lift-och-skifte till en helt hanterad PaaS utan omformandet programmet. Hanterade instans ger hög kompatibilitet med programmeringsmodell för lokala SQL Server och stöder flesta av SQL Server-funktioner och tillhörande verktyg och tjänster.  
 
-En Azure SQL database kan vara:
+Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare och tillåter bara krypterade TCP/IP-anslutningar.
 
-- En [enskild databas](sql-database-single-database-resources.md) med en egen uppsättning resurser
-- En del av en [elastisk pool](sql-database-elastic-pool.md) som delar en uppsättning resurser
-- En del av en [utskalad uppsättning delade databaser](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), som kan vara enskilda databaser eller databaser i en pool
-- En del av en uppsättning databaser som ingår i ett [SaaS-designmönster för flera klienter](sql-database-design-patterns-multi-tenancy-saas-applications.md), vars databaser kan vara enskilda databaser eller databaser i en pool (eller båda) 
-
-> [!TIP]
-> För giltiga databasnamn, se [databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
->
- 
-- Standarddatabassorteringen som används av Microsoft Azure SQL Database är **SQL_LATIN1_GENERAL_CP1_CI_AS**, där **LATIN1_GENERAL** är engelska (USA), **CP1** är teckentabell 1252, **CI** är skiftlägeskänslig och **AS** är accentkänslig. Mer information om hur du konfigurerar sorteringen finns i [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
-- Microsoft Azure SQL Database stöder tabelldata dataström (TDS) protokollet klientversionen 7.3 eller senare.
-- TCP/IP-anslutningar tillåts.
+> [!IMPORTANT]
+> SQL-hanterade databasinstans erbjuder för närvarande i förhandsversion, en enda generella tjänstnivå. Mer information finns i [hanteras SQL-databasinstans](sql-database-managed-instance.md). Resten av den här artikeln gäller inte för hanterade instans.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Vad är en logisk Azure SQL-server?
 
-En logisk server som fungerar som en central administrativ plats för flera databaser, inklusive [elastiska pooler](sql-database-elastic-pool.md) [inloggningar](sql-database-manage-logins.md), [regler i brandväggen](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundans grupper](sql-database-geo-replication-overview.md). En logisk server kan vara i en annan region än dess resursgruppen. Den logiska servern måste finnas innan du kan skapa Azure SQL-databas. Alla databaser på en server som skapas i samma region som den logiska servern. 
+En logisk server som fungerar som en central administrativ plats för flera enstaka eller [grupperade](sql-database-elastic-pool.md) databaser, [inloggningar](sql-database-manage-logins.md), [regler i brandväggen](sql-database-firewall-configure.md), [granskning regler](sql-database-auditing.md), [hot principer](sql-database-threat-detection.md), och [redundans grupper](sql-database-geo-replication-overview.md). En logisk server kan vara i en annan region än dess resursgruppen. Den logiska servern måste finnas innan du kan skapa Azure SQL-databas. Alla databaser på en server som skapas i samma region som den logiska servern.
 
-
-> [!IMPORTANT]
-> I SQL Database är en server en logisk konstruktion som skiljer sig från en SQL Server-instans, som du kanske är bekant med i den lokala miljön. Mer specifikt ger SQL Database-tjänsten inga garantier avseende platsen för databaserna i förhållande till deras logiska servrar och exponerar inga funktioner eller åtkomst på instansnivå.
-> 
+En logisk server är en logisk konstruktion som skiljer sig från en SQL Server-instans som du kanske känner till i den lokala världen. Mer specifikt ger SQL Database-tjänsten inga garantier avseende platsen för databaserna i förhållande till deras logiska servrar och exponerar inga funktioner eller åtkomst på instansnivå. En server i en SQL-hanterade databasinstans är däremot liknar en SQL Server-instans som du kanske känner till i den lokala världen.
 
 När du skapar en logisk server kan ange du en server inloggningskonto och lösenord som har administrativ behörighet till master-databasen på den servern och alla databaser som skapas på servern. Det här första kontot är ett konto för SQL-inloggning. Azure SQL Database stöder SQL-autentisering och Azure Active Directory-autentisering för autentisering. Information om inloggning och autentisering finns [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md). Windows-autentisering stöds inte. 
 
@@ -74,6 +63,7 @@ En logisk Azure Database-server:
 - Är versionshantering omfånget för funktioner på befintliga resurser 
 - Huvudkontoinloggningar på servernivå kan hantera alla databaser på en server.
 - Kan innehålla inloggningar som liknar de i instanser av SQL Server i din lokala miljö som har åtkomst till en eller flera databaser på servern, samt kan beviljas begränsade administrativa rättigheter. Mer information finns i avsnittet om [inloggningar](sql-database-manage-logins.md).
+- Alla användardatabaser som har skapats på en logisk server Standardsortering är `SQL_LATIN1_GENERAL_CP1_CI_AS`, där `LATIN1_GENERAL` är engelska (USA) `CP1` är teckentabellen 1252, `CI` är skiftlägeskänslig, och `AS` är accentkänsliga.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL-databaser som skyddas av Brandvägg för SQL-databas
 
@@ -97,6 +87,8 @@ Skapa en Azure SQL database med hjälp av den [Azure-portalen](https://portal.az
 > Information om hur du väljer prisnivå för din databas finns [tjänstnivåer](sql-database-service-tiers.md).
 >
 
+Om du vill skapa en instans för hanterade finns [skapa en instans som hanteras](sql-database-managed-instance-tutorial-portal.md)
+
 ### <a name="manage-an-existing-sql-server"></a>Hantera en befintlig SQLServer
 
 Om du vill hantera en befintlig server navigerar du till servern med ett antal metoder - exempel från och med den specifika SQL-databas i **SQL-servrar** sidan eller **alla resurser** sidan. 
@@ -110,7 +102,7 @@ Om du vill hantera en befintlig databas, gå till den **SQL-databaser** och klic
 >
 
 > [!TIP]
-> En självstudiekurs i Azure portal Snabbstart finns [skapa en Azure SQL database i Azure portal](sql-database-get-started-portal.md).
+> Läs en Azure portal Snabbstartsguide [skapa en Azure SQL database i Azure portal](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Hantera Azure SQL-servrar, databaser och brandväggar med PowerShell
@@ -122,20 +114,20 @@ Använd följande PowerShell-cmdlets för att skapa och hantera Azure SQL server
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en databas |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till en elastisk pool|
-|[Ta bort-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas|
-|[Ny AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Skapar en resursgrupp]
-|[Ny AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Skapar en server|
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas|
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Skapar en resursgrupp]
+|[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Skapar en server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Returnerar information om servrar|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Ändrar egenskaperna för en server|
-|[Ta bort AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Tar bort en server|
+|[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Tar bort en server|
 |[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|Skapar en brandväggsregel på servernivå |
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Hämtar brandväggsregler för en server|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Ändrar en brandväggsregel på en server|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Tar bort en brandväggsregel från en server.|
-| Ny AzureRmSqlServerVirtualNetworkRule | Skapar en [ *virtuellt nätverk regeln*](sql-database-vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en tjänstslutpunkt för virtuellt nätverk. |
+| New-AzureRmSqlServerVirtualNetworkRule | Skapar en [ *virtuellt nätverk regeln*](sql-database-vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en tjänstslutpunkt för virtuellt nätverk. |
 
 > [!TIP]
-> En PowerShell Snabbstartsguide finns [skapa en enda Azure SQL-databas med hjälp av PowerShell](sql-database-get-started-portal.md). PowerShell-exempelskript, se [Använd PowerShell för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [Övervakare och skala en enskild SQL-databas med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> En PowerShell-Snabbstartsguide finns [skapa en enda Azure SQL-databas med hjälp av PowerShell](sql-database-get-started-portal.md). PowerShell-exempelskript, se [Använd PowerShell för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-powershell.md) och [Övervakare och skala en enskild SQL-databas med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Azure CLI
@@ -144,15 +136,15 @@ Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[Skapa AZ sql-databas](/cli/azure/sql/db#az_sql_db_create) |Skapar en databas|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Skapar en databas|
 |[AZ sql db-lista](/cli/azure/sql/db#az_sql_db_list)|Visar en lista över alla databaser och datalager i en server eller alla databaser i en elastisk pool|
 |[AZ sql db lista-versioner](/cli/azure/sql/db#az_sql_db_list_editions)|Visar tillgängliga mål och Lagringsgränser|
 |[AZ sql db lista-användningsområden](/cli/azure/sql/db#az_sql_db_list_usages)|Returnerar databasen användningsområden|
 |[AZ sql db visa](/cli/azure/sql/db#az_sql_db_show)|Hämtar ett databasen eller data warehouse|
 |[AZ sql db-uppdateringen](/cli/azure/sql/db#az_sql_db_update)|Uppdaterar en-databas|
 |[AZ sql db bort](/cli/azure/sql/db#az_sql_db_delete)|Tar bort en databas|
-|[Skapa AZ grupp](/cli/azure/group#az_group_create)|Skapar en resursgrupp|
-|[Skapa AZ SQLServer](/cli/azure/sql/server#az_sql_server_create)|Skapar en server|
+|[az group create](/cli/azure/group#az_group_create)|Skapar en resursgrupp|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Skapar en server|
 |[AZ sql server-lista](/cli/azure/sql/server#az_sql_server_list)|Visar servrar|
 |[AZ sql server lista-användningsområden](/cli/azure/sql/server#az_sql_server_list-usages)|Returnerar servern användningsområden|
 |[Visa för AZ sql server](/cli/azure/sql/server#az_sql_server_show)|Hämtar en server|
@@ -165,7 +157,7 @@ Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI
 |[ta bort AZ sql server-brandväggsregel](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Tar bort en brandväggsregel|
 
 > [!TIP]
-> Läs en Azure CLI Snabbstartsguide [skapa en enda Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Azure CLI exempelskript finns [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
+> En Snabbstartsguide för Azure CLI, se [skapa en enda Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Azure CLI exempelskript finns [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Transact-SQL
@@ -179,7 +171,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server-da
 | Kommando | Beskrivning |
 | --- | --- |
 |[Skapa databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
-| [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Ändrar en Azure SQL database. |
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Ändrar en Azure SQL database. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Ändrar ett Azure SQL Data Warehouse.|
 |[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivån), tjänstmålet (prisnivån) och namn på elastisk pool, för en Azure SQL-databas eller ett Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. För Azure SQL Data Warehouse, måste du vara ansluten till master-databasen.|
@@ -196,11 +188,11 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server-da
 
 
 > [!TIP]
-> Snabbstartsguide med SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En självstudiekurs med hjälp av Visual Studio-koden i macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code kan ansluta och fråga efter data](sql-database-connect-query-vscode.md).
+> Snabbstartsguide med SQL Server Management Studio på Microsoft Windows, se [Azure SQL Database: Använd SQL Server Management Studio för att ansluta och fråga efter data](sql-database-connect-query-ssms.md). En Snabbstartsguide med hjälp av Visual Studio-koden i macOS, Linux eller Windows, se [Azure SQL Database: Använd Visual Studio Code kan ansluta och fråga efter data](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Hantera Azure SQL-servrar, databaser och brandväggar med hjälp av REST-API
 
-Använd dessa REST API-begäranden för att skapa och hantera Azure SQL server, databaser och brandväggar.
+Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan du använda dessa REST API-begäranden.
 
 | Kommando | Beskrivning |
 | --- | --- |
@@ -210,7 +202,7 @@ Använd dessa REST API-begäranden för att skapa och hantera Azure SQL server, 
 |[Servrar – lista](/rest/api/sql/servers/list)|Returnerar en lista över servrar.|
 |[Servrar – lista med resursgrupp](/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista över servrar i en resursgrupp.|
 |[Servrar – uppdatering](/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
-|[Servrar – Sql](/rest/api/sql/servers%20-%20sql)|Anger om en resurs kan skapas med det angivna namnet.|
+|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Anger om en resurs kan skapas med det angivna namnet.|
 |[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
 |[Databaser – få genom elastisk Pool](/rest/api/sql/databases/getbyelasticpool)|Hämtar en databas i en elastisk pool.|
@@ -226,7 +218,5 @@ Använd dessa REST API-begäranden för att skapa och hantera Azure SQL server, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om poolning databaser med elastiska pooler i [elastiska pooler](sql-database-elastic-pool.md).
-- Information om Azure SQL Database-tjänsten finns [vad är SQL Database?](sql-database-technical-overview.md).
 - Läs om hur du migrerar en SQL Server-databas till Azure i [migrera till Azure SQL Database](sql-database-cloud-migrate.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](sql-database-features.md).

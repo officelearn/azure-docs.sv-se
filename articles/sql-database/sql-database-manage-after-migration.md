@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera en databas i Azure SQL Database
 
@@ -135,7 +135,7 @@ I SQL-databas som standard data i vila i data och loggfilen filerna på underlag
 |**Kryptering span**|Slutpunkt till slutpunkt|Data i vila|
 |**Databasservern kan komma åt känsliga data**|Nej|Ja, eftersom kryptering av vilande data|
 |**Tillåtna T-SQL-funktioner**|Likhetsjämförelse|Alla T-SQL-yta är tillgänglig|
-|**App-ändringar som krävs för att använda funktionen**|Minimal|Minimala|
+|**App-ändringar som krävs för att använda funktionen**|Minimalt|Minimala|
 |**Kryptering granularitet**|Kolumnnivå|Databasnivå|
 ||||
 
@@ -210,7 +210,7 @@ Du kan utnyttja intelligent insikter för att övervaka prestanda och finjustera
 
 Du kan också konfigurera aviseringar efter resurs från det här diagrammet. Dessa aviseringar kan du svara på resursen villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Finns det [övervaka databasprestanda i SQL-databas](sql-database-single-database-monitor.md) detaljerade anvisningar.
 
-- **Dynamiska hanteringsvyer**: du kan fråga efter den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hanteringsvy att returnera resurs förbrukning tidigare från den senaste timmen och [sys.resource_stats ](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalogvyn att returnera historik för de senaste 14 dagarna.
+- **Dynamiska hanteringsvyer**: du kan fråga efter den [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hanteringsvy att returnera resurs förbrukning tidigare från den senaste timmen och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalogvyn att returnera historik för de senaste 14 dagarna.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) kan du se en historik över de vanligaste frågorna för förbrukning av resursen och tidskrävande frågor för en viss databas. Du kan snabbt identifiera de vanligaste frågorna av resursutnyttjande, varaktighet och frekvens för körning. Du kan spåra frågor och identifiera regression. Den här funktionen kräver [Frågearkivet](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) ska vara aktiverad och aktiv för databasen.
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
@@ -260,7 +260,7 @@ SQL-databasen använder vissa smart metoder som gör att den kan hantera vissa t
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Hur jag för att synkronisera data mellan SQL-databas och SQL Server?
 Du har flera olika sätt att åstadkomma detta: 
 - **[Datasynkronisering](sql-database-sync-data.md)**  – den här funktionen kan du synkronisera data båda riktningarna mellan flera lokala SQL Server-databaser och SQL-databas. För att synkronisera med lokal SQL Server-databaser, måste du installera och konfigurera synkronisering agent på en lokal dator och öppna utgående TCP-port 1433.
-- **[Transaktionsreplikering](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – med Transaktionsreplikering kan du synkronisera dina data från lokalt till Azure SQL DB med den lokala som utgivaren och Azure SQL DB som prenumeranten. För närvarande stöds endast den här installationen. Läs mer om hur du migrerar data från lokalt till SQL Azure med minimal avbrottstid: [Använd Transaktionsreplikering](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaktionsreplikering](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – med Transaktionsreplikering kan du synkronisera dina data från lokalt till Azure SQL DB med den lokala som utgivaren och Azure SQL DB som prenumeranten. För närvarande stöds endast den här installationen. Läs mer om hur du migrerar data från lokalt till SQL Azure med minimal avbrottstid: [Använd Transaktionsreplikering](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [SQL-databas](sql-database-technical-overview.md).

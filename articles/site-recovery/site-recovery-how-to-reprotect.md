@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Skydda igen från Azure till en lokal plats
 
@@ -203,8 +203,8 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 3. I **Huvudmålserver** och **Processervern**, Välj den lokala huvudmålservern och processervern.
 4. För **Datastore**, markera databasen som du vill återställa den diskar lokalt. Det här alternativet används när den lokala virtuella datorn tas bort och du behöver skapa nya diskar. Det här alternativet ignoreras om diskarna finns redan, men du måste ange ett värde.
 5. Välj kvarhållningsenhetens.
-6. Principen för återställning väljs automatiskt.
-7. Klicka på **OK** ska börja återaktivera skydd. Ett jobb börjar att replikera den virtuella datorn från Azure till den lokala platsen. Du kan följa förloppet på den **jobb** fliken.
+6. Failback-principen väljs automatiskt.
+7. Klicka på **OK** ska börja återaktivera skyddet. Ett jobb börjar att replikera den virtuella datorn från Azure till den lokala platsen. Du kan följa förloppet på fliken **Jobb**.
 
 Om du vill återställa till en alternativ plats (när den lokala virtuella datorn tas bort), Välj kvarhållningsenhetens och datalager som är konfigurerade för huvudmålservern. När du växlar tillbaka till den lokala platsen VMware-datorer i skyddsplan återställning efter fel att använda samma datalager som huvudmålservern. En ny virtuell dator skapas sedan i vCenter.
 
@@ -214,10 +214,10 @@ Om du vill återställa den virtuella datorn i Azure för en befintlig lokal vir
 Du kan även skydda igen på nivån i en återställningsplan. En replikeringsgrupp kan att återaktivera skyddet endast via en återställningsplan. När du skyddar med hjälp av en återställningsplan måste du ange värden för varje skyddad dator.
 
 > [!NOTE]
-> Använd samma huvudmålservern för att skydda en replikeringsgrupp. Om du använder en annan huvudmålserver för att skydda en replikeringsgrupp kan inte servern tillhandahålla en gemensam punkt i tiden.
+> Använd samma huvudmålserver för att återaktivera skyddet av en replikeringsgrupp. Om du använder en annan huvudmålserver för att återaktivera skyddet av en replikeringsgrupp, får inte servern en gemensam tidpunkt.
 
 > [!NOTE]
-> Den lokala virtuella datorn stängs av under återaktivera skydd. Detta hjälper att säkerställa datakonsekvens vid replikering. Aktivera inte den virtuella datorn efter att återaktivera skyddet har slutförts.
+> Den lokala virtuella datorn stängs av under återaktivera skydd. Detta hjälper att säkerställa datakonsekvens vid replikeringen. Aktivera inte den virtuella datorn efter att återaktivera skyddet har slutförts.
 
 När det återaktivera skyddet lyckas, kommer den virtuella datorn anger ett skyddat läge.
 

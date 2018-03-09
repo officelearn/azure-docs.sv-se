@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: dd8203763eb6abd19e2b3483636dc4d80f7effdf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 22fcdbda85f3ea336c3926e04d408935ed069c25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Skapa ett virtuellt nätverk med PowerShell
 
@@ -169,4 +169,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 Du har distribuerat en standard virtuellt nätverk med ett undernät i den här artikeln. Mer information om hur du skapar en anpassad virtuellt nätverk med flera undernät, även fortsättningsvis självstudierna för att skapa egna virtuella nätverk.
 
 > [!div class="nextstepaction"]
-> [Skapa en anpassad virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md#powershell)
+> [Skapa en anpassad virtuellt nätverk](virtual-networks-create-vnet-arm-ps.md)

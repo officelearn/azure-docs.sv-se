@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)
 Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan. Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:
@@ -69,7 +69,7 @@ Om du vill söka efter den *namn* ditt Automation-konto i Azure portal väljer d
 
 När du har kört skriptet visas poster i logganalys inom 10 minuter efter nya JobLogs eller JobStreams skrivs.
 
-Kör följande fråga om du vill se loggarna i logganalys loggen sökning:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Kör följande fråga om du vill se loggarna i logganalys loggen sökning: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verifiera konfigurationen
 Kontrollera att diagnostik är korrekt konfigurerade för Automation-konto med hjälp av följande PowerShell för att bekräfta att ditt Automation-konto är skicka loggar till logganalys-arbetsytan:
@@ -133,7 +133,7 @@ Diagnostik från Azure Automation skapar två typer av poster i logganalys och m
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Visa Automation loggar i logganalys
 Nu när du började skicka dina Automation-jobbloggar till logganalys, låt oss se vad du kan göra med dessa loggar i logganalys.
 
-Kör följande fråga om du vill visa loggarna:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga om du vill visa loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när en runbook-jobb misslyckas eller pausar
 En övre kunden frågar avser möjlighet att skicka ett e-postmeddelande eller en text om något går fel med ett runbook-jobb.   
@@ -141,7 +141,7 @@ En övre kunden frågar avser möjlighet att skicka ett e-postmeddelande eller e
 Om du vill skapa en aviseringsregel, börja med att skapa en logg Sök efter poster för runbook-jobb som ska anropa aviseringen. Klicka på den **avisering** för att skapa och konfigurera varningsregeln.
 
 1. Översikt över Log Analytics-sidan klickar du på **loggen Sök**.
-2. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` du kan också gruppera efter RunbookName med hjälp av:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Skapa en logg sökfråga för aviseringen genom att skriva följande sökningen i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` du kan också gruppera efter RunbookName med hjälp av: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Du kan gruppera aviseringarna genom prenumerationen och Automation-konto om du ställt in loggar från mer än en Automation-konto eller prenumeration på din arbetsyta. Automation-kontonamnet finns i fältet resurs i sökningen i JobLogs.
 1. Öppna den **lägga till Varningsregeln** klickar du på **avisering** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [aviseringar i logganalys](../log-analytics/log-analytics-alerts.md#alert-rules).

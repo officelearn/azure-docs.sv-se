@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ansluta datorer utan Internetåtkomst med OMS-Gateway
 Det här dokumentet beskriver hur du konfigurerar kommunikation med Azure Automation och Log Analytics med hjälp av OMS-Gateway när det är direkt ansluten eller Operations Manager övervakade datorer saknar Internetåtkomst.  OMS-gatewayen, som är en vanlig HTTP-proxy som stöder HTTP-tunnel använder kommandot HTTP ansluta kan samla in data och skicka den till Azure Automation och logganalys åt.  
@@ -82,7 +82,7 @@ OMS-gatewayen är tillgänglig på följande språk:
 OMS-Gateway har endast stöd för Transport Layer Security (TLS) 1.0, 1.1 och 1.2.  Det stöder inte Secure Sockets Layer (SSL).
 
 ### <a name="supported-number-of-agent-connections"></a>Stöds antalet anslutningar som agenten
-I följande tabell visar de stöds antalet agenter som kommunicerar med en gateway-server.  Det här stödet baseras på agenter och överför ~ 200KB data var 6: e sekund. Datavolym per agent testas är cirka 2.7GB per dag.
+Följande tabell visar stöds antalet agenter som kommunicerar med en gateway-server.  Det här stödet baseras på agenter och överför ~ 200KB data var 6: e sekund. Datavolym per agent testas är cirka 2.7GB per dag.
 
 |Gateway |Ungefärligt antal agenter som stöds|  
 |--------|----------------------------------|  
@@ -289,7 +289,7 @@ I följande tabell visas de händelse-ID och beskrivningar för OMS Gateway logg
 | 103 |Tog emot ett HTTP-ansluta kommando från klient |
 | 104 |Inte ett HTTP-ansluta kommando |
 | 105 |Målservern är inte i listan över tillåtna eller målporten är inte säker port (443) <br> <br> Se till att agenten MMA på Gateway-servern och agenterna kommunicera med gatewayen är ansluten till samma logganalys-arbetsytan. |
-| 105 |FEL TcpConnection – ogiltig klientcertifikat: CN = Gateway <br><br> Se till att: <br>    <br> &#149; Du använder en Gateway med versionsnumret 1.0.395.0 eller större. <br> &#149; MMA agenten på Gateway-servern och agenterna kommunicera med gatewayen är anslutna till samma logganalys-arbetsytan. |
+| 105 |FEL TcpConnection – ogiltig klientcertifikat: CN = Gateway <br><br> Se till att: <br>    <br> &#149;Du använder en Gateway med versionsnumret 1.0.395.0 eller större. <br> &#149;MMA agenten på Gateway-servern och agenterna kommunicera med gatewayen är anslutna till samma logganalys-arbetsytan. |
 | 106 |OMS-Gateway har endast stöd för TLS 1.0, TLS 1.1 och 1.2.  Det stöder inte SSL. För alla stöds inte TLS/SSL-protokollversion genererar OMS Gateway händelse-ID 106.|
 | 107 |TLS-sessionen har verifierats |
 

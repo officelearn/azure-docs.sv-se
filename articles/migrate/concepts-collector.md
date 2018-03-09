@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Installation av insamlaren
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 En Azure migrera insamlare är en installation av lighweight som kan användas för att identifiera lokala vCenter-miljö. Den här enheten identifieras lokala VMware-datorer och skickar metadata om dem till Azure migrera-tjänsten.
 
-Insamlaren installation är ett OVF som du kan hämta från Azure migrera projektet. Den instantierar en VMware-dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Operativsystemet enhetens är Windows Server 2012 R2 (64-bitars)
+Insamlaren installation är ett OVF som du kan hämta från Azure migrera projektet. Den instantierar en VMware-dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Enhetens operativsystemet är Windows Server 2012 R2 (64-bitars).
 
 Du kan skapa insamlaren genom att följa stegen här - [hur du skapar den virtuella datorn insamlaren](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Insamlaren kommunikation diagram
+
+![Insamlaren kommunikation diagram](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Komponent      | För att kommunicera med   | Port som krävs                            | Orsak                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Insamlare      | Tjänsten Azure Migrate | TCP 443                                  | Insamlaren ska kunna kommunicera med tjänsten via SSL-port 443 |
+| Insamlare      | vCenter Server        | Standard 443                             | Insamlaren ska kunna kommunicera med vCenter-servern. Ansluter den till vCenter på 443 som standard. Om vCenter lyssnar på en annan port, ska porten vara tillgänglig som utgående port på insamlaren |
+| Insamlare      | RDP|   | TCP 3389 | Att kunna RDP till insamlaren-dator |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Förutsättningar för insamlaren
@@ -158,6 +172,32 @@ I följande tabell visas de prestandaräknare som samlas in och visar också utv
 Insamlaren endast identifieras data för den dator och skickar den till projektet. Projektet kan ta längre tid innan identifierade data visas på portalen och du kan börja skapa en utvärdering.
 
 Baserat på antalet virtuella datorer i det valda omfånget, tar det upp till 15 minuter för att skicka statiska metadata i projektet. När statiska metadata är tillgängliga på portalen kan du se en lista över datorer i portalen och börja skapa grupper. En utvärdering kan inte skapas förrän samling jobbet har slutförts och projektet har bearbetat data. En gång samling jobbet slutförs på insamlaren, det kan ta upp till en timme för prestandadata ska vara tillgängliga på portalen, baserat på antalet virtuella datorer i det valda omfånget.
+
+## <a name="how-to-upgrade-collector"></a>Så här uppgraderar du insamlaren
+
+Du kan uppgradera insamlaren till den senaste versionen utan att hämta ägg igen.
+
+1. Ladda ned senaste [uppgraderingspaket](https://aka.ms/migrate/col/latestupgrade).
+2. För att säkerställa att hämtade snabbkorrigeringen är säker, öppna kommandofönstret administratör och kör följande kommando för att generera hash för ZIP-filen. Genererade hash-värdet ska vara identiskt med hash-algoritmen som nämns mot en viss version:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Kopiera zip-filen till den Azure migrera insamlaren virtuell datorn (insamlaren installation).
+4. Högerklicka på zip-filen och välj extrahera alla.
+5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
+
+### <a name="list-of-updates"></a>Listan över uppdateringar
+
+#### <a name="upgrade-to-version-1095"></a>Uppgradera till version 1.0.9.5
+
+För uppgradering till version 1.0.9.5 download [paketet](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Nästa steg
 

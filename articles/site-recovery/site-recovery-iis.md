@@ -2,25 +2,19 @@
 title: "Replikera en flera nivåer IIS-baserade webbapp med Azure Site Recovery | Microsoft Docs"
 description: "Lär dig mer om att replikera IIS web grupp virtuella datorer med hjälp av Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Kopiera ett flera nivåer, IIS-baserade webbprogram med hjälp av Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replikera en IIS-baserade webbprogram med flera nivåer
 
 Programvara är motorn av företagsproduktiviteten i en organisation. Olika program kan ha olika syften i en organisation. Vissa program, t.ex. program som används för kund-riktade webbplatser, ekonomiprogram och löneuppgifter bearbetning kan vara viktiga för en organisation. Det är viktigt för organisationen har dessa program kontinuerligt igång för att förhindra förlust av produktivitet. Viktigare, kan med dessa program som är konsekvent tillgängliga förhindra skada varumärken eller avbildning av organisationen.
 
@@ -36,7 +30,7 @@ Den här artikeln beskriver hur du skyddar ett webbprogram som baseras på Inter
 
 Se till att du vet hur du gör följande innan du börjar:
 
-* [Replikera en virtuell dator till Azure](site-recovery-vmware-to-azure.md)
+* [Replikera en virtuell dator till Azure](vmware-azure-tutorial.md)
 * [Utforma ett nätverk för återställning](site-recovery-network-design.md)
 * [Gör ett redundanstest till Azure](site-recovery-test-failover-to-azure.md)
 * [Gör en redundansväxling till Azure](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|Ej tillämpligt|Ja
 
 Om du vill starta replikera alla IIS web grupp virtuella datorer till Azure, följer du anvisningarna i [testa redundans till Azure i Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Om du använder en statisk IP-adress kan du ange IP-adressen som du vill att den virtuella datorn ska börja. Om du vill ange IP-adress, gå till **beräknings- och nätverksinställningar inställningar** > [**mål-IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Om du använder en statisk IP-adress kan du ange IP-adressen som du vill att den virtuella datorn ska börja. Om du vill ange IP-adress, gå till **beräknings- och nätverksinställningar inställningar** > **mål-IP**.
 
 ![Skärmbild som visar hur du ställer in mål-IP i fönstret Site Recovery beräkning och nätverk](./media/site-recovery-active-directory/dns-target-ip.png)
 

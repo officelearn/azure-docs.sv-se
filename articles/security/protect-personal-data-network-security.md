@@ -1,6 +1,6 @@
 ---
 title: "Skydda dina personliga data med Azure funktioner för nätverkssäkerhet | Microsoft Docs"
-description: "Skydda personliga data med Azure funktioner för nätverkssäkerhet"
+description: "Skydda personliga data med hjälp av säkerhetsfunktionerna i Azure-nätverk. Detta kan användas för att vara kompatibel med allmänna Data Protection förordning (BNPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Skydda dina personliga data med funktioner för nätverkssäkerhet: Azure Application Gateway och Nätverkssäkerhetsgrupper
 
-Den här artikeln innehåller information och procedurer som hjälper dig att använda Azure Application Gateway och Nätverkssäkerhetsgrupper för att skydda personliga data.
+Den här artikeln innehåller information och procedurer som hjälper dig att använda Azure Application Gateway och Nätverkssäkerhetsgrupper för att skydda personliga data. Informationen kan vara till hjälp i arbetet för att följa med allmänna Data Protection förordning (BNPR).
 
 En viktig del i en flera lager säkerhetsstrategi integritetsskydd personliga data är skydd mot vanliga säkerhetsproblem kryphål, till exempel SQL injection eller globala webbplatsskript. Att hålla oönskad trafik utanför din Azure virtuellt nätverk skyddar mot potentiella hot av känsliga data och Microsoft Azure ger dig verktyg för att skydda dina data mot angripare.
 

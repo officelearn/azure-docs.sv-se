@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -385,7 +385,7 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sq
 |query_hash_s|Frågan hash för misslyckade frågan, om det är tillgängligt.|
 |query_plan_hash_s|Frågan plan hash för misslyckade frågan, om det är tillgängligt.|
 
-Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>Databasen vänta statistik dataset
 

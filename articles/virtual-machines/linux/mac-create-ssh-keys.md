@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket gör att inga lösenord krävs för att logga in. I den här artikeln visas hur du kan skapa ett RSA-nyckelfilpar med SSH-protokollversion 2 med en offentlig och en privat nyckel för virtuella Linux-datorer. Du kan utföra dessa steg med Azure Cloud Shell, en macOS- eller Linux-värd eller Windows-undersystem för Linux. Mer detaljerade steg och ytterligare exempel finns i [detaljerade steg för att skapa SSH-nyckelpar och certifikat](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
-Använd kommandot `ssh-keygen` för att skapa offentliga och privata SSH-nyckelfiler som skapas i katalogen `~/.ssh` som standard. Du kan också ange en annan plats och ytterligare lösenfras (ett lösenord för att få åtkomst till den privata nyckelfilen) när du blir ombedd att göra det. Kör följande kommando från ett Bash-kommando och svara på frågorna med din egen information.
+Använd den `ssh-keygen` kommando för att skapa SSH offentliga och privata nyckelfiler som är som standard som skapats i den `~/.ssh` directory. Du kan ange en annan plats och lösenfrasen ytterligare (ett lösenord för åtkomst till filen för privat nyckel) när du uppmanas till detta. Om SSH-nyckel finns i den aktuella platsen, skrivs över.
 
 ```bash
 ssh-keygen -t rsa -b 2048

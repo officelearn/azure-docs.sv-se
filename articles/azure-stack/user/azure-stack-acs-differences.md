@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage för stacken: Skillnader och överväganden
 
@@ -33,15 +33,17 @@ Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från A
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Molnbaserade SMB-filresurser som stöds|Stöds inte än
-|Azure Storage-tjänstens kryptering av vilande data|256-bitars AES-kryptering|Stöds inte än
-|Storage Account-typ|Allmänna och Azure Blob storage-konton|Allmänna endast
-|Alternativ för datareplikering|Lokalt redundant lagring, geo-redundant lagring, geo-redundant lagring med läsbehörighet och zonredundant lagring|Lokalt redundant lagring
-|Premium Storage|Fullt stöd|Kan etableras, men det finns ingen gräns för prestanda eller garantera
-|Hanterade diskar|Premium- och standard som stöds|Stöds inte än
-|Blobbnamnet|1 024 tecken (2 048 byte)|880 tecken (1,760 byte)
-|Max storlek för block-blob|4,75 TB (100 MB × 50 000 block)|50 000 x 4 MB (uppskattat 195 GB)
-|Sidan blob ögonblicksbild kopia|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än
-|Sidan blob inkrementell ögonblicksbild kopia|Premium- och standard Azure sidblobbar som stöds|Stöds inte än
+|Azure Storage-tjänstens kryptering av vilande data|256-bitars AES-kryptering|BitLocker 128-bitars AES-kryptering
+|Storage Account-typ|Allmänna och Azure Blob storage-konton|Allmänna endast.
+|Alternativ för datareplikering|Lokalt redundant lagring, geo-redundant lagring, geo-redundant lagring med läsbehörighet och zonredundant lagring|Lokalt redundant lagring.
+|Premium Storage|Fullt stöd|Kan etableras, men ingen gräns för prestanda eller säkerhet.
+|Hanterade diskar|Premium- och standard som stöds|Stöds inte än.
+|Blobnamn|1 024 tecken (2 048 byte)|880 tecken (1,760 byte)
+|Max storlek för block-blob|4,75 TB (100 MB × 50 000 block)|4,75 TB (100 MB × 50 000 block) för den 1802 uppdateringen eller en senare version. 50 000 x 4 MB (uppskattat 195 GB) för tidigare versioner.
+|Sidan blob ögonblicksbild kopia|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än.
+|Sidan blob inkrementell ögonblicksbild kopia|Premium- och standard Azure sidblobbar som stöds|Stöds inte än.
+|Lagringsnivåer för bloblagring|Hot, kall och arkivera lagringsnivåer.|Stöds inte än.
+Mjuk borttagning för blob-lagring|Förhandsversion|Stöds inte än.
 |Sidan blob maxstorlek|8 TB|1 TB
 |Sidstorleken för blob-sida|512 byte|4 KB
 |Tabell partitionsnyckel och rad nyckelstorlek|1 024 tecken (2 048 byte)|400 tecken (800 byte)
@@ -54,8 +56,38 @@ Det finns vissa skillnader i jämförelse med storage-mätvärden:
 ## <a name="api-version"></a>API-version
 Följande versioner stöds med Azure Storage för Stack:
 
-* Azure Storage data services: [2015-04-05 REST API-version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management-tjänster: [2015-05-01-preview 2015-06-15 och 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+Azure Storage services API: er:
+
+Uppdatera 1802 eller senare:
+ - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+Tidigare versioner:
+ - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+
+Azure Storage services management API: er:
+
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+
+## <a name="sdk-versions"></a>SDK-versioner
+
+Följande klientbibliotek stöds med Azure Storage för Stack:
+
+| Klientbibliotek | Azure-stacken en version som stöds | Länk                                                                                                                                                                                                                                                                                                                                     | Specifikation för slutpunkten       |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET           | Från 6.2.0 till 8.7.0.          | Nuget-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | filen App.config              |
+| Java           | Från 4.1.0 till 6.1.0           | Maven-paket:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Anslutningsinställningar för sträng      |
+| Node.js        | Från 1.1.0 till 2.7.0           | NPM länk:<br>https://www.npmjs.com/package/azure-storage<br>(Till exempel: kör ”installera npm azure-storage@2.7.0”)<br> <br>Github-versionen:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Instansen tjänstedeklaration |
+| C++            | Från 2.4.0 till 3.1.0           | Nuget-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
+| PHP            | Från 0.15.0 till 1.0.0          | GitHub-versionen:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (Mer information finns nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
+| Python         | Från 0.30.0 till 1.0.0          | GitHub-versionen:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instansen tjänstedeklaration |
+| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-versionen:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
 
 ## <a name="next-steps"></a>Nästa steg
 

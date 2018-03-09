@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Dataströmmen Azure övervakningsdata till en händelsehubb för användning av ett externt verktyg
 
@@ -36,7 +36,18 @@ Det finns flera 'nivåer' övervakningsdata i Azure-miljön, och metoden att kom
 
 Data från alla skikt kan skickas till en händelsehubb, där den kan användas i en partner-verktyget. I nästa avsnitt beskrivs hur du konfigurerar data från varje nivå strömmas till en händelsehubb. Anvisningarna förutsätter att du redan har tillgångar på nivån som ska övervakas.
 
-Innan du börjar måste du [skapar en Händelsehubbar namnområde och händelsen hubb](../event-hubs/event-hubs-create.md). Det här namnområdet och händelsen navet är målet för alla övervakningsdata.
+## <a name="set-up-an-event-hubs-namespace"></a>Skapa ett namnområde för Händelsehubbar
+
+Innan du börjar måste du [skapar en Händelsehubbar namnområde och händelsen hubb](../event-hubs/event-hubs-create.md). Det här namnområdet och händelsen navet är målet för alla övervakningsdata. Ett namnområde för Händelsehubbar är en logisk gruppering av händelsehubbar som delar samma åtkomstprincip, mycket har kontot som en lagring enskilda blobbar i detta lagringskonto. Observera några information om event hubs namnområde och händelsehubbar som du skapar:
+* Vi rekommenderar att du använder en Standard Händelsehubbar namnrymd.
+* Vanligtvis krävs endast en genomflödesenhet. Om du behöver skala upp som din logg Minnesanvändningen ökar du alltid manuellt öka antalet genomflödesenheter för namnområdet senare eller aktivera automatisk inflation.
+* Antalet genomflödesenheter kan du öka genomflödet skala för din händelsehubbar. Antalet partitioner kan du parallelize förbrukning över många konsumenter. En partition kan du göra upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på verktyget förbrukar data kan eller stöder inte förbrukar från flera partitioner. Om du inte vet om antalet partitioner för att ange rekommenderar vi börjar med fyra partitioner.
+* Vi rekommenderar att du ställer in meddelandet kvarhållning på din händelsehubb till 7 dagar. Om din användning verktyget kraschar för mer än en dag, Detta säkerställer att verktyget kan ta vid där den slutade (för händelser upp till 7 dagar).
+* Vi rekommenderar att du använder förinställd konsumentgrupp för din händelsehubb. Det finns inget behov av att skapa andra konsumentgrupper eller använda en separat konsumentgrupp om du planerar att ha två olika verktyg som använder samma data från samma event hub.
+* För Azure-aktivitetsloggen du väljer ett namnområde för Event Hubs och Azure övervakaren skapar en händelsehubb inom det namnområde som kallas ”insikter-loggar-operationallogs”. För andra typer av loggen kan du antingen välja en befintlig händelsehubb (så att du kan återanvända samma insikter-loggar-operationallogs händelsehubben) eller Azure övervakaren skapar en händelsehubb per loggen kategori.
+* Vanligtvis måste du öppna port 5671 och 5672 på datorn som använder data från event hub.
+
+Se även information om den [Azure Event Hubs vanliga frågor och svar](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-plattformen övervakningsdata strömmas till en händelsehubb?
 

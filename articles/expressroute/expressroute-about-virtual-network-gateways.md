@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka trafik mellan virtuella Azure-nätverk och lokala platser. När du konfigurerar en ExpressRoute-anslutning, måste du skapa och konfigurera en virtuell nätverksgateway och gateway för virtuell nätverksanslutning.
@@ -41,7 +41,7 @@ Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde. Tabe
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Dataflöde för programmet är beroende av flera faktorer, till exempel slutpunkt till slutpunkt-svarstid och antal trafikflöden programmet öppnas. Siffrorna i tabellen representerar den övre gränsen som programmet kan theorectically uppnå i en perfekt miljö. 
+> Dataflöde för programmet är beroende av flera faktorer, till exempel slutpunkt till slutpunkt-svarstid och antal trafikflöden programmet öppnas. Siffrorna i tabellen representerar den övre gränsen som programmet teoretiskt nå i en perfekt miljö. 
 > 
 >
 
@@ -51,8 +51,9 @@ Ytterligare tekniska resurser och särskild syntax krav för användning av REST
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
-| [REST-API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Nästa steg
-Se [ExpressRoute översikt](expressroute-introduction.md) för mer information om tillgänglig anslutning konfigurationer. 
+Se [ExpressRoute översikt](expressroute-introduction.md) för mer information om tillgänglig anslutning konfigurationer.
 
+Se [skapa en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) för mer information om hur du skapar ExpressRoute-gatewayer.

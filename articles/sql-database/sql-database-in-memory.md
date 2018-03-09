@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98b4a0b4bcb271a68880359b1bb04655cae8d003
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -44,7 +44,7 @@ Azure SQL Database har följande InMemory-tekniker:
 
 - *Minnesintern OLTP* ökar dataflödet och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta i minnet OLTP är: hög genomströmning transaktionsbearbetning, till exempel handel och spel, datapåfyllning från händelser eller IoT-enheter, cachelagring datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
 - *Grupperade columnstore-index* minska lagring-storleken (upp till 10 gånger) och förbättra prestanda för frågor för rapportering och analys. Du kan använda den med faktatabeller i-dataarkiv att få mer data i databasen och förbättra prestanda. Du kan också använda den med historiska data i databasen att arkivera och kunna läsa upp till 10 gånger mer data.
-- *Icke-grupperat columnstore-index* för HTAP hjälper dig att få realtid insikter om ditt företag genom att fråga databasen direkt, utan att behöva köra en dyr extrahera transformera, och läsa in (ETL) process och vänta på datalager i fyllas i. Icke-grupperat columnstore-index fjärrkörning mycket snabbt analytics frågor på OLTP-databasen samtidigt minska påverkan på operativa arbetsbelastningen.
+- *Icke-grupperat columnstore-index* för HTAP hjälper dig att få realtid insikter om ditt företag genom att fråga databasen direkt, utan att behöva köra en dyr extrahera transformera, och läsa in (ETL)-processen och vänta tills den datalager fyllas. Icke-grupperat columnstore-index fjärrkörning mycket snabbt analytics frågor på OLTP-databasen samtidigt minska påverkan på operativa arbetsbelastningen.
 - Du kan också ha en kombination av en minnesoptimerad tabell med ett columnstore-index. Den här kombinationen kan du utföra mycket snabbt transaktionsbearbetning och *samtidigt* köra analytics frågor snabbt på samma data.
 
 Både columnstore-index och Minnesintern OLTP har varit en del av SQL Server-produkt sedan 2012 och 2014, respektive. Azure SQL Database och SQL Server delar samma implementering av InMemory-tekniker. Framöver, släpps nya funktioner för dessa tekniker i Azure SQL Database först innan de blir tillgängliga i SQL Server.
@@ -229,8 +229,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Den enda skillnaden mellan de följande två *lagrade procedurer* är att den första proceduren använder minnesoptimerade tabeller-versioner, medan andra proceduren använder vanliga på disken tabeller:
 
-- SalesLT**.** usp_InsertSalesOrder**_inmem**
-- SalesLT**.** usp_InsertSalesOrder**_ondisk**
+- SalesLT**.**usp_InsertSalesOrder**_inmem**
+- SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
 I det här avsnittet visas hur du använder den praktiska **ostress.exe** verktyg för att köra två lagrade procedurer på stress nivåer. Du kan jämföra hur lång tid det tar för två stress körs ska slutföras.
@@ -526,7 +526,7 @@ Du kan förvänta dig om nio gånger prestandafördelar för den här frågan me
 
 #### <a name="tools"></a>Verktyg
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portalen](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

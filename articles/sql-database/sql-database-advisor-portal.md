@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa rekommendationer
 
@@ -52,7 +52,7 @@ Rekommendationer sorteras efter deras eventuella inverkan på prestanda i följa
 > Azure SQL Database måste att övervaka aktiviteter minst en dag för att identifiera några rekommendationer. Azure SQL-databasen kan enklare att optimera för konsekvent frågemönster än den för slumpmässiga ojämn belastning för aktiviteten. Om rekommendationerna inte är tillgänglig, den **prestanda rekommendation** sidan visar ett meddelande som förklarar varför.
 > 
 
-Du kan också visa status för tidigare åtgärder. Välj en rekommendation eller status för att se mer information.
+Du kan också visa status för tidigare åtgärder. Välj en rekommendation eller status för att få mer information.
 
 Här är ett exempel på ”Skapa indexet” rekommendation i Azure-portalen.
 
@@ -130,7 +130,7 @@ Tillämpa en rekommendation kanske inte omedelbart sker. Portalen innehåller in
 | Återkallande |Rekommendationen tillämpades, men har bedömts vara icke-performant och återställs automatiskt. |
 | Återkallat |Rekommendationen återställdes. |
 
-Klicka på ett pågående rekommendation från listan över att se mer information:
+Klicka på ett pågående rekommendation från listan över vill se mer information:
 
 ![Rekommenderat index](./media/sql-database-advisor-portal/operations.png)
 

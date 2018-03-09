@@ -1,6 +1,6 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Andromeda SCM | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Andromeda SCM."
+title: "Självstudier: Azure Active Directory-integrering med Andromeda | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Andromeda."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Självstudier: Azure Active Directory-integrering med Andromeda SCM
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Självstudier: Azure Active Directory-integrering med Andromeda
 
-I kursen får lära du att integrera Andromeda SCM med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera Andromeda med Azure Active Directory (AD Azure).
 
-Integrera Andromeda SCM med Azure AD ger dig följande fördelar:
+Integrera Andromeda med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Andromeda SCM.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Andromeda SCM (Single Sign-On) med sina Azure AD-konton.
+- Du kan styra i Azure AD som har åtkomst till Andromeda.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Andromeda (Single Sign-On) med sina Azure AD-konton.
 - Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Andromeda SCM, behöver du följande:
+För att konfigurera Azure AD-integrering med Andromeda, behöver du följande:
 
 - En Azure AD-prenumeration
-- En Andromeda SCM enkel inloggning aktiverad prenumeration
+- En Andromeda enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -50,13 +50,13 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till Andromeda SCM från galleriet
+1. Att lägga till Andromeda från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Att lägga till Andromeda SCM från galleriet
-Du måste lägga till Andromeda SCM från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Andromeda SCM i Azure AD.
+## <a name="adding-andromeda-from-the-gallery"></a>Att lägga till Andromeda från galleriet
+Du måste lägga till Andromeda från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Andromeda i Azure AD.
 
-**Utför följande steg för att lägga till Andromeda SCM från galleriet:**
+**Utför följande steg för att lägga till Andromeda från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
@@ -70,31 +70,31 @@ Du måste lägga till Andromeda SCM från galleriet i listan över hanterade Saa
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Andromeda SCM**väljer **Andromeda SCM** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Andromeda**väljer **Andromeda** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Andromeda SCM i resultatlistan](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda i resultatlistan](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Andromeda SCM baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Andromeda baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Andromeda SCM motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Andromeda SCM upprättas.
+Azure AD måste du känna till användaren i Andromeda motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Andromeda upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Andromeda SCM, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Andromeda, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
 2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Andromeda SCM](#create-an-andromeda-scm-test-user)**  – har en motsvarighet för Britta Simon Andromeda SCM som är kopplad till Azure AD-representation av användaren.
+3. **[Skapa en testanvändare Andromeda](#create-an-andromeda-test-user)**  – du har en motsvarighet för Britta Simon i Andromeda som är kopplad till Azure AD-representation av användaren.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Andromeda SCM-program.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Andromeda program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Andromeda SCM:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Andromeda:**
 
-1. I Azure-portalen på den **Andromeda SCM** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Andromeda** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning länk][4]
 
@@ -102,24 +102,24 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. På den **Andromeda SCM domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Andromeda domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
-    ![URL: er och Andromeda SCM domän med enkel inloggning information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![URL: er och Andromeda domän med enkel inloggning information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenantURL>`
+    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<tenantURL>`
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
-    ![URL: er och Andromeda SCM domän med enkel inloggning information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![URL: er och Andromeda domän med enkel inloggning information](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenantURL>/SAMLLogon.aspx`
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > Föregående värde är inte verkliga värde. Du uppdaterar värdet med faktiska identifierare, Reply URL och inloggnings-URL som beskrivs senare i självstudierna.
 
-5. Andromeda SCM program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
+5. Andromeda program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
     
     ![Konfigurera enkel inloggning attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,10 +129,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
-    | ------------------- | -------------------- |    
-    | roll        | DEMO |
-    | typ        | STANDARD |
-    | Företag       | COMP02    |
+    | -------------- | -------------------- |    
+    | roll        | App-specifik roll |
+    | typ        | Apptyp |
+    | Företag       | Företagsnamn    |
 
     > [!NOTE]
     > Det finns inga verkliga värden. Dessa värden är endast för demo ändamål, Använd roller för din organisation.
@@ -159,31 +159,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. På den **Andromeda SCM Configuration** klickar du på **konfigurera Andromeda SCM** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+9. På den **Andromeda Configuration** klickar du på **konfigurera Andromeda** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Andromeda SCM-konfiguration](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Andromeda konfiguration](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Inloggning på webbplatsen Andromeda SCM företag som administratör.
+10. Inloggning på webbplatsen Andromeda företag som administratör.
 
 11. Överst på menyraden klickar du på **Admin** och gå till **Administration**.
 
-    ![Andromeda SCM admin](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Andromeda admin](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. På vänster sida i verktygsfältet under **gränssnitt** klickar du på **SAML-konfiguration**.
 
-    ![Andromeda SCM saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![Andromeda saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. På den **SAML-konfiguration** avsnittet sida, utför följande steg:
 
-    ![Andromeda SCM config](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Andromeda config](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Kontrollera **aktivera enkel inloggning med SAML**.
 
-    b. Under **Andromeda Information** avsnittet, kopiera den **SP identitet** värdet och klistrar in det i den **identifierare** textruta för **Andromeda SCM domän och URL: er** avsnitt.
+    b. Under **Andromeda Information** avsnittet, kopiera den **SP identitet** värdet och klistrar in det i den **identifierare** textruta för **Andromeda domän och URL: er** avsnitt.
 
-    c. Kopiera den **konsumenten URL** värdet och klistrar in det i den **Reply URL** textruta för **Andromeda SCM domän och URL: er** avsnitt.
+    c. Kopiera den **konsumenten URL** värdet och klistrar in det i den **Reply URL** textruta för **Andromeda domän och URL: er** avsnitt.
 
-    d. Kopiera den **inloggnings-URL** värdet och klistrar in det i den **inloggnings-URL** textruta för **Andromeda SCM domän och URL: er** avsnitt.
+    d. Kopiera den **inloggnings-URL** värdet och klistrar in det i den **inloggnings-URL** textruta för **Andromeda domän och URL: er** avsnitt.
 
     e. Under **SAML-identitetsprovider** skriver IDP-namn.
 
@@ -191,9 +191,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     g. Öppna den hämtade **Base64-kodat certifikat** från Azure-portalen i anteckningar klistrar du in det i den **X 509-certifikat** textruta.
     
-    h. Mappa följande attribut med värdet respektive för att underlätta SSO-inloggning från Azure AD. Den **användar-ID** -attribut krävs för att logga in. För att etablera, **e-post**, **företagets**, **UserType** och **rollen** krävs. I det här avsnittet definiera vi attributen mappning (namn och värden) som korrelera till dem som anges i Azure-portalen
+    h. Mappa följande attribut med värdet respektive för att underlätta SSO-inloggning från Azure AD. Den **användar-ID** -attribut krävs för att logga in. För att etablera, **e-post**, **företagets**, **UserType**, och **rollen** krävs. I det här avsnittet definiera vi attributen mappning (namn och värden) som korrelera till dem som anges i Azure-portalen
 
-    ![Andromeda SCM attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Klicka på **Spara**.
 
@@ -232,28 +232,28 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Skapa en Andromeda SCM testanvändare
+### <a name="create-an-andromeda-test-user"></a>Skapa en testanvändare Andromeda
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Andromeda SCM. Andromeda SCM stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Andromeda SCM om den inte finns.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Andromeda. Andromeda stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Andromeda om den inte finns.
 
 >[!Note]
->Om du behöver skapa en användare manuellt Kontakta [Andromeda SCM klienten supportteamet](https://www.ngcsoftware.com/support/).
+>Om du behöver skapa en användare manuellt Kontakta [Andromeda klienten supportteamet](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Andromeda SCM.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Andromeda.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Andromeda SCM Britta Simon utför du följande steg:**
+**Om du vill tilldela Andromeda Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Andromeda SCM**.
+2. Välj i listan med program **Andromeda**.
 
-    ![Länken Andromeda SCM i listan med program](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Länken Andromeda i listan med program](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
@@ -273,7 +273,7 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen Andromeda SCM på åtkomstpanelen du bör få automatiskt loggat in på ditt Andromeda SCM-program.
+När du klickar på panelen Andromeda på åtkomstpanelen du bör få automatiskt loggat in på ditt Andromeda program.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
@@ -296,4 +296,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

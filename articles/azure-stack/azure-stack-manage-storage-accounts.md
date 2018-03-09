@@ -3,7 +3,7 @@ title: Hantera Azure-stacken storage-konton | Microsoft Docs
 description: "Lär dig att hitta, hantera, återställa och frigöra Stack för Azure storage-konton"
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Hantera Storage-konton i Azure-stacken
+# <a name="manage-storage-accounts-in-azure-stack"></a>Hantera storage-konton i Azure-stacken
 Lär dig hur du hanterar storage-konton i Azure stackutrymme för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehov.
 
 ## <a name="find"></a>Hitta ett lagringskonto
@@ -29,13 +29,13 @@ Lista med lagringskonton i region kan visas i Azure-stacken genom att:
 
 1. Navigera till https://adminportal.local.azurestack.external i en webbläsare.
 2. Logga in på Azure Stack-administrationsportalen som ett moln-operatorn (med de autentiseringsuppgifter du angav under distribution)
-3. Leta reda på standardinstrumentpanelen – den **Region management** listan och klicka på den region som du vill utforska. Till exempel **(lokala**).
+3. Leta reda på standardinstrumentpanelen – den **Region management** listan och klicka på den region som du vill utforska, till exempel **(lokala**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Välj **lagring** från den **Resursproviders** lista.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Nu i bladet storage Resource Provider administratör – rulla ned till den **lagringskonton** och klicka på den.
+5. Nu, i rutan storage Resource Provider administratör – rulla ned till den **lagringskonton** och klicka på den.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,21 +52,21 @@ Om du är intresserad av ett visst lagringskonto – kan du **filtrera och hämt
 
 **Så här filtrerar för konton:**
 
-1. Klicka på **Filter** längst upp på bladet.
-2. I bladet Filter kan du ange **kontonamn**, **prenumerations-ID** eller **status** att finjustera listan över storage-konton som ska visas. Använd dem efter behov.
+1. Klicka på **Filter** längst upp i fönstret.
+2. I rutan Filter kan du ange **kontonamn**, ** prenumerations-ID eller **status** att finjustera listan över storage-konton som ska visas. Använd dem efter behov.
 3. Klicka på **uppdatering**. Därefter uppdatera listan.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Så här återställer du filtret: Klicka på **Filter**, rensa valen och uppdatera.
 
-Sökrutan (överst på bladet storage-konton lista) kan du markera den markerade texten i listan över konton. Detta är mycket praktiska i fall när det fullständiga namnet eller ID: t inte är tillgängliga.
+Sökrutan (överst listvyn storage-konton) kan du markera den markerade texten i listan över konton. Du kan använda när det fullständiga namnet eller ID: T inte är tillgängliga.
 
 Du kan använda fritext här för att hitta det konto som du är intresserad av.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Titta på kontoinformation
-Du kan klicka på kontot du vill visa viss information när du har hittat de konton som du är intresserad av. Öppnar ett nytt blad med kontoinformation som: typ av konto, skapelsetid, plats, osv.
+Du kan klicka på kontot du vill visa viss information när du har hittat de konton som du är intresserad av. Ett nytt fönster som öppnas med kontoinformation: typ av konto, skapelsetid, plats, osv.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
@@ -78,8 +78,8 @@ Det finns ett enkelt sätt att göra det i Azure Stack:
 1. Bläddra till listan storage-konton. Se [hitta ett lagringskonto](#find) i det här avsnittet för mer information.
 2. Leta upp det specifika kontot i listan. Du kan behöva filtrera.
 3. Kontrollera den *tillstånd* för kontot. Det ska stå **borttagna**.
-4. Klicka på det konto som öppnar informationsbladet konto.
-5. Utöver det här bladet, leta upp den **återställa** och klicka sedan på den.
+4. Klicka på det konto som öppnar informationsfönstret konto.
+5. Utöver det här fönstret kan du leta upp den **återställa** och klicka sedan på den.
 6. Bekräfta genom att klicka på **Ja**.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ Det finns ett enkelt sätt att göra det i Azure Stack:
 ### <a name="some-gotchas"></a>Vissa saker
 * Kontot för borttagna visar tillstånd som **utanför kvarhållning**.
   
-  Detta innebär att kontot har överskridit kvarhållningsperioden och kan inte återställas.
+  Out-of-kvarhållning innebär att kontot har överskridit kvarhållningsperioden och kan inte gå att återställa.
 * Din kontot visas inte i kontolistan över.
   
-  Detta kan betyda att kontot redan har skräpinsamlats. I det här fallet kan den inte återställas. Se [frigöra kapacitet](#reclaim) i det här avsnittet.
+  Kontot du kanske inte visas i listan över användarkonton när kontot har redan skräpinsamlats. I detta fall kan återställas den inte. Se [frigöra kapacitet](#reclaim) i det här avsnittet.
 
 ## <a name="set-the-retention-period"></a>Ställa in kvarhållningsperioden
 Kvarhållning period inställningen kan en moln-operatorn för att ange en tidsperiod i dagar (mellan 0 och 9 999 dagar) under vilken alla kontot potentiellt kan återställas. Loggperioden har angetts till 15 dagar. Ange värdet till ”0” betyder att alla borttagna konton är omedelbart utanför kvarhållning och har markerats för periodiska skräpinsamling.
@@ -107,7 +107,7 @@ Kvarhållning period inställningen kan en moln-operatorn för att ange en tidsp
 2. Logga in på Azure Stack-administrationsportalen som ett moln-operatorn (med de autentiseringsuppgifter du angav under distribution)
 3. Leta reda på standardinstrumentpanelen – den **Region management** listan och klicka på den region som du vill utforska – till exempel **(lokala**).
 4. Välj **lagring** från den **Resursproviders** lista.
-5. Klicka på **inställningar** längst upp för att öppna bladet inställningen.
+5. Klicka på **inställningar** längst upp för att öppna fönstret inställningen.
 6. Klicka på **Configuration** redigera värdet för kvarhållning perioden.
 
    Ange antalet dagar och spara den.
@@ -122,8 +122,8 @@ En av sidoeffekter för med en kvarhållningsperiod är att ett Borttaget konto 
 Du kan frigöra kapacitet med hjälp av portalen eller PowerShell.
 
 **Att frigöra kapacitet med hjälp av portalen:**
-1. Navigera till bladet storage-konton. Se [hitta ett lagringskonto](#find).
-2. Klicka på **frigöra utrymme** längst upp på bladet.
+1. Gå till fönstret storage-konton. Se [hitta ett lagringskonto](#find).
+2. Klicka på **frigöra utrymme** längst upp i fönstret.
 3. Läsa meddelandet och klicka sedan på **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
@@ -142,7 +142,7 @@ Du kan också använda PowerShell för att åsidosätta explicit kvarhållningsp
 2. Kör följande cmdlet:
 
 > [!NOTE]
-> Om du kör denna cmdlet du permanent ta bort kontot och dess innehåll. Den kan inte återställas. Använd det här med försiktighet.
+> Om du kör denna cmdlet kan du permanent ta bort kontot och dess innehåll. Den kan inte återställas. Använd det här med försiktighet.
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
@@ -152,7 +152,7 @@ Mer information finns i [Stack Azure powershell-dokumentationen.](https://msdn.m
  
 
 ## <a name="migrate-a-container"></a>Migrera en behållare
-På grund av en ojämn lagring används av klienter, operatör molnet kan hitta en eller fler underliggande klient delar med mer utrymme än andra. Om detta inträffar kan försöka operatorn molnet frigör du utrymme på hög-resursen genom att manuellt migrera vissa blobbbehållare till en annan resurs. 
+På grund av en ojämn lagring används av klienter, en moln-operatorn kan hitta en eller fler underliggande klient delar med mer utrymme än andra. Om detta inträffar kan försöka operatorn molnet frigör du utrymme på hög-resursen genom att manuellt migrera vissa blobbbehållare till en annan resurs. 
 
 Du måste använda PowerShell för att migrera behållare.
 > [!NOTE]
@@ -187,7 +187,7 @@ Du måste använda PowerShell för att migrera behållare.
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Startar migreringen för en behållare, meddelande om detta är en async-implementering, så kan en slinga alla behållare i en resurs och spåra statusen med returnerade jobb-id.
+6. Startar migreringen för en behållare, meddelande om detta är en async-implementering, så kan en slinga alla behållare i en resurs och spåra statusen med returnerade jobb-ID.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ Du måste använda PowerShell för att migrera behållare.
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Kontrollera status för migreringen av dess jobb-id. När behållaren migreringen är klar har MigrationStatus angetts till ”slutförd”.
+7. Kontrollera status för migreringen av ett jobb-ID. När behållaren migreringen är klar anges MigrationStatus till ”slutförd”.
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
@@ -209,7 +209,7 @@ Du måste använda PowerShell för att migrera behållare.
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    Du kan kontrollera status för migreringen Avbryt igen:
+    Du kan kontrollera status för migreringen avbryta igen:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

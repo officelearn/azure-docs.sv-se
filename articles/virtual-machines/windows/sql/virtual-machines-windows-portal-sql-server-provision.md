@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell dator i Windows SQL Server i Azure-portalen
 
 Den här guiden innehåller information om de olika alternativ som är tillgängliga när du skapar en virtuell dator med Windows SQL Server i Azure-portalen. Den här artikeln beskriver fler konfigurationsalternativ än den [Snabbstart för SQL Server-VM](quickstart-sql-vm-create-portal.md), som är mer via ett möjligt etablering aktivitet. 
 
 Använd den här guiden för att skapa din egen SQL Server-VM. Eller använda den som en referens för de tillgängliga alternativen i Azure-portalen.
+
+> [!TIP]
+> Om du har frågor om SQL Server-datorer finns i [vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,7 +37,7 @@ När du skapar en virtuell dator med SQL Server kan välja du en av flera förko
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
-1. Klicka på Azure-portalen **skapar du en resurs**. Fönstret **Nytt** öppnas.
+1. Klicka på **Skapa en resurs** i Azure Portal. Fönstret **Nytt** öppnas.
 
 1. I fönstret **Nytt** klickar du på **Compute** och sedan på **Visa alla**.
 

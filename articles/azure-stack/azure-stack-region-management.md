@@ -3,8 +3,8 @@ title: Regionhantering av i Azure-stacken | Microsoft Docs
 description: "Översikt över regionhantering av i Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Regionhantering av i Azure-stacken
 
@@ -41,19 +42,13 @@ Azure-stacken har en uppsättning region hanteringsfunktioner som är tillgängl
 
 2. **Aviseringar**. Den här panelen visar varningar för hela systemet och innehåller information om var och en av dessa aviseringar.
 
-3. **Uppdateringar**. Du kan visa den aktuella versionen av infrastrukturen för Azure-stacken i den här panelen.
+3. **Uppdateringar**. Du kan visa den aktuella versionen av Azure Stack-infrastruktur, tillgängliga uppdateringar och uppdateringshistoriken i den här panelen. Du kan också uppdatera systemet integrerad.
 
-4. **Resursproviders**. Resursproviders är för att hantera klient-funktionerna som erbjuds av de komponenter som krävs för att köra Azure stacken. Varje resursprovider finns en administrativa upplevelse. Det här upplevelsen kan innehålla varningar för leverantören, mätvärden och andra hanteringsfunktioner som är specifika för resursprovidern.
- 
-5. **Infrastrukturroller**. Infrastrukturroller är komponenterna som krävs för att köra Azure stacken. De infrastruktur roller som rapporterar aviseringar visas. Genom att välja en roll kan visa du de aviseringar som är associerade med den specifika-rollen och rollinstanser där den här rollen körs. Även om det inte finns möjlighet att starta, starta om, eller stänga av en instans för infrastruktur-rollen, göra **inte** göra detta i en utvecklingsmiljö kit. Dessa alternativ är utvecklade för en miljö med flera noder, där det finns fler än en instans av serverroll per infrastrukturrollen. Starta om rollinstansen (särskilt AzS-Xrp01) i development kit gör att systemet är instabilt.
+4. **Resursproviders**. Resursproviders är för att hantera användare-funktionerna som erbjuds av de komponenter som krävs för att köra Azure stacken. Varje resursprovider finns en administrativa upplevelse. Det här upplevelsen kan innehålla varningar för leverantören, mätvärden och andra hanteringsfunktioner som är specifika för resursprovidern.
+
+5. **Infrastrukturroller**. Infrastrukturroller är komponenterna som krävs för att köra Azure stacken. De infrastruktur roller som rapporterar aviseringar visas. Genom att välja en roll kan visa du de aviseringar som är associerade med den specifika-rollen och rollinstanser där den här rollen körs.
 
 ## <a name="next-steps"></a>Nästa steg
 [Övervaka hälsotillstånd och aviseringar i Azure-stacken](azure-stack-monitor-health.md)
 
 [Hantera uppdateringar i Azure-stacken](azure-stack-updates.md)
-
-
-
-
-
-

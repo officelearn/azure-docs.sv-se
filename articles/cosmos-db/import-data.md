@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -477,7 +477,7 @@ Med principer för indexering avancerade alternativ, kan du välja en indexering
 Verktyget ger principmallarna är:
 
 * Som standard. Den här principen är bäst när du utför likhetsfrågor för strängar och använda ORDER BY, intervalls och likhetsfrågor för tal. Den här principen har en lägre Omkostnad för indexlagring än intervall.
-* Intervall. Den här principen är bäst om du använder ORDER BY, intervalls och likhetsfrågor för både tal och strängar. Den här principen har en högre Omkostnad för indexlagring än standard eller Hash.
+* Intervall. Den här principen är bäst när du använder ORDER BY, intervalls och likhetsfrågor för både tal och strängar. Den här principen har en högre Omkostnad för indexlagring än standard eller Hash.
 
 ![Skärmbild av Azure Cosmos DB indexering princip avancerade alternativ](./media/import-data/indexingpolicy2.png)
 

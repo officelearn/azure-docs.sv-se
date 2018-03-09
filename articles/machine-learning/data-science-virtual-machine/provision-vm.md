@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows datavetenskap virtuell dator på Azure
 Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (VM) för Windows Azure före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. Verktygen är:
@@ -39,8 +39,7 @@ Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (V
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : ett visual datautvinning och maskininlärning programvara i Java.
   * [Apache ökad](https://drill.apache.org/): en schemafria SQL frågemotor för Hadoop, NoSQL och lagringsutrymmet i molnet.  Stöder ODBC och JDBC-gränssnitt för att aktivera frågor NoSQL och filer från standard BI-verktyg som PowerBI, Excel, Tableau.
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
-* Git inklusive Git Bash att arbeta med källkodslager inklusive GitHub, Visual Studio Team Services
-* Windows-portar för flera populära Linux kommandoradsverktyg (inklusive awk, sed, perl, grep, hitta, wget, curl, etc.) tillgängligt via Kommandotolken. 
+* Git inklusive Git Bash att arbeta med källkodslager inklusive GitHub, Visual Studio Team Services och ger flera populära Linux kommandoradsverktyg (inklusive awk, sed, perl, grep, hitta, wget, curl, etc.) tillgänglig både git bash och kommandot fråga. 
 
 Gör datavetenskap omfattar iteration av en serie uppgifter:
 
@@ -73,7 +72,7 @@ Följ dessa steg om du vill skapa en instans av Microsoft datavetenskap Virtual 
    1. **Grundläggande inställningar**
       
       1. **Namnet**: namnet på din server för vetenskap av data som du skapar.
-      2. **VM disktyp**: Välj mellan SSD och Hårddisk. GPU (NC-serien), Välj **Hårddisk** som typ av disk. 
+      2. **VM disktyp**: Välj mellan SSD och Hårddisk. För NC_v1 GPU instansen (NVidia Tesla K80 baserat), Välj **Hårddisk** som typ av disk. 
       3. **Användarnamnet**: Admin inloggnings-id för kontot.
       4. **Lösenordet**: Admin kontolösenord.
       5. **Prenumerationen**: Om du har mer än en prenumeration väljer du en som datorn ska skapas och debiteras.
@@ -99,35 +98,28 @@ När den virtuella datorn skapas och etableras, är du redo att börja använda 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Verktygen som installeras på Microsoft datavetenskap Virtual Machine
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning arbetsstationen är ett skrivbordsprogram och kommandoradsgränssnitt. Arbetsstationen har förberedelse av inbyggda data som lär sig förberedelsesteg dina data som du utför dem. Det ger också projekthantering kör historik och anteckningsboken integrering med bättra på produktiviteten. Du kan dra nytta av de bästa ramverk för öppen källkod, inklusive TensorFlow, kognitiva Toolkit, Spark ML och scikit – Lär dig att utveckla modeller. På DSVM ger vi en skrivbordsikon (InstallAMLFromLocal) att extrahera lokalt Azure Machine Learning-arbetsstation till katalogen för varje användares % LOCALAPPDATA %. Varje användare som behöver använda arbetsstationen måste göra en tid åtgärden att dubbelklicka på ikonen InstallAMLFromLocal skrivbord för att installera deras förekomst av arbetsstationen. Azure Machine Learning också skapar och använder en användarspecifik Python-miljö som ska extraheras i % LOCALAPPDATA%\amlworkbench\python.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Om du vill använda Microsoft enterprise-bibliotek för skalbara R eller Python för din analys av har den virtuella datorn Microsoft ML Server Developer edition (tidigare känt som Microsoft R Server) installerat. Microsoft ML-servern är en brett distribuerbara företagsklass analytics platform för både R och Python och skalbar, kommersiellt stöds och säkra. Stöder en mängd olika stordata statistik, förutsägelsemodellering och maskininlärning funktioner ML-Server har stöd för en fullständig uppsättning analytics – undersökning, analys, visualisering och modellering. Genom att använda och utöka öppen källkod R och Python, Microsoft ML Server är helt kompatibel med R / Python-skript, funktioner och CRAN / pip / skala Conda paket att analysera data på företaget. Minnesbegränsningarna för öppen källa R åtgärdas även genom att lägga till parallella och chunked bearbetning av data. På så sätt kan du göra analyser på data som är mycket större än vad som passar i huvudminnet.  Visual Studio Community Edition tas med på den virtuella datorn innehåller R-verktyg för Visual Studio och Python tools för Visual Studio-tillägg som ger en fullständig IDE för att arbeta med R eller Python. Vi erbjuder även andra IDEs samt som [RStudio](http://www.rstudio.com) och [PyCharm Community edition](https://www.jetbrains.com/pycharm/) på den virtuella datorn. 
 
 ### <a name="python"></a>Python
-För utveckling med hjälp av Python, har distribution av Anaconda Python 2.7 och 3.5 installerats. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 populäraste matematiska, ingenjörer och data analytics paket. Du kan använda Python Tools för Visual Studio (PTVS) som är installerad i Visual Studio 2015 Community edition eller någon av IDEs levereras tillsammans med Anaconda som INAKTIV eller Spyder. Du kan starta en av dessa genom att söka i sökfältet (**Win** + **S** nyckel).
+För utveckling med hjälp av Python, har distribution av Anaconda Python 2.7 och 3,6 installerats. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 populäraste matematiska, ingenjörer och data analytics paket. Du kan använda Python Tools för Visual Studio (PTVS) som är installerad i Visual Studio 2017 Community edition eller någon av IDEs levereras tillsammans med Anaconda som INAKTIV eller Spyder. Du kan starta en av dessa genom att söka i sökfältet (**Win** + **S** nyckel).
 
 > [!NOTE]
-> Om du vill peka Python Tools för Visual Studio på Anaconda Python 2.7 och 3.5, måste du skapa anpassade miljöer för varje version. Om du vill ange sökvägarna miljö i Visual Studio 2015 Community Edition, gå till **verktyg** -> **Python Tools** -> **Python-miljöer** och klicka sedan på **+ anpassad**. 
+> Om du vill peka Python Tools för Visual Studio på Anaconda Python 2.7, måste du skapa anpassade miljöer för varje version. Om du vill ange sökvägarna miljö i Visual Studio 2017 Community Edition, gå till **verktyg** -> **Python Tools** -> **Python-miljöer**och klicka sedan på **+ anpassad**. 
 > 
 > 
 
-Anaconda Python 2.7 installeras under C:\Anaconda och Anaconda Python 3.5 är installerat under c:\Anaconda\envs\py35. Se [dokumentationen till PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) detaljerade anvisningar. 
+Anaconda Python 3,6 installeras under C:\Anaconda och Anaconda Python 2.7 installeras under c:\Anaconda\envs\python2. Se [dokumentationen till PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) detaljerade anvisningar. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. En Jupyter-anteckningsbok server har redan konfigurerats med Python 2.7, Python 3.5, PySpark, Julia och R kärnor. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta Jupyter-servern och starta om webbläsaren för att komma åt servern bärbar dator. 
-
-> [!NOTE]
-> Fortsätt om du får några certifikatvarningar. 
-> 
-> 
+Anaconda distribution innehåller också en Jupyter-anteckningsbok en miljö att dela kod och analys. En Jupyter-anteckningsbok server har redan konfigurerats med Python 2.7, Python 3.x, PySpark, Julia och R kärnor. Det finns en skrivbordsikon med namnet ”Jupyter Notebook” för att starta Jupyter-servern och starta om webbläsaren för att komma åt servern bärbar dator. 
 
 Vi har paketerat flera bärbara datorer av exemplet i Python och R. Jupyter-anteckningsböcker visar hur du arbetar med Microsoft ML Server, SQL Server ML Services (i databasen analytics), Python, Microsoft kognitiva ToolKit, Tensorflow och andra tekniker för Azure när du har åtkomst till Jupyter. Du kan se länken prov på startsidan för bärbar dator när du autentiserar dig till Jupyter-anteckningsbok med lösenordet du skapade tidigare. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community edition
-Visual Studio Community edition är installerade på den virtuella datorn. Det är en kostnadsfri version av populära IDE från Microsoft som du kan använda i utvärderingssyfte och för små team. Du kan checka ut licensvillkoren [här](https://www.visualstudio.com/support/legal/mt171547).  Öppna Visual Studio genom att dubbelklicka på skrivbordet eller **starta** menyn. Du kan också söka efter program med **Win** + **S** och ange ”Visual Studio”. När det kan du skapa projekt i språk som C#, Python, R, node.js. Plugin-program installeras även som gör det enkelt att arbeta med Azure-tjänster som Azure Data Catalog, Azure HDInsight (Hadoop, Spark) och Azure Data Lake. 
+Visual Studio Community edition är installerade på den virtuella datorn. Det är en kostnadsfri version av populära IDE från Microsoft som du kan använda i utvärderingssyfte och för små team. Du kan checka ut licensvillkoren [här](https://www.visualstudio.com/support/legal/mt171547).  Öppna Visual Studio genom att dubbelklicka på skrivbordet eller **starta** menyn. Du kan också söka efter program med **Win** + **S** och ange ”Visual Studio”. När det kan du skapa projekt i språk som C#, Python, R, node.js. Plugin-program installeras även som gör det enkelt att arbeta med Azure-tjänster som Azure Data Catalog, Azure HDInsight (Hadoop, Spark) och Azure Data Lake. Nu finns även ett plugin-program som kallas ```Visual Studio Tools for AI``` som sömlöst integrerar till Azure Machine Learning och hjälper dig att snabbt skapa AI-program. 
 
 > [!NOTE]
 > Du får ett meddelande om att utvärderingsperioden har upphört att gälla. Ange autentiseringsuppgifterna för ditt Microsoft-konto eller skapa ett kostnadsfritt konto för att få åtkomst till Visual Studio Community Edition. 
@@ -170,6 +162,10 @@ Som hjälper dig att skapa instrumentpaneler och bra visualiseringar i **Power B
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning arbetsstationen är ett skrivbordsprogram och kommandoradsgränssnitt. Arbetsstationen har förberedelse av inbyggda data som lär sig förberedelsesteg dina data som du utför dem. Det ger också projekthantering kör historik och anteckningsboken integrering med bättra på produktiviteten. Du kan dra nytta av de bästa ramverk för öppen källkod, inklusive TensorFlow, kognitiva Toolkit, Spark ML och scikit – Lär dig att utveckla modeller. På DSVM ger vi en skrivbordsikon för att installera Azure Machine Learning-arbetsstation till katalogen för den enskilda användaren % LOCALAPPDATA %. Varje användare som behöver använda arbetsstationen måste göra en tid åtgärden Dubbelklicka på den ```AzureML Workbench Setup``` skrivbordsikon att installera deras instansen i arbetsstationen. Azure Machine Learning också skapar och använder en användarspecifik Python-miljö som ska extraheras i % LOCALAPPDATA%\amlworkbench\python.
+
 ## <a name="additional-microsoft-development-tools"></a>Ytterligare Microsoft-utvecklingsverktyg
 Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downloads/platform.aspx) kan användas för att identifiera och ladda ned andra Microsoft-utvecklingsverktyg. Det finns också en genväg till de verktyg som finns på Microsoft datavetenskap virtuella skrivbordet.  
 
@@ -177,10 +173,10 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 | Objekt | Katalog |
 | --- | --- |
 | Serverkonfigurationer för Jupyter-anteckningsbok |C:\ProgramData\jupyter |
-| Arbetskatalog för Jupyter Notebook-exempel |c:\dsvm\notebooks |
+| Arbetskatalog för Jupyter Notebook-exempel |c:\dsvm\notebooks och c:\users\<användarnamn > \notebooks|
 | Andra exempel |c:\dsvm\samples |
-| Anaconda (standard: Python 2.7) |c:\Anaconda |
-| Anaconda Python 3.5 miljö |c:\Anaconda\envs\py35 |
+| Anaconda (standard: Python 3,6) |c:\Anaconda |
+| Anaconda Python 2.7 miljö |c:\Anaconda\envs\python2 |
 | Microsoft ML Server Standalone Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | R standardinstansen (ML Server fristående) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL ML Services i databasen instans directory |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -188,7 +184,7 @@ Den [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downl
 | Diverse verktyg |c:\dsvm\tools |
 
 > [!NOTE]
-> Instanser av Microsoft datavetenskap Virtual Machine skapats före 1.5.0 (före 3 September 2016) används en något annorlunda katalogstruktur än vad som angetts i tabellen ovan. 
+> På Windows Server 2012-version av DSVM och Windows Server 2016 version före mars 2018 är standard Anaconda miljön Python 2.7. Den sekundära miljön är Python 3.5 på c:\Anaconda\envs\py35. 
 > 
 > 
 

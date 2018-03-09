@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -126,5 +126,23 @@ Om du vill samla in Event Tracing for Windows gör följande:
 7. Stäng utvecklingsverktyg.
  
 
+## <a name="vcenter-errors"></a>vCenter-fel
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Fel UnhandledException internt fel uppstod: System.IO.FileNotFoundException
+
+Detta är ett problem visas på insamlaren versioner än 1.0.9.5. Om du är på en insamlaren version 1.0.9.2 eller pre-GA-versioner som 1.0.8.59 kommer du att få det här problemet. Följ den [länka angivna här till forum för en detaljerad svaret](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Uppgradera din insamlaren för att åtgärda problemet](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Fel UnableToConnectToServer
+
+Det gick inte att ansluta till vCenter-servern ”Servername.com:9443” på grund av fel: det fanns inte någon slutpunkt som lyssnade på https://Servername.com:9443/sdk som kunde acceptera meddelandet.
+
+Detta händer när insamlaren datorn kan inte matcha det angivna servernamnet vCenter eller port speficified är fel. Om porten inte anges försöker insamlaren att ansluta till portnumret 443.
+
+1. Försök att pinga example.com från insamlaren-datorn.
+2. Om steg 1 misslyckas, kan du försöka ansluta till vCenter-servern via IP-adress.
+3. Identifiera rätt portnummer för att ansluta till vCenter.
+4. Kontrollera slutligen om vCenter-servern är igång.
+ 
 

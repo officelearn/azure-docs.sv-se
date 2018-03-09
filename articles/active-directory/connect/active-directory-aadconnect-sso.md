@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -51,6 +51,8 @@ Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-
 - Logga in användarnamnet kan vara antingen lokalt Standardanvändarnamnet (`userPrincipalName`) eller ett annat attribut som konfigurerats i Azure AD Connect (`Alternate ID`). Båda använder fall arbete eftersom sömlös SSO använder den `securityIdentifier` anspråk i Kerberos-biljetten att leta upp motsvarande användarobjekt i Azure AD.
 - Sömlös SSO är en opportunistisk funktion. Om det misslyckas av någon anledning går inloggning för användaren tillbaka till sitt vanliga beteende - dvs, användaren måste ange sina lösenord på sidan logga in.
 - Om ett program vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter - identifierar din klient eller `login_hint` parameter - identifierar användaren i Azure AD-inloggning begäran användare loggas automatiskt in utan dem anger användarnamn eller lösenord.
+- Logga ut stöds. Detta ger användarna att välja en annan Azure AD-konto för att logga in med i stället för att automatiskt loggas in automatiskt med sömlös SSO.
+- Office 365-klienter (16.0.8730.xxxx och senare) stöds med hjälp av en icke-interaktiv flöde.
 - Den kan aktiveras via Azure AD Connect.
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
 - Den stöds på web webbläsarbaserad och Office-klienter som stöder [modern autentisering](https://aka.ms/modernauthga) på plattformar och webbläsare som stöder Kerberos-autentisering:

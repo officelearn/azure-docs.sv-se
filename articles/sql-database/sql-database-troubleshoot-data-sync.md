@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Felsökning av problem med SQL-datasynkronisering (förhandsgranskning)
 
@@ -124,8 +124,8 @@ Många scenarier kan orsaka detta fel. Granska loggarna för att fastställa ors
 
 Generera och titta på Windows Installer-loggarna för att hitta orsaken till felet. Du kan aktivera loggning i en kommandotolk. Om den hämta filen AgentServiceSetup.msi LocalAgentHost.msi generera och undersöka loggfiler med hjälp av följande kommandorader:
 
--   För installationer:`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   Så här avinstallerar för:`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   För installationer: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Så här avinstallerar för: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikel [hur du aktiverar loggning för Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) ger en enkelklickning lösning för att aktivera loggning för Windows Installer. Det ger också platsen för loggarna.
 
@@ -240,8 +240,8 @@ Innan du går vidare kontrollerar du om följande villkor:
 -   SQL-datasynkronisering (förhandsgranskning) Windows-tjänsten körs.  
 -   Tjänstkontot för SQL-datasynkronisering (förhandsgranskning) Preview Windows-tjänsten har åtkomst till nätverket.    
 -   Klientagenten kan kontakta Locator-tjänsten. Kontrollera att registernyckeln har värdet https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   På en x86 dator:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   På en x64 dator:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   På en x86 dator: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
+    -   På en x64 dator: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 #### <a name="cause"></a>Orsak
 

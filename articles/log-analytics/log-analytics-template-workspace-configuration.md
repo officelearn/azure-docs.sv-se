@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att skapa och konfigurera logganalys arbetsytor. Exempel på uppgifter som du kan utföra med mallar:
@@ -31,7 +31,6 @@ Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resour
 * Samla in prestandaräknare från Linux och Windows-datorer
 * Samla in händelser från syslog på Linux-datorer 
 * Samla in händelser från händelseloggarna i Windows
-* Samla in anpassade händelseloggar
 * Lägga till log analytics agenten till en virtuell Azure-dator
 * Konfigurera logganalys index data som samlas in med hjälp av Azure-diagnostik
 
@@ -60,7 +59,6 @@ I följande exempel mallen visas hur du:
 7. Samla in syslog-händelser från Linux-datorer
 8. Samla in händelser för fel- och varningsmeddelandena i programmets händelselogg från Windows-datorer
 9. Tillgängligt minne i megabyte prestandaräknaren samla in från Windows-datorer
-10. Samla in en anpassad logg 
 11. Samla in IIS-loggar och Windows-händelseloggar som skrivits av Azure-diagnostik till ett lagringskonto
 
 ```json
@@ -295,61 +293,6 @@ I följande exempel mallen visas hur du:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -464,7 +407,7 @@ I följande exempel mallen visas hur du:
 ### <a name="deploying-the-sample-template"></a>Distribuera mallen exempel
 Att distribuera mallen exempel:
 
-1. Spara bifogade exemplet i en fil, till exempel`azuredeploy.json` 
+1. Spara bifogade exemplet i en fil, till exempel `azuredeploy.json` 
 2. Redigera mall om du vill att den konfiguration du vill ha
 3. Använd PowerShell eller kommandoraden för att distribuera mallen
 

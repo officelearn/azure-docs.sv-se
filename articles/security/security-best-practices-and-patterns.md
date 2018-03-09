@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
 ms.author: 
-ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6713580325450d7548e63c78af4d44c65653f884
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure säkerhetsmetoder och mönster
 
@@ -28,11 +28,12 @@ ms.lasthandoff: 02/22/2018
 * [Azure Identitetshantering och åtkomst kontroll säkerhetsmetoder](azure-security-identity-management-best-practices.md)
 * [Säkerhetsmetoder för Azure-nätverk](azure-security-network-security-best-practices.md)
 * [Azure operational säkerhetsmetoder](azure-operational-security-best-practices.md)
-* [Metodtips för Azure PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments) 
-* [Azure Service Fabric-säkerhetsmetoder](security-best-practices-and-patterns.md)
-* [Metodtips för Virtuella Azure-säkerhet](azure-service-fabric-security-best-practices.md)
+* [Metodtips för Azure PaaS](security-paas-deployments.md) 
+* [Azure Service Fabric-säkerhetsmetoder](azure-service-fabric-security-best-practices.md)
+* [Metodtips för Virtuella Azure-säkerhet](azure-security-best-practices-vms.md)
 * [Implementera en säker hybridnätverksarkitektur i Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Sakernas Internet säkerhetsmetoder](azure-security-iot-best-practices.md)* [skydda PaaS databaser i Azure](security-paas-applications-using-sql.md)
+* [Sakernas Internet säkerhetsmetoder](azure-security-iot-best-practices.md)
+* [Att säkra PaaS-databaser i Azure](security-paas-applications-using-sql.md)
 * [Att säkra PaaS-webb- och mobila program med Azure App Service](security-paas-applications-using-app-services.md)
 * [Skydda PaaS-program (webb- och mobilprogram) med Azure Storage](security-paas-applications-using-storage.md)
 * [Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure](azure-security-iaas.md)

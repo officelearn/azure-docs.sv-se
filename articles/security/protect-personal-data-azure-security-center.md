@@ -1,6 +1,6 @@
 ---
 title: Skydda dina personliga data med Azure Security Center | Microsoft Docs
-description: "skydda personliga data med hjälp av Azure security center"
+description: "använda security center för att skydda personliga data. Detta kan användas i ansträngningar för att följa med allmänna Data Protection förordning (BNPR)"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Skydda personliga data från överträdelser och attacker: Azure Security Center
 
-Den här artikeln hjälper dig att förstå hur du använder Azure Security Center för att skydda personliga data från överträdelser och attacker.
+Den här artikeln hjälper dig att förstå hur du använder Azure Security Center för att skydda personliga data från överträdelser och attacker. Den här informationen hjälper dig i ditt arbete för att vara kompatibel med allmänna Data Protection förordning (BNPR).
 
 ## <a name="scenario"></a>Scenario 
 
@@ -173,7 +173,7 @@ Den här typen av information är mycket användbar när incidenter blir där de
 
 Mer information om ASC hot intelligence rapporten finns [Azure Security Center hot Intelligence-rapporten.](https://docs.microsoft.com/azure/security-center/security-center-threat-report)
 
-### <a name="assessment"></a>Bedömning
+### <a name="assessment"></a>Utvärdering
 
 Om du vill hjälpa till med testning, bedömning och utvärdering av din säkerhetstillståndet, ger ASC för inbyggt säkerhetsproblem med Qualys molnet agenter som en del av den virtuella datorn rekommendationer komponenten.
 

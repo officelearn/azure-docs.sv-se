@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Använda Azure Stream Analytics-verktyg för Visual Studio
 Azure Stream Analytics-verktyg för Visual Studio är nu allmänt tillgänglig. Dessa verktyg aktivera en rikare upplevelse för Stream Analytics användare att felsöka samt skriva komplexa frågor och skriva även frågor lokalt. Du kan också exportera ett Stream Analytics-jobb i Visual Studio-projekt.
 
 ## <a name="introduction"></a>Introduktion
-I kursen får du lära dig hur du använder Stream Analytics tools för Visual Studio för att skapa, redigera, testa lokalt, hantera och felsöka Stream Analytics-jobb. 
+I kursen får du lära dig hur du använder Stream Analytics tools för Visual Studio för att skapa, redigera, testa lokalt, hantera och felsöka Stream Analytics-jobb. När du skapar jobbet, du kan ställa in en kontinuerlig process för integrering och distribution till Azure med hjälp av CI/CD-Nuget-paketet finns att lära dig mer för [Stream Analytics VS-verktyg för att konfigurera en CI/CD-pipeline](stream-analytics-tools-for-visual-studio-cicd.md) artikel.
 
 När du har slutfört den här självstudiekursen kommer du att kunna:
 
@@ -35,7 +35,7 @@ När du har slutfört den här självstudiekursen kommer du att kunna:
 * Använd övervakning för att felsöka problem.
 * Exportera befintliga jobb till projekt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande förutsättningar för att kunna slutföra den här kursen behöver du:
 
 * Slutför stegen upp till ”skapa ett Stream Analytics-jobb” i självstudiekursen [skapar en IoT-lösning med Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
@@ -119,7 +119,7 @@ Nu har alla indata definierats.
 
    ![Inställningar för utdata](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
-## <a name="stream-analytics-query"></a>Stream Analytics-fråga
+## <a name="stream-analytics-query"></a>Stream Analytics query
 Den här självstudiekursen försöker besvara frågor från flera företag som är relaterade till avgiftsbelagt data. Vi skapa frågor som kan användas i Stream Analytics för att ge relevanta svar. Innan du börjar din första Stream Analytics-jobbet utforska vi ett enkelt scenario och frågesyntaxen.
 
 ### <a name="introduction-to-stream-analytics-query-language"></a>Introduktion till Stream Analytics-frågespråket
@@ -141,9 +141,9 @@ Nu när du har skrivit din första Stream Analytics-fråga, testa den med hjälp
 
 Den här mappen innehåller följande filer:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Fråga: Antal fordon att ange en avgift monter
 Dubbelklicka i projektet, **Script.asaql** öppna skriptet i redigeraren. Klistra in skriptet i föregående avsnitt i redigeraren. Frågeredigeraren stöder IntelliSense, syntax färgläggning och en fel-markör.
@@ -198,7 +198,7 @@ Du kan se förloppet på den **utdata** fönster.
  
 2. Välj **skapa en ny Azure Stream Analytics-jobbet**. För **jobbnamn**, ange **TollApp**. Välj rätt **prenumeration** i den nedrullningsbara listan. Välj **skicka**.
 
-   ![Skicka jobbet](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+   ![Submit Job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
 ### <a name="start-the-job"></a>Starta jobbet

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>: Azure Active Directory direkt Smart Autentiseringsutelåsning
 
 ## <a name="overview"></a>Översikt
 
-Azure Active Directory (AD Azure) skyddar mot lösenord brute force-attacker och förhindrar att äkta användare som låsts ute från sina Office 365 och SaaS-program. Den här funktionen kallas *Smart kontoutelåsning*, stöds när du använder direkt-autentisering som din metod för att logga in. Smart kontoutelåsning är aktiverad som standard för alla klienter och det skyddar dina användarkonton kontinuerligt.
+Azure Active Directory (AD Azure) skyddar mot lösenord brute force-attacker och förhindrar att äkta användare som låsts ute från sina Office 365 och SaaS-program. Den här funktionen kallas *Smart kontoutelåsning*, stöds när du använder direkt-autentisering som din metod för att logga in. Smart kontoutelåsning är aktiverad som standard för alla klienter, inte bara klienter som använder direkt-autentisering, och det skyddar dina användarkonton kontinuerligt.
 
 Smart kontoutelåsning håller reda på misslyckade inloggningsförsök. Efter en viss *tröskelvärde för kontoutelåsning*, startar en *utelåsningstiden*. Smart kontoutelåsning avvisar försök att logga in från angripare under kontoutelåsning varaktighet. Om angrepp kvarstår inloggningsförsök efterföljande misslyckade när utelåsningstiden slutar resultatet med längre varaktighet för kontoutelåsning.
 

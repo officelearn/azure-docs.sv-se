@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsaktiviteter med WebJobs i Azure App Service
 
@@ -57,7 +57,7 @@ Följande filtyper stöds:
 * .js (med Node.js)
 * .JAR (med Java)
 
-## <a name="CreateContinuous"></a>Skapa ett kontinuerligt Webbjobb
+## <a name="CreateContinuous"></a> Skapa ett kontinuerligt Webbjobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
 
     ![Stoppa ett kontinuerligt Webbjobb](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>Skapa ett manuellt utlösta Webbjobb
+## <a name="CreateOnDemand"></a> Skapa ett manuellt utlösta Webbjobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -133,7 +133,7 @@ when making changes in one don't forget the other two.
    
     ![Kör webbjobb](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Skapa ett schemalagda Webbjobb
+## <a name="CreateScheduledCRON"></a> Skapa ett schemalagda Webbjobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -172,11 +172,11 @@ when making changes in one don't forget the other two.
 
 En [CRON-uttryck](https://en.wikipedia.org/wiki/Cron) består av sex fält: `{second} {minute} {hour} {day} {month} {day of the week}`.  Här följer några exempel:
 
-* Var 15: e minut:`0 */15 * * * *`
-* Varje timme (det vill säga när antalet minuter är 0):`0 0 * * * *` 
-* Varje timme från 9: 00 och 17: 00:`0 0 9-17 * * *` 
-* På 9:30:00 varje dag:`0 30 9 * * *`
-* På 9:30:00 varje vardag:`0 30 9 * * 1-5`
+* Var 15: e minut: `0 */15 * * * *`
+* Varje timme (det vill säga när antalet minuter är 0): `0 0 * * * *` 
+* Varje timme från 9: 00 och 17: 00: `0 0 9-17 * * *` 
+* På 9:30:00 varje dag: `0 30 9 * * *`
+* På 9:30:00 varje vardag: `0 30 9 * * 1-5`
 
 Du kan ange CRON-uttryck i portalen eller inkluderar en `settings.job` filen i roten på din Webbjobb *.zip* filen, som i följande exempel:
 
@@ -189,7 +189,7 @@ Du kan ange CRON-uttryck i portalen eller inkluderar en `settings.job` filen i r
 > [!NOTE]
 > När du distribuerar ett Webbjobb från Visual Studio, markera din `settings.job` filegenskaper som **kopiera om nyare**.
 
-## <a name="ViewJobHistory"></a>Visa jobbets historik
+## <a name="ViewJobHistory"></a> Visa jobbets historik
 
 1. Välj WebJob som du vill se historiken för och välj sedan den **loggar** knappen.
    
@@ -213,4 +213,4 @@ Du kan ange CRON-uttryck i portalen eller inkluderar en `settings.job` filen i r
    
 ## <a name="NextSteps"></a>Nästa steg
 
-Azure WebJobs SDK kan användas med WebJobs till att förenkla många programmeringsspråk. Mer information finns i [vad är WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+Azure WebJobs SDK kan användas med WebJobs till att förenkla många programmeringsspråk. Mer information finns i [vad är WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) och [WebJobs SDK Snabbreferens](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).

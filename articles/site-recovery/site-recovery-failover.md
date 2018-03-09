@@ -2,23 +2,17 @@
 title: Redundans i Site Recovery | Microsoft Docs
 description: "Azure Site Recovery samordnar replikering, redundans och återställning av virtuella datorer och fysiska servrar. Läs mer om redundans till Azure eller ett sekundärt datacenter."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Redundans i Site Recovery
 Den här artikeln beskriver hur till redundans virtuella datorer och fysiska servrar som skyddas av Site Recovery.
@@ -42,7 +36,7 @@ Den här proceduren beskriver hur du kör en redundansväxling för en [återst�
 ![Redundans](./media/site-recovery-failover/Failover.png)
 
 1. Välj **Återställningsplaner** > *recoveryplan_name*. Klicka på **växling vid fel**
-2. På den **redundans** väljer en **återställningspunkt** ska gå över till. Du kan använda något av följande alternativ:
+2. På den **redundans** väljer en **återställningspunkt** ska gå över till. Du kan välja något av följande alternativ:
     1.  **Senaste** (standard): det här alternativet startar jobbet första behandlar alla data som har skickats till Site Recovery-tjänsten. Bearbetningen av informationen skapar en återställningspunkt för varje virtuell dator. Den här återställningspunkten används av den virtuella datorn under växling vid fel. Det här alternativet ger den lägsta RPO (mål för återställningspunkt) som den virtuella datorn skapas efter växling vid fel har alla data som har replikerats till Site Recovery-tjänsten när redundans utlöstes.
     1.  **Senaste bearbetas**: det här alternativet flyttas över alla virtuella datorer i återställningsplanen så att den senaste återställningspunkten som redan har behandlats av Site Recovery-tjänsten. När du gör testa redundans för en virtuell dator visas också tidsstämpeln för den senaste bearbetade återställningspunkten. Om du gör redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** rutan för att hämta informationen. Ingen tid för att bearbeta obearbetade data, ger det här alternativet ett alternativ för låga RTO (mål) växling vid fel.
     1.  **Senaste programkonsekventa**: det här alternativet flyttas över alla virtuella datorer i återställningsplanen så att den senaste programkonsekvent återställningspunkt som redan har behandlats av Site Recovery-tjänsten. När du gör testa redundans för en virtuell dator visas också tidsstämpeln för den senaste programkonsekventa återställningspunkten. Om du gör redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** rutan för att hämta informationen.
@@ -65,9 +59,9 @@ Den här proceduren beskriver hur du kör en redundansväxling för en [återst�
     >
     >
 
-1. Du kan följa förloppet för växling vid fel på den **jobb** sidan. Även om fel uppstår under en oplanerad redundans körs återställningsplanen tills den är klar.
+1. Du kan följa redundansförloppet på sidan **Jobb**. Även om fel uppstår under en oplanerad redundans körs återställningsplanen tills den är klar.
 1. Verifiera den virtuella datorn efter växling vid fel, genom att logga in till den. Om du vill växla till en annan återställningspunkt för den virtuella datorn så att du kan använda **ändra återställningspunkt** alternativet.
-1. När du är nöjd med den redundansväxlade virtuella datorn kan du **genomför** växling vid fel. **Commit tar bort alla återställningspunkter som är tillgängliga med tjänsten** och **ändra återställningspunkt** alternativet är inte längre tillgänglig.
+1. När du kontrollerat den redundansväxlade virtuella datorn kan du **Bekräfta** redundansväxlingen. **Commit tar bort alla återställningspunkter som är tillgängliga med tjänsten** och **ändra återställningspunkt** alternativet är inte längre tillgänglig.
 
 ## <a name="planned-failover"></a>Planerad redundans
 Virtuella datorer/fysiska servrar som skyddas med Site Recovery även stöd **planerad redundans**. Planerad redundans är ett noll data går förlorade redundans alternativ. När en planerad redundansväxling initieras först virtuella källdatorer avställning, senaste data synkroniseras och sedan en växling vid fel utlöses.
@@ -126,8 +120,8 @@ Om du vill behålla enhetsbeteckning på virtuella datorer efter redundans kan d
 ## <a name="next-steps"></a>Nästa steg
 
 > [!WARNING]
-> När du redundansväxlade virtuella datorer och lokala Datacenter är tillgängligt, bör du [ **skyddar** ](site-recovery-how-to-reprotect.md) virtuella VMware-datorer tillbaka till lokala datacenter.
+> När du redundansväxlade virtuella datorer och lokala Datacenter är tillgängligt, bör du [ **skyddar** ](vmware-azure-reprotect.md) virtuella VMware-datorer tillbaka till lokala datacenter.
 
-Använd [ **planerad redundans** ](site-recovery-failback-from-azure-to-hyper-v.md) att **återställning** Hyper-v virtuella datorer till lokala från Azure.
+Använd [ **planerad redundans** ](hyper-v-azure-failback.md) att **återställning** Hyper-v virtuella datorer till lokala från Azure.
 
 Om du har inte över en Hyper-v virtuell dator till en annan lokal datacenter som hanteras av en VMM-server och primära Datacenter är tillgänglig, sedan **omvänd replikering** alternativet för att starta replikering tillbaka till primära data Center.

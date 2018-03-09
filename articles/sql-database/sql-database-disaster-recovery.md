@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller växling vid fel till en sekundär
 Azure SQL-databasen innehåller följande funktioner för återställning efter ett avbrott:
 
 * [Aktiv geo-replikering och redundans grupper](sql-database-geo-replication-overview.md)
 * [GEO-återställning](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Zonredundant databaser](sql-database-high-availability.md)
 
 Läs om business continuity scenarier och funktioner som stöder dessa scenarier i [företagskontinuitet](sql-database-business-continuity.md).
 
@@ -36,7 +37,7 @@ Läs om business continuity scenarier och funktioner som stöder dessa scenarier
 ### <a name="prepare-for-the-event-of-an-outage"></a>Förbereda för händelse av ett avbrott
 För att lyckas med återställning till en annan dataområdet med redundans grupper eller geo-redundant säkerhetskopior måste du förbereda en server i en annan Datacenter avbrott blir den nya primära servern senare om behovet skulle uppstå samt ha väldefinierade stegen och testats för att säkerställa en smidig. Dessa förberedelsesteg inkluderar:
 
-* Identifiera den logiska servern i en annan region ska bli den nya primära servern. För geo-återställning, kommer detta vanligtvis att en server i den [parad region](../best-practices-availability-paired-regions.md) för den region där databasen är placerad. Detta eliminerar ytterligare trafik kostnaden under återställning av geo-åtgärder.
+* Identifiera den logiska servern i en annan region ska bli den nya primära servern. För geo-återställning, detta är vanligtvis en server i den [parad region](../best-practices-availability-paired-regions.md) för den region där databasen är placerad. Detta eliminerar ytterligare trafik kostnaden under återställning av geo-åtgärder.
 * Identifiera och du kan också definiera servernivå brandväggsregler som behövs för användare att få åtkomst till den nya primära databasen.
 * Bestämma hur du kommer att omdirigera användare till den nya primära servern, exempelvis genom att ändra anslutningssträngar eller genom att ändra DNS-poster.
 * Identifiera och om du vill skapa de inloggningar som måste finnas i master-databasen på den nya primära servern och se till att dessa inloggningar behörighet i master-databasen, om sådana finns. Mer information finns i [SQL Database-säkerhet efter återställning](sql-database-geo-replication-security-config.md)
@@ -58,10 +59,10 @@ Beroende på toleransvärde programmet driftstopp och möjliga ansvar för före
 Använd den [hämta återställningsbara databasen](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) att hämta den senaste georeplikerad återställningspunkten.
 
 ## <a name="wait-for-service-recovery"></a>Vänta tills tjänsten återställning
-Azure team fungerar ordentligt för att återställa tjänsttillgänglighet så snabbt som möjligt, men beroende på roten orsaka det kan ta timmar eller dagar.  Om ditt program kan tolerera betydande driftstopp kan du bara vänta för att slutföra återställningen. I så fall krävs ingen åtgärd. Du kan se aktuell status för tjänsten på vår [Azure Hälsoinstrumentpanelen](https://azure.microsoft.com/status/). Programmets tillgänglighet kommer att återställas efter återställningen av region.
+Azure team fungerar ordentligt för att återställa tjänsttillgänglighet så snabbt som möjligt, men beroende på roten orsaka det kan ta timmar eller dagar.  Om ditt program kan tolerera betydande driftstopp kan du bara vänta för att slutföra återställningen. I så fall krävs ingen åtgärd. Du kan se aktuell status för tjänsten på vår [Azure Hälsoinstrumentpanelen](https://azure.microsoft.com/status/). Efter återställningen av region återställs programmets tillgänglighet.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Växla över till georeplikerad sekundär server i gruppen växling vid fel
-Om ditt programs driftstopp kan resultera i företag ansvar bör du använda grupper för växling vid fel. Det kan programmet för att snabbt återställa tillgänglighet i en annan region vid ett strömavbrott. Lär dig hur du [konfigurera redundans grupper](sql-database-geo-replication-portal.md).
+Om ditt program driftstopp kan resultera i företag ansvar, bör du använda grupper för växling vid fel. Det gör att snabbt återställa tillgänglighet i en annan region vid ett strömavbrott. Lär dig hur du [konfigurera redundans grupper](sql-database-geo-replication-portal.md).
 
 Om du vill återställa tillgängligheten för databaserna som du behöver initiera redundans till den sekundära servern med någon av metoderna som stöds.
 
@@ -77,7 +78,7 @@ Om ditt program driftstopp inte resulterar i business ansvar kan du använda [ge
 Om du använder geo-återställning för att återställa från ett avbrott, måste du kontrollera att anslutningen till de nya databaserna är korrekt konfigurerad så att funktionen normal program kan återupptas. Det här är en checklista för uppgifter för att förbereda din återställda databas produktion.
 
 ### <a name="update-connection-strings"></a>Uppdatera anslutningssträngar
-Eftersom den återställda databasen kommer att finnas i en annan server, måste du uppdatera ditt programs anslutningssträngen så att den pekar till servern.
+Eftersom den återställda databasen finns i en annan server, måste du uppdatera ditt programs anslutningssträngen så att den pekar till servern.
 
 Mer information om hur du ändrar anslutningssträngar finns i lämplig programmeringsspråk för din [anslutningsbibliotek](sql-database-libraries.md).
 

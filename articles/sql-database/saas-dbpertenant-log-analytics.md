@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Konfigurera och använda logganalys (OMS) med en Azure SQL Database SaaS-app för flera innehavare
 
@@ -132,7 +132,7 @@ Du kan utforska data loggen och mått i arbetsytan ytterligare i OMS-portalen.
 
 Övervakning och avisering i logganalys och OMS baseras på frågor över data på arbetsytan, till skillnad från aviseringar som definieras för varje resurs i Azure-portalen. Du kan basera aviseringar på frågor för att definiera en avisering som ser ut över alla databaser, i stället för att definiera en per databas. Frågor begränsas bara av de data som finns tillgängliga i arbetsytan.
 
-Mer information om hur du använder OMS att fråga och Ställ in aviseringar, se, [arbeta med Varningsregler i logganalys](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Mer information om hur du använder OMS att fråga och Ställ in aviseringar, se, [arbeta med Varningsregler i logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics för SQL Database debiteras baserat på datavolymen i arbetsytan. I kursen får skapat du en kostnadsfri arbetsyta som är begränsad till 500 MB per dag. När gränsen har nåtts kan läggs inte längre data till arbetsytan.
 

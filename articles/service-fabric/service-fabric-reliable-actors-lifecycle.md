@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d49afd9e5cfe80ddc2d919c76eaa0cb168280c15
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktören livscykel, automatisk skräpinsamling och manuellt ta bort
 En aktör aktiveras första gången ett anrop görs till någon av dess metoder. En aktör är inaktiverad (skräp som samlats in av aktörer runtime) om den inte används för en konfigurerbar tidsperiod. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
@@ -48,7 +48,7 @@ När en aktör inaktiveras referenser till objektet aktören släpps och det kan
 Vad räknas som ”används” för inaktivering och skräpinsamling?
 
 * Ta emot ett samtal
-* `IRemindable.ReceiveReminderAsync`metoden anropas (gäller endast om aktören använder påminnelser)
+* `IRemindable.ReceiveReminderAsync` metoden anropas (gäller endast om aktören använder påminnelser)
 
 > [!NOTE]
 > om aktören använder timers och dess timer-återanropet anropas, sker **inte** antal som ”används”.
@@ -150,7 +150,7 @@ Observera att det går inte att anropa en aktör ta bort på sig själv från n�
 * [Aktören återinträde](service-fabric-reliable-actors-reentrancy.md)
 * [Aktören diagnostik- och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md)
 * [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# exempelkod](https://github.com/Azure/servicefabric-samples)
+* [C# exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java-kodexempel](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

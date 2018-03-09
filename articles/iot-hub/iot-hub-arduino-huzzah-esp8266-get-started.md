@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ansluta Adafruit ludd HUZZAH ESP8266 till Azure IoT-hubb i molnet
 
@@ -60,7 +60,10 @@ Du måste också följande saker för din utvecklingsmiljö:
 * Eller Mac-dator som kör Windows eller Ubuntu.
 * Trådlöst nätverk för Ludd HUZZAH ESP8266 att ansluta till.
 * Internet-anslutning att hämta verktyget configuration.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) version 1.6.8 eller senare. Tidigare versioner fungerar inte med AzureIoT-biblioteket.
+* [Visual Studio Code-tillägget för Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
+
+> [!Note]
+> Den Arduino IDE-version som används av Visual Studio Code-tillägget för Arduino måste vara version 1.6.8 eller senare. Tidigare versioner fungerar inte med AzureIoT-biblioteket.
 
 Följande objekt är valfritt om du inte har en sensor. Du har också möjlighet att använda simulerade sensordata.
 
@@ -77,7 +80,7 @@ I det här avsnittet kan ansluta du sensorerna till kortets. Sedan ansluta du en
 
 Använd breadboard och omkopplare kablar för att ansluta på följande sätt. Om du inte har en sensor hoppa över det här avsnittet, eftersom du kan använda simulerade sensordata i stället.
 
-![Referens för anslutningar](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
+![Referens för anslutningar](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 
 Använd följande-kablar för sensor PIN:
@@ -129,7 +132,7 @@ Om du använder Ubuntu, kontrollera att du har behörighet att fungera på den U
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`är ägare gruppnamnet du hämtade i föregående steg. `<username>`är din Ubuntu användarnamn.
+   `<group-owner-name>` är ägare gruppnamnet du hämtade i föregående steg. `<username>` är din Ubuntu användarnamn.
 
 1. Logga ut från Ubuntu och loggar sedan in igen för att ändringen ska visas.
 
@@ -149,33 +152,41 @@ Exempelprogrammet finns på GitHub. Klona lagringsplatsen prov som innehåller e
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Installera paketet för Ludd HUZZAH ESP8266 i Arduino IDE:
+Installera paketet för Ludd HUZZAH ESP8266 i Visual Studio-koden:
 
 1. Öppna mappen där exempelprogrammet lagras.
-1. Öppna filen app.ino i mappen app i Arduino IDE.
+1. Öppna filen app.ino i mappen app i Visual Studio-koden.
 
-   ![Öppna exempelprogrammet i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![Öppna exempelprogrammet i Visual Studio Code](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
-1. Klicka i IDE Arduino **filen** > **inställningar**.
-1. I den **inställningar** dialogrutan klickar du på ikonen bredvid den **ytterligare anslagstavlor Manager URL: er** rutan.
-1. Ange följande URL i popup-fönstret och klicka sedan på **OK**.
+1. Ange i Visual Studio-koden `F1`.
+1. Typen **Arduino** och välj **Arduino: Board Manager**.
+1. I den **Arduino Board Manager** klickar du på **ytterligare URL: er**.
 
-   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+   ![VS kod Arduino Board Manager](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-   ![Peka på en paket-url i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+1. I den **användarinställningar** , kopiera och klistra in följande i slutet av filen
 
-1. I den **inställningar** dialogrutan klickar du på **OK**.
-1. Klicka på **verktyg** > **Hanteringsstyrenhetens** > **anslagstavlor Manager**, och sök sedan efter esp8266.
+   `"arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"`
+
+   ![Konfigurera Arduino Webbadressen i VS-kod](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
+
+1. Spara filen och Stäng den **användarinställningar** fliken.
+1. Klicka på **uppdatera paketet index**. När uppdateringen är klar kan du söka efter **esp8266**.
+1. Klicka på **installera** knapp för esp8266.
 
    Anslagstavlor Manager anger att ESP8266 med en version av 2.2.0 eller senare är installerad.
 
-   ![Esp8266 paketet har installerats](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![Esp8266 paketet har installerats](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-1. Klicka på **verktyg** > **Hanteringsstyrenhetens** > **Adafruit HUZZAH ESP8266**.
+1. Ange `F1`, Skriv **Arduino** och välj **Arduino: Board Config**.
+1. Klicka i rutan för **valt Board:** och skriv **esp8266**och välj **Adafruit HUZZAH ESP8266 (esp8266)**.
+
+   ![Välj esp8266-kort](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Installera nödvändiga bibliotek
 
-1. I Arduino IDE, klickar du på **skiss** > **innehåller biblioteket** > **Hantera bibliotek**.
+1. Ange i Visual Studio-koden `F1`, Skriv **Arduino** och välj **Arduino: Library Manager**.
 1. Sök efter följande biblioteket namn i taget. Klicka på för alla bibliotek som du hittar **installera**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
@@ -193,20 +204,20 @@ Exempelprogrammet simulera temperatur- och fuktighetskonsekvens data om du inte 
    ```c
    define SIMULATED_DATA true
    ```
-   ![Konfigurera exempelprogrammet använda simulerade data](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Konfigurera exempelprogrammet använda simulerade data](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
-1. Spara filen med `Control-s`.
+1. Spara filen.
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Distribuera exempelprogrammet till ludd HUZZAH ESP8266
 
-1. Klicka i IDE Arduino **verktyget** > **Port**, och klicka sedan på den seriella porten för Ludd HUZZAH ESP8266.
-1. Klicka på **skiss** > **överför** att skapa och distribuera exempelprogrammet till ludd HUZZAH ESP8266.
+1. I Visual Studio Code, klickar du på  **<Select Serial Port>**  status, och klicka sedan på den seriella porten för Ludd HUZZAH ESP8266.
+1. Ange `F1`, Skriv **Arduino** och välj **Arduino: Överför** att skapa och distribuera exempelprogrammet till ludd HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Ange autentiseringsuppgifter
 
 När överföringen är klar följer du stegen nedan för att ange dina autentiseringsuppgifter:
 
-1. Klicka i IDE Arduino **verktyg** > **seriella övervakaren**.
+1. Öppna Arduino IDE, klicka på **verktyg** > **seriella övervakaren**.
 1. Observera två listrutorna i det nedre högra hörnet i fönstret seriella monitor.
 1. Välj **ingen rad avslutas** för den vänstra listrutan.
 1. Välj **115200 baud** för höger nedrullningsbara listan.
@@ -222,7 +233,7 @@ När överföringen är klar följer du stegen nedan för att ange dina autentis
 
 Om du ser i följande utdata från den seriella övervakningsfönstret och blinkande Indikator på ludd HUZZAH ESP8266 exempelprogrammet körts.
 
-![Slutversionen i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
+![Slutversionen i Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

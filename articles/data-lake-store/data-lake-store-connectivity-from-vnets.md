@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: c1bb9d8f5759ece8fe6384441c692adea190aba8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 483406c6929844a8355dffcb86c1e3a3dabda061
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Åtkomst till Azure Data Lake Store från virtuella datorer i ett Azure-VNET
-Azure Data Lake Store är en PaaS-tjänst som körs på offentliga Internet IP-adresser. Alla servrar som kan ansluta till Internet kan vanligtvis ansluta till Azure Data Lake Store-slutpunkter. Som standard alla virtuella datorer som finns i virtuella Azure-nätverk kan ansluta till Internet och därför kan komma åt Azure Data Lake Store. Det är dock möjligt att konfigurera virtuella datorer i ett VNET till inte har åtkomst till Internet. För sådana virtuella datorer kan är åtkomst till Azure Data Lake Store begränsad även. Blockerar tillgång till Internet för virtuella datorer i Azure Vnet kan göras med hjälp av följande metod.
+Azure Data Lake Store är en PaaS-tjänst som körs på offentliga Internet IP-adresser. Alla servrar som kan ansluta till Internet kan vanligtvis ansluta till Azure Data Lake Store-slutpunkter. Som standard alla virtuella datorer som finns i virtuella Azure-nätverk kan ansluta till Internet och därför kan komma åt Azure Data Lake Store. Det är dock möjligt att konfigurera virtuella datorer i ett VNET till inte har åtkomst till Internet. För sådana virtuella datorer kan är åtkomst till Azure Data Lake Store begränsad även. Blockerar tillgång till Internet för virtuella datorer i Azure Vnet kan göras med hjälp av någon av följande metoder:
 
 * Genom att konfigurera Nätverkssäkerhetsgrupp grupper (NSG)
 * Genom att konfigurera användare användardefinierade vägar (UDR)
 * Genom att utbyta vägar via BGP (dynamisk routning standardprotokoll) när ExpressRoute används som blockerar åtkomst till Internet
 
-I den här artikeln får du lära dig hur du aktiverar åtkomst till Azure Data Lake Store från Azure virtuella datorer som har begränsad åtkomst till resurser med hjälp av en av de tre metoderna ovan.
+I den här artikeln får du lära dig hur du aktiverar åtkomst till Azure Data Lake Store från Azure virtuella datorer som har begränsad åtkomst till resurser med hjälp av någon av tre metoder som angavs tidigare.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-store-from-vms-with-restricted-connectivity"></a>Aktivera anslutningen till Azure Data Lake Store från virtuella datorer med begränsade anslutningen
-Om du vill komma åt Azure Data Lake Store från dessa virtuella datorer, måste du konfigurera dem för att få åtkomst till IP-adressen där Azure Data Lake Store-konto är tillgängligt. Du kan identifiera IP-adresserna för dina Data Lake Store-konton genom DNS-namnmatchning konton (`<account>.azuredatalakestore.net`). För det här kan du använda verktyg som **nslookup**. Öppna en kommandotolk på datorn och kör följande kommando.
+Om du vill komma åt Azure Data Lake Store från dessa virtuella datorer, måste du konfigurera dem för att få åtkomst till IP-adressen där Azure Data Lake Store-konto är tillgängligt. Du kan identifiera IP-adresserna för dina Data Lake Store-konton genom DNS-namnmatchning konton (`<account>.azuredatalakestore.net`). Om du vill matcha DNS-namn för dina konton, kan du använda verktyg som **nslookup**. Öppna en kommandotolk på datorn och kör följande kommando:
 
     nslookup mydatastore.azuredatalakestore.net
 
@@ -43,10 +43,10 @@ Utdata liknar följande. Värdet mot **adress** egenskapen är IP-adressen som �
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Aktivera anslutningen från virtuella datorer som har begränsats med hjälp av NSG
-När en NSG-regel för att blockera åtkomst till Internet, kan du skapa en annan NSG som ger åtkomst till Data Lake Store IP-adress. Mer information om NSG-regler finns på [vad är en Nätverkssäkerhetsgrupp?](../virtual-network/virtual-networks-nsg.md). Anvisningar om hur du skapar NSG: er finns [hantera NSG: er med hjälp av Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+När en NSG-regel för att blockera åtkomst till Internet, kan du skapa en annan NSG som ger åtkomst till Data Lake Store IP-adress. Mer information om NSG-regler finns [Network security groups översikt](../virtual-network/security-overview.md). Instruktioner om hur du skapar NSG: er finns i [hantera NSG: er med hjälp av Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Aktivera anslutningen från virtuella datorer som har begränsats med hjälp av UDR eller ExpressRoute
-När vägar udr: er eller utväxlats BGP-vägar används för att blockera åtkomst till Internet, måste en särskild väg konfigureras så att virtuella datorer i dessa undernät har åtkomst till Data Lake Store-slutpunkter. Mer information finns i [vad är användardefinierade vägar?](../virtual-network/virtual-networks-udr-overview.md). Instruktioner om hur du skapar udr: er finns i [skapa udr: er i Resource Manager](../virtual-network/virtual-network-create-udr-arm-ps.md).
+När vägar udr: er eller utväxlats BGP-vägar används för att blockera åtkomst till Internet, måste en särskild väg konfigureras så att virtuella datorer i dessa undernät har åtkomst till Data Lake Store-slutpunkter. Mer information finns i [användardefinierade vägar översikt](../virtual-network/virtual-networks-udr-overview.md). Instruktioner om hur du skapar udr: er finns i [skapa udr: er i Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Aktivera anslutningen från virtuella datorer som har begränsats med hjälp av ExpressRoute
 När en ExpressRoute-krets konfigureras lokala servrar kan komma åt Data Lake Store via offentlig peering. Mer information om hur du konfigurerar ExpressRoute för offentlig peering finns på [ExpressRoute vanliga frågor och svar](../expressroute/expressroute-faqs.md).

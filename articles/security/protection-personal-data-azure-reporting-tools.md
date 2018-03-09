@@ -1,6 +1,6 @@
 ---
 title: Skydd av personuppgifter-dokument med Azure reporting verktyg | Microsoft Docs
-description: "hur du använder Azure reporting services och tekniker för att skydda sekretessen för personliga data."
+description: "Använd Azure reporting services för att skydda sekretessen för personliga data i initiativ för att vara kompatibel med allmänna Data Protection förordning (BNPR)."
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Skydd av personuppgifter-dokument med Azure reporting verktyg
 
-Den här artikeln innehåller information om hur du använder Azure reporting services och tekniker för att skydda sekretessen för personliga data.
-
+Den här artikeln innehåller information om hur du använder Azure reporting services och tekniker för att skydda sekretessen för personliga data. Den här informationen kan användas för att uppfylla kraven i branschen eller statlig förordningar, till exempel allmänna Data Protection förordning (BNPR).
 ## <a name="scenario"></a>Scenario
 
 Ett stort kryssning företag, sitt säte i USA utökar åtgärderna för att erbjuda färdvägar i Medelhavet, Adriatiska havet, baltiska havet samt Förenta staterna. Om du vill att dessa åtgärder kan genererade den flera mindre kryssning rader i Italien, Tyskland, Danmark och Storbritannien

@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-rutiner i Azure Data Factory
 
@@ -307,7 +307,7 @@ som du vill kopiera till en Azure SQL-tabell i följande format genom att fören
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i [mappar dataset källkolumner till målet dataset kolumner](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`Anger om du vill iterera och extrahera data från objekt med samma mönster under **matris** `orderlines`.
+- `jsonNodeReference` Anger om du vill iterera och extrahera data från objekt med samma mönster under **matris** `orderlines`.
 - `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet `ordernumber`, `orderdate`, och `city` under rotobjektet med JSON sökväg som börjar med `$.`, medan `order_pd` och `order_price` definieras med sökvägen som härletts från matriselementet utan `$.` .
 
 ```json
@@ -436,7 +436,7 @@ Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `
 ```
 
 > [!IMPORTANT]
-> Om du inte kopierar ORC-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
+> För att kopiera befogenhet av Self-hosted integrering Runtime t.ex. mellan lokala och moln lagrar data, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på datorn IR. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Observera följande punkter:
@@ -456,7 +456,7 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 ```
 
 > [!IMPORTANT]
-> Om du inte kopierar Parquet-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
+> För att kopiera befogenhet av Self-hosted integrering Runtime t.ex. mellan lokala och moln lagrar data, om du inte kopierar filer parkettgolv **som-är**, måste du installera JRE 8 (Java Runtime Environment) på datorn IR. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Observera följande punkter:

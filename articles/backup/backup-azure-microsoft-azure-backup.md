@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Du kan även skydda infrastruktur som en tjänst (IaaS) arbetsbelastningar som t
 
 Azure Backup Server ärver mycket av funktionen arbetsbelastning säkerhetskopiering från Data Protection Manager (DPM). Den här innehåller artikellänkar till DPM-dokumentationen förklarar vissa av de funktioner som delas. Även om Azure Backup Server delar en stor del av samma funktioner som DPM. Azure Backup-servern inte säkerhetskopiera till band eller integreras den med System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Välj en installationsplattform
+## <a name="choose-an-installation-platform"></a>Välj en installationsplattform
 Det första steget mot hämta Azure Backup Server och kör är att konfigurera en Windows-Server. Servern kan vara i Azure eller lokalt.
 
 ### <a name="using-a-server-in-azure"></a>Använder en server i Azure
-När du väljer en server för att köra Azure Backup Server, bör du börja med en bild i galleriet för Windows Server 2012 R2 Datacenter. I artikeln [skapa din första Windows-dator i Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den virtuella datorn (VM) ska vara: A2 Standard med två kärnor och 3.5 GB RAM.
+När du väljer en server för att köra Azure Backup Server, bör du börja med en bild i galleriet för Windows Server 2012 R2 Datacenter eller Windows Server 2016 Datacenter. I artikeln [skapa din första Windows-dator i Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommenderade virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den virtuella datorn (VM) ska vara: A2 Standard med två kärnor och 3.5 GB RAM.
 
 Skydda arbetsbelastningar med Azure Backup Server har många olika delarna. I artikeln [installera DPM som en virtuell Azure-dator](https://technet.microsoft.com/library/jj852163.aspx), hjälper beskrivs de olika delarna. Läs den här artikeln helt innan du distribuerar datorn.
 
@@ -57,7 +57,7 @@ Om du inte vill köra grundläggande server i Azure kan du köra servern på en 
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 och senare) |
+| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 onwards) |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
@@ -75,7 +75,7 @@ Du kan deduplicera DPM-lagring med hjälp av Windows Server Deduplicering. Läs 
 
 Alltid ansluta till Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän, rekommenderas att du ansluter servern till den nya domänen innan du installerar Azure Backup Server. Flytta en befintlig Azure Backup Server-dator till en ny domän när distributionen är *stöds inte*.
 
-## <a name="2-recovery-services-vault"></a>2. Recovery Services-valv
+## <a name="recovery-services-vault"></a>Recovery Services-valv
 Om du skickar säkerhetskopierade data till Azure eller se till att den lokalt, måste programmet vara anslutna till Azure. För att vara mer specifik, Azure Backup Server-datorn måste vara registrerad med en recovery services-valvet.
 
 Så här skapar du ett Recovery Services-valv:
@@ -112,7 +112,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     När du har valt lagringsalternativet för valvet är det dags att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
 
-## <a name="3-software-package"></a>3. Programpaket
+## <a name="software-package"></a>Programpaket
 ### <a name="downloading-the-software-package"></a>Hämta programpaket
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett öppet för Recovery Services-valvet vidare till steg 3. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
@@ -137,7 +137,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     I den **Kom igång med säkerhetskopiering** bladet som öppnas, **säkerhetskopiering mål** blir automatiskt markerad.
 
-    ![Backup-mål-standard-öppnas](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
 5. I den **säkerhetskopiering målet** bladet från den **var körs din arbetsbelastning** väljer du **lokalt**.
 
@@ -231,7 +231,7 @@ Den första säkerhetskopian sparas på lagringsutrymme som är anslutet till Az
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Nätverksanslutning
+## <a name="network-connectivity"></a>Nätverksanslutning
 Azure Backup-servern kräver anslutning till Azure Backup-tjänsten för att produkten ska fungera korrekt. Du kan kontrollera om datorn är ansluten till Azure genom att använda den ```Get-DPMCloudConnection``` cmdlet i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE och anslutning finns, eller det finns ingen nätverksanslutning.
 
 Azure-prenumerationen måste vara i felfritt tillstånd på samma gång. Ta reda på status för din prenumeration och hantera den, logga in på den [prenumeration portal](https://account.windowsazure.com/Subscriptions).
@@ -240,11 +240,11 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Active |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
-| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Tillåtet |Tillåtet |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från anslutningsproblem

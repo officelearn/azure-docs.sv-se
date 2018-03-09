@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2018
 ms.author: anoopkv
 ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -47,7 +47,7 @@ Om du replikerar virtuella VMware-datorer, Läs mer om [kapacitetsplaneringsöve
 Site Recovery tillhandahåller en nedladdningsbar mall för att ställa in konfigurationsservern som en högtillgänglig VMware VM. 
 
 1. I valvet går du till **Förbereda infrastrukturen** > **Källa**.
-2. I **Förbered källa**väljer **+ konfigurationsservern**.
+2. I **Förbered källa** väljer du **+Konfigurationsserver**.
 3. I **Lägg till server** kontrollerar du att **Konfigurationsserver för VMware** visas i **Servertyp**.
 4. Ladda ner OVF-mallen (Open Virtualization Format) för konfigurationsservern.
 
@@ -58,8 +58,8 @@ Site Recovery tillhandahåller en nedladdningsbar mall för att ställa in konfi
 ## <a name="import-the-template-in-vmware"></a>Importera mallen i VMware
 
 
-1. Logga in på VMware vCenter-servern eller vSphere ESXi-värd med VMWare vSphere klienten.
-2. På den **filen** väljer du **distribuera OVF mallen** att starta guiden Distribuera OVF-mall.
+1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med hjälp av VMWare vSphere-klienten.
+2. På menyn **Arkiv** väljer du **Distribuera OVF-mallen** för att starta guiden Distribuera OVF-mall.
 
      ![OVF-mall](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 
@@ -72,7 +72,7 @@ Site Recovery tillhandahåller en nedladdningsbar mall för att ställa in konfi
 
     * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **Power on after deployment** (Slå på strömmen efter distributionen) > **Slutför**.
 
-    * Om du vill lägga till ytterligare ett nätverksgränssnitt, rensa **slå på strömmen efter distributionen**, och välj sedan **Slutför**. Som standard distribueras configuration server-mall med ett enda nätverkskort. Du kan lägga till ytterligare nätverkskort efter distributionen.
+    * Om du vill lägga till ytterligare ett nätverksgränssnitt, rensa **slå på strömmen efter distributionen**, och välj sedan **Slutför**. Konfigurationsservermallen distribueras som standard med ett enda nätverkskort. Du kan lägga till ytterligare nätverkskort efter distributionen.
 
 
 ## <a name="add-an-additional-adapter"></a>Lägg till ytterligare en adapter
@@ -80,8 +80,8 @@ Site Recovery tillhandahåller en nedladdningsbar mall för att ställa in konfi
 Om du vill lägga till en extra NIC på konfigurationsservern lägger du till den innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **maskinvara**väljer **Lägg till** > **Ethernet-nätverkskort**. Välj sedan **Nästa**.
-3. Välj en typ av nätverkskort och ett nätverk. 
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
+3. Välj en adaptertyp och ett nätverk. 
 4. Om du vill ansluta det virtuella nätverkskortet när den virtuella datorn är påslagen väljer du **Connect at power on** (Anslut när strömmen är på). Välj sedan **nästa** > **Slutför** > **OK**.
  
 
@@ -89,25 +89,25 @@ Om du vill lägga till en extra NIC på konfigurationsservern lägger du till de
 
 1. Sätt på den virtuella datorn från VMWare vSphere-klientkonsolen.
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
-3. När installationen är klar, logga in den virtuella datorn som administratör.
-4. Första gången du loggar in, startar för Azure Site Recovery-konfigurationsverktyget.
-5. Ange ett namn som används för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats, Välj **inloggning** att logga in på Azure-prenumerationen. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
+3. När installationen är klar loggar du in på den virtuella datorn som administratör.
+4. Första gången du loggar in startas Azure Site Recovery-konfigurationsverktyget.
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
-8. Logga in på datorn igen. Guiden Konfigurera server management startas automatiskt.
+8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt.
 
 ### <a name="configure-settings"></a>Konfigurera inställningar
 
 1. Välj i guiden Konfigurera server management **Konfigurera anslutningen**. Markera nätverkskortet att ta emot replikeringstrafik och välj sedan **spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
-2. I **Välj Recovery Services-valvet**din Azure-prenumeration och välj och relevant resursgrupp valvet.
-3. I **installera programvara från tredje part**, Godkänn licensavtalet. Välj **ladda ned och installera** installera MySQL-Server.
+2. I **Välj Recovery Services-valv** väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
+3. Godkänn licensavtalet i **Installera programvara från tredje part**. Välj **Ladda ned och installera** för att installera MySQL Server.
 4. Välj **installera VMware PowerLCI**. Kontrollera att alla fönster stängs innan du gör det här steget. Välj sedan **Fortsätt**.
-5. I **verifiera installation configuration**, nödvändiga komponenter har verifierats innan du fortsätter.
-6. I **konfigurera vCenter Server/vSphere ESXi-servern**, anger du FQDN eller IP-adressen för vCenter-servern eller vSphere-värd, där de virtuella datorerna som du vill replikera finns. Ange porten som avlyssnas av servern och ett eget namn för VMware-servern i valvet.
-7. Ange autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till**, och välj sedan **Fortsätt**.
+5. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
+6. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som avlyssnas av servern och ett eget namn för VMware-servern i valvet.
+7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** och välj sedan **Fortsätt**.
 8. I **Konfigurera virtuella autentiseringsuppgifter**, ange användarnamn och lösenord som används för att automatiskt installera Azure Site Recovery Mobility-tjänsten på datorer när replikeringen är aktiverad. För Windows-datorer måste kontot ha lokal administratörsbehörighet på de datorer som du vill replikera. För Linux anger du information för rotkontot.
 9. Välj **Slutför konfigurationen** att slutföra registreringen. 
-10. När registreringen är klar i Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på sidan **Källa** i valvet. Välj sedan **OK** att konfigurera inställningar för target.
+10. När registreringen är klar i Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på sidan **Källa** i valvet. Välj sedan **OK** för att konfigurera målinställningarna.
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem

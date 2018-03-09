@@ -4,7 +4,7 @@
 | Resurs | Standardgräns | 
 | --- | --- | 
 | Azure Media Services-konton (AMS) i en enskild prenumeration | 25 (fast) |
-| Mediereserverade enheter per AMS-konto |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Mediereserverade enheter per AMS-konto |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Jobb per AMS-konto | 50,000<sup>(2)</sup> |
 | Länkade uppgifter per jobb | 30 (fast) |
 | Tillgångar per AMS-konto | 1,000,000|
@@ -20,7 +20,7 @@
 | Principer | 1 000 000<sup>(6)</sup> |
 | Filstorlek| I vissa situationer kan finns det en gräns på den största filstorleken som stöds för bearbetning i Media Services. <sup>7</sup> |
   
-<sup>1</sup> S3 RU:er är inte tillgängliga i västra Indien. Om du ändrar typ (till exempel från S2 till S1) återställs max RU-gränser.
+<sup>1</sup> om du ändrar typ (till exempel från S2 till S1), max RU gränser återställs.
 
 <sup>2</sup> Det här värdet innefattar jobb i kö och avslutade, aktiva och avbrutna jobb. Det innefattar inte borttagna jobb. Du kan ta bort gamla jobb med **IJob.Delete** eller HTTP-begäran **DELETE**.
 

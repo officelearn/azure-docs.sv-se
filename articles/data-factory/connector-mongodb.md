@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c924640feffea4cbe0372cabc937656d2ec41c7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b12477b855dad28976989e694888667fd0cb6b20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Mer specifikt stöder den här MongoDB-anslutningen:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill kopiera data från en MongoDB-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel mer information. Integration Runtime innehåller en inbyggd MongoDB-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till MongoDB.
+Om du vill kopiera data från en MongoDB-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel mer information. Integration Runtime innehåller en inbyggd MongoDB-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från MongoDB.
 
 ## <a name="getting-started"></a>Komma igång
 

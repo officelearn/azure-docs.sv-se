@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
 
@@ -61,10 +61,6 @@ Den [Event Hubs komma igång](https://code.msdn.microsoft.com/Service-Bus-Event-
 
 Den [skala ut händelsebearbetning](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exempel visar hur du använder den [värd för händelsebearbetning](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) att fördela belastningen av Händelsehubbar dataströmmen förbrukning. Den visar hur du implementerar den **EventProcessor** och **EventProcessorFactory** objekt som ska hanteras händelseströmmen. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Hämta webbdata till en händelsehubb 
-
-Den [importera data från webben](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) exemplet visar hur du hämtar data från offentliga feeds (till exempel avdelning för transportens trafik information feed) och skicka den till en händelsehubb.
-
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om .NET Framework-versioner genom att gå till följande länkar:
@@ -75,5 +71,5 @@ Läs mer om .NET Framework-versioner genom att gå till följande länkar:
 Du kan lära dig mer om Händelsehubbar i följande artiklar:
 
 - [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-- [Skapa en Event Hub](event-hubs-create.md)
+- [Event Hubs-funktioner](event-hubs-features.md)
 - [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

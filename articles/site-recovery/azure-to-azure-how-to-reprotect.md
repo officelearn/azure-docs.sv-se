@@ -6,20 +6,20 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Skyddar redundansväxlade virtuella Azure-datorer till den primära regionen
 
 
 >[!NOTE]
 >
-> Site Recovery replikering för virtuella datorer i Azure är för närvarande under förhandsgranskning.
+> Site Recovery-replikering för virtuella Azure-datorer är nu i förhandsversion.
 
 
 
@@ -29,7 +29,7 @@ När du [redundansväxla](site-recovery-failover.md) Azure virtuella datorer fr�
 - Efter att återaktivera skyddet har slutförts och replikerar de virtuella datorerna, kan du växla dem över från sekundärt till primär region.
 
 > [!WARNING]
-> Om du har [migreras](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) datorer från den primära servern till den sekundära regionen flyttas den virtuella datorn till en annan resursgrupp eller ta bort den virtuella Azure-datorn kan du inte skyddar den virtuella datorn eller växla tillbaka.
+> Om du har [migreras](migrate-overview.md#what-do-we-mean-by-migration) datorer från den primära servern till den sekundära regionen flyttas den virtuella datorn till en annan resursgrupp eller ta bort den virtuella Azure-datorn kan du inte skyddar den virtuella datorn eller växla tillbaka.
 
 
 ## <a name="prerequisites"></a>Förutsättningar

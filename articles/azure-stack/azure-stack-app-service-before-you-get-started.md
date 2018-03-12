@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du börjar med App Service på Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
+> [!IMPORTANT]
+> Uppdateringen är 1802 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
+>
+>
 
 Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra krav i den här artikeln.
 
@@ -40,11 +45,11 @@ Innan du distribuerar Azure App Service på Azure-stacken måste du slutföra kr
    - Moduler
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Förbereda för hög tillgänglighet
+## <a name="high-availability"></a>Hög tillgänglighet
 
-Azure Apptjänst Azure stacken kan för närvarande tillhandahåller hög tillgänglighet eftersom Azure Stack distribuerar arbetsbelastningar till endast en feldomän.
+På grund av 1802-versionen av Azure-stacken, vilket lägger till stöd för feldomäner nya distributioner av Azure App Service på Azure-stacken ska distribueras över feldomäner och ge feltolerans.  Uppdatera för befintliga distributioner av Azure App Service på Azure-stacken som har distribuerats innan lanseringen av 1802, läser du dokumentationen (azure-stack-app-service-fault-domain-update.md) att balansera om distributionen.
 
-Distribuera obligatoriska file server och SQL Server-instans i en konfiguration med hög tillgänglighet för att förbereda Azure App Service på Azure-stacken för hög tillgänglighet. När Azure stacken stöder flera feldomäner, ges vägledning om hur du aktiverar Azure App Service på Azure-stacken i en konfiguration med hög tillgänglighet.
+Dessutom distribuera Azure App Service på Azure-stacken för hög tillgänglighet krävs file server och SQL Server-instans i en konfiguration med hög tillgänglighet. 
 
 ## <a name="get-certificates"></a>Hämta certifikat
 
@@ -127,13 +132,17 @@ Certifikat för identitet måste innehålla ett ämne som matchar följande form
 
 ## <a name="virtual-network"></a>Virtual Network
 
-Azure Apptjänst Azure stacken kan du distribuera resursprovidern i ett befintligt virtuellt nätverk.  På så sätt kan du använda interna IP-adresser ska ansluta till filservern och SQLServer krävs för Azure App Service på Azure-stacken.  Det virtuella nätverket konfigureras med följande adressintervallet och undernät innan du installerar Azure App Service på Azure Stack:
+Azure Apptjänst Azure stacken kan du distribuera resursprovidern till antingen ett befintligt virtuellt nätverk eller Apptjänst skapas som en del av distributionen.  Med hjälp av ett befintligt virtuellt nätverk kan du använda interna IP-adresser ska ansluta till filservern och SQLServer krävs för Azure App Service på Azure-stacken.  Det virtuella nätverket konfigureras med följande adressintervallet och undernät innan du installerar Azure App Service på Azure Stack:
 
 Virtual Network - /16
 
 Undernät
 
-ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Förbereda filservern
 

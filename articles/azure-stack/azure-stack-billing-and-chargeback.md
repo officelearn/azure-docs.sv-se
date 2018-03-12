@@ -3,66 +3,64 @@ title: "Kunden fakturerings- och återbetalning i Azure-stacken | Microsoft Docs
 description: "Lär dig hur du hämtar information om användning från Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: a9afc7b6-43da-437b-a853-aab73ff14113
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: alfredop
-ms.openlocfilehash: ea7510c239ee07a9a27f3e682e61a6b08eb5694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/25/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: eca335797f48b7c44351655f17c8b6499f3d5999
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Användnings- och fakturering i Azure-stacken
 
-Användning representerar antalet resurser som används av en användare. Azure-stacken samlar in användningsinformation för varje användare och används för att debiterar dem. Den här artikeln beskriver hur användare i Azure-stacken debiteras för Resursanvändning och hur faktureringsinformation används för analytics, återbetalning, osv.
+Den här artikeln beskriver hur användare i Azure-stacken debiteras för Resursanvändning. Du kan lära dig hur faktureringsinformation är tillgängligt för analys och kostnad tillbaka.
 
-Azure stacken innehåller infrastruktur för att samla in och sammanställa användningsdata för alla resurser och för att vidarebefordra data till Azure handel. Du kan komma åt dessa data och exportera den till en faktureringssystem med hjälp av ett fakturerings-kort eller exportera den till ett business intelligence-verktyg som Microsoft Power BI. När du exporterar, är det här faktureringsinformation används för analytics eller överföras till ett system för återbetalning.
+Azure-stacken samlar in grupper användningsdata för alla resurser som används och vidarebefordrar dessa data till Azure handel. Azure Commerce debiterar dig för Azure Stack-användning på samma sätt som den skulle debitera dig för Azure-användning.
 
-![Konceptuell modell ett fakturerings-kort ansluter Azure Stack till en fakturering program](media/azure-stack-billing-and-chargeback/image1.png)
+Du kan också hämta användningsdata och exportera den till egna fakturerings- eller kostnad säkerhetskopieringssystem med hjälp av ett fakturerings-kort eller exportera den till en business intelligence-verktyg som till exempel Microsoft Power BI och använda för analys.
+
 
 ## <a name="usage-pipeline"></a>Användning av pipeline
 
-Varje resursprovider i Azure-stacken avger användningsdata enligt resursutnyttjande. Webbtjänsten Usage regelbundet (varje timme eller varje dag) samlar in dessa användningsdata och lagrar den i användningsdatabasen. Lagrade användningsdata kan nås av Azure-stacken operatörer och användare lokalt genom att använda API: er för användning. 
+Varje resursprovider i Azure-stacken avger användningsdata per Resursanvändning. Webbtjänsten Usage regelbundet (varje timme och dag) sammanställer användningsdata och lagrar den i användningsdatabasen. Azure Stack operatörer och användare kan komma åt lagrade användningsdata via API: er för Azure-stacken resurs användning. 
 
-Om du har [registrerad Azure Stack-instans med Azure](azure-stack-register.md), användning Bridge har konfigurerats för att skicka användningsdata till Azure handel. När data är tillgängliga i Azure, har du åtkomst till den via fakturerings-portalen eller med hjälp av Azure användning API: er. Referera till den [data användningsrapport](azure-stack-usage-reporting.md) Läs mer om vilka rapporteras mer data till Azure. 
+Om du har [registrerad Azure Stack-instans med Azure](azure-stack-register.md), Azure-stacken är konfigurerad för att skicka användningsdata till Azure handel. När data överförs till Azure kan du komma åt den fakturerings-portalen eller med hjälp av Azure Resource användning API: er. Referera till den [data användningsrapport](azure-stack-usage-reporting.md) Läs mer om vilka rapporteras mer data till Azure.  
 
-Följande bild visar viktiga komponenter i pipeline för användning:
+Följande bild visar viktiga komponenter i pipeline för användning: 
 
-![Användning av pipeline](media/azure-stack-billing-and-chargeback/usagepipeline.png)
+![Användning av pipeline](media\azure-stack-billing-and-chargeback\usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Information om vilka användning kan hitta, och hur?
 
-Azure-stacken resurs-leverantörer, till exempel bearbetning, lagring och nätverk, generera användningsdata i timmen för varje prenumeration. Användningsdata innehåller information om den resurs som används som resursnamn, prenumeration som används, antalet används, osv. Mer information om mätare ID resurser, referera till den [användning API vanliga frågor och svar](azure-stack-usage-related-faq.md) artikel. 
+Azure-stacken resurs-leverantörer, till exempel bearbetning, lagring och nätverk, generera användningsdata i timmen för varje prenumeration. Användningsdata innehåller information om resursen används som resursnamn, prenumeration som används och kvantitet som används. Mer information om mätare ID resurser, referera till den [användning API FAQ](azure-stack-usage-related-faq.md) artikel.
 
 När användningsdata har samlats in, är det [rapporteras till Azure](azure-stack-usage-reporting.md) att generera en faktura som kan granskas via Azure portal för fakturering. 
+
 
 > [!NOTE]
 > Rapportering av användningsdata krävs inte för Azure-stacken Development Kit och Azure-stacken integrerat systemanvändare som har licens under kapacitet modellen. Läs mer om licensiering i Azure-stacken i den [paketering och prissättning](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf) datablad.
 
-Azure-fakturering portalen visar användningsdata bara för de avgiftsbelagda resurserna. Utöver resurserna som avgiftsbelagda Azure Stack samlar in användningsdata för en bredare uppsättning resurser som du kan komma åt i Azure-stacken miljön via REST API: er eller PowerShell. Azure Stack-operatörer kan hämta användningsdata för alla användare prenumerationer medan en användare kan få deras användningsinformation.
+Azure-fakturering portalen visar användningsdata för de avgiftsbelagda resurserna. Utöver resurserna som avgiftsbelagda Azure Stack samlar in användningsdata för en bredare uppsättning resurser som du kan komma åt i Azure-stacken miljön via REST API: er eller PowerShell. Azure Stack-operatörer kan hämta användningsdata för alla användare prenumerationer. Enskilda användare kan bara hämta deras användningsinformation. 
 
-## <a name="retrieve-usage-information"></a>Hämta information om användning
+## <a name="usage-reporting-for-multitenant-cloud-service-providers"></a>Rapport för multitenant molntjänst-Providers
 
-För att generera användningsdata, bör du ha resurser som körs och aktivt med systemet, till exempel, en aktiv virtuell dator eller ett lagringskonto som innehåller vissa data osv. Om du inte vet om du har några resurser som körs i Azure-stacken Marketplace, distribuera en virtuell dator (VM) och kontrollera den virtuella datorn körs övervakning bladet för att se till att den. Använd följande PowerShell-cmdlets om du vill visa användningsdata:
+Multitenant molntjänst-providers (CSP) som har många kunder som använder Azure-stacken kanske vill rapportera användning av varje kund separat, så att leverantören kan debitera användning till olika Azure-prenumerationer. 
 
-1. [Installera PowerShell för Azure-stacken.](azure-stack-powershell-install.md)
-2. [Konfigurera Azure Stack användarens](user/azure-stack-powershell-configure-user.md) eller [Azure Stack operatorn](azure-stack-powershell-configure-admin.md) PowerShell-miljö 
+Varje kund ska ha sin identitet som representeras av en annan klient i Azure Active Directory (AD Azure). Tilldela en CSP-prenumeration till varje Azure AD-klient har stöd för Azure-stacken. Du kan lägga till klienter och deras prenumerationer grundläggande Azure Stack-registreringen. Grundläggande registreringen är klar för alla Azure-stackar. Om en prenumeration har inte registrerats för en klient, kan användaren fortfarande använda Azure-stacken och deras användning ska skickas till prenumerationen används för registreringen av grundläggande. 
 
-3. Använd för att hämta användningsdata i [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell-cmdlet:
-
-   ```powershell
-   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-   ```
 
 ## <a name="next-steps"></a>Nästa steg
+
+[Registrera med Azure-stacken](azure-stack-registration.md)
 
 [Rapportera Azure Stack användningsdata till Azure](azure-stack-usage-reporting.md)
 
@@ -71,4 +69,3 @@ För att generera användningsdata, bör du ha resurser som körs och aktivt med
 [Resursanvändning API-klient](azure-stack-tenant-resource-usage-api.md)
 
 [Användning-relaterade vanliga frågor och svar](azure-stack-usage-related-faq.md)
-

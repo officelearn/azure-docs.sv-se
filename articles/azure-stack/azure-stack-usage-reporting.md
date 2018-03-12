@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera Azure Stack användningsdata till Azure 
 
 Användningsdata, kallas även förbrukningsdata, representerar mängden resurser som används. 
 
-Azure med flera noder Stack-system som använder förbrukning baserat faktureringsmodell som tillämpas bör rapportera användningsdata till Azure för fakturering syfte.  Azure Stack-operatörer bör konfigurera sina Azure Stack-instans rapportera användningsdata till Azure.
+Azure med flera noder Stack-system som använder förbrukningsbaserad fakturering modellen bör rapportera användningsdata till Azure för fakturering ändamål.  Azure Stack-operatörer bör konfigurera sina Azure Stack-instans rapportera användningsdata till Azure.
 
 > [!NOTE]
 > Rapportering av användningsdata krävs för Azure-stacken med flera noder användare licens under lön-som-du-Använd modellen. Det är valfritt för kunder som har licens under kapacitet modellen (finns i [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). För Azure-stacken Development Kit användare Azure Stack-operatörer rapportera användningsdata och testa funktionen. Användare debiteras dock inte för alla de utsätts för användning. 
@@ -108,3 +108,4 @@ Det finns alltid en delaybetween användningsdata som rapporteras av Azure Stack
 * [API för provideranvändning](azure-stack-provider-resource-api.md)  
 * [API för klientanvändning](azure-stack-tenant-resource-usage-api.md)
 * [Vanliga frågor och svar om användning](azure-stack-usage-related-faq.md)
+* [Hantera användningen och fakturering som en Molntjänstleverantör](azure-stack-add-manage-billing-as-a-csp.md)

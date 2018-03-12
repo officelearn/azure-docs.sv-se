@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: b053d515949e71fcb5f1e520f6d3d5375cc27dcb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en Apptjänst-resursprovidern i Azure stapel
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
+> [!IMPORTANT]
+> Uppdateringen är 1802 Azure Stack integrerade systemet eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service.
+>
+>
 
 Som operatör Azure Stack molnet kan ge du användarna möjlighet att skapa webb- och API-program. Om du vill göra detta måste du först lägga till den [Apptjänst resursprovidern](azure-stack-app-service-overview.md) för din Azure Stack-distribution som beskrivs i den här artikeln. När du har installerat resursprovidern Apptjänst kan inkludera du den i dina erbjudanden och planer. Användare kan sedan prenumerera för att få tjänsten och börja skapa program.
 

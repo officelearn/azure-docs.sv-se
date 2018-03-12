@@ -119,6 +119,8 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Distribuera med Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+    - name: Aktivera en Molntjänstleverantör
+      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Referens
   items:
     - name: Azure Stack PowerShell

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Apptjänst Azure stacken: lägga till fler infrastruktur eller worker-roller
 
@@ -44,6 +44,7 @@ Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella 
 ## <a name="add-additional-workers-with-powershell"></a>Lägg till ytterligare arbetare med PowerShell
 
 1. [Konfigurera Azure Stack Admin-miljö i PowerShell](azure-stack-powershell-configure-admin.md)
+
 2. Använd det här exemplet för att skala ut skaluppsättning:
    ```powershell
    
@@ -59,7 +60,7 @@ Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella 
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -68,51 +69,50 @@ Azure Apptjänst Azure stacken distribuerar alla roller med hjälp av virtuella 
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > Det här steget kan ta flera timmar att slutföra beroende på vilken typ av roll och antalet instanser.
+   >
+   >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+3. Övervaka status för de nya rollinstanserna i App Service Administration klickar du på om du vill kontrollera status för en enskild rollinstans rolltypen i listan.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Lägg till ytterligare arbetare direkt i App Service-administratören Resource Provider.
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Logga in på Azure Stack-administrationsportalen som tjänstadministratör.
 
-2. Browse to **App Services**.
+2. Bläddra till **Apptjänster**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
+3. Klicka på **roller**. Här kan du se uppdelning av alla roller för App Service som distribueras.
 
-4. Right click on the row of the type you want to scale and then click **ScaleSet**.
+4. Högerklicka på raden i vilken du vill skala och klicka sedan på **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
+5. Klicka på **skalning**, Välj antalet instanser som du vill skala till och klicka sedan på **spara**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
+6. Apptjänst Azure stacken ska nu lägga till ytterligare virtuella datorer, konfigurera dem, installera nödvändig programvara och markeras som redo när processen har slutförts. Den här processen kan ta ungefär 80 minuter.
 
-7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
+7. Du kan övervaka förloppet för av nya roller genom att visa arbetare i den **roller** bladet.
 
-## Result
+## <a name="result"></a>Resultat
 
-After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+Arbetare blir tillgängliga för användare att distribuera arbetsbelastningen till dem när de är helt distribuerade och redo. Nedan visas ett exempel på tillgängliga flera prisnivåer som standard. Om det finns inga tillgängliga arbetare för en viss worker-nivå, är möjlighet att välja motsvarande prisnivån inte tillgänglig.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+> Om du vill skala ut Management lägga klientdelen eller utgivare roller till utskalningsdistribution motsvarande rolltyp av. 
 >
 >
 
-To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
+Om du vill skala ut Management, klientdelen eller utgivare roller följer du samma steg att välja rätt roll. Domänkontrollanter distribueras inte som Skaluppsättningar och därför två bör distribueras vid installationen för alla Produktionsdistribution.
 
-### Next steps
+### <a name="next-steps"></a>Nästa steg
 
-[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+[Konfigurera distributionskällor](azure-stack-app-service-configure-deployment-sources.md)

@@ -264,14 +264,24 @@
           items:
             - name: Översikt
               href: azure-stack-billing-and-chargeback.md
-            - name: Rapportering av användningsdata
-              href: azure-stack-usage-reporting.md
-            - name: API för provideranvändning
-              href: azure-stack-provider-resource-api.md
-            - name: API för klientanvändning
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Vanliga frågor och svar om användning
-              href: azure-stack-usage-related-faq.md
+            - name: Hantera användningen och fakturering som en Kryptografiprovider
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Lägg till klienter för användning och fakturering
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Hantera klient-registrering
+              href: azure-stack-csp-ref-operations.md
+            - name: Användnings- och fakturering referens
+              items:
+                - name: Rapportering av användningsdata
+                  href: azure-stack-usage-reporting.md
+                - name: Användning rapporteringssystem för molntjänst-Providers
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API för provideranvändning
+                  href: azure-stack-provider-resource-api.md
+                - name: API för klientanvändning
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Vanliga frågor och svar om användning
+                  href: azure-stack-usage-related-faq.md
         - name: Anslut till Azure
           items:
             - name: Ansluta med hjälp av VPN

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Hitta rutter för olika färdmedel med hjälp av Azure Location Based Services
 
@@ -209,9 +209,10 @@ Det här avsnittet visar hur du använder API:et Route Service i Azure Location 
     ```
     Det här kodfragmentet skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägger till en händelsehanterare för att analysera det inkommande svaret. För ett lyckat svar skapas en matris med koordinater för den återgivna rutten och den läggs till i kartlagret `truckRouteLayerName`. 
     
-    Det här kodstycket skickar också frågan till Route Service för att hämta rutten för angiven start- och slutpunkt, för din kontonyckel. Följande valfria parametrar används för att ange rutten för en tung lastbil: – Parametern `travelMode=truck` anger färdmedlet som *truck* (lastbil). Andra färdmedel som stöds är *taxi*, *bus*, *van*, *motorcycle* och standardvärdet *car* (bil).
-        – Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` anger fordonets dimensioner i meter och beaktas endast om färdmedlet är *truck* (lastbil).
-        – `vehicleLoadType` klassificerar lasten som farlig och begränsad på vissa vägar. Detta beaktas för närvarande endast för läget *truck* (lastbil).
+    Det här kodstycket skickar också frågan till Route Service för att hämta rutten för angiven start- och slutpunkt, för din kontonyckel. Följande valfria parametrar används för att ange rutten för en tung lastbil:
+   - Parametern `travelMode=truck` anger resläget som *truck* (lastbil). Andra färdmedel som stöds är *taxi*, *bus*, *van*, *motorcycle* och standardvärdet *car* (bil).
+   - Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` anger fordonets dimensioner i meter och beaktas endast om färdmedlet är *truck* (lastbil).
+   - `vehicleLoadType` klassificerar lasten som farlig och begränsad på vissa vägar. Detta beaktas för närvarande endast för läget *truck* (lastbil).
 
 2. Lägg till följande JavaScript-kod för att hämta rutten för en bil med hjälp av Route Service:
 

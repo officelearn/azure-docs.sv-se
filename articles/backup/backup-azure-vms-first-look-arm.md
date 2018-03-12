@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 
@@ -50,9 +50,9 @@ Beroende på hur många virtuella datorer du vill skydda kan du börja från oli
 Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet för hantering av virtuella datorer i Azure Portal. Stegen som följer gäller enbart virtuella datorer i Azure-portalen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **Fler tjänster** på navmenyn och skriv **Virtuella datorer** i dialogrutan Filter. När du skriver filtreras listan med resurser. När du ser Virtuella datorer väljer du det alternativet.
+2. Klicka på **Alla tjänster** på navmenyn och skriv **Virtuella datorer** i dialogrutan Filter. När du skriver filtreras listan med resurser. När du ser Virtuella datorer väljer du det alternativet.
 
-  ![Öppna textdialogrutan genom att klicka på Fler tjänster på navmenyn och skriv Virtuella datorer](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Skärmbild som visar hur du navigerar till virtuella datorer från Alla tjänster](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   Listan över virtuella datorer (VM) i prenumerationen visas.
 
@@ -77,7 +77,7 @@ Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet f�
 
   ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  Om det inte finns några Recovery Services-valv, eller om du vill använda ett nytt valv, klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och på samma plats som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med andra värden läser du avsnittet om hur du [skapar ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  Om det inte finns några Recovery Services-valv, eller om du vill använda ett nytt valv, klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och i samma region som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med andra värden läser du avsnittet om hur du [skapar ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
 6. Om du vill visa mer information om säkerhetskopieringspolicyn klickar du på **Säkerhetskopieringspolicy**.
 
@@ -124,14 +124,14 @@ Med de här stegen kan du konfigurera säkerhetskopieringsjobbet.
 Ett Recovery Services-valv är en entitet som lagrar alla säkerhetskopior och återställningspunkter som har skapats med tiden. Recovery Services-valvet innehåller också säkerhetskopieringspolicyn som tillämpas på de skyddade virtuella datorerna.
 
 > [!NOTE]
-> Säkerhetskopieringen av virtuella datorer är en lokal process. Du kan inte säkerhetskopiera virtuella datorer från en plats till ett Recovery Services-valv på en annan plats. För varje Azure-plats som har virtuella datorer som ska säkerhetskopieras måste det finnas minst ett Recovery Services-valv på platsen.
+> Säkerhetskopieringen av virtuella datorer är en lokal process. Du kan inte säkerhetskopiera virtuella datorer från en region till ett Recovery Services-valv i en annan region. För varje Azure-region som har virtuella datorer som ska säkerhetskopieras måste det finnas minst ett Recovery Services-valv i regionen.
 >
 >
 
 Så här skapar du ett Recovery Services-valv:
 
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration.
-2. På navmenyn **Fler tjänster** och i dialogrutan Filter skriver du **Recovery Services**. När du skriver filtreras listan med resurser. När du ser Recovery Services-valvet i listan klickar du på det.
+2. På navmenyn **Alla tjänster** och i dialogrutan Filter skriver du **Recovery Services**. När du skriver filtreras listan med resurser. När du ser Recovery Services-valvet i listan klickar du på det.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -161,7 +161,7 @@ Så här skapar du ett Recovery Services-valv:
 7. Klicka på **Plats** för att välja en geografisk region för valvet. Det här alternativet anger den geografiska region som dina säkerhetskopierade data skickas till.
 
   > [!IMPORTANT]
-  > Om du är osäker på var din virtuella dator finns stänger du dialogrutan för valvgenerering och går till listan med virtuella datorer på portalen. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du fortsätter till nästa plats. Du behöver inte ange vilka lagringskonton som används för säkerhetskopierade data. Recovery Services-valvet och tjänsten Azure Backup hanterar lagringen automatiskt.
+  > Om du är osäker på var din virtuella dator finns stänger du dialogrutan för valvgenerering och går till listan med virtuella datorer på portalen. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. Skapa valvet i den första regionen innan du fortsätter till nästa region. Du behöver inte ange vilka lagringskonton som används för säkerhetskopierade data. Recovery Services-valvet och tjänsten Azure Backup hanterar lagringen automatiskt.
   >
 
 8. Längst ned på bladet för Recovery Services-valvet klickar du på **Skapa**.
@@ -202,7 +202,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Välj ett säkerhetskopieringsmål, ange en princip och definiera objekt som ska skyddas
 Innan du registrerar en virtuell dator med ett valv kör du identifieringsprocessen för att säkerställa att nya virtuella datorer som har lagts till i prenumerationen identifieras. Under processen uppmanas Azure att returnera listan med virtuella datorer i prenumerationen, tillsammans med ytterligare information som molntjänstens namn och regionen. På Azure-portalen refererar scenariot till vad du ska lägga till i Recovery Services-valvet. Principen är schemat för hur ofta återställningspunkter skapas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna.
 
-1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Annars klickar du på **Fler tjänster** på navmenyn och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
+1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Klicka annars på **Alla tjänster**. Skriv **Recovery Services** och klicka på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -239,7 +239,7 @@ Innan du registrerar en virtuell dator med ett valv kör du identifieringsproces
 
     ![Välja arbetsbelastning](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Den valda virtuella datorn verifieras. Om du inte ser de virtuella datorer som du förväntar dig kontrollerar du att de finns på samma Azure-plats som Recovery Services-valvet. Platsen för Recovery Services-valvet visas på instrumentpanelen för valvet.
+    Den valda virtuella datorn verifieras. Om du inte ser de virtuella datorer som du förväntar dig, kontrollerar du att de finns på samma Azure-plats som Recovery Services-valvet samt att de inte redan är skyddade. Platsen för Recovery Services-valvet visas på instrumentpanelen för valvet.
 
 6. Nu när du har definierat alla inställningar för valvet klickar du på **Aktivera säkerhetskopiering** på bladet Säkerhetskopiering så att principen distribueras till valvet och de virtuella datorerna. När du distribuerar säkerhetskopieringspolicyn skapas inte den första återställningspunkten för den virtuella datorn.
 

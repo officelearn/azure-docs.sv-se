@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Namnet på databasen | Unikt ID för Azure Cosmos DB-databasen  |
     | **API** | SQL (DocumentDB) | Här används dokumentdatabasens API.  |
-    | **Prenumeration** | Azure-prenumeration | Azure-prenumeration  |
+    | **Prenumeration** | Azure-prenumeration | Prenumerationen som det nya Cosmos DB-kontot skapas under.  |
     | **Resursgrupp** | myResourceGroup |  Använd den befintliga resursgruppen som innehåller din funktionsapp. |
     | **Plats**  | Västeuropa | Välj en plats nära funktionsappen eller nära andra appar som använder de lagrade dokumenten.  |
 

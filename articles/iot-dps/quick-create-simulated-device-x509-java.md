@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
         1. Ange **Y** för _Do you want to input Verification Code_ (Vill du ange verifieringskod) och ha programutdata öppna för senare referens i snabbstarten. Notera värdena för _Client Cert_ (Klientcertifikat), _Client Cert Private Key_ (Privat nyckel för klientcertifikat), _Signer Cert_ (Undertecknarcertifikat) och _Root Cert_ (Rotcertifikat).
 
+        > [!NOTE]
+        > `Root Cert` ovan är endast tillämpligt för certifikat som har skapats i konsolens utdata och kan inte användas för att logga in ytterligare klientcertifikat. Om du kräver en mer robust uppsättning med testcertifikat kan du läsa [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Hantera CA-certifikatexempel).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering
 
@@ -189,7 +192,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Inkludera certifikatet med hjälp av följande format:

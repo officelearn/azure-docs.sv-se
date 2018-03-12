@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Distribuera en behållare till Azure Container Instances
 
@@ -28,7 +28,7 @@ I den här kursen har du:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För den här självstudien krävs att du kör Azure CLI version 2.0.23 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
+I den här självstudien krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
 
 För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö installerad lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 
@@ -50,7 +50,7 @@ Lösenord för behållarregister:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Kör följande kommando för att distribuera behållaravbildningen från behållarregistret med en resursbegäran om 1 processorkärna och 1 GB minne. Ersätt `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från de tidigare två kommandona. Ersätt `<acrName>` med namnet på ditt behållarregister.
+Programmet måste ha [förberetts i förväg][prepare-app]. Kör följande [az container create][az-container-create]-kommando för att distribuera behållaravbildningen från behållarregistret med en resursbegäran om 1 processorkärna och 1 GB minne. Ersätt `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från de tidigare två kommandona. Ersätt `<acrName>` med namnet på behållarregistret. Du kan även ersätta `aci-tutorial-app` med namnet du vill ge det nya programmet.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -123,6 +123,7 @@ I självstudien slutförde du processen att distribuera dina behållare till Azu
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -30,11 +30,25 @@ Följande versioner av Azure File Sync stöds:
 
 | Agentversionsnummer | Utgivningsdatum | Stöds till och med |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | Aktuell version |
 | 2.0.11.0 | 2018-02-08 | Aktuell version |
 | 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>Agentversion 2.1.0.0
+Följande information gäller agentversion 2.1.0 som gavs ut den 28 februari 2018. Dessa är additiva för informationen nedan för version 2.0.11.0
+
+De unika ändringarna i den här månadsuppdateringen är:
+- Förbättring av hantering av klusterredundans.
+- Förbättring av hantering av nivåindelade filer så att de blir mer tillförlitliga.
+- Tillåtelse för agentinstallation på domänkontrollantdatorer tillagt till en 2008R2-domänmiljö.
+- Åtgärdad för hög diagnostikgenerering på servrar med många filer.
+- Förbättring av felbehandling för sessionsfel.
+- Förbättring av felbehandling för filöverföringsfel.
+- Ändrat standardintervall för att köra lagringsnivåer för moln när det är aktiverat på en serverslutpunkt under en timme. 
+- Tillfällig blockering för flytt av File Sync-resurser (tjänst för synkronisering av lagring) till en ny Azure-prenumeration
 
 ## <a name="agent-version-20110"></a>Agentversion 2.0.11.0
 Följande information gäller agentversion 2.0.11.0 som gavs ut den 9 februari 2018. 

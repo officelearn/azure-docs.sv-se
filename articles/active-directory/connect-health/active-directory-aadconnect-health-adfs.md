@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -86,7 +86,7 @@ Ett av de vanligaste skälen till en misslyckad autentiseringsbegäran på en AD
 
 Men det finns andra skäl till ett oväntat antal begäranden som hanteras av AD FS-servrar, exempelvis: ett program som lagrar användarens autentiseringsuppgifter i cacheminnet och autentiseringsuppgifterna upphör att gälla eller en obehörig användare som försöker logga in på ett konto med ett antal välkända lösenord. Dessa två exempel är giltiga skäl som kan leda till en ökning i begäranden.
 
-Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Rapporten skapas genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna
+Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Rapporten skapas genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna.
 
 ![Azure AD Connect Health-portalen](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ I den här rapporten kan du enkelt få tillgång till följande typer av informa
 * Totalt antal misslyckade begäranden med fel användarnamn/lösenord de senaste 30 dagarna
 * Genomsnittligt antal användare som misslyckades med inloggningen på grund av ett felaktigt användarnamn/lösenord varje dag.
 
-Om du klickar på den här delen kommer du till huvudbladet för rapporter som innehåller ytterligare information. Det här bladet innehåller ett diagram med trendinformation för att skapa en baslinje om begäranden med felaktigt användarnamn eller lösenord. Dessutom skapar den en lista med över upp 50 användare med antalet misslyckade försök.
+Om du klickar på den här delen kommer du till huvudbladet för rapporter som innehåller ytterligare information. Det här bladet innehåller ett diagram med trendinformation för att skapa en baslinje om begäranden med felaktigt användarnamn eller lösenord. Dessutom skapar den en lista med över upp 50 användare med antalet misslyckade försök under den gångna veckan.
 
 Diagrammet innehåller följande information:
 
@@ -115,7 +115,7 @@ Rapporten innehåller följande information:
 | IP-adress för senaste fel |Visar klient-IP-adress från senaste felaktiga begäran. |
 
 > [!NOTE]
-> Den här rapporten uppdateras automatiskt varannan timme med den nya informationen som samlats in inom den tidsperioden. Därför finns inloggningsförsök under de senaste två timmarna eventuellt inte med i rapporten.
+> Den här rapporten uppdateras automatiskt var tolfte timme med den nya informationen som samlats in inom den tidsperioden. Därför finns inloggningsförsök under de senaste två timmarna eventuellt inte med i rapporten.
 >
 >
 

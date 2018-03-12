@@ -15,6 +15,8 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en datab
     Lagringskapacitet| Fast (10 GB)|Ändra värdet till **Fast (10 GB)**. Det här värdet är databasens lagringskapacitet.
     Dataflöde|400 RU|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Lagringskapaciteten måste anges till **Fast (10 GB)** för att kunna ställa in dataflöde på 400 RU/s. Du kan skala upp dataflödet senare om du vill minska svarstiden. 
     
+    Utöver föregående inställningar kan du lägga till **unika nycklar** för samlingen om du vill. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. När du skapar en unik nyckelprincip medan du skapar en samling garanterar du unikheten för ett eller flera värden per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    
     Klicka på **OK**.
 
     Datautforskaren visar den nya databasen och samlingen.

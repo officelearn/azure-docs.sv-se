@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -171,13 +171,9 @@ Information om priser för beräkningsnoder med låg prioritet och dedikerade be
 
 ### <a name="size-of-the-compute-nodes"></a>Beräkningsnodernas storlek
 
-Information om storleken på beräkningsnoder med **Cloud Services-konfiguration** finns i [Storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch stöder alla Cloud Services-storlekar utom `ExtraSmall`, `STANDARD_A1_V2` och `STANDARD_A2_V2`.
+När du skapar en Azure Batch-pool kan du välja bland nästan alla VM-familjer och storlekar i Azure. Azure erbjuder ett utbud av VM-storlekar för olika arbetsbelastningar, som särskilda [HPC](../virtual-machines/linux/sizes-hpc.md)- eller [GPU-aktiverade](../virtual-machines/linux/sizes-gpu.md) VM-storlekar. 
 
-Information om storleken på beräkningsnoder med **VM-konfiguration** finns i [Storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md) (Linux) och [Storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md) (Windows). Batch har stöd för alla storlekar för virtuella datorer i Azure utom `STANDARD_A0` och de med Premium Storage (`STANDARD_GS`, `STANDARD_DS`- och `STANDARD_DSV2`-serien).
-
-När datorns nodstorlek beräknas bör egenskaperna och kraven hos programmen som ska köras på noderna betraktas. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. Du väljer normalt en nodstorlek under antagandet att en aktivitet i taget ska köras på noden. Du kan dock välja att flera aktiviteter, och därmed flera programinstanser, ska kunna [köras parallellt](batch-parallel-node-tasks.md) på datornoder i samband med utförandet av åtgärder. I det här fallet är det vanligt att välja en större nod för att hantera det utökade behovet av att köra åtgärder parallellt. Se [Schemaläggningsprincip](#task-scheduling-policy) för mer information.
-
-Alla noderna i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
+Mer information finns i [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Välja VM-storlek för beräkningsnoder i Azure Batch-poolen).
 
 ### <a name="scaling-policy"></a>Skalningsprincip
 

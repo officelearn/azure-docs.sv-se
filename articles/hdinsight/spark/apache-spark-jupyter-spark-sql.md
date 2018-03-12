@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Skapa ett Apache Spark-kluster i Azure HDInsight
 
@@ -47,8 +47,8 @@ Skapa ett Spark-kluster i HDInsight med en [Azure Resource Manager-mall](../hdin
     * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt.
     * **Plats**: Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen.
     * **Klusternamn**: Ange ett namn på det HDInsight-kluster som du vill skapa.
-    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
-    * **SSH-användarnamn och lösenord**.
+    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”. Välj ett lösenord för klusterinloggning.
+    * **SSH-användarnamn och lösenord**. Välj ett lösenord för SSH-användaren.
 
 3. Välj **Jag godkänner villkoren som anges ovan**, välj **Fäst på instrumentpanelen** och klicka sedan på **Köp**. En ny panel visas med rubriken **Skicka malldistribution**. Det tar cirka 20 minuter att skapa klustret.
 
@@ -103,16 +103,17 @@ Ett exempel på läsning av data från en csv-fil i stället för en Hive-tabell
 
     ![Hive-fråga i HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive-fråga i HDInsight Spark")
 
-2. När kerneln är klar klistrar du in följande kod i en tom cell och trycker sedan på **SKIFT+RETUR** för att köra koden. Resultatet bör innehålla en `hivesampletable` som är tillgänglig på klustret som standard.
+2. När kerneln är klar klistrar du in följande kod i en tom cell och trycker sedan på **SKIFT+RETUR** för att köra koden. Kommandot listar Hive-tabellerna i klustret:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    När du använder en Jupyter-anteckningsbok med ditt HDInsight Spark-kluster får du en förinställd `sqlContext` som du kan använda för att köra Hive-frågor med hjälp av Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda `sqlContext` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Det tar ungefär 30 sekunder att få resultatet. De utdata som returneras ser ut så här: 
 
     ![Hive-fråga i HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive-fråga i HDInsight Spark")
 
-    När du använder en Jupyter-anteckningsbok med ditt HDInsight Spark-kluster får du en förinställd `sqlContext` som du kan använda för att köra Hive-frågor med hjälp av Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda `sqlContext` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Mer information om `%%sql` och förinställda kontexter finns i [Jupyter-kernlar som är tillgängliga för ett HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md).
+    Mer information om `%%sql` och förinställda kontexter finns i [Jupyter-kernlar som är tillgängliga för ett HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md).
 
     Varje gång du kör en fråga i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet.
     

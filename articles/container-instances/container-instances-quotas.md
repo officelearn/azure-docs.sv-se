@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/11/2018
+ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: baf93d4a2a4ba1e05bbf558d0c056fa3aa833fef
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -28,10 +28,14 @@ Azure Container Instances är tillgängligt i följande regioner med angivna pro
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
-| Europa, västra; USA, västra; USA, östra; Asien, sydöstra | Linux | 4 | 14 |
-| Europa, västra; USA, västra; USA, östra; Asien, sydöstra  | Windows | 4 | 14 |
+| Europa, västra; USA, västra; USA, östra | Linux | 4 | 14 |
+| Sydostasien  | Linux | 1 | 1.5 |
+| Europa, västra; USA, västra; USA, östra | Windows | 4 | 14 |
+| Sydostasien  | Windows | 2 | 3.5 |
 
 Behållarinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
+
+Informera teamet om ytterligare regioner som krävs eller ökade begränsningar för CPU/minne på [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Mer information om att felsöka distribution av behållarinstanser finns i [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md) (Felsöka distributionsproblem med Azure Container Instances).
 

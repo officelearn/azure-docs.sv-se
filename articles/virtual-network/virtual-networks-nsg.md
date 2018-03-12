@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
 
@@ -66,7 +66,7 @@ Föregående bild visar hur NSG-regler bearbetas.
 Standardtaggar är systemdefinierade identifierare för en viss kategori av IP-adresser. Du kan använda standardtaggar i egenskaperna för **källadress-prefix** och **måladress-prefix** för alla regler. Det finns tre standardtaggar som du kan använda:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (CIDR-intervall definierade i Azure), alla anslutna lokala adressutrymmen och anslutna virtuella Azure-nätverk (lokala nätverk).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en IP-adress för Azure-datacentret som Azures hälsoavsökning kommer från.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en IP-adress för Azure-datacentret som Azure Load Balancers hälsoavsökning kommer från.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Standardregler
@@ -75,7 +75,7 @@ Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bo
 Standardreglerna tillåter och nekar trafik på följande sätt:
 - **Virtuellt nätverk:** Trafik som kommer från eller som går till ett virtuellt nätverk tillåts både i inkommande och utgående riktning.
 - **Internet:** Utgående trafik tillåts, men inkommande trafik blockeras.
-- **Belastningsutjämnare:** Tillåt att Azures belastningsutjämnare avsöker hälsotillståndet för dina virtuella datorer och rollinstanser. Du kan åsidosätta den här regeln om du inte använder en belastningsutjämnad uppsättning.
+- **Belastningsutjämnare:** Tillåter att Azures belastningsutjämnare avsöker hälsotillståndet för dina virtuella datorer och rollinstanser. Om du åsidosätter den här regeln misslyckas Azure Load Balancers hälsoavsökningar, vilket kan påverka tjänsten.
 
 **Inkommande standardregler**
 
@@ -132,7 +132,7 @@ Du kan implementera nätverkssäkerhetsgrupper i Resource Manager-distributionsm
 ## <a name="planning"></a>Planering
 Innan du implementerar nätverkssäkerhetsgrupper måste du besvara följande frågor:
 
-1. Vilka typer av resurser vill du filtrera trafik till och från? Du kan ansluta resurser, t.ex nätverkskort (Resource Manager), virtuella datorer (klassisk), molntjänster, programtjänstmiljöer och skalningsuppsättningar för virtuella datorer. 
+1. Vilka typer av resurser vill du filtrera trafik till och från? Du kan ansluta resurser, t.ex nätverkskort (Resource Manager), virtuella datorer (klassisk), molntjänster, programtjänstmiljöer och VM Scale Sets. 
 2. Är de resurser som du vill filtrera trafik till/från anslutna till undernät i befintliga virtuella nätverk?
 
 Mer information om hur du planerar nätverkssäkerheten i Azure finns i artikeln om [molntjänster och nätverkssäkerhet](../best-practices-network-security.md). 
@@ -163,7 +163,8 @@ De nuvarande NSG-reglerna tillåter bara protokollen *TCP* eller *UDP*. Det finn
 ### <a name="load-balancers"></a>Belastningsutjämnare
 * Ha i åtanke belastningsutjämnings- och NAT-reglerna (Network Address Translation) för varje belastningsutjämnare som används av var och en av dina arbetsbelastningar. NAT-regler är bundna till en backend-pool som innehåller nätverkskort (Resource Manager) eller rollinstanser för virtuella datorer/molntjänster (klassisk). Överväg att skapa en nätverkssäkerhetsgrupp för varje serverdelspool så att endast trafik som mappas genom regeln implementeras i belastningsutjämnarna. Genom att skapa en nätverkssäkerhetsgrupp för varje serverdelspool ser du till att trafik som kommer direkt till serverdelspoolen (i stället för via belastningsutjämnaren) filtreras.
 * I klassiska distributioner skapar du slutpunkter som mappar portar på en belastningsutjämnare till portar på dina VM:ar eller rollinstanser. Du kan också skapa din egen separata offentliga belastningsutjämnare via Resource Manager. Målporten för inkommande trafik är själva porten på den virtuella datorn eller rollinstansen, inte porten som exponeras av en belastningsutjämnare. Källporten och adressen för anslutningen till den virtuella datorn är en port och en adress på fjärrdatorn på Internet, inte porten och adressen som exponeras av belastningsutjämnaren.
-* När du skapar nätverkssäkerhetsgrupper för att filtrera trafik via en intern belastningsutjämnare (ILB) kommer källporten och källadressintervallet som tillämpas från den ursprungliga datorn, inte belastningsutjämnaren. Målporten och måladressutrymmet kommer från måldatorn, inte belastningsutjämnaren.
+* När du skapar nätverkssäkerhetsgrupper för att filtrera trafik via en Azure Load Balancer kommer källporten och källadressintervallet som tillämpas från den ursprungliga datorn, inte belastningsutjämnarens klientdel. Målporten och måladressutrymmet kommer från måldatorn, inte belastningsutjämnarens klientdel.
+* Om du blockerar taggen AzureLoadBalancer misslyckas Azure Load Balancers hälsoavsökningar, vilket kan påverka tjänsten.
 
 ### <a name="other"></a>Annat
 * Slutpunktsbaserade åtkomstkontrollistor (ACL) och nätverkssäkerhetsgrupper stöds inte på samma VM-instans. Om du vill använda en NSG och redan har en slutpunkts-ACL på plats så kan du först ta bort slutpunkts-ACL:n. Information om hur du tar bort en slutpunkts-ACL finns i artikeln [Manage endpoint ACLs](virtual-networks-acl-powershell.md) (Hantera slutpunkts-ACL:er).
@@ -193,7 +194,7 @@ Krav 1–6 (utom krav 3 och 4) är alla begränsade till undernätsutrymmen. Fö
 ### <a name="frontend"></a>FrontEnd
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | Tillåt | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | Tillåt | 200 | Internet | * | * | 3389 | TCP |
@@ -201,20 +202,20 @@ Krav 1–6 (utom krav 3 och 4) är alla begränsade till undernätsutrymmen. Fö
 
 **Regler för utgående trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All |Neka |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All | Neka | 100 | Internet | * | * | * | * |
 
 **Regler för utgående trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All | Neka | 100 | * | * | Internet | * | * |
 
@@ -223,20 +224,20 @@ Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på
 ### <a name="web1"></a>WEB1
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Internet | Tillåt | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | Tillåt | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Källadressintervallet för föregående regler är **Internet**, inte den virtuella IP-adressen för belastningsutjämnaren. Källporten är *, inte 500001. NAT-regler för belastningsutjämnare är inte samma som NSG-säkerhetsregler. NSG-säkerhetsreglerna är alltid relaterade till den ursprungliga källan och slutdestinationen för trafiken, **inte** belastningsutjämnaren mellan de två. 
+> Källadressintervallet för föregående regler är **Internet**, inte den virtuella IP-adressen för belastningsutjämnaren. Källporten är *, inte 500001. NAT-regler för belastningsutjämnare är inte samma som NSG-säkerhetsregler. NSG-säkerhetsreglerna är alltid relaterade till den ursprungliga källan och slutdestinationen för trafiken, **inte** belastningsutjämnaren mellan de två. Azure Load Balancer bevarar alltid källans IP-adress och port.
 > 
 > 
 
 ### <a name="web2"></a>WEB2
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Inbound-RDP-Internet | Neka | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | Tillåt | 200 | Internet | * | * | 80 | TCP |
@@ -244,14 +245,14 @@ Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på
 ### <a name="db-servers-management-nic"></a>DB-servrar (nätverkskort för hantering)
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Front-end | Tillåt | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
 ### <a name="db-servers-database-traffic-nic"></a>DB-servrar (nätverkskort för databastrafik)
 **Regler för inkommande trafik**
 
-| Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
+| Regel | Access | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-SQL-Front-end | Tillåt | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
 

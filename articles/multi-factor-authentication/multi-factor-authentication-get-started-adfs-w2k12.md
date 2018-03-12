@@ -15,18 +15,20 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60e6737533e946512ae9b8e1e251e7bd6c9d0fe5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac5067056a49eb18c80c6078960af9189984391a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
+
 Om du använder Active Directory Federation Services (AD FS) och vill skydda molnresurser eller lokala resurser kan du konfigurera Azure Multi-Factor Authentication Server att fungera med AD FS. Den här konfigurationen utlöser tvåstegsverifiering för slutpunkter med högt värde.
 
 I den här artikeln diskuterar vi hur du använder Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2 eller Windows Server 2016. Mer information finns i [Skydda molnresurser och lokala resurser med hjälp av Azure Multi-Factor Authentication Server med AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Skydda Windows Server AD FS med Azure Multi-Factor Authentication Server
+
 När du installerar Azure Multi-Factor Authentication Server kan du välja mellan följande alternativ:
 
 * Installera Azure Multi-Factor Authentication Server lokalt på samma server som AD FS.
@@ -41,6 +43,7 @@ Innan du börjar bör du vara medveten om följande:
 * Information om hur du installerar webbtjänst-SDK med användarportalen finns i [Distribuera användarportalen för Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Installera Azure Multi-Factor Authentication Server lokalt på AD FS-servern
+
 1. Hämta och installera Azure Multi-Factor Authentication Server på AD FS-servern. Mer information om installationen finns i [Komma igång med Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md).
 2. Klicka på **AD FS**-ikonen i Azure Multi-Factor Authentication Server-hanteringskonsolen. Markera alternativen **Tillåt användarregistrering** och **Tillåt användare att välja metod**.
 3. Välj ytterligare alternativ som du vill ange för din organisation.
@@ -65,6 +68,7 @@ Innan du börjar bör du vara medveten om följande:
 Nu är Multi-Factor Authentication-servern konfigurerad som ytterligare en autentiseringsprovider för användning med AD FS.
 
 ## <a name="install-a-standalone-instance-of-the-ad-fs-adapter-by-using-the-web-service-sdk"></a>Installera en fristående instans av AD FS-adaptern med webbtjänst-SDK
+
 1. Installera webbtjänst-SDK på servern som kör Multi-Factor Authentication Server.
 2. Kopiera följande filer från katalogen \Program\Multi-Factor Authentication Server till den server där du planerar att installera AD FS-adaptern:
    * MultiFactorAuthenticationAdfsAdapterSetup64.msi
@@ -83,12 +87,14 @@ Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att följa steg
 3. Redigera skriptet Register-MultiFactorAuthenticationAdfsAdapter.ps1 genom att lägga till `-ConfigurationFilePath &lt;path&gt;` i slutet av kommandot `Register-AdfsAuthenticationProvider`, där *&lt;sökvägen&gt;* är den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurera webbtjänst-SDK med ett användarnamn och lösenord
+
 Det finns två alternativ för att konfigurera webbtjänst-SDK. Det första alternativet är att använda ett användarnamn och lösenord, det andra är att använda ett klientcertifikat. Följ dessa steg för det första alternativet eller hoppa framåt till det andra.  
 
 1. Ange värdet för **WebServiceSdkUsername** till ett konto som är medlem i säkerhetsgruppen PhoneFactor Admins. Använd formatet &lt;domän&gt;&#92;&lt;användarnamn&gt;.  
 2. Ange värdet för **WebServiceSdkPassword** till lämpligt kontolösenord.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Konfigurera webbtjänst-SDK med ett klientcertifikat
+
 Följ dessa steg om du vill konfigurera webbtjänst-SDK med ett klientcertifikat om du inte vill använda ett användarnamn och lösenord.
 
 1. Skaffa ett klientcertifikat från en certifikatutfärdare för servern som kör webbtjänst-SDK. Lär dig hur du [skaffar klientcertifikat](https://technet.microsoft.com/library/cc770328.aspx).  
@@ -120,6 +126,7 @@ Följ dessa steg om du vill konfigurera webbtjänst-SDK med ett klientcertifikat
 Registrera adaptern genom att köra skriptet \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 i PowerShell. Adaptern registreras som WindowsAzureMultiFactorAuthentication. Starta om AD FS-tjänsten för att registreringen ska börja gälla.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Skydda Azure AD-resurser med hjälp av AD FS
+
 Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
 
 1. Öppna AD FS-hantering.
@@ -142,5 +149,17 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
     ![Guiden Lägg till anspråksregel för transformering](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
 9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
 
+## <a name="troubleshooting-logs"></a>Felsökningsloggar
+
+För att du ska få hjälp med felsökningsproblem med MFA-serverns AD FS-adapter följer du stegen nedan för att aktivera ytterligare loggning.
+
+1. I MFA-serverns gränssnitt öppnar du AD FS-avsnittet och markerar kryssrutan **Aktivera loggning**.
+2. På varje AD FS-server använder du **regedit.exe** för att skapa en registernyckel för strängvärdet `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath` med värdet `C:\Program Files\Multi-Factor Authentication Server\` (eller någon annan katalog som du väljer).  **Tänk på att ett avslutande snedstreck är viktigt.**
+3. Skapa `C:\Program Files\Multi-Factor Authentication Server\Logs`-katalog (eller någon annan katalog som anges i **Steg 2**).
+4. Bevilja ändringsåtkomst till Logs-katalogen till AD FS-tjänstkontot.
+5. Starta om AD FS-tjänsten.
+6. Kontrollera att `MultiFactorAuthAdfsAdapter.log`-filen skapades i Logs-katalogen.
+
 ## <a name="related-topics"></a>Relaterade ämnen
+
 Hjälp med felsökning finns i [Azure Multi-Factor Authentication FAQs (Vanliga frågor och svar om Azure Multi-Factor Authentication)](multi-factor-authentication-faq.md)

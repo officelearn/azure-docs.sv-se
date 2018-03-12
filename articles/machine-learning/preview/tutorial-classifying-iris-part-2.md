@@ -1,26 +1,26 @@
 ---
-title: "Skapa en modell för Azure Machine Learning (förhandsversion) | Microsoft Docs"
-description: "I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversion) från slutpunkt till slutpunkt. Det här är del två som beskriver experimentering."
+title: "Skapa en modellsjälvstudie för Azure Machine Learning (förhandsversion) | Microsoft Docs"
+description: "I den här kompletta självstudien får du lära dig att använda Azure Machine Learning (förhandsversionen) från slutpunkt till slutpunkt. Det här är del två som beskriver experimentering."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Klassificera Iris del 2: Skapa en modell
-Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Självstudie: Klassificera Iris del 2 – Skapa en modell
+Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
-Den här självstudien är del två i en serie med tre delar. I den här delen av självstudien använder du Azure Machine Learning (förhandsversion) för att:
+Den här självstudien är **del två i en serie med tre delar**. I den här delen av självstudien använder du Azure Machine Learning (förhandsversion) för att:
 
 > [!div class="checklist"]
 > * Använda Azure Machine Learning Workbench.
@@ -33,6 +33,8 @@ Den här självstudien är del två i en serie med tre delar. I den här delen a
 > * Köra skript i en Azure HDInsight-molnmiljö.
 
 Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Slutför del ett i den här självstudieserien. Gå igenom [självstudien Förbered data](tutorial-classifying-iris-part-1.md), där du får skapa Azure Machine Learning-resurser och installera Azure Machine Learning Workbench, innan du börjar med stegen i den här självstudien.
@@ -374,6 +376,10 @@ Du kan också köra skriptet i ett faktiskt HDInsight Spark-kluster. Lär dig [a
    >När du kör mot ett fjärranslutet HDInsight-kluster kan du även visa körningsinformation om YARN-jobbet (Yet Another Resource Negotiator) på `https://<cluster_name>.azurehdinsight.net/yarnui` med användarkontot `admin`.
 
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 I den här andra delen av självstudieserien i tre delar har du lärt dig att använda Azure Machine Learning för att:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ I den här andra delen av självstudieserien i tre delar har du lärt dig att an
 Du är nu redo att gå vidare till den tredje delen i serien. Nu när du har skapat Logistic Regression-modellen ska vi distribuera den som en realtidswebbtjänst.
 
 > [!div class="nextstepaction"]
-> [Distribuera en modell](tutorial-classifying-iris-part-3.md)
+> [Självstudie 3 – Klassificera Iris: Distribuera modeller](tutorial-classifying-iris-part-3.md)

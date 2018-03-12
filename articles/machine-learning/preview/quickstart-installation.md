@@ -1,176 +1,213 @@
 ---
 title: "Snabbstart för installation av Azure Machine Learning-tjänster | Microsoft Docs"
-description: "Den här snabbstarten visar hur du skapar resurser i Azure Machine Learning och hur du installerar Azure Machine Learning Workbench."
+description: "Den här snabbstarten visar hur du skapar resurser i Azure Machine Learning och hur du installerar och kommer igång med Azure Machine Learning Workbench."
 services: machine-learning
 author: hning86
-ms.author: haining, raymondl, chhavib
+ms.author: haining, raymondl, chhavib, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 2/22/2018
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Skapa konton för förhandsversionen av Azure Machine Learning och installera Azure Machine Learning Workbench
-Azure Machine Learning-tjänster (förhandsversion) är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med den här lösningen kan professionella dataforskare få hjälp med att förbereda data, utveckla experiment och distribuera modeller i molnskala.
+# <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Snabbstart: Installera och komma igång med Azure Machine Learning-tjänster
+Azure Machine Learning-tjänsterna (förhandsversion) är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med den här lösningen kan professionella dataforskare få hjälp med att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
-Den här snabbstarten visar hur du skapar konton för att hantera experiment och modeller i förhandsversionen av Azure Machine Learning. Den visar också hur du installerar skrivbordsprogrammet Azure Machine Learning Workbench och CLI-verktyg. Sedan får du en snabb genomgång av funktionerna i förhandsversionen av Azure Machine Learning. Använd [Iris-datamängden](https://en.wikipedia.org/wiki/iris_flower_data_set) för att skapa en modell som förutspår typen av iris baserad på några av dess fysiska egenskaper.  
+I den här snabbstarten får du veta hur du:
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Skapa tjänstkonton för Azure Machine Learning-tjänster
+* Installera och logga in på Azure Machine Learning Workbench.
+* Skapa ett projekt i Workbench
+* Köra ett skript i projektet  
+* Få åtkomst till kommandoradsgränssnittet (CLI)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För närvarande kan skrivbordsappen Azure Machine Learning Workbench endast installeras på följande operativsystem: 
-- Windows 10
-- Windows Server 2016
-- macOS Sierra
-- macOS High Sierra
+Som en del av Microsoft Azure-portföljen kräver Azure Machine Learning-tjänster en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Du måste dessutom ha rätt behörigheter för att skapa tillgångar som resursgrupper, virtuella datorer med mera. 
 
-## <a name="create-azure-machine-learning-accounts"></a>Skapa Azure Machine Learning-konton
-Använd Azure Portal för att etablera Azure Machine Learning-konton: 
-1. Klicka på knappen **Nytt** (+) i det övre vänstra hörnet i portalen.
+<a name="prerequisites"></a>Du kan installera Azure Machine Learning Workbench på följande operativsystem:
+- Windows 10 eller Windows Server 2016
+- macOS Sierra eller High Sierra
 
-2. Skriv **Machine Learning** i sökfältet. Välj **Machine Learning Experimentation (preview)** i sökresultatet.  Klicka på stjärnikonen om du vill lägga till det här alternativet som favorit i Azure Portal.
+## <a name="create-azure-machine-learning-services-accounts"></a>Skapa konton för Azure Machine Learning-tjänster
+Använd Azure Portal till att etablera dina Azure Machine Learning-konton: 
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med autentiseringsuppgifterna för den Azure-prenumeration du ska använda. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu. 
+
+   ![Azure Portal](media/quickstart-installation/portal-dashboard.png)
+
+1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
+
+   ![Skapa en resurs i Azure-portalen](media/quickstart-installation/portal-create-a-resource.png)
+
+1. Skriv **Machine Learning** i sökfältet. Välj **Machine Learning-experimentering** i sökresultatet. 
 
    ![Azure Machine Learning-sökning](media/quickstart-installation/portal-more-services.png)
 
-3. Välj **+ Lägg till** för att konfigurera ett nytt Machine Learning-experimenteringskonto. Ett detaljerat formulär öppnas.
+1. I fönstret **Machine Learning-experimentering** bläddrar du längst ned och väljer **Skapa** för att börja definiera experimenteringskontot.  
 
-   ![Machine Learning-experimenteringskonto](media/quickstart-installation/portal-create-experimentation.png)
+   ![Azure Machine Learning – Skapa ett experimenteringskonto](media/quickstart-installation/portal-create-account.png)
 
-4. Fyll i Machine Learning-experimenteringsformuläret med följande information:
+1. I fönstret **ML-experimentering** konfigurerar du ditt Machine Learning-experimenteringskonto. 
 
-   Inställning|Föreslaget värde|Beskrivning
+   Inställning|Föreslaget värde för självstudien|Beskrivning
    ---|---|---
-   Namn på experimenteringskonto | _Unikt namn_ |Välj ett unikt namn som identifierar kontot. Du kan till exempel använda ditt eget namn eller namnet på din avdelning eller ditt projekt. Välj det som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). 
+   Namn på experimenteringskonto | _Unikt namn_ |Ange ett unikt namn som identifierar kontot. Du kan till exempel använda ditt eget namn eller namnet på din avdelning eller ditt projekt. Välj det som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). 
    Prenumeration | _Din prenumeration_ |Välj den Azure-prenumeration som ska användas för experimentet. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-   Resursgrupp | _Din resursgrupp_ | Du kan skapa ett nytt resursgruppnamn eller använda ett befintligt namn i prenumerationen.
+   Resursgrupp | _Din resursgrupp_ | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp för det här experimenteringskontot. 
    Plats | _Regionen som ligger närmast dina användare_ | Välj den plats som är närmast användarna och dataresurserna.
-   Antal platser | 2 | Ange antalet platser. Det här valet påverkar [priset](https://azure.microsoft.com/pricing/details/machine-learning/). De första två platserna är kostnadsfria. I den här snabbstarten använder vi två platser. Du kan uppdatera antalet platser vid ett senare tillfälle i Azure Portal.
-   Lagringskonto | _Unikt namn_ | Välj **Skapa nytt** och ange ett namn för att skapa ett Azure-lagringskonto. Alternativt kan du välja **Använd befintlig** och välja ett befintligt lagringskonto i listrutan. Lagringskontot är obligatoriskt. Det används för att lagra projektartefakter och köra historikdata. 
-   Arbetsyta för experimenteringskonto | _Unikt namn_ | Ange ett namn för den nya arbetsytan. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-).
+   Antal platser | 2 | Ange antalet platser. Lär dig hur [platserna påverkar prissättningen](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>I den här snabbstarten behöver du bara två platser. Platser kan läggas till eller tas bort efter behov i Azure-portalen.
+   Lagringskonto | _Unikt namn_ | Välj **Skapa nytt** och ange ett namn för att skapa ett [Azure-lagringskonto](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). Alternativt kan du välja **Använd befintlig** och välja ett befintligt lagringskonto i listrutan. Lagringskontot är obligatoriskt. Det används för att lagra projektartefakter och köra historikdata. 
+   Arbetsyta för experimenteringskonto | IrisGarden<br/>(namnet som används i självstudier) | Ange ett namn på en arbetsyta för det här kontot. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
    Tilldela ägare för arbetsytan | _Ditt konto_ | Välj ditt eget konto som ägare till arbetsytan.
-   Skapa modellhanteringskonto | *markering* | När du skapar experimenteringskontot kan du också skapa Machine Learning-modellhanteringskontot. Den här resursen används när du är redo att distribuera och hantera dina modeller som realtidswebbtjänster. Vi rekommenderar att du skapar modellhanteringskontot samtidigt som experimenteringskontot.
+   Skapa modellhanteringskonto | **markering** |Skapa ett konto för modellhantering nu så att resursen är tillgänglig när du vill distribuera och hantera modeller som webbtjänster i realtid. <br/><br/>Även om det är valfritt rekommenderar vi att du skapar modellhanteringskontot samtidigt som experimenteringskontot.
    Kontonamn | _Unikt namn_ | Välj ett unikt namn som identifierar modellhanteringskontot. Du kan till exempel använda ditt eget namn eller namnet på din avdelning eller ditt projekt. Välj det som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). 
    Prisnivå för modellhantering | **DEVTEST** | Välj **Ingen prisnivå har valts** för att ange prisnivån för ditt nya modellhanteringskonto. Du kan spara pengar genom att välja prisnivån **DEVTEST**, om den är tillgänglig för din prenumeration (begränsad tillgänglighet). I annat fall väljer du prisnivån S1 för att spara pengar. Klicka på **Välj** för att spara ditt val av prisnivå. 
    Fäst vid instrumentpanelen | _markering_ | Markera alternativet **Fäst på instrumentpanelen** så att du enkelt kan spåra Machine Learning-experimenteringskontot på instrumentpanelen i Azure Portal.
 
-5. Välj **Skapa** för att påbörja skapandeprocessen.
+   ![Konfiguration av Machine Learning-experimenteringskonto](media/quickstart-installation/portal-create-experimentation.png)
 
-6. Klicka på **Aviseringar** (klockikonen) i verktygsfältet i Azure Portal för att övervaka distributionsprocessen. 
+5. Välj **Skapa** för att starta processen att skapa ett experimenteringskonto tillsammans med modellhanteringskontot.
 
-   Meddelandet **Distribution pågår** visas. Status ändras till **Distribueringen lyckades** när distributionen är klar. Sidan med Machine Learning-experimenteringskontot öppnas vid en lyckad distribution.
+   ![Konfiguration av Machine Learning-experimenteringskonto](media/quickstart-installation/portal-create-experimentation-button.png)
+
+   Det kan ta en stund att skapa ett konto. Du kan kontrollera statusen för distributionen genom att klicka på klockan i Azure-portalens verktygsfält.
    
    ![Meddelanden i Azure Portal](media/quickstart-installation/portal-notification.png)
 
-Installera Azure Machine Learning Wordbench på datorn enligt ett av de två avsnitten nedan, beroende på vilket operativsystem du har på din lokala dator. 
 
-## <a name="install-azure-machine-learning-workbench-on-windows"></a>Installera Azure Machine Learning Workbench på Windows
-Installera Azure Machine Learning Workbench på en dator som kör Windows 10, Windows Server 2016 eller senare.
+## <a name="install-and-log-in-to-workbench"></a>Installera och logga in på Workbench
 
-1. Ladda ned det senaste installationsprogrammet för Azure Machine Learning Workbench: [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).
+Azure Machine Learning Workbench är tillgänglig för Windows eller macOS. Visa en lista med [plattformar som stöds](#prerequisites).
 
-2. Dubbelklicka på installationsprogrammet **AmlWorkbenchSetup.msi** i Utforskaren.
+>[!WARNING]
+>Installationen kan ta upp till 30 minuter att slutföra. 
 
+1. Ladda ned och starta det senaste installationsprogrammet för Workbench. 
    >[!IMPORTANT]
    >Ladda ned installationsprogrammet till hårddisken och kör programmet därifrån. Kör inte installationsprogrammet direkt i webbläsarens nedladdningswidget.
 
-3. Slutför installationen enligt anvisningarna på skärmen.
+   **I Windows:** 
 
-   Installationsprogrammet laddar ned alla beroendekomponenter som behövs, till exempel Python, Miniconda och andra relaterade bibliotek. Det kan ta ungefär en halvtimme att hämta alla komponenter och slutföra installationen. 
+   &nbsp;&nbsp;&nbsp;&nbsp;A. Ladda ned [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).  <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. Dubbelklicka på det nedladdade installationsprogrammet i Utforskaren.
 
-4. Azure Machine Learning Workbench installeras i följande katalog:
+   **I macOS:** 
+
+   &nbsp;&nbsp;&nbsp;&nbsp;A. Ladda ned [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg). <br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;B. Dubbelklicka på det nedladdade installationsprogrammet i Finder.<br/><br/>
+
+1. Följ anvisningarna på skärmen i installationsprogrammet. 
+
+   **Installationen kan ta upp till 30 minuter att slutföra.**  
    
-   `C:\Users\<user>\AppData\Local\AmlWorkbench`
+   | |Installationssökväg till Azure Machine Learning Workbench|
+   |--------|------------------------------------------------|
+   |Windows|C:\Users\<user>\AppData\Local\AmlWorkbench|
+   |macOS|/Applications/Azure ML Workbench.app|
 
-## <a name="install-azure-machine-learning-workbench-on-macos"></a>Installera Azure Machine Learning Workbench på macOS
-Installera Azure Machine Learning Workbench på en dator som kör macOS Sierra eller senare.
+   Installationsprogrammet laddar ned och konfigurerar alla beroenden som behövs, till exempel Python, Miniconda och andra relaterade bibliotek.    Den här installationen innehåller även Azures plattformsoberoende kommandoradsverktyg, som även kallas Azure CLI.
 
-1. Ladda ned det senaste installationsprogrammet för Azure Machine Learning Workbench: [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+  
+1. Starta Workbench genom att välja knappen **Launch Workbench** (Starta Workbench) på den sista skärmen i installationsprogrammet. 
 
-   >[!IMPORTANT]
-   >Ladda ned installationsprogrammet till hårddisken och kör programmet därifrån. Kör inte installationsprogrammet direkt i webbläsarens nedladdningswidget.
+   Om du har stängt installationsprogrammet är det inga problem. 
+   + I Windows startar du det med skrivbordsgenvägen till **Machine Learning Workbench**. 
+   + I macOS väljer du **Azure ML Workbench** i startfönstret.
 
-2. Dubbelklicka på installationsprogrammet **AmlWorkbench.dmg** från Finder.
+1. På den första skärmen väljer du **Logga in** för att autentisera med Azure Machine Learning Workbench. Använd samma autentiseringsuppgifter som du använde i Azure-portalen för att skapa experimenterings- och modellhanteringskontona. 
 
-3. Slutför installationen enligt anvisningarna på skärmen.
-
-   Installationsprogrammet laddar ned alla beroendekomponenter som behövs, till exempel Python, Miniconda och andra relaterade bibliotek. Det kan ta ungefär en halvtimme att hämta alla komponenter och slutföra installationen. 
-
-4. Azure Machine Learning Workbench installeras i följande katalog: 
-
-   `/Applications/Azure ML Workbench.app`
-
-## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>Kör Azure Machine Learning Workbench och logga in för första gången
-1. När installationen har slutförts klickar du på knappen **Launch Workbench** (Starta Workbench) på den sista skärmen i installationsprogrammet. Om du har stängt installationsprogrammet kan du starta appen genom att välja genvägen till **Azure Machine Learning Workbench** på skrivbordet eller **Start**-menyn.
-
-2. Logga in på Workbench med samma konto som du använde tidigare för att etablera Azure-resurser. 
-
-3. När du har loggat in försöker Workbench hitta de Machine Learning-experimenteringskonton som du skapade tidigare. Programmet söker efter alla Azure-prenumerationer som du har åtkomst till med dina inloggningsuppgifter. När minst ett experimenteringskonto har hittats öppnas Workbench med det kontot. Därefter visas de arbetsytor och projekt som hittats i det kontot. 
+   När du har loggat in använder Workbench det första experimenteringskontot som påträffas i Azure-prenumerationerna.  Workbench använder det första experimenteringskontot det hittar och visar alla arbetsytor och projekt som är associerade med det kontot. 
 
    >[!TIP]
-   > Om du har åtkomst till mer än ett experimenteringskonto kan du växla till ett annat konto genom att välja avatarikonen i det nedre vänstra hörnet av Workbench.
+   > Du kan växla till ett annat experimenteringskonto med hjälp av ikonen i det nedre vänstra hörnet i Workbench-fönstret.
 
-Mer information om hur du skapar en miljö för att distribuera webbtjänster finns i [Deployment Environment Setup](deployment-setup-configuration.md) (Konfiguration av distributionsmiljön).
+## <a name="create-a-project-in-workbench"></a>Skapa ett projekt i Workbench
 
-## <a name="create-a-new-project"></a>Skapa ett nytt projekt
-1. Starta appen Azure Machine Learning Workbench och logga in. 
+I Azure Machine Learning är ett projekt en logisk behållare för allt arbete som utförs för att lösa ett problem. Det mappas till en enda mapp på den lokala hårddisken, och du kan lägga till filer eller undermappar till det. 
 
-2. Klicka på **File** (Arkiv) > **New Project** (Nytt projekt) (eller klicka på tecknet **+** i fönstret **PROJECTS** (PROJEKT)). 
+Här skapar vi ett nytt Workbench-projekt med hjälp av en mall som innehåller [Iris-datamängden](https://en.wikipedia.org/wiki/iris_flower_data_set). Självstudierna efter den här snabbstarten är beroende av den här informationen för att kunna skapa en modell som beräknar Iris-typen baserat på några av dess fysiska egenskaper.  
 
-3. Fyll i fälten **Project name** (Projektnamn) och **Project directory** (Projektkatalog). **Project description** (Projektbeskrivning) är valfritt, men användbart. Lämna fältet **Visualstudio.com GIT Repository URL** (URL till GIT-lagringsplats för Visualstudio.com) tomt tills vidare. Välj en arbetsyta och sedan **Classifying Iris** (Klassificera Iris) som projektmall.
+1. När Azure Machine Learning Workbench är öppet väljer du plustecknet (+) i fönstret **PROJEKT** och **Nytt projekt**.  
 
-   >[!TIP]
-   >Alternativt kan du gå skriva i URL:en till en GIT-lagringsplats som finns i ett [VSTS](https://www.visualstudio.com)-projekt (Visual Studio Team Service) i textfältet för GIT-lagringsplats ovan. Git-lagringsplatsen måste redan finnas, och den måste vara tom utan någon mastergren. Och du måste ha skrivbehörighet till den. Att du lägger till en Git-lagringsplats nu gör det möjligt att använda roaming och delning senare. [Läs mer](using-git-ml-project.md).
+   ![Ny arbetsyta](media/tutorial-classifying-iris/new_ws.png)
 
-4. Klicka på knappen **Create** (Skapa) för att skapa projektet. Ett nytt projekt skapas och öppnas för dig. Nu kan du utforska projektets startsida, datakällor, anteckningsböcker och källkodsfiler. 
+1. Fyll i formulärfälten och välj knappen **Skapa** för att skapa ett nytt projekt i Workbench.
 
-    >[!TIP]
-    >Du kan också öppna projektet i Visual Studio Code eller andra redigerare genom att konfigurera en IDE-länk (Integrated Development Environment) och sedan öppna projektkatalogen i den. [Läs mer](how-to-configure-your-IDE.md). 
+   Fält|Föreslaget värde för självstudien|Beskrivning
+   ---|---|---
+   Projektnamn | myIris |Ange ett unikt namn som identifierar kontot. Du kan till exempel använda ditt eget namn eller namnet på din avdelning eller ditt projekt. Välj det som bäst identifierar experimentet. Namnet ska bestå av 2 till 32 tecken. Det får endast innehålla alfanumeriska tecken och streck (-). 
+   Projektkatalog | c:\Temp\ | Ange i vilken katalogen projektet ska skapas.
+   Projektbeskrivning | _lämna tomt_ | Valfritt fält som kan användas för att beskriva projekten.
+   Visualstudio.com |_lämna tomt_ | Valfritt fält. Ett projekt kan även associeras med en Git-lagringsplats i Visual Studio Team Services för källkontroll och samarbete. [Lär dig hur det konfigureras.](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Arbetsyta | IrisGarden (om det finns) | Välj en arbetsyta som du har skapat för ditt experimenteringskonto i Azure Portal. <br/>Om du följde snabbstarten bör du ha en arbetsyta med namnet IrisGarden. Om inte väljer du den som du skapade när du skapade ditt experimenteringskonto eller något annan som du vill använda.
+   Projektmall | Klassificera Iris | Mallar innehåller skript och data som du kan använda för att utforska produkten. Den här mallen innehåller de skript och data som behövs för den här snabbstarten och andra självstudier på den här på dokumentationsplatsen. 
+
+   ![Nytt projekt](media/tutorial-classifying-iris/new_project.png)
+ 
+ Ett nytt projekt skapas och instrumentpanelen för projektet öppnas med projektet. Nu kan du utforska projektets startsida, datakällor, anteckningsböcker och källkodsfiler. 
+
+>[!TIP]
+>Du kan konfigurera att Workbench använder en Python IDE för en smidig dataforskningsutveckling. Du kan sedan interagera med ditt projekt i IDE. [Lär dig mer](how-to-configure-your-IDE.md). 
 
 ## <a name="run-a-python-script"></a>Köra ett Python-skript
-Låt oss köra ett skript på din lokala dator. 
 
-1. Alla projekt öppnas på en egen **instrumentpanelssida**. Välj **local** (lokalt) som körningsmål från kommandofältet upptill i programfönstret och välj **iris_sklearn.py** som det skript som ska köras. Det finns andra filer i exemplet som du kan ta en titt på senare. 
+Nu kan du köra skriptet **iris_sklearn.py** på den lokala datorn. Det här skriptet ingår som standard i projektmallen **Klassificera Iris**. Skriptet skapar en modell med algoritmen [logistisk regression](https://en.wikipedia.org/wiki/logistic_regression) från det populära Python-biblioteket [scikit-learn](http://scikit-learn.org/stable/index.html).
+
+1. I kommandofältet överst på sidan **Projektinstrumentpanel** väljer du **local** (lokalt) som körningsmål och **iris_sklearn.py** som det skript som ska köras. Dessa värden är förvalda som standard. 
+
+   Det finns andra filer i exemplet som du kan titta på senare, men i den här snabbstarten är vi bara intresserade av **iris_sklearn.py**. 
 
    ![Kommandofältet](media/quickstart-installation/run_control.png)
 
-2. Skriv **0.01** i textfältet **Arguments** (Argument). Numret används i koden för att ange regulariseringshastigheten. Det här är ett värde som används för att konfigurera hur den linjär regressionsmodellen ska tränas. 
+1. Skriv **0.01** i textfältet **Arguments** (Argument). Värdet används i skriptkoden för att ange regulariseringshastigheten. Det här är ett värde som används för att konfigurera hur den linjära regressionsmodellen ska tränas. 
 
-3. Välj knappen **Run** (Kör) för att börja köra **iris_sklearn.py** på datorn. 
+1. Välj **Kör** för att starta körningen av skriptet på datorn. Jobbet **iris_sklearn** visas omedelbart i panelen **Jobb** till höger så att du kan övervaka skriptkörningen.
 
-   I koden används algoritmen för [logistisk regression](https://en.wikipedia.org/wiki/logistic_regression) från Pythonbiblioteket [scikit-learn](http://scikit-learn.org/stable/index.html) för att bygga modellen.
+   Grattis! Du har nu kört ett Python-skript i Azure Machine Learning Workbench.
 
-4. Panelen **Jobs** (Jobb) skjuts ut från höger om den inte redan visas, och ett **iris_sklearn**-jobb läggs till på panelen. Dess status övergår från **Submitting** (Skickas) till **Running** (Körs) när jobbet börjar köras och sedan till **Completed** (Slutfört) efter ett par sekunder. 
+1. Upprepa steg 2–3 flera gånger med olika argumentvärden från **0,001** till **10**. Varje jobbkörning visas i fönstret **Jobb**.
 
-   Grattis! Du har kört ett Python-skript i Azure Machine Learning Workbench.
-
-6. Upprepa steg 2 till 4 flera gånger. Använd nya argumentvärden varje gång, från **10** till **0.001**.
-
-## <a name="view-run-history"></a>Visa körningshistorik
-1. Gå till vyn **Runs** (Körningar) och välj **iris_sklearn.py** i körningslistan. Instrumentpanelen för körningshistorik för **iris_sklearn.py** öppnas. På instrumentpanelen visas alla körningar som har gjorts på **iris_sklearn.py**. 
+1. Inspektera körningshistoriken genom att välja vyn **Körs** och sedan **iris_sklearn.py** i listan Körs för att se körningshistoriken för det här skriptet. 
 
    ![Instrumentpanelen för körningshistorik](media/quickstart-installation/run_view.png)
 
-2. Instrumentpanelen visar också toppmått, en uppsättning standarddiagram och en lista med mått för varje körning. Du kan anpassa den här vyn genom att sortera, filtrera och justera konfigurationerna. Välj konfigurationsikonen eller filterikonen.
+   På instrumentpanelen visas alla körningar som har gjorts på **iris_sklearn.py**. Instrumentpanelen visar också toppmått, en uppsättning standarddiagram och en lista med mått för varje körning. 
+
+1. Du kan anpassa den här vyn genom att sortera, filtrera och justera konfigurationerna med hjälp av kugghjuls- eller filterikonerna.
 
    ![Mått och grafer](media/quickstart-installation/run_dashboard.png)
 
-3. Välj en slutförd körning så visas en detaljerad vy av den specifika körningen. Bland den detaljerade informationen finns uppgifter om flera mått, vilka filer som skapades och andra loggar som eventuellt kan komma till användning.
+3. Välj en slutförd körning i fönstret Jobb för att se en detaljerad vy av den specifika körningen. Bland den detaljerade informationen finns uppgifter om flera mått, vilka filer som skapades och andra loggar som eventuellt kan komma till användning.
+
+## <a name="start-the-cli"></a>Starta CLI:n
+
+Kommandoradsgränssnittet (CLI) Azure Machine Learning installeras också. Med CLI-gränssnittet får du åtkomst till och kan interagera med dina Azure Machine Learning-tjänster med hjälp av de `az`-kommandon som krävs för att utföra alla uppgifter i ett arbetsflöde för datavetenskap från slutpunkt till slutpunkt. [Läs mer.](tutorial-iris-azure-cli.md)
+
+Du kan starta CLI:n azure-cli-ml i verktygsfältet för Workbench med **Arkiv --> Öppna kommandotolken**.
+
+Du kan få hjälp om kommandon i CLI:n azure-cli-ml med hjälpargumentet.
+
+```az ml --help```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du skapat ett Azure Machine Learning-experimenteringskonto och ett Azure Machine Learning-modellhanteringskonto. Du har installerat skrivbordsappen Azure Machine Learning Workbench och kommandoradsgränssnittet. Du har skapat ett nytt projekt, skapat en modell genom att köra ett skript och utforskat körningshistorik för skriptet.
+Du har nu skapat de Azure Machine Learning-konton som krävs och installerat programmet för Azure Machine Learning Workbench. I det programmet har du skapat ett nytt projekt, kört ett skript och utforskat körningshistoriken för skriptet.
 
 Om du vill ha en mer ingående beskrivning av det här arbetsflödet, inklusive hur du distribuerar din Iris-modell som en webbtjänst, kan du följa självstudiekursen *Classifying Iris* (Klassificera Iris). Självstudiekursen innehåller detaljerade steg för [dataförberedelse](tutorial-classifying-iris-part-1.md), [experimentering](tutorial-classifying-iris-part-2.md) och [modellhantering](tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Självstudiekursen Klassificera Iris](tutorial-classifying-iris-part-1.md)
+> [Självstudie: Klassificera Iris (del 1)](tutorial-classifying-iris-part-1.md)
+
+>[!NOTE]
+> Även om du har ditt modellhanteringskonto, är din miljö inte konfigurerad för att distribuera webbtjänster än.  Lär dig hur du konfigurerar din [distributionsmiljö](deployment-setup-configuration.md).

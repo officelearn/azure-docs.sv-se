@@ -4,14 +4,14 @@ description: "Beskriver hur du identifierar och utvärderar lokala virtuella VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0c82eeaeb17fb670b6d277d1b703b44b84343877
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -20,6 +20,7 @@ ms.lasthandoff: 02/21/2018
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
+> * Skapa ett konto som Azure Migrate ska använda till att identifiera de lokala virtuella datorerna
 > * Skapa ett Azure Migrate-projekt.
 > * Konfigurera en lokal virtuell insamlardator för att identifiera lokala virtuella VMware-datorer som ska utvärderas.
 > * Gruppera virtuella datorer och skapa en utvärdering.
@@ -39,16 +40,26 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 - **Behörigheter**: På vCenter Server måste du ha behörighet för att kunna skapa en virtuell dator genom att importera en fil i .OVA-format. 
 - **Statistikinställningar**: Statistikinställningarna för vCenter Server ska vara inställda på nivå 3 innan du startar distributionen. Om det är lägre än nivå 3 kommer utvärderingen att fungera, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationerna i det här fallet kommer att göras baserat på prestandadata för CPU och minne, samt konfigurationsdata för disk och nätverkskort. 
 
+## <a name="create-an-account-for-vm-discovery"></a>Skapa ett konto för identifiering av VM
+
+Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna identifiera virtuella datorer för utvärdering. Skapa ett VMware-konto med följande egenskaper. Du kan ange det här kontot under konfigurationen av Azure Migrate.
+
+- Användartyp: Minst en skrivskyddad användare
+- Behörigheter: Datacenter-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
+- Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
+- Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
+
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
 1. Klicka på **Skapa en resurs** i Azure Portal.
-2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate (förhandsversion)** i sökresultaten. Klicka sedan på **Skapa**.
+2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate** i sökresultaten. Klicka sedan på **Skapa**.
 3. Ange ett projektnamn och Azure-prenumerationen för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange platsen där du vill skapa projektet och klicka sedan på **Skapa**. Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA i den här förhandsversionen. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. 
+5. Ange platsen där du vill skapa projektet och klicka sedan på **Skapa**. Du kan bara skapa ett Azure Migrate-projekt i regionen USA, västra centrala eller USA, östra. Du kan dock fortfarande planera migreringen för alla Azure-platser. Den angivna platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -73,6 +84,22 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Den genererade hashen måste matcha nedanstående inställningar.
+
+    För OVA-version 1.0.9.5
+
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+    
+    För OVA-version 1.0.9.2
+
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
     
     För OVA-version 1.0.8.59
 
@@ -181,13 +208,13 @@ För virtuella datorer som inte är redo eller endast är villkorligt redo för 
 
 De virtuella datorer för vilka Azure Migrate inte kan identifiera Azure-beredskap (eftersom det inte finns data) markeras som ”beredskap okänd”.
 
-Förutom Azure-beredskap och storlek föreslår Azure Migrate även verktyg som du kan använda för att migrera den virtuella datorn. Om datorn är lämplig för Lift and Shift-migrering rekommenderas tjänsten [Azure Site Recovery]. Azure Database Migration Service rekommenderas om det är en databasdator.
+Förutom Azure-beredskap och storlek föreslår Azure Migrate även verktyg som du kan använda för att migrera den virtuella datorn. Detta kräver en djupare identifiering av den lokala miljön. [Lär dig mer](how-to-get-migration-tool.md) om hur du kan göra en djupare identifiering genom att installera agenter på lokala datorer. Om agenterna inte är installerade på de lokala datorerna, föreslås Lift and Shift-migrering med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Om agenterna är installerade på den lokala datorn, tittar Azure Migrate på de processer som körs i datorn och identifierar om datorn är en databasdator eller inte. Om datorn är en databasdator föreslås [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), annars föreslås Azure Site Recovery som migreringsverktyg.
 
   ![Utvärderingsberedskap](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### <a name="monthly-cost-estimate"></a>Uppskattad månadskostnad
 
-Den här vyn visar total beräknings- och lagringskostnad för att köra de virtuella datorerna i Azure, samt information för varje dator. Kostnaden beräknas med hjälp av rekommendationer för prestandabaserad storlek för en dator och dess diskar, samt utvärderingsegenskaper. 
+Den här vyn visar total beräknings- och lagringskostnad för att köra de virtuella datorerna i Azure, samt information för varje dator. Kostnaden beräknas utifrån de storleksrekommendationer som görs av Azure Migrate för en dator, dess diskar samt utvärderingsegenskaper. 
 
 > [!NOTE]
 > Kostnadsberäkningen från Azure Migrate gäller för att köra de lokala virtuella datorerna som virtuella Azure IaaS-datorer (Infrastruktur som en tjänst). Azure Migrate beräknar inte några kostnader för PaaS (Plattform som en tjänst) eller SaaS (Programvara som en tjänst). 
@@ -198,11 +225,11 @@ Uppskattade månatliga kostnader för beräkning och lagring sammanställs för 
 
 #### <a name="confidence-rating"></a>Säkerhetsomdöme
 
-Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Det hjälper dig att beräkna tillförlitligheten för storleksrekommendationer som tillhandahålls av Azure Migrate. 
+Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate. 
 
-Säkerhetsomdömen är användbara när du gör *prestandabaserade storleksändringar* eftersom alla datapunkter kanske inte är tillgängliga. När *storleksändringar av typen "som lokalt"* utförs är säkerhetsomdömet alltid 5 stjärnor eftersom Azure Migrate har tillgång till alla data som behövs för att sätta rätt storlek på den virtuella datorn. 
+Säkerhetsomdömet är användbart när du gör *prestandabaserad storleksändring*, då Azure Migrate kanske saknar tillräckligt med datapunkter för att göra en användningsbaserad storleksändring. När *storleksändringar av typen ”som lokalt”* utförs är säkerhetsomdömet alltid 5 stjärnor eftersom Azure Migrate har tillgång till alla datapunkter som behövs för att sätta rätt storlek på den virtuella datorn. 
 
-För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU och minne. För varje disk som är ansluten till den virtuella datorn krävs lästa/skrivna IOPS och dataflödet för att utföra prestandabaserade storleksändringar. Precis som för varje nätverkskort som är kopplat till den virtuella datorn så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen:
+För prestandabaserade storleksändringar av virtuella datorer behöver Azure Migrate användningsdata för CPU och minne. För varje disk som är ansluten till den virtuella datorn krävs dessutom lästa/skrivna IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till den virtuella datorn så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---
@@ -213,13 +240,13 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
    81 %–100 % | 5 stjärnor
 
 En utvärdering kanske inte har tillgång till alla datapunkter på grund av någon av följande orsaker:
-- Statistikinställningen i vCenter Server är inte inställd på nivå 3 och utvärderingen har storlekskriteriet inställt på prestandabaserade storleksändringar. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet baseras rekommendationen från Azure Migrate för disk och nätverk endast på det som allokerats lokalt. För lagring rekommenderar Azure Migrate standarddiskar eftersom det inte går att identifiera om disken har högt IOPS/dataflöde och behöver premiumdiskar.
-- Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period, innan identifieringen drog igång. Om du till exempel ändrar statistikinställningen till nivå 3 idag och sätter igång identifieringen med insamlingsprogrammet imorgon (efter 24 timmar) så får du med alla datapunkter om du skapar en utvärdering för en dag. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen. 
+- Statistikinställningen i vCenter Server är inte inställd på nivå 3 och utvärderingen har storlekskriteriet inställt på prestandabaserade storleksändringar. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. För lagring rekommenderar Azure Migrate standarddiskar eftersom utan att överväga IOPS/dataflöde på disken, kan Azure Migrate inte identifiera om disken behöver en premiumdisk i Azure.
+- Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period, innan identifieringen drog igång. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen. 
 - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vCenter Server inte att ha prestandadata för den perioden. 
 - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
 
 > [!NOTE]
-> Om säkerhetsomdömet för någon utvärdering är lägre än 3 stjärnor rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
+> Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
  
 ## <a name="next-steps"></a>Nästa steg
 

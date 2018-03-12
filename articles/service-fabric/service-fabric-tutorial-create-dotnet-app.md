@@ -1,11 +1,27 @@
---Rubrik: skapa ett .NET-program för Service Fabric | Microsoft Docs beskrivning: I kursen får du lära dig hur du skapar ett program med en ASP.NET Core frontend och en tillförlitlig tjänst tillståndskänslig backend- och distribuera programmet till ett kluster.
-tjänster: service fabric dokumentationcenter: .net författare: rwike77 manager: timlt editor: ''
-
-MS.AssetID: ms.service: service fabric ms.devlang: dotNet ms.topic: självstudiekurs ms.tgt_pltfrm: NA ms.workload: NA ms.date: 2018-01/29 ms.author: ryanwi ms.custom: mvc
-
 ---
-
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudier: skapa och distribuera ett program med en webb-API för ASP.NET Core frontend-tjänst och en tillståndskänslig backend-tjänst
+title: "Skapa ett .NET-program för Service Fabric | Microsoft Docs"
+description: "I den här självstudien får du se hur du skapar ett program med en ASP.NET Core-klientdel och en tillförlitlig serverdel med en tillståndskänslig tjänst, och hur du distribuerar programmet till ett kluster."
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: tutorial
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/29/2018
+ms.author: ryanwi
+ms.custom: mvc
+ms.openlocfilehash: f8d9733b7dad4c6beeed9bcc950910ed6b426585
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/02/2018
+---
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).
 
 ![Diagram över programmet](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
@@ -24,10 +40,10 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar den här självstudien:
 - om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installera Visual Studio 2017](https://www.visualstudio.com/) 15,5 eller senare med den **Azure-utveckling** och **ASP.NET och web development** arbetsbelastningar.
+- [Installera Visual Studio 2017](https://www.visualstudio.com/) version 15.5 eller senare med arbetsbelastningarna **Azure Development** och **ASP.NET och webbutveckling**.
 - [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst

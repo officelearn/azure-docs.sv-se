@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge programdata hög tillgänglighet med Azure Storage
 
@@ -69,7 +69,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
    | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
-   | **Typ av konto** | Generellt syfte | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Säker överföring krävs** | Disabled| Säker överföring krävs inte för det här scenariot. |
@@ -77,7 +77,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Plats** | Östra USA | Välj en plats. |
 
-![skapa lagringskonto](media/storage-create-geo-redundant-storage/figure1.png)
+![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 

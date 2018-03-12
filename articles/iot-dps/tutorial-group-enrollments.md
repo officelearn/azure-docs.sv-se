@@ -1,6 +1,6 @@
 ---
-title: Etablera en simulerad X.509-enhet till Azure IoT Hub Java och registrering av grupper | Microsoft Docs
-description: "Azure Tutorial – skapa och etablera en simulerad X.509-enhet med hjälp av Java-enheten och tjänsten SDK och registrering av grupper för IoT-hubb Device etablering Service"
+title: "Etablera en simulerad X.509-enhet på Azure IoT Hub med Java och registreringsgrupper | Microsoft Docs"
+description: "Azure-självstudie – Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och registreringsgrupper för IoT Hub Device Provisioning-tjänsten"
 services: iot-dps
 keywords: 
 author: msebolt
@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med hjälp av Java-enhet och SDK-tjänsten och gruppen registreringar för IoT-hubb Device etablering Service
+# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och tjänst-SDK och gruppregistreringar för IoT Hub Device Provisioning-tjänsten
 
-Dessa steg visar hur du simulera en X.509-enhet på utvecklingsdatorn Windows operativsystem och använder en kodexempel för att ansluta simulerade enheten med etablering av tjänst och din IoT-hubb med hjälp av grupper för registrering. 
+Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben med registreringsgrupper. 
 
 Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal](./quick-setup-auto-provision.md) innan du fortsätter.
 
@@ -33,15 +33,13 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
 1. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Git-klientverktyg för Software Freedom Conservancy](https://git-scm.com/download/) för att få den senaste versionen av `git`-verktyg att installera, vilket omfattar **Git Bash**, kommandoradsappen som du kan använda för att interagera med det lokala Git-lagret. 
 
-1. Använd följande [certifikat översikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att skapa testcertifikat. En mer grundlig genomgång skapa certifikat, se [PowerShell-skript för att hantera CA-signerat X.509-certifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Använd följande [certifikatöversikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att skapa dina testcertifikat. En mer grundlig genomgång av att skapa certifikat finns i [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) (PowerShell-skript för att hantera CA-signerade X.509-certifikat).
 
     > [!NOTE]
-    > Detta steg kräver [OpenSSL](https://www.openssl.org/), vilket kan antingen skapats och installerats från källan eller hämtas och installeras från en [3 part](https://wiki.openssl.org/index.php/Binaries) som [detta](https://sourceforge.net/projects/openssl/). Om du redan har skapat din _rot_, _mellanliggande_ och _enhet_ certifikat som du kan hoppa över det här steget.
+    > Det är steget kräver [OpenSSL](https://www.openssl.org/), vilket antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries) som [det här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_, _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.
     >
 
-1. Skapa grupp registreringsinformation:
-
-    1. Gå igenom **steg 1** och **steg 2** att skapa din _rot_ och _mellanliggande_ certifikat.
+    1. Gå igenom de två första stegen för att skapa dina _rot-_ och _mellanliggande_ certifikat.
 
     1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna din distributionstjänst.
 
@@ -49,28 +47,28 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
         1. Under **Lägg till certifikat** anger du följande information:
             - Ange ett unikt certifikatnamn.
-            - Välj den  **_RootCA.pem_**  filen som du nyss skapade.
+            - Välj filen **_RootCA.pem_** som du nyss skapade.
             - Klicka på knappen **Spara** när det är klart.
 
         ![Lägg till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Välj det nya certifikatet:
             - Klicka på **Skapa verifieringskod**. Kopiera den skapade koden.
-            - Gå igenom **steg 3**. Ange den _Verifieringskod_ eller högerklicka på att klistra in i din körs PowerShell-fönster.  Tryck på **RETUR**.
-            - Välj den nyligen skapade  **_verifyCert4.pem_**  filen i Azure-portalen. Klicka på **Kontrollera**.
+            - Kör verifieringsstegen. Ange _verifieringskoden_ eller högerklicka för att klistra in PowerShell-fönstret som körs.  Tryck på **RETUR**.
+            - Välj den nyligen skapade filen **_verifyCert4.pem_** i Azure-portalen. Klicka på **Verifiera**.
 
             ![Validera certifikat](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Slutför genom att köra **steg 4** och **steg 5** skapa enhetens certifikat och rensa resurser till.
+    1. Avsluta genom att köra stegen för att skapa dina enhetscertifikat och rensa resurser.
 
-> [!NOTE]
-> När du skapar enhetens certifikat måste du använda bara gemena alfanumeriska tecken och bindestreck i enhetens namn.
->
+    > [!NOTE]
+    > När du skapar enhetscertifikat ska du se till att endast använda gemena alfanumeriska tecken och bindestreck i enhetens namn.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering
 
-1. Öppna en kommandotolk. Klona GitHub-lagringsplatsen för Java SDK-kodexempel:
+1. Öppna en kommandotolk. Klona GitHub-lagringsplatsen för att hämta Java SDK-exempelkoden:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -94,7 +92,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Öppna den  **_RootCA.pem_**  i en textredigerare. Tilldela **rotcertifikatets** värde till parametern **PUBLIC_KEY_CERTIFICATE_STRING** enligt nedan:
+    1. Öppna filen **_RootCA.pem_** i ett redigeringsprogram. Tilldela **rotcertifikatets** värde till parametern **PUBLIC_KEY_CERTIFICATE_STRING** enligt nedan:
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -145,7 +143,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
 1. Se utdatafönstret om registreringen har lyckats.
 
-    ![lyckad registrering](./media/tutorial-group-enrollments/enrollment.png) 
+    ![Lyckad registrering](./media/tutorial-group-enrollments/enrollment.png) 
 
 1. Navigera till etableringstjänsten i Azure Portal. Klicka på **Hantera registreringar**. Observera att gruppen med X.509-enheter visas under fliken **Registreringsgrupper**, med ett automatiskt genererat *GRUPPNAMN*. 
 
@@ -164,7 +162,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
 1. Ange registreringsinformation för gruppen på följande sätt:
 
-    - Redigera `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten) inkluderas enligt tidigare notering. Öppna din  **_{deviceName}-public.pem_**  filen och inkludera det här värdet som din _klienten Cert_. Öppna din  **_{deviceName}-all.pem_**  filen och kopiera text från _---BEGIN privata NYCKELN---_ till _---slut privata NYCKELN---_.  Använd den här som din _klienten certifikatets privata nyckel_.
+    - Redigera `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten) inkluderas enligt tidigare notering. Öppna filen **_{deviceName}-public.pem_** och inkludera värdet som ditt _klientcertifikat_. Öppna filen **_{deviceName}-all.pem_** och kopiera texten från _-----BEGIN PRIVATE KEY-----_ (PÅBÖRJA PRIVAT NYCKEL) till _-----END PRIVATE KEY-----_ (AVSLUTA PRIVAT NYCKEL).  Använd det som din _privata klientcertifikatnyckel_.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
@@ -217,7 +215,7 @@ Om du vill fortsätta att arbeta med och utforska enhetsklientexemplet ska du in
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du skapat en simulerad X.509-enhet på din Windows-dator och etablerat till din IoT-hubb med hjälp av Azure IoT-hubb Device etablering Service och registrering av grupper. Mer information om enheten X.509 fortsätter du att enheten begrepp. 
+I den här självstudien har du skapat en X.509-simulerad enhet på Windows-datorn och etablerat den på IoT-hubben med hjälp av Azure IoT Hub Device Provisioning-tjänsten och registreringsgrupper. Om du vill läsa mer om X.509-enheten fortsätter du till enhetsbegreppen. 
 
 > [!div class="nextstepaction"]
-> [IoT-hubb enheten Etableringstjänsten enheten begrepp](concepts-device.md)
+> [Självstudier om IoT Hub Device Provisioning-tjänstens begrepp](concepts-device.md)

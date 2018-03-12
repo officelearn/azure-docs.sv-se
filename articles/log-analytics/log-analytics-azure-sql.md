@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -103,7 +103,7 @@ Klicka på den **Azure SQL Analytics** öppna Azure SQL Analytics-instrumentpane
 
 Att välja någon av panelerna, öppnas en detaljerad rapport i specifika perspektiv. När perspektiv är markerad har nedåt rapporten öppnats.
 
-![Azure SQL Analytics tidsgränser](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL Analytics tidsgränser](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elastisk pool och databasnivå. Dessutom kan varje perspektiv visas ett perspektiv för rapporten till höger. Att välja prenumeration, server, pool eller databasen i listan fortsätter nedrullningen.
 
@@ -148,13 +148,19 @@ Du kan enkelt skapa aviseringar med data från Azure SQL Database-resurser. Här
 *Hög DTU på Azure SQL-databas*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *Hög DTU på Azure SQL Database-elastisk Pool*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Du kan använda dessa avisering-baserade frågor för att Avisera om specifika tröskelvärden för både Azure SQL Database och elastiska pooler. Konfigurera en avisering för logganalys-arbetsytan:
@@ -167,7 +173,7 @@ Du kan använda dessa avisering-baserade frågor för att Avisera om specifika t
 4. Kör något av de exempel på frågorna.
 5. I loggen sökning, klickar du på **avisering**.  
 ![Skapa en avisering i sökningen](./media/log-analytics-azure-sql/create-alert01.png)
-6. På den **lägga till Varningsregeln** konfigurerar lämpliga egenskaper och specifika tröskelvärden som du vill använda och klicka sedan på **spara**.  
+6. På den **lägga till Varningsregeln** konfigurerar lämpliga egenskaper och specifika tröskelvärden som du vill använda och klicka sedan på **spara**. 
 ![Lägga till varningsregel](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Nästa steg

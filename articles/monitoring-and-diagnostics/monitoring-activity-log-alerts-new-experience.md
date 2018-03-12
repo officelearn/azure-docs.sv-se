@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 44e1a7fe17515e23fcfd32c37c1ef4837ea8140c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Skapa aktivitetsloggen får aviseringar via de nya aviseringarna (förhandsgranskning)
 
@@ -79,7 +79,7 @@ Följ dessa steg:
 
 3. **Definiera avisering villkor** anger följande information och klickar på **klar**.
 
-    - **Aviseringen mål:** om du vill visa och välja mål för den nya aviseringen, Använd **filtrera efter prenumeration** / **filtrera efter resurstyp** och välj en resurs eller resursgrupp från i listan som visas.
+    - **Aviseringen mål:** om du vill visa och välja mål för den nya aviseringen, Använd **filtrera efter prenumeration** / **filtrera efter resurstyp** och välj en resurs eller en resursgrupp från den listan som visas.
 
     > [!NOTE]
 
@@ -89,7 +89,7 @@ Följ dessa steg:
 
      ![Välj mål](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under ** mål kriterier klickar du på **lägga till villkor** ange signal som **aktivitetsloggen**.
+    - Under **mål kriterier**, klickar du på **lägga till villkor** ange signal som **aktivitetsloggen**.
 
     - Välj signalen från listan som visas.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -136,12 +136,19 @@ Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en
 | macOS                  | Chrome, Safari                      | ![Markera][1] |
 
 
-> [!NOTE]
-> Chrome-stöd i Windows 10 skapare Update (version 1703) eller senare, installera [tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
-> Skapa följande registernyckel i för Chrome-stöd i Windows 8.1 och 7 **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
-> Namn: 1<br>
-> Typ: REG_SZ (sträng)<br>
-> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
+
+#### <a name="chrome-support"></a>Chrome-support
+
+Chrome stöd i **Windows 10 skapare Update (version 1703)** eller senare, installera [tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
+
+|    |    |
+|--- | ---|
+|Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Namn | 1 |
+|Typ | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Dessa webbläsare stöder enhetsautentisering att enheten kan identifieras och verifieras mot en princip. Det går inte att enheten kontrollen om webbläsaren körs i privat läge. 
 
@@ -186,6 +193,10 @@ Du kan kräva att ett åtkomst försöker valda molnappar måste göras från en
 Den här inställningen gäller för följande klientappar:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft fakturering
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

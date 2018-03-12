@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 454bfde69248538a92d2fc447c54509afb08129a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
-Tillägget för anpassat skript hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för post distributionskonfiguration, Programvaruinstallation eller någon annan konfiguration / hanteringsaktivitet. Skript kan hämtas från Azure storage eller GitHub eller tillhandahålls på Azure-portalen på tillägget körtiden. Tillägget för anpassat skript kan integreras med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller Azure Virtual Machine REST API.
+Tillägget för anpassat skript hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skripten kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Det anpassade skripttillägget är integrerat med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller REST API:n för virtuella Azure-datorer.
 
 Det här dokumentet beskriver hur du använder den tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager-mallar och information om felsökning i Windows-System.
 
@@ -87,13 +87,13 @@ Följande JSON visar schemat för tillägget för anpassat skript. Tillägget kr
 | Namn | Värdet / exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Publisher | Microsoft.Compute |
+| publisher | Microsoft.Compute |
 | typ | Tillägg |
 | typeHandlerVersion | 1.9 |
-| fileUris (t.ex.) | https://Raw.githubusercontent.com/Microsoft/DotNet-Core-Sample-Templates/Master/DotNet-Core-Music-Windows/Scripts/Configure-Music-App.ps1 |
+| fileUris (t.ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (t.ex.) | PowerShell - ExecutionPolicy obegränsad - filen konfigurera-musik-app.ps1 |
 | storageAccountName (t.ex.) | examplestorageacct |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
 
 **Obs** -dessa egenskapsnamn är skiftlägeskänsliga. Använda namnen som visas ovan för att undvika distributionsproblem.
 
@@ -138,7 +138,7 @@ När du kör den `commandToExecute` kommandot tillägget har angett den här kat
 
 Eftersom absoluta sökvägen kan variera över tid, är det bättre att välja relativa skriptfilen sökvägarna i den `commandToExecute` sträng, när det är möjligt. Exempel:
 ```json
-    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+    "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Information om sökvägen efter det första segmentet i URI: N finns kvar för filer som hämtas den `fileUris` egenskapslistan.  I tabellen nedan visas nedladdade filer ska mappas till hämta underkataloger återspeglar strukturen för de `fileUris` värden.  
@@ -150,7 +150,7 @@ Information om sökvägen efter det första segmentet i URI: N finns kvar för f
 | `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
 | `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
 
-\*Som ändras ovan, de absoluta sökvägarna under livslängd för den virtuella datorn, men inte i en enda körning av CustomScript-tillägg.
+\* Som ändras ovan, de absoluta sökvägarna under livslängd för den virtuella datorn, men inte i en enda körning av CustomScript-tillägg.
 
 ### <a name="support"></a>Support
 

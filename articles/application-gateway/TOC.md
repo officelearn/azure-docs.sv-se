@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Security Center-integration](application-gateway-integration-security-center.md)
 ## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Konfigurera SSL från slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
 ## Felsöka
 ### [Felsöka fel i Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostisk loggning och mått](application-gateway-diagnostics.md)

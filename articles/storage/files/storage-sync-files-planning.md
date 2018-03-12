@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -49,7 +49,7 @@ Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt f
 En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. För närvarande, det går inte att skapa en serverslutpunkt för rot för en volym (till exempel `F:\` eller `C:\myvolume`, om en volym är monterad som en monteringspunkt).
 
 > [!Note]  
-> En serverslutpunkt kan finnas på systemvolymen om Windows. Molnet skiktning stöds inte på systemvolymen.
+> Endast icke flyttbara volymer stöds.  Enheter som mappas från en fjärransluten delad resurs stöds inte för slutpunktsökväg till en server.  Dessutom kan en serverslutpunkt för kan finnas på systemvolymen om molnet Windows skiktning stöds inte på systemvolymen.
 
 Om du lägger till en plats på servern som har en befintlig uppsättning filer som en serverslutpunkt i en grupp för synkronisering av slås filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
 

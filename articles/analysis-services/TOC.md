@@ -20,6 +20,10 @@
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
 ## [Uppdatera med REST API](analysis-services-async-refresh.md)
 ## [Konfigurera utskalning](analysis-services-scale-out.md)
+## Automatisera administrativa uppgifter
+### [Skapa tjänstens huvudnamn – Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Skapa tjänstens huvudnamn – PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md)
 ## Serverhantering
 ### [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
 ### [Hantera en server](analysis-services-manage.md)

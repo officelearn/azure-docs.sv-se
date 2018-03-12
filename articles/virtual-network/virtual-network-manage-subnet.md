@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 902c0eee88f0de8a20b9c8bf9c0dae6e3c3a7d79
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett undernät för virtuellt nätverk
 
-Lär dig mer om att lägga till, ändra eller ta bort ett undernät för virtuellt nätverk. Om du inte är bekant med virtuella nätverk, innan du lägger till, ändra eller ta bort ett undernät, rekommenderar vi att du läser [översikt över Azure Virtual Network](virtual-networks-overview.md) och [skapa, ändra eller ta bort ett virtuellt nätverk](virtual-network-manage-network.md). Alla Azure-resurser som har distribuerats till ett virtuellt nätverk har distribuerats i ett undernät i ett virtuellt nätverk.
+Lär dig mer om att lägga till, ändra eller ta bort ett undernät för virtuellt nätverk. Om du inte är bekant med virtuella nätverk, innan du lägger till, ändra eller ta bort ett undernät, rekommenderar vi att du läser [översikt över Azure Virtual Network](virtual-networks-overview.md) och [skapa, ändra eller ta bort ett virtuellt nätverk](manage-virtual-network.md). Alla Azure-resurser som har distribuerats till ett virtuellt nätverk har distribuerats i ett undernät i ett virtuellt nätverk.
  
 ## <a name="before-you-begin"></a>Innan du börjar
 

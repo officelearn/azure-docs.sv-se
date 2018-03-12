@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga stödfiler resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och regler för nätverkssäkerhetsgrupper skapas automatiskt. Mer kontroll över din miljö i produktionen använder, du kan skapa dessa resurser i förväg och sedan lägga till dina virtuella datorer till dem. Den här artikeln hjälper dig att skapa en virtuell dator och varje stödjande resurs i taget.
 
-Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och loggas på en Azure-konto med [az inloggningen](/cli/azure/#az_login).
+Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och loggas på en Azure-konto med [az inloggningen](/cli/azure/reference-index#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
@@ -35,7 +35,7 @@ En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras o
 az group create --name myResourceGroup --location eastus
 ```
 
-Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet för utdata till en lista eller tabell, till exempel använda [az konfigurera--utdata](/cli/azure/#az_configure). Du kan också lägga till `--output` ändra i utdataformatet till ett kommando för en gång. I följande exempel visas JSON-utdata från den `az group create` kommando:
+Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet för utdata till en lista eller tabell, till exempel använda [az konfigurera--utdata](/cli/azure/reference-index#az_configure). Du kan också lägga till `--output` ändra i utdataformatet till ett kommando för en gång. I följande exempel visas JSON-utdata från den `az group create` kommando:
 
 ```json                       
 {
@@ -49,7 +49,7 @@ Som standard är resultatet av Azure CLI-kommandona i JSON (JavaScript Object No
 }
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och undernät
+## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 Nästa du skapar ett virtuellt nätverk i Azure och ett undernät i som du kan skapa dina virtuella datorer. Använd [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create) att skapa ett virtuellt nätverk med namnet *myVnet* med den *192.168.0.0/16* adressprefix. Du också lägga till ett undernät med namnet *mySubnet* med adressprefixet för *192.168.1.0/24*:
 
 ```azurecli
@@ -444,7 +444,7 @@ Uppdatera domäner ange grupper av virtuella datorer och underliggande fysiska m
 
 Azure distribuerar automatiskt virtuella datorer i domäner fel- och update när de placeras i en tillgänglighetsuppsättning. Mer information finns i [hantera tillgängligheten för virtuella datorer](manage-availability.md).
 
-Skapa en tillgänglighetsuppsättning för den virtuella datorn med [az vm tillgänglighetsuppsättning skapa](/cli/azure/vm/availability-set#az_vm_availability_set_create). I följande exempel skapas en tillgänglighetsuppsättning namngivna *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning för den virtuella datorn med [az vm tillgänglighetsuppsättning skapa](/cli/azure/vm/availability-set#az_vm_availability_set_create). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (FAQ) virtuella Azure-nätverket
 
@@ -57,7 +57,7 @@ Du kan använda följande verktyg för att skapa eller konfigurera ett virtuellt
 Alla IP-adressintervall som definierats i [RFC 1918](http://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan jag ha offentliga IP-adresser i Mina Vnet?
-Ja. Läs mer om offentliga IP-adressintervall, [skapa ett virtuellt nätverk](virtual-network-manage-network.md#create-a-virtual-network). Offentliga IP-adresser är inte tillgänglig direkt från internet.
+Ja. Läs mer om offentliga IP-adressintervall, [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser är inte tillgänglig direkt från internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Finns det en gräns för antalet undernät i mitt virtuella nätverk?
 Ja. Se [Azure begränsar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) mer information. Undernät adressutrymmen får inte överlappa varandra.
@@ -218,6 +218,6 @@ Ja. Du kan använda REST API: er för VNets i den [Azure Resource Manager](/rest
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Finns det verktygsuppsättning stöd för Vnet?
 Ja. Lär dig mer om hur du använder:
-- Azure portal för att distribuera Vnet via den [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) och [klassiska](virtual-networks-create-vnet-classic-pportal.md) distributionsmodeller.
+- Azure portal för att distribuera Vnet via den [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) och [klassiska](virtual-networks-create-vnet-classic-pportal.md) distributionsmodeller.
 - PowerShell för att hantera Vnet som distribueras via den [Resource Manager](/powershell/module/azurerm.network) och [klassiska](/powershell/module/azure/?view=azuresmps-3.7.0) distributionsmodeller.
 - Azure-kommandoradsgränssnittet (CLI) för att distribuera och hantera Vnet som distribueras via den [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) distributionsmodeller.  

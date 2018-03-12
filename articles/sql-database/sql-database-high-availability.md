@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: db7af48b4aaefefbea704cb87c2b7f3808fc5330
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -50,7 +50,7 @@ Viktiga fördelar:
 
 ## <a name="data-redundancy"></a>Dataredundans
 
-Lösning för hög tillgänglighet i SQL-databas är baserad på [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) teknik från SQL Server och gör det fungerar för både LS och RS databaser med minimal skillnader. I LS är konfigurationen Always ON används för beständiga i RS den används för tillgänglighet (låga RTO). 
+Lösning för hög tillgänglighet i SQL-databas är baserad på [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) teknik från SQL Server och gör det fungerar för både LS och RS databaser med minimal skillnader. I LS är konfigurationen Always ON används för beständiga i RS den används för tillgänglighet (låga RTO). 
 
 ## <a name="local-storage-configuration"></a>Konfiguration av lokal lagring
 

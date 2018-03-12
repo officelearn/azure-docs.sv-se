@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
 Den här snabbstarten visar hur du skapar en arbetsyta för Azure Databricks och ett Apache Spark-kluster i den arbetsytan. Dessutom får du lära dig hur du kör ett Spark-jobb på Databricks-klustret. Mer information om Azure Databricks finns i [Vad är Azure Databricks?](what-is-azure-databricks.md)
+
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -62,7 +64,8 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     ![Skapa Databricks Spark-kluster på Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
 
     * Ange ett namn för klustret.
-    * Se till att markera kryssrutan **Avsluta efter ___ minuters aktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+    * För den här artikeln skapar du ett kluster med körningen **4.0 (beta)**. 
+    * Se till att markera kryssrutan **Avsluta efter ___ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
     * Acceptera alla övriga standardvärden. 
     * Klicka på **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
@@ -70,7 +73,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
-Innan du börjar med det här avsnittet måste du slutföra följande:
+Innan du börjar med det här avsnittet måste du slutföra följande krav:
 
 * [Skapa ett Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Ladda ned en exempel-JSON-fil [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
@@ -88,11 +91,27 @@ Utför följande steg för att skapa en anteckningsbok i Databricks, konfigurera
 
     Klicka på **Skapa**.
 
-3. I följande kodfragment ersätter du `{YOUR STORAGE ACCOUNT NAME}` med namnet på Azure-lagringskontot som du skapade och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med din åtkomstnyckel för lagringskontot. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen. Kodfragmentet konfigurerar anteckningsboken för att läsa data från et Azure Blob Storage.
+3. I det här steget associerar du Azure Storage-kontot med Databricks Spark-klustret. Det finns två sätt att göra detta på. Antingen monterar du Azure Storage-kontot till DBFS (Databricks Filesystem) eller så skapar du en direkt åtkomst till Azure Storage-kontot från programmet.  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
-    Om du vill få instruktioner om hur du hämtar åtkomstnyckeln för lagringskontot läser du [Hantera dina åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    > [!IMPORTANT]
+    >I den här artikeln används **metoden att montera lagringen med DBFS**. Den här metoden innebär att den monterade lagringen hämtar sådant som är associerat med själva filsystemet i klustret. Därför kommer även alla program som har åtkomst till klustret kunna använda den associerade lagringen. Metoden för direkt åtkomst är begränsad till det program som du konfigurerar åtkomsten från.
+    >
+    > Om du vill använda monteringsmetoden måste du skapa ett Spark-kluster med Databricks körningsversion **4.0 (beta)**, vilket är vad du väljer i den här artikeln.
+
+    I följande kodfragment ersätter du `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med lämpliga värden för ditt Azure Storage-konto. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen.
+
+    * **Montera lagringskontot med DBFS (rekommenderas)**. I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **Direkt åtkomst till lagringskontot**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
+    Anvisningar om hur du hämtar nyckeln för lagringskontot finns i [Hantera dina lagringsåtkomstnycklar](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
     > [!NOTE]
     > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
@@ -101,10 +120,11 @@ Utför följande steg för att skapa en anteckningsbok i Databricks, konfigurera
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 

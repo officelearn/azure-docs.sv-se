@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 44a02ac20a9e9e5fb7171d28e4852ab1a6e63881
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-instansen migrering till Azure SQL-hanterade databasinstans
 
@@ -75,7 +75,7 @@ Om du vill flytta SQL-instanser måste du planera noggrant:
 
 Hanterade instansen är en helt hanterad tjänst som hjälper dig att delegera vissa av DBA vanliga aktiviteter för plattformen som de är inbyggda i. Därför vissa nivån instansdata behöver inte migreras, till exempel Underhållsjobb för regelbundna säkerhetskopieringar och alltid på konfiguration som [hög tillgänglighet](sql-database-high-availability.md) är inbyggd i.
 
-Hanterade instans har stöd för följande flera databasen migreringsalternativ:
+Hanterade instans stöder följande databas-migreringsalternativ (dessa är för närvarande stöds endast migrering metoder):
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 

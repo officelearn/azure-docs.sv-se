@@ -4,7 +4,7 @@ description: "Lär dig hur du skapar ett Windows HPC Pack kluster med storlek H1
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Ställa in ett RDMA-Windows-kluster med HPC Pack som kör MPI-program
-Konfigurera ett RDMA för Windows-kluster i Azure med [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) och [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. När du ställer in RDMA-kompatibla, Windows Server-baserade noder i ett kluster med HPC Pack kommunikation MPI program effektiv via en låg latens, hög genomströmning nätverk i Azure som är baserad på remote direct memory access (RDMA)-teknik.
+Konfigurera ett RDMA för Windows-kluster i Azure med [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) och [RDMA-kompatibla HPC VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) att köra parallella Message Passing Interface (MPI) program. När du ställer in RDMA-kompatibla, Windows Server-baserade noder i ett kluster med HPC Pack kommunikation MPI program effektiv via en låg latens, hög genomströmning nätverk i Azure som är baserad på remote direct memory access (RDMA)-teknik.
 
 Om du vill köra MPI arbetsbelastningar på virtuella Linux-datorer som kommer åt nätverket Azure RDMA, se [ställa in ett Linux RDMA-kluster som kör MPI program](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC Pack distributionsalternativ för kluster
 Microsoft HPC Pack är ett verktyg utan extra kostnad för att skapa HPC-kluster lokalt eller i Azure för att köra Windows eller Linux HPC-program. HPC Pack innehåller en körningsmiljö för Microsofts implementering av meddelandet passerar gränssnittet för Windows (MS-MPI). När det används med RDMA-kompatibla instanser med en Windows Server-operativsystem som stöds, ger HPC Pack ett effektivt alternativ för att köra Windows MPI-program som ansluter till Azure RDMA-nätverket. 
 
-Den här artikeln introducerar två scenarier och länkar till detaljerade riktlinjer för att konfigurera ett RDMA för Windows-kluster med Microsoft HPC Pack. 
+Den här artikeln introducerar två scenarier och länkar till detaljerade riktlinjer för att konfigurera ett RDMA för Windows-kluster med Microsoft HPC Pack 2012 R2. 
 
 * Scenario 1. Distribuera beräkningsintensiva worker rollinstanser (PaaS)
 * Scenario 2. Distribuera beräkningsnoder i beräkningsintensiva virtuella datorer (IaaS)
-
-Allmänna krav för att använda beräkningsintensiva instanser med Windows, se [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scenario 1: Distribuera beräkningsintensiva worker rollinstanser (PaaS)
 Lägga till extra beräkningsresurser i Azure worker rollinstanser (Azure noder) körs i en molntjänst (PaaS) från ett befintligt paket för HPC-kluster. Den här funktionen kallas även ”burst to Azure” från HPC Pack stöder flera olika storlekar för rollen arbetarinstanser. Ange en av RDMA-kompatibla storlekar när du lägger till Azure-noder.
@@ -51,13 +49,14 @@ Följande är överväganden och steg för att burst till RDMA-kompatibla Azure-
 ### <a name="steps"></a>Steg
 1. **Distribuera och konfigurera en huvudnod i HPC Pack 2012 R2**
    
-    Hämta det senaste installationspaketet för HPC Pack från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Krav och anvisningar för att förbereda för distribution av en Azure burst finns [Burst to Azure Worker-instanser med Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+    Hämta installationspaketet för HPC Pack från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Krav och anvisningar för att förbereda för distribution av en Azure burst finns [Burst to Azure Worker-instanser med Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Konfigurera ett certifikat i Azure-prenumeration**
    
     Konfigurera ett certifikat för säker anslutning mellan huvudnod och Azure. Alternativ och procedurer finns [scenarier för att konfigurera Azure-Hanteringscertifikatet för HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). HPC Pack installeras testdistributioner kan en standard Microsoft HPC Azure-Hanteringscertifikatet du snabbt kan överföra till din Azure-prenumeration.
 3. **Skapa en ny molntjänst och ett lagringskonto**
    
-    Använda Azure portal för att skapa en tjänst i molnet och storage-konto för distribution i en region där RDMA-kompatibla instanserna är tillgängliga.
+    Använda Azure portal för att skapa en tjänst i molnet (klassiskt) och ett lagringskonto (klassiskt) för distributionen. Skapa dessa resurser i en region där du vill använda H-serien, A8 och A9 storleken är tillgänglig. Se [Azure produkter efter region](https://azure.microsoft.com/regions/services/).
+
 4. **Skapa en mall för Azure nod**
    
     Använd den noden guiden Skapa i HPC Cluster Manager. Anvisningar finns [skapar en mall för Azure noden](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) i ”steg för att distribuera Azure noder med Microsoft HPC Pack”.
@@ -91,19 +90,20 @@ I det här scenariot kan distribuera du huvudnod i HPC Pack och beräkning klust
 ### <a name="steps"></a>Steg
 1. **Skapa en klustrets huvudnod och compute-nod virtuella datorer genom att köra skriptet HPC Pack IaaS distribution på en klientdator**
    
-    Hämta HPC Pack IaaS-distributionsskriptet paketet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    Hämta HPC Pack IaaS-distributionsskriptet paketet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949).
    
     För att förbereda klientdatorn, skapa konfigurationsfilen och kör skriptet, se [skapa ett HPC-kluster med HPC Pack IaaS-distributionsskriptet](hpcpack-cluster-powershell-script.md). 
    
-    Observera följande ytterligare överväganden för att distribuera RDMA-kompatibla compute-noder:
+    Att tänka på att distribuera RDMA-kompatibla datornoder finns i avsnittet [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) och Tänk på följande:
    
-   * **Virtuellt nätverk**: Ange ett nytt virtuellt nätverk i en region där du vill använda RDMA-kompatibla instansstorleken är tillgänglig.
-   * **Operativsystemet Windows Server**: Ange ett Windows Server 2012 R2 eller Windows Server 2012-operativsystem för beräkningsnod virtuella datorer för att stödja RDMA-anslutning.
-   * **Molntjänster**: Vi rekommenderar att distribuera din huvudnod i en molntjänst och dina compute-noder i en annan molntjänst.
+   * **Virtuellt nätverk**: Ange ett nytt virtuellt nätverk i en region där den H-serien, A8 och A9 storleken som du vill använda är tillgänglig. Se [Azure produkter efter region](https://azure.microsoft.com/regions/services/).
+
+   * **Operativsystemet Windows Server**: stöd för RDMA-anslutningar kan ange en kompatibel Windows Server operativsystem, till exempel Windows Server 2012 R2 för beräkningsnod virtuella datorer.
+   * **Molntjänster**: eftersom skriptet använder den klassiska distributionsmodellen kan de virtuella datorerna klustret distribueras med Azure-molntjänster (`ServiceName` inställningarna i konfigurationsfilen). Vi rekommenderar att distribuera din huvudnod i en molntjänst och dina compute-noder i en annan molntjänst. 
    * **Gå nodstorlek**: det här scenariot bör du en storlek på minst A4 (Extra stor) för huvudnoden.
    * **HpcVmDrivers tillägget**: distributionsskriptet installerar Azure VM-agenten och tillägget HpcVmDrivers automatiskt när du distribuerar storlek A8 eller A9 compute-noder med en Windows Server-operativsystem. HpcVmDrivers installerar drivrutiner på Beräkningsnoden virtuella datorer så att de kan ansluta till nätverkets RDMA. På RDMA-kompatibla H-serien virtuella datorer, måste du manuellt installera tillägget HpcVmDrivers. Se [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Klusternätverkskonfigurationen**: distributionsskriptet ställer automatiskt in HPC Pack klustret i topologin 5 (alla noder på företagsnätverket). Den här topologin krävs för alla HPC Pack klustret distributioner i virtuella datorer. Ändra inte klustret nätverkets topologi senare.
-2. **Kör jobb gör datornoderna online**
+1. **Kör jobb gör datornoderna online**
    
     Markera noderna och använda den **Anslut** åtgärd i HPC Cluster Manager. Noderna är redo att köra jobb.
 3. **Skicka jobb till klustret**

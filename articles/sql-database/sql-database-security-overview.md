@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -31,7 +31,7 @@ En fullständig översikt över tillgängliga säkerhetsfunktioner på alla stil
 ## <a name="protect-data"></a>Skydda data
 
 ### <a name="encryption"></a>Kryptering
-SQL-databas du data som skyddas med kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för data i vila med [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), och för data som används med [ Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL-databas skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för data i vila med [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), och för data som används med [ Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program måste du ange parametrar för att kryptera anslutningen och *inte* ska lita på certifikatet (det gör du om du kopierar anslutningssträngen utanför Azure-portalen), annars den anslutningen verifiera inte identiteten för servern och är sårbara för ”man-in-the-middle”-attacker. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. 

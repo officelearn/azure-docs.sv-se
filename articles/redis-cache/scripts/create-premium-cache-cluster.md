@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: dc20b5317ab6899cbf0865755d47f475dde094e7
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fb97d19d50ac9845c2495bd167a9cd30805d464b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>Skapa en Premium Azure Redis-Cache med kluster
 
@@ -33,18 +33,18 @@ I detta scenario dig du hur du skapar en 6 GB premiumnivån Azure Redis-Cache me
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp och Premium-nivån redis-cache med aktivera-kluster. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp och Premium-nivån redis-cache med aktivera-kluster. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [Skapa AZ redis](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Skapa Redis-Cache-instans. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
 Ytterligare Azure Redis-Cache CLI skriptexempel finns i den [dokumentation för Azure Redis-Cache](../cli-samples.md).

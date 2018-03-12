@@ -27,7 +27,8 @@
 ### [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md)
 
 ## Distribuera
-### [Virtuella nätverk](virtual-networks-create-vnet-arm-pportal.md)
+### Virtuella nätverk
+#### [Azure-portalen](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Mall](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Användardefinierade vägar
-#### [Azure-portalen](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+### Routningstabeller
+#### [Azure-portalen](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [Mall](virtual-network-create-udr-arm-template.md)
 #### Klassisk
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtuell nätverkspeering
-#### [Samma distributionsmodell – samma prenumeration](virtual-network-create-peering.md)
+#### Samma distributionsmodell – samma prenumeration
+##### [Azure-portalen](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Samma distributionsmodell – olika prenumerationer](create-peering-different-subscriptions.md)
 #### [Olika distributionsmodeller – samma prenumeration](create-peering-different-deployment-models.md)
 #### [Olika distributionsmodeller – olika prenumerationer](create-peering-different-deployment-models-subscriptions.md)

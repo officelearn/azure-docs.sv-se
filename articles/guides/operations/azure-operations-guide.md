@@ -1,6 +1,6 @@
 ---
 title: "Kom igång med för Azure IT operatörer | Microsoft Docs"
-description: "Komma igång-guide för Azure IT operatörer"
+description: "Startguide för Azure IT-operatörer"
 services: 
 documentationcenter: 
 author: neilpeterson
@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduktion till molntjänster och Microsoft Azure
 
@@ -110,13 +110,13 @@ Tjänster för att lagra och hantera data:
 
 Tjänster för att skapa och använda program:
 
--   Azure Active Directory (AD Azure)
+-   Azure Active Directory (Azure AD)
 
 -   Azure Service Bus för att ansluta distribuerade system
 
 -   Azure HDInsight för bearbetning av stordata
 
--   Azure Schemaläggaren
+-   Azure Scheduler
 
 -   Azure Media Services
 
@@ -128,7 +128,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala datacenter:
 
 -   Azure ExpressRoute
 
--   Azure-tillhandahållna DNS
+-   Azure-provided DNS
 
 -   Azure Traffic Manager
 
@@ -491,19 +491,19 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 **Portal**
 
-Distribuera ett virtuellt Azure-nätverk med hjälp av Azure portal kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Mer information finns i [skapa ett virtuellt nätverk med Azure-portalen](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Distribuera ett virtuellt Azure-nätverk med hjälp av Azure portal kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Mer information finns i [skapa ett virtuellt nätverk med Azure-portalen](../../virtual-network/quick-create-portal.md).
 
 Förutom att distribuera Azure-nätverk från Azure-portalen kan distribuera du en Azure Resource Manager-mall från portalen. Distribuerar och konfigurerar då alla resurser som har definierats i mallen, inklusive några resurser för virtuellt nätverk. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-Distribuera ett virtuellt Azure-nätverk med hjälp av PowerShell tillåter fullständig distribution automatisering av lagringskontot. Mer information finns i [skapa ett virtuellt nätverk med hjälp av PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+Distribuera ett virtuellt Azure-nätverk med hjälp av PowerShell tillåter fullständig distribution automatisering av lagringskontot. Mer information finns i [skapa ett virtuellt nätverk med hjälp av PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Förutom att distribuera Azure-resurser individuellt kan använda du Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Kommandoradsgränssnittet (CLI)**
 
-Precis som med PowerShell-modulen kommandoradsgränssnittet i Azure tillhandahåller automatiserad distribution och kan användas för Windows-, OS X- eller Linux-datorer. Du kan använda Azure CLI **network vnet skapa** kommando för att skapa ett virtuellt nätverk. Mer information finns i [skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+Precis som med PowerShell-modulen kommandoradsgränssnittet i Azure tillhandahåller automatiserad distribution och kan användas för Windows-, OS X- eller Linux-datorer. Du kan använda Azure CLI **network vnet skapa** kommando för att skapa ett virtuellt nätverk. Mer information finns i [skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/quick-create-cli.md).
 
 På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

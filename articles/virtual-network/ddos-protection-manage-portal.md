@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS-skydd Standard med hjälp av Azure portal
 
@@ -31,9 +31,9 @@ Lär dig mer om att aktivera och inaktivera för tjänsten (DDoS)-skydd och anv�
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Aktivera DDoS-skydd Standard - nytt virtuellt nätverk
 
 1. Logga in på Azure Portal på http://portal.azure.com. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-2. Klicka på **skapar du en resurs** i det övre vänstra hörnet i Azure-portalen.
+2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 3. Välj **nätverk**, och välj sedan **virtuellt nätverk**.
-4. Skapa ett virtuellt nätverk med dina valda inställningar. Mer information om hur du skapar virtuella nätverk finns [skapa ett virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md). Under **DDoS-skydd**, klickar du på **aktiverad**, och klicka sedan på **skapa**. Om du inte ser **DDoS-skydd**, en trolig orsak är att din prenumeration inte har registrerats för funktionen. Du måste slutföra [registrering](http://aka.ms/ddosprotection), och meddelande om att din prenumeration har aktiverats för funktionen, innan **DDoS-skydd** visas.
+4. Skapa ett virtuellt nätverk med dina valda inställningar. Mer information om hur du skapar virtuella nätverk finns [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Under **DDoS-skydd**, klickar du på **aktiverad**, och klicka sedan på **skapa**. Om du inte ser **DDoS-skydd**, en trolig orsak är att din prenumeration inte har registrerats för funktionen. Du måste slutföra [registrering](http://aka.ms/ddosprotection), och meddelande om att din prenumeration har aktiverats för funktionen, innan **DDoS-skydd** visas.
 
     ![Skapa det virtuella nätverket](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

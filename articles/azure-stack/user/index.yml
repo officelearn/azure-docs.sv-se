@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
-  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: 5a4a9b6ad3a1de27a722a6b5b250e68aa72e52e7
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/09/2018
 abstract:
   description: "Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href=\"/azure/azure-stack/\">operatorn dokumentationen</a>."
 sections:
@@ -73,4 +73,4 @@ sections:
     className: cardsD
     items:
     - title: Kommandorad
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-stacken</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure Stack CLI</a></p>

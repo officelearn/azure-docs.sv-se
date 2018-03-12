@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data vetenskap virtuella data införandet verktyg
 
@@ -35,7 +35,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Stöds DSVM versioner      | Windows      |
 | Vanliga användningsområden      | Importera flera blobbar från Azure-lagring till Azure Data Lake Store.      |
 |  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `adlcopy` kan få hjälp.    |
-| Länkar till exempel      | [Using AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Länkar till exempel      | [Använda AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Relaterade verktyg på DSVM      | AzCopy, Azure kommandoraden     |
 
 ## <a name="azure-command-line"></a>Azure kommandoraden
@@ -46,7 +46,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Stöds DSVM versioner      | Windows, Linux     |
 | Vanliga användningsområden      | Import, export av data till och från Azure storage, Azure Data Lake Store      |
 |  Hur du använder / kör den?    |   Öppna en kommandotolk, Skriv `az` kan få hjälp.    |
-| Länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure)     |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Stöds DSVM versioner      | Linux      |
 | Vanliga användningsområden      | Läsning och skrivning till blobbar i en behållare      |
 |  Hur du använder / kör den?    |   Kör _blobfuse_ i en terminal.    |
-| Länkar till exempel      | [blobfuse på GitHub) [https://github.com/Azure/azure-storage-fuse]      |
+| Länkar till exempel      | [blobfuse på GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Relaterade verktyg på DSVM      | Azure kommandoraden      |
 
 

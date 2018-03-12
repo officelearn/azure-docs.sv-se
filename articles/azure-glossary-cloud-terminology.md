@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: en ordlista med molnet terminologi för Azure-plattformen
 
@@ -28,14 +28,14 @@ Ordlista för Microsoft Azure är en kort dictionary med molnet terminologi för
 * [Microsoft Azure och Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definitioner av Azure-tjänster och motsvarigheterna AWS.<!-- I propose to link to https://azure.microsoft.com/en-us/services/ instead of this -->
 * [Molnet databehandling villkoren](https://azure.microsoft.com/overview/cloud-computing-dictionary/) -Allmänt branschen molnet villkoren.
 
-## <a name="account"></a>Konto
+## <a name="account"></a>konto
 Ett konto som används för att komma åt och hantera en Azure-prenumeration. Det är kallas ofta för ett Azure-konto även om ett konto kan vara något av följande: ett befintligt arbets, skolan, eller personliga Microsoft-konto, eller en Office 365 användarnamn och lösenord. Du kan också skapa ett konto för att hantera en Azure-prenumeration när du registrerar dig för den [kostnadsfri utvärderingsversion](https://azure.microsoft.com).  
 Se [registrera dig för en Azure-prenumeration med ditt Office 365-konto](billing/billing-use-existing-office-365-account-azure-subscription.md) och [konton som du kan använda för att logga in](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>API-app
 Ett annat namn för [Apptjänst-app](#app-service-app).
 
-## <a name="app-service-app"></a>Apptjänst-app
+## <a name="app-service-app"></a>App Service-app
 Beräkningsresurserna som [Azure App Service](app-service/app-service-web-overview.md) tillhandahåller för hantering av en webbplatsen eller programmet web API eller [mobilappsserverdel](app-service-mobile/app-service-mobile-value-prop.md). Apptjänst-appar kallas även att *Apptjänster*, *webbappar*, *API apps*, och *mobilappar*.
 
 ## <a name="availability-set"></a>Tillgänglighetsuppsättning
@@ -46,7 +46,7 @@ Se [hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/w
 En av två [distributionsmodeller](resource-manager-deployment-model.md) används för att distribuera resurser i Azure (den nya modellen är Azure Resource Manager). Vissa Azure tjänster stöder endast Resource Manager-distributionsmodellen, vissa stöder den klassiska distributionsmodellen och vissa stöder både. I dokumentationen för varje Azure-tjänst anger vilka modeller som de stöder.
 
 ## <a name="cli"></a>Azure-kommandoradsgränssnittet (CLI)
-Ett kommandoradsgränssnitt som kan användas för att hantera Azure-tjänster från Windows-, macOS- och Linux.  Vissa tjänster eller tjänstens funktioner kan hanteras endast via PowerShell eller CLI. Se [Azure CLI 2.0](/cli/azure/overview)
+Ett kommandoradsgränssnitt som kan användas för att hantera Azure-tjänster från Windows-, macOS- och Linux.  Vissa tjänster eller tjänstens funktioner kan hanteras endast via PowerShell eller CLI. Se [Azure CLI 2.0](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Ett kommandoradsgränssnitt för att hantera Azure-tjänster via en kommandorad från Windows-datorer. Vissa tjänster eller tjänstens funktioner kan hanteras endast via PowerShell eller CLI.
@@ -59,7 +59,7 @@ En av två [distributionsmodeller](resource-manager-deployment-model.md) använd
 Samlingen av virtuella datorer i en tillgänglighetsuppsättning som eventuellt kan misslyckas på samma gång. Ett exempel är en grupp datorer i ett rack som delar en gemensam käll- och strömbrytare. I Azure separeras de virtuella datorerna i en tillgänglighetsuppsättning automatiskt över flera feldomäner.  
 Se [hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
-## <a name="geo"></a>GEO-replikering
+## <a name="geo"></a>geo
 En definierad gräns för data land som innehåller vanligtvis två eller flera regioner. Gränser kan göras inom eller utanför gränser och påverkas av skatt förordning. Varje geo har minst en region. Asien/Stillahavsområdet och Japan är exempel på regioner. Kallas även *geografi*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
@@ -82,7 +82,7 @@ En resurs som distribuerar inkommande trafik mellan datorer i ett nätverk. I Az
 ## <a name="mobile-app"></a>mobilapp
 Ett annat namn för [Apptjänst-App](#app-service-app).
 
-## <a name="offer"></a>Erbjudande
+## <a name="offer"></a>erbjudande
 De priser, krediter och tillhörande villkor som gäller för en Azure-prenumeration.  
 Finns det [informationssidan för Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/)
 
@@ -105,11 +105,11 @@ Se [översikt över Azure Resource Manager](azure-resource-manager/resource-grou
 En JSON-fil som deklarativt definierar en eller flera Azure-resurser och som definierar beroenden mellan distribuerade resurser. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger.  
 Se [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>Resursprovidern
+## <a name="resource-provider"></a>resursprovider
 En tjänst som tillhandahåller de resurser som du kan distribuera och hantera via Resource Manager. Varje resursprovider tillhandahåller åtgärder som hjälper dig att arbeta med de resurser du distribuerar. Resursproviders kan nås via Azure-portalen, Azure PowerShell och flera programmeringsspråk SDK: er.  
 Se [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>Rollen
+## <a name="role"></a>roll
 Ett sätt för att styra åtkomsten som kan tilldelas användare, grupper och tjänster. Roller kan utföra åtgärder som att skapa, hantera, och läsas på Azure-resurser.  
 Se [RBAC: inbyggda roller](active-directory/role-based-access-built-in-roles.md)
 
@@ -117,10 +117,10 @@ Se [RBAC: inbyggda roller](active-directory/role-based-access-built-in-roles.md)
 Avtalet som beskriver Microsofts åtaganden för drifttid och anslutningar. Varje Azure-tjänsten har en specifik SLA.  
 Se [serviceavtal](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="sas"></a>signatur för delad åtkomst (SAS)
+## <a name="sas"></a>Signatur för delad åtkomst (SAS)
 En signatur som gör att du kan bevilja begränsad åtkomst till en resurs, utan att utsätta din kontonyckel. Till exempel [Azure Storage använder SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) att ge klientåtkomst till objekt, till exempel BLOB. [IoT-hubb använder SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) att bevilja behörighet att skicka telemetri för enheter.
 
-## <a name="storage-account"></a>Storage-konto
+## <a name="storage-account"></a>lagringskonto
 Ett konto som ger dig åtkomst till Azure Blob, kön, tabell och filen tjänster i Azure Storage. Lagringskontonamnet definierar den unika namnrymden för Azure Storage-dataobjekt.  
 Se [om Azure storage-konton](storage/common/storage-create-storage-account.md)
 
@@ -128,7 +128,7 @@ Se [om Azure storage-konton](storage/common/storage-create-storage-account.md)
 Kundens avtal med Microsoft som gör det möjligt för dem att hämta Azure-tjänster. Priser för prenumeration och tillhörande villkor regleras av erbjudandet valt för prenumerationen.
 Se [prenumerationsavtalet för Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) och [hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>Taggen
+## <a name="tag"></a>tagg
 En indexering term som gör det möjligt att kategorisera resurser utifrån dina hanterings- eller faktureringskrav. När du har en komplex samling resurser, använder du taggar visualisera dessa tillgångar på ett sätt som är bäst. Du kan till exempel tagga resurser som har en liknande roll i organisationen eller som tillhör samma avdelning.  
 Se [med taggar för att organisera dina Azure-resurser](resource-group-using-tags.md)
 
@@ -136,7 +136,7 @@ Se [med taggar för att organisera dina Azure-resurser](resource-group-using-tag
 Samlingen av virtuella datorer i en tillgänglighetsuppsättning uppdateras samtidigt. Virtuella datorer i samma uppdateringsdomän startas om tillsammans under planerat underhåll. Azure startar aldrig om mer än en uppdateringsdomän i taget. Kallas även en uppgraderingsdomän.  
 Se [hantera tillgängligheten för virtuella Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vm"></a>virtuell dator
+## <a name="vm"></a>Virtuell dator
 Programvara implementeringen av en fysisk dator som kör ett operativsystem. Flera virtuella datorer kan köras samtidigt på samma maskinvara. I Azure är virtuella datorer tillgängliga i olika storlekar.  
 Se [dokumentation för virtuella datorer](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -145,14 +145,14 @@ En resurs som implementerar beteenden eller funktioner som antingen hjälper and
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Se [om virtuella datortillägg och funktioner (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [om virtuella datortillägg och funktioner (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vnet"></a>virtuellt nätverk
+## <a name="vnet"></a>Virtuellt nätverk
 Ett nätverk som tillhandahåller anslutningar mellan dina Azure-resurser som är isolerad från andra Azure klienter. En [Azure VPN-Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kan du upprätta anslutningar mellan virtuella nätverk och [mellan ett virtuellt nätverk och ett lokalt nätverk](vpn-gateway/vpn-gateway-plan-design.md). Du kan helt styra IP-Adressblock, DNS-inställningar, säkerhetsprinciper och Routingtabellerna inom ett virtuellt nätverk.  
 Se [översikt över virtuella nätverk](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Webbapp
 Ett annat namn för [Apptjänst-App](#app-service-app).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Kom igång med Azure](https://azure.microsoft.com/get-started/)
 * [Molnet resource center](https://azure.microsoft.com/resources/)  

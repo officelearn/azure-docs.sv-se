@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -175,14 +175,17 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Uppdatera SQL resource provider nätverkskort (med flera noder bara versioner 1710 och senare)
-Ett nytt SQL resource provider-kort kan frigöras när Azure Stack-versioner har uppdaterats. När det befintliga kortet fortsätter att fungera, rekommenderar vi uppdatera till den senaste versionen så snart som möjligt. Uppdateringar måste installeras i ordning: du kan inte hoppa över versioner (se tabellen ovan).
+Ett nytt SQL resource provider-kort kan frigöras när Azure Stack-versioner har uppdaterats. Medan det befintliga kortet fortsätter att fungera, rekommenderar vi uppdatera till den senaste versionen så snart som möjligt. Uppdateringar måste installeras i ordning: du kan inte hoppa över versioner (se tabellen i steg 3 i [distribuera resursprovidern](#deploy-the-resource-provider)).
 
-Uppdateringsprocessen liknar installationen som beskrivs ovan. Du kan skapa en ny virtuell dator med senaste resource provider kod. Dessutom kan migrera du inställningar till den här nya instansen inklusive databas och värd-serverinformation. Du kan också migrera nödvändiga DNS-posten.
+Uppdatering av resursprovidern som du använder den *UpdateSQLProvider.ps1* skript. Processen påminner om den process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuera resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår i hämtningen av resursprovidern.
 
-Använda skriptet UpdateSQLProvider.ps1 med samma argument som det beskrivs ovan. Du måste ange det här certifikatet samt.
+Den *UpdateSQLProvider.ps1* skriptet skapar en ny virtuell dator med senaste resource provider kod och migrerar inställningarna från den gamla virtuella datorn till den nya virtuella datorn. Inställningar som migreras inkluderar databasen och värd-serverinformation och nödvändiga DNS-posten.
+
+Skriptet kräver användning av samma argument som beskrivs för skriptet DeploySqlProvider.ps1. Ange certifikat här samt. 
 
 Vi rekommenderar att du hämtar senaste Windows Server 2016 Core-avbildning från Marketplace-hantering. Du kan placera en enda om du behöver installera en uppdatering. MSU-paketet i den lokala beroende sökvägen. Om mer än en. MSU-fil hittas, skriptet misslyckas.
 
+Följande är ett exempel på den *UpdateSQLProvider.ps1* skript som du kan köra från PowerShell-Kommandotolken. Glöm inte att ändra kontoinformation och lösenord som behövs: 
 
 > [!NOTE]
 > Uppdateringen gäller bara för integrerade system.

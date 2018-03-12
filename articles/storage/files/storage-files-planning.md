@@ -2,23 +2,17 @@
 title: "Planera för distribution av en Azure-filer | Microsoft Docs"
 description: "Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer."
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB standardprotokoll. Eftersom Azure Files är fullständigt hanterad är distribuera i produktion scenarier mycket enklare än att distribuera och hantera en filserver eller en NAS-enhet. Den här artikeln tar information att tänka på när du distribuerar en Azure-filresurs för produktion inom din organisation.
@@ -45,7 +39,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="data-access-method"></a>Dataåtkomstmetod
 Azure filer erbjuder två inbyggda och praktiskt dataåtkomst metoder som du kan använda separat eller i kombination med varandra, åtkomst till data:
 
-1. **Direktåtkomst molnet**: alla Azure-filresurs kan monteras av [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), och/eller [Linux](storage-how-to-use-files-linux.md) med industry standard Server Message Block ( SMB-protokollet) eller via REST-API-fil. Med SMB görs läsning och skrivning till filer på resursen direkt på en filresurs i Azure. Om du vill montera av en virtuell dator i Azure, SMB-klienten i Operativsystemet stöder minst SMB 2.1. Montera lokalt, t.ex. på en användares arbetsstation SMB-klienten som stöds av arbetsstationen stöder minst SMB 3.0 (med kryptering). Förutom SMB, nya program eller tjänster kan direkt åtkomst till filresursen via filen vila, vilket ger ett enkelt och skalbar programmeringsgränssnitt för programutveckling.
+1. **Direktåtkomst molnet**: alla Azure-filresurs kan monteras av [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), och/eller [Linux](storage-how-to-use-files-linux.md) med branschens standard Server Message Block (SMB) protokollet eller via REST-API-fil. Med SMB görs läsning och skrivning till filer på resursen direkt på en filresurs i Azure. Om du vill montera av en virtuell dator i Azure, SMB-klienten i Operativsystemet stöder minst SMB 2.1. Montera lokalt, t.ex. på en användares arbetsstation SMB-klienten som stöds av arbetsstationen stöder minst SMB 3.0 (med kryptering). Förutom SMB, nya program eller tjänster kan direkt åtkomst till filresursen via filen vila, vilket ger ett enkelt och skalbar programmeringsgränssnitt för programutveckling.
 2. **Azure filsynkronisering** (förhandsversion): med Azure filsynkronisering resurser kan replikeras till Windows-servrar på lokalt eller i Azure. Användarna kan komma åt filresursen via Windows-Server som via en SMB- eller NFS-resurs. Detta är användbart för scenarier där data komma åt och ändra långt från ett Azure-datacenter, som i en filialkontorsscenario. Data kan replikeras mellan flera Windows Server-slutpunkter som mellan flera olika avdelningskontor. Slutligen kan nivåer data till Azure Files, så att alla data är tillgängliga via servern, men servern har inte en fullständig kopia av data. Data återställs i stället sömlöst när öppnas av dina användare.
 
 Följande tabell visar hur användare och program kan komma åt Azure-filresurs:
@@ -63,7 +57,7 @@ Azure Files har flera inbyggda alternativen för att säkerställa datasäkerhet
     * Klienter som stöder kryptering i SMB 3.0 skicka och ta emot data via en krypterad kanal.
     * Klienter som inte stöder SMB 3.0 kan kommunicera inom datacentret över SMB 2.1 eller SMB 3.0 utan kryptering. Observera att klienter inte kan kommunicera mellan datacenter över SMB 2.1 eller SMB 3.0 utan kryptering.
     * Klienter kan kommunicera över RESTEN av filen med HTTP eller HTTPS.
-* Kryptering i vila ([Azure Storage Service-kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Vi håller på att aktivera kryptering för lagring-tjänsten (SSE) på den underliggande Azure Storage-plattformen. Det innebär att kryptering aktiveras som standard för alla lagringskonton. Om du skapar ett nytt lagringskonto i en region med kryptering i vila på standard behöver du göra något för att aktivera. Data i vila är krypterad med fullständigt hanterade nycklar. Kryptering i vila inte öka kostnader för lagring och minska prestanda. 
+* Kryptering i vila ([Azure Storage Service-kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service kryptering (SSE) är aktiverat som standard för alla lagringskonton. Data i vila är krypterad med fullständigt hanterade nycklar. Kryptering i vila inte öka kostnader för lagring och minska prestanda. 
 * Valfria behovet av krypterade data under överföring: när du väljer Azure-filer nekar åtkomst till data via okrypterat kanaler. Mer specifikt tillåts endast HTTPS och SMB 3.0 med kryptering anslutningar. 
 
     > [!Important]  

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: afb8fce7ce7ef432518c58cb6f58951337aebcff
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ed1a366819911302e70b2ebdce08f60920918593
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Hur du ställer in Key Vault för virtuella datorer med Azure CLI 2.0
 
 I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av Key Vault. Mer information om Azure Key Vault finns [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md) För Key Vault som ska användas med Azure Resource Manager VMs den *EnabledForDeployment* egenskapen i Nyckelvalvet måste anges till true. Den här artikeln visar hur du ställer in Key Vault för användning med virtuella Azure-datorer (VM) med hjälp av Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 ## <a name="create-a-key-vault"></a>Skapa en Key Vault-lösning
 Skapa en nyckelvalvet och tilldela princip för programdistribution med [az keyvault skapa](/cli/azure/keyvault#az_keyvault_create). I följande exempel skapas ett nyckelvalv med namnet `myKeyVault` i den `myResourceGroup` resursgrupp:

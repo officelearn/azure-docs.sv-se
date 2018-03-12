@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f48adec11096cfcf7a51aedd316a7b7d3f047568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3ff9a8b91b0359c57fae5b1a01b5d895ab9a1685
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (klassisk)
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ SQL Server IaaS Agent tillägget stöder följande administrationsuppgifter:
 | Funktionen för administration | Beskrivning |
 | --- | --- |
 | **Automatisk SQL-säkerhetskopiering** |Automatiserar schemaläggning av säkerhetskopieringar för alla databaser för standardinstansen av SQL Server på den virtuella datorn. Mer information finns i [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-backup.md). |
-| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då uppdateringar till den virtuella datorn kan ske, så du kan undvika uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-patching.md). |
+| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då Windows-uppdateringar på din virtuella dator kan ske, så du kan undvika uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (klassisk)](../classic/sql-automated-patching.md). |
 | **Azure Key Vault-integrering** |Kan du automatiskt installera och konfigurera Azure Key Vault på SQL Server-VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines (klassisk)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure säkerhetstillståndet för Stack-infrastruktur
 
@@ -31,8 +31,12 @@ Det finns två hållningsdata säkerhetsskikt samexisterar i Azure stacken. Det 
 ## <a name="security-approach"></a>Säkerhet, metod
 Azure-stacken med en säkerhetstillståndet har utformats för att skydda mot aktuella hot och har skapats för att uppfylla kraven från större efterlevnadsstandarder. Säkerhetstillståndet Azure Stack-infrastrukturen är därför bygger på två pelare:
 
- - **Anta intrång.** Från antagandet att systemet har redan har utsatts för intrång fokusera på *identifiera och begränsa effekten av överträdelser* jämfört med endast försök att förhindra angrepp. 
- - **Härdat som standard.**  Eftersom infrastrukturen som körs på väldefinierade maskinvara och programvara, *aktivera, konfigurera och verifiera säkerhetsfunktioner* som finns kvar för kunder att implementera.
+ - **Anta intrång.**  
+Från antagandet att systemet har redan har utsatts för intrång fokusera på *identifiera och begränsa effekten av överträdelser* jämfört med endast försök att förhindra angrepp. 
+ - **Härdat som standard.**  
+Eftersom infrastrukturen som körs på väldefinierade maskinvara och programvara, vi *aktivera, konfigurera och verifiera alla säkerhetsfunktioner* som standard.
+
+
 
 Eftersom Azure Stack skickas som ett integrerat system har säkerhetstillståndet Azure Stack-infrastrukturen definierats av Microsoft. Precis som i Azure ansvarar hyresgäster för att definiera säkerhetstillståndet av deras klienternas arbetsbelastningar. Det här dokumentet innehåller grundläggande kunskaper om säkerhetstillståndet Azure Stack-infrastrukturen.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -53,6 +53,7 @@ Följande riktlinjer hjälper dig att välja ett virtuellt nätverk som ska anv�
 * Gäller inte NSG: er till dedikerade undernätet för din hanterade domän. Om du måste tillämpa NSG: er till dedikerade undernätet, se till att du **inte blockera portar som krävs för att tjänsten och hantera din domän**.
 * Begränsa inte antalet IP-adresser som är tillgängliga i det dedikerade undernätet för din hanterade domän alltför. Den här begränsningen förhindrar tjänsten från att två domänkontrollanter som är tillgänglig för din hanterade domän.
 * **Aktivera inte Azure AD Domain Services i gateway-undernätet** av det virtuella nätverket.
+* Inte blockera utgående åtkomst från det undernät där din hanterade domän är aktiverat.
 
 > [!WARNING]
 > När du kopplar en NSG med ett undernät som Azure AD Domain Services är aktiverat, kan det störa Microsofts möjlighet att underhålla och hantera domänen. Dessutom avbryts synkronisering mellan Azure AD-klienten och din hanterade domän. **SLA gäller inte för distributioner där en NSG har tillämpats som blockerar Azure AD Domain Services från uppdatering och hantering av din domän.**
@@ -89,6 +90,8 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 * Den används för att aktivera säker LDAP-åtkomst till din hanterade domän via internet.
 * Öppna den här porten via din NSG är valfritt. Öppna porten bara om du har säker LDAP-åtkomst via internet aktiverad.
 * Du kan begränsa inkommande åtkomst till den här porten till käll-IP-adresser som du förväntar dig att ansluta via säker LDAP.
+
+**Utgående åtkomst** AAD Domain Services måste utgående åtkomst till olika andra Azure-tjänster för att hantera, säkerhetskopiering och övervaka din hanterade domän. Inte blockera utgående åtkomst från dedikerade undernätet där din hanterade domän är aktiverat.
 
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper

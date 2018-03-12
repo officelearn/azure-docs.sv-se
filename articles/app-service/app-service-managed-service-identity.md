@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
@@ -56,7 +56,7 @@ Om du vill ställa in en hanterad tjänstidentitet med hjälp av Azure CLI, beh�
 
 Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av CLI:
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera programmet:
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera programmet:
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Där `<TENANTID>` och `<PRINCIPALID>` ersätts med GUID. Egenskapen tenantId ide
 En app kan använda sin identitet för att hämta token till andra resurser som skyddas av AAD, till exempel Azure Key Vault. Dessa token representerar programmet åtkomst till resursen och inte de specifika användaren. 
 
 > [!IMPORTANT]
-> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du vill begära en token för Nyckelvalvet, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller programmets identitet. Annars avvisas anropen till Key Vault, även om de inkludera token. Läs mer om vilka resurser som stöder hanterade tjänstidentiteten token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du vill begära en token för Nyckelvalvet, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller programmets identitet. Annars avvisas anropen till Key Vault, även om de inkludera token. Läs mer om vilka resurser som stöder hanterade tjänstidentiteten token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
 
 Det finns ett enkelt REST-protokoll för att få en token i App Service och Azure Functions. För .NET-program Microsoft.Azure.Services.AppAuthentication biblioteket ger en abstraktion över det här protokollet och stöder en lokal utveckling upplevelse.
 
 ### <a name="asal"></a>Med Microsoft.Azure.Services.AppAuthentication-biblioteket för .NET
 
-För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad tjänstidentitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket kan du testa din kod lokalt på utvecklingsdatorn med ditt användarkonto från Visual Studio, även de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns det [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med bibliotek i koden.
+För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad tjänstidentitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket kan du testa din kod lokalt på utvecklingsdatorn med ditt användarkonto från Visual Studio, även de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns det [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med bibliotek i koden.
 
 1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
 

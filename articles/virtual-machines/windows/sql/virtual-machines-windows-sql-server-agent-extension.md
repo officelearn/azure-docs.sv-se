@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 6510c4205234f5dfb98a7463af61b1293061bb4e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd32975e085a0f67d66f2949d4757a974bd9a616
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ SQL Server IaaS Agent tillägget stöder följande administrationsuppgifter:
 | Funktionen för administration | Beskrivning |
 | --- | --- |
 | **Automatisk SQL-säkerhetskopiering** |Automatiserar schemaläggning av säkerhetskopieringar för alla databaser för standardinstansen av SQL Server på den virtuella datorn. Mer information finns i [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då uppdateringar till den virtuella datorn kan ske, så du kan undvika uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
+| **Automatisk SQL-uppdatering** |Konfigurerar en underhållsperiod då Windows-uppdateringar på din virtuella dator kan ske, så du kan undvika uppdateringar under Högbelastningstider för din arbetsbelastning. Mer information finns i [automatisk uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
 | **Azure Key Vault-integrering** |Kan du automatiskt installera och konfigurera Azure Key Vault på SQL Server-VM. Mer information finns i [konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
 När installerad och körs, gör SQL Server IaaS Agent tillägget dessa funktioner för administration tillgängliga i SQL Server-panelen på den virtuella datorn i Azure-portalen och via Azure PowerShell för SQL Server marketplace-bilder och via Azure PowerShell för manuella installationer av tillägget. 

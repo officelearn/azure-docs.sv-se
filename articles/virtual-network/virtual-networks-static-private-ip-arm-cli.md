@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privat IP-adresser för en virtuell dator med hjälp av Azure CLI
 
@@ -35,13 +35,13 @@ Den här artikeln beskriver Resource Manager-distributionsmodellen. Du kan ocks�
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Följande exempelkommandon Azure CLI förväntar sig en befintlig enkel miljö. Om du vill köra kommandon som de visas i det här dokumentet, först skapa testmiljön som beskrivs i [skapa ett vnet](virtual-networks-create-vnet-arm-cli.md).
+> Följande exempelkommandon Azure CLI förväntar sig en befintlig enkel miljö. Om du vill köra kommandon som de visas i det här dokumentet, först skapa testmiljön som beskrivs i [skapa ett vnet](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Ange en statisk privat IP-adress när du skapar en virtuell dator
 
 Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernätet i ett VNet med namnet *TestVNet* med en statisk privat IP-adress för *192.168.1.101*, fullständig följande steg:
 
-1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). 
+1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). 
 
 2. Skapa en offentlig IP-adress för den virtuella datorn med den [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#az_network_public_ip_create) kommando. Listan som visas efter utdatan beskriver de parametrar som används.
 

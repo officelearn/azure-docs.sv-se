@@ -10,15 +10,15 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
-Den här artikeln tar några vanliga frågor om Azure kostnaden Management (även kallat Cloudyn). Om du har frågor om hantering av kostnaden kan du be dem vid [vanliga frågor om Azure kostnaden hanteringen av Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Den här artikeln tar några vanliga frågor om Azure kostnaden Management (även kallat Cloudyn). Om du har frågor om hantering av kostnaden kan du be dem vid [vanliga frågor och svar för Azure kostnaden Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hur kan jag för att lösa vanliga problem med indirekt enterprise?
 

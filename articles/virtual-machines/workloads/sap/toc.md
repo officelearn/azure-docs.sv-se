@@ -1,5 +1,5 @@
 # Översikt
-## [Kom igång](get-started.md)
+## [Komma igång](get-started.md)
 ## [Certifieringar](sap-certifications.md)
 # SAP HANA på Azure (stora instanser)
 ## [Översikt och arkitektur](hana-overview-architecture.md)
@@ -14,7 +14,11 @@
 ## [Enkel instans av SAP HANA-installation](hana-get-started.md)
 ## [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Användarguide för SAP HANA på Azure](hana-vm-operations.md)
-## [SAP HANA, hög tillgänglighet för virtuella Azure-datorer](sap-hana-high-availability.md)
+## SAP HANA-tillgänglighet i Azure Virtual Machines
+### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
+### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
+### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
+## [Konfigurera SAP HANA-systemreplikering på virtuella Azure-datorer](sap-hana-high-availability.md)
 ## [Översikt över SAP HANA-säkerhetskopiering](sap-hana-backup-guide.md)
 ## [Säkerhetskopiering av SAP HANA-filnivå](sap-hana-backup-file-level.md)
 ## [Säkerhetskopior av ögonblicksbilder i SAP HANA-lagring](sap-hana-backup-storage-snapshots.md)

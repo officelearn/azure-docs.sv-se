@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 6a581141a3d262416385d859d2f0e73228fe1734
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d74a273061912ea2bdcc39301ce9a727b07ade41
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>Migrera SQLServer till Azure SQL-hanterade databasinstans
 Du kan använda tjänsten Azure Database migrering för att migrera databaser från en lokal SQL Server-instans till Azure SQL Database. I kursen får du migrerar den **Adventureworks2012** databasen från en lokal instans av SQL Server till en Azure SQL Database med hjälp av tjänsten Azure Database migrering.

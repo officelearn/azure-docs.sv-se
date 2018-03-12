@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruktur för SAP HANA (stora instanser) och anslutningar på Azure 
 
@@ -75,7 +75,7 @@ Därför ska vi titta lite närmare i Azure VNet skapas för HANA stora instanse
 >[!Note]
 >Azure VNet för HANA stora instansen måste skapas med hjälp av Azure Resource Manager-distributionsmodellen. Den äldre modellen för Azure-distribution, ofta kallade klassiska distributionsmodellen stöds inte med lösningen för stora HANA-instans.
 
-VNet kan skapas med hjälp av Azure-portalen, PowerShell, Azure-mall eller Azure CLI (se [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). I följande exempel titta i ett virtuellt nätverk som skapats via Azure-portalen.
+VNet kan skapas med hjälp av Azure-portalen, PowerShell, Azure-mall eller Azure CLI (se [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). I följande exempel titta i ett virtuellt nätverk som skapats via Azure-portalen.
 
 Om vi tittar i definitionerna av ett virtuellt Azure-nätverk via Azure portal nu ska vi titta i några av definitionerna och hur de relaterar till vi lista av olika IP-adressintervall. När vi pratar om den **adressutrymme**, vi menar adressutrymme som du kan använda Azure VNet. Det här adressutrymmet är också adressintervallet som VNet använder för BGP-väg spridning. Detta **adressutrymme** här:
 
@@ -250,7 +250,7 @@ Använd Azure-portalen, PowerShell eller CLI när du lägger till flera IP-adres
 
 I detta fall vi rekommenderar lägga till det nya IP-adressintervallet som nya adressintervall i VNet-adressutrymmet i stället för att generera ett nytt aggregerade intervall. I båda fallen måste du skicka den här ändringen till Microsoft för att tillåta anslutning utanför det nya IP-adressintervallet till HANA stora instans-enheter i din klient. Du kan öppna en Azure-supportförfrågan om att hämta det nya VNet-adressutrymmet lagts till. När du har tagit emot bekräftelse kan utföra nästa steg.
 
-Om du vill skapa ett ytterligare undernät från Azure portal finns i artikeln [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), och för att skapa från PowerShell, se [skapa ett virtuellt nätverk med PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du vill skapa ett ytterligare undernät från Azure portal finns i artikeln [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), och för att skapa från PowerShell, se [skapa ett virtuellt nätverk med PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Lägga till Vnet
 
@@ -277,15 +277,13 @@ När den nya kretsen har skapats och SAP HANA på Azure Service Management-konfi
 
 Azure-portalen, PowerShell eller CLI kan användas för att ta bort ett undernät för virtuellt nätverk. Om ditt Azure VNet IP-adress intervallet-/ Azure VNet-adressutrymmet var ett sammansatt intervall, finns det inga Följ för du med Microsoft. Förutom att VNet fortfarande sprider adressutrymmet för BGP-väg innehåller som det borttagna undernätet. Om du har definierat i Azure VNet IP-adress intervall/Azure VNet-adressutrymmet som flera IP-adressintervall som har en tilldelad till undernätet för borttagna, bör du ta bort som out-of-VNet-adressutrymmet och därefter meddela SAP HANA på Azure-tjänsthantering till ta bort den från de områden som SAP HANA i Azure (stora instanser) kan kommunicera med.
 
-När det inte finns ännu specifika, dedikerad Azure.com vägledning om att ta bort undernät, tar bort undernät är omvänt processen för att lägga till dem. Se artikeln [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information om hur du skapar undernät.
+Om du vill ta bort ett undernät, se [tar bort ett undernät](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) för mer information om hur du skapar undernät.
 
 ## <a name="deleting-a-vnet"></a>Om du tar bort ett virtuellt nätverk
 
-Använd Azure-portalen, PowerShell eller CLI när du tar bort ett virtuellt nätverk. SAP HANA på Azure-tjänsthantering tar bort de befintliga tillstånd på SAP HANA i Azure (stora instanser) ExpressRoute-kretsen och ta bort Azure VNet IP-adress intervall/Azure VNet-adressutrymmet för kommunikation med HANA stora instanser.
+Om du vill ta bort ett virtuellt nätverk, se [ta bort ett virtuellt nätverk](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA på Azure-tjänsthantering tar bort de befintliga tillstånd på SAP HANA i Azure (stora instanser) ExpressRoute-kretsen och ta bort Azure VNet IP-adress intervall/Azure VNet-adressutrymmet för kommunikation med HANA stora instanser.
 
 När det virtuella nätverket har tagits bort, öppna ett Azure-supporten om begäran om att tillhandahålla IP-adressutrymme range(s) ska tas bort.
-
-När det inte finns ännu specifika, dedikerad Azure.com vägledning om att ta bort Vnet, tar bort Vnet är omvänt processen för att lägga till dem, vilket beskrivs ovan. Se artiklar [skapa ett virtuellt nätverk med Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [skapa ett virtuellt nätverk med PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för mer information om hur du skapar Vnet.
 
 Ta bort följande objekt för att säkerställa allt tas bort:
 

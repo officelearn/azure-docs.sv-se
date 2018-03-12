@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Kryptera virtuella diskar på en Linux-VM
 För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella diskar och Virtuellt datorn krypteras. Virtuella datorer krypteras med kryptografiska nycklar som skyddas i ett Azure Key Vault. Du styr dessa kryptografiska nycklar och granska deras användning. Den här artikeln beskrivs hur du krypterar virtuella diskar på en Linux-VM som använder Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -27,7 +27,7 @@ För förbättrad virtuell dator (VM) säkerhet och efterlevnad, kan virtuella d
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver utföra aktiviteten följande avsnittet beskriver grundläggande kommandon för att kryptera virtuella diskar på den virtuella datorn. Mer detaljerad information och kontext för varje steg finns resten av dokumentet [startar här](#overview-of-disk-encryption).
 
-Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
+Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
 
 Först aktiverar Azure Key Vault-providern i din Azure-prenumeration med [az providern registrera](/cli/azure/provider#az_provider_register) och skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas ett Resursgruppsnamn *myResourceGroup* i den *eastus* plats:
 
@@ -158,7 +158,7 @@ Mer information om scenarier som stöds och begränsningar finns [Azure Disk Enc
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Skapa Azure Key Vault och nycklar
-Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
+Du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *MinNyckel*, och *myVM*.
 
 Det första steget är att skapa en Azure Key Vault för att lagra kryptografiska nycklar. Azure Key Vault kan lagra nycklar, hemligheter eller lösenord som gör det möjligt att implementera dem på ett säkert sätt i dina program och tjänster. För virtuell diskkryptering använder du Key Vault för att lagra en krypteringsnyckel som används för att kryptera eller dekryptera din virtuella diskar.
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Med hjälp av Azure CLI i Windows
 
 Azure-kommandoradsgränssnittet (CLI) tillhandahåller en kommandorad och skriptmiljö för att skapa och hantera Azure-resurser. Azure CLI är tillgänglig för macOS, Linux och Windows-operativsystem. I dessa operativsystem kan CLI-kommandona är identiska, men operativsystemet specifika skriptsyntax kan skilja sig.
 
-Det här dokumentet beskriver sätt att Azure CLI kan installeras och körs på Windows och information för varje syntaktiska överväganden. Djupgående Azure CLI-dokumentationen finns [Azure CLI dokumentationen]( https://docs.microsoft.com/cli/azure/overview).
+Det här dokumentet beskriver sätt att Azure CLI kan installeras och körs på Windows och information för varje syntaktiska överväganden. Djupgående Azure CLI-dokumentationen finns [Azure CLI dokumentationen]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Windows-undersystem för Linux
 
@@ -35,7 +35,7 @@ Utför följande för att använda Azure CLI i WSL.
 
 |Aktivitet | Instruktioner |
 |---|---|
-| Aktivera WSL | [Installera WSL dokumentation](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Aktivera WSL | [Installera WSL dokumentation ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Installera Azure CLI |[Installera CLI på WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell

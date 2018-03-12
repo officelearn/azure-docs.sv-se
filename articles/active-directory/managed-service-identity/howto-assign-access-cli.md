@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: 9e5a10531ac919fd54785666e9a66fb4b4431f42
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ca228a99eec1d376e456f5730aaaf8c569620f43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad tjänst identitet (MSI) åtkomst till en resurs med hjälp av Azure CLI
 
@@ -41,7 +41,7 @@ Om du vill köra skriptexempel CLI har tre alternativ:
 
 När du har aktiverat MSI på en Azure-resurs, till exempel en [virtuella Azure-datorn](qs-configure-cli-windows-vm.md) eller [skaluppsättning för virtuell dator i Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera skaluppsättning för virtuell dator eller virtuell dator:
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera skaluppsättning för virtuell dator eller virtuell dator:
 
    ```azurecli-interactive
    az login

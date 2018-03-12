@@ -1,5 +1,5 @@
 ---
-title: "Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM) | Microsoft Docs"
+title: "Konfigurera SAP HANA System replikering på virtuella Azure-datorer (VM) | Microsoft Docs"
 description: "Skapa hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)."
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 12/12/2017
 ms.author: sedusch
-ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 12/08/2017
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 Lokalt, du kan använda antingen HANA System replikering eller använder delad lagring för att upprätta hög tillgänglighet för SAP HANA.
-Vi stöds för närvarande bara ställa in HANA System replikering på Azure. SAP HANA replikering består av en nod och minst en slav nod. Ändringar av data på huvudnoden replikeras till de underordnade noderna synkront eller asynkront.
+På Azure VM HANA System-replikering i Azure är den enda stöd för funktionen för hög tillgänglighet hittills. SAP HANA replikering består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera virtuella datorer, installera kluster framework, installera och konfigurera SAP HANA System replikering.
+Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera de virtuella datorerna, installera kluster-framework installera och konfigurera replikering för SAP HANA-System.
 Installationen kommandon etc. instansnummer 03 och HANA System-ID HDB används i exempelkonfigurationer.
 
 Läs följande SAP anteckningar och papper först
@@ -83,16 +83,16 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 1. Skapa en Tillgänglighetsuppsättning  
    Ange högsta uppdateringsdomän
 1. Skapa en belastningsutjämnare (internt)  
-   Välj VNET i steget ovan
-1. Skapa virtuell dator 1  
-   Använd minst SLES4SAP 12 SP1, i det här exemplet ska vi använda SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES för SAP program 12 SP1 (BYOS)  
-   Välj Lagringskonto 1  
+   Välj VNET som skapats i det andra steget
+1. Skapa virtuell dator 1   
+   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES för SAP program 12 SP1 (BYOS) används  
+   Välj Lagringskonto 1   
    Välj Tillgänglighetsuppsättning  
-1. Skapa virtuell dator 2  
-   Använd minst SLES4SAP 12 SP1, i det här exemplet ska vi använda SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES för SAP program 12 SP1 (BYOS)  
-   Välj Lagringskonto 2   
+1. Skapa virtuell dator 2   
+   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES för SAP program 12 SP1 (BYOS) används  
+   Välj Lagringskonto 2    
    Välj Tillgänglighetsuppsättning  
 1. Lägg till Datadiskar
 1. Konfigurera belastningsutjämnaren
@@ -108,7 +108,7 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
         1. Välj Tillgänglighetsuppsättningen som du skapade tidigare
         1. Välj de virtuella datorerna i SAP HANA-kluster
         1. Klicka på OK
-    1. Skapa en hälsoavsökningen
+    1. Skapa en hälsoavsökning
         1. Öppna belastningsutjämnaren, Välj hälsoavsökningar och klicka på Lägg till
         1. Ange namnet på den nya hälsoavsökningen (till exempel hana-hp)
         1. Välj TCP som protokoll, port 625**03**, hålla intervallet 5 och tröskelvärde för ohälsosamt värde 2
@@ -116,7 +116,7 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
     1. Skapa regler för belastningsutjämning
         1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
         1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel hana-lb-3**03**15)
-        1. Välj IP-adress för klientdel, serverdelspool och hälsa avsökning du skapade tidigare (till exempel hana-klientdel)
+        1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel hana-klientdel)
         1. Håll protokollet TCP, ange port 3**03**15
         1. Öka tidsgränsen för inaktivitet till 30 minuter
         1. **Se till att aktivera flytande IP**
@@ -126,18 +126,19 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 ### <a name="deploy-with-template"></a>Distribuera med mall
 Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure portal databasen endast skapas på belastningsutjämning regler för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure-portalen. 
+   Mallen databasen skapas endast regler för belastningsutjämning för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
 1. Ange följande parametrar
     1. SAP System-ID  
        Ange ID för SAP-system för SAP-system som du vill installera. ID som ska användas som ett prefix för de resurser som har distribuerats.
-    1. Stacken typ (gäller endast om du använder mallen konvergerade)  
+    1. Stacken typ (gäller endast om du använder mallen konvergerade)   
        Välj typ för SAP NetWeaver stack
     1. OS-typen  
        Välj en av Linux-distributioner. Det här exemplet väljer du SLES 12 BYOS
     1. DB-typ  
        Välj HANA
     1. Storlek för SAP-System  
-       Mängden SAP ger det nya systemet. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren
+       Storleken på det nya systemet ska ge SAP. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren
     1. Systemets tillgänglighet  
        Välj hög tillgänglighet
     1. Användarnamn och lösenord för Admin administratör  
@@ -145,7 +146,7 @@ Du kan använda en av quickstart mallar på github för att distribuera alla nö
     1. Ny eller befintlig undernät  
        Avgör om ett nytt virtuellt nätverk och undernät som ska skapas eller ett befintligt undernät som ska användas. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer du befintliga.
     1. Undernät-ID  
-    ID för det undernät som de virtuella datorerna ska anslutas till. Välj undernätet i ditt VPN eller Expressroute virtuella nätverk att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    ID för det undernät som de virtuella datorerna ska anslutas till. Om du vill ansluta den virtuella datorn till ditt lokala nätverk markerar du undernätet i det virtuella nätverket för VPN eller Expressroute. ID som ser oftast ut så /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Konfigurera Linux hög tillgänglighet
 
@@ -201,7 +202,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
 
 1. [A] disklayouten för installationsprogrammet för
     1. LVM  
-    Normalt bör du använda LVM för volymer som lagrar data och loggfiler. Exemplet nedan förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
+    Normalt bör du använda LVM för volymer som lagrar data och loggfiler. Följande exempel förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
         * Skapa fysiska volymer för alla diskar som du vill använda.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -310,7 +311,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
     
     ```
 
-1. [A] konfigurera corosync om du vill använda andra transport och lägga till nodelist. Klustret fungerar inte på annat sätt.
+1. [A] konfigurera corosync om du vill använda andra transport och lägga till nodelist. Annars kommer klustret inte att fungera. 
     ```bash
     sudo vi /etc/corosync/corosync.conf    
     
@@ -352,7 +353,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
 
 ## <a name="installing-sap-hana"></a>Installera SAP HANA
 
-Följ kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden] [ suse-hana-ha-guide] att installera SAP HANA System replikering.
+Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden][suse-hana-ha-guide].
 
 1. [A] kör hdblcm från DVD: n HANA
     * Välj installation -> 1
@@ -360,9 +361,9 @@ Följ kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden] [ suse
     * Ange installationssökväg [/ hana/delade]: RETUR ->
     * Ange lokala värdnamn [.]: -> RETUR
     * Vill du lägga till ytterligare värdar systemet? (j/n) [n]: RETUR ->
-    * Ange SAP HANA System-ID:<SID of HANA e.g. HDB>
+    * Ange SAP HANA System-ID: <SID of HANA e.g. HDB>
     * Ange instansnummer [00]:   
-  HANA instansnummer. Använd 03 om du har använt Azure-mall eller följt exemplet ovan
+  HANA instansnummer. Använd 03 om du har använt Azure-mall eller följt manuell distribution
     * Välj läge för databasen / ange Index [1]: -> RETUR
     * Välj systemanvändning / ange Index [4]:  
   Välj system användning
@@ -381,7 +382,7 @@ Följ kapitel 4 i den [SAP HANA SR prestanda optimerade scenariot guiden] [ suse
     * Ange lösenord för användare (SYSTEM) av databasen:
     * Bekräfta databas användarlösenord (SYSTEM):
     * Starta om systemet efter omstart av datorn? [n]: RETUR ->
-    * Vill du fortsätta? (j/n):  
+    * Vill du fortsätta? (j/n):   
   Kontrollera sammanfattningen och ange y om du vill fortsätta
 1. [A] uppgradera SAP Värdagenten  
   Hämta senaste SAP Värdagenten arkivet från den [SAP Softwarecenter] [ sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar till den fil som du hämtat.
@@ -446,11 +447,11 @@ sudo crm konfigurera belastningen update crm-defaults.txt
 
 ### <a name="create-stonith-device"></a>Skapa STONITH enhet
 
-STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg för att skapa ett huvudnamn för tjänsten.
+STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Microsoft Azure. Följ dessa steg om du vill skapa ett huvudnamn för tjänsten.
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaperna och Skriv ned Directory-ID. Det här är den **klient-ID**.
+   Gå till egenskaperna och Skriv ned Directory-ID. Detta ID är den **klient-ID**.
 1. Klicka på appen registreringar
 1. Klicka på Lägg till
 1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
@@ -458,9 +459,9 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
+1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i följande steg) av tjänstens huvudnamn
 
-Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Du behöver ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
+Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
 
 1. Gå till https://portal.azure.com
 1. Öppna bladet alla resurser
@@ -468,7 +469,7 @@ Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som stand
 1. Klicka på åtkomstkontroll (IAM)
 1. Klicka på Lägg till
 1. Välj rollen ägare
-1. Ange namnet på programmet som du skapade ovan
+1. Ange namnet på programmet som du skapade i tidigare steg
 1. Klicka på OK
 
 När du har redigerat behörigheter för de virtuella datorerna kan du konfigurera STONITH-enheter i klustret.
@@ -553,7 +554,7 @@ sudo crm konfigurera belastningen update crm-saphana.txt
 </pre>
 
 ### <a name="test-cluster-setup"></a>Inställningar för kluster
-Följande avsnittet beskriver hur du kan testa din konfiguration. Varje test förutsätter att du är rot och SAP HANA master körs på den virtuella datorn saphanavm1.
+Det här avsnittet beskrivs hur du kan testa din konfiguration. Varje test förutsätter att du är rot och SAP HANA master körs på den virtuella datorn saphanavm1.
 
 #### <a name="fencing-test"></a>Avgränsningar Test
 
@@ -566,7 +567,7 @@ sudo ifdown eth0
 Den virtuella datorn bör nu hämta startas om eller stoppas beroende på klusterkonfigurationen.
 Om du ställer in stonith-åtgärd till av den virtuella datorn kommer att stoppas och resurserna som migreras till den virtuella datorn som körs.
 
-När du startar den virtuella datorn igen SAP HANA-resurs inte längre att fungera som sekundär om du ställer in AUTOMATED_REGISTER = ”false”. I det här fallet måste du konfigurera HANA-instans som sekundär genom att köra följande kommando:
+När du startar den virtuella datorn igen SAP HANA-resurs som inte går att starta som sekundära om du ställer in AUTOMATED_REGISTER = ”false”. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -587,7 +588,7 @@ Du kan testa en manuell växling genom att stoppa tjänsten pacemaker på noden 
 service pacemaker stop
 </code></pre>
 
-Efter växling vid fel, kan du starta tjänsten igen. SAP HANA-resursen på saphanavm1 inte längre att fungera som sekundär om du ställer in AUTOMATED_REGISTER = ”false”. I det här fallet måste du konfigurera HANA-instans som sekundär genom att köra följande kommando:
+Efter växling vid fel, kan du starta tjänsten igen. Om du ställer in AUTOMATED_REGISTER = ”false”, SAP HANA-resursen på saphanavm1 går inte att starta som sekundära. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
 service pacemaker start
@@ -598,7 +599,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -611,8 +612,8 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-Detta bör migrera SAP HANA-huvudnod och den grupp som innehåller saphanavm2 virtuella IP-adressen.
-SAP HANA-resursen på saphanavm1 inte längre att fungera som sekundär om du ställer in AUTOMATED_REGISTER = ”false”. I det här fallet måste du konfigurera HANA-instans som sekundär genom att köra följande kommando:
+Om du ställer in AUTOMATED_REGISTER = ”false” den här kommandosekvens bör migrera SAP HANA-huvudnod och den grupp som innehåller saphanavm2 virtuella IP-adressen.
+Det inte går att starta som sekundära saphanavm1 SAP HANA resursen. I detta fall konfigurera HANA-instans som sekundär genom att köra det här kommandot:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -627,14 +628,14 @@ Migreringen skapar Platsbegränsningar som måste tas bort igen.
 <pre><code>
 crm configure edited
 
-# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 Du måste också rensa det sekundära noden tillståndet
 
 <pre><code>
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>

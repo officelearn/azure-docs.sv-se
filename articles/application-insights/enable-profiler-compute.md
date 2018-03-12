@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Aktivera Application Insights Profiler för virtuella Azure-datorer, Service Fabric och Azure-molntjänster
 
@@ -46,8 +46,7 @@ Om du vill aktivera profileraren helt måste du ändra konfigurationen på tre p
 
    ![Platsen för nyckeln instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Om du vill slutföra konfigureringen av Application Insights-instans för profileraren under proceduren som beskrivs i [aktivera profileraren](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Du behöver inte länka webbappar, eftersom steg som är specifika för resursen app services. Kontrollera att profileraren har aktiverats i den **konfigurera Profiler** fönstret.
+3. Om du vill slutföra konfigureringen av Application Insights-instans för profileraren under proceduren som beskrivs i [aktivera Profiler. Du behöver inte länka webbappar, eftersom steg som är specifika för resursen app services. Kontrollera att profileraren har aktiverats i den **konfigurera Profiler** fönstret.
 
 
 ## <a name="set-up-the-application-source-code"></a>Ställ in programmets källkod
@@ -157,6 +156,8 @@ Om du vill konfigurera din miljö gör du följande:
 
       Information om att lägga till tillägget diagnostik i mallen för distribution finns [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> För virtuella datorer som ett alternativ till json-baserade stegen ovan är att gå till Azure portal **virtuella datorer** > **diagnostikinställningar**  >   **Egenskaperna** > Set skicka diagnostikdata till Application Insights i **aktiverad** och välj antingen ett Application Insights-konto eller en specifik ikey.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
@@ -196,7 +197,7 @@ Om du vill konfigurera din miljö gör du följande:
 
 1. Distribuera distributionsdefinitionen ändrade miljö.  
 
-   Om du vill tillämpa ändringarna du omfattar vanligtvis en fullständig mall-distribution eller en molntjänster publicera via PowerShell-cmdlets eller Visual Studio.  
+   Att göra ändringar, är oftast att en fullständig mall-distribution eller ett moln-tjänster baserat publicera via PowerShell-cmdlets eller Visual Studio.  
 
    Följande är en alternativ metod för befintliga virtuella datorer som rör vid Azure-diagnostik tillägget:  
 

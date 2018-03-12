@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -39,7 +39,7 @@ Utför följande uppgifter innan du slutför stegen i alla avsnitt i den här ar
 
 ## <a name="create-a-network-interface"></a>Skapa ett nätverksgränssnitt
 
-När du skapar en virtuell dator med hjälp av Azure portal, skapar portalen ett nätverksgränssnitt med standardinställningar för dig. Om du hellre vill ange alla gränssnitt nätverksinställningarna kan du skapa ett nätverksgränssnitt med anpassade inställningar och koppla nätverksgränssnittet till en virtuell dator när du skapar den virtuella datorn (med PowerShell eller Azure CLI). Du kan också skapa ett nätverksgränssnitt och lägga till den i en befintlig virtuell dator (med PowerShell eller Azure CLI). Om du vill lära dig mer om att skapa en virtuell dator med en befintlig nätverksgränssnittet eller att lägga till eller ta bort nätverksgränssnitt från befintliga virtuella datorer, läsa den [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) artikel. Innan du skapar ett nätverksgränssnitt måste du ha en befintlig [virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md) på samma plats och prenumeration som du skapar ett nätverksgränssnitt i.
+När du skapar en virtuell dator med hjälp av Azure portal, skapar portalen ett nätverksgränssnitt med standardinställningar för dig. Om du hellre vill ange alla gränssnitt nätverksinställningarna kan du skapa ett nätverksgränssnitt med anpassade inställningar och koppla nätverksgränssnittet till en virtuell dator när du skapar den virtuella datorn (med PowerShell eller Azure CLI). Du kan också skapa ett nätverksgränssnitt och lägga till den i en befintlig virtuell dator (med PowerShell eller Azure CLI). Om du vill lära dig mer om att skapa en virtuell dator med en befintlig nätverksgränssnittet eller att lägga till eller ta bort nätverksgränssnitt från befintliga virtuella datorer, läsa den [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) artikel. Innan du skapar ett nätverksgränssnitt måste du ha en befintlig [virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network) på samma plats och prenumeration som du skapar ett nätverksgränssnitt i.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är tilldelade (minst) behörigheter för rollen Network-deltagare för din prenumeration. Läs den [inbyggda roller för rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikeln om du vill veta mer om hur du tilldelar roller och behörigheter till konton.
 2. I rutan som innehåller texten *söka resurser* längst upp i Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten klickar du på den.

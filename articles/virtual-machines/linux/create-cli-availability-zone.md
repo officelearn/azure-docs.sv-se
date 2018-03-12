@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en virtuell Linux-dator i en zon för tillgänglighet med Azure CLI
 
@@ -28,7 +28,7 @@ Den här artikeln steg genom att använda Azure CLI för att skapa en Linux-VM i
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggade på en Azure-konto med [az inloggningen](/cli/azure/#az_login).
+Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggade på en Azure-konto med [az inloggningen](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för SKU för virtuell dator
@@ -63,7 +63,7 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create).  
 
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator. I det här exemplet en resursgrupp med namnet *myResourceGroupVM* skapas i den *eastus2* region. USA, östra 2 är en av de Azure-regioner som stöder tillgänglighetszoner i förhandsversioner.
+En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I det här exemplet en resursgrupp med namnet *myResourceGroupVM* skapas i den *eastus2* region. USA, östra 2 är en av de Azure-regioner som stöder tillgänglighetszoner i förhandsversioner.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus2
@@ -73,15 +73,15 @@ Resursgruppen har angetts när du skapar eller ändrar en VM som kan ses i den h
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
 
-När du skapar en virtuell dator, är flera alternativ tillgängliga, till exempel operativsystemavbildningen, storlek och administrativa autentiseringsuppgifter för disken. I det här exemplet skapas en virtuell dator med namnet *myVM* kör Ubuntu Server. Den virtuella datorn skapas i tillgänglighet zon *1*. Som standard skapas den virtuella datorn i den *Standard_DS1_v2* storlek. Den här storleken stöds i förhandsgranskningen tillgänglighet zoner.
+När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I det här exemplet skapas en virtuell dator med namnet *myVM* som kör Ubuntu Server. Den virtuella datorn skapas i tillgänglighet zon *1*. Som standard skapas den virtuella datorn i den *Standard_DS1_v2* storlek. Den här storleken stöds i förhandsgranskningen tillgänglighet zoner.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Det kan ta några minuter att skapa den virtuella datorn. När den virtuella datorn har skapats, Azure CLI matar ut information om den virtuella datorn. Anteckna den `zones` -värde som anger den tillgänglighet zon där den virtuella datorn körs. 
+Det kan ta några minuter att skapa den virtuella datorn. När den virtuella datorn skapats visar Azure CLI information om den virtuella datorn. Anteckna den `zones` -värde som anger den tillgänglighet zon där den virtuella datorn körs. 
 
 ```azurecli-interactive 
 {
@@ -148,7 +148,7 @@ Utdata visar att IP-adressen är i samma tillgänglighet zon som den virtuella d
 }
 ```
 
-Kontrollera dessutom att hanterade diskar för den virtuella datorn är i zonen tillgänglighet. Använd den [az vm visa](/cli/azure/vm#az_vm_show) kommando för att returnera disk-id. I det här exemplet lagras disk-id i en variabel som används i ett senare steg. 
+Kontrollera dessutom att hanterade diskar för den virtuella datorn är i zonen tillgänglighet. Använd kommandot [az vm show](/cli/azure/vm#az_vm_show) för att hämta diskens ID. I det här exemplet lagras disk-id i en variabel som används i ett senare steg. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

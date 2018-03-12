@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: Distribuera App Service offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Uppdatera App-tjänstresursprovider
-              href: azure-stack-app-service-update.md
-            - name: Uppdatera App-tjänstresursprovider offline
-              href: azure-stack-app-service-update-offline.md
             - name: Lägga till fler webbarbetsroller
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurera distributionskällor

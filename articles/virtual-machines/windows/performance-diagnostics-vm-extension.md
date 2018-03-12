@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azure prestanda diagnostik VM-tillägget för Windows
 
 Azure prestanda diagnostik VM-tillägget kan samla in diagnostik prestandadata från virtuella Windows-datorer. Tillägget gör analys och ger en rapport över resultaten och rekommendationerna för att identifiera och lösa problem med prestanda på den virtuella datorn. Det här tillägget installeras ett verktyg för felsökning kallas [PerfInsights](http://aka.ms/perfinsights).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Det kan också installeras på Windows 8.1 och Windows 10.
 
 ## <a name="extension-schema"></a>Tilläggsschema
-Följande JSON visar schemat för Azure prestanda diagnostik VM-tillägget. Det här tillägget kräver namnet och nyckeln för ett lagringskonto att lagra diagnostik utdata och rapporten. Värdena ska lagras i en Inställningskonfiguration för skyddade och känsliga. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **storageAccountName** och **storageAccountKey** är skiftlägeskänsliga. Andra nödvändiga parametrar visas i följande avsnitt.
+Följande JSON visar schemat för Azure prestanda diagnostik VM-tillägget. Det här tillägget kräver namnet och nyckeln för ett lagringskonto att lagra diagnostik utdata och rapporten. Dessa värden är känslig. Lagringskontonyckel ska lagras i en Inställningskonfiguration för skyddade. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras endast på den virtuella måldatorn. Observera att **storageAccountName** och **storageAccountKey** är skiftlägeskänsliga. Andra nödvändiga parametrar visas i följande avsnitt.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Följande JSON visar schemat för Azure prestanda diagnostik VM-tillägget. Det 
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -65,24 +65,25 @@ Följande JSON visar schemat för Azure prestanda diagnostik VM-tillägget. Det 
 |   **Namn**   |**Värdet / exempel**|       **Beskrivning**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versionen av API: et.
-|Publisher|Microsoft.Azure.Performance.Diagnostics|Publisher namnområde för tillägget.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Publisher namnområde för tillägget.
 |typ|AzurePerformanceDiagnostics|Typ av VM-tillägget.
 |typeHandlerVersion|1.0|Versionen av tillägget hanteraren.
 |performanceScenario|grundläggande|Scenario för prestanda som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
 |traceDurationInSeconds|300|Varaktighet för spårning, om något av alternativen för spårningen har valts.
-|perfCounterTrace|P|Alternativet för att aktivera spårning av prestandaräknaren. Giltiga värden är **p** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
-|networkTrace|n|Alternativet för att aktivera spårning i nätverket. Giltiga värden är  **n**  eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
+|perfCounterTrace|p|Alternativet för att aktivera spårning av prestandaräknaren. Giltiga värden är **p** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
+|networkTrace|n|Alternativet för att aktivera spårning i nätverket. Giltiga värden är **n** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |xperfTrace|x|Alternativet för att aktivera XPerf spårning. Giltiga värden är **x** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |storPortTrace|S|Alternativet för att aktivera spårning för StorPort. Giltiga värden är **s** eller tomt värde. Låt värdet som tom om du inte vill samla in den här spårningen.
 |srNumber|123452016365929|Stöd för biljettnumret, om de är tillgängliga. Låt värdet som tom om du inte har den.
-|storageAccountName|mittlagringskonto|Namnet på lagringskontot för att lagra diagnostik loggar och resultat.
-|storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Nyckel för lagringskontot.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Aktuellt datum/tid i Utc. Om du använder portalen för att installera det här tillägget, behöver du inte ange det här värdet.
+|storageAccountName|mystorageaccount|Namnet på lagringskontot för att lagra diagnostik loggar och resultat.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Nyckel för lagringskontot.
 
 ## <a name="install-the-extension"></a>Installera tillägget
 
-Följ dessa steg för att installera tillägget på virtuella Windows-datorer:
+Följ instruktionerna för att installera tillägget på virtuella Windows-datorer:
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure-portalen](http://portal.azure.com).
 2. Välj den virtuella datorn där du vill installera det här tillägget.
 
     ![Skärmbild av Azure-portalen med virtuella datorer som är markerat](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -182,19 +183,19 @@ Tillägg för virtuell dator i Azure kan distribueras med Azure Resource Manager
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Tillägg för virtuell dator i Azure kan distribueras med Azure Resource Manager
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Azure prestanda diagnostik VM-tillägget till en befintlig virtuell dator. Lagra offentliga och privata konfigurationer innan du kör kommandot i en PowerShell-hash-tabell.
+Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Azure prestanda diagnostik VM-tillägget till en befintlig virtuell dator.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Information om data som hämtats
@@ -234,7 +235,7 @@ För att underlätta supportteknikern arbetar på ditt supportärende kan Micros
 
 Om du vill visa rapporten extrahera zip-filen och öppna den **PerfInsights Report.html** fil.
 
-Du kanske även kan hämta zip-filen direkt från portalen genom att markera tillägget.
+Du bör även kunna hämta zip-filen direkt från portalen genom att markera tillägget.
 
 ![Skärmbild av Prestandadiagnostik detaljerad status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 

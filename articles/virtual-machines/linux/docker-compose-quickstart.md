@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare i Azure
 Med [Compose](http://github.com/docker/compose), du använder en enkel textfil för att definiera ett program som består av flera Docker-behållare. Sedan få igång ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis visar den här artikeln hur du snabbt ställa in en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu VM. Du kan också använda Compose för att ställa in mer komplexa program.
@@ -32,7 +32,7 @@ När du använder Docker VM-tillägget, den virtuella datorn konfigureras automa
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Skapa Docker-värd med Azure CLI 2.0
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
+Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Börja med att skapa en resursgrupp för din Docker-miljö med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 

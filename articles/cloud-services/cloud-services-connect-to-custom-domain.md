@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ansluta Azure Cloud Services-roller till en anpassad AD-domänkontrollant finns i Azure
 Vi kommer först ställa in ett virtuellt nätverk (VNet) i Azure. Vi ska lägga till en Active Directory-domänkontrollant (som finns på en virtuell dator i Azure) VNet. Vi kommer därefter lägga till befintliga molntjänstroller i förväg skapade virtuella nätverk och Anslut dem till domänkontrollanten.
@@ -33,7 +33,7 @@ Följ den här stegvisa guiden och om du stöter på problem oss lämna en komme
 Nätverket som refereras av Molntjänsten måste vara en **klassiskt virtuellt nätverk**.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Du kan skapa ett virtuellt nätverk i Azure med Azure-portalen eller PowerShell. Den här kursen ska vi använda PowerShell. Om du vill skapa ett virtuellt nätverk med Azure portal finns [skapa virtuellt nätverk](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Du kan skapa ett virtuellt nätverk i Azure med Azure-portalen eller PowerShell. Den här självstudien används PowerShell. Om du vill skapa ett virtuellt nätverk med Azure portal finns [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md). Artikeln beskriver hur du skapar ett virtuellt nätverk (Resource Manager), men du måste skapa ett virtuellt nätverk (klassiskt) för molntjänster. Gör i portalen, Välj **skapar du en resurs**, typen *virtuellt nätverk* i den **Sök** och tryck sedan på **RETUR**. I sökresultaten under **allt**väljer **för virtuella nätverk**. Under **Välj en distributionsmodell**väljer **klassiska**och välj **skapa**. Följ sedan instruktionerna i artikeln.
 
 ```powershell
 #Create Virtual Network

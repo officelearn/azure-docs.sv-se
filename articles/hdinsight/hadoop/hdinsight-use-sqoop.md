@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Använda Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -55,7 +55,7 @@ HDInsight-kluster levereras med exempeldata. Du kan använda följande två exem
   | devicemodel |sträng |
   | state |sträng |
   | Land |sträng |
-  | querydwelltime |dubbel |
+  | querydwelltime |dubbla |
   | sessions-ID |bigint |
   | sessionpagevieworder |bigint |
 
@@ -96,9 +96,9 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
         
         |Namn|Värde|
         |----|-----|
-        | Standard lagringskontonamn | &lt;CluterName > lagra |
-        | Azure SQL server-databasnamn | &lt;Klusternamn > dbserver |
-        | Azure SQL-databasnamn | &lt;Klusternamn > db |
+        | Standard lagringskontonamn | &lt;CluterName>store |
+        | Azure SQL server-databasnamn | &lt;ClusterName>dbserver |
+        | Azure SQL-databasnamn | &lt;ClusterName>db |
      
 3. Välj **jag samtycker till villkoren som anges ovan**.
 4. Klicka på **Köp**. Du ser en ny panel med rubriken skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.
@@ -118,7 +118,7 @@ Om du väljer att använda den befintliga Azure SQL database eller Microsoft SQL
   > 
   > 
   
-  * Om du vill skapa och konfigurera ett virtuellt nätverk, se [skapa ett virtuellt nätverk med Azure-portalen](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * Om du vill skapa och konfigurera ett virtuellt nätverk, se [skapa ett virtuellt nätverk med Azure-portalen](../../virtual-network/quick-create-portal.md).
     
     * När du använder SQL Server i ditt datacenter, måste du konfigurera det virtuella nätverket som *plats-till-plats* eller *punkt-till-plats*.
       

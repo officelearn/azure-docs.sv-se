@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Installera Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > Det här avsnittet beskriver hur du installerar Azure CLI 1.0. Den här CLI är inaktuell och bör endast användas för support med Azure Service Management (ASM) modellen med ”klassiska” resurser.
-> Azure Resource Manager (ARM) distributioner använder [Azure CLI 2.0](/cli/azure/overview).
+> Azure Resource Manager distributioner använder [Azure CLI 2.0](/cli/azure).
 
-Snabbt installera Azure-kommandoradsgränssnittet (Azure CLI 1.0) om du vill använda en uppsättning med öppen källkod shell-baserade kommandon för att skapa och hantera resurser i Microsoft Azure. Du har flera alternativ för att installera verktygen plattformsoberoende på datorn:
+Installera snabbt Azure-kommandoradsgränssnittet (Azure CLI 1.0) och använd en uppsättning gränssnittsbaserade kommandon med öppen källkod för att skapa och hantera resurser i Microsoft Azure. Du har flera alternativ för att installera verktygen plattformsoberoende på datorn:
 
 * **npm paketet** -kör npm (package manager för JavaScript) för att installera det senaste Azure CLI 1.0-paketet på din distribution av Linux eller OS. Kräver node.js och npm på datorn.
 * **Installer** -hämta ett installationsprogram för enkel installation på Mac- eller Windows.

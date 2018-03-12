@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här avsedda för Azure Functions-runtime-versioner
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 I den här koden, ersätter `<function_app>` med namnet på funktionen appen. Även ersätta `<my_resource_group>` med namnet på resursgruppen för din funktionsapp. Ersätt `<version>` med en giltig version av körningsmiljön 1.x eller `beta` för version 2.0. 
 
-Du kan köra det här kommandot från den [Azure Cloud Shell](../cloud-shell/overview.md) genom att välja **prova** i föregående kodexempel. Du kan också använda den [Azure CLI lokalt](/cli/azure/install-azure-cli) att köra det här kommandot efter körning [az inloggningen](/cli/azure#az_login) att logga in.
+Du kan köra det här kommandot från den [Azure Cloud Shell](../cloud-shell/overview.md) genom att välja **prova** i föregående kodexempel. Du kan också använda den [Azure CLI lokalt](/cli/azure/install-azure-cli) att köra det här kommandot efter körning [az inloggningen](/cli/azure/reference-index#az_login) att logga in.
 
 ## <a name="next-steps"></a>Nästa steg
 

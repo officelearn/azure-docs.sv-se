@@ -1,23 +1,10 @@
 ---
-title: Virtuella Microsoft Azure-Datacenter | Microsoft Docs
-description: "Lär dig hur du skapar din virtuella datacenter i Azure"
-services: networking
-author: tracsman
-manager: rossort
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
-ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+Rubrik: ”Microsoft Azure virtuella Datacenter: A nätverket perspektiv” | Microsoft Docs beskrivning: Lär dig hur du skapar din virtuella datacenter i Azure-tjänster: nätverk författare: tracsman manager: rossort taggar: azure resource manager
+
+MS.Service: virtuellt nätverk ms.tgt_pltfrm: na ms.devlang: na ms.topic: artikel ms.date: 2017-05/26 ms.author: jonor
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Virtuella Microsoft Azure-Datacenter
+
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
 
 ## <a name="overview"></a>Översikt
@@ -206,7 +193,7 @@ Perimeternätverk nätverkskomponenter innehåller följande funktioner:
 -   [Virtuella nätverk][VNet], [UDR][UDR], [NSG][NSG]
 -   [Virtuell nätverksenhet][NVA]
 -   [Belastningsutjämnare][ALB]
--   [Programgateway][AppGW] / [Brandvägg][WAF]
+-   [Application Gateway][AppGW] / [WAF][WAF]
 -   [Offentliga IP-adresser][PIP]
 
 Vanligtvis central IT och säkerhet team har ansvar för Kravdefinition av och drift av perimeternätverk.
@@ -217,7 +204,7 @@ Föregående diagram visar verkställandet av två ytgränser med åtkomst till 
 
 [**Virtuella nätverk** ] [ VNet] hubben bygger vanligtvis på ett VNet med flera undernät som värd för olika typer av tjänster filtrering och inspektera trafik till eller från internet via NVAs, WAFs och Azure Programgatewayer.
 
-[**UDR** ] [ UDR] med UDR kunder kan distribuera brandväggar, ID: N/IP-adresser, och andra virtuella installationer och dirigera nätverkstrafik via hushållsapparater säkerhet för tvingande säkerhetsprinciper gräns, granskning och kontroll. Udr: er kan skapas i både NAV och ekrar att garantera att trafik eltransit specifika egna virtuella datorer, virtuella nätverksenheter och belastningsutjämnare som används av vDC. En UDR måste anges i eker-undernät genom att ange frontend IP-adressen för den interna belastningsutjämnaren som nästa hopp för att garantera att trafik som genereras från virtuella datorer i eker-överföring till rätt virtuella installationer. Den interna belastningsutjämnaren distribuerar interna trafiken till virtuella installationer (belastningen belastningsutjämnaren backend-pool).
+[**UDR** ] [ UDR] med UDR kunder kan distribuera brandväggar, ID: N/IP-adresser, och andra virtuella installationer och dirigera nätverkstrafik via hushållsapparater säkerhet för gräns tvingande säkerhetsprinciper, granskning och kontroll. Udr: er kan skapas i både NAV och ekrar att garantera att trafik eltransit specifika egna virtuella datorer, virtuella nätverksenheter och belastningsutjämnare som används av vDC. En UDR måste anges i eker-undernät genom att ange frontend IP-adressen för den interna belastningsutjämnaren som nästa hopp för att garantera att trafik som genereras från virtuella datorer i eker-överföring till rätt virtuella installationer. Den interna belastningsutjämnaren distribuerar interna trafiken till virtuella installationer (belastningen belastningsutjämnaren backend-pool).
 
 [![8]][8]
 
@@ -235,7 +222,7 @@ De flesta stora företag hantera flera domäner. Azure DNS kan användas som vä
 
 Azure belastningsutjämnare kan avsökning hälsotillståndet för de olika serverinstanserna samt och när en avsökning inte svarar belastningsutjämnaren slutar att skicka trafik till feltillstånd-instansen. I en vDC har vi förekomsten av en extern belastningsutjämnare i hubben (till exempel balansera trafiken till NVAs) och ekrar (för att utföra åtgärder som belastningsutjämning trafik mellan olika virtuella datorer i en programarkitektur).
 
-[**Programgateway** ] [ AppGW] Programgateway för Microsoft Azure är en dedikerad virtuell installation som ger programmet leverans domänkontrollant (ADC) som en tjänst med olika layer 7 belastningsutjämning för ditt program. På så sätt kan du optimera web servergruppen produktivitet genom att avlasta CPU beräkningsintensiva SSL-avslutning för programgatewayen. Här finns även andra layer 7-routningsfunktioner, till exempel resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. En brandvägg för webbaserade program (WAF) ingår också som en del av programgatewayens WAF SKU. Den här SKU ger skydd till webbprogram från vanliga web säkerhetsrisker och trojaner. Application Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. 
+[**Programgateway** ] [ AppGW] Programgateway för Microsoft Azure är en dedikerad virtuell installation som ger programmet leverans domänkontrollant (ADC) som en tjänst med olika layer 7 belastningsutjämning funktioner för ditt program. På så sätt kan du optimera web servergruppen produktivitet genom att avlasta CPU beräkningsintensiva SSL-avslutning för programgatewayen. Här finns även andra layer 7-routningsfunktioner, till exempel resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. En brandvägg för webbaserade program (WAF) ingår också som en del av programgatewayens WAF SKU. Den här SKU ger skydd till webbprogram från vanliga web säkerhetsrisker och trojaner. Application Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. 
 
 [**Offentliga IP-adresser** ] [ PIP] vissa Azure-funktionerna kan du associera slutpunkter till en offentlig IP-adress som kan nås från internet till resursen. Den här slutpunkten använder NAT (Network Address Translation) för att dirigera trafik till den interna adressen och porten på virtuella Azure-nätverket. Den här sökvägen är det vanligaste sättet för externa trafik för att skicka till det virtuella nätverket. Offentliga IP-adresser kan konfigureras för att avgöra vilken trafik som skickas och hur och var den översätts till det virtuella nätverket.
 
@@ -321,7 +308,7 @@ En effektiv metod att omdirigera trafik inkommande i en Domänkontrollant till e
 
 Traffic Manager fungerar på Azure offentliga slutpunkter och kan användas, till exempel att kontrollen/omdirigera trafik till virtuella Azure-datorer och Web Apps i lämplig vDC. Traffic Manager är flexibla även i händelse av en hel Azure-region misslyckas och kan styra distributionen av användartrafik för slutpunkter i olika VDC flera villkor (till exempel fel i en tjänst i en specifik vDC eller välja vDC med den lägsta Nätverksfördröjningen för klienten).
 
-### <a name="conclusion"></a>Slutsats
+### <a name="conclusion"></a>Sammanfattning
 Virtuella Datacenter är en metod för data center migrering till molnet som använder en kombination av funktioner och möjligheter för att skapa en skalbar arkitektur i Azure som maximerar molnet Resursanvändning, minskar kostnaderna och förenkla system styrning. VDC konceptet är baserad på en hub ekrar topologi tillhandahålla vanliga delade tjänster i hubben, så att specifika program/arbetsbelastningar i ekrarna. En vDC matchar strukturen för företagets roller, där olika avdelningar (Central IT, DevOps, drift och underhåll) arbetar tillsammans med en specifik lista över roller och ansvarsområden. En vDC uppfyller kraven för en ”lyfter och SKIFT”-migrering, men också ger många fördelar med att inbyggda distributioner.
 
 ## <a name="references"></a>Referenser
@@ -330,11 +317,11 @@ Följande funktioner beskrivs i det här dokumentet. Klicka på länkarna om du 
 | | | |
 |-|-|-|
 |Nätverksfunktioner|Belastningsutjämning|Anslutning|
-|[Virtuella Azure-nätverk][VNet]</br>[Nätverkssäkerhetsgrupper][NSG]</br>[NSG-loggar][NSGLog]</br>[Användardefinierade Routning][UDR]</br>[Virtuella nätverksenheter][NVA]</br>[Offentliga IP-adresser][PIP]|[Azure belastningsutjämnare (L3)][ALB]</br>[Programgateway (L7)][AppGW]</br>[Brandvägg för webbaserade program][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtuellt privat nätverk][VPN]</br>[ExpressRoute][ExR]
+|[Virtuella Azure-nätverk][VNet]</br>[Nätverkssäkerhetsgrupper][NSG]</br>[NSG-loggar][NSGLog]</br>[Användardefinierade Routning][UDR]</br>[Virtuella nätverksenheter][NVA]</br>[Offentliga IP-adresser][PIP]|[Azure belastningsutjämnare (L3) ][ALB]</br>[Programgateway (L7) ][AppGW]</br>[Brandvägg för webbaserade program][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtuellt privat nätverk][VPN]</br>[ExpressRoute][ExR]
 |Identitet</br>|Övervakning</br>|Metodtips</br>|
 |[Azure Active Directory][AAD]</br>[Multifaktorautentisering][MFA]</br>[Rollen grundläggande åtkomstkontroller][RBAC]</br>[Standardroller i AAD][Roles] |[Aktivitetsloggar][ActLog]</br>[Diagnostikloggar][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Metodtips för perimeter-nätverk][DMZ]</br>[Prenumerationshantering][SubMgmt]</br>[Hantering av resursgruppen.][RGMgmt]</br>[Azure-prenumerationsbegränsningar][Limits] |
 |Andra Azure-tjänster|
-|[Azure-Webbappar][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 

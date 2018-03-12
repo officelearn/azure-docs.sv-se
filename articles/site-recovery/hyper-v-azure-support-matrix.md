@@ -3,15 +3,16 @@ title: "Stöd matrix för Hyper-V-replikering Azure | Microsoft Docs"
 description: "Sammanfattning av de stödda komponenter och krav för Hyper-V-replikering till Azure med Azure Site Recovery"
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stöd matrix för Hyper-V-replikering till Azure
 
@@ -29,7 +30,7 @@ Den här artikeln sammanfattar stöds komponenter och inställningar för katast
 
 ## <a name="on-premises-servers"></a>Lokala servrar
 
-**Server** | Krav | **Detaljer**
+**Server** | **Krav** | **Detaljer**
 --- | --- | ---
 **Hyper-V (som körs utan VMM)** | Windows Server 2016, Windows Server 2012 R2 med de senaste uppdateringarna. | När du konfigurerar en Hyper-V-platsen i Site Recovery stöds blanda värdar som kör Windows Server 2016 och 2012 R2 inte.<br/><br/> För virtuella datorer finns på en värd som kör Windows Server 2016, stöds inte återställning till en alternativ plats.
 **Hyper-V (som körs med VMM)** | VMM 2016, VMM 2012 R2 | Om VMM används ska Windows Server 2016 värdar hanteras i VMM 2016.<br/><br/> En VMM-moln som kombinerar Hyper-V-värdar som kör Windows Server 2016 och 2012 R2 stöds inte för närvarande.<br/><br/> Miljöer som innehåller en uppgradering av en befintlig VMM 2012 R2-server till 2016 stöds inte.
@@ -139,20 +140,20 @@ Hanterade diskar | Ja, för växling vid fel<br/><br/> Återställning efter fel
 
 Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven för Azure VM som sammanfattas i den här tabellen.
 
-**Komponent** | Krav | **Detaljer**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystemet | Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Kravkontrollen misslyckas om stöds inte.
+**Gästoperativsystemet** | Site Recovery har stöd för alla operativsystem som är [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Kravkontrollen misslyckas om stöds inte.
 **Gästen operativsystemets arkitektur** | 64-bitars | Kravkontrollen misslyckas om stöds inte.
-**Operativsystemdisken** | Upp till 2 048 GB för virtuella datorer i Generation 1.<br/><br/> Upp till 300 GB för generation 2 virtuella datorer.  | Kravkontrollen misslyckas om stöds inte.
-**Operativsystemet disk antal** | 1 | Kravkontrollen misslyckas om stöds inte.
-**Datadiskar** | 16 eller mindre  | Kravkontrollen misslyckas om stöds inte.
-**Datadisken för virtuell Hårddisk** | Upp till 4095 GB | Kravkontrollen misslyckas om stöds inte.
-**Nätverkskort** | Flera nätverkskort som stöds |
-**Delad virtuell Hårddisk** | Stöds inte | Kravkontrollen misslyckas om stöds inte.
+**Storlek på operativsystemdisk** | Upp till 2 048 GB för virtuella datorer i Generation 1.<br/><br/> Upp till 300 GB för generation 2 virtuella datorer.  | Kravkontrollen misslyckas om stöds inte.
+**Antal operativsystemdiskar** | 1 | Kravkontrollen misslyckas om stöds inte.
+**Antal datadiskar** | 16 eller mindre  | Kravkontrollen misslyckas om stöds inte.
+**VHD-storlek för datadisk** | Upp till 4 095 GB | Kravkontrollen misslyckas om stöds inte.
+**Nätverkskort** | Flera nätverkskort stöds |
+**Delad VHD** | Stöds inte | Kravkontrollen misslyckas om stöds inte.
 **FC-disk** | Stöds inte | Kravkontrollen misslyckas om stöds inte.
 **Format för hårddisk** | VHD <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
-**Bitlocker** | Stöds inte | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
-**Namn på virtuell dator** | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namn måste börja och sluta med en bokstav eller siffra. | Uppdatera värdet i VM-egenskaper i Site Recovery.
+**BitLocker** | Stöds inte | BitLocker måste inaktiveras innan du aktiverar replikering för en virtuell dator.
+**Namn på virtuell dator** | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namnet måste börja och sluta med en bokstav eller en siffra. | Uppdatera värdet i VM-egenskaper i Site Recovery.
 **VM-typ** | Generation 1<br/><br/> Generation 2 – Windows | Generation 2 virtuella datorer med en OS-disktyp av grundläggande (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme stöds.<br></br>Linux Generation 2 virtuella datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Recovery Services-valvet åtgärder

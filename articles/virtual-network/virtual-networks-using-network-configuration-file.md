@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Konfigurera ett virtuellt nätverk (klassiska) med en konfigurationsfil för nätverk
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Du kan använda PowerShell eller Azure CLI för att exportera en konfigurationsf
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Skapa eller ändra en konfigurationsfil för nätverk
 
-En konfigurationsfil för nätverk är en XML-fil (när du använder PowerShell) eller en json-fil (när du använder Azure CLI). Du kan redigera filen i en text, eller XML/json-redigerare. Den [nätverk konfigurationsinställningar filen schemat](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikeln innehåller information om alla inställningar. Ytterligare förklaring av inställningarna finns [Visa inställningar för virtuella nätverk och](virtual-network-manage-network.md#view-vnet). De ändringar du gör i filen:
+En konfigurationsfil för nätverk är en XML-fil (när du använder PowerShell) eller en json-fil (när du använder Azure CLI). Du kan redigera filen i en text, eller XML/json-redigerare. Den [nätverk konfigurationsinställningar filen schemat](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikeln innehåller information om alla inställningar. Ytterligare förklaring av inställningarna finns [Visa inställningar för virtuella nätverk och](manage-virtual-network.md#view-virtual-networks-and-settings). De ändringar du gör i filen:
 
 - Måste vara kompatibel med schemat eller importera konfigurationsfilen nätverket misslyckas.
 - Skriv över alla befintliga nätverksinställningarna för din prenumeration, så mycket försiktig när du gör ändringar. Till exempel referera till exempel nätverk konfigurationsfilerna som följer. Säg originalfilen finns två **VirtualNetworkSite** instanser och du ändrade den som visas i exemplen. När du importerar filen Azure tar bort det virtuella nätverket för den **VirtualNetworkSite** instans som du har tagit bort i filen. Det här förenklad scenariot förutsätter att inga resurser har i det virtuella nätverket som om det fanns gick inte att ta bort det virtuella nätverket och misslyckas importen.

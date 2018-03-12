@@ -6,13 +6,13 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: cba28ada79ea806ead4ae9165abba2dc4e04f001
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-blob-snapshot"></a>Skapa en blob-ögonblicksbild
 
@@ -31,8 +31,6 @@ När du skapar en ögonblicksbild av en blob kopieras blobens Systemegenskaper t
 Alla lån som är associerade med grundläggande blob påverkar inte ögonblicksbilden. Du kan inte hämta ett lån på en ögonblicksbild.
 
 En VHD-fil används för att spara aktuella information och status för en virtuell disk. Du kan koppla bort en disk från den virtuella datorn eller stänga av den virtuella datorn och sedan ta en ögonblicksbild av dess VHD-filen. Du kan använda ögonblicksbild filen senare för att hämta VHD-filen då i tid och återskapa den virtuella datorn.
-
-Om kryptering för lagring-tjänsten (SSE) är aktiverat för det lagringskonto där blobben finns, krypteras alla ögonblicksbilder av blobben i vila.
 
 ## <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 Följande kodexempel visar hur du skapar en ögonblicksbild med hjälp av den [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Det här exemplet anger ytterligare metadata för ögonblicksbilden när den skapas.

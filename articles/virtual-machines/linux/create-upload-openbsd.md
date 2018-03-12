@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e86c323ac97ccc0d2a3da47fe1b1a9b3e9d16d0a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en diskavbildning OpenBSD till Azure
 Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) som innehåller operativsystemet OpenBSD. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure med Azure CLI.
@@ -29,7 +29,7 @@ Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) 
 Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** -om du inte har ett konto kan du skapa en på bara några minuter. Om du har en MSDN-prenumeration, se [månatliga Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars Lär dig hur du [skapa ett kostnadsfritt utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -Kontrollera att du har senast [Azure CLI 2.0](/cli/azure/install-azure-cli) installerad och inloggad på ditt Azure-konto med [az inloggningen](/cli/azure/#az_login).
+* **Azure CLI 2.0** -Kontrollera att du har senast [Azure CLI 2.0](/cli/azure/install-azure-cli) installerad och inloggad på ditt Azure-konto med [az inloggningen](/cli/azure/reference-index#az_login).
 * **OpenBSD operativsystem i en VHD-fil** -en OpenBSD operativsystem som stöds (version 6.1) måste installeras på en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer. Du kan till exempel använda en virtualiseringslösning som Hyper-V för att skapa VHD-filen och installera operativsystemet. Instruktioner om hur du installerar och använder Hyper-V finns i [installera Hyper-V och skapa en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,7 +102,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Skapa storage-resurser och ladda upp
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

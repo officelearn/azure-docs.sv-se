@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 495ed6daf0d73d89a4bc572f6bccf294cee7decb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e8d21aad23782f22b93baf12ce58d1aed4dd5dee
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Konfigurera en Användartilldelad hanteras Service identitet (MSI) för en virtuell dator med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du aktiverar och ta bort en Användart
 Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) från Azure-portalen, eller via knappen ”prova den” finns i det övre högra hörnet av varje kodblock.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
+- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
 
    ```azurecli
    az login

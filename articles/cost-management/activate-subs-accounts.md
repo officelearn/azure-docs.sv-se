@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och konton med Azure kostnaden Management
 
@@ -76,7 +76,7 @@ När du lägger till en uppdatering av en prenumeration kan bevilja du Azure kos
 
     Om du inte ser en grön bockmarkering symbol för en eller flera av prenumerationerna, innebär det att du inte har behörighet att skapa reader-appen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa den här processen.
 
-Titta på den [ansluter till Azure Resource Manager med Azure kostnaden Management med Cloudyn](https://youtu.be/oCIwvfBB6kk) video som går igenom processen.
+Titta på den [ansluter till Azure Resource Manager med Azure kostnaden Management](https://youtu.be/oCIwvfBB6kk) video som går igenom processen.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

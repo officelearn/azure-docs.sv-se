@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 03/06/2018
 ms.author: cynthn
-ms.openlocfilehash: 84f6f0c13e8c06aa934d98ecc3c3e4a61f95c641
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f18defbec79638cf2c3363e6429ddcac01b1502e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
 En hanterad avbildning resurs kan skapas från en generaliserad virtuell dator som lagras som en hanterad disk eller en ohanterad disk i ett lagringskonto. Bilden kan sedan användas för att skapa flera virtuella datorer. 
-
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera Windows VM med hjälp av Sysprep
 
@@ -33,7 +32,9 @@ Sysprep tar bort alla dina personlig information, bland annat och förbereder da
 Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Om du kör Sysprep innan du laddar upp den virtuella Hårddisken till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) innan du kör Sysprep. 
+> När du har kört sysprep på en virtuell dator är det *generaliserad* och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver den ursprungliga virtuella datorn fungerar, bör du vidta en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera kopian. 
+>
+> Om du kör Sysprep innan du laddar upp den virtuella Hårddisken till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) innan du kör Sysprep.  
 > 
 > 
 

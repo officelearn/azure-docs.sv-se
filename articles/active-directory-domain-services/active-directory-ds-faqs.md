@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 1963931f30808e861445c9555a04f933514239c3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor (FAQ)
 Den här sidan svar på vanliga frågor om Azure Active Directory Domain Services. Hålla kontroll för uppdateringar.
@@ -39,7 +39,7 @@ För närvarande inte. Microsoft levererar en mekanism för att migrera din befi
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan jag aktivera Azure AD Domain Services i en CSP: N (Cloud Solution Provider) för Azure-prenumeration?
 Ja. Se hur du kan aktivera [Azure AD Domain Services i Azure CSP prenumerationer](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan jag aktivera Azure AD Domain Services i en federerad Azure AD-katalog? Jag använder AD FS för att autentisera användare för åtkomst till Office 365 och synkroniseras inte lösenordshashvärden till Azure AD. Kan jag aktivera Azure AD Domain Services för den här katalogen?
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan jag aktivera Azure AD Domain Services i en federerad Azure AD-katalog? Jag synkronisera inte lösenordshashvärden till Azure AD. Kan jag aktivera Azure AD Domain Services för den här katalogen?
 Nej. Azure AD Domain Services behöver åtkomst till lösenordshashvärden av användarkonton, kan autentisera användarna med NTLM eller Kerberos. I en federerad katalog lagras lösenordshashvärden inte i Azure AD-katalog. Därför fungerar inte Azure AD Domain Services med sådana Azure AD-kataloger.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan jag göra Azure AD Domain Services finns i flera virtuella nätverk i min prenumeration?
@@ -53,6 +53,9 @@ Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](acti
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan jag lägga till domänkontrollanter i en Azure AD Domain Services-hanterad domän?
 Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du inte behöver tillhandahålla, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen - tillhandahålls dessa hanteringsaktiviteter som en tjänst från Microsoft. Därför kan du lägga till ytterligare domänkontrollanter (skrivskyddad eller skrivskyddad) för den hanterade domänen.
+
+### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Gästanvändare bjudits in till min katalog kan använda Azure AD Domain Services?
+Nej. Gästanvändare bjudits in till din Azure AD-katalog med det [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) process inbjudan är sycned till din Azure AD Domain Services-hanterad domän. Lösenorden för dessa användare lagras inte i Azure AD-katalogen. Därför Azure AD Domain Services har inget sätt att synkronisera NTLM och Kerberos-hashvärden för dessa användare i din hanterade domän. Därför sådana användare kan inte logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
 
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan jag ansluta till domänkontrollanten för min hanterade domänen med hjälp av fjärrskrivbord?
@@ -75,6 +78,9 @@ Nej. Schemat hanteras av Microsoft för den hanterade domänen. Schematillägg s
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Kan jag ändra eller lägga till DNS-poster i min hanterade domänen?
 Ja. Medlemmar i gruppen AAD DC-administratörer beviljas behörighet för DNS-administratören om du vill ändra DNS-poster i den hanterade domänen. De kan använda DNS-hanteringskonsolen på en dator som kör Windows Server som är ansluten till den hanterade domänen för att hantera DNS. Installera 'DNS-serververktyg', vilket är en del av funktionen ”Verktyg för fjärrserveradministration' valfritt på servern för att använda DNS-hanteringskonsolen. Mer information om [verktyg för att administrera, övervaka och felsöka DNS](https://technet.microsoft.com/library/cc753579.aspx) finns på TechNet.
+
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Vad är lösenordsprincipen som livslängd på en hanterad domän?
+Standardlivstid för lösenord på en Azure AD Domain Services-hanterad domän är 90 dagar. Det här lösenordet livstid är inte synkroniserad med lösenord livslängd som konfigurerats i Azure AD. Du kan därför ha en situation där användarnas lösenord ut inom din hanterade domän, men fortfarande är giltiga i Azure AD. I sådana fall kan användarna behöver för att ändra sina lösenord i Azure AD och det nya lösenordet synkroniseras till din hanterade domän. Dessutom synkroniseras 'den lösenordet-har-inte-upphör' och 'user-must-change-password-at-next-logon'-attribut för användarkonton inte med din hanterade domän.
 
 ## <a name="billing-and-availability"></a>Fakturering och tillgänglighet
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Är Azure AD Domain Services en betald tjänst?

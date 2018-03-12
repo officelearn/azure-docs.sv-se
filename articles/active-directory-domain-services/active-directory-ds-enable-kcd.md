@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: maheshu
-ms.openlocfilehash: cd730d2224babe0c44d4c1d90106d44994536d29
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ed797ca25161919ccf5e69be0073a67bfcef6d6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Konfigurera Kerberos-begränsad delegering (KCD) på en hanterad domän
 Många program behöver åtkomst till resurser i kontexten för användaren. Active Directory stöder en mekanism som kallas Kerberos-delegering, vilket gör den här användningsfall. Dessutom kan du begränsa delegering så att bara vissa resurser kan användas i kontexten för användaren. Azure AD Domain Services-hanterade domäner skiljer sig från traditionella Active Directory-domäner eftersom de säkrare är låsta.
@@ -28,7 +28,7 @@ Den här artikeln visar hur du konfigurerar Kerberos-begränsad delegering på e
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos-begränsad delegering (KCD)
 Kerberos-delegering kan ett konto att personifiera en annan säkerhetsobjekt (till exempel en användare) för att komma åt resurser. Överväg att ett webbprogram som har åtkomst till en backend-webb-API i kontexten för en användare. I det här exemplet personifierar webbprogrammet (som körs i kontexten för ett tjänstkonto eller ett dator-/ datorkonto) användaren få åtkomst till resursen (backend-webb-API). Kerberos-delegering är osäker eftersom den inte begränsar resurser imiterande kontot kan komma åt i kontexten för användaren.
 
-sKerberos begränsad delegering (KCD) begränsar de resurser eller det tjänster som den angivna servern kan fungera på uppdrag av en användare. Traditionell KCD kräver domänadministratörsbehörighet att konfigurera ett domänkonto för en tjänst och det begränsar kontot till en enda domän.
+Kerberos-begränsad delegering (KCD) begränsar de resurser eller det tjänster som den angivna servern kan fungera på uppdrag av en användare. Traditionell KCD kräver domänadministratörsbehörighet att konfigurera ett domänkonto för en tjänst och det begränsar kontot till en enda domän.
 
 Traditionell KCD har även några problem som är kopplade till den. I tidigare operativsystem hade tjänsteadministratören inget användbart sätt att veta vilka frontend-tjänster delegerat till resurstjänsterna de ägde om domänadministratören konfigurerade kontot-baserade KCD för tjänsten. Och alla frontend-tjänster som kunde delegera till en resurstjänst representerade en potentiell angreppspunkt. Om en server som är värd för en frontend-tjänst blev komprometterad och konfigurerades för att delegera till resurstjänster, kunde resurstjänsterna också komprometteras.
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 91adff331d9a9a79af0869fda6392fc52c78cac2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -70,7 +70,7 @@ Följande begränsningar gäller när du använder den här funktionen:
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNic*, och *myVm*.
+Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNic*, och *myVm*.
 
 Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *centralus* plats:
 

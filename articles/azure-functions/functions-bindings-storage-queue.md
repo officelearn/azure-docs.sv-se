@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage bindningar för Azure Functions
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
+I följande exempel visas en kö utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
 
 Här är den *function.json* fil:
 
@@ -112,7 +112,7 @@ Den [användning](#trigger---usage) förklaras `myQueueItem`, som är namngiven 
 
 ### <a name="trigger---javascript-example"></a>Utlösaren - JavaScript-exempel
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
+I följande exempel visas en kö utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
 
 Här är den *function.json* fil:
 
@@ -213,7 +213,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|Typ | Saknas| måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Typ** | Saknas| måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**Riktning**| Saknas | I den *function.json* filen endast. måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas |Namnet på variabeln som representerar kön i funktionskoden.  | 
 |**queueName** | **Könamn**| Namnet på kön avsöker. | 
@@ -223,9 +223,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
  
-Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+Få åtkomst till meddelandedata i C# och C# skript, med hjälp av en metodparameter som `string paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
-* Objekt - Functions-runtime deserializes POCO en JSON-nyttolast till ett POCO-objekt. 
+* Objekt - Functions-runtime deserializes en JSON-nyttolast till en instans av en godtyckligt klass som definierats i din kod. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen skapar ett köobjekt med en POCO-nyttolasten för alla HTTP-begäranden tas emot.
+I följande exempel visas en utlösare för HTTP-bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen skapar ett köobjekt med en **CustomQueueMessage** objekt nyttolasten för alla HTTP-begäranden tas emot.
 
 Här är den *function.json* fil:
 
@@ -353,17 +353,17 @@ Du kan skicka flera meddelanden samtidigt med hjälp av en `ICollector` eller `I
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Utdata - JavaScript-exempel
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skapar ett köobjekt för alla HTTP-begäranden tas emot.
+I följande exempel visas en utlösare för HTTP-bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skapar ett köobjekt för alla HTTP-begäranden tas emot.
 
 Här är den *function.json* fil:
 
@@ -447,7 +447,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
-|Typ | Saknas | måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**Typ** | Saknas | måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**Riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar kön i funktionskoden. Ange till `$return` att referera till returvärde för funktion.| 
 |**queueName** |**Könamn** | Namnet på kön. | 
@@ -459,7 +459,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
  
 I C# och C# skript, skriver du ett enda kömeddelande med en metodparameter som `out T paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan använda Returtypen för metoden i stället för en `out` parameter, och `T` kan vara något av följande typer:
 
-* En POCO serialiserbara som JSON
+* Ett objekt som kan serialiseras som JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

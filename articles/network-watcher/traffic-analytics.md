@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: c113bbe646a54813a2885b3a9087a0171220f271
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -46,9 +46,9 @@ Virtuella Azure-nätverk har NSG flödet loggarna, vilket ger dig information om
 
 ## <a name="how-traffic-analytics-works"></a>Hur fungerar trafiken Analytics 
 
-Trafik Analytics undersöks flödet av loggarna NSG och samlar in minskade loggar genom insamling av vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera med värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period 1 timme med hjälp av port (till exempel 80) och protokoll (exempelvis http). Minskad loggen har en post som värddator 1 & värddator 2 kommunicerat 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för med 100 poster. Minskad loggar lagras i logganalys-arbetsytan och förbättrad med information om geografi, säkerhet och topologi. Förbättrad loggarna analyseras ytterligare för att härleda analytics. Följande bild visar dataflödet:
+Trafik Analytics undersöks flödet av loggarna NSG och samlar in minskade loggar genom insamling av vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera med värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period 1 timme med hjälp av port (till exempel 80) och protokoll (exempelvis http). Minskad loggen har en post som värddator 1 & värddator 2 kommunicerat 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för med 100 poster. Minskad loggar utökats med geografi, säkerhet och topologiinformation och lagras sedan i logganalys-arbetsytan. Följande bild visar dataflödet:
 
-![Hur fungerar trafiken Analytics](media/traffic-analytics/1.png)
+![Dataflöde för NSG flödet loggar bearbetning](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -74,7 +74,7 @@ Innan du aktiverar NSG flödet loggning måste du ha en nätverkssäkerhetsgrupp
 
 På vänster sida av Azure portal, väljer **övervakaren**, sedan **nätverksbevakaren**, och välj sedan **NSG flödet loggar**. Välj nätverkssäkerhetsgruppen som du vill aktivera en NSG flödet logg för, enligt följande bild:
 
-![Välj en NSG](media/traffic-analytics/2.png)
+![Val av NSG: er som kräver aktivering av NSG flödet logg](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
 Om du försöker aktivera trafik Analytics för en NSG som finns i en region än den [regioner som stöds](#supported-regions), felmeddelande ”kunde inte hittas”. 
 
@@ -110,7 +110,7 @@ Välj följande alternativ som visas i bilden:
     Arbetsytan logganalys (OMS) som värd för trafik Analytics-lösningen och de NSG: er behöver inte finnas i samma region. Till exempel kanske du trafik Analytics i en arbetsyta i regionen Västeuropa, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras i samma arbetsyta.
 6. Välj **Spara**.
 
-    ![Aktivera trafik analyser](media/traffic-analytics/3.png)
+    ![Valet av lagringskonto, logganalys-arbetsytan och trafik Analytics aktivering](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
 Upprepa de här stegen för alla andra NSG: er som du vill aktivera trafik Analytics för. Data från flödet loggar skickas till arbetsytan, så se till att den lokala lagar och förordningar i ditt land tillåter lagring av data i den region där arbetsytan finns.
 
@@ -118,7 +118,7 @@ Upprepa de här stegen för alla andra NSG: er som du vill aktivera trafik Analy
 
 På vänster sida av portalen, väljer **alla tjänster**, ange *övervakaren* i den **Filter** rutan. När **övervakaren** visas i sökresultaten väljer den. Om du vill börja utforska trafik analyser och dess funktioner, Välj **nätverksbevakaren**, sedan **trafik Analytics (förhandsgranskning)**.
 
-![Visa trafik analytics](media/traffic-analytics/4.png)
+![Åtkomst till instrumentpanelen trafik Analytics](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
 Instrumentpanelen kan ta upp till 30 minuter innan den visas första gången eftersom trafiken Analytics måste först aggregera tillräckligt med data att härleda insikter som beskrivande, innan det kan generera rapporter.
 
@@ -140,11 +140,11 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 
     Välj **mer**under **värdar med de flesta trafik**som visas i följande bild:
 
-    ![Aktivera trafik analyser](media/traffic-analytics/5.png)
+    ![Instrumentpanelen med värden med de flesta trafik information](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
 - Följande bild visar tid trender för översta fem pratar värdarna och flödet-relaterad information (tillåtna – inkommande/utgående och Nekade - inkommande/utgående flöden) för en virtuell dator:
 
-    ![](media/traffic-analytics/6.png)
+    ![Fem främsta prata med de flesta värden trend](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Titta efter**
 
@@ -156,11 +156,11 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
     - Dessa program är tillåtna i det här nätverket?
     - Konfigureras program korrekt? Använder de rätt protokoll för kommunikation? Välj **mer** under **mest frekventa konversationer**, vilket visas i följande bild:
 
-    ![](media/traffic-analytics/7.png)
+        ![Instrumentpanelen med de vanligaste konversation](media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
 - Följande bild visar tid trender för översta fem konversationer och flödet-relaterad information som tillåten respektive nekad inkommande och utgående flöden paret konversation:
 
-    ![](media/traffic-analytics/8.png)
+    ![TOP fem chatty konversation information och trend](media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Titta efter**
 
@@ -168,13 +168,13 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
     - Dessa program är tillåtna i det här nätverket?
     - Konfigureras program korrekt? Använder de rätt protokoll för kommunikation? Förväntat beteende är vanliga portar, till exempel 80 och 443. För standard-kommunikation om ovanliga portar visas behöva de en konfigurationsändring. Välj **mer** under **uppifrån programprotokoll**, i följande bild:
 
-    ![](media/traffic-analytics/9.png)
+        ![Instrumentpanelen med högsta programprotokoll](media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
 - Följande bilder visar tidpunkt trender för säljares L7 protokoll och flödet-relaterad information (till exempel tillåten respektive nekad flöden) för en L7-protokollet:
 
-    ![](media/traffic-analytics/10.png)
+    ![Fem layer 7 protokoll information och trend](media/traffic-analytics/top five-layer-seven-protocols-details-and-trend.png)
 
-    ![](media/traffic-analytics/11.png)
+    ![Flöda information om protokoll i loggen Sök](media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Titta efter**
 
@@ -184,11 +184,11 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 - Vilka är de mest conversing värdarna via vilken VPN-gateway över vilken port?
     - Är det här mönstret normalt? Välj **mer** under **uppifrån aktiva VPN-anslutningar**som visas i följande bild:
 
-    ![](media/traffic-analytics/12.png)
+        ![Instrumentpanelen med högsta aktiva VPN-anslutningar](media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
 - Följande bild visar tid trender för användningen av kapaciteten för en Azure VPN-Gateway och den flöde-relaterad informationen (t.ex tillåtna flöden och portar):
 
-    ![](media/traffic-analytics/13.png)
+    ![VPN gateway trend och flödar information om bandanvändning](media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Visualisera trafikfördelning efter geografi
 
@@ -200,17 +200,17 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 
     Välj **Klicka här om du vill se live geomap** under **trafik distribution över Azure-Datacenter**som visas i följande bild:
 
-    ![](media/traffic-analytics/14.png)
+  ![Instrumentpanel med trafikfördelning](media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
 - Geo-kartan visar översta menyfliksområdet för val av parametrar, till exempel datacenter (ingen/distribuerat-distribution/inaktiv/Active/trafik Analytics aktiverat/trafik Analytics inte aktiverad) och länder bidrar Benign/skadliga trafik till aktivt distribution:
 
-    ![](media/traffic-analytics/15.png)
+    ![GEO-kartvyn med aktiv distribution](media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
 - Geo-kartan visar Trafikfördelningen till ett datacenter från andra länder och kontinenter kommunikation till den i blå (ofarlig trafik) och det röda (skadlig trafik) färgade rader:
 
-    ![](media/traffic-analytics/16.png)
+    ![GEO-kartvyn med trafikfördelning länder och kontinenter](media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
-    ![](media/traffic-analytics/17.png)
+    ![Flöda information för trafik distributionsplats i loggen Sök](media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualisera trafik distribution av virtuella nätverk
 
@@ -222,14 +222,14 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
  
     Välj **Klicka här om du vill se VNet trafik topologi** under **virtuella nätverk distribution**som visas i följande bild: 
 
-        ![](media/traffic-analytics/18.png)
+    ![Instrumentpanelen med distribution av virtuellt nätverk](media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Den virtuella nätverkstopologin visar översta menyfliksområdet för val av parametrar som en virtuella nätverkets (Inter virtuellt nätverk anslutningar/Active/Inactive), externa anslutningar, aktiva flöden och skadliga flöden för det virtuella nätverket.
 - Den virtuella nätverkstopologin visar trafikfördelning till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/Benign/skadliga), protokoll och nätverkssäkerhetsgrupper, till exempel:
 
-    ![](media/traffic-analytics/19.png)
+    ![Virtuella nätverkets topologi med information för distribution och flödet av trafik](media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
 
-    ![](media/traffic-analytics/20.png)
+    ![Flöda information för virtuellt nätverk trafik distributionsplats i loggen Sök](media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Titta efter**
 
@@ -239,7 +239,7 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 - Undernät topologin visar översta menyfliksområdet för val av parametrar, till exempel Active/Inactive undernät, externa anslutningar, aktiva flöden och skadliga flöden till undernätet.
 - Undernät topologin visar trafikfördelning till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/Benign/skadliga), protokoll och NSG: er, till exempel:
 
-    ![](media/traffic-analytics/21.png)
+    ![Undernät topologi med trafikfördelning ett undernät för virtuellt nätverk med avseende på flöden](media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från internet
 
@@ -248,15 +248,15 @@ Några av de insikter som du kanske vill få när trafik Analytics konfigurerats
 - Vilka öppna portar konversation via internet?
     - Du kan korrigera konfigurationen om oväntat portar öppna:
 
-        ![](media/traffic-analytics/22.png)
+        ![Instrumentpanelen med portarna ta emot och skicka trafik till internet](media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-        ![](media/traffic-analytics/23.png)
+        ![Information om Azure målportar och värdar](media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Titta efter**
 
 Har du skadlig trafik i din miljö? Där den härstammar från? Där är den som är avsett att?
 
-![](media/traffic-analytics/24.png)
+![Skadliga trafiken flödar information i loggen Sök](media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
 
 ### <a name="visualize-the-trends-in-nsg-rule-hits"></a>Visualisera trender i NSG regeln träffar
@@ -266,10 +266,14 @@ Har du skadlig trafik i din miljö? Där den härstammar från? Där är den som
 - Vilka NSG/regler som är mest träffar?
 - Vad är de främsta käll- och konversation par per NSG?
 
-    ![](media/traffic-analytics/25.png)
+    ![Instrumentpanelen med NSG träffar statistik](media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
 
 - Följande bilder visar tidpunkt trender för träffar NSG-regler och information om källan till målet flödet för en nätverkssäkerhetsgrupp:
 
-    ![](media/traffic-analytics/26.png)
+    ![Med tiden trender för NSG regeln träffar och översta NSG-regler](media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
-    ![](media/traffic-analytics/27.png)
+    ![Övre NSG-regler statistik information i loggen Sök](media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+För att få svar på vanliga frågor och svar, se [trafik Analytics FAQ](traffic-analytics-faq.md).

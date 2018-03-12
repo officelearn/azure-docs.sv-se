@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Skapa ett virtuellt nätverk (klassiskt) med flera undernät
 
 > [!IMPORTANT]
-> Azure har två [olika distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar de flesta nya virtuella nätverk via den [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) distributionsmodell.
+> Azure har två [olika distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar de flesta nya virtuella nätverk via den [Resource Manager](quick-create-portal.md) distributionsmodell.
 
 I den här kursen lär du dig hur du skapar en grundläggande Azure virtuellt nätverk (klassiskt) som har olika offentliga och privata undernät. Du kan skapa Azure-resurser, t.ex. virtuella datorer och molntjänster i ett undernät. Resurser som skapas på virtuella nätverk (klassiskt) kan kommunicera med varandra och resurser i andra nätverk som är anslutna till ett virtuellt nätverk.
 
-Mer information om alla [virtuellt nätverk](virtual-network-manage-network.md) och [undernät](virtual-network-manage-subnet.md) inställningar.
+Mer information om alla [virtuellt nätverk](manage-virtual-network.md) och [undernät](virtual-network-manage-subnet.md) inställningar.
 
 > [!WARNING]
 > Virtuella nätverk (klassiskt) omedelbart tas bort av Azure när en [prenumerationen har inaktiverats](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtuella nätverk (klassiskt) tas bort oavsett om det finns resurser i det virtuella nätverket. Om du återaktiverar prenumerationen senare måste du återskapa resurser som fanns i det virtuella nätverket.
@@ -161,7 +161,7 @@ Du kan skapa ett virtuellt nätverk (klassiskt) med hjälp av den [Azure-portale
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om alla virtuella nätverk och undernätsinställningar, se [hantera virtuella nätverk](virtual-network-manage-network.md) och [hantera virtuella undernät](virtual-network-manage-subnet.md). Har du olika alternativ för att använda virtuella nätverk och undernät i en produktionsmiljö för att uppfylla olika krav.
+- Mer information om alla virtuella nätverk och undernätsinställningar, se [hantera virtuella nätverk](manage-virtual-network.md) och [hantera virtuella undernät](virtual-network-manage-subnet.md). Har du olika alternativ för att använda virtuella nätverk och undernät i en produktionsmiljö för att uppfylla olika krav.
 - Filtrera inkommande och utgående trafik, skapa och använda [nätverkssäkerhetsgrupper](virtual-networks-nsg.md) till undernät.
 - Skapa en [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuella datorn och ansluter sedan till ett befintligt virtuellt nätverk.
 - För att ansluta två virtuella nätverk i samma Azure-plats, skapa en [virtuellt nätverk peering](create-peering-different-deployment-models.md) mellan virtuella nätverk. Du kan peer (Resource Manager) för ett virtuellt nätverk till ett virtuellt nätverk (klassiskt), men du kan inte skapa en peering mellan två virtuella nätverk (klassiskt).

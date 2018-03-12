@@ -4,7 +4,7 @@ description: "Lär dig hur du planerar och utformar virtuella nätverk i Azure b
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planera och utforma Azure-nätverk
-Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering och design, kommer du att kunna distribuera Vnet och ansluta de resurser du behöver mer effektivt. Om du inte är bekant med VNets rekommenderar vi som du [Lär dig mer om Vnet](virtual-networks-overview.md) och [hur du distribuerar](virtual-networks-create-vnet-arm-pportal.md) något innan du fortsätter.
+Det är enkelt att skapa ett virtuellt nätverk om du vill experimentera med, men troligen har du ska distribuera flera virtuella nätverk över tid för att stödja produktion behoven för din organisation. Med lite planering och design, kommer du att kunna distribuera Vnet och ansluta de resurser du behöver mer effektivt. Om du inte är bekant med VNets rekommenderar vi som du [Lär dig mer om Vnet](virtual-networks-overview.md) och [hur du distribuerar](quick-create-portal.md) något innan du fortsätter.
 
 ## <a name="plan"></a>Planera
 Det är viktigt för lyckad goda kunskaper om Azure-prenumerationer, regioner och nätverksresurser. Du kan använda listan med överväganden nedan som utgångspunkt. När du förstår de överväganden kan definiera du kraven för utformningen av din nätverk.
@@ -63,7 +63,7 @@ Vnet innehåller följande egenskaper.
 | **Namn** |Namn på virtuella nätverk |Sträng på upp till 80 tecken. Kan innehålla bokstäver, siffror, understreck, punkter eller bindestreck. Måste börja med en bokstav eller en siffra. Måste sluta med en bokstav, en siffra eller understreck. Kan innehåller gemener och versaler. |
 | **Plats** |Azure-plats (kallas även region). |Måste vara ett giltigt Azure-platser. |
 | **addressSpace** |Samling av adressprefix som utgör VNet i CIDR-notation. |Måste vara en matris med giltig CIDR-Adressblock, inklusive offentliga IP-adressintervall. |
-| **undernät** |Samling av undernät som utgör VNet |Se undernät egenskaper tabellen nedan. |
+| **Undernät** |Samling av undernät som utgör VNet |Se undernät egenskaper tabellen nedan. |
 | **dhcpOptions** |Objekt som innehåller en obligatorisk egenskap med namnet **dnsServers**. | |
 | **dnsServers** |Matris för DNS-servrar som används av VNet. Om ingen server har angetts används intern namnmatchning för Azure. |Måste vara en matris med upp till 10 DNS-servrar efter IP-adress. |
 
@@ -112,10 +112,10 @@ I tabellen nedan visas några vanliga designmönster för prenumerationer och Vn
 
 | Scenario | Diagram | Tekniker | Nackdelar |
 | --- | --- | --- | --- |
-| En prenumeration, två Vnet per program |![Enda prenumeration](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Endast en prenumeration för att hantera. |Maximalt antal Vnet per Azure-region. Du behöver flera prenumerationer efter. Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
-| En prenumeration per app, två Vnet per program |![Enda prenumeration](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Använder bara två Vnet per prenumeration. |Svårare att hantera när det finns för många appar. |
-| En prenumeration per affärsenhet, två Vnet per program. |![Enda prenumeration](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Maximalt antal Vnet per affärsenhet (prenumeration). Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
-| En prenumeration per affärsenhet, två Vnet per grupp av appar. |![Enda prenumeration](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Appar måste separat med hjälp av undernät och NSG: er. |
+| En prenumeration, två Vnet per program |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Endast en prenumeration för att hantera. |Maximalt antal Vnet per Azure-region. Du behöver flera prenumerationer efter. Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
+| En prenumeration per app, två Vnet per program |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Använder bara två Vnet per prenumeration. |Svårare att hantera när det finns för många appar. |
+| En prenumeration per affärsenhet, två Vnet per program. |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Maximalt antal Vnet per affärsenhet (prenumeration). Granska de [Azure begränsar](../azure-subscription-service-limits.md#networking-limits) artikeln för information. |
+| En prenumeration per affärsenhet, två Vnet per grupp av appar. |![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balansera mellan antalet prenumerationer och virtuella nätverk. |Appar måste separat med hjälp av undernät och NSG: er. |
 
 ### <a name="number-of-subnets"></a>Antalet undernät
 Du bör flera undernät i ett VNet i följande scenarier:
@@ -202,7 +202,7 @@ Följande krav är relaterade till prenumerationer och Vnet:
 
 Baserat på dessa krav, behöver du en prenumeration för varje affärsenhet. På så sätt kan förbrukningen av resurser från en affärsenhet inte räknas som en gränserna för andra enheter. Och eftersom du vill minimera antalet Vnet, bör du använda den **en prenumeration per affärsenhet, två Vnet per grupp appar** mönstret som du ser nedan.
 
-![Enda prenumeration](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Enstaka prenumeration](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 Du måste också ange adressutrymmet för varje virtuellt nätverk. Eftersom du behöver anslutningen mellan lokala data datacenter och Azure-regioner adressutrymmet som används för Azure Vnet kan inte vara i konflikt med det lokala nätverket och det adressutrymme som används av varje virtuellt nätverk får inte vara i konflikt med andra befintliga Vnet. Du kan använda adressutrymmen i tabellen nedan för att uppfylla kraven.  
 

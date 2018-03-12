@@ -1,14 +1,14 @@
-| Resurs | Kostnadsfri | Delad (förhandsversion) | Basic | Standard | Premium (förhandsgranskning)</th> |
+| Resurs | Kostnadsfri | Delad (förhandsversion) | Basic | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Webb, Mobil eller API apps](https://azure.microsoft.com/services/app-service/) per [programtjänstplanen](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |
 | [Logikappar](https://azure.microsoft.com/services/app-service/logic/) per [programtjänstplanen](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per kärna |20 per kärna |
 | [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |1 per region |10 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp |
 | Compute-typen för instansen |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |
 | [Skalbar](../articles/app-service/web-sites-scale.md) (max instanser) |1 delad |1 delad |3 dedikerade<sup>3</sup> |10 dedikerade<sup>3</sup> |20 dedikerad (50 i ASE)<sup>3,4</sup> |
-| Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
+| Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
 | CPU-tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsade, betala på standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad betala vid standardpriser |Obegränsad betala vid standardpriser |
 | CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsade, betala på standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad betala vid standardpriser |Obegränsad betala vid standardpriser |
-| Minne (1 timme) |1 024 MB per App Service-plan |1 024 MB per program |Saknas |Saknas |Saknas |
+| Minne (1 timme) |1 024 MB per App Service-plan |1 024 MB per program |Gäller inte |Saknas |Gäller inte |
 | Bandbredd |165 MB |Obegränsade, [priser för dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) tillämpas |Obegränsad dataöverföring tillämpas |Obegränsad dataöverföring tillämpas |Obegränsad dataöverföring tillämpas |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
 | Web Sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |

@@ -15,11 +15,11 @@ ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e89d348c4b21a249401254c64e3887ec36283022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -314,7 +314,7 @@ Använd följande PowerShell-cmdlets för att skapa och hantera SQL-databas elas
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Hantera elastiska pooler och databaser med hjälp av Azure CLI
 
-Skapa och hantera SQL-databas elastiska pooler med den [Azure CLI](/cli/azure/overview), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. 
+Skapa och hantera SQL-databas elastiska pooler med den [Azure CLI](/cli/azure), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. 
 
 > [!TIP]
 > Azure CLI exempelskript finns [Använd CLI för att flytta en Azure SQL database i en elastisk pool SQL](scripts/sql-database-move-database-between-pools-cli.md) och [Använd Azure CLI för att skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-scale-pool-cli.md).

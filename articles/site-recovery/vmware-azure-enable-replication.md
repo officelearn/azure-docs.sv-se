@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 472e44342fb1d5a0c432453bfcc2699c4d8b4cad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -86,7 +86,7 @@ När du replikerar virtuella VMware-datorer:
 
 ## <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
 
-Därefter måste kontrollera du egenskaperna för källdatorn. Kom ihåg att det Virtuella Azure-namnet måste överensstämma med [Azure virtuella datorns krav](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Därefter måste kontrollera du egenskaperna för källdatorn. Kom ihåg att det Virtuella Azure-namnet måste överensstämma med [Azure virtuella datorns krav](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Klicka på **inställningar** > **replikerade objekt** >, och välj sedan datorn. Den **Essentials** visar information om inställningarna för datorn och status.
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.

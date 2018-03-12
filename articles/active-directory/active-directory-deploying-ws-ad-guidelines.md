@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Riktlinjer för att distribuera Windows Server Active Directory på Azure virtual machines
 Den här artikeln beskriver viktiga skillnader mellan distribuera Windows Server Active Directory Domain Services (AD DS) och Active Directory Federation Services (AD FS) lokalt och distribuera dem på Microsoft Azure-datorer.
@@ -51,7 +51,7 @@ Du kan hämta och köra den [Azure virtuella Readiness Assessment](https://www.m
 
 Vi rekommenderar att du först granska självstudier, guider och videor som omfattar följande avsnitt:
 
-* [Konfigurera ett virtuellt nätverk som endast molnbaserad i Azure-portalen](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Konfigurera ett virtuellt nätverk som endast molnbaserad i Azure-portalen](../virtual-network/quick-create-portal.md)
 * [Konfigurera en plats-till-plats-VPN i Azure-portalen](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Installera en ny Active Directory-skog på Azure-nätverk](active-directory-new-forest-virtual-machine.md)
 * [Installera en replik Active Directory-domänkontrollant på Azure](active-directory-install-replica-active-directory-domain-controller.md)

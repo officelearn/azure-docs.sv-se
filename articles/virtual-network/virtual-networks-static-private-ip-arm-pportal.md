@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Konfigurera privat IP-adresser för en virtuell dator med hjälp av Azure portal
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure-portalen (klassisk)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Den här artikeln beskriver Resource Manager-distributionsmodellen. Du kan ocks�
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Följande exempel räknar med en enkel miljö som redan har skapats. Om du vill köra stegen som de visas i det här dokumentet först skapa testmiljön som beskrivs i [skapa ett vnet](virtual-networks-create-vnet-arm-pportal.md).
+Följande exempel räknar med en enkel miljö som redan har skapats. Om du vill köra stegen som de visas i det här dokumentet först skapa testmiljön som beskrivs i [skapa ett virtuellt nätverk](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Så här skapar du en virtuell dator för att testa statisk privat IP-adresser
 Du kan inte ange en statisk privat IP-adress under genereringen av en virtuell dator i Resource Manager distribution läge med hjälp av Azure portal. Du måste skapa den virtuella datorn först och sedan ange sitt privata IP-adress vara statisk.

@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
@@ -63,7 +63,7 @@ För att bevisa endpoint ägarskap echo tillbaka i egenskapen validationResponse
 
 Du kan skydda webhook-slutpunkten genom att lägga till frågeparametrar Webhooksadressen när du skapar en händelse-prenumeration. Ange en av parametrarna fråga ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från händelsen rutnät med giltig behörighet. Händelsen rutnätet tas dessa Frågeparametrar i varje händelse leverans till webhooken.
 
-När du redigerar händelseprenumerationen frågeparametrar inte ska visas eller returneras om den [--inkluderar-full-slutpunkt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter används i Azure [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
+När du redigerar händelseprenumerationen frågeparametrar inte ska visas eller returneras om den [--inkluderar-full-slutpunkt-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter används i Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
 
 Slutligen är det viktigt att Observera att Azure händelse rutnätet endast stöder HTTPS webhook-slutpunkter.
 

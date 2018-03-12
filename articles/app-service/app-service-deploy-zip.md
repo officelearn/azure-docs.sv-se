@@ -1,6 +1,6 @@
 ---
-title: Distribuera din app till Azure App Service med en ZIP-fil | Microsoft Docs
-description: "Lär dig mer om att distribuera din app till Azure App Service med en ZIP-fil."
+title: Distribuera din app till Azure App Service med en ZIP- eller WAR-fil | Microsoft Docs
+description: "Lär dig mer om att distribuera din app till Azure App Service med en ZIP-fil (eller en WAR-fil för Java-utvecklare)."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41fb529f6b4ae923f2920919306324c86a2baa45
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Distribuera din app till Azure App Service med en ZIP-fil
+# <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP- eller WAR-fil
 
-Den här artikeln visar hur du använder en ZIP-fil för att distribuera ditt webbprogram till [Azure App Service](app-service-web-overview.md). 
+Den här artikeln visar hur du använder en ZIP-fil eller en WAR-filen för att distribuera ditt webbprogram till [Azure App Service](app-service-web-overview.md). 
 
 Den här ZIP-filen distributionen använder samma Kudu-tjänst som stänger kontinuerlig integration-baserade distributioner. Kudu stöder följande funktioner för distribution av ZIP-filen: 
 
@@ -32,13 +32,17 @@ Den här ZIP-filen distributionen använder samma Kudu-tjänst som stänger kont
 
 Mer information finns i [Kudu dokumentationen](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## <a name="prerequisites"></a>Krav
+Distributionen av WAR-filen distribuerar din [WAR](https://wikipedia.org/wiki/WAR_(file_format)) filen till App Service för att köra ditt webbprogram för Java. Se [Distribuera WAR-filen](#deploy-war-file).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Så här slutför stegen i den här artikeln:
 
-* [Skapa en Apptjänst-app](/azure/app-service/), eller använda en app som du skapade för en annan kursen.
+* [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 
-## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil med projekt
+## <a name="create-a-project-zip-file"></a>Skapa en ZIP-fil av projektet
 
 >[!NOTE]
 > Om du har hämtat filer i en ZIP-fil, extrahera filerna först. Till exempel om du har hämtat en ZIP-fil från GitHub, du kan inte distribuera filen som-är. GitHub lägger till ytterligare kapslade kataloger, inte fungerar med App Service. 
@@ -48,7 +52,7 @@ Navigera till rotkatalogen för din app-projekt i en lokal terminalfönster.
 
 Den här katalogen ska innehålla filen post till ditt webbprogram som _index.html_, _index.php_, och _app.js_. Den kan också innehålla management paketfilerna som _project.json_, _composer.json_, _package.json_, _bower.json_, och _requirements.txt_.
 
-Skapa ett ZIP-arkiv av allt i projektet. Följande kommando använder standardverktyget i terminalen:
+Skapa ett ZIP-arkiv med allt i projektet. Följande kommando använder standardverktyget i terminalen:
 
 ```
 # Bash
@@ -58,23 +62,13 @@ zip -r <file-name>.zip .
 Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="deploy-zip-file-with-azure-cli"></a>Distribuera ZIP-filen med Azure CLI
 
-## <a name="upload-zip-file-to-cloud-shell"></a>Ladda upp ZIP-filen till molnet Shell
+Kontrollera att Azure CLI-versionen är 2.0.21 eller senare. Att se vilken version som du kan köra `az --version` i din terminalfönster.
 
-Hoppa över det här steget om du väljer att köra Azure CLI från din lokala terminalen i stället.
-
-Följ stegen här för att ladda upp ZIP-filen till molnet Shell. 
-
-[!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
-
-Mer information finns i [spara filer i Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
-
-## <a name="deploy-zip-file"></a>Distribuera en ZIP-fil
-
-Distribuera den överförda ZIP-filen till ditt webbprogram med hjälp av den [az webapp distribution källa config zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) kommando. Om du inte väljer att använda molnet Shell, kontrollera din Azure CLI-versionen är 2.0.21 eller senare. Att se vilken version som du kan köra `az --version` i fönstret för lokala terminal. 
+Distribuera den överförda ZIP-filen till ditt webbprogram med hjälp av den [az webapp distribution källa config zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) kommando.  
 
 I följande exempel distribuerar du överfört ZIP-filen. När du använder en lokal installation av Azure CLI, ange sökvägen till din lokala ZIP-filen för `--src`.   
 
@@ -82,11 +76,36 @@ I följande exempel distribuerar du överfört ZIP-filen. När du använder en l
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Det här kommandot distribuerar filer och kataloger från ZIP-filen till programmappen standard Apptjänst (`\home\site\wwwroot`) och startar om appen. Om någon ytterligare anpassade build-processen är konfigurerad, körs det också. Mer information finns i [Kudu dokumentationen](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
-
-Om du vill visa listan över distributioner för den här appen måste du använda REST API: er (se nästa avsnitt). 
+Det här kommandot distribuerar filer och kataloger från ZIP-filen till standardprogrammappen för App Service (`\home\site\wwwroot`) och startar om appen. Om någon ytterligare, anpassad versionsprocessen har konfigurerats så körs den också. Mer information finns i [Kudu dokumentationen](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
+
+## <a name="deploy-war-file"></a>Distribuera WAR-filen
+
+Skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/wardeploy för att distribuera WAR-filen till App Service. POST-begäran måste innehålla filen .war i meddelandetexten. Autentiseringsuppgifter för distribution för din app tillhandahålls i begäran med hjälp av grundläggande autentisering. 
+
+Du måste dina autentiseringsuppgifter för distribution av App Service för grundläggande HTTP-autentisering. Information om hur du anger dina autentiseringsuppgifter för distribution finns [ange och återställa användarnivå autentiseringsuppgifter](app-service-deployment-credentials.md#userscope).
+
+### <a name="with-curl"></a>Med cURL
+
+I följande exempel använder cURL-verktyget för att distribuera en .war-fil. Ersätt platshållarna `<username>`, `<war_file_path>`, och `<app_name>`. När du uppmanas av cURL, Skriv in lösenordet.
+
+```bash
+curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+```
+
+### <a name="with-powershell"></a>Med PowerShell
+
+I följande exempel används [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) att skicka en begäran som innehåller filen .war. Ersätt platshållarna `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, och `<app_name>`.
+
+```PowerShell
+$username = "<deployment_user>"
+$password = "<deployment_password>"
+$filePath = "<war_file_path>"
+$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

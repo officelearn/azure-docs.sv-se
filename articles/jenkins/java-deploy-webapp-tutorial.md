@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Ställ in kontinuerlig integrering och distribution till Azure App Service med Jenkins
 
@@ -36,8 +36,8 @@ Du utför följande uppgifter i den här självstudiekursen:
 För att slutföra den här kursen behöver du:
 
 * [Jenkins](https://jenkins.io/) med JDK och Maven verktyg som har konfigurerats. Om du inte har ett Jenkins system kan skapa en nu i Azure från den [Jenkins lösningsmall](/azure/jenkins/install-jenkins-solution-template).
-* En [GitHub](https://github.com) konto.
-* [Azure CLI 2.0](/cli/azure/overview), antingen från din lokala kommandoraden eller i den [Azure Cloud Shell](/azure/cloud-shell/overview)
+* Ett [GitHub](https://github.com)-konto.
+* [Azure CLI 2.0](/cli/azure), antingen från din lokala kommandoraden eller i den [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ För att slutföra den här kursen behöver du:
 2. Välj den **tillgänglig** fliken.
 3. Leta upp och markera kryssrutan bredvid följande plugin-program:   
 
-    - [Azure Apptjänst plugin-program](https://plugins.jenkins.io/azure-app-service)
+    - [Azure App Service Plug-in](https://plugins.jenkins.io/azure-app-service)
     - [GitHub gren källa plugin-program](https://plugins.jenkins.io/github-branch-source)
 
     Om de plugin-program inte visas, kontrollera att de inte redan har installerats genom att kontrollera den **installerad** fliken.
@@ -75,7 +75,7 @@ Konfigurera Jenkins att ta emot [GitHub webhooks](https://developer.github.com/w
     ![Nytt Jenkins Freestyle-projekt](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Under den **allmänna** väljer **GitHub** projektet och ange din andelen vridvuxna lagringsplatsen URL, till exempel https://github.com/raisa/gs-spring-boot-docker
 3. Under den **datakällan kod management** väljer **Git**, ange din andelen vridvuxna lagringsplatsen `.git` URL, till exempel https://github.com/raisa/gs-spring-boot-docker.git
-4. Under den **Skapa utlösare** väljer **GitHub hook utlösare för GITscm avsökning**.
+4. I avsnittet **Build Triggers** (Bygg utlösare) väljer du **GitHub hook trigger for GITscm polling** (GitHub-hookutlösare för GITScm-avsökning).
 5. Under den **skapa** väljer **Lägg till build steg** och välj **anropa översta Maven mål**. Ange `package` i den **mål** fältet.
 6. Välj **Spara**. Du kan testa ditt jobb genom att välja **skapa nu** från sidan projekt.
 

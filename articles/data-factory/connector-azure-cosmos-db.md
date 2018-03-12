@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos-databasen med Azure Data Factory
 
@@ -125,7 +125,7 @@ Om du vill kopiera data från Azure Cosmos DB, anger du källa i kopieringsaktiv
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **DocumentDbCollectionSource** |Ja |
-| DocumentDB |Ange Cosmos-DB-frågan som läser data.<br/><br/>Exempel:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inget annat anges, SQL-instruktionen som körs:`select <columns defined in structure> from mycollection` |
+| DocumentDB |Ange Cosmos-DB-frågan som läser data.<br/><br/>Exempel: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nej <br/><br/>Om inget annat anges, SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Specialtecken som visar att dokumentet är kapslad och hur till flattern resultatuppsättningen.<br/><br/>Om exempelvis en Cosmos-DB-fråga returnerar ett kapslat resultat `"Name": {"First": "John"}`, kopieringsaktiviteten identifierar kolumnnamn som ”Name.First” med värdet ”John” när nestedSeparator är punkt. |Nej (standardvärdet är punkt `.`) |
 
 **Exempel:**
@@ -162,7 +162,7 @@ Om du vill kopiera data från Azure Cosmos DB, anger du källa i kopieringsaktiv
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure Cosmos-DB som mottagare
 
-Om du vill kopiera data från Azure Cosmos DB, anger du sink i kopieringsaktiviteten till **DocumentDbCollectionSink**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+Om du vill kopiera data till Azure Cosmos DB anger sink i kopieringsaktiviteten till **DocumentDbCollectionSink**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: edf21d59bf3916a014706c2a298536262906fbf7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsökning av SSH-anslutningar till en Azure Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel på SSH (Secure Shell), SSH anslutningsfel eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och åtgärda problemen. Du kan använda Azure-portalen, Azure CLI eller tillägg för virtuell dator åtkomst för Linux för att felsöka och lösa anslutningsproblem med.
@@ -70,7 +70,7 @@ Om du vill återställa autentiseringsuppgifterna för en befintlig användare v
 Du kan också skapa en användare med sudo-behörighet på den virtuella datorn från den här menyn. Ange ett nytt användarnamn och tillhörande lösenord eller SSH-nyckel och klicka sedan på den **återställa** knappen.
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
-Om du inte redan gjort installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login).
+Om du inte redan gjort installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Om du har skapat och överföra en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux-agenten](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 eller senare är installerat. För virtuella datorer skapas med galleriavbildningar kan det här tillägget för åtkomst redan installeras och konfigureras för dig.
 

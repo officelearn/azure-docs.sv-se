@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: 1 – Utforma DB med hjälp av .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 – Migrera SQL Server-databas
+    - name: 2 – Migrera till SQL Server DB
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 – Skydda din SQL-databas
       href: sql-database-security-tutorial.md
     - name: 4 – Implementera en geo-distribuerad databas
       href: sql-database-implement-geo-distributed-database.md
+    - name: 5 – Skapa Managed Instance
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Begrepp
   items:
-    - name: Databastjänst
-      items:
-        - name: Servrar och databaser
-          href: sql-database-servers-databases.md
-        - name: Tjänstnivåer
-          href: sql-database-service-tiers.md
-        - name: Resursbegränsningar
-          href: sql-database-resource-limits.md
-        - name: Enkla databaser
-          href: sql-database-single-database-resources.md
-        - name: Elastiska pooler
-          href: sql-database-elastic-pool.md
-        - name: Anslutningsarkitektur
-          href: sql-database-connectivity-architecture.md
-        - name: 'DTU:er och eDTU:er'
-          href: sql-database-what-is-a-dtu.md
-        - name: DTU-benchmark
-          href: sql-database-benchmark-overview.md
-        - name: Vanliga funktioner i SQL Server
-          href: sql-database-features.md
+    - name: Servrar och databaser
+      href: sql-database-servers-databases.md
+    - name: Hanterad instans
+      href: sql-database-managed-instance.md
+    - name: Tjänstnivåer
+      href: sql-database-service-tiers.md
+    - name: Resursbegränsningar
+      href: sql-database-resource-limits.md
+    - name: Enkla databaser
+      href: sql-database-single-database-resources.md
+    - name: Elastiska pooler
+      href: sql-database-elastic-pool.md
+    - name: Anslutningsarkitektur
+      href: sql-database-connectivity-architecture.md
+    - name: 'DTU:er och eDTU:er'
+      href: sql-database-what-is-a-dtu.md
+    - name: DTU-benchmark
+      href: sql-database-benchmark-overview.md
+    - name: Vanliga funktioner i SQL Server
+      href: sql-database-features.md
     - name: Hög tillgänglighet
       href: sql-database-high-availability.md
     - name: Säkerhet
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Granskning
           href: sql-database-auditing.md
-        - name: Hotidentifiering
+        - name: Hotidentifiering – SQL Database
           href: sql-database-threat-detection.md
+        - name: Hotidentifiering – Managed Instance
+          href: sql-database-managed-instance-threat-detection.md
         - name: Tabellgranskning och TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamisk datamaskning
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migrera till SQL Database
       items:
-        - name: Översikt
+        - name: Migrera till SQL Database
           href: sql-database-cloud-migrate.md
-        - name: Ändringar i T-SQL
+        - name: Migrera till Managed Instance
+          href: sql-database-managed-instance-migrate.md
+        - name: Information om SQL Database T-SQL
           href: sql-database-transact-sql-information.md
-        - name: Hantera databas efter migrering
+        - name: Information om Managed Instance T-SQL
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Hantera SQL Database efter migrering
           href: sql-database-manage-after-migration.md
     - name: Läsa in och flytta data
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Fråga mellan tabeller med olika scheman
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Managed Instance
+      items:
+        - name: Konfiguration av virtuellt nätverk
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: Anpassad DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Anslut program
+          href: sql-database-managed-instance-connect-app.md
+        - name: Synkronisera nätverkskonfiguration
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Säkerhet
       items:
         - name: Konfigurera Azure AD-autentisering
@@ -472,4 +490,4 @@
     - name: Arkitekturcenter
       href: /azure/architecture/
     - name: Kundberättelser
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

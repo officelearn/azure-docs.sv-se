@@ -33,6 +33,9 @@
 #### [Skapa en offentlig IP-adress i en tillgänglighetszon med PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Skapa en offentlig IP-adress i en tillgänglighetszon med CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### SQL Database
+#### [Tillgänglighetszoner med SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### Lagring
 #### [Zonredundant lagring](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Använda Cost Management-rapporter
 
@@ -103,7 +103,7 @@ Ovanstående bild visar amorterade kostnaden för APN-reservation kostnaden öve
 
 Kostnad allokering analysrapporter är tillgängliga när du har skapat en kostnad-modell med kostnaden allokering 360. Cloudyn bearbetar kostnad/faktureringsinformation och matchar data till data användnings- och tagg moln-konton. Om du vill matcha data kräver Cloudyn åtkomst till din användningsdata. Konton som saknar referenser, är märkta som ej kategoriserade resurser.
 
-### <a name="cost-analysis-report"></a>Kostnad analysrapporten
+### <a name="cost-analysis-report"></a>Cost Analysis-rapport
 
 Kostnad analysrapporten ger inblick i dina moln-förbrukning och utgifter under en vald tidsperiod. De principer som angetts i kostnaden allokering Manager används i rapporten kostnaden.
 
@@ -152,7 +152,7 @@ Använd rapporten kostnaden över tid för att:
 3. Lägg till grupper.
 4. Välj en modell för kostnad som du skapade tidigare.
 5. Välj faktiska kostnader eller amorterade kostnader.
-6. Välj om du vill tillämpa tilldelningsregler vyn rådata fakturering datavy eller att omberäknas kostnaden Cloudyn vyn.
+6. Välj om du vill tillämpa tilldelningsregler vyn rådata fakturering datavy eller till omberäknas kostnaden vyn.
 
 Här är ett exempel på rapporten.
 

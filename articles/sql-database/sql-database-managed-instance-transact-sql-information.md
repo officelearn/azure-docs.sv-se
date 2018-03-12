@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 6ecb6600e5e1462cce9d49ecd9a4ed2e43e2c455
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -57,7 +57,7 @@ Mer information finns i:
 ### <a name="backup"></a>Backup 
 
 Hanterade instansen har automatisk säkerhetskopiering och kan du skapa fullständiga databas `COPY_ONLY` säkerhetskopior. Differentiella, logg och säkerhetskopior av filögonblicksbilder stöds inte.  
-- Hanterade instans kan säkerhetskopiera en databas bara på Azure Blob Storage-konto: 
+- Hanterade instans kan säkerhetskopiera en databas bara till ett Azure Blob Storage-konto: 
  - Endast `BACKUP TO URL` stöds 
  - `FILE`, `TAPE`, och enheter för säkerhetskopiering stöds inte  
 - De flesta av allmänna `WITH` alternativ stöds 
@@ -67,11 +67,11 @@ Hanterade instansen har automatisk säkerhetskopiering och kan du skapa fullstä
  - Log-specifika alternativ: `NORECOVERY`, `STANDBY`, och `NO_TRUNCATE` stöds inte 
  
 Begränsningar:  
-- Hanterade instans kan säkerhetskopiera en databas till en säkerhetskopia med upp till 32 stripe som är tillräckligt för databaserna upp till 4 TB.
-- Maxstorlek för säkerhetskopiering stripe är 195 GB (blob sidstorlek). Öka antalet stripe i kommandot backup för att distribuera stripe-storlekar. 
+- Hanterade instans kan säkerhetskopiera en databas till en säkerhetskopia med upp till 32 stripe som är tillräckligt för databaserna upp till 4 TB om säkerhetskopieringskomprimering används.
+- Maxstorlek för säkerhetskopiering stripe är 195 GB (högsta blob storlek). Öka antalet stripe i kommandot backup för att minska Stripestorleken för enskilda och hålla sig inom den här gränsen. 
 
 > [!TIP]
-> Att undvika den här begränsningen lokalt, säkerhetskopiering till `DISK` i stället för säkerhetskopiering till `URL`, ladda upp säkerhetskopian för att blob och sedan återställa. Återställa större stödfiler eftersom en annan blob-typ används.  
+> Att undvika den här begränsningen lokalt, säkerhetskopiering till `DISK` i stället för säkerhetskopiering till `URL`, ladda upp säkerhetskopian för att blob och sedan återställa. Återställ filer som stöder större eftersom en annan blob-typ används.  
 
 ### <a name="buffer-pool-extension"></a>Buffertpooltillägget 
  
@@ -136,9 +136,9 @@ Serversorteringen är `SQL_Latin1_General_CP1_CI_AS` och kan inte ändras. Se [s
  
 - Flera loggfiler stöds inte. 
 - InMemory-objekt stöds inte i generella tjänstnivå.  
-- Det finns en gräns på 280 filer per instans innebär max 280 filer per databas. Både data och loggfiler beräknas mot den här gränsen.  
-- Databasen får inte innehålla filgrupper som innehåller data från en dataström.  Återställningen misslyckas om .bak innehåller `FILESTREAM` data.  
-- Alla filer är placerad separat Azure Premium-disk. I/o och genomströmning beror på storleken på varje enskild fil. Se [Azure Premium diskprestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Det finns en gräns på 280 filer per instans innebär max 280 filer per databas. Både data och loggfiler räknas mot den här gränsen.  
+- Databasen får inte innehålla filgrupper som innehåller filestream-data.  Återställningen misslyckas om .bak innehåller `FILESTREAM` data.  
+- Varje fil placeras i Azure Premium-lagring. I/o och genomströmning per fil beror på storleken på varje enskild fil på samma sätt som de gör för Azure Premium Storage diskar. Se [Azure Premium diskprestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### <a name="create-database-statement"></a>CREATE DATABASE-instruktionen
 
@@ -217,7 +217,7 @@ I-databasen R och Python externt bibliotek inte stöds ännu. Se [SQL Server-Mac
 
 ### <a name="filestream-and-filetable"></a>FileStream och Filetable
 
-- Data från en dataström stöds inte. 
+- FileStream-data stöds inte. 
 - Databasen får inte innehålla filgrupper med `FILESTREAM` data
 - `FILETABLE` stöds inte
 - Tabeller kan inte ha `FILESTREAM` typer
@@ -237,7 +237,7 @@ Mer information finns i [FILESTREAM](https://docs.microsoft.com/sql/relational-d
 ### <a name="linked-servers"></a>Länkade servrar
  
 Länkade servrar i hanterade instans stöder begränsat antal mål: 
-- Mål som stöds: SQLServer, SQL-hanterade databasinstans och SQL Server på en virtuell dator.
+- Mål som stöds: SQLServer, SQL-databas, hanterade-instans och SQL Server på en virtuell dator.
 - Mål som inte stöds: filer, Analysis Services och andra RDBMS.
 
 Åtgärder
@@ -277,23 +277,23 @@ Replikering stöds inte ännu. Information om replikering finns i [SQL Server Re
  - `FROM URL` (Azure blob storage) är bara alternativ som stöds.
  - `FROM DISK`/`TAPE`/ enhet för säkerhetskopiering stöds inte.
  - Säkerhetskopior stöds inte. 
-- `WITH` alternativen kan inte användas (ingen differentiella `STATS`osv.)     
-- `ASYNC RESTORE` -Återställning fortsätter även om klientanslutningen bryts. Om du tappar bort en anslutning kan kontrollera `sys.dm_operation_status` visa status för en återställning (samt skapa och ta bort databasen). Se [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` alternativen kan inte användas (ingen `DIFFERENTIAL`, `STATS`osv.)     
+- `ASYNC RESTORE` -Återställning fortsätter även om klientanslutningen bryts. Om anslutningen bryts, kan du kontrollera `sys.dm_operation_status` visa status för en återställning (samt skapa och ta bort databasen). Se [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-De följande databasalternativ som set/åsidosätts och kan inte ändras senare:  
+Följande databasalternativ för är uppsättningen/åsidosätts och kan inte ändras senare:  
 - `NEW_BROKER` (om broker inte är aktiverat i bak-filen)  
 - `ENABLE_BROKER` (om broker inte är aktiverat i bak-filen)  
 - `AUTO_CLOSE=OFF` (om en databas i bak-filen har `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (om en databas i bak-filen har `SIMPLE` eller `BULK_LOGGED` återställningsläge)
-- Minnesoptimerade filgrupp läggs och kallas XTP om den inte har .bak källfilen  
-- Alla befintliga minnesoptimerade filgrupp har bytt namn till XTP  
+- Minnesoptimerade filgruppen läggs och kallas XTP om den inte har .bak källfilen  
+- Alla befintliga minnesoptimerade filgruppen har bytt namn till XTP  
 - `SINGLE_USER` och `RESTRICTED_USER` alternativ konverteras till `MULTI_USER`   
 Begränsningar:  
 - `.BAK` filer som innehåller flera säkerhetskopior kan inte återställas. 
 - `.BAK` filer som innehåller flera loggfiler kan inte återställas. 
 - Återställningen misslyckas om .bak innehåller `FILESTREAM` data.
-- Säkerhetskopieringar som innehåller databaser som har aktiva minnesintern OLTP-objekt kan inte återställas för tillfället.  
-- Säkerhetskopieringar som innehåller databaser där vid något tillfälle som fanns i minnet objekt kan inte återställas för tillfället.   
+- Säkerhetskopieringar som innehåller databaser som har aktiva InMemory-objekt kan inte återställas för tillfället.  
+- Säkerhetskopieringar som innehåller databaser där på någon punkt i minnesobjekt fanns kan för närvarande inte återställas.   
 - Säkerhetskopieringar som innehåller databaser i skrivskyddat läge kan inte återställas för tillfället. Den här begränsningen tas bort snart.   
  
 Information om återställning uttrycken, se [ÅTERSTÄLLA instruktioner](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -381,21 +381,21 @@ Returnerar olika resultat följande variabler, uppgifter och vyer:
 - `@@SERVICENAME` Returnerar NULL, som det inget logiskt i hanterade instans miljö. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` stöds. Returnerar NULL om AAD-inloggningen inte är i sys.syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` stöds inte. Returnerar felaktiga data (tillfälligt kända problem). Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` returnerar alltid datum i UTC-tidszonen. Se [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` och andra inbyggda datum/tid-funktioner returnerar alltid tid i UTC-tid. Se [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Kända problem och begränsningar
 
 ### <a name="tempdb-size"></a>TEMPDB storlek
 
-`tempdb` är uppdelat i 12 filer med max storlek på 14 GB per fil. Det går inte att ändra den här största storleken per fil och nya filer kan inte läggas till `tempdb`. Den här begränsningen tas bort snart. Några frågor kan returnera ett fel om `tempdb` behöver mer än 168 GB.
+`tempdb` är uppdelat i 12 filer med max storlek på 14 GB per fil. Det går inte att ändra den här största storleken per fil och nya filer kan inte läggas till `tempdb`. Den här begränsningen tas bort snart. Några frågor kan returnera ett fel om de behöver mer än 168 GB i `tempdb`.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
-Varje hanteras instans har upp till 35 TB reserverat lagringsutrymme och varje databasfil är placerad på allokeringsenhet för 128 GB lagring. Databaser med många små filer kan placeras på 128 GB-enheter som totalt överskrider gränsen för 35 TB. I det här fallet inte nya databaser skapas eller återställs, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Fel som returneras kanske inte är klar.
+Varje hanteras instans har upp till 35 TB reserverat lagringsutrymme och varje databasfil till en början är placerad på 128 GB lagring allokeringsenhet. Databaser med många små filer kan placeras på 128 GB-enheter som totalt överskrider gränsen för 35 TB. I det här fallet inte nya databaser skapas eller återställs, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Fel som returneras kanske i så fall inte är klar.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckel under databasen återställa
 
-`RESTORE DATABASE` att läsningar bak-filen kan vara ständigt försök för att läsa bak-filen och returnerar fel efter lång tid om signatur för delad åtkomst i `CREDENTIAL` är felaktig. Köra RESTORE HEADERONLY innan du återställer en databas för att kontrollera att SAS-nyckeln är korrekta.
+`RESTORE DATABASE` som läser bak-filen kan ständigt försöka läsa bak-filen och returnerar fel efter lång tid om signatur för delad åtkomst i `CREDENTIAL` är felaktig. Köra RESTORE HEADERONLY innan du återställer en databas för att kontrollera att SAS-nyckeln är korrekta.
 Kontrollera att du tar bort inledande `?` från SAS-nyckeln genereras med hjälp av Azure-portalen.
 
 ### <a name="tooling"></a>Tooling

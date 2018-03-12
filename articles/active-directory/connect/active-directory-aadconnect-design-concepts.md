@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
 Syftet med det här avsnittet är att beskriva områden som måste betraktas under genomförandet designen av Azure AD Connect. Det här avsnittet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra avsnitt samt.
@@ -42,10 +42,10 @@ Attributvärdet som måste följa följande regler:
 
 * Vara mindre än 60 tecken
   * Tecken som inte är a-z, A-Z eller 0-9 kodas och räknas som 3 tecken
-* Inte innehåller ett specialtecken: &#92;! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Inte innehåller ett specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Måste vara globalt unika
 * Måste vara en sträng, heltal eller binär
-* Ska inte baseras på användarens namn, ändringarna
+* Ska inte baseras på användarens namn, dessa ändring
 * Bör inte skiftlägeskänsliga och undvika värden som kan variera efter fall
 * Ska tilldelas när objektet har skapats
 
@@ -178,7 +178,7 @@ När du integrerar din lokala katalog med Azure AD, är det viktigt att förstå
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Att välja attribut för userPrincipalName
 När du väljer attribut för att ange bör värdet för UPN som ska användas i Azure som Kontrollera
 
-* Attributvärden motsvarar UPN-syntaxen (RFC 822), som det ska vara i formatetusername@domain
+* Attributvärden motsvarar UPN-syntaxen (RFC 822), som det ska vara i formatet username@domain
 * Suffixet i värdena matchar en verifierad anpassade domäner i Azure AD
 
 I standardinställningar är det antagna valet för attributet userPrincipalName. Om attributet userPrincipalName inte innehåller värdet du vill att användarna att logga in på Azure och du måste välja **Anpassad Installation**.

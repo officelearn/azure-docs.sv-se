@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: fd85ab12a552f83a407dfeeca7ee455dcf731989
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använda interna DNS för namnmatchning för virtuell dator på Azure
 Den här artikeln visar hur du ställer in statiska interna DNS-namn för Linux virtuella datorer med Azure CLI 2.0 virtuella nätverkskort (vNics) och DNS-etikettnamn. Du kan också utföra dessa steg med [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statisk DNS-namn används för permanenta infrastrukturtjänster som en Jenkins build-server, som används för det här dokumentet eller en Git-server.
@@ -30,7 +30,7 @@ Kraven är:
 * [offentliga och privata SSH-nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snabbkommandon
-Om du behöver utföra aktiviteten i följande avsnitt finns information de kommandon som krävs. Mer detaljerad information och kontext för varje steg i resten av dokumentet [startar här](#detailed-walkthrough). Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+Om du behöver utföra aktiviteten i följande avsnitt finns information de kommandon som krävs. Mer detaljerad information och kontext för varje steg i resten av dokumentet [startar här](#detailed-walkthrough). Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Krav: Resursgrupp, virtuella nätverk och undernät, Nätverkssäkerhetsgrupp med SSH inkommande.
 
@@ -76,7 +76,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Skapa virtuella nätverk
 
-Nästa steg är att skapa ett virtuellt nätverk för att starta de virtuella datorerna till. Det virtuella nätverket innehåller ett undernät för den här genomgången. Mer information om virtuella Azure-nätverk finns [skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Nästa steg är att skapa ett virtuellt nätverk för att starta de virtuella datorerna till. Det virtuella nätverket innehåller ett undernät för den här genomgången. Mer information om virtuella Azure-nätverk finns [skapa ett virtuellt nätverk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
 Skapa ett virtuellt nätverk med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet `myVnet` och undernät med namnet `mySubnet`:
 

@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installera en replikerad Active Directory-domänkontroller i Azure-nätverk
 Den här artikeln beskrivs hur du installerar ytterligare domänkontrollanter (DC) som ska användas som replik domänkontrollanter för lokal Active Directory-domänen på virtuella Azure-datorer (VM) i Azure-nätverk. Du kan också [installera en Windows Server Active Directory-skog på Azure-nätverk](active-directory-new-forest-virtual-machine.md). Om hur du installerar Active Directory Domain Services (AD DS) på Azure-nätverk finns [riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Logga in på en virtuell dator och kontrollera att du har anslutning över plats
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Konfigurera DNS-servern för det virtuella nätverket
 1. Att hämta en lista över virtuella nätverksnamn i den [Azure-portalen](https://portal.azure.com), söka efter *virtuella nätverken*och välj **virtuella nätverken** att visa en lista. 
-2. Öppna det virtuella nätverket som du vill hantera, och sedan [omkonfigurera DNS-server-IP-adresser för det virtuella nätverket](../virtual-network/virtual-network-manage-network.md#dns-servers) att använda statiska IP-adresser som tilldelats replik domänkontrollanter i stället för IP-adresser för lokala DNS-servrar.
+2. Öppna det virtuella nätverket som du vill hantera, och sedan [omkonfigurera DNS-server-IP-adresser för det virtuella nätverket](../virtual-network/manage-virtual-network.md#change-dns-servers) att använda statiska IP-adresser som tilldelats replik domänkontrollanter i stället för IP-adresser för lokala DNS-servrar.
 3. Om du vill kontrollera att alla repliken DC virtuella datorer på det virtuella nätverket konfigureras med för att använda DNS-servrar på det virtuella nätverket:
   1. Välj **virtuella datorer**.
   2. Välj de virtuella datorerna och välj sedan **starta om**. 

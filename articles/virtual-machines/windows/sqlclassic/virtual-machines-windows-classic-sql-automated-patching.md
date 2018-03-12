@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisk uppdatering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]
@@ -28,7 +28,12 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-Automatisk korrigering upprättar en underhållsperiod för en Azure-dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer detta att uppdateringar och eventuella tillhörande omstarter inträffar på den bästa möjliga tid för databasen. Automatisk korrigering beror på den [tillägg för SQL Server IaaS Agent](../classic/sql-server-agent-extension.md).
+Automatisk korrigering upprättar en underhållsperiod för en Azure-dator som kör SQL Server. Automatiska uppdateringar kan endast installeras under den här underhållsperioden. För SQL Server säkerställer detta att uppdateringar och eventuella tillhörande omstarter inträffar på den bästa möjliga tid för databasen. 
+
+> [!IMPORTANT]
+> Endast Windows-uppdateringar som är markerade **viktigt** är installerade. Andra SQL Server-uppdateringar, till exempel kumulativa uppdateringar måste installeras manuellt. 
+
+Automatisk korrigering beror på den [tillägg för SQL Server IaaS Agent](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-versionen av den här artikeln finns [automatisk uppdatering för SQL Server i Azure virtuella datorer Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).

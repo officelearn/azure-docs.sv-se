@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Ställ in haveriberedskap för lokala fysiska servrar till Azure
 
@@ -32,8 +32,8 @@ Den här kursen visar hur du ställer in haveriberedskap för lokala fysiska Win
 För att slutföra den här kursen behöver du:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](physical-azure-architecture.md).
-- Granska [kraven för stöd](site-recovery-support-matrix-to-azure.md) för alla komponenter.
-- Se till att de servrar som du vill replikera följer [krav för Azure VM](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
+- Se till att de servrar som du vill replikera följer [krav för Azure VM](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Förbered Azure. Du behöver en Azure-prenumeration, Azure-nätverk och ett lagringskonto.
 - Förbered ett konto för automatisk installation av mobilitetstjänsten på varje server som du vill replikera.
 
@@ -171,7 +171,7 @@ Aktivera replikering för varje server.
 8. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. 
 9. I **fysiska datorer**, och klicka på **+ fysisk dator**. Ange namn och IP-adress. Välj operativsystemet på den dator du vill replikera. Det tar några minuter för servrarna som ska identifieras och i listan. 
 10. I **egenskaper** > **konfigurera egenskaper för**, Välj det konto som ska användas av processervern för att automatiskt installera mobilitetstjänsten på datorn.
-11. I **replikeringsinställningarna** > **konfigurerar replikeringsinställningar**, kontrollera att rätt replikeringsprinciper har valts. 
+11. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts. 
 12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 

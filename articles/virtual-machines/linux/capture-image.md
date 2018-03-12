@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell Hårddisk
 
@@ -37,7 +37,7 @@ Se till att du uppfyller följande krav:
 
 * Du behöver en Azure VM som skapats i Resource Manager-distributionsmodellen med hjälp av hanterade diskar. Om du inte har skapat en Linux VM, kan du använda den [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), eller [Resource Manager-mallar](create-ssh-secured-vm-from-template.md). Konfigurera den virtuella datorn. Till exempel [lägga till datadiskar](add-disk.md), tillämpa uppdateringar och installera program. 
 
-* Du måste också har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och logga in till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+* Du måste också har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och logga in till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Snabbkommandon
 
@@ -45,7 +45,7 @@ En förenklad version av det här avsnittet för att testa, utvärderar eller L�
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Steg 1: Ta bort etableringen av den virtuella datorn
-Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att ta bort specifika filer och data. Använd den `waagent` kommandot med de *-deprovision + användare* parameter på käll-Linux VM. Mer information finns i [Azure Linux-agenten användarhandboken](../windows/agent-user-guide.md).
+Du ta bort etableringen av den virtuella datorn med Virtuella Azure-agenten att ta bort specifika filer och data. Använd den `waagent` kommandot med de *-deprovision + användare* parameter på käll-Linux VM. Mer information finns i [Användarguide för Azure Linux Agent](../windows/agent-user-guide.md).
 
 1. Ansluta till din Linux VM som använder en SSH-klient.
 2. I fönstret SSH skriver du följande kommando:
@@ -143,4 +143,4 @@ Du kan skapa flera virtuella datorer från din datakälla VM-avbildning. Om du b
 - Följ stegen igen för att ta bort etableringen, frigöra, generalisera och skapa en avbildning.
 - Använd den här nya avbildningen för framtida distributioner. Om du vill ta bort den ursprungliga avbildningen.
 
-Mer information om hur du hanterar dina virtuella datorer med CLI finns [Azure CLI 2.0](/cli/azure/overview).
+Mer information om hur du hanterar dina virtuella datorer med CLI finns [Azure CLI 2.0](/cli/azure).

@@ -6,17 +6,18 @@
 
 # Självstudier
 ## [Migrera SQL Server till Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migrera SQL Server till Azure SQL DB Managed Instance](tutorial-sql-server-to-managed-instance.md)
 
 # Instruktionsguider
 ## [Använda PowerShell för att migrera SQL Server](howto-sql-server-to-azure-sql-powershell.md)
 
 # Resurser
 ## [User Voice-feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Azure-översikt](https://azure.microsoft.com/en-us/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Guide för databasmigrering](https://aka.ms/datamigration)
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [Prissättning](https://aka.ms/dms-pricing)
 ## [Översikt över förutsättningar](pre-reqs.md)
 ## [Vanliga frågor och svar](faq.md)
-## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=database-migration)
-
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=database-migration)
+## [Nätverkstopologier för Azure SQL DB Managed Instance-migrering](resource-network-topologies.md)

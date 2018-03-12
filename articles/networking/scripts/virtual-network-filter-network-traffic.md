@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 767c32ec265c6fb86de1bea1706cd55d7ce1098e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 07211d7b6dccd377f94308da5c572255ba5727c6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrera inkommande och utgående nätverkstrafik för VM
 
@@ -36,19 +36,19 @@ Det här exemplet i skriptet skapar ett virtuellt nätverk med frontend och back
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli
 az group delete --name MyResourceGroup --yes
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuella nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuella nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [Skapa AZ network vnet](/cli/azure/network/vnet#az_network_vnet_create) | Skapar en Azure-nätverket och frontend-undernät. |
 | [Skapa AZ undernät](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Skapar en backend-undernät. |
 | [AZ network vnet undernät uppdatering](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Associerar NSG: er till undernät. |
@@ -57,10 +57,10 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, v
 | [Skapa AZ nätverket nsg](/cli/azure/network/nsg#az_network_nsg_create) | Skapar säkerhetsgrupper (NSG) som är kopplade till frontend och backend-undernät för nätverket. |
 | [Skapa AZ nätverket nsg regel](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Skapar NSG-regler som tillåter eller blockerar specifika portar till specifika undernät. |
 | [Skapa AZ vm](/cli/azure/vm#az_vm_create) | Skapar virtuella datorer och bifogar ett nätverkskort på varje virtuell dator. Det här kommandot anger också avbildning av virtuell dator ska användas och administrativa autentiseringsuppgifter. |
-| [ta bort grupp AZ](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
+| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare nätverk CLI skriptexempel finns i den [dokumentation för Azure-nätverk – översikt](../cli-samples.md)

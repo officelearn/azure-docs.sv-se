@@ -6,17 +6,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Ställ in katastrofåterställning för Hyper-V virtuella datorer till en sekundär lokal plats
 
-Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din strategi för katastrofåterställning genom att hantera och samordna replikering, redundans och återställning efter fel för lokala datorer och virtuella Azure-datorer (VM).
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
 Den här artikeln visar hur du ställer in återställning till en sekundär plats för lokala Hyper-V-datorer hanteras i System Center Virtual Machine Manager (VMM)-moln. I den här artikeln får du lära dig hur du:
 
@@ -33,9 +33,8 @@ Den här artikeln visar hur du ställer in återställning till en sekundär pla
 Så här slutför det här scenariot:
 
 - Granska de [scenariots arkitektur och komponenter](hyper-v-vmm-architecture.md).
-- Granska de [supportkrav](site-recovery-support-matrix-to-sec-site.md) för alla komponenter.
-- Kontrollera att VMM-servrar och Hyper-V-värdar uppfyller [supportkrav](site-recovery-support-matrix-to-sec-site.md).
-- Kontrollera att virtuella datorer du vill replikera följa [replikerade datorn support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- Kontrollera att VMM-servrar och Hyper-V-värdar uppfyller [supportkrav](hyper-v-vmm-secondary-support-matrix.md).
+- Kontrollera att virtuella datorer du vill replikera följa [replikerade datorn support](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda VMM-servrar för nätverksmappning.
 
 ### <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
@@ -118,7 +117,7 @@ Välj VMM-målservern och molnet:
    ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
-## <a name="set-up-a-replication-policy"></a>Konfigurera en princip för lösenordsreplikering
+## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
 Innan du börjar bör du se till att alla värdar med principer har samma operativsystem. Om värdar kör olika versioner av Windows Server, måste flera replikeringsprinciper.
 
@@ -145,13 +144,13 @@ Innan du börjar bör du se till att alla värdar med principer har samma operat
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-1. Klicka på **replikera program** > **källa**. 
+1. Klicka på **Replikera program** > **Källa**. 
 2. I **källa**, Välj VMM-servern och det moln där Hyper-V-värdar som du vill replikera finns. Klicka sedan på **OK**.
 3. I **mål**, kontrollera sekundär VMM-servern och molnet.
 4. I **virtuella datorer**, Välj de virtuella datorerna som du vill skydda från listan.
 
 
-Du kan följa förloppet för den **Aktivera skydd** åtgärden i **jobb** > **Site Recovery-jobb**. Efter den **Slutför skydd** jobbet är slutfört den inledande replikeringen är klar och den virtuella datorn är redo för redundans.
+Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. Efter den **Slutför skydd** jobbet är slutfört den inledande replikeringen är klar och den virtuella datorn är redo för redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 

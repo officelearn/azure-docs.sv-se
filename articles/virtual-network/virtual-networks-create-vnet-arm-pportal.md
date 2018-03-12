@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 898bdef779282d7312c76696f744b97ec2dfcded
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Skapa ett virtuellt nätverk med flera undernät med Azure-portalen
 
@@ -41,7 +41,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Välj **+ skapa en resurs** i övre vänstra hörnet på Azure-portalen.
 2. Välj **nätverk**, och välj sedan **för virtuella nätverk**.
-3. I följande bild visas ange *myVirtualNetwork* för **namn**, *10.0.0.0/16* för **adressutrymmet**, ** myResourceGroup** för **resursgruppen**, *offentliga* för undernätet **namn**, 10.0.0.0/24 för undernätet **adressintervall**väljer en **plats** och **prenumeration**återstående standardvärdena och välj sedan **skapa**:
+3. I följande bild visas ange *myVirtualNetwork* för **namn**, *10.0.0.0/16* för **adressutrymmet**,  **myResourceGroup** för **resursgruppen**, *offentliga* för undernätet **namn**, 10.0.0.0/24 för undernätet **adressintervall**väljer en **plats** och **prenumeration**återstående standardvärdena och välj sedan **skapa**:
 
     ![Skapa ett virtuellt nätverk](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -56,7 +56,7 @@ Logga in på Azure Portal på http://portal.azure.com.
      
 3. I den **Lägg till undernät** som visas anger *privata* för **namn**, ange *10.0.1.0/24* för **adressintervall**, och välj sedan **OK**.  Ett undernät-adressintervall kan inte överlappa adressintervallen i andra undernät i ett virtuellt nätverk. 
 
-Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderar vi att du noggrant bekanta dig med adressutrymme [överväganden](virtual-network-manage-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
+Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderas att du noggrant bekanta dig med adressutrymme [överväganden](manage-virtual-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
 
 ## <a name="test-network-communication"></a>Testa nätverkskommunikation
 

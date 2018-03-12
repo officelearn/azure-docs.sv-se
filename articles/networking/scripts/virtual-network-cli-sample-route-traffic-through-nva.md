@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: af6e9d55038acba194f3cc631ff1b4e2e371852c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 24b0c6873721ef196b1c0dc6d6a357f87a4a5e39
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Vidarebefordra trafik via en virtuell nätverksenhet
 
@@ -37,19 +37,19 @@ Det här exemplet i skriptet skapar ett virtuellt nätverk med frontend och back
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, virtuell dator och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli
 az group delete --name MyResourceGroup --yes
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuella nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommando-specifik dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp, virtuella nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [Skapa AZ network vnet](/cli/azure/network/vnet#az_network_vnet_create) | Skapar en Azure-nätverket och frontend-undernät. |
 | [Skapa AZ undernät](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Skapar backend- och DMZ undernät. |
 | [Skapa AZ nätverket offentliga-ip](/cli/azure/network/public-ip#az_network_public_ip_create) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
@@ -60,10 +60,10 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, v
 | [Skapa AZ-routningstabellen för nätverk](/cli/azure/network/route-table#az_network_route_table_create)| Skapar en routningstabell för alla flöden. |
 | [Skapa AZ nätverksväg routningstabellen](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Skapar vägar för att vidarebefordra trafik mellan undernät och Internet via den virtuella datorn. |
 | [Skapa AZ vm](/cli/azure/vm#az_vm_create) | Skapar en virtuell dator och bifogar nätverkskortet till den. Det här kommandot anger också avbildning av virtuell dator ska användas och administrativa autentiseringsuppgifter. |
-| [ta bort grupp AZ](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
+| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp och alla resurser som den innehåller. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns [Azure CLI dokumentationen](/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare nätverk CLI skriptexempel finns i den [dokumentation för Azure-nätverk – översikt](../cli-samples.md)

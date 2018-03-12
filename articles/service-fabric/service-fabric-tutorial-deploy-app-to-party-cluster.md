@@ -1,10 +1,10 @@
 ---
-title: Distribuera ett Azure Service Fabric-program till ett kluster | Microsoft Docs
-description: "I den här självstudiekursen får du lära dig hur du distribuerar ett program till ett Service Fabric-kluster."
+title: "Distribuera ett Azure Service Fabric-program till ett kluster från Visual Studio | Microsoft Docs"
+description: "Läs mer om hur du distribuerar ett program till ett kluster från Visual Studio"
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
+-author: mikkelhegn
+-manager: msfussell
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -12,29 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
-ms.author: mikhegn
+ms.date: 02/21/2018
+ms.author: mikkelhegn
 ms.custom: mvc
-ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Självstudiekurs: Distribuera ett program till ett Service Fabric-kluster i Azure
-Den här självstudiekursen är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett kluster som körs i Azure.
+# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera ett program till ett Service Fabric-kluster i Azure
+Den här självstudien är del två i en serie. Här får du se hur du distribuerar ett Azure Service Fabric-program till ett nytt kluster i Azure direkt från Visual Studio.
 
-I del två av den här självstudieserien får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
+> [!div class="checklist"]
+> * Skapa ett kluster från Visual Studio
+> * Distribuera ett program till ett fjärrkluster med Visual Studio
+
+
+I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md)
 > * Distribuera programmet till ett fjärrkluster
 > * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-I den här självstudieserien får du lära du dig att:
-> [!div class="checklist"]
-> * Distribuera ett program till ett fjärrkluster med Visual Studio
-> * Ta bort ett program från ett kluster med Service Fabric Explorer
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Innan du börjar den här självstudien:
@@ -42,91 +44,63 @@ Innan du börjar den här självstudien:
 - [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
 - [Installera Service Fabric SDK](service-fabric-get-started.md)
 
-## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
-Om du inte byggde exempelprogrammet Röstning i [del ett av självstudiekursen](service-fabric-tutorial-create-dotnet-app.md) kan du ladda ned det. Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
+## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet för röstning
+Om du inte skapade exempelprogrammet för röstning i [del ett av självstudieserien](service-fabric-tutorial-create-dotnet-app.md) kan du ladda ned det. Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="set-up-a-party-cluster"></a>Konfigurera ett partkluster
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. Kostnadsfritt!
+## <a name="deploy-the-sample-application"></a>Distribuera exempelprogrammet
 
-Gå till den här webbplatsen för att få åtkomst till ett partkluster: http://aka.ms/tryservicefabric. Följ sedan instruktionerna för att få åtkomst till ett kluster. Du behöver ett Facebook- eller GitHub-konto för att kunna få åtkomst till ett partkluster.
+### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>Välj ett Service Fabric-kluster som du ska publicera till
+Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
 
-Om du vill kan du använda ett eget kluster i stället för partklustret.  ASP.NET-kärnans webbklient använder omvänd proxy för att kommunicera med tjänstens tillståndskänsliga serverdel.  Omvänd proxy är aktiverat som standard för partklustret och det lokala utvecklingsklustret.  Om du distribuerar exempelprogrammet Röstning till ett eget kluster måste du [aktivera omvänd proxy i klustret](service-fabric-reverseproxy.md#setup-and-configuration).
+Du har två alternativ för distributionen:
+- Skapa ett kluster från Visual Studio. Med det här alternativet kan du skapa ett säkert kluster direkt från Visual Studio med dina önskade konfigurationer. Den här typen av kluster är idealiskt för testscenarier, där du kan skapa klustret och sedan publicera direkt i Visual Studio.
+- Publicera till ett befintligt kluster i din prenumeration.
 
+Den här självstudien visar hur du skapar ett kluster från Visual Studio. För de andra alternativen kan du kopiera och klistra in anslutningens slutpunkt, eller välja den från din prenumeration.
 > [!NOTE]
-> Partkluster är inte skyddade, så dina program och de data som du lägger där kan vara synliga för andra. Distribuera aldrig sådant som du inte vill att andra ska se. Glöm inte att läsa igenom våra användningsvillkor noga.
+> Många tjänster använder omvänd proxy när de kommunicerar med varandra. Kluster som skapas från Visual Studio och partkluster har en omvänd proxy som är aktiverad som standard.  Om du använder ett befintligt kluster måste du [aktivera omvänd proxy i klustret](service-fabric-reverseproxy.md#setup-and-configuration).
 
-Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Certifikatet och värdet **Anslutningens slutpunkt** används i följande steg.
+### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Distribuera appen till Service Fabric-klustret
 
-![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+1. Högerklicka på programprojektet i Solution Explorer och välj **Publicera**.
 
-På en Windows-dator ska du installera PFX i certifikatarkivet *CurrentUser\My*.
+2. Logga in med ditt Azure-konto så att du får åtkomst till dina prenumerationer. Det här steget är valfritt om du använder ett partkluster.
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+3. Välj listrutan för **anslutningens slutpunkt** och välj alternativet ”<Create New Cluster...>”.
+    
+    ![Dialogrutan Publicera](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    
+4. Ändra följande inställningar i dialogrutan ”Skapa kluster”:
 
+    1. Ange namnet på klustret i fältet ”Klusternamn”, samt den prenumeration och plats som du vill använda.
+    2. Valfritt: Du kan ändra antalet noder. Som standard har du tre noder, vilket är det som krävs för att testa scenarier i Service Fabric.
+    3. Välj fliken ”Certifikat”. På den här fliken skriver du ett lösenord som ska skydda certifikatet i klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
+    4. Välj fliken med VM-information. Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
+    5. Valfritt: På fliken ”Avancerat” kan du ändra listan med de portar som du vill ska vara öppna i belastningsutjämnaren som skapas tillsammans med klustret. Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
+    6. När du är klar med ändringen av inställningarna klickar du på knappen ”Skapa”. Detta tar några minuter att slutföra och utdatafönstret visar när klustret är färdigt.
+    
+    ![Dialogrutan Skapa kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
-
-
-## <a name="deploy-the-app-to-the-azure"></a>Distribuera appen till Azure
-Nu när programmet är klart kan du distribuera det till partklustret direkt från Visual Studio.
-
-1. Högerklicka på **Röstning** i Solution Explorer och välj **Publicera**. 
-
-    ![Dialogrutan Publicera](./media/service-fabric-quickstart-containers/publish-app.png)
-
-2. Kopiera **Anslutningsslutpunkten** för partyklustret till fältet **Anslutningsslutpunkt**. Till exempel `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Klicka på **Avancerade anslutningsparametrar** och fyll i följande information.  Värdena *FindValue* och *ServerCertThumbprint* måste matcha tumavtrycket för certifikatet som installerades i föregående steg. Klicka på **Publicera**. 
+4. När det kluster som du vill använda är klart, högerklickar du på programprojektet och väljer **Publicera**.
 
     När publiceringen är klar bör du kunna skicka en begäran till programmet via en webbläsare.
 
-3. Öppna din webbläsare och ange klusteradressen (anslutningens slutpunkt utan portinformation, till exempel win1kw5649s.westus.cloudapp.azure.com).
+5. Öppna din webbläsare och ange klusteradressen (anslutningens slutpunkt utan portinformation, till exempel win1kw5649s.westus.cloudapp.azure.com).
 
     Nu bör du få samma resultat som du fick när du körde programmet lokalt.
 
     ![API-svar från kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Ta bort programmet från ett kluster med Service Fabric Explorer
-Service Fabric Explorer är ett grafiskt användargränssnitt där du kan utforska och hantera program i ett Service Fabric-kluster.
-
-Så här tar du bort programmet från partklustret:
-
-1. Gå till Service Fabric Explorer med hjälp av länken på registreringssidan för partklustret. Exempelvis https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
-
-2. I Service Fabric Explorer navigerar du till noden **fabric:/Voting** i trädvyn till vänster.
-
-3. Klicka på knappen **Åtgärd** i rutan **Essentials** och välj **Ta bort programmet**. Bekräfta borttagning av programinstansen, så att instansen av vårt program som körs i klustret tas bort.
-
-![Ta bort ett program i Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Ta bort programtypen från ett kluster med Service Fabric Explorer
-Program distribueras som programtyper i ett Service Fabric-kluster, vilket gör att du kan ha flera instanser och versioner av det program som körs i klustret. När du har tagit bort den instans av vårt program som körs kan vi också ta bort typen, så att vi slutför rensningen av distributionen.
-
-Du kan läsa mer om programmodellen i Service Fabric i informationen om att [modellera ett program i Service Fabric](service-fabric-application-model.md).
-
-1. Navigera till noden **VotingType** (röstningstyp) i trädvyn.
-
-2. Klicka på knappen **Åtgärd** i rutan **Essentials** till höger och välj **Avetablera typen**. Bekräfta avetableringen av programtypen.
-
-![Avetablera programtyp i Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
-Detta avslutar självstudiekursen.
-
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
+> * Skapa ett kluster från Visual Studio
 > * Distribuera ett program till ett fjärrkluster med Visual Studio
-> * Ta bort ett program från ett kluster med Service Fabric Explorer
 
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Load Balancer Standard översikt över Azure (förhandsversion)
 
@@ -327,7 +327,7 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Load Balancer Standard finns för närvarande i alla regioner för offentliga moln.
+Load Balancer Standard finns för närvarande i alla regioner för offentliga moln utom västra USA.
 
 >[!IMPORTANT]
 > En kort tidsperiod, åtkomst till regioner utanför en första start regioner (östra USA 2 centrala USA, Norra Europa, västra centrala USA, västra Europa, Sydostasien) kräver registrering av ytterligare prenumeration funktioner (AllowLBPreviewWave2 och AllowLBPreviewWave3).  [Följ dessa anvisningar](#additionalpreviewregions). Kör alla även om du redan har registrerat dig för AllowLBPreview redan.
@@ -467,6 +467,7 @@ Följande begränsningar gäller vid tidpunkten för förhandsgranskning och kan
 - [Azure övervaka aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) stöds inte just nu.
 - Portalen stöder ännu inte utökade preview regioner.  Använd klientverktyg som mallar, Azure CLI 2.0 eller PowerShell som en lösning.
 - Flytta Prenumerationsåtgärder inte stöds.
+- Inte tillgängligt i USA, västra.
 
 
 ## <a name="next-steps"></a>Nästa steg

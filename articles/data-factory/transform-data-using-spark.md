@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med hjälp av Spark aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ I följande tabell beskrivs JSON-egenskaper som används i JSON-definitionen:
 | description           | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                  | Aktivitetstypen är HDInsightSpark för Spark-aktiviteten. | Ja      |
 | linkedServiceName     | Namnet på den HDInsight Spark länkade tjänst som körs på Spark-program. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel. | Ja      |
-| SparkJobLinkedService | Azure Storage länkade tjänst som äger Spark fil, beroenden och loggar.  Om du inte anger ett värde för den här egenskapen används lagring som är associerade med HDInsight-kluster. | Nej       |
+| SparkJobLinkedService | Azure Storage länkade tjänst som äger Spark fil, beroenden och loggar.  Om du inte anger ett värde för den här egenskapen används lagring som är associerade med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en länkad Azure Storage-tjänst. | Nej       |
 | rootPath              | Azure Blob-behållaren och mappen som innehåller filen Spark. Filnamnet är skiftlägeskänslig. Referera till mappstrukturen avsnitt (nästa avsnitt) för ytterligare information om strukturen för den här mappen. | Ja      |
 | entryFilePath         | Relativa sökvägen till rotmappen på Spark/kodpaketet. | Ja      |
 | Klassnamn             | Programmets Java/Spark huvudsakliga klass      | Nej       |
@@ -87,8 +87,8 @@ Skapa följande mappstruktur i Azure Blob-lagring som refereras av länkad HDIns
 
 | Sökväg                  | Beskrivning                              | Krävs | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(rot)            | Rotsökvägen för Spark-jobb i den länkade lagringstjänsten | Ja      | Mapp |
-| &lt;användardefinierade&gt; | Den sökväg som pekar på filen post för Spark-jobb | Ja      | Fil   |
+| `.` (rot)            | Rotsökvägen för Spark-jobb i den länkade lagringstjänsten | Ja      | Mapp |
+| &lt;Användardefinierade &gt; | Den sökväg som pekar på filen post för Spark-jobb | Ja      | Fil   |
 | . / JAR: er                | Alla filer under den här mappen överförs och placeras på java-klassökvägen i klustret | Nej       | Mapp |
 | . / pyFiles             | Alla filer under den här mappen överförs och placeras på PYTHONPATH i klustret | Nej       | Mapp |
 | . / filer               | Alla filer under den här mappen överförs och placeras på utföraren arbetskatalogen | Nej       | Mapp |

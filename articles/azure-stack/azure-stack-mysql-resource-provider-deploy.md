@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 067e478548ba840ece14737cdf3e6d5d4da28be0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -162,7 +162,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametrar
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parametrar
 Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon parameter valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna.
 
 | Parameternamn | Beskrivning | Kommentar eller standardvärde |
@@ -268,9 +268,13 @@ Du kan ändra lösenordet genom att först ändra MySQL-serverinstansen. Välj *
 ## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Uppdatera MySQL resource provider nätverkskort (med flera noder bara versioner 1710 och senare)
 Ett nytt SQL resource provider-kort kan frigöras när Azure Stack-versioner har uppdaterats. Medan det befintliga kortet fortsätter att fungera, rekommenderar vi uppdatera till den senaste versionen så snart som möjligt. 
 
-Uppdateringsprocessen liknar installationen som beskrivs ovan. Du kan skapa en ny virtuell dator med senaste resource provider kod. Sedan migrerar du inställningarna till den här nya instans, inklusive databas och värd-serverinformation. Du kan också migrera nödvändiga DNS-posten.
+Uppdatering av resursprovidern som du använder den *UpdateMySQLProvider.ps1* skript. Processen påminner om den process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuera resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår i hämtningen av resursprovidern.
 
-Använda skriptet UpdateMySQLProvider.ps1 med samma argument som beskrivs ovan. Ange certifikat här samt.
+Den *UpdateMySQLProvider.ps1* skriptet skapar en ny virtuell dator med senaste resource provider kod och migrerar inställningarna från den gamla virtuella datorn till den nya virtuella datorn. Inställningar som migreras inkluderar databasen och värd-serverinformation och nödvändiga DNS-posten.
+
+Skriptet kräver användning av samma argument som beskrivs för skriptet DeployMySqlProvider.ps1. Ange certifikat här samt. 
+
+Följande är ett exempel på den *UpdateMySQLProvider.ps1* skript som du kan köra från PowerShell-Kommandotolken. Glöm inte att ändra kontoinformation och lösenord som behövs: 
 
 > [!NOTE]
 > Uppdateringen gäller bara för integrerade system.

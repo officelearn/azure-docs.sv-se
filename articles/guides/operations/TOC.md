@@ -88,9 +88,9 @@
 
 
 ## [Virtuella nätverk](azure-operations-guide.md#azure-virtual-network)
-### [Skapa ett virtuellt nätverk med Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Skapa ett virtuellt nätverk med hjälp av Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Skapa ett virtuellt nätverk med Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Skapa ett virtuellt nätverk med hjälp av Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Självstudier för virtuella nätverk
 #### [Belastningsutjämna virtuella datorer](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

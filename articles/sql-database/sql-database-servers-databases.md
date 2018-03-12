@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 973f713028217efa667ec111fdfcac750c243f11
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Skapa och hantera Azure SQL Database-servrar och databaser
 
@@ -132,7 +132,7 @@ Använd följande PowerShell-cmdlets för att skapa och hantera Azure SQL server
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Azure CLI
 
-Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI](/cli/azure/overview), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Skapa och hantera elastiska pooler finns [elastiska pooler](sql-database-elastic-pool.md).
+Skapa och hantera Azure SQL server-databaser och brandväggar med den [Azure CLI](/cli/azure), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Skapa och hantera elastiska pooler finns [elastiska pooler](sql-database-elastic-pool.md).
 
 | Cmdlet | Beskrivning |
 | --- | --- |

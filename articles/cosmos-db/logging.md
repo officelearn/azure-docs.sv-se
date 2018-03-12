@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -31,6 +31,13 @@ Innan vi går in övervakningskonto Azure Cosmos DB kan tydliggöra några saker
 Följande bild visar de olika typerna av Azure loggar som är tillgängliga.
 
 ![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
+
+I bilden ovan **beräkningsresurser** representerar Azure-resurser som du kan komma åt gäst-OS. Till exempel Azure virtuella datorer, virtuella skalningsuppsättningarna, Azure Container Service etc. betraktas som beräkningsresurser. Beräkna resurser generera aktivitetsloggar, diagnostikloggar och programloggarna. Mer information finns i den [Azure-övervakning – beräkningsresurser](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artikel.
+
+**Icke-beräkningsresurser** resurser där du inte kan komma åt det underliggande Operativsystemet och arbeta direkt med resursen. Till exempel Nätverkssäkerhetsgrupper, Logic Apps osv. **Cosmos DB** är en beräkningsresurser. Du kan visa loggar för icke-beräkningsresurser i aktivitetsloggen eller genom att aktivera alternativet diagnostikloggar i portalen. Mer information finns i den [Azure-övervakning – icke-beräkningsresurser](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artikel.
+
+Aktivitetsloggen registrerar operationer på en prenumerationsnivå för Cosmos DB, åtgärder som loggas ListKeys, skriva DatabaseAccounts osv. Diagnostikloggar ger mer detaljerad loggning och du kan logga DataPlaneRequests (skapa, läsa, fråga... ) och MongoRequests.
+
 
 För vår kan du fokusera på aktivitet för Azure, Azure Diagnotic och mått. Så vad är skillnaden mellan dessa tre loggar? 
 

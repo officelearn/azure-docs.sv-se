@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Förstå kostnadsrapporter
 
@@ -76,6 +76,49 @@ Varje numrerade område i föregående bild beskrivs i detalj i följande inform
      - Program
      - Miljö
      - Kostnad kod
+
+    Här är en lista över inbyggda grupper i rapporter:
+
+    - **Kostnadstyp**
+      - Välj en kostnadstyp eller flera kostnadstyper, eller alla. Kostnad typer är:
+        - En avgift
+        - Support
+        - Kostnaden för användning
+    - **Kunden**
+        - Välj en viss kund flera kunder, eller alla kunder.
+    - **Kontonamn**
+        - Namnet på kontot eller prenumeration. I Azure är det namnet på Azure-prenumerationen.
+    - **Kontot Nej**
+        - Välj ett konto, flera konton eller alla konton. I Azure är det den Azure-prenumeration GUID.
+    - **Överordnat konto**
+        - Välj det överordnade kontot, flera konton eller välj.
+    - **Tjänst**
+        - Välj en tjänst, flera tjänster eller alla tjänster.
+    - **Leverantör**
+        - Molnleverantören där tillgångar och kostnader som är kopplade.
+    - **Region**
+        - Region där resursen finns.
+    - **Tillgänglighet zon**
+        - AWS separat platser inom en region.
+    - **Resurstyp**
+        - Typ av resurs som används.
+    - **Undertyp**
+        - Välj undertypen.
+    - **Åtgärd**
+        - Markera åtgärden eller **visa alla**.
+    - **Prismodell**
+        - Alla förskott
+        - Ingen förskott
+        - Partiell förskott
+        - På begäran
+        - Reservation
+        - Plats
+    - **Tilläggstyp**
+        - Markera negativa eller positiva tilläggstyp eller båda.
+    - **Organisationer i samma installation**
+        - Om en dator körs som en särskild dator.
+    -   **Användningstyp**
+          - Användningstyp kan vara en avgifter eller återkommande avgifter.
 
 5. **filter**
 

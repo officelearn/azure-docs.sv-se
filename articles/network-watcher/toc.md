@@ -73,6 +73,7 @@
 ### [Visualisera nätverkstrafikmönster med verktyg för öppen källkod](network-watcher-using-open-source-tools.md)
 ## Analysera NSG-flödesloggar
 ### [Läs NSG-flödesloggar](network-watcher-read-nsg-flow-logs.md)
+### [Använda Trafikanalys](traffic-analytics.md)
 ### [Använd Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Använd Grafana](network-watcher-nsg-grafana.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 318f322196b0028e42268b8d6d003457869d1117
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f1ac319e87f321306a2239b2e17725d281fbf59
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Felsöka en Linux VM genom att koppla OS-disken till återställning av en virtuell dator med Azure CLI 2.0
 Om Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utför felsökning på den virtuella hårddisken sig själv. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar att den virtuella datorn kan starta korrekt. Den här artikeln beskriver hur du använder Azure CLI 2.0 för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och återskapa den ursprungliga virtuella datorn. Du kan också utföra dessa steg med [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -32,7 +32,7 @@ Så här ser felsökningsprocessen ut:
 4. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
 5. Skapa en virtuell dator med hjälp av den ursprungliga virtuella hårddisken.
 
-Om du vill utföra dessa åtgärder för felsökning, behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+Om du vill utföra dessa åtgärder för felsökning, behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Ersätt parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
 

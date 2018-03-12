@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ansluta virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -149,7 +149,7 @@ I det här avsnittet skapar du den virtuella nätverksgatewayen och den lokala n
 * Adressområde = 192.168.1.0/24 <br>
 
 
-Om du inte har ett VNet Resource Manager och kör de här stegen som Övning, kan du skapa ett VNet med hjälp av [i den här artikeln](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) och exempelvärden.
+Om du inte har ett VNet Resource Manager och kör de här stegen som Övning, skapa ett virtuellt nätverk med stegen i [skapa ett virtuellt nätverk](../virtual-network/quick-create-portal.md), med värdena som exempel.
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Skapa ett gateway-undernät
 

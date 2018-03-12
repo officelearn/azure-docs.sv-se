@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute
 
@@ -102,10 +102,7 @@ Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circ
 
 1. Gå till den **gemensamma inställningar för** för den **nätverkskonfigurationen Performance Monitor** sidan för din resurs. Klicka på agenten som motsvarar serverns processor från den **installera OMS-agenter** avsnittet och hämta installationsfilen.
 
-  >[!NOTE]
-  >Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning av ExpressRoute-kretsar med hjälp av Windows Desktop OS- och Linux-operativsystem stöds inte. 
-  >
-  >
+ 
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
 3. Från den **konfigurera OMS-agenter för övervakning med hjälp av TCP-protokollet** avsnittet måste du ladda ned Powershell-skript. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
 
@@ -114,6 +111,16 @@ Skapa en arbetsyta i den prenumeration som har Vnet-länk till ExpressRoute circ
 ### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje övervakning server (för varje virtuella nätverk som du vill övervaka)
 
 Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutning (d.v.s. lokalt, Azure Vnet) för redundans. Använd följande steg för att installera agenter:
+  
+  >[!NOTE]
+  >Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning av ExpressRoute-kretsar med hjälp av Windows Desktop OS- och Linux-operativsystem stöds inte. 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM agenter kanske inte kan identifiera konsekvent om de finns i Azure.  Vi rekommenderar att du inte använder SCOM agenter i virtuella Azure-nätverk för att övervaka ExpressRoute.
+  >
+  >
 
 1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
 2. På sidan **Välkommen** klickar du på **Nästa**.

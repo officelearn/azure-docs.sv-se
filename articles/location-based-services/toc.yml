@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure Location Based Services
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Location Based Services
       href: about-location-based-services.md
@@ -19,10 +19,16 @@
       href: tutorial-prioritized-routes.md
 - name: Begrepp
   items:
+    - name: Zoomningsnivåer och rutnät
+      href: zoom-levels-and-tile-grid.md
     - name: Täckning för geokodning
       href: geocoding-coverage.md
     - name: Trafiktäckning
       href: traffic-coverage.md
+    - name: Rendera täckning
+      href: render-coverage.md
+    - name: Täckningsroutning
+      href: routing-coverage.md
 - name: Instruktionsguider
   items:
     - name: Hantera konton och nycklar

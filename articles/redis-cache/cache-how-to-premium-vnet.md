@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Så här konfigurerar du stöd för virtuella nätverk för Premium Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en instans av Azure Redis-Cache har konfigurerats med ett VNet, är inte offentligt adresserbara och kan endast nås från virtuella datorer och program inom VNet. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för en premium Azure Redis-Cache-instans.
@@ -38,7 +38,7 @@ Stöd för virtuella nätverk (VNet) har konfigurerats på den **nytt Redis-Cach
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-När du har valt en premium-prisnivån, kan du konfigurera Redis VNet integration genom att välja ett virtuellt nätverk som finns i samma prenumeration och plats som ditt cacheminne. Om du vill använda ett nytt virtuellt nätverk, skapa den första genom att följa stegen i [skapa ett virtuellt nätverk med Azure-portalen](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) eller [skapa ett virtuellt nätverk (klassiska) med hjälp av Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till **Nytt Redis-Cache** bladet för att skapa och konfigurera din premium-cache.
+När du har valt en premium-prisnivån, kan du konfigurera Redis VNet integration genom att välja ett virtuellt nätverk som finns i samma prenumeration och plats som ditt cacheminne. Om du vill använda ett nytt virtuellt nätverk, skapa den första genom att följa stegen i [skapa ett virtuellt nätverk med Azure-portalen](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassiska) med hjälp av Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) och återgå sedan till **Nytt Redis-Cache** bladet för att skapa och konfigurera din premium-cache.
 
 Om du vill konfigurera VNet för ditt nya cacheminne, klickar du på **virtuellt nätverk** på den **nytt Redis-Cache** , och välj det önskade virtuella nätverket från den nedrullningsbara listan.
 

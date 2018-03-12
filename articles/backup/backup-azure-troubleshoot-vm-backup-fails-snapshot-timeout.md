@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller tillägg
 
@@ -30,9 +30,6 @@ Den här artikeln innehåller felsökning som kan hjälpa dig att lösa Azure Ba
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agenten kan inte kommunicera med Azure Backup
 
 Felmeddelande: ”VM-agenten kunde inte kommunicera med Azure Backup”
-
-> [!NOTE]
-> Om din virtuella Azure Linux-datorn säkerhetskopieringar misslyckas med felet från 4 januari 2018, kör följande kommando i den virtuella datorn och försök sedan säkerhetskopieringar:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 När du registrerar och schemalägga en virtuell dator för Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med den Virtuella datoragenten att ta en ögonblicksbild i tidpunkt. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. När en ögonblicksbild inte utlöses, misslyckas säkerhetskopieringen. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:
 
@@ -58,9 +55,8 @@ Felmeddelande: ”VMSnapshot tillägget misslyckades”
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden som utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök sedan utföra åtgärden:  
 **Orsak 1: [går inte att hämta status för ögonblicksbild eller en ögonblicksbild kan inte utföras](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 2: [tillägget säkerhetskopiering misslyckas med att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
-**Orsak 3: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
-**Orsak 4: [agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Orsak 5: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Orsak 3: [agenten är installerad på den virtuella datorn, men det är inte svarar (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Orsak 4: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Det går inte att säkerhetskopiera eftersom VM-agenten inte svarar
 
@@ -151,12 +147,12 @@ De flesta agent-relaterade tillägget-relaterade fel eller för Linux virtuella 
  > [!NOTE]
  > Vi *rekommenderar* att du uppdaterar agenten endast via en lagringsplats för distribution. Vi rekommenderar inte hämta agent-koden direkt från GitHub och uppdatera den. Om den senaste agenten för din distribution inte är tillgänglig, kontakta distribution stöd för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten, gå till den [Windows Azure Linux-agenten](https://github.com/Azure/WALinuxAgent/releases) sidan på GitHub-lagringsplatsen.
 
-2. Kontrollera att Azure-agenten körs på den virtuella datorn genom att köra följande kommando:`ps -e`
+2. Kontrollera att Azure-agenten körs på den virtuella datorn genom att köra följande kommando: `ps -e`
 
  Om processen inte körs startar du om den med hjälp av följande kommandon:
 
- * För Ubuntu:`service walinuxagent start`
- * För andra distributioner:`service waagent start`
+ * För Ubuntu: `service walinuxagent start`
+ * För andra distributioner: `service waagent start`
 
 3. [Konfigurera automatisk omstart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Kör en ny test-säkerhetskopia. Om felet kvarstår kan du samla in följande loggar från den virtuella datorn:
@@ -168,7 +164,7 @@ De flesta agent-relaterade tillägget-relaterade fel eller för Linux virtuella 
 Om vi behöver utförlig loggning för waagent gör du följande:
 
 1. Leta upp följande rad i filen /etc/waagent.conf: **aktivera utförlig loggning (y | n)**
-2. Ändra den **Logs.Verbose** värde från  *n*  till *y*.
+2. Ändra den **Logs.Verbose** värde från *n* till *y*.
 3. Spara ändringarna och starta sedan om waagent genom att slutföra stegen som beskrivs tidigare i det här avsnittet.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Går inte att hämta status för ögonblicksbild eller en ögonblicksbild kan inte utföras
@@ -179,7 +175,6 @@ VM-säkerhetskopiering är beroende av en ögonblicksbild kommandot utfärdas ti
 
 | Orsak | Lösning |
 | --- | --- |
-| Den virtuella datorn har konfigurerats för SQL Server-säkerhetskopiering. | Standard körs VM-säkerhetskopiering en Volume Shadow Copy Service (VSS) fullständig säkerhetskopiering på virtuella Windows-datorer. På virtuella datorer som kör SQL Server-baserade servrar och som SQL Server konfigureras säkerhetskopiering, ögonblicksbild körning förseningar inträffa.<br><br>Om det uppstår en säkerhetskopieringen har misslyckats på grund av ett problem med ögonblicksbilder, anger du följande registernyckel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] ”USEVSSCOPYBACKUP” = ”TRUE”** |
 | VM-statusen rapporteras felaktigt eftersom den virtuella datorn stängs av i Remote Desktop Protocol (RDP). | Om du stänger av den virtuella datorn i RDP Kontrollera portal för att avgöra om VM-statusen är korrekt. Om det inte är korrekt, stänger du den virtuella datorn i portalen med hjälp av den **avstängning** alternativet på VM-instrumentpanelen. |
 | Den virtuella datorn kan inte hämta värden eller fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera. Om den virtuella datorn inte kan hämta värden eller fabric-adress från DHCP-svar 245, kan inte den hämta eller köra alla tillägg. Om du behöver en statisk privat IP-adress kan du konfigurera det via plattformen. DHCP-alternativet inuti den virtuella datorn ska aktiveras vänster. Mer information finns i [ange en statisk IP för interna privata](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Om tilläggen inte kan ladda misslyckas säkerhetskopiering eftersom en ögonbli
 
 #### <a name="solution"></a>Lösning
 
-**För Windows-gäster:** Kontrollera att tjänsten iaasvmprovider är aktiverat och har en starttyp *automatisk*. Om tjänsten inte är konfigurerat den här sättet kan du aktivera tjänsten för att avgöra om det lyckas under nästa säkerhetskopiering.
-
-**För Linux-gäster:** kontrollerar du att den senaste versionen av VMSnapshot för Linux (tillägg som används av säkerhetskopiering) är 1.0.91.0.<br>
-
-
-Om tillägget säkerhetskopiering fortfarande inte att uppdatera eller läsa in, avinstallera tillägget om du vill tvinga tillägget VMSnapshot att läsa in. Nästa säkerhetskopiering försöket laddar tillägget.
+Avinstallera tillägget om du vill tvinga tillägget VMSnapshot att läsa in. Nästa säkerhetskopiering försöket laddar tillägget.
 
 Så här avinstallerar tillägget:
 
@@ -220,7 +210,7 @@ Utför följande steg för att ta bort samlingen återställning plats för att 
 4. Hämta samlingen återställning punkt som motsvarar den virtuella datorn: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
-    Exempel:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+    Exempel: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Ta bort samlingen återställning punkt: <br>
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. Under nästa schemalagda säkerhetskopiering skapar automatiskt en återställning punkt samling och nya återställningspunkter.

@@ -63,6 +63,10 @@
 ### [Filkomprimering](cdn-troubleshoot-compression.md)
 
 # Referens
+##  [Regelmotor – referens](cdn-rules-engine-reference.md)
+### [Regelmotor – villkorliga uttryck](cdn-rules-engine-reference-conditional-expressions.md)
+### [Regelmotor – matchningsvillkor](cdn-rules-engine-reference-match-conditions.md)
+### [Regelmotor – funktioner](cdn-rules-engine-reference-features.md)
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Resurser
-##  [Regelmotor – referens](cdn-rules-engine-reference.md)
-### [Regelmotor – villkorliga uttryck](cdn-rules-engine-reference-conditional-expressions.md)
-### [Regelmotor – funktioner](cdn-rules-engine-reference-features.md)
-### [Regelmotor – matchningsvillkor](cdn-rules-engine-reference-match-conditions.md)
 ## [Azure CDN POP-platser](cdn-pop-locations.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

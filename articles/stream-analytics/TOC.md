@@ -58,13 +58,14 @@
 
 ## Felsöka
 ### [Felsökningsguide](stream-analytics-troubleshooting-guide.md)
+### [Vanliga felsökningsproblem](stream-analytics-common-troubleshooting-issues.md)
 ### [Resource Health-blad](stream-analytics-resource-health.md)
 ### [Jobbdiagram och mått](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO-felsökning](stream-analytics-select-into.md)
 ### [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
 ### [Läsbegränsningar för händelsehubb](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
-### [Hämta felaktigt utformade händelser](stream-analytics-malformed-events.md)
+
 
 ## Automatisera
 ### [Använd Management .NET SDK](stream-analytics-dotnet-management-sdk.md)

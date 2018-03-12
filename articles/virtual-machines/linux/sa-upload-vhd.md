@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Ladda upp och skapa en Linux VM från anpassade disken med Azure CLI 2.0
 Den här artikeln visar hur du överför en virtuell hårddisk (VHD) till ett Azure storage-konto med Azure CLI 2.0 och skapar virtuella Linux-datorer från den här anpassade disken. Du kan också utföra dessa steg med [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Den här funktionen kan du installera och konfigurera en Linux-distro enligt dina behov och sedan använda den virtuella Hårddisken för att snabbt skapa virtuella Azure-datorer (VM).
@@ -29,11 +29,11 @@ Det här avsnittet använder storage-konton för de sista virtuella hårddiskarn
 ## <a name="quick-commands"></a>Snabbkommandon
 Om du behöver utföra aktiviteten följande avsnittet beskriver grundläggande kommandon för att överföra en virtuell Hårddisk till Azure. Mer detaljerad information och kontext för varje steg finns resten av dokumentet [startar här](#requirements).
 
-Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår `myResourceGroup`, `mystorageaccount`, och `mydisks`.
 
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `WestUs` plats:
+Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `WestUs` plats:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -82,7 +82,7 @@ Mål-lagringskontot måste vara samma som om du har överfört din virtuell disk
 ## <a name="requirements"></a>Krav
 Du behöver följande för att slutföra följande steg:
 
-* **Linux-operativsystem i en VHD-fil** -installera en [Azure-godkända Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller se [information för icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i VHD-format. Det finns flera verktyg för att skapa en virtuell dator och virtuell Hårddisk:
+* **Linux-operativsystem i en VHD-fil** -installera en [Azure-godkända Linux-distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (eller se [information för icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) till en virtuell disk i VHD-format . Det finns flera verktyg för att skapa en virtuell dator och virtuell Hårddisk:
   * Installera och konfigurera [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) eller [KVM](http://www.linux-kvm.org/page/RunningKVM), och ser till att använda VHD som bildformat. Om det behövs kan du [konvertera en bild](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) med `qemu-img convert`.
   * Du kan också använda Hyper-V [på Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) eller [på Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -95,7 +95,7 @@ Du behöver följande för att slutföra följande steg:
   * Skapa ett lagringskonto och en behållare för både dina anpassade disk och skapade virtuella datorer
   * När du har skapat din virtuella dator, kan du ta bort disken
 
-Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår `myResourceGroup`, `mystorageaccount`, och `mydisks`.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Ta reda på vilka nästa hopptyp är med nästa hopp-funktionen i Azure Nätverksbevakaren använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](network-watcher-check-next-hop-portal.md)
+> - [Azure Portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -50,7 +50,7 @@ Det scenario som beskrivs i den här artikeln använder nästa hopp, en funktion
 
 Att hämta nästa hopp som vi kallar det `az network watcher show-next-hop` cmdlet. Vi skickar cmdlet resursgruppen Nätverksbevakaren, NetworkWatcher, virtuella Id, källans IP-adress och mål-IP-adress. I det här exemplet är den IP-adressen till en virtuell dator i ett annat virtuellt nätverk. Det finns en virtuell nätverksgateway mellan de två virtuella nätverk.
 
-Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Kör följande kommando:
+Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Kör följande kommando:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

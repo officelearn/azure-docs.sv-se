@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-stacken 1802 uppdatering
 
@@ -37,10 +37,6 @@ Azure-stacken 1802 uppdatera versionsnumret är **20180302.1**.
 ## <a name="before-you-begin"></a>Innan du börjar    
 > [!IMPORTANT]    
 > Försök inte att skapa virtuella datorer under installationen av uppdateringen. Mer information om hur du hanterar uppdateringar finns [hantera uppdateringar i Azure-stacken översikt](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> När du använder [SQL](/azure-stack-sql-resource-provider-deploy) eller [MySQL](/azure-stack-mysql-resource-provider-deploy) resursproviders, måste de köra version 1712 innan du startar installationen av Azure-stacken version 1802. Om providers är version 1711 eller tidigare och du har installerat Azure Stack 1802, kan du inte längre uppdatera dessa resursproviders till en nyare version.
-
 
 
 ### <a name="prerequisites"></a>Förutsättningar

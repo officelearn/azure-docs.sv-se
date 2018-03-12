@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 5fb3941e0b55f8b5d79c9fc794ec984e074caafe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 235a6367ad317945cfeaaa6aae4e060208fb8e8e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
 Disken på Linux-VM visas fel. Du på något sätt återställa rotlösenordet för Linux-VM eller tagits bort av misstag din privata SSH-nyckel. Om detta har inträffat i dagar för datacenter, behöver du köra det och öppna sedan KVM få vid servern. Se Azure VMAccess-tillägget som den KVM-växel som gör att du kan använda konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
@@ -33,7 +33,7 @@ Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella L
 * Använda Azure CLI 2.0 och de obligatoriska parametrarna.
 * [Använd raw JSON-filer som bearbetar VMAccess-tillägget](#use-json-files-and-the-vmaccess-extension) och sedan vidta åtgärder för.
 
-I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#az_login).
+I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
 
 ## <a name="reset-ssh-key"></a>Återställ SSH-nyckel
 I följande exempel återställer SSH-nyckeln för användaren `azureuser` på den virtuella datorn med namnet `myVM`:

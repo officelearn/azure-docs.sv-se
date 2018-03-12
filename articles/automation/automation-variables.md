@@ -4,7 +4,7 @@ description: "Variabeln tillgångar är värden som är tillgängliga för alla 
 services: automation
 documentationcenter: 
 author: georgewallace
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2017
+ms.date: 03/07/2018
 ms.author: magoedte;bwren
-ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabeln tillgångar i Azure Automation
 
@@ -30,16 +30,16 @@ Variabeln tillgångar är värden som är tillgängliga för alla runbooks och D
 
 - Hantera ett värde från portalen eller Windows PowerShell-kommandoraden som används av runbooks eller DSC-konfigurationer, till exempel en uppsättning gemensamma konfigurationsobjekt som specifik lista av VM-namn, en specifik resursgrupp, en AD-domännamn och så vidare.  
 
-Automationsvariabler är beständiga så att de fortsätter att vara tillgängliga även om den eller de DSC-konfigurationen misslyckas.  Detta kan även ett värde som anges av en runbook som sedan används av en annan eller används av samma runbook eller DSC-konfigurationen nästa gång den körs.
+Automationsvariabler är beständiga så att de fortsätter att vara tillgängliga även om den eller de DSC-konfigurationen misslyckas. Detta kan även ett värde som anges av en runbook som sedan används av en annan eller används av samma runbook eller DSC-konfigurationen nästa gång den körs.
 
-När en variabel har skapats kan du ange att den lagras krypterade.  När en variabel krypteras, lagras den säkert i Azure Automation och dess värde kan inte hämtas från den [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet som levereras som en del av Azure PowerShell-modulen.  Det enda sättet att ett krypterat värde kan hämtas är från den **Get-automationvariable,** aktivitet i en runbook eller DSC-konfigurationen.
+När en variabel har skapats kan du ange att den lagras krypterade. När en variabel krypteras, lagras den säkert i Azure Automation och dess värde kan inte hämtas från den [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet som levereras som en del av Azure PowerShell-modulen. Det enda sättet att ett krypterat värde kan hämtas är från den **Get-automationvariable,** aktivitet i en runbook eller DSC-konfigurationen.
 
 > [!NOTE]
 > Säkra tillgångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure-Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln är krypterad med ett certifikat för master och lagras i Azure Automation. Innan du sparar en säker resurs, nyckeln för automation-kontot dekrypteras med master certifikatet och sedan används för att kryptera tillgången.
 
 ## <a name="variable-types"></a>Datatyper
 
-När du skapar en variabel med Azure-portalen, måste du ange en datatyp från den nedrullningsbara listan så att portalen kan visa lämplig kontroll för att ange värdet för variabeln. Variabeln är inte begränsat till denna datatyp, men du måste ange variabeln med Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger **inte har definierats**, och värdet för variabeln anges **$null**, och du måste ange värdet med den [Set AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet eller **Set-automationvariable,** aktivitet.  Du kan inte skapa eller ändra värdet för en variabel för komplex typ i portalen, men du kan ange ett värde av valfri typ med Windows PowerShell. Komplexa typer returneras som en [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
+När du skapar en variabel med Azure-portalen, måste du ange en datatyp från den nedrullningsbara listan så att portalen kan visa lämplig kontroll för att ange värdet för variabeln. Variabeln är inte begränsat till denna datatyp, men du måste ange variabeln med Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger **inte har definierats**, värdet för variabeln anges **$null**, och du måste ange värdet med den [Set AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) cmdlet eller **Set-automationvariable,** aktivitet. Du kan inte skapa eller ändra värdet för en variabel för komplex typ i portalen, men du kan ange ett värde av valfri typ med Windows PowerShell. Komplexa typer returneras som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Du kan lagra flera värden till en enda variabel genom att skapa en matris eller hash-tabell och spara den på variabeln.
 
@@ -52,14 +52,14 @@ Här följer en lista över variabla typer som är tillgängliga i Automation:
 * Null
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
-För AzureRM för cmdlets i följande tabell att skapa och hantera automatisering inloggningstillgångar med Windows PowerShell.  De levereras som en del av den [AzureRM.Automation modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
+För AzureRM för cmdlets i följande tabell att skapa och hantera automatisering inloggningstillgångar med Windows PowerShell. De levereras som en del av den [AzureRM.Automation modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
 
 | Cmdlet: ar | Beskrivning |
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Hämtar värdet för en befintlig variabel.|
-|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Skapar en ny variabel och anger dess värde.|
-|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Tar bort en befintlig variabel.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Anger värdet för en befintlig variabel.|
+|[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Hämtar värdet för en befintlig variabel.|
+|[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Skapar en ny variabel och anger dess värde.|
+|[Remove-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationVariable)|Tar bort en befintlig variabel.|
+|[Set-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable)|Anger värdet för en befintlig variabel.|
 
 ## <a name="activities"></a>Aktiviteter
 Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgifter i en runbook och DSC-konfigurationer.
@@ -92,7 +92,7 @@ Funktioner i följande tabell används för att komma åt och hämta variabler i
 
 ### <a name="to-create-a-new-variable-with-windows-powershell"></a>Skapa en ny variabel med Windows PowerShell
 
-Den [ny AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet skapar en ny variabel och anger sitt ursprungliga värde. Du kan hämta värde med hjälp av [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Om värdet är en enkel typ, returneras samma typ. Om det är en komplex typ och sedan en **PSCustomObject** returneras.
+Den [ny AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) cmdlet skapar en ny variabel och anger sitt ursprungliga värde. Du kan hämta värde med hjälp av [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable). Om värdet är en enkel typ, returneras samma typ. Om det är en komplex typ och sedan en **PSCustomObject** returneras.
 
 Följande exempelkommandon visar hur du skapar en variabel av typen string och returnerar sedan värdet.
 
@@ -116,7 +116,7 @@ Följande exempelkommandon visar hur du skapar en variabel med en komplex typ oc
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Använda en variabel i en runbook eller DSC-konfiguration
 
-Använd den **Set-automationvariable,** aktivitet för att ange värdet för ett Automation-variabel i ett PowerShell-runbook eller DSC-konfigurationen och **Get-automationvariable,** att hämta den.  Du bör inte använda den **Set AzureAutomationVariable** eller **Get-AzureAutomationVariable** cmdletarna i en runbook eller DSC-konfigurationen eftersom de är mindre effektivt än arbetsflödesaktiviteterna.  Du kan också hämta värdet för säker variabler med **Get-AzureAutomationVariable**.  Det enda sättet att skapa en ny variabel från i en runbook eller DSC-konfigurationen är att använda den [ny AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet.
+Använd den **Set-automationvariable,** aktivitet för att ange värdet för ett Automation-variabel i ett PowerShell-runbook eller DSC-konfigurationen och **Get-automationvariable,** att hämta den. Du bör inte använda den **Set AzureRMAutomationVariable** eller **Get-AzureRMAutomationVariable** cmdletarna i en runbook eller DSC-konfigurationen eftersom de är mindre effektivt än arbetsflödesaktiviteterna. Du kan också hämta värdet för säker variabler med **Get-AzureRMAutomationVariable**. Det enda sättet att skapa en ny variabel från i en runbook eller DSC-konfigurationen är att använda den [ny AzureRMAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) cmdlet.
 
 
 ### <a name="textual-runbook-samples"></a>Textrepresentation runbook-exempel
@@ -153,7 +153,7 @@ I följande kod värdet hämtas från variabeln och används för att starta den
 
 #### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Ställa in och hämta en samling i en variabel
 
-Följande exempelkod visar hur du använder en variabel med en samling med komplexa värden i text-runbook. I det här exemplet hämtas flera virtuella Azure-datorer med **Get-AzureVM** och sparas i en befintlig Automation-variabel.  Enligt beskrivningen i [datatyper](#variable-types), lagras detta som en samling PSCustomObjects.
+Följande exempelkod visar hur du använder en variabel med en samling med komplexa värden i text-runbook. I det här exemplet hämtas flera virtuella Azure-datorer med **Get-AzureVM** och sparas i en befintlig Automation-variabel. Enligt beskrivningen i [datatyper](#variable-types), lagras detta som en samling PSCustomObjects.
 
     $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
     Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
@@ -197,7 +197,7 @@ I en grafisk runbook kan du lägga till den **Get-automationvariable,** eller **
 ![Lägg till variabel på arbetsytan](media/automation-variables/runbook-variable-add-canvas.png)
 
 #### <a name="setting-values-in-a-variable"></a>Ange värden i en variabel
-Följande bild visar exempel aktiviteter att uppdatera en variabel med ett enkelt värde i en grafisk runbook. I det här exemplet hämtas en enda virtuell Azure-dator med **Get-AzureRmVM** och datornamnet sparas på en befintlig Automation-variabel av typen sträng.  Det spelar ingen roll om den [länken är en pipeline eller sekvens](automation-graphical-authoring-intro.md#links-and-workflow) eftersom vi räknar endast ett objekt i utdata.
+Följande bild visar exempel aktiviteter att uppdatera en variabel med ett enkelt värde i en grafisk runbook. I det här exemplet hämtas en enda virtuell Azure-dator med **Get-AzureRmVM** och datornamnet sparas på en befintlig Automation-variabel av typen sträng. Det spelar ingen roll om den [länken är en pipeline eller sekvens](automation-graphical-authoring-intro.md#links-and-workflow) eftersom förväntat endast ett objekt i utdata.
 
 ![Ange enkla variabel](media/automation-variables/runbook-set-simple-variable.png)
 

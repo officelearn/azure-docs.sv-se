@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: a64733b1969e2deae665f7a5f24a6653b216d94d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Konfigurera en virtuell dator skaluppsättning hanteras Service identitet (MSI) med hjälp av Azure CLI
 
@@ -43,7 +43,7 @@ Om du vill köra skriptexempel CLI har tre alternativ:
 
 Anger om du vill skapa en virtuell dator skala MSI-aktiverade:
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera virtuella datorns skaluppsättning:
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera virtuella datorns skaluppsättning:
 
    ```azurecli-interactive
    az login
@@ -65,7 +65,7 @@ Anger om du vill skapa en virtuell dator skala MSI-aktiverade:
 
 Om du behöver aktivera MSI på en befintlig skaluppsättning för virtuell Azure-dator:
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är kopplad till den Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är kopplad till den Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
 
    ```azurecli-interactive
    az login
@@ -81,7 +81,7 @@ Om du behöver aktivera MSI på en befintlig skaluppsättning för virtuell Azur
 
 Om du har en skaluppsättning för virtuell dator som inte längre behöver en MSI:
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är kopplad till den Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/reference-index#az_login). Använd ett konto som är kopplad till den Azure-prenumeration som innehåller virtuella datorns skaluppsättning.
 
    ```azurecli-interactive
    az login

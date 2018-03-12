@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta en Amazon Web Services-konto
 
@@ -100,4 +100,4 @@ Kostnad Management börjar samla in data och skapa rapporter. Vissa optimering r
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om Azure kostnaden Management med Cloudyn kan fortsätta att den [granska användning och kostnader](tutorial-review-usage.md) självstudiekurs för hantering av kostnaden.
+- Om du vill veta mer om Azure kostnaden Management kan fortsätta att den [granska användning och kostnader](tutorial-review-usage.md) självstudiekurs för hantering av kostnaden.

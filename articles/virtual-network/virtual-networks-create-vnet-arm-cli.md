@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0b0bfae02147910d98231d7c93f5ab260f26364f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med flera undernät med hjälp av Azure CLI
 
@@ -70,7 +70,7 @@ az network vnet subnet create \
   --address-prefix 10.0.1.0/24
 ```
 
-Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderar vi att du noggrant bekanta dig med adressutrymme [överväganden](virtual-network-manage-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
+Innan du distribuerar virtuella Azure-nätverk och undernät för produktion, rekommenderas att du noggrant bekanta dig med adressutrymme [överväganden](manage-virtual-network.md#create-a-virtual-network) och [virtuellt nätverk gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). När resurser har distribuerats till undernät kräver vissa virtuella nätverk och undernät ändringar, till exempel ändra adressintervall Omdistributionen av befintliga Azure-resurser som distribueras inom undernät.
 
 ## <a name="test-network-communication"></a>Testa nätverkskommunikation
 

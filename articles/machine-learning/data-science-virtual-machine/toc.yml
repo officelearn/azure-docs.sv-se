@@ -8,6 +8,8 @@
       href: overview.md
     - name: Vad är en virtuell dator för djupinlärning?
       href: deep-learning-dsvm-overview.md
+    - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
+      href: geo-ai-dsvm-overview.md
 - name: Kom igång
   items:
     - name: Skapa en virtuell Windows-dator för datavetenskap
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Skapa en virtuell dator för djupinlärning
       href: provision-deep-learning-dsvm.md
+    - name: Skapa en virtuell Geo-AI-dator för datavetenskap
+      href: provision-geo-ai-dsvm.md
 - name: Gör så här för att
   items:
     - name: Använd en virtuell Windows-dator för datavetenskap
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Använd en virtuell dator för djupinlärning
       href: use-deep-learning-dsvm.md
+    - name: Använda en virtuell Geo-AI-dator för datavetenskap
+      href: use-geo-ai-dsvm.md
 - name: Referens
   expanded: true
   items:

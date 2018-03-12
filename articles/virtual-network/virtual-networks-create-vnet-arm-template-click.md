@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bb096f64a6bc41ad2e75c058c7a9f00bbe480207
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Skapa ett virtuellt nätverk med en Azure Resource Manager-mall
 
@@ -31,9 +31,9 @@ Azure har två distributionsmodeller: Azure Resource Manager och klassisk. Micro
 Den här artikeln förklaras hur du skapar ett VNet via Resource Manager-distributionsmodellen med hjälp av en Azure Resource Manager-mall. Du kan också skapa ett virtuellt nätverk med Resource Manager med hjälp av andra verktyg eller skapa ett virtuellt nätverk med hjälp av den klassiska distributionsmodellen genom att välja ett annat alternativ i följande lista:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [Portal](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
+- [CLI](quick-create-cli.md)
 - [Mall](virtual-networks-create-vnet-arm-template-click.md)
 - [Portal (klassisk)](virtual-networks-create-vnet-classic-pportal.md)
 - [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
@@ -56,7 +56,6 @@ Du kan hämta den befintliga mallen för att skapa ett VNet och två undernät f
    
    | Parameter | Beskrivning |
    | --- | --- |
-   | **Plats** |Azure-region där VNet har skapats |
    | **vnetName** |Namn för det nya VNet |
    | **addressPrefix** |Adressutrymmet för VNet, i CIDR-format |
    | **subnet1Name** |Namn för det första VNet |
@@ -80,9 +79,6 @@ Du kan hämta den befintliga mallen för att skapa ett VNet och två undernät f
 
     ```json
         {
-          "location": {
-            "value": "Central US"
-          },
           "vnetName": {
               "value": "TestVNet"
           },

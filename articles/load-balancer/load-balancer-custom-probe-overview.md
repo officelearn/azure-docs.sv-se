@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: 266132d8cbb6f9922ce7b49759981132c2c17f47
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understand-load-balancer-probes"></a>Förstå belastningsfördelningen avsökningar
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Azure belastningsutjämnare ger möjlighet att övervaka hälsotillståndet för server-instanser med hjälp av avsökningar. När en avsökning inte svarar, stoppas belastningsutjämnaren skickar nya anslutningar till feltillstånd-instansen. Befintliga anslutningar påverkas inte och nya anslutningar skickas till Felfri instanser.
+Azure belastningsutjämnare använder hälsoavsökningar för att avgöra vilken serverdel pool-instans som ska ta emot nya flöden. När en hälsoavsökningen inte belastningsutjämnaren slutar att skicka nya flöden till respektive feltillstånd instansen och påverkas inte befintliga flöden på instansen.  När alla instanser för backend-adresspool avsökning ned, kommer alla befintliga flöden timeout på alla instanser i serverdelspoolen.
 
-Molntjänstroller (arbetsroller och webbroller) kan du använda gästagent för avsökning övervakning. Anpassade TCP eller HTTP-avsökningar måste konfigureras när du använder virtuella datorer bakom belastningsutjämnaren.
+Molntjänstroller (arbetsroller och webbroller) kan du använda gästagent för avsökning övervakning. TCP eller HTTP anpassade hälsoavsökningar måste konfigureras när du använder virtuella datorer bakom belastningsutjämnaren.
 
 ## <a name="understand-probe-count-and-timeout"></a>Förstå avsökningen antal och timeout
 

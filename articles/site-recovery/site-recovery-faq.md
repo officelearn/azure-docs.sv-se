@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -55,14 +55,14 @@ Om du vill replikera till ett sekundärt datacenter Hyper-V-datorer måste vara 
 Ja. Du kan antingen replikera virtuella datorer i Hyper-V-servrar i VMM-moln till Azure eller replikera mellan VMM-moln på samma server. För lokal till lokal replikering rekommenderar vi att du har en VMM-server i både de primära och sekundära platserna.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Vilka fysiska servrar kan jag skydda?
-Du kan replikera fysiska servrar som kör Windows och Linux till Azure eller till en sekundär plats. [Lär dig mer om](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) krav på operativsystem.  Samma krav gäller oavsett om du replikerar fysiska servrar till Azure eller till en sekundär plats.
+Du kan replikera fysiska servrar som kör Windows och Linux till Azure eller till en sekundär plats. Lär dig mer om kraven för [replikering till Azure](vmware-physical-azure-support-matrix.md#replicated-machines), och [replikering till en sekundär plats](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Observera att fysiska servrar körs som virtuella datorer i Azure om lokal server kraschar. Återställning till en lokal fysisk server stöds inte för närvarande. För en dator som skyddas som fysiska kan du endast återställning till en virtuell dator för VMware.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Vilka virtuella VMware-datorer kan jag skydda?
 
-För att skydda virtuella VMware-datorer behöver du en vSphere-hypervisor och virtuella datorer som kör VMware-verktyg. Vi rekommenderar också att du har en VMware vCenter-server för att hantera hypervisorer. [Lär dig mer](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) om de exakta kraven för att replikera VMware-servrar och virtuella datorer till Azure eller till en sekundär plats.
+För att skydda virtuella VMware-datorer behöver du en vSphere-hypervisor och virtuella datorer som kör VMware-verktyg. Vi rekommenderar också att du har en VMware vCenter-server för att hantera hypervisorer. Mer information om kraven för [replikering till Azure](vmware-physical-azure-support-matrix.md#replicated-machines), eller [replikering till en sekundär plats](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Kan jag hantera haveriberedskap för mina avdelningskontor med Site Recovery?
@@ -93,7 +93,7 @@ Azure Site Recovery replikerar data till Azure storage-konto via en offentlig sl
 Ja, ExpressRoute kan användas för att replikera virtuella datorer till Azure. Azure Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste ställa in [offentlig peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) att använda ExpressRoute för Site Recovery replikering. När de virtuella datorerna har har redundansväxlats till Azure-nätverk kan du komma åt dem med hjälp av den [privat peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) installation med virtuella Azure-nätverket.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Finns det några krav för att replikera virtuella datorer till Azure?
-Virtuella datorer du vill replikera till Azure måste uppfylla [krav för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+[Virtuella VMware-datorer](vmware-physical-azure-support-matrix.md#replicated-machines) och [Hyper-V VMs](hyper-v-azure-support-matrix.md#replicated-vms) du vill replikera till Azure måste uppfylla kraven för Azure.
 
 Ditt Azure-konto måste ha vissa [behörigheter](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) att aktivera replikering för en ny virtuell dator till Azure.
 

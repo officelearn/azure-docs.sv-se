@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
 ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -213,7 +213,7 @@ Microsoft följer en strikt process som inte tillåter internt tekniker för fj�
 Det här felet kan uppstå om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa steg för att lösa problemet:
 
 1. Högerklicka på RDP-filen som du hämtade och välj **redigera**.
-2. Lägg till ”& #92”; som prefix före användarnamnet. Till exempel använda **. \username** i stället för **användarnamn**.
+2. Lägg till ”&#92;” som prefix före användarnamnet. Till exempel använda **. \username** i stället för **användarnamn**.
 
 ## <a name="scaling"></a>Skalning
 
@@ -279,7 +279,7 @@ Azure kommer inte att skriva något % approot % enheten. När den virtuella Hår
 Du kan aktivera tillägget för program mot skadlig kod med hjälp av PowerShell-skript i aktiviteten startades. Följ stegen i följande artiklar för att implementera den: 
  
 - [Skapa en startåtgärd för PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Ange AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Mer information om scenarier för distribution av program mot skadlig kod och hur du aktiverar från portalen finns [scenarier för distribution av program mot skadlig kod](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 

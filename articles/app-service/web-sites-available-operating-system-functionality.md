@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativsystemet funktioner i Azure App Service
 Den här artikeln beskrivs vanliga grundläggande operativsystem-funktioner som är tillgänglig för alla appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverket och till registret och diagnostik loggar och händelser. 
@@ -79,7 +79,7 @@ Arbetskatalogen innehåller en app innehåll och programkod kan skriva till den.
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Nätverksåtkomst
-Programkod kan använda TCP/IP och UDP-baserat protokoll för att utgående nätverksanslutningar till Internet tillgänglig slutpunkter som exponerar externa tjänster. Appar kan använda dessa samma protokoll för att ansluta till tjänster i Azure & #151, till exempel genom att etablera HTTPS-anslutningar till SQL-databas.
+Programkod kan använda TCP/IP och UDP-baserat protokoll för att utgående nätverksanslutningar till Internet tillgänglig slutpunkter som exponerar externa tjänster. Appar som kan använda dessa samma protokoll för att ansluta till tjänster i Azure&#151;exempelvis genom att etablera HTTPS-anslutningar till SQL-databas.
 
 Det finns också en begränsad funktion för appar att upprätta en anslutning för lokal loopback och har en app som lyssnar på den lokala loopback-socketen. Den här funktionen finns i första hand för att aktivera appar som lyssnar på lokal loopback sockets som en del av deras funktioner. Observera att varje app ser en ”privat” loopback-anslutning. App ”A” kan inte lyssna på en lokal loopback socket som upprättas av app ”B”.
 

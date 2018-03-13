@@ -35,6 +35,7 @@
 ### Konfigurera Fjärrskrivbord
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Distribuera
 ### [Skapa och distribuera en molntjänst i portalen](cloud-services-how-to-create-deploy-portal.md)

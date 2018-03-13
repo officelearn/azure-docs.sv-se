@@ -38,7 +38,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 
 | Funktion | Support |
 | --- | --- |
-| Anslutna datakällan |Anslutningen stöds med alla 64-bitars ODBC-drivrutiner. Den har testats med följande: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 11 &10;g</li><li>MySQL 5.x</li> |
+| Anslutna datakällan |Anslutningen stöds med alla 64-bitars ODBC-drivrutiner. Den har testats med följande: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Scenarier |<li>Livscykelhantering för objektet</li><li>Lösenordshantering</li> |
 | Åtgärder |<li>Fullständig Import och Deltaimport, Export</li><li>För Export: Lägga till, ta bort uppdateringen, och Ersätt</li><li>Ange lösenord, ändra lösenord</li> |
 | Schema |<li>Dynamisk identifiering av objekt och attribut</li> |

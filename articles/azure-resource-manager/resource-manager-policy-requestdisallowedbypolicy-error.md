@@ -11,21 +11,21 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>RequestDisallowedByPolicy fel med Azure resursprincip
 
 Den här artikeln beskriver orsaken till felet RequestDisallowedByPolicy, ger den också lösning för det här felet.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du försöker utföra åtgärden under distributionen kan du få en **RequestDisallowedByPolicy** fel som förhindrar åtgärd från att slutföras. I följande exempel visar felet:
+Under distributionen kan du få en **RequestDisallowedByPolicy** fel som förhindrar att skapa resurser. I följande exempel visar felet:
 
 ```json
 {
@@ -40,7 +40,7 @@ När du försöker utföra åtgärden under distributionen kan du få en **Reque
 
 Använd följande någon av metoderna för att hämta information om den princip som blockeras distributionen:
 
-### <a name="method-1"></a>Metod 1
+### <a name="powershell"></a>PowerShell
 
 I PowerShell anger du den princip-ID som den `Id` parametern för att hämta information om den princip som blockerats av din distribution.
 
@@ -48,9 +48,9 @@ I PowerShell anger du den princip-ID som den `Id` parametern för att hämta inf
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Metod 2 
+### <a name="azure-cli"></a>Azure CLI
 
-Ange namnet på definitionen av principen i Azure CLI 2.0: 
+Ange namnet på definitionen av principen i Azure CLI 2.0:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Lösning
 
-IT-avdelningen kan tillämpa en resursprincip som förhindrar att skapa offentlig IP-adresser, Nätverkssäkerhetsgrupper, användardefinierade vägar eller routningstabeller för säkerhet och efterlevnad. Felmeddelandet i den **symptom** avsnitt visar en princip med namnet **regionPolicyDefinition**. Din princip kan ha ett annat namn.
-Arbeta med din IT-avdelningen att granska principer för företagsresurser för att lösa problemet, och så att utföra den begärda åtgärden i enlighet med dessa principer.
+För säkerhets- eller efterlevnad kan prenumerationsadministratörer tilldela principer som begränsar hur resurser har distribuerats. Din prenumeration kan till exempel har en princip som förhindrar att skapa offentlig IP-adresser, Nätverkssäkerhetsgrupper, användardefinierade vägar eller routningstabeller. Felmeddelandet i den **symptom** avsnitt visar namnet på principen.
+Lös problemet, granska principer för företagsresurser och bestämma hur du distribuerar resurser som är kompatibla med dessa principer.
 
 Mer information finns i följande artiklar:
 
-- [Översikt över princip för resurs](resource-manager-policy.md)
-- [Visa principtilldelningar via portalen](resource-manager-policy-portal.md)
+- [Vad är Azure principen?](../azure-policy/azure-policy-introduction.md)
+- [Skapa och hantera principer för att tvinga kompatibilitet](../azure-policy/create-manage-policy.md)

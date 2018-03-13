@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -37,14 +37,15 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |
 | Konflikt | Du begär en åtgärd som inte tillåts i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på diskar endast när du skapar en virtuell dator eller när den virtuella datorn har frigjorts. | |
 | DeploymentActive | Vänta tills samtidiga distributionen till den här resursgruppen ska slutföras. | |
+| DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller de information du behöver för att lösa felet. Titta i felinformationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
 | DnsRecordInUse | DNS-postnamn måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
 | ImageNotFound | Kontrollera inställningarna för VM-avbildning. |  |
 | InUseSubnetCannotBeDeleted | Det här felet kan uppstå när du försöker uppdatera en resurs, men begäran har bearbetats genom att ta bort och skapa resursen. Se till att ange alla värden som är oförändrade. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för den lämpliga innehavaren. Du kan bara hämta token från den klient som kontot tillhör. | |
-| InvalidContentLink | Du har troligen försökt att länka till en kapslad mall som inte är tillgänglig. Kontrollera den URI som du angav för den kapslade mallen. Om mallen finns i ett lagringskonto, kontrollera att URI: N är tillgänglig. Du kan behöva passera en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |
+| InvalidContentLink | Du har troligen försökt att länka till en kapslad mall som inte är tillgänglig. Kontrollera den URI som du angav för den kapslade mallen. Om mallen finns i ett lagringskonto, kontrollera att URI: N är tillgänglig. Du kan behöva passera en SAS-token. | [länkade mallar](resource-group-linked-templates.md) |
 | InvalidParameter | Ett av de värden som du angav för en resurs matchar inte det förväntade värdet. Det här felet kan bero på många olika villkor. Till exempel ett lösenord kan vara otillräcklig eller en blobbnamnet kan vara felaktigt. Läs felmeddelandet att avgöra vilket värde som behöver åtgärdas. | |
 | InvalidRequestContent | Värden krävs för din distribution värden som innehåller värden som inte förväntas eller saknas. Kontrollera värdena för din resurstypen. | [Mallreferensen](/azure/templates/) |
-| InvalidRequestFormat | Aktivera felsökningsloggning vid körning av distributionen och kontrollera innehållet i begäran. | [Felsökningsloggning](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Aktivera felsökningsloggning vid körning av distributionen och kontrollera innehållet i begäran. | [Felsökningsloggning](#enable-debug-logging) |
 | InvalidResourceNamespace | Kontrollera resursnamnrymden som du angav i den **typen** egenskapen. | [Mallreferensen](/azure/templates/) |
 | InvalidResourceReference | Resursen finns ännu inte eller är felaktigt refererar till. Kontrollera om du behöver lägga till ett beroende. Kontrollera att din användning av den **referens** funktion innehåller de obligatoriska parametrarna för ditt scenario. | [Lös beroenden](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Kontrollera resursen skriver du angav i den **typen** egenskapen. | [Mallreferensen](/azure/templates/) |
@@ -75,7 +76,124 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 
 ## <a name="find-error-code"></a>Hitta felkod
 
-När det uppstår ett fel under distributionen av returnerar Resource Manager en felkod. Du kan se felmeddelandet via portalen, PowerShell eller Azure CLI. Yttre felmeddelandet kan vara för allmänna för felsökning. Leta efter inre meddelandet som innehåller detaljerad information om felet. Mer information finns i [fastställa felkoden](resource-manager-troubleshoot-tips.md#determine-error-code).
+Det finns två typer av fel som du kan ta emot:
+
+* Verifieringsfel
+* Distributionsfel
+
+Verifieringsfel uppstår scenarier som kan fastställas innan distribution. De omfattar syntaxfel i mallen, eller försök att distribuera resurser som skulle överskrida kvoter för din prenumeration. Distributionsfel uppkommer villkor som kan inträffa under distributionsprocessen. De omfattar försöker komma åt en resurs som distribueras parallellt.
+
+Båda typerna av fel returnerar en felkod som används för att felsöka distributionen. Båda typerna av fel visas i den [aktivitetsloggen](resource-group-audit.md). Dock visas inte valideringsfel i distributionshistoriken eftersom distributionen har startat.
+
+### <a name="validation-errors"></a>Verifieringsfel
+
+När du distribuerar via portalen finns ett verifieringsfel efter att ha skickat värdena.
+
+![Visa portal verifieringsfel](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Välj meddelandet för mer information. I följande bild visas en **InvalidTemplateDeployment** fel och ett meddelande som anger en princip blockeras distributionen.
+
+![Visa valideringsinformation](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Distributionsfel
+
+När åtgärden har klarat valideringen men misslyckas under distributionen, visas fel i meddelanden. Markera meddelandet.
+
+![meddelandet-fel](./media/resource-manager-common-deployment-errors/notification.png)
+
+Du kan visa mer information om hur du distribuerar. Välj alternativet för att få mer information om felet.
+
+![distributionen misslyckades](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Du ser felmeddelandet och felkoder. Observera att det finns två felkoder. Första felkoden (**DeploymentFailed**) är ett allmänt fel som inte ger de information du behöver för att lösa felet. Andra felkoden (**StorageAccountNotFound**) innehåller de information du behöver. 
+
+![felinformation](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
+
+Ibland behöver mer information om begäran och svar för att lära dig vad som gick fel. Du kan begära att ytterligare information loggas under en distribution med hjälp av PowerShell eller Azure CLI.
+
+- PowerShell
+
+   I PowerShell, ange den **DeploymentDebugLogLevel** parameter till alla, ResponseContent eller RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Kontrollera begäran innehåll med följande cmdlet:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   Eller innehåll med svaret:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Den här informationen kan hjälpa dig att avgöra om ett värde i mallen felaktigt anges.
+
+- Azure CLI
+
+   Undersök distributionsåtgärder med följande kommando:
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Kapslad mall
+
+   Logga felsökningsinformation för en kapslad mall med det **debugSetting** element.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Skapa en mall för felsökning
+
+I vissa fall är det enklaste sättet att felsöka mallen för att testa delar av den. Du kan skapa en förenklad mall som gör det möjligt att fokusera på den del som du tror orsakar felet. Anta att du får ett fel när du refererar till en resurs. Skapa en mall som returnerar den del som orsakar problemet i stället för hantering av en hel mall. Det kan hjälpa dig att avgöra om du skickar in rätt parametrar med hjälp av Mallfunktioner korrekt, och hämtar resursen du förväntar dig.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+Eller anta att det uppstår distributionsfel som du tror är relaterade till felaktigt angiven beroenden. Testa din mall genom att dela upp den i förenklad mallar. Först skapa en mall som distribuerar en enskild resurs (till exempel en SQL Server). Lägga till en resurs som är beroende av den (till exempel en SQL-databas) när du är säker på att du har den här resursen korrekt definierad. Lägg till andra beroende resurser (till exempel granskningsprinciper) när du har de två resurser korrekt definierad. Ta bort resursgruppen för att se till att du testar rätt beroenden mellan varje test-distribution.
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs om granskning åtgärder i [granskningsåtgärder med Resource Manager](resource-group-audit.md).

@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ff8c6cad7f9c63fe6403fbf292fa3eab3373aed
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-instansen migrering till Azure SQL-hanterade databasinstans
 
@@ -83,7 +83,7 @@ Den [Azure databas migrering Service (DMS)](../dms/dms-overview.md) är en helt 
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-Läs mer om det här scenariot och konfigurationssteg för DMS i [migrera dina lokala databasen till hanterade instans med DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+Läs mer om det här scenariot och konfigurationssteg för DMS i [migrera dina lokala databasen till hanterade instans med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### <a name="native-restore-from-url"></a>Intern återställning från en URL
 
@@ -129,4 +129,4 @@ Dessutom kan du inte behöver bry dig om hur du konfigurerar hög tillgänglighe
 
 - Information om hanterade instansen finns [vad är en hanterad instans?](sql-database-managed-instance.md)
 - En självstudiekurs som innehåller en återställning från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-tutorial-portal.md).
-- Självstudiekurs visar migrering med hjälp av DMS, se [migrera dina lokala databasen till hanterade instans med DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+- Självstudiekurs visar migrering med hjälp av DMS, se [migrera dina lokala databasen till hanterade instans med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

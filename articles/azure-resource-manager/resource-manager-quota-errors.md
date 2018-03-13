@@ -11,19 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
 Den här artikeln beskriver kvoten fel som kan uppstå när du distribuerar resurser.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 Om du distribuerar en mall som skapar resurser som överskrider Azure-kvoter får du ett distribueringsfel som ser ut som:
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Kvoter tillämpas per resursgrupp, prenumerationer, konton och andra scope. Din prenumeration kan exempelvis konfigureras för att begränsa antalet kärnor för en region. Om du försöker att distribuera en virtuell dator med flera kärnor än den tillåtna visas ett felmeddelande om kvoten har överskridits.
 För fullständig kvotinformation finns i [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Lösning
+## <a name="troubleshooting"></a>Felsökning
 
-### <a name="solution-1"></a>Lösning 1
+### <a name="azure-cli"></a>Azure CLI
 
 Azure CLI, använder den `az vm list-usage` kommando för att hitta kvoter för virtuell dator.
 
@@ -73,7 +73,7 @@ Som returnerar:
 ]
 ```
 
-### <a name="solution-2"></a>Lösning 2
+### <a name="powershell"></a>PowerShell
 
 PowerShell, Använd den **Get-AzureRmVMUsage** kommando för att hitta kvoter för virtuell dator.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Lösning 3
+## <a name="solution"></a>Lösning
 
 Gå till portalen för att begära en ökad kvot och filen ett supportproblem. I support-problemet du begära en ökning av din kvot för den region som du vill distribuera.
 

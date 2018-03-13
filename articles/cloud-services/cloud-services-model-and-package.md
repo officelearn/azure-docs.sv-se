@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är Cloud Service-modell och hur jag paketera den?
 En molnbaserad tjänst skapas från tre komponenter, tjänstdefinitionen *(.csdef)*, service-config *(.cscfg)*, och inget tjänstepaket *(.cspkg)*. Både den **ServiceDefinition.csdef** och **ServiceConfig.cscfg** filer är XML-baserade och beskriver strukturen för Molntjänsten och hur den är konfigurerad, kallade modellen. Den **ServicePackage.cspkg** är en zip-fil som skapas från den **ServiceDefinition.csdef** och bland annat innehåller alla nödvändiga binary-baserade beroenden. Azure skapar en molnbaserad tjänst från både den **ServicePackage.cspkg** och **ServiceConfig.cscfg**.
@@ -91,7 +91,7 @@ Den **ServiceDefinition.csdef** filen anger de inställningar som används av Az
 
 Du kan referera till den [Service Definition schemat](https://msdn.microsoft.com/library/azure/ee758711.aspx) för en bättre förståelse av XML-schemat som används här, men här är en snabb förklaring av vissa element:
 
-**Webbplatser**  
+**webbplatser**  
 Innehåller definitioner för webbplatser eller web program som finns i IIS7.
 
 **InputEndpoints**  
@@ -269,7 +269,7 @@ Där definieras variablerna enligt följande:
 | --- | --- |
 | \[DirectoryName\] |Underkatalog under projektets rotkatalog som innehåller .csdef-filen för Azure-projekt. |
 | \[ServiceDefinition\] |Namnet på tjänstdefinitionsfilen. Som standard är den här filen namnet ServiceDefinition.csdef. |
-| \[Utdatafilnamn\] |Namnet på filen i paketet. Normalt anges till namnet på programmet. Om inget filnamn har angetts programpaketet skapas som \[ApplicationName\].cspkg. |
+| \[OutputFileName\] |Namnet på filen i paketet. Normalt anges till namnet på programmet. Om inget filnamn har angetts programpaketet skapas som \[ApplicationName\].cspkg. |
 | \[RoleName\] |Namnet på rollen som definierats i tjänstdefinitionsfilen. |
 | \[RoleBinariesDirectory] |Platsen för de binära filerna för rollen. |
 | \[VirtualPath\] |Fysiska kataloger för varje virtuell sökväg som definierats i avsnittet platser i tjänstdefinitionen. |
@@ -291,7 +291,7 @@ Jag använder Visual Studio och vill...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

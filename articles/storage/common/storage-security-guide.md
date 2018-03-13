@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: e365c1c8abb3799805e715945e8b74292995c5ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 
@@ -214,7 +214,7 @@ Till exempel med våra URL misslyckas om URL: en pekar på en fil i stället fö
 * En tjänstnivå SAS kan användas för åtkomst till specifika resurser i ett lagringskonto. Några exempel på detta hämtar en lista över blobbar i en behållare för att hämta en blob, uppdaterar en entitet i en tabell, lägga till meddelanden till en kö eller överför en fil till en filresurs.
 * En kontonivå SAS kan användas för åtkomst till allt som en tjänstnivå SAS kan användas för. Dessutom kan den ge alternativ till resurser som inte tillåts med en tjänstnivå SAS, till exempel möjligheten att skapa behållare, tabeller, köer och filresurser. Du kan också ange åtkomst för flera tjänster på samma gång. Du kan till exempel ge någon åtkomst till både blobbar och filer på ditt lagringskonto.
 
-#### <a name="creating-an-sas-uri"></a>Skapa en SAS-URI
+#### <a name="creating-a-sas-uri"></a>Skapa en SAS-URI
 1. Du kan skapa en URI på begäran, definiera frågeparametrar varje gång.
 
    Den här metoden är flexibla, men om du har en logisk uppsättning parametrar som liknar varje gång med hjälp av en åtkomstprincip för lagras är en bättre uppfattning.
@@ -376,7 +376,7 @@ Kryptering på klientsidan är mer belastningen på klienten och du behöver kon
 
 #### <a name="storage-service-encryption-sse"></a>Storage Service-kryptering (SSE)
 
-SSE hanteras av Azure Storage. SSE ger inte för att skydda data under överföring, men den krypterar data som skrivs till Azure Storage. Det finns ingen inverkan på prestanda från SSE.
+SSE hanteras av Azure Storage. SSE ger inte för att skydda data under överföring, men den krypterar data som skrivs till Azure Storage. SSE påverkar inte prestanda för Azure Storage.
 
 Du kan kryptera alla typer av data för storage-konto med hjälp av SSE (blockblobbar, tilläggsblobbar, sidblobar, tabelldata, kö-data och filer).
 

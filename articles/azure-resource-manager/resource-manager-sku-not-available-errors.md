@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU är inte tillgänglig
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-storlek) inte är tillgänglig för den plats som du har valt.
 
-## <a name="solution"></a>Lösning
+## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
 
-För att lösa problemet måste du bestämma vilka SKU: er är tillgängliga i en region. Du kan använda PowerShell, portalen eller en REST-åtgärden för att hitta tillgängliga SKU: er.
-
-### <a name="solution-1"></a>Lösning 1
-
-Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) i PowerShell. Filtrera resultatet av platsen. Du måste ha den senaste versionen av PowerShell för det här kommandot.
+Om du vill avgöra vilka SKU: er är tillgängliga i en region, Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) kommando. Filtrera resultatet av platsen. Du måste ha den senaste versionen av PowerShell för det här kommandot.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Lösning 2
+## <a name="solution-2---azure-cli"></a>Lösning 2 - Azure CLI
 
-I Azure CLI, använder den `az vm list-skus` kommando. Du kan sedan använda `grep` eller ett liknande verktyg för att filtrera utdata.
+Använd för att fastställa vilka SKU: er är tillgängliga i en region på `az vm list-skus` kommando. Du kan sedan använda `grep` eller ett liknande verktyg för att filtrera utdata.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Lösning 3
+## <a name="solution-3---azure-portal"></a>Lösning 3 - Azure-portalen
 
-Använd den [portal](https://portal.azure.com). Logga in på portalen och lägga till en resurs via gränssnittet. När du anger värden kan du se tillgängliga SKU: er för den här resursen. Du behöver inte distribueras.
+Om du vill avgöra vilka SKU: er är tillgängliga i en region, Använd den [portal](https://portal.azure.com). Logga in på portalen och lägga till en resurs via gränssnittet. När du anger värden kan du se tillgängliga SKU: er för den här resursen. Du behöver inte distribueras.
 
 ![tillgängliga SKU: er](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Lösning 4
+## <a name="solution-4---rest"></a>Lösning 4 - REST
 
-Använda REST API för virtuella datorer. Skicka följande begäran:
+Använda REST API för virtuella datorer för att avgöra vilka SKU: er är tillgängliga i en region. Skicka följande begäran:
 
 ```HTTP 
 GET

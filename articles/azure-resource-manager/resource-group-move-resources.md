@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -99,7 +99,7 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 * Flytta dina resurser till en ny Azure-konto (och Azure Active Directory-klient) och du behöver hjälp med instruktionerna i föregående avsnitt.
 * Flytta klassiska resurser men har problem med begränsningar.
 
-## <a name="services-that-enable-move"></a>Tjänster som gör att flytta
+## <a name="services-that-can-be-moved"></a>Tjänster som kan flyttas
 
 Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration är:
 
@@ -149,7 +149,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Virtuella nätverk - finns [begränsningar för virtuella nätverk](#virtual-networks-limitations)
 * VPN-gateway
 
-## <a name="services-that-do-not-enable-move"></a>Tjänster som inte gör flytta
+## <a name="services-that-cannot-be-moved"></a>Tjänster som inte kan flyttas
 
 De tjänster som för närvarande inte aktiverar flytta en resurs är:
 
@@ -307,7 +307,7 @@ Anta att du har ställt in replikering av din lokala datorer till ett lagringsko
 Att flytta en virtuell dator har registrerats i **Azure backup** mellan resursgrupper:
  1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
  2. Flytta den virtuella datorn till målresursgruppen
- 3. Skydda den på nytt under samma/nya valvet användare kan återställa från tillgängliga återställningspunkter som skapats före flyttningen.
+ 3. Skydda den igen under samma/nya valvet användare kan återställa från tillgängliga återställningspunkter som skapats före flyttningen.
 Om användaren flyttar den virtuella datorn säkerhetskopierade alla prenumerationer, desamma steg 1 och 2. Användaren behöver skydda den virtuella datorn under ett nytt valv finns / i målprenumerationen i steg 3. Recovery Services-ventilen stöder inte mellan prenumeration säkerhetskopieringar.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-begränsningar

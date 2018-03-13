@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Översikt över Reliable Services
 Azure Service Fabric gör det enklare att skriva och hantera tillståndslösa och tillståndskänsliga Reliable Services. Detta avsnitt:
@@ -87,10 +87,6 @@ Ett vanligt exempel på hur tillståndslösa tjänster används i Service Fabric
 En tillståndskänslig service är en som måste ha en del av tillstånd hålls konsekvent och finns i för att tjänsten ska fungera. Överväg att en tjänst som ständigt beräknar en rullande medelvärdet för ett värde baserat på den tar emot uppdateringar. Om du vill göra det, måste den ha den aktuella uppsättningen av inkommande begäranden måste processen och aktuella medelvärdet. Alla tjänster som hämtar bearbetar och lagrar information i en extern butik (till exempel ett Azure blob eller tabell store idag) är tillståndskänslig. Den bevarar bara dess tillstånd i externa tillståndslagret.
 
 De flesta tjänster lagra idag deras tillstånd externt, eftersom den externa lagringen är vad tillhandahåller tillförlitlighet, tillgänglighet, skalbarhet och konsekvens för det aktuella tillståndet. I Service Fabric krävs inte services för att lagra sina externt tillstånd. Service Fabric hand tar om kraven för både kod och tjänstens tillstånd.
-
-> [!NOTE]
-> Stöd för tillståndskänsliga Reliable Services är inte tillgängligt på Linux ännu (för C# och Java).
->
 
 Anta att vi vill att skriva en tjänst som bearbetar bilder. Detta gör tar tjänsten i en avbildning och Antal konverteringar att utföra på avbildningen. Den här tjänsten returnerar en lyssnare för kommunikation (vi anta att det är en WebAPI) som visar en API som `ConvertImage(Image i, IList<Conversion> conversions)`. När den tar emot en begäran om tjänsten lagrar den i en `IReliableQueue`, och returnerar vissa-id till klienten så att den kan spåra begäran.
 

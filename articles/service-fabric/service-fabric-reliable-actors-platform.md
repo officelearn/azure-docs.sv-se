@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabric-plattformen
 Den här artikeln förklarar hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors som körs i ett ramverk som är värd för en implementering av en tillståndskänslig tillförlitlig tjänst kallas den *aktören tjänsten*. Tjänsten aktören innehåller alla komponenter som krävs för att hantera livscykeln och meddelandet sändning för din aktörer:
@@ -41,9 +41,6 @@ I Reliable Services tjänsten ärver den `StatefulService` klass. Den här klass
 * Tjänsten säkerhetskopiering och återställning.
 * Delade funktioner för alla aktörer, till exempel strömbrytare.
 * RPC-anrop på tjänsten aktören och på varje enskild aktören.
-
-> [!NOTE]
-> Tillståndskänsliga tjänster stöds inte i Java-/ Linux.
 
 ### <a name="using-the-actor-service"></a>Med hjälp av tjänsten aktören
 Aktören instanser har åtkomst till tjänsten aktören de körs. Via tjänsten aktören hämta aktören instanser programmässigt kontext för tjänster. Tjänsten kontexten har partitions-ID, namn, programnamn och andra plattformsspecifika Service Fabric-information:
@@ -347,7 +344,7 @@ Aktörstjänster är partitionerad tillståndskänsliga tjänster. Varje partiti
 Reliable Services kan skapas med annan partitionsscheman och partition nyckelintervall. Tjänsten aktören använder Int64 partitioneringsschema med fullständig viktiga Int64-intervall för att mappa aktörer till partitioner.
 
 ### <a name="actor-id"></a>Aktörs-ID
-Varje aktören som skapas i tjänsten har ett unikt ID som är associerade med den representeras av den `ActorId` klass. `ActorId`är ett täckande ID-värde som kan användas för jämn fördelning av aktörer över partitioner för tjänsten genom att generera slumpmässigt ID: N:
+Varje aktören som skapas i tjänsten har ett unikt ID som är associerade med den representeras av den `ActorId` klass. `ActorId` är ett täckande ID-värde som kan användas för jämn fördelning av aktörer över partitioner för tjänsten genom att generera slumpmässigt ID: N:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());

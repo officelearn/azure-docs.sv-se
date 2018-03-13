@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -768,12 +768,27 @@ Om du vill göra detta måste du använda [Workday Studio](https://community.wor
 
 * En tidigare med visas inte i Azure AD-klienter finns i Europeiska unionen-granskningsloggarna är löst. Dock krävs ytterligare konfigurationen för Azure AD-klienter i EU. Mer information finns i [del 3: konfigurera lokal synkronisering agent](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>BNPR kompatibilitet
 
-## <a name="additional-resources"></a>Ytterligare resurser
-* [Självstudier: Konfigurera enkel inloggning mellan Workday och Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[Allmänna Data Protection förordning (BNPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) är en Europeiska unionen (EU) data protection och sekretess lag. BNPR inför regler på företag, myndigheter, icke-vinst och andra organisationer som erbjuder varor och tjänster till personer i EU eller samla in och analysera data som är knutna till Europa boende. 
+
+Azure AD-etablering tjänsten är BNPR kompatibla tillsammans med resten av Microsofts tjänster och funktioner. Mer information om Microsofts BNPR artikeln finns det [användarvillkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Eftersom Workday etablering lösning för Active Directory kräver en synkronisering agent installeras på en domänansluten server, finns det dock vissa händelser som du behöver övervaka för att hålla också BNPR som är kompatibla.
+ 
+Agenten skapar loggar i den **Windows-händelseloggen**, som kan innehålla personligt identifierbar information.
+
+Det finns två sätt att hålla BNPR kompatibla:
+
+1. Hämta data för en person på begäran och ta bort data från den personen från Windows-händelseloggar. 
+2. Behåll kvarhållning av Windows-händelseloggar kommer från processen AADSyncAgent under 48 timmar
+
+Information om hur du konfigurerar datalagring för Windows-händelseloggar finns i [inställningar för händelseloggar](https://technet.microsoft.com/en-us/library/cc952132.aspx). Allmän information om Windows-händelseloggen finns [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig hur du granska loggarna och få rapporter om etablering aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Lär dig hur du konfigurerar enkel inloggning mellan Workday och Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](active-directory-saas-tutorial-list.md)
+

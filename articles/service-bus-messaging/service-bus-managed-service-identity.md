@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Hanterade tjänstidentiteten (förhandsgranskning)
 
@@ -62,17 +62,17 @@ Webbprogrammets Hanterade tjänstidentiteten har nu tillgång till Service Bus-n
 
 ### <a name="run-the-app"></a>Kör appen
 
-Nu ändra standardsida för ASP.NET-programmet som du skapade. Du kan också använda web application-kod från [GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Nu ändra standardsida för ASP.NET-programmet som du skapade. Du kan också använda web application-kod från [GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 Sidan Default.aspx är denna sida. Koden kan hittas i filen Default.aspx.cs. Resultatet är ett minimalt webbprogram med några fält och **skicka** och **får** knappar som ansluter till Service Bus antingen skicka eller ta emot meddelanden.
 
-Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objektet har initierats. Istället för att använda tokenleverantör för delad åtkomst-Token (SAS), kod som skapar en tokenleverantör för hanterade tjänstidentiteten med den `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` anropa. Det finns därför inga hemligheter ska behålla och använda. Flödet av hanteringstjänster identitetskontexten till Service Bus och auktorisering handskakningen hanteras automatiskt av tokenleverantör, vilket är en enklare än med hjälp av SAS.
+Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objektet har initierats. Istället för att använda tokenleverantör för delad åtkomst-Token (SAS), kod som skapar en tokenleverantör för hanterade tjänstidentiteten med den `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` anropa. Det finns därför inga hemligheter ska behålla och använda. Flödet av hanteringstjänster identitetskontexten till Service Bus och auktorisering handskakningen hanteras automatiskt av tokenleverantör, vilket är en enklare än med hjälp av SAS.
 
 När du har gjort dessa ändringar, publicera och köra programmet. Ett enkelt sätt att få rätt publicera data är att hämta och sedan importera publiceringsprofilen i Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Ange namnet på namnområdet och namnet på den enhet som du skapade för att skicka eller ta emot meddelanden, och klicka sedan på antingen **skicka** eller **får**. 
+Ange namnet på namnområdet och namnet på den enhet som du skapade för att skicka eller ta emot meddelanden, och klicka sedan på antingen **skicka** eller **får**.
  
 Observera att hanterade tjänstidentiteten fungerar bara i Azure-miljön och endast i App Service-distributionen som du har konfigurerat detta. Observera också att hanteringstjänster identiteter inte fungerar med distributionsplatser för Apptjänst just nu.
 

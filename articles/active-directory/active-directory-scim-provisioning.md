@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för Identitetshantering i domänerna att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -35,7 +35,7 @@ Den här funktionen kan användas tillsammans med funktioner som ”ta med din e
 Det finns två användningsfall för att använda SCIM i Azure Active Directory:
 
 * **Etablering av användare och grupper till program som stöder SCIM** program som stöder SCIM 2.0 och använder OAuth ägar-token för autentisering fungerar med Azure AD utan konfiguration.
-* **Skapa din egen lösning för etablering för program som stöder andra API-baserad etablering** för icke-SCIM program kan du skapa en slutpunkt för SCIM att översätta mellan SCIM för Azure AD-slutpunkten och API: er har stöd för programmet för användaretablering. Vi ger Common Language Infrastructure (CLI) bibliotek och kodexempel som visar hur du gör ger en SCIM slutpunkt och översätta SCIM meddelanden för att hjälpa dig att utveckla en SCIM slutpunkt.  
+* **Skapa din egen lösning för etablering för program som stöder andra API-baserad etablering** för icke-SCIM program, kan du skapa en SCIM slutpunkt att översätta mellan SCIM för Azure AD-slutpunkten och API: er programmet har stöd för användare etablering. Vi ger Common Language Infrastructure (CLI) bibliotek och kodexempel som visar hur du gör ger en SCIM slutpunkt och översätta SCIM meddelanden för att hjälpa dig att utveckla en SCIM slutpunkt.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Etablering av användare och grupper till program som stöder SCIM
 Azure AD kan konfigureras för att automatiskt etablera tilldelade användare och grupper till program som implementerar en [System för domäner Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) webbtjänsten och acceptera OAuth ägar-token för autentisering. Inom SCIM 2.0-specifikationen måste program uppfylla följande villkor:
@@ -685,7 +685,7 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
 ## <a name="group-provisioning-and-de-provisioning"></a>Gruppen etablering och avetablering
 Följande bild visar meddelanden att Azure AcD skickar till en tjänst för SCIM att hantera livscykeln för en grupp i en annan identitet store.  Dessa meddelanden skiljer sig från de meddelanden som hör till användare på tre sätt: 
 
-* Schemat för en gruppresurs identifieras som http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Schemat för en gruppresurs har identifierats som `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Begäranden att hämta grupper kräva att attributet medlemmar är som ska undantas från alla resurser som finns i svaret på begäran.  
 * Förfrågningar att avgöra om ett referensattribut har ett visst värde är förfrågningar om attributet medlemmar.  
 

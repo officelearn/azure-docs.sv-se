@@ -8,20 +8,20 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 329a79511b810159244b5530a49a5916440d2046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Vidarebefordra Blob storage-händelser till en anpassad webbplats slutpunkt med PowerShell
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure PowerShell för att prenumerera på Blob storage-händelser, utlösa en händelse och visa resultatet. 
 
-Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att förenkla exemplet som visas i den här artikeln, skickas händelser till en URL som endast samlar in meddelanden. Du skapar den här URL: en med hjälp av tredjeparts-verktyg från antingen [RequestBin](https://requestb.in/) eller [Hookbin](https://hookbin.com/).
+Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att förenkla exemplet som visas i den här artikeln, skickas händelser till en URL som endast samlar in meddelanden. Du skapar den här URL:en med hjälp av ett tredjepartsverktyg från antingen [RequestBin](https://requestb.in/) eller [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** och **Hookbin** är inte avsedda för användning med hög genomströmning. Användning av dessa verktyg är rent demonstrativt. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
+> **RequestBin** och **Hookbin** är inte avsedda för användning med stora dataflöden. Här används verktygen endast i demonstrativt syfte. Om du push-överför fler än en händelse i taget kanske du inte ser alla händelser i verktyget.
 
 När du slutför stegen som beskrivs i den här artikeln ser du att händelsedata har skickats till en slutpunkt.
 
@@ -65,7 +65,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 Om du vill använda Blob storage-händelser, måste du antingen en [Blob-lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller en [Allmänt v2 lagringskonto](../common/storage-account-options.md#general-purpose-v2). **Allmänna syften v2 (GPv2)** är lagringskonton som stöder alla funktioner för alla lagringstjänster, inklusive Blobbar, filer, köer och tabeller. En **Blob-lagringskonto** är ett specialiserat lagringskonto för att lagra Ostrukturerade data som blobbar (objekt) i Azure Storage. BLOB storage-konton fungerar som allmänna lagringskonton och dela alla bra hållbarhet, tillgänglighet, skalbarhet och prestanda funktioner du använder idag, inklusive 100 procent konsekvent API för blockblobar och tilläggsblobar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.  
 
-Skapa ett Blob storage-konto med LRS replikering [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), hämta kontexten för lagringskontot som definierar lagringskontot som ska användas. När fungerar på ett lagringskonto, referera kontexten i stället för att tillhandahålla autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto som kallas **gridstorage** med lokalt redundant storage(LRS) och blob-kryptering (aktiverat som standard). 
+Skapa ett Blob storage-konto med LRS replikering [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), hämta kontexten för lagringskontot som definierar lagringskontot som ska användas. När fungerar på ett lagringskonto, referera kontexten i stället för att tillhandahålla autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto som kallas **gridstorage** med lokalt redundant lagring (LRS). 
 
 > [!NOTE]
 > Namn på lagringskonton finns i ett globalt namnområde så du behöver lägga till vissa slumpmässiga tecken i namnet i skriptet.
@@ -84,7 +84,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. RequestBin och Hookbin är tredjeparts-verktyg kan du skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [RequestBin](https://requestb.in/), och klicka på **skapa en RequestBin**, eller gå till [Hookbin](https://hookbin.com/) och på **Skapa ny slutpunkt**. Kopiera URL som bin och Ersätt `<bin URL>` i skriptet nedan.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. I stället för att skriva kod för att svar på händelsen ska vi skapa en slutpunkt som samlar in meddelandena så att du kan visa dem. RequestBin och Hookbin är tredjepartsverktyg med öppen källkod som låter dig skapa en slutpunkt och visa förfrågningar som skickas till den. Gå till [RequestBin](https://requestb.in/) och klicka på **Skapa en RequestBin**, eller gå till [Hookbin](https://hookbin.com/) och klicka på **Skapa ny slutpunkt**. Kopiera URL som bin och Ersätt `<bin URL>` i skriptet nedan.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -115,7 +115,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till slutpunkts-URL som du skapade tidigare. Eller klicka på Uppdatera i webbläsaren öppna. Du kan se den händelse du just skickade. 
+Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt du konfigurerade när du startade prenumerationen. Bläddra till slutpunktsadress du skapade tidigare. Du kan också klicka på Uppdatera i webbläsaren du har öppen. Du kan se den händelse du just skickade. 
 
 ```json
 [{

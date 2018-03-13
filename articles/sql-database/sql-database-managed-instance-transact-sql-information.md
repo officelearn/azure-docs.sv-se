@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanteras instans T-SQL-skillnader från SQL Server 
 
@@ -34,7 +34,7 @@ Det här avsnittet beskrivs viktiga skillnader i T-SQL-syntax och beteende mella
  - [SKAPA TILLGÄNGLIGHETSGRUPPEN](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
  - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
  - [TA BORT TILLGÄNGLIGHETSGRUPPEN](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) -satsen i ALTER DATABASE-instruktionen
+ - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) -satsen i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instruktionen
 
 ### <a name="auditing"></a>Granskning 
  
@@ -72,6 +72,8 @@ Begränsningar:
 
 > [!TIP]
 > Att undvika den här begränsningen lokalt, säkerhetskopiering till `DISK` i stället för säkerhetskopiering till `URL`, ladda upp säkerhetskopian för att blob och sedan återställa. Återställ filer som stöder större eftersom en annan blob-typ används.  
+
+Information om säkerhetskopiering med T-SQL finns [säkerhetskopiering](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
 ### <a name="buffer-pool-extension"></a>Buffertpooltillägget 
  
@@ -367,7 +369,7 @@ Följande stöds inte:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-Information om hur du skapar tabeller finns [CREATE TABLE-instruktion](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
+Information om att skapa och ändra tabeller finns [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) och [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
  
 ## <a name="Changes"></a> Funktionsändringar 
  

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -123,7 +123,7 @@ I följande diagram visas två exempel på kopieringsaktivitet:
 ![Vilken IR som ska användas](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Integration Runtime-plats
-Data Factory-platsen är där metadata för datafabriken lagras och där utlösningen av pipeline initieras. De Data Factory-platser som stöds för närvarande är USA, östra, USA, östra 2 och Europa, västra. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster. Det här beteende realiseras via globalt tillgängligt IR i flera regioner för att säkerställa dataefterlevnad, effektivitet och minskade kostnader för nätverksegress.
+Data Factory-platsen är där metadata för datafabriken lagras och där utlösningen av pipeline initieras. De Data Factory-platser som för närvarande stöds är: USA, östra; USA, östra 2; Asien, sydöstra och Europa, västra. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster. Det här beteende realiseras via globalt tillgängligt IR i flera regioner för att säkerställa dataefterlevnad, effektivitet och minskade kostnader för nätverksegress.
 
 IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen där dataflytt, aktivitetssändning och SSIS-paketkörning utförs. IR-platsen kan skilja sig från platsen som datafabriken tillhör. I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 
@@ -176,7 +176,7 @@ IR med egen värd registreras logiskt hos Data Factory och du får beräkningen 
 När IR med egen värd används för att utföra dataflyttning extraherar den data från källan och skriver dem till målet.
 
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
-Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga prestanda i dina arbetsflöden för extrahering, transformering och laddning (ETL).  Inledningsvis är en förhandsversion tillgänglig på två platser (östra USA och norra Europa).
+Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga prestanda i dina arbetsflöden för extrahering, transformering och laddning (ETL).  Sex platser är tillgängliga initialt för förhandsversionen (USA, östra; USA, östra 2; USA, centrala; Australien, östra; Europa, norra och Europa, västra).
 
 - Platsen för din Azure-SSIS IR måste inte vara samma som platsen för din datafabrik men den bör vara samma som platsen för din egen Azure SQL Database-server/hanterad instans-server (privat förhandsversion) där SSISDB ska finnas. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
 - Om du inte har en befintlig Azure SQL Database-server/hanterad instans-server (privat förhandsversion) som värd för SSISDB, men du har lokala datakällor/-mål bör du skapa en ny Azure SQL Database-server/hanterad instans-server (privat förhandsversion) på samma plats som ett VNet som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa din Azure-SSIS IR med den nya Azure SQL Database-servern/hanterad instans-servern (privat förhandsversion) och koppla aktuellt VNet, allt på samma plats, vilket effektivt minimerar dataflyttningar mellan olika platser.

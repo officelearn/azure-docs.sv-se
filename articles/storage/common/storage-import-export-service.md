@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -294,7 +294,7 @@ I följande tabell beskrivs enhet fel tillstånd och åtgärder som vidtas för 
 | Gäller inte | En enhet som inte är en del av jobb som anländer på datacenter som en del av ett annat jobb. | Enheten kommer att markeras som en extra enhet och returneras till kunden när jobbet som är associerade med det ursprungliga paketet har slutförts. |
 
 ### <a name="time-to-process-job"></a>Tid för att bearbeta jobb
-Hur lång tid det tar att bearbeta en import-/ exportjobb varierar beroende på olika faktorer, till exempel leveranstid jobbet typ, typen och storleken på data som kopieras och storleken på de diskar som angetts. Import/Export-tjänsten har inte ett SLA men när diskarna har tagits emot tjänsten strävar efter att slutföra kopian i 7 till 10 dagar. Du kan använda REST API för att spåra jobbförloppet närmare. Det finns en procent fullständig parameter i listan jobb åtgärden som ger en indikation på Kopiera pågår. Nå ut till oss om du behöver en uppskattning att slutföra en kritisk import/export av jobbet.
+Hur lång tid det tar för att bearbeta en import-/ exportjobb varierar beroende på ett antal faktorer, till exempel leveranstiden, belastningen på datacentret, typ och storleken på data som kopieras och antalet diskar i ett jobb. Import/Export-tjänsten har inte ett SLA men tjänsten strävar efter att slutföra kopian i 7 till 10 dagar efter diskarna har tagits emot. Utöver statusen som publiceras på Azure Portal kan REST API: er användas för att följa jobbförloppet. Procent klar parameter i listan jobb igen API-anrop ger procentandel kopiera pågår.
 
 ### <a name="pricing"></a>Prissättning
 **Enheten som hanterar avgift**

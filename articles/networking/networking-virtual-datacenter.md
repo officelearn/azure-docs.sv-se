@@ -1,9 +1,22 @@
 ---
-Rubrik: ”Microsoft Azure virtuella Datacenter: A nätverket perspektiv” | Microsoft Docs beskrivning: Lär dig hur du skapar din virtuella datacenter i Azure-tjänster: nätverk författare: tracsman manager: rossort taggar: azure resource manager
-
-MS.Service: virtuellt nätverk ms.tgt_pltfrm: na ms.devlang: na ms.topic: artikel ms.date: 2017-05/26 ms.author: jonor
+title: "Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv | Microsoft Docs"
+description: "Lär dig hur du skapar din virtuella datacenter i Azure"
+services: networking
+author: tracsman
+manager: rossort
+tags: azure-resource-manager
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/26/2017
+ms.author: jonor
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/12/2018
 ---
-
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuella Microsoft Azure-Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
 

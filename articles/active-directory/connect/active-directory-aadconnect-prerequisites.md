@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect.
@@ -31,6 +31,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
   * Du kan också använda den [Azure-portalen](https://portal.azure.com). Den här portalen kräver inte en Azure AD-licens.
 * [Lägg till och verifiera domänen](../active-directory-domains-add-azure-portal.md) du planerar att använda i Azure AD. Om du planerar att använda contoso.com för din användare och sedan kontrollera att den här domänen har verifierats och du bara använder inte contoso.onmicrosoft.com standarddomän.
 * En Azure AD-klient kan av standardobjekt 50 kB. När du verifierar din domän ökas gränsen på 300 k-objekt. Om du behöver ännu mer objekt i Azure AD, måste du öppna ett supportärende så att den har ökat ytterligare gränsen. Om du behöver mer än 500 kB objekt behöver du en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller Enterprise Mobility and Security.
+* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte.  Du kan installeras modul med det `Install-Module` cmdlet.  Mer information finns i länken.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbereda dina lokala data
 * Använd [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) identifiera fel, till exempel dubbletter och formatering problem i din katalog innan du synkroniserar till Azure AD och Office 365.

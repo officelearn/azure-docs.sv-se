@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 312e8ee3b924fe76e770d8e24e4fc8221e31bffb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Självstudier: Azure Active Directory-integrering med CylancePROTECT
 
@@ -58,7 +58,7 @@ Du måste lägga till CylancePROTECT från galleriet i listan över hanterade Sa
 
 **Utför följande steg för att lägga till CylancePROTECT från galleriet:**
 
-1. I den ** [Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -82,11 +82,11 @@ Azure AD måste du känna till användaren i CylancePROTECT motsvarighet till en
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med CylancePROTECT, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) ** - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) ** - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare CylancePROTECT](#create-a-cylanceprotect-test-user) ** – du har en motsvarighet för Britta Simon i CylancePROTECT som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) ** - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on) ** - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare CylancePROTECT](#create-a-cylanceprotect-test-user)**  – du har en motsvarighet för Britta Simon i CylancePROTECT som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -110,11 +110,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Region | URL-värdet |
     |----------|---------|
-    | Asien nordöst (APNE1)| ` https://login-apne1.cylance.com`|
-    | Asien/Stillahavsområdet, sydost (AU) | `https://login-au.cylance.com` |
-    | Europa Central (EUC1)|`https://login-euc1.cylance.com`|
-    | Nordamerika|`https://login.cylance.com`|
-    | Sydamerika (SAE1)|`https://login-sae1.cylance.com`|
+    | Asien nordöst (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Asien/Stillahavsområdet, sydost (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
+    | Europa Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Nordamerika|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
+    | Sydamerika (SAE1)|`https://login-sae1.cylance.com/EnterpriseLogin/ConsumeSaml`|
     
     b. I den **Reply URL** textruta anger du URL:
     

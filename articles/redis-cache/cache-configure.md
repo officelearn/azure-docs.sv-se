@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Så här konfigurerar du Azure Redis-Cache
-Det här avsnittet beskriver hur du granska och uppdatera konfigurationen för Azure Redis-Cache-instanser och täcker standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.
+Det här avsnittet beskrivs konfigurationerna som är tillgängliga för Azure Redis-Cache-instanser. Det här avsnittet beskrivs även standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.
 
 > [!NOTE]
 > Mer information om hur du konfigurerar och använder premium cache-funktioner finns [hur du konfigurerar persistence](cache-how-to-premium-persistence.md), [konfigurera klustring](cache-how-to-premium-clustering.md), och [så här konfigurerar du stöd för virtuella nätverk ](cache-how-to-premium-vnet.md).
@@ -66,7 +66,7 @@ Du kan visa och konfigurera följande inställningar med hjälp av den **resurs 
     * [Diagnostik](#diagnostics)
 * [Support och felsökning av inställningar](#support-amp-troubleshooting-settings)
     * [Resurshälsa](#resource-health)
-    * [Ny supportbegäran](#new-support-request)
+    * [ny supportbegäran](#new-support-request)
 
 
 ## <a name="overview"></a>Översikt
@@ -79,14 +79,14 @@ Klicka på **aktivitetsloggen** att visa åtgärder som utförs på ditt cachemi
 
 ### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
-Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkontroll (RBAC) i Azure portal för att hjälpa företag att uppfylla krav deras åtkomst bara och exakt. Mer information finns i [rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-configure.md).
+Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkontroll (RBAC) i Azure-portalen. Den här konfigurationen hjälper organisationer att uppfylla krav deras åtkomst bara och exakt. Mer information finns i [rollbaserad åtkomstkontroll i Azure portal](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Taggar
 
 Den **taggar** avsnitt kan du ordna dina resurser. Mer information finns i [med taggar för att organisera dina Azure-resurser](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
+### <a name="diagnose-and-solve-problems"></a>Diagnosticera och lösa problem
 
 Klicka på **diagnostisera och lösa problem** måste anges med vanliga problem och strategier för att lösa dem.
 
@@ -136,7 +136,7 @@ Den **Maxmemory princip**, **maxmemory-reserverade**, och **maxfragmentationmemo
 
 **Maxmemory princip** konfigurerar av principen för cachen och gör att du kan välja mellan följande av principer:
 
-* `volatile-lru`-Detta är standardinställningen.
+* `volatile-lru` -Detta är standardprincipen för borttagning.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,11 +145,11 @@ Den **Maxmemory princip**, **maxmemory-reserverade**, och **maxfragmentationmemo
 
 Mer information om `maxmemory` principer, se [av principer](http://redis.io/topics/lru-cache#eviction-policies).
 
-Den **maxmemory-reserverade** inställningen konfigurerar hur mycket minne i MB som har reserverats för icke-cache-åtgärder som replikering under växling vid fel. Det här värdet kan du ha en mer konsekvent användarupplevelse för Redis-servern när din belastningen varierar. Det här värdet ska anges för arbetsbelastningar som är aktiverat. När minnet reserveras för dessa åtgärder är inte tillgänglig för lagring av cachelagrade data.
+Den **maxmemory-reserverade** inställningen konfigurerar mängden minne i MB som har reserverats för icke-cache-åtgärder, till exempel replikering under växling vid fel. Det här värdet kan du ha en mer konsekvent användarupplevelse för Redis-servern när din belastningen varierar. Det här värdet ska anges för arbetsbelastningar som är aktiverat. När minnet reserveras för dessa åtgärder är inte tillgänglig för lagring av cachelagrade data.
 
-Den **maxfragmentationmemory-reserverade** inställningen konfigurerar hur mycket minne i MB som är reserverade för att anpassa för minnesfragmentering. Det här värdet kan du ha en mer konsekvent Redis-server när cachen är full eller nära full och fragmenteringen förhållandet också är hög. När minnet reserveras för dessa åtgärder är inte tillgänglig för lagring av cachelagrade data.
+Den **maxfragmentationmemory-reserverade** inställningen konfigurerar hur mycket minne i MB som är reserverade för att anpassa för minnesfragmentering. Det här värdet kan du ha en mer konsekvent användarupplevelse för Redis-servern när cachen är full eller nära full och fragmenteringen förhållandet är hög. När minnet reserveras för dessa åtgärder är inte tillgänglig för lagring av cachelagrade data.
 
-En sak att tänka på när du väljer ett nytt minne reservation värde (**maxmemory-reserverade** eller **maxfragmentationmemory-reserverade**) är hur den här ändringen kan påverka en cache som redan körs med stora mängder data. Om du har en 53 GB cache med 49 GB data och sedan ändra värdet för reservation till 8 GB, till exempel kommer detta släppa max tillgängligt minne i systemet till 45 GB. Om din aktuella `used_memory` eller `used_memory_rss` värden är högre än den nya gränsen på 45 GB och systemet måste ta bort data förrän både `used_memory` och `used_memory_rss` är lägre än 45 GB. Borttagning kan öka belastningen och minne fragmentering på servern. Mer information om cache mått som `used_memory` och `used_memory_rss`, se [tillgängliga mått och rapportering intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+En sak att tänka på när du väljer ett nytt minne reservation värde (**maxmemory-reserverade** eller **maxfragmentationmemory-reserverade**) är hur den här ändringen kan påverka en cache som redan körs med stora mängder data. Till exempel om du har en 53 GB cache med 49 GB data och sedan ändra värdet för reservation till 8 GB, släppa max tillgängligt minne i systemet till 45 GB i den här ändringen. Om din aktuella `used_memory` eller `used_memory_rss` värden är högre än den nya gränsen på 45 GB och systemet måste ta bort data förrän både `used_memory` och `used_memory_rss` är lägre än 45 GB. Borttagning kan öka belastningen och minne fragmentering på servern. Mer information om cache mått som `used_memory` och `used_memory_rss`, se [tillgängliga mått och rapportering intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > Den **maxmemory-reserverade** och **maxfragmentationmemory-reserverade** inställningarna är bara tillgängliga för Standard och Premium cachelagrar.
@@ -222,7 +222,7 @@ Om du vill ändra klusterstorleken skjutreglaget eller ange ett tal mellan 1 och
 > 
 
 
-### <a name="redis-data-persistence"></a>Redis datapersistence
+### <a name="redis-data-persistence"></a>Redis-datapersistens
 Klicka på **Redis-datapersistence** för att aktivera, inaktivera eller konfigurera datapersistence för premium-cache. Azure Redis-Cache erbjuder Redis-datapersistence med antingen [RDB beständiga](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF beständiga](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Mer information finns i [hur du konfigurerar persistence för Premium Azure Redis-Cache](cache-how-to-premium-persistence.md).
@@ -269,11 +269,13 @@ Den **virtuellt nätverk** avsnitt kan du konfigurera inställningar för virtue
 
 ### <a name="firewall"></a>Brandvägg
 
-Klicka på **brandväggen** att visa och konfigurera brandväggsregler för din Premium Azure Redis-Cache.
+Regler för brandväggskonfigurationen är tillgänglig för alla nivåer för Azure Redis-Cache.
+
+Klicka på **brandväggen** att visa och konfigurera brandväggsregler för cachen.
 
 ![Brandvägg](./media/cache-configure/redis-firewall-rules.png)
 
-Du kan ange brandväggsregler med en start- och IP-adressintervall. Om brandväggens regler är konfigurerade kan bara klientanslutningar från de angivna IP-adressintervall ansluta till cacheminnet. När en brandväggsregel sparas finns det en kort fördröjning innan regeln börjar gälla. Den här fördröjningen är vanligtvis mindre än en minut.
+Du kan ange brandväggsregler med en start- och IP-adressintervall. Om brandväggens regler är konfigurerade kan bara klientanslutningar från de angivna IP-adressintervall ansluta till cacheminnet. När en brandväggsregel sparas, är det en kort fördröjning innan regeln börjar gälla. Den här fördröjningen är vanligtvis mindre än en minut.
 
 > [!IMPORTANT]
 > Anslutningar från Azure Redis-Cache övervakningssystem tillåts alltid, även om brandväggens regler är konfigurerade.
@@ -365,7 +367,7 @@ Inställningarna i den **stöd + felsökning** avsnittet förse dig med alternat
 ![Support och felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resurshälsa](#resource-health)
-* [Ny supportbegäran](#new-support-request)
+* [ny supportbegäran](#new-support-request)
 
 ### <a name="resource-health"></a>Resurshälsa
 **Resurshälsa** bevakar resurs och anger om den körs som förväntat. Läs mer om tjänsten för hälsotillstånd Azure-resurshanteraren [Azure Resource health översikt](../resource-health/resource-health-overview.md).
@@ -383,10 +385,10 @@ Klicka på **ny supportbegäran** att öppna en supportbegäran för ditt cachem
 
 
 ## <a name="default-redis-server-configuration"></a>Standardkonfigurationen för Redis-server
-Nya Azure Redis-Cache-instanserna är konfigurerade med följande Redis configuration standardvärden.
+Nya Azure Redis-Cache-instanserna är konfigurerade med följande Redis configuration standardvärden:
 
 > [!NOTE]
-> Det går inte att ändra inställningarna i det här avsnittet med hjälp av den `StackExchange.Redis.IServer.ConfigSet` metoden. Om den här metoden anropas med något av kommandona i det här avsnittet, genereras ett undantag som liknar följande:  
+> Det går inte att ändra inställningarna i det här avsnittet med hjälp av den `StackExchange.Redis.IServer.ConfigSet` metoden. Om den här metoden anropas med något av kommandona i det här avsnittet, genereras ett undantag som liknar följande exempel:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,10 +399,10 @@ Nya Azure Redis-Cache-instanserna är konfigurerade med följande Redis configur
 | Inställning | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standardantalet databaser som är 16 men du kan konfigurera ett annat antal baserat på prisnivån. <sup>1</sup> standarddatabasen är DB 0 kan du välja ett annat namn på en per anslutning grunden med hjälp av `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1`. |
-| `maxclients` |Beror på prisnivån<sup>2</sup> |Detta är det maximala antalet anslutna klienter tillåts samtidigt. Gränsen har nåtts stängs Redis när alla nya anslutningar, returnera ett högsta antal klienter uppnåtts. |
+| `maxclients` |Beror på prisnivån<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter tillåts samtidigt. Gränsen har nåtts stängs Redis när alla nya anslutningar, returnera ett högsta antal klienter uppnåtts. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory principen är inställningen för hur Redis väljs vad du vill ta bort när `maxmemory` (storleken på cacheminnet erbjuder du valde när du skapade cachen) har nåtts. Med Azure Redis-Cache standardinställningen är `volatile-lru`, som tar bort nycklarna med ett förfallodatum som anges med en LRU-algoritm. Den här inställningen kan konfigureras i Azure-portalen. Mer information finns i [minne principer](#memory-policies). |
 | `maxmemory-samples` |3 |Om du vill spara minne är LRU- och minimal TTL-algoritmer uppskattade algoritmer istället för exakt algoritmer. Som standard Redis kontrollerar tre nycklar och plockningar som har använts nyligen mindre. |
-| `lua-time-limit` |5,000 |Maximal körningstid för skript Lua i millisekunder. Om den maximala körningstiden uppnås loggar Redis att ett skript är fortfarande i körningen efter att den maximala tillåtna tiden och börjar att besvara frågor med ett fel. |
+| `lua-time-limit` |5 000 |Maximal körningstid för skript Lua i millisekunder. Om den maximala körningstiden uppnås loggar Redis att ett skript är fortfarande i körningen efter att den maximala tillåtna tiden och börjar att besvara frågor med ett fel. |
 | `lua-event-limit` |500 |Maxstorlek på skriptet händelsekön. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Klienten utdata buffert gränser kan användas för att framtvinga frånkoppling av klienter som inte är att läsa data från servern tillräckligt snabbt av någon anledning (en vanlig orsak är att en Pub/Sub-klient inte kan använda meddelanden så snabbt utgivaren kan ge dem). Mer information finns i [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
@@ -495,7 +497,7 @@ När cache med Redis-konsolen med en premium för, kan du skicka kommandon till 
 
 ![Redis-konsolen](./media/cache-configure/redis-console-premium-cluster.png)
 
-Om du försöker komma åt en nyckel som lagras i en annan Fragmentera än anslutna Fragmentera får ett felmeddelande som liknar följande meddelande.
+Om du försöker komma åt en nyckel som lagras i en annan Fragmentera än anslutna Fragmentera, visas ett felmeddelande som liknar följande meddelande:
 
 ```
 shard1>get myKey

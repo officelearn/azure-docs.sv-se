@@ -76,7 +76,7 @@
 
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
-#### [Azure-portalen](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
@@ -95,10 +95,10 @@
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
 ### Hantera gruppinställningar
-#### [Azure-portal](active-directory-groups-settings-azure-portal.md)
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Skapa avancerade regler
-#### [Azure-portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
@@ -146,7 +146,7 @@
 ### [SSPR-datakrav](active-directory-passwords-data.md)
 ### [SSPR-rapportering](active-directory-passwords-reporting.md)
 ### IT-administratörer: Återställ lösenord
-#### [Azure-portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [Licensiera SSPR](active-directory-passwords-licensing.md)
 ### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
 ### [Felsöka](active-directory-passwords-troubleshoot.md)
@@ -290,9 +290,10 @@
 ### [Administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
 #### [Tilldela administratörsroll till en användare](active-directory-users-assign-role-azure-portal.md)
 #### [Jämföra behörigheter för medlemmar och gästanvändare](users-default-permissions.md)
+### [Säker privilegierad åtkomst](admin-roles-best-practices.md) 
+### [Skapa åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
-### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)

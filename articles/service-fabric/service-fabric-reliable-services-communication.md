@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Hur du använder Reliable Services kommunikationen API: er
 Azure Service Fabric en plattform som är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Är det upp till tjänsten utvecklaren kan välja hur tjänster ska kommunicera. Application framework Reliable Services tillhandahåller inbyggd kommunikation stackar samt API: er som du kan använda för att skapa anpassade kommunikationskomponenter.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 För tillståndskänsliga tjänster:
 
-> [!NOTE]
-> Tillståndskänsliga reliable services stöds inte i Java ännu.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -236,7 +239,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`är det objekt som används för att kommunicera med Service Fabric-klustret för olika hanteringsåtgärder på klustret. Detta är användbart när du vill ha mer kontroll över hur en partition DNS-matchare för tjänsten samverkar med klustret. `FabricClient`Utför cachelagring internt och är vanligtvis dyrt att skapa, så det är viktigt att återanvända `FabricClient` instanser så mycket som möjligt.
+`FabricClient` är det objekt som används för att kommunicera med Service Fabric-klustret för olika hanteringsåtgärder på klustret. Detta är användbart när du vill ha mer kontroll över hur en partition DNS-matchare för tjänsten samverkar med klustret. `FabricClient` Utför cachelagring internt och är vanligtvis dyrt att skapa, så det är viktigt att återanvända `FabricClient` instanser så mycket som möjligt.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -267,7 +270,7 @@ Normalt behöver klientkoden inte fungerar med ServicePartitionResolver direkt. 
 ### <a name="communication-clients-and-factories"></a>Klienter för kommunikation och fabriker
 Kommunikation factory biblioteket implementerar ett typiskt försök mönster för hantering av fel som underlättar sprider på nytt anslutningar till löst slutpunkter. Fabriken biblioteket kan försök igen när du anger felhanterare.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`Definierar grundläggande gränssnitt som implementerats av en kommunikation klientfabrik som ger klienter som kan kommunicera med Service Fabric-tjänsten. Implementeringen av CommunicationClientFactory beror på stacken för kommunikation som används av Service Fabric-tjänsten där klienten vill kommunicera. Reliable Services API ger en `CommunicationClientFactoryBase<TCommunicationClient>`. Detta ger en grundläggande implementering av gränssnittet CommunicationClientFactory och utför uppgifter som är gemensamma för alla staplar för kommunikation. (Dessa uppgifter omfattar med en ServicePartitionResolver för att avgöra tjänstslutpunkten). Klienter implementera vanligtvis den abstrakta klassen CommunicationClientFactoryBase för att hantera logik som är specifik för kommunikation stacken.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Definierar grundläggande gränssnitt som implementerats av en kommunikation klientfabrik som ger klienter som kan kommunicera med Service Fabric-tjänsten. Implementeringen av CommunicationClientFactory beror på stacken för kommunikation som används av Service Fabric-tjänsten där klienten vill kommunicera. Reliable Services API ger en `CommunicationClientFactoryBase<TCommunicationClient>`. Detta ger en grundläggande implementering av gränssnittet CommunicationClientFactory och utför uppgifter som är gemensamma för alla staplar för kommunikation. (Dessa uppgifter omfattar med en ServicePartitionResolver för att avgöra tjänstslutpunkten). Klienter implementera vanligtvis den abstrakta klassen CommunicationClientFactoryBase för att hantera logik som är specifik för kommunikation stacken.
 
 Kommunikation klienten bara tar emot en adress och används för att ansluta till en tjänst. Klienten kan använda det protokoll som den vill.
 

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: pratshar
-ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Redundans i Site Recovery
 Den här artikeln beskriver hur till redundans virtuella datorer och fysiska servrar som skyddas av Site Recovery.
@@ -90,18 +90,18 @@ När en växling vid fel utlöses omfattar följande steg:
 I vissa fall kräver redundans för virtuella datorer ett extra steg som tar vanligtvis cirka 8 till 10 minuter för att slutföra. Den tid det tar att redundans kommer vara högre än vanliga i följande fall:
 
 * Med hjälp av mobilitetstjänsten version som är äldre än 9.8 virtuella VMware-datorer
-* Fysiska servrar 
+* Fysiska servrar
 * VMware Linux virtuella datorer
 * Hyper-V virtuella datorer som skyddas som fysiska servrar
-* VMware-datorer där följande drivrutiner inte finns som startdrivrutiner 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * Intelide 
+* VMware-datorer där följande drivrutiner inte finns som startdrivrutiner
+    * storvsc
+    * vmbus
+    * storflt
+    * Intelide
     * ATAPI
 * Virtuella VMware-datorer som inte har DHCP-tjänsten aktiveras oavsett om de använder DHCP eller statiska IP-adresser
 
-Detta steg krävs inte i alla andra fall, och den tid det tar för växling vid fel är lägre. 
+Detta steg krävs inte i alla andra fall, och den tid det tar för växling vid fel är lägre.
 
 
 
@@ -112,7 +112,7 @@ Du kanske vill automatisera vissa åtgärder, medan en växling vid fel. Du kan 
 
 ## <a name="post-failover-considerations"></a>Överväganden för efter växling vid fel
 Efter växling vid fel som du kanske vill Tänk på följande:
-### <a name="retaining-drive-letter-after-failover"></a>Behålla enhetsbeteckning efter växling vid fel 
+### <a name="retaining-drive-letter-after-failover"></a>Behålla enhetsbeteckning efter växling vid fel
 Om du vill behålla enhetsbeteckning på virtuella datorer efter redundans kan du ange den **SAN-princip** för den virtuella datorn till **OnlineAll**. [Läs mer](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 

@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks återställningsplaner
 I den här artikeln beskrivs hur Azure Site Recovery kan integreras med Azure Automation kan du utöka din återställningsplaner. Återställningsplaner kan samordna återställning av virtuella datorer som är skyddade med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **repeterbara**, och **automatiserad**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation din återställningsplaner. Du kan använda den för att köra runbooks, som ger kraftfulla automation-aktiviteter.
@@ -193,7 +193,7 @@ Skapa oberoende variabler för varje återställningsplanen så att du kan åter
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Använda en variabel för komplex för att lagra mer information
 
-Föreställ dig ett scenario som du vill använda ett enda skript för att aktivera en offentlig IP-adress på specifika virtuella datorer. I ett annat scenario kanske du vill tillämpa olika NSG: er på olika virtuella datorer (inte på alla virtuella datorer). Du kan göra ett skript som är återanvändbara för en återställningsplan. Varje återställningsplanen kan ha en variabel antal virtuella datorer. Till exempel har en SharePoint-återställning två frontwebbservrarna. En grundläggande line-of-business (LOB)-programmet har bara en klientdel. Du kan skapa olika variabler för varje återställningsplan. 
+Föreställ dig ett scenario som du vill använda ett enda skript för att aktivera en offentlig IP-adress på specifika virtuella datorer. I ett annat scenario kanske du vill tillämpa olika NSG: er på olika virtuella datorer (inte på alla virtuella datorer). Du kan göra ett skript som är återanvändbara för en återställningsplan. Varje återställningsplanen kan ha en variabel antal virtuella datorer. Till exempel har en SharePoint-återställning två frontwebbservrarna. En grundläggande line-of-business (LOB)-programmet har bara en klientdel. Du kan skapa olika variabler för varje återställningsplan.
 
 I följande exempel tar vi en ny teknik och skapa en [komplex variabeln](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) i Azure Automation-konto tillgångar. Det gör du genom att ange flera värden. Du måste använda Azure PowerShell för att slutföra följande steg:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
-ms.author: pratshar
-ms.openlocfilehash: 5e1f9a0298c2abd542d7687778716f644a1d0a47
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsöka när det inte att redundansväxla en virtuell dator till Azure
 Får du ett av följande fel medan växling vid fel på en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.
@@ -29,10 +29,10 @@ Får du ett av följande fel medan växling vid fel på en virtuell dator till A
 Site Recovery kunde inte skapa en misslyckades för en virtuell dator i Azure. Det kan bero på något av följande skäl:
 
 * Det finns inte tillräcklig kvot som är tillgängliga för att skapa den virtuella datorn: du kan kontrollera tillgänglig kvot genom att gå till prenumerationen -> användningsdata + kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten.
-     
+
 * Du försöker att redundans virtuella datorer med olika storlek adresstyper i samma tillgänglighetsuppsättning. Se till att du väljer samma familj av storlek för alla virtuella datorer i samma tillgänglighetsuppsättning. Ändra storlek genom att gå till beräknings- och inställningarna för den virtuella datorn och försök sedan redundans.
-  
-* Det finns en princip på den prenumeration som går inte att skapa en virtuell dator. Ändra principen för att tillåta skapandet av en virtuell dator och försök sedan redundans. 
+
+* Det finns en princip på den prenumeration som går inte att skapa en virtuell dator. Ändra principen för att tillåta skapandet av en virtuell dator och försök sedan redundans.
 
 ## <a name="failover-failed-with-error-id-28092"></a>Redundans misslyckades med felet ID 28092
 
@@ -42,7 +42,7 @@ Site Recovery kunde inte skapa ett nätverksgränssnitt för den misslyckade öv
 
 Site Recovery kunde inte skapa en misslyckad över klassisk virtuell dator i Azure. Det kan bero på att:
 
-* En av resurserna som ett virtuellt nätverk som krävs för den virtuella datorn skapas finns inte. Skapa det virtuella nätverket som anges under beräknings- och inställningar för den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök sedan redundans. 
+* En av resurserna som ett virtuellt nätverk som krävs för den virtuella datorn skapas finns inte. Skapa det virtuella nätverket som anges under beräknings- och inställningar för den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök sedan redundans.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Skapa, visa och hantera aviseringar med hjälp av Azure-Monitor - aviseringar (förhandsgranskning)
 
@@ -65,7 +65,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     > Enhetlig aviseringar (förhandsversion) stöder också aktivitetsloggen aviseringar. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Mått aviseringar*: Kontrollera **resurstypen** är valda plattform eller monitor-tjänsten (utom *logganalys*), en gång sedan lämplig **resurs** är vald klickar du på *klar* vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
+5. *Mått aviseringar*: Kontrollera **resurstypen** är markerad med signaltyp som **mått**, en gång sedan lämplig **resurs** är valt klickar du på  *Utfärdat* vill gå tillbaka till skapa aviseringen. Därefter använder den **lägga till villkor** för att välja specifika signalen från lista över signal alternativ, övervakningstjänsten och typen som anges - som är tillgängliga för den tidigare markerade resursen.
 
     ![Välj en resurs](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -81,7 +81,7 @@ Detaljerad nästa finns stegvisa instruktioner för att använda Azure avisering
 
     ![Konfigurera signal logik för flerdimensionella mått](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Logga varningar*: Kontrollera **resurstypen** är en analytics-källa som *logganalys* eller *Programinsikter*, en gång sedan lämplig  **resursen** är valt, klickar du på *klar*. Därefter använda den **lägga till villkor** knappen för att visa en lista över signal alternativen för resursen och från listan över signal **anpassad logg sökning** alternativ för vald logga monitor-tjänsten som *logg Analytics* eller *Programinsikter*.
+8. *Logga varningar*: Kontrollera **resurstypen** är en analytics-källa som *logganalys* eller *Programinsikter* och skicka en signal typ som **logg** , en gång sedan lämplig **resurs** är valt, klickar du på *klar*. Därefter använda den **lägga till villkor** knappen för att visa en lista över signal alternativen för resursen och från listan över signal **anpassad logg sökning** alternativ för vald logga monitor-tjänsten som *logg Analytics* eller *Programinsikter*.
 
    ![Välj en resurs - sökningen anpassad logg](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ För **loggen aviseringar** aviseringar kan baseras på:
 
     För **loggen aviseringar** viss ytterligare funktionalitet är tillgänglig att åsidosätta standardåtgärderna som:
 
-    - **E-postavisering**: åsidosättningar ämne i e-post, skickas via grupp. Du kan inte ändra innehållet i e-postmeddelandet.
-    - **Inkludera anpassad Json-nyttolast**: åsidosätter webhook Json som används av åtgärdsgrupper och Ersätt i stället standard nyttolast med en anpassad nyttolast. Mer information om webhook-format finns [webhook åtgärd för logg-aviseringar](monitor-alerts-unified-log-webhook.md)
+    - **E-postavisering**: åsidosätter *e-postämne* i e-post, skickas via grupp; om en eller flera e-åtgärden finns i gruppen för denna åtgärd. Du kan inte ändra innehållet i e-postmeddelandet och det här fältet är **inte** för e-postadress.
+    - **Inkludera anpassad Json-nyttolast**: åsidosätter webhook JSON som används av åtgärdsgrupper; om en eller flera webhook-åtgärden finns i gruppen för denna åtgärd. Användaren kan ange formatet för JSON som ska användas för alla webhooks som konfigurerats i associerade grupp; Mer information om webhook-format finns [webhook åtgärd för Log aviseringar](monitor-alerts-unified-log-webhook.md). Testa Webhook-alternativet har angetts för att kontrollera formatet och bearbetning av mål använder JSON-exemplet och det här alternativet som är märkta avsedd endast för **testning** syften.
 
         ![Åtgärden åsidosättningar för logg-aviseringar](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

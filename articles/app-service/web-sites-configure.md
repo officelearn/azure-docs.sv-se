@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -34,7 +34,7 @@ Det här avsnittet beskriver hur du konfigurerar en web app med hjälp av den [A
 
 Den **programinställningar** bladet har inställningar som är grupperade under flera kategorier.
 
-### <a name="general-settings"></a>Allmänna ändringar
+### <a name="general-settings"></a>Allmänna inställningar
 **Versioner av Framework**. Ange dessa alternativ om din app använder alla dessa ramverk: 
 
 * **.NET framework**: Ange .NET framework-version. 
@@ -77,7 +77,7 @@ PHP, Python, Java och noden program, ska inställningarna vara tillgänglig som 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
 * SQL Database: `SQLAZURECONNSTR_`
-* Anpassad:`CUSTOMCONNSTR_`
+* Anpassad: `CUSTOMCONNSTR_`
 
 Om exempelvis en MySql-anslutningssträng vid namn `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
 
@@ -129,12 +129,12 @@ Det fullständiga namnet för FTP-användare är ”app\username” där *app* �
 
 ## <a name="other-configuration-tasks"></a>Andra konfigurationsuppgifter
 ### <a name="ssl"></a>SSL
-Du kan överföra SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en webbapp]. 
+Du kan överföra SSL-certifikat för en anpassad domän i Basic eller Standard-läge. Mer information finns i [aktivera HTTPS för en webbapp](app-service-web-tutorial-custom-ssl.md). 
 
 Om du vill visa dina överförda certifikat klickar du på **alla inställningar** > **anpassade domäner och SSL**.
 
 ### <a name="domain-names"></a>Domännamn
-Lägg till anpassade domännamn för din webbapp. Mer information finns i [konfigurera ett anpassat domännamn för en webbapp i Azure App Service].
+Lägg till anpassade domännamn för din webbapp. Mer information finns i [konfigurera ett anpassat domännamn för en webbapp i Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Om du vill visa dina domännamn, klickar du på **alla inställningar** > **anpassade domäner och SSL**.
 

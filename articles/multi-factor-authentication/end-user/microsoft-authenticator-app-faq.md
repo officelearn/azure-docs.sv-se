@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft autentiseringsapp vanliga frågor och svar
 
@@ -28,6 +28,14 @@ Den här artikeln innehåller svar på vanliga frågor som vi får om Microsoft 
 Microsoft Authenticator-appen ersättas Azure Authenticator-appen och är den rekommenderade appen när du använder Azure Multi-Factor Authentication. Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Vilka data autentiseraren lagrar för mig och hur kan jag ta bort det?
+
+Microsoft Authenticator lagrar den kontoinformation som du skapar när du lägger till ett konto. När du använder Authenticator diagnostiska loggen har skapats för felsökning och lagrar användbara data i hjälper Microsoft att diagnosticera oförutsedda problem. Du kan komma åt informationen genom att öppna **hjälp** > **skicka loggar** > **visa loggar**.
+
+Du kan ta bort data genom att ta bort panelen konto. Detta tar bort all kontoinformation som används av inklusive loggarna. 
+
+Mer information om hur Microsoft använder dina data finns: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Vilka är de som finns i appen för? Varför har antalet keep räknat?
 

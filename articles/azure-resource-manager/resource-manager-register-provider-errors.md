@@ -11,19 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registrering av resursprovider
 
 Den här artikeln beskriver de fel som kan uppstå när du använder en resursleverantör som du tidigare inte har använt i din prenumeration.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 När du distribuerar resurs visas följande felkod och meddelande:
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Felmeddelandet bör du få förslag på platser som stöds och API-versioner. Du kan ändra mallen till en av de föreslagna värdena. De flesta providers är registrerade automatiskt av Azure-portalen eller kommandoradsgränssnittet som du använder, men inte alla. Om du inte har använt en viss resurs-providern före kanske du behöver registrera providern.
+
 ## <a name="cause"></a>Orsak
 
 Felen visas i någon av tre orsaker:
@@ -48,11 +50,7 @@ Felen visas i någon av tre orsaker:
 1. API-versionen stöds inte för resurstypen
 1. Plats stöds inte för resurstypen
 
-## <a name="solution"></a>Lösning
-
-Felmeddelandet bör du få förslag på platser som stöds och API-versioner. Du kan ändra mallen till en av de föreslagna värdena. De flesta providers är registrerade automatiskt av Azure-portalen eller kommandoradsgränssnittet som du använder, men inte alla. Om du inte har använt en viss resurs-providern före kanske du behöver registrera providern. Du kan identifiera information om resursproviders via PowerShell eller Azure CLI.
-
-### <a name="solution-1"></a>Lösning 1
+## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
 
 PowerShell, Använd **Get-AzureRmResourceProvider** att se registreringsstatus för din.
 
@@ -78,9 +76,7 @@ Om du vill hämta API-versioner som stöds för en viss typ av resurs, använder
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Lösning 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>Lösning 2 - Azure CLI
 
 Om providern är registrerad, Använd den `az provider list` kommando.
 
@@ -100,7 +96,7 @@ Om du vill se vilka platser som stöds och API-versioner för en resurstyp, anv�
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Lösning 3
+## <a name="solution-3---azure-portal"></a>Lösning 3 - Azure-portalen
 
 Du kan se registreringsstatus för och registrera en resursleverantörens namnrymd via portalen.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: 
-ms.openlocfilehash: 3ffc96b19d4601756530d7f9dd959d05ef5fa000
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Nära realtid mått aviseringar (förhandsgranskning)
 Azure-Monitor stöder en ny aviseringstyp kallas nära realtid mått aviseringar (förhandsversion). Den här funktionen är för närvarande i förhandsversion.
@@ -37,7 +37,7 @@ Nära realtid mått aviseringar skiljer sig från vanlig mått aviseringar på f
 >
 
 ## <a name="metrics-and-dimensions-supported"></a>Mått och dimensioner som stöds
-Nära realtid mått stöder aviseringar aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Alla stöds mått tillsammans med tillämpliga dimensioner kan utforskade och visualiseras från [ *Azure-Monitor - **mått (förhandsgranskning)***](monitoring-metric-charts.md).
+Nära realtid mått stöder aviseringar aviseringar för mått som använder dimensioner. Du kan använda dimensioner för att filtrera dina mått för rätt nivå. Alla stöds mått tillsammans med tillämpliga dimensioner kan utforskade och visualiseras från [Azure-Monitor - Metrics Explorer (förhandsgranskning)](monitoring-metric-charts.md).
 
 Här är en fullständig lista över Azure övervakaren baserat mått källor som stöds för nära realtid mått aviseringar:
 
@@ -65,7 +65,7 @@ Här är en fullständig lista över Azure övervakaren baserat mått källor so
 
 
 Mått från loggar, stöder för närvarande följande populära OMS-loggar:
-- [Prestandaräknare](../log-analytics/https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-data-sources-performance-counters.md) för Windows och Linux-datorer
+- [Prestandaräknare](../log-analytics/log-analytics-data-sources-performance-counters.md) för Windows och Linux-datorer
 - Heartbeat-poster för datorer
 - [Uppdateringshantering](../operations-management-suite/oms-solution-update-management.md) poster
 

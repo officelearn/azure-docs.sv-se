@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Så här schemalägger du starta och stoppa en integration Azure SSIS-körning 
 Kör en Azure SSIS (SQL Server Integration Services) integration körning har (IR) en avgift som associeras med den. Du vill därför IR endast körs när du behöver köra SSIS-paket i Azure och stoppa den när du inte behöver den. Du kan använda Data Factory Användargränssnittet eller PowerShell för Azure att [manuellt starta eller stoppa ett Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Den här artikeln beskriver hur du schemalägger starta och stoppa en Azure SSIS-integrering körning (IR) med hjälp av Azure Automation och Azure Data Factory. Här följer de övergripande stegen som beskrivs i den här artikeln:
@@ -25,7 +25,7 @@ Kör en Azure SSIS (SQL Server Integration Services) integration körning har (I
 1. **Skapa och testa en Azure Automation-runbook.** I det här steget skapar du en PowerShell-runbook med skriptet som startar eller stoppar ett Azure SSIS IR. Sedan testa runbook i både START och stopp scenarier och bekräfta att IR startar eller stoppar. 
 2. **Skapa två scheman för runbook.** För det första schemat konfigurerar du runbook med START som igen. Konfigurera runbook med stoppa som åtgärden för andra schemat. För båda scheman anger du det intervall som denna runbook körs. Du kanske vill schemalägga den första som ska köras vid 8: 00 varje dag och den andra som ska köras vid varje dag kl. När den första runbooken körs startar den Azure SSIS IR. När andra runbook körs, stoppas Azure SSIS IR. 
 3. **Skapa två webhooks för runbook**, en för att starta åtgärden och den andra för STOP-åtgärd. Du kan använda URL: er för dessa webhooks när du konfigurerar webbprogram aktiviteter i en Data Factory-pipelinen. 
-4. **Skapa Data Factory-pipelinen**. Du skapar pipeline består av fyra aktiviteter. Först **Web** aktivitet anropar första webhooken för att starta Azure SSIS IR. Den **vänta** aktiviteten ska vänta i 30 minuter (1 800 sekunder) för SSIS-IR Azure att starta. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). Sedan kan skapa du en utlösare för schemat om du vill schemalägga pipelinen ska köras med det intervall som du anger.
+4. **Skapa Data Factory-pipelinen**. Du skapar pipeline består av tre aktiviteter. Först **Web** aktivitet anropar första webhooken för att starta Azure SSIS IR. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). Sedan kan skapa du en utlösare för schemat om du vill schemalägga pipelinen ska köras med det intervall som du anger.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [anropa SSIS-paket med hjälp av aktiviteten lagrad procedur i version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Du bör ha två webbadresser, en för den **StartAzureSsisIR** webhook och en f�
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Skapa och schemalägga en Data Factory-pipelinen som startar/stoppar IR
 Det här avsnittet visar hur du använder en webbaktivitet för att anropa webhooks som du skapade i föregående avsnitt.
 
-Du skapar pipeline består av fyra aktiviteter. 
+Du skapar pipeline består av tre aktiviteter. 
 
 1. Först **Web** aktivitet anropar första webhooken för att starta Azure SSIS IR. 
-2. Den **vänta** aktiviteten ska vänta i 30 minuter (1 800 sekunder) för SSIS-IR Azure att starta. 
-3. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. Andra **Web** aktivitet anropar webhooken om du vill stoppa Azure SSIS IR. 
+2. Den **lagrade proceduren** aktiviteten körs ett SQL-skript som körs SSIS-paket. Andra **Web** aktiviteten slutar Azure SSIS IR. Mer information om hur du anropar ett SSIS-paket från Data Factory-pipelinen med hjälp av aktiviteten lagrad procedur finns [anropa ett SSIS-paket](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. Andra **Web** aktivitet anropar webhooken om du vill stoppa Azure SSIS IR. 
 
 När du skapar och testar pipeline, skapa en schema-utlösare och associera med pipeline. Utlösaren schema definierar ett schema för pipeline. Anta att du skapar en utlösare som är schemalagda att köras varje dag kl 23. Utlösaren körs pipeline kl 23 varje dag. Pipelinen startar Azure SSIS-IR kör SSIS-paket och stoppar Azure SSIS IR. 
 
@@ -392,7 +391,7 @@ Nu när pipeline fungerar som väntat, kan du skapa en utlösare för att köra 
 6. Om du vill övervaka utlösaren körs och körs i pipeline, Använd den **övervakaren** fliken till vänster. Detaljerade anvisningar finns i [övervaka pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Pipelinekörningar](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Välj första länken om du vill visa aktivitetskörningar som är associerade med en rörledning kör (**visa aktiviteten körs**) i den **åtgärder** kolumn. Du ser de fyra aktivitetskörningar som är associerade med varje aktivitet i pipelinen (Web först aktivitet, väntaktiviteter, lagrad procedur, och den andra Web aktiviteten). Om du vill växla tillbaka om du vill visa pipeline-körs, Välj **Pipelines** längst upp.
+7. Välj första länken om du vill visa aktivitetskörningar som är associerade med en rörledning kör (**visa aktiviteten körs**) i den **åtgärder** kolumn. Du ser de tre aktivitetskörningar som är associerade med varje aktivitet i pipelinen (Web först aktivitet, lagrad procedur, och den andra Web aktiviteten). Om du vill växla tillbaka om du vill visa pipeline-körs, Välj **Pipelines** längst upp.
 
     ![Aktivitetskörningar](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Du kan också visa utlösaren körs genom att välja **utlösa körs** från den nedrullningsbara listan bredvid den **Pipeline körs** längst upp. 

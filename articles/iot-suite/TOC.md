@@ -66,6 +66,7 @@
 ### [Skapa en ny simulerad enhet](iot-suite-remote-monitoring-test.md)
 ### [Anpassa lösningen](iot-suite-remote-monitoring-customize.md)
 ### [Distribuera användningen av CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Distribuera lokalt](iot-suite-remote-monitoring-deploy-local.md)
 ### Ansluta en fysisk enhet
 #### [C i Windows](iot-suite-connecting-devices.md)
 #### [C i Linux](iot-suite-connecting-devices-linux.md)

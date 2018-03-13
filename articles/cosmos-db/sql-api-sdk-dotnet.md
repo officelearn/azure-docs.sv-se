@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24873c685ee16520e6a8b8af9abeab84639613d7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
@@ -54,12 +54,6 @@ ms.lasthandoff: 03/08/2018
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
-### <a name="a-name12101210"></a><a name="1.21.0"/>1.21.0
-
-* Enskild NuGet-paket för .NET Framework och .NET Standard. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) paket har tagits bort. 
-* Fast KeyNotFoundException för mellan partition order by-frågor i specialfall.
-* Fast bugg där JsonPropery attribut i select-satsen för LINQ-frågor inte som lösts in.
-
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Fast programfel som träffar under vissa konkurrenstillstånd som resulterar i återkommande ”Microsoft.Azure.Documents.NotFoundException: Läs sessionen är inte tillgänglig för inkommande sessionstoken” fel när du använder konsekvensnivå för sessionen.
@@ -221,28 +215,28 @@ ms.lasthandoff: 03/08/2018
 * Implementerad [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Fast] ** Frågar Azure Cosmos DB endpoint utlöser: ' System.Net.Http.HttpRequestException: fel vid kopiering av innehåll till en dataström '.
+* **[Fast]**  Frågar Azure Cosmos DB endpoint utlöser: ' System.Net.Http.HttpRequestException: fel vid kopiering av innehåll till en dataström '.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Utökade LINQ stöder inklusive nya operatorer för växling, villkorlig uttryck och intervallet jämförelse.
   * Ta operatorn för att aktivera Välj längst upp i LINQ
   * CompareTo-operatorn för att aktivera sträng intervallet jämförelser
   * Villkorlig (?) och slå samman operatorer (?)
-* **[Fast] ** ArgumentOutOfRangeException när du kombinerar modellen projektion med var i i en LINQ-fråga. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Fast]**  ArgumentOutOfRangeException när du kombinerar modellen projektion med var i i en LINQ-fråga. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
-* **[Fast] ** Om Välj inte det senaste uttrycket LINQ-providern antas ingen projektion och producerade väljer * felaktigt.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
+* **[Fast]**  Om Välj inte det senaste uttrycket LINQ-providern antas ingen projektion och producerade väljer * felaktigt.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Implementerad Upsert, läggs UpsertXXXAsync metoder
 * Prestandaförbättringar för alla begäranden
 * LINQ-providern stöd för villkorlig, slå samman, och CompareTo metoder för strängar
-* **[Fast] ** LINQ-provider--> Implementera innehåller metoden i listan för att generera samma SQL som på IEnumerable och matris
-* **[Fast] ** BackoffRetryUtility använder samma HttpRequestMessage igen i stället för att skapa en ny på försök igen
-* **[Inaktuell] ** UriFactory.CreateCollection--> bör nu använda UriFactory.CreateDocumentCollection
+* **[Fast]**  LINQ-provider--> Implementera innehåller metoden i listan för att generera samma SQL som på IEnumerable och matris
+* **[Fast]**  BackoffRetryUtility använder samma HttpRequestMessage igen i stället för att skapa en ny på försök igen
+* **[Inaktuell]**  UriFactory.CreateCollection--> bör nu använda UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
-* **[Fast] ** Lokalisering problem när du använder inte en kultur info nl-NL, t.ex. 
+* **[Fast]**  Lokalisering problem när du använder inte en kultur info nl-NL, t.ex. 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Lägga till ID-baserade Routning
@@ -263,7 +257,7 @@ ms.lasthandoff: 03/08/2018
 * Stöd för indexering och fråga har lagts till.
   * Den nya Microsoft.Azure.Documents.Spatial namnområdet för Serialiserar/Deserialiserar spatialtyper som punkt och Polygon
   * Ny SpatialIndex klass för indexering GeoJSON data som lagras i Cosmos-DB
-* **[Fast] ** Felaktig SQL-fråga som genereras av en LINQ-uttrycket [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
+* **[Fast]**  Felaktig SQL-fråga som genereras av en LINQ-uttrycket [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Lägga till ett beroende på Newtonsoft.Json v5.0.7.
@@ -296,7 +290,6 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
-| [1.21.0](#1.21.0) |05 mars 2018 |--- |
 | [1.20.1](#1.20.1) |05 februari 2018 |--- |
 | [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |

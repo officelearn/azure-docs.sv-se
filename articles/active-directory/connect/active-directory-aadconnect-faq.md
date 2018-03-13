@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Vanliga frågor om Azure Active Directory Connect
 
@@ -78,7 +78,7 @@ Finns i följande artiklar:
 Du kan också konfigurera Azure AD för att tillåta att uppdatera userPrincipalName som beskrivs i Synkroniseringsmotorn [Azure AD Connect sync tjänstens funktioner](active-directory-aadconnectsyncservice-features.md).
 
 **F: är det stöd till mjuka matchning lokala AD-gruppen/kontakt-objekt med den befintliga Azure AD-grupp/kontakta objekt?**  
-Nej, detta stöds för närvarande inte.
+Ja, detta baseras på proxyAddress.  Mjuka matchar stöds inte för grupper som inte är aktiverade för e-post.
 
 **F: är det stöd för att manuellt ange ImmutableId-attributet på befintliga Azure AD-grupp/kontakt-objekt som matchar den hårddisk lokala AD-gruppen/kontakt objekt?**  
 Nej, detta stöds för närvarande inte.

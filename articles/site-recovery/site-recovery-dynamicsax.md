@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replikera en programarkitektur i Dynamics AX med hjälp av Azure Site Recovery
 
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du kan skapa en lösning för katastrofåterst�
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Implementera haveriberedskap för Dynamics AX-program med hjälp av Site Recovery kräver följande förutsättningar:
 
@@ -57,7 +57,7 @@ För att skapa den här artikeln kan använda vi virtuella VMware-datorer med Dy
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Aktivera återställning av Dynamics AX-program med hjälp av Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Skydda din Dynamics AX-program
-Om du vill aktivera replikering för hela programmet och återställning, måste varje komponent av Dynamics AX skyddas. 
+Om du vill aktivera replikering för hela programmet och återställning, måste varje komponent av Dynamics AX skyddas.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Konfigurera Active Directory och DNS-replikering
 
@@ -87,7 +87,7 @@ Följande ögonblicksbilden visar skydd för virtuella datorer Dynamics-komponen
 
 ![Skyddade objekt](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Konfigurera nätverksfunktioner
+### <a name="4-configure-networking"></a>4. Konfigurera nätverk
 **Konfigurera VM beräknings- och nätverksinställningar**
 
 Konfigurera nätverksinställningar i Site Recovery för Dynamics AX-klienten och programmet objektet Server virtuella datorer, så att Virtuella datornätverk hämta ansluten till rätt disaster recovery-nätverket efter redundans. Kontrollera att disaster recovery-nätverk för de här nivåerna är dirigerbara till SQL-nivån.
@@ -137,7 +137,7 @@ Lägg till ett skript (via Azure Automation) efter programmet objektet Server VM
 
 ### <a name="perform-a-test-failover"></a>Utför ett redundanstest
 
-Mer information om Active Directory under redundanstestningen, finns i handbok ”Active Directory lösning för katastrofåterställning”. 
+Mer information om Active Directory under redundanstestningen, finns i handbok ”Active Directory lösning för katastrofåterställning”.
 
 Mer information om SQLServer under redundanstestningen, finns i [replikera program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 

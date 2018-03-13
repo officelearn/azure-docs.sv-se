@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 Microsoft har gjort molnapparnas sina kunder som hög tillgänglighet är inbyggd i tjänsten och kunder behöver inte fungerar, lägga till särskilda logik för att eller fatta beslut runt HA sedan start för Azure SQL Database PaaS-erbjudande. Microsoft har fullständig kontroll över systemkonfigurationen för hög tillgänglighet och operation, erbjuda kunderna ett SERVICENIVÅAVTAL. Hög tillgänglighet SLA gäller för en SQL-databas i en region och ger inte skydd vid totala region fel som beror på faktorer utanför Microsofts rimliga kontroll (till exempel naturkatastrof, war, av terrorism, upplopp, government åtgärd eller en nätverks- eller enhetsfel som uppstår utanför Microsofts datacenter, inklusive på kundplatser eller mellan kundplatser och Microsofts datacenter).
@@ -56,7 +56,7 @@ Lösning för hög tillgänglighet i SQL-databas är baserad på [Always ON](/sq
 
 I den här konfigurationen ansluts varje databas av management-tjänsten (MS) i ringen för kontrollen. En primär replik och minst två sekundära repliker (kvorum anges) finns i en klient ring som omfattar tre oberoende fysiska delsystem inom samma datacenter. Alla läsningar och skrivningar skickas av gateway (GW) till den primära repliken och skrivningar replikeras asynkront till de sekundära replikerna. SQL-databasen använder ett kvorum-baserade commit-schema där data skrivs till den primära servern och minst en sekundär replik innan genomförda transaktioner.
 
-Den [Service Fabric](/azure/service-fabric/service-fabric-overview.md) redundans system automatiskt återskapar repliker som noder upphör att fungera och underhåller kvorum-medlemskap som noder avvika och delta i systemet. Planerat underhåll är noggrant samordnas för att förhindra att den kvorum set underskrider ett minsta antal (normalt 2). Den här modellen fungerar bra för Premium-databaser, men den kräver redundans i både beräknings- och lagringskomponenter och resulterar i en högre kostnad.
+Den [Service Fabric](/service-fabric/service-fabric-overview.md) redundans system automatiskt återskapar repliker som noder upphör att fungera och underhåller kvorum-medlemskap som noder avvika och delta i systemet. Planerat underhåll är noggrant samordnas för att förhindra att den kvorum set underskrider ett minsta antal (normalt 2). Den här modellen fungerar bra för Premium-databaser, men den kräver redundans i både beräknings- och lagringskomponenter och resulterar i en högre kostnad.
 
 ## <a name="remote-storage-configuration"></a>Fjärrlagring konfiguration
 
@@ -77,7 +77,7 @@ För Fjärrlagring-konfigurationer använder SQL-databas Always ON-funktioner f�
 
 ## <a name="zone-redundant-configuration-preview"></a>Redundant zonkonfiguration (förhandsgranskning)
 
-Som standard skapas kvorum set-repliker för lokal lagringskonfigurationer i samma datacenter. Med introduktionen av [Azure tillgänglighet zoner](/azure/availability-zones/az-overview.md), har du möjlighet att placera olika repliker i kvorum-aktiverar till olika tillgänglighet zoner i samma region. Om du vill ta bort en enskild felpunkt dupliceras också ringen kontroll över flera zoner som tre gateway ringar (GW). Routning till en specifik gateway ring styrs av [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonen redundant konfiguration inte att skapa ytterligare databasredundans, användningen av tillgänglighet zoner i premiumnivån är tillgänglig utan extra kostnad. Genom att välja en zon redundant databas kan du Premium-databaser flexibel till ett mycket större fel, inklusive oåterkalleligt datacenteravbrott, utan några ändringar av programlogiken. Du kan också konvertera alla befintliga Premium-databaser och pool till zonen redundant konfiguration.
+Som standard skapas kvorum set-repliker för lokal lagringskonfigurationer i samma datacenter. Med introduktionen av [Azure tillgänglighet zoner](../availability-zones/az-overview.md), har du möjlighet att placera olika repliker i kvorum-aktiverar till olika tillgänglighet zoner i samma region. Om du vill ta bort en enskild felpunkt dupliceras också ringen kontroll över flera zoner som tre gateway ringar (GW). Routning till en specifik gateway ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonen redundant konfiguration inte att skapa ytterligare databasredundans, användningen av tillgänglighet zoner i premiumnivån är tillgänglig utan extra kostnad. Genom att välja en zon redundant databas kan du Premium-databaser flexibel till ett mycket större fel, inklusive oåterkalleligt datacenteravbrott, utan några ändringar av programlogiken. Du kan också konvertera alla befintliga Premium-databaser och pool till zonen redundant konfiguration.
 
 Eftersom zonen redundant kvorum-uppsättning har repliker i olika datacenter med några avståndet mellan dem, ökad Nätverksfördröjningen öka tid som genomförande och därmed påverka prestandan för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till en zon konfigurationen genom att inaktivera inställningen zonen redundans. Den här processen liknar den vanliga tjänstuppdateringen mål för servicenivå (SLO) är en storlek på data igen. I slutet av processen har databasen eller poolen migrerats från en zon redundant ring till en enda zon ring eller vice versa.
 
@@ -93,6 +93,6 @@ Azure SQL Database är djupt integrerad med Azure-plattformen och är mycket ber
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [Azure tillgänglighet zoner](/azure/availability-zones/az-overview.md)
-- Lär dig mer om [Service Fabric](/azure/service-fabric/service-fabric-overview.md)
-- Lär dig mer om [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) 
+- Lär dig mer om [Azure tillgänglighet zoner](../availability-zones/az-overview.md)
+- Lär dig mer om [Service Fabric](../service-fabric/service-fabric-overview.md)
+- Lär dig mer om [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 

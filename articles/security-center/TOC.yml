@@ -114,6 +114,12 @@
       items:
         - name: Anslutna lösningar
           href: security-center-partner-solutions.md
+        - name: Identifierade lösningar
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: Ansluta externa lösningar
+          href: quick-security-solutions.md
+        - name: Ansluta Application Gateway
+          href: security-center-connect-application-gateway.md
         - name: Ansluta Microsoft ATA
           href: security-center-ata-integration.md
         - name: Ansluta Azure AD Identity Protection

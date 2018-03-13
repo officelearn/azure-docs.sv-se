@@ -42,6 +42,7 @@
 
 ## Använda MXChip IoT DevKit
 ### [Översätta röstmeddelanden med Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # Instruktionsguider
 ## Planera

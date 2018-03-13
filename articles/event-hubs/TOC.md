@@ -27,6 +27,7 @@
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
 ### [Skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md)
+### [Integrera Apache Spark med Event Hubs](event-hubs-spark-connector.md)
 ## Utveckla
 ### [Skicka händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Ta emot händelser med hjälp av .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

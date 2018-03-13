@@ -15,19 +15,19 @@
 # Kom igång
 ## [Konfigurera Network Watcher](network-watcher-create.md)
 ## Hantera infångade paket
-### [Azure-portalen](network-watcher-packet-capture-manage-portal.md)
+### [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Verifiera IP-flöden till och från en virtuell dator
-### [Azure-portalen](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analysera nästa hopp
-### [Azure-portalen](network-watcher-check-next-hop-portal.md)
+### [Azure Portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-next-hop-cli.md)
@@ -38,7 +38,7 @@
 ### [Azure CLI](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Felsökning av VPN-gateway och anslutningar
-### [Azure-portalen](network-watcher-troubleshoot-manage-portal.md)
+### [Azure Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
@@ -49,12 +49,12 @@
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Felsök anslutningar
-### [Azure-portalen](network-watcher-connectivity-portal.md)
+### [Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Konfigurera NSG-flödesloggar
-### [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
+### [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
@@ -73,7 +73,9 @@
 ### [Visualisera nätverkstrafikmönster med verktyg för öppen källkod](network-watcher-using-open-source-tools.md)
 ## Analysera NSG-flödesloggar
 ### [Läs NSG-flödesloggar](network-watcher-read-nsg-flow-logs.md)
-### [Använda Trafikanalys](traffic-analytics.md)
+### Trafikanalys
+#### [Använda Trafikanalys](traffic-analytics.md)
+#### [Vanliga frågor och svar](traffic-analytics-faq.md)
 ### [Använd Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Använd Grafana](network-watcher-nsg-grafana.md)

@@ -87,6 +87,8 @@
       items:
         - name: Åtkomst till SSH-noden
           href: aks-ssh.md
+        - name: Hämta kubelet-loggar
+          href: kubelet-logs.md
 - name: Referens
   items:
     - name: Azure CLI

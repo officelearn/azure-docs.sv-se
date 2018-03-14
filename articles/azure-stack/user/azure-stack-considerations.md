@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Nyckeln överväganden: använda tjänster eller utveckla appar för Azure-Stack
 
@@ -48,8 +48,8 @@ I följande tabell beskrivs utförligt skillnaderna mellan Azure-stacken och Azu
 | Som fungerar det? | Microsoft | Din organisation eller service provider.|
 | Som kontaktar du support? | Microsoft | Kontakta din Azure Stack-operatorn (på din organisation eller service provider) för stöd för ett integrerat system.<br><br>Azure-stacken Development Kit support finns i [Microsoft forum](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Eftersom development kit är en utvärderingsmiljö, stöds inte officiellt erbjuds via Microsoft kundservice (CSS).
 | Tillgängliga tjänster | Visa en lista över [Azure produkter](https://azure.microsoft.com/services/?b=17.04b). Tillgängliga tjänster varierar beroende på Azure-region. | Azure-stacken stöder en delmängd av Azure-tjänster. Faktiska tjänster varierar beroende på vad din organisation eller service provider väljer att erbjuda.
-| Azure Resource Manager-slutpunkten * | https://management.azure.com | Använd den slutpunkt som Azure Stack-operator har angetts för ett Azure-stacken integrerat system.<br><br>SDK-paket, Använd: https://management.local.azurestack.external
-| Portal-URL * | [https://Portal.Azure.com](https://portal.azure.com) | Gå till den URL som tillhandahålls av Azure Stack-operatorn för ett Azure-stacken integrerat system.<br><br>SDK-paket, Använd: https://portal.local.azurestack.external
+| Azure Resource Manager-slutpunkten * | https://management.azure.com | Använd den slutpunkt som Azure Stack-operator har angetts för ett Azure-stacken integrerat system.<br><br>Använd för i development kit: https://management.local.azurestack.external
+| Portal-URL * | [https://portal.azure.com](https://portal.azure.com) | Gå till den URL som tillhandahålls av Azure Stack-operatorn för ett Azure-stacken integrerat system.<br><br>Använd för i development kit: https://portal.local.azurestack.external
 | Region | Du kan välja vilken region som du vill distribuera till. | Använd den region som är tillgänglig på din dator för ett Azure-stacken integrerat system.<br><br>I development kit region ska alltid vara **lokala**.
 | Resursgrupper | En resursgrupp kan sträcka sig över regioner. | Det finns endast en region för både integrerade system och development kit.
 |Namnområden som stöds, resurstyper och API-versioner | Senast (eller tidigare versioner som ännu inte har inaktuella). | Azure-stacken stöder specifika versioner. Se avsnittet ”Version krav” i den här artikeln.

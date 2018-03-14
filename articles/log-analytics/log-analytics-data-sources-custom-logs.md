@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -122,7 +122,7 @@ Anpassade loggposter har en typ med namnet på loggen som du anger och egenskape
 |:--- |:--- |
 | TimeGenerated |Datum och tid då posten samlades in av logganalys.  Om loggen använder en avgränsare för en baseras på tidpunkt är den tid som samlas in från posten. |
 | SourceSystem |Typ av agenten posten samlats in från. <br> Ansluta OpsManager – Windows-agenten, antingen direkt eller System Center Operations Manager <br> Linux – alla Linux-agenter |
-| \Data |Fullständig text i posten som samlas in. |
+| RawData |Fullständig text i posten som samlas in. |
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations hantera agenter.  För andra agenter är AOI -\<arbetsyte-ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Loggen sökningar med anpassade loggposter
@@ -133,7 +133,7 @@ Följande tabell innehåller olika exempel på loggen sökningar som hämtar pos
 | Fråga | Beskrivning |
 |:--- |:--- |
 | MyApp_CL |Alla händelser från en anpassad logga namngiven MyApp_CL. |
-| MyApp_CL &#124; där Severity_CF == ”error” |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
+| MyApp_CL &#124; where Severity_CF=="error" |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel genomgången för att lägga till en anpassad logg

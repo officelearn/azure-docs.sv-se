@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
 ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupp med mappning av beroende
 
@@ -86,4 +86,4 @@ Om du vill kontrollera beroenden för en specifik dator som visas i gruppen bero
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.
+[Läs mer](concepts-assessment-calculation.md) om hur utvärderingar beräknas.

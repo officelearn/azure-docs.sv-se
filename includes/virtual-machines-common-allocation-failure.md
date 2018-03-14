@@ -20,7 +20,7 @@ Dessa steg hjälper dig att lösa många buffertallokeringsfel på virtuella dat
 
 ## <a name="background-information"></a>Bakgrundsinformation
 ### <a name="how-allocation-works"></a>Så här fungerar allokering
-Servrarna i Azure-Datacenter partitioneras i kluster. Normalt en begäran om minnesallokering görs i flera kluster, men det är möjligt att vissa villkor från begäran om minnesallokering gällande Azure-plattformen för begäran i ett kluster. I den här artikeln ska vi referera till den här som ”fäst på ett kluster”. Bild 1 nedan visar skiftläget för en normal allokering som görs i flera kluster. Figur 2 visar i fallet med en allokering som har fäst på klustret 2 eftersom det är där den befintliga uppsättningen Cloud Service CS_1 eller tillgänglighet körs.
+Servrarna i Azure-datacenter partitioneras i kluster. Normalt utförs en begäran om minnesallokering i flera kluster, men det är möjligt att vissa restriktioner från begäran om minnesallokering tvingar Azure-plattformen att försöka genomföra begäran i endast ett kluster. I den här artikeln ska vi referera till den här som ”fäst på ett kluster”. Bild 1 nedan visar skiftläget för en normal allokering som görs i flera kluster. Figur 2 visar i fallet med en allokering som har fäst på klustret 2 eftersom det är där den befintliga uppsättningen Cloud Service CS_1 eller tillgänglighet körs.
 ![Allokering av Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Varför Allokeringsfel inträffa

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera agenten Application Proxy Connector
 
@@ -54,7 +54,7 @@ När installationen av en anslutning misslyckas är den grundläggande orsaken v
 
 **Så här löser du problemet:**
 
-1.  Kontrollera att datorn stöder TLS1.2 – TLS 1.2 ska ha stöd för alla Windows-versioner när 2012 R2. Om datorn connector är från en version av 2012 R2 eller tidigare, kontrollerar du att följande KBs är installerade på datorn: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Kontrollera att datorn stöder TLS1.2 – TLS 1.2 ska ha stöd för alla Windows-versioner när 2012 R2. Om din connector-dator från en version av 2012 R2 eller tidigare kan du kontrollera att följande KBs är installerade på datorn: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Kontakta administratören för nätverket och be att kontrollera att backend proxy- och brandväggsinställningarna inte blockerar SHA512 för utgående trafik.
 

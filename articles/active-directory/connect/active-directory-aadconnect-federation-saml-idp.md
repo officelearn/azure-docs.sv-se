@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -45,8 +45,8 @@ Det här avsnittet innehåller detaljerade krav på protokoll och meddelandet fo
 
 Vi rekommenderar att du säkerställer identitetsprovider SAML 2.0 utgående meddelanden vara så likt angivna exempel spår som möjligt. Använd attributvärden från den angivna Azure AD-metadata om möjligt. När du är nöjd med utgående meddelanden, kan du testa med Microsoft anslutningen Analyzer som beskrivs nedan.
 
-Azure AD-metadata kan hämtas från denna URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-För kunder i Kina i Kina-specifika instansen av Office 365 följande federation slutpunkten ska användas: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Azure AD-metadata kan hämtas från denna URL: [ https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml ](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+För kunder i Kina i Kina-specifika instansen av Office 365 följande federation slutpunkten ska användas: [ https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml ](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Krav för SAML-protokoll
 Det här avsnittet information hur par för förfrågan och svar meddelande placeras tillsammans i för att hjälpa dig att formatera dina meddelanden på rätt sätt.
@@ -182,12 +182,12 @@ Följande procedur vägleder dig genom att konvertera en befintlig domän som st
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Läs mer om ”Set-MsolDomainAuthentication”: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
+Läs mer om ”Set-MsolDomainAuthentication”: [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Du måste köra användning ”$ecpUrl =” https://WS2012R2-0.contoso.com/PAOS ”” om du ställer in ett ECP-tillägg för din identitetsleverantör. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på en POST baserat aktiv slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för att omfattande klienterna ska interagera med Exchange Online-tjänsten.
+>Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” om du ställer in ett ECP-tillägg för din identitetsleverantör. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på en POST baserat aktiv slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för att omfattande klienterna ska interagera med Exchange Online-tjänsten.
 
-När federationstjänsten har konfigurerats du kan gå tillbaka till ”ej federerad” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och kräver nya slumpmässigt lösenord för inloggning molnbaserad tilldela varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa scenarier för att återställa ett fel i inställningarna. Läs mer på domänen konvertering: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+När federationstjänsten har konfigurerats du kan gå tillbaka till ”ej federerad” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och kräver nya slumpmässigt lösenord för inloggning molnbaserad tilldela varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa scenarier för att återställa ett fel i inställningarna. Läs mer på domänen konvertering: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Etablera användare säkerhetsobjekt till Azure AD / Office 365
 Innan du kan autentisera användarna på Office 365 måste du etablera Azure AD med användare säkerhetsobjekt som motsvarar kontrollen i SAML 2.0-anspråket. Om dessa användare säkerhetsobjekt inte känner till Azure AD i förväg kan sedan de inte användas för federerad inloggning. Azure AD Connect eller Windows PowerShell kan användas för att etablera användare säkerhetsobjekt.
@@ -242,7 +242,7 @@ Microsoft tillhandahåller ett verktyg som du kan använda för att testa SAML 2
 
 
 
-1. Hämta anslutning Analyzer från [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+1. Hämta anslutning Analyzer från [ https://testconnectivity.microsoft.com/?tabid=Client ](https://testconnectivity.microsoft.com/?tabid=Client).
 2.  Klicka på Installera nu att börja hämta och installera verktyget.
 3.  Välj ”det går inte att konfigurera federation med Office 365, Azure eller andra tjänster som använder Azure Active Directory”.
 4.  När verktyget har hämtats och körs, visas fönstret anslutning diagnostik. Verktyget vägleds du genom att testa federation-anslutning.

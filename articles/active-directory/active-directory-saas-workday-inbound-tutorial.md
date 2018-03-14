@@ -17,7 +17,7 @@ ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -249,7 +249,7 @@ Följ instruktionerna för att konfigurera användarkonto etablering från Workd
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
-   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4 där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng.
+   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4, där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng.
 
    * **Active Directory-skogar -** ”Name” för din Active Directory-skog, som returneras av powershell-kommandot Get-ADForest. Detta är vanligtvis en sträng som: *contoso.com*
 
@@ -504,7 +504,7 @@ I följande avsnitt beskrivs hur du konfigurerar en anslutning mellan Workday oc
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
-   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4 där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng. Om denna URL inte är känt kan arbeta med dina Workday-integrering partner eller support representant om du vill se Webbadressen till rätt att använda.
+   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4, där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng. Om denna URL inte är känt kan arbeta med dina Workday-integrering partner eller support representant om du vill se Webbadressen till rätt att använda.
 
    * **E-postmeddelande –** ange din e-postadress och markera kryssrutan ”Skicka e-post om fel inträffar”.
 
@@ -609,7 +609,7 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
    * **Administratörslösenordet –** ange lösenordet för kontot Workday-integrering system
 
-   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4 där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng (vid behov).
+   * **Klient URL –** anger du Webbadressen till Workday web services-slutpunkten för din klient. Detta ska se ut: https://wd3-impl-services1.workday.com/ccx/service/contoso4, där contoso4 ersätts med rätt-klientnamn och wd3 impl ersätts med rätt miljö-sträng (vid behov).
 
    * **E-postmeddelande –** ange din e-postadress och markera kryssrutan ”Skicka e-post om fel inträffar”.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera en princip för auktorisering av innehållsnyckel
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,7 +30,7 @@ Om du vill Media Services för att kryptera en tillgång, måste du koppla en kr
 
 När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att kryptera dynamiskt innehåll med hjälp av AES eller PlayReady-kryptering. Om du vill dekryptera dataströmmen begär spelaren nyckeln från tjänsten nyckel. För att avgöra om användaren har behörighet att hämta nyckel för utvärderar tjänsten auktoriseringsprinciper som du angav för nyckeln.
 
-Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Principen för auktorisering av innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar genom att använda antingen begränsningen öppen eller token. Begränsad token principen måste åtföljas av en token som utfärdas av en säkerhetstokentjänst (STS). Media Services stöder token i simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON-Webbtoken (JWT)-format.
+Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Principen för auktorisering av innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar genom att använda antingen begränsningen öppen eller token. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON-Webbtoken (JWT)-format.
 
 Media Services ger inte STS. Du kan skapa en anpassad STS eller använda Azure Active Directory (Azure AD) för att utfärda token. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfiguration (som beskrivs i den här artikeln). Om token är giltig och anspråk i token som matchar de som konfigurerats för att innehållsnyckeln, returnerar Media Services viktiga tjänsten krypteringsnyckeln till klienten.
 
@@ -44,7 +44,7 @@ Mer information finns i följande artiklar:
 * Ladda upp och koda dina tillgångar med hjälp av alternativet AssetCreationOptions.StorageEncrypted.
 * Om du planerar att ha flera nycklar för innehåll som kräver i samma konfiguration, rekommenderar vi att du skapar en enda auktoriseringsprincip och återanvända med nycklar för multiinnehåll.
 * Tjänsten key cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (alternativ och begränsningar) i 15 minuter. Du kan skapa ContentKeyAuthorizationPolicy och ange om du vill använda en token begränsning, testa den och uppdatera principen till den öppna begränsningen. Den här processen tar ungefär 15 minuter innan principen växlar till den öppna versionen av principen.
-* Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort en befintlig lokaliserare och skapa en ny.
+* Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort eventuella befintliga lokaliserare och skapa en ny.
 * Det går för närvarande kryptera progressiv hämtning.
 * Media Services strömningsslutpunkt anger värdet för huvudet CORS Access Control-Tillåt-ursprung preflight-svar som jokertecknet ”\*”. Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player Roku och JWPlayer och andra. Dock vissa spelare som använder dash.js fungerar inte eftersom autentiseringsuppgifterna-läget är inställt på ”innehåller” XMLHttpRequest i sina dash.js inte tillåter jokertecknet ”\*” som värde för Access Control-Tillåt-ursprung. Som en tillfällig lösning till den här begränsningen i dash.js om du är värd för din klient från en enda domän, ange Media Services domänen i svarshuvudet Preflight. Öppna ett supportärende via Azure portal om du behöver hjälp.
 
@@ -237,7 +237,7 @@ I följande exempel skapas en auktoriseringsprincip med en token begränsning. I
 ### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
 Skapa en princip för tokenbegränsningar som visas i avsnittet ”[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)”.
 
-### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -326,7 +326,7 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:cc3c64a8-e2fc-4e09-bf60-ac954251a387","Name":"Deliver Common Content Key"}
 
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -374,7 +374,7 @@ Om du vill konfigurera alternativet tokenbegränsningar som du behöver använda
 #### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
 Skapa ContentKeyAuthorizationPolicies, som visas i avsnittet ”[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)”.
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 Begäran:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1

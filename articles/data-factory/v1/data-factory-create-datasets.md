@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | typ |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
 | struktur |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typegenskaper är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
-| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. Om den inkommande datamängden för en aktivitet inte produceras av den aktuella pipelinen, kan du ange den här flaggan till true. Ange den här flaggan till true för den första aktiviteten i pipelinen inkommande datauppsättningen.  |Nej |falskt |
+| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. Om den inkommande datamängden för en aktivitet inte produceras av den aktuella pipelinen, kan du ange den här flaggan till true. Ange den här flaggan till true för den första aktiviteten i pipelinen inkommande datauppsättningen.  |Nej |false |
 | availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion dataset. Varje dataenhet förbrukats och produceras av en aktivitet körs kallas en datasektorn. Om tillgängligheten för en datamängd för utdata är varje dag (frekvens - dag, intervallet - 1) skapas ett segment varje dag. <br/><br/>Mer information finns i [Dataset tillgänglighet](#Availability). <br/><br/>Mer information om datauppsättningen segmentering modellen finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikel. |Ja |Ej tillämpligt |
 | policy |Definierar villkoren eller det villkor som dataset-segment måste vara uppfyllda. <br/><br/>Mer information finns i [Dataset princip](#Policy) avsnitt. |Nej |Ej tillämpligt |
 
@@ -145,7 +145,7 @@ Som du ser definierar den länkade tjänsten hur du ansluter till en SQL-databas
 > Om ett DataSet-objekt produceras av pipelinen, bör det markeras som **externa**. Den här inställningen gäller vanligtvis indata för den första aktiviteten i en pipeline.   
 
 
-## <a name="Type"></a>Typen av datauppsättning
+## <a name="Type"></a> Typen av datauppsättning
 Typ av datauppsättningen beror på dataarkivet du använder. Se följande tabell för en lista över datakällor som stöds av Data Factory. Klicka på ett datalager för att lära dig hur du skapar en länkad tjänst och en datauppsättning för att lagra data.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

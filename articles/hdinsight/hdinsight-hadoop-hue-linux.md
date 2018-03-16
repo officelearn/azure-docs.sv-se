@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
@@ -42,13 +42,13 @@ Hue är en uppsättning webbprogram som används för att interagera med ett Had
 > [!WARNING]
 > Komponenter som ingår i HDInsight-kluster stöds fullt ut och Microsoft-supporten hjälper att isolera och lösa problem relaterade till komponenterna.
 >
-> Anpassade komponenter få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache-projekt har också project-webbplatser [http://apache.org](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Detta kan resultera i att lösa problemet eller där du uppmanas att engagera tillgängliga kanaler för öppen källkod där djup expertis för att teknik finns. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Installera Hue med hjälp av skriptåtgärder
 
-Skript för att installera Hue på en Linux-baserade HDInsight-kluster är tillgänglig på https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Du kan använda det här skriptet för att installera Hue i kluster med Azure Storage BLOB (WASB) eller Azure Data Lake Store som standardlagring.
+Skript för att installera Hue på en Linux-baserade HDInsight-kluster finns på https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Du kan använda det här skriptet för att installera Hue i kluster med Azure Storage BLOB (WASB) eller Azure Data Lake Store som standardlagring.
 
 Det här avsnittet innehåller instruktioner om hur du använder skriptet vid etablering av klustret med Azure-portalen.
 

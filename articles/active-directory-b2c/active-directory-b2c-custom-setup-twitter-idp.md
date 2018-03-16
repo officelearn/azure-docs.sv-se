@@ -15,17 +15,17 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Twitter som en identitetsleverantör OAuth1 med anpassade principer
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Den här artikeln visar hur du aktiverar inloggning för användare av ett Twitter-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Steg 1: Skapa ett program för Twitter-konto
@@ -39,9 +39,9 @@ Att använda Twitter som en identitetsleverantör i Azure Active Directory B2C (
  
     a. Typ av **namn** och en **beskrivning** för din nya app. 
 
-    b. I den **webbplats** klistra in **https://login.microsoftonline.com**. 
+    b. I den **webbplats** klistra in  **https://login.microsoftonline.com** . 
 
-    c. I den **motringning URL** klistra in **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
+    c. I den **motringning URL** klistra in  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
 
     d. Längst ned på sidan Läs och acceptera villkoren och välj sedan **skapa programmet Twitter**.
 

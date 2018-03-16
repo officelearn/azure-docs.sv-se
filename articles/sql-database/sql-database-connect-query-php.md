@@ -15,17 +15,17 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a562851330d325ca4a8be20ec82b5f421e23c4f1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Använd PHP för att fråga en Azure SQL-databas
 
 Den här snabbstartsguiden visar hur du använder [PHP](http://php.net/manual/en/intro-whatis.php) för att skapa ett program för att ansluta till en Azure SQL-databas och använder Transact-SQL-uttryck för att skicka frågor mot data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Kontrollera att du har följande för att kunna genomföra den här snabbstartskursen:
 
@@ -35,7 +35,7 @@ Kontrollera att du har följande för att kunna genomföra den här snabbstartsk
 
 - Du har installerat PHP och relaterad programvara för ditt operativsystem:
 
-    - **MacOS**: Först installerar du Homebrew och PHP, sedan ODBC-drivrutinen och SQLCMD och sedan installerar du PHP-drivrutinen för SQL Server. Se [steg 1.2, 1.3 och 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **MacOS**: Först installerar du Homebrew och PHP, sedan ODBC-drivrutinen och SQLCMD och sedan installerar du PHP-drivrutinen för SQL Server. Se [steg 1.2, 1.3 och 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
     - **Ubuntu**: Först installerar du PHP och andra paket som krävs, sedan installerar du PHP-drivrutinen för SQL Server. Se [steg 1.2 och 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
     - **Windows**: installera den senaste versionen av PHP för IIS Express, den senaste versionen av Microsoft-drivrutiner för SQL Server i IIS Express, Chocolatey, ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 

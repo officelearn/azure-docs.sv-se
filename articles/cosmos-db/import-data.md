@@ -17,10 +17,10 @@ ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -196,7 +196,7 @@ Liknar SQL-källans, egenskapen kapslade avgränsare kan användas för att skap
 
 Observera alias som DomainInfo.Domain_Name och RedirectInfo.Redirecting. Genom att ange kapslade avgränsare av '.', Importverktyget skapar DomainInfo och RedirectInfo underdokument under importen. Här är ett exempel på ett resulterande dokument i Azure Cosmos DB:
 
-*{”DomainInfo”: {”Domain_Name”: ”ACUS.GOV”, ”Domain_Name_Address”: ”http://www.ACUS.GOV”}, ”Federal myndighet” ”: administrativa konferens för USA”, ”RedirectInfo”: {”omdirigera”: ”0”, ”Redirect_Destination” ”:”}, ”id”: ”9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d”}*
+*{”DomainInfo”: {”Domain_Name”: ”ACUS.GOV”, ”Domain_Name_Address” ”:http://www.ACUS.GOV”}, ”Federal myndighet” ”: administrativa konferens för USA”, ”RedirectInfo”: {”omdirigera”: ”0”, ”Redirect_Destination” ”:”}, ”id” ”: 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d ”}*
 
 Importverktyget försöker att härleda typinformation för ociterade värden i CSV-filer (inom citattecken värden behandlas alltid som strängar).  Typer som identifieras i följande ordning: nummer, datetime, booleskt värde.  
 

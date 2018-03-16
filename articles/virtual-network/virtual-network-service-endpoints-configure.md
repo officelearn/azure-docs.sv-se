@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ee01b83101d4ab4ee8665c32aca22a793b41ac0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Konfigurera tjänstslutpunkter för virtuellt nätverk
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 Förutsättningar för konfiguration:
-- Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#az_login) och följ anvisningarna på skärmen. Mer information om att logga in finns i [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/reference-index#az_login) och följ anvisningarna på skärmen. Mer information om att logga in finns i [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - Kontot måste ha nödvändiga [behörigheter](#provisioning) för att skapa ett virtuellt nätverk och tjänstslutpunkten.
 
  Fullständig lista med kommandon för virtuella nätverk finns i [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) (Kommandon för virtuellt Azure CLI-nätverk)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkarna på sidan fungerar inte för ett program med Application Proxy
 
@@ -42,7 +42,7 @@ Det finns tre sätt att lösa problemet. Alternativen nedan visas i i stigande k
 
 3.  Om inget av dessa alternativ är möjlig, ansluta förhandsgranskning för en ny funktion som gör översättning/skriva om URL: en. Med det här alternativet vara intern URL: er eller länkar som finns i HTML-innehållet i dina program översättas eller ”mappas”, publicerade externa App Proxy URL: er. Den här metoden fungerar för länkar i HTML- eller CSS och det hjälper inte om länken genereras via JS. 
 
-Därför rekommenderar vi använder den [anpassade domäner](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) lösning om möjligt. Om du vill ansluta till förhandsversionen av e- < aadapfeedback@microsoft.com > med applicationId(s).
+Därför rekommenderar vi använder den [anpassade domäner](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) lösning om möjligt. Om du vill ansluta till förhandsversionen av e- <aadapfeedback@microsoft.com> med applicationId(s).
 
 ## <a name="next-steps"></a>Nästa steg
 [Arbeta med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md)

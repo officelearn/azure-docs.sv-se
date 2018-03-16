@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -87,7 +87,7 @@ Dessutom måste du aktivera en intranät-zonen principinställningen kallas **ti
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas zonen intranätsinställningar?
 
-Som standard beräknas automatiskt rätt zonen Internet eller intranätet från en specifik URL i webbläsaren. Till exempel mappas ”http://contoso/” till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom den innehåller en punkt). Webbläsare kommer inte att skicka Kerberos-biljetter till en molnslutpunkt som Azure AD-URL, såvida inte du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
+Som standard beräknas automatiskt rätt zonen Internet eller intranätet från en specifik URL i webbläsaren. Till exempel ”http://contoso/” mappas till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom den innehåller en punkt). Webbläsare kommer inte att skicka Kerberos-biljetter till en molnslutpunkt som Azure AD-URL, såvida inte du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
 
 ### <a name="detailed-steps"></a>Detaljerade steg
 
@@ -101,7 +101,8 @@ Som standard beräknas automatiskt rätt zonen Internet eller intranätet från 
 
     Resultatet ser ut så här:
 
-    Value: https://autologon.microsoftazuread-sso.com
+    Värde:https://autologon.microsoftazuread-sso.com
+
   
     Data: 1
 
@@ -138,7 +139,7 @@ Se till att datorn som kör Mac OS är ansluten till Azure AD. Anvisningar för 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) dem också.
+Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) för dem också.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
 

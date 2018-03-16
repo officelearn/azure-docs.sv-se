@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på ett icke-galleriet program som konfigurerats för federerad enkel inloggning
 
@@ -31,13 +31,13 @@ Om du vill felsöka problemet måste du kontrollera i programkonfigurationen i A
 
 ## <a name="application-not-found-in-directory"></a>Programmet hittades inte i katalog
 
-*Fel AADSTS70001: Programmet med ID 'https://contoso.com' hittades inte i katalogen*.
+*Fel AADSTS70001: Program med identifierare ”https://contoso.com' hittades inte i katalogen*.
 
 **Möjlig orsak**
 
 Utfärdaren attribut skickar från programmet till Azure AD i SAML-begäran matchar inte ID-värdet som konfigurerats i Azure AD-programmet.
 
-Lösning
+**Lösning**
 
 Se till att attributet utfärdaren i SAML-begäran matchar identifieraren värdet som konfigurerats i Azure AD:
 
@@ -63,13 +63,13 @@ När du har uppdaterat ID-värdet i Azure AD och den matchar värdet skickar av 
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte reply-adresser som har konfigurerats för programmet. 
 
-*Fel AADSTS50011: Svarsadressen 'https://contoso.com' matchar inte reply-adresser som har konfigurerats för programmet* 
+*Fel AADSTS50011: Svarsadressenhttps://contoso.com' matchar inte reply-adresser som har konfigurerats för programmet* 
 
 **Möjlig orsak** 
 
 AssertionConsumerServiceURL värdet i SAML-begäran matchar inte den Reply URL-värde eller mönster som konfigurerats i Azure AD. AssertionConsumerServiceURL värdet i SAML-begäran är den URL som du ser i felet. 
 
-Lösning 
+**Lösning** 
 
 Kontrollera att värdet AssertionConsumerServiceURL i SAML-begäran matchar Reply URL värdet som konfigurerats i Azure AD. 
  
@@ -103,7 +103,7 @@ När du har uppdaterat Reply URL-värdet i Azure AD och den matchar värdet skic
 
 Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
-Lösning
+**Lösning**
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
 
@@ -153,7 +153,7 @@ Azure AD stöder inte SAML begäran skickas av programmet för enkel inloggning.
 
 -   SAML-kodade metoden
 
-Lösning
+**Lösning**
 
 1.  Avbilda SAML-begäran. Följ guiden på [felsöka SAML-baserade enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) att lära dig att avbilda SAML-begäran.
 
@@ -173,7 +173,7 @@ De bör verifiera de stöd för Azure AD SAML-implementeringen för enkel inlogg
 
 Programobjektet är skadad.
 
-Lösning
+**Lösning**
 
 Lös problemet genom att ta bort programmet från katalogen. Sedan kan lägga till och konfigurera om programmet, Följ stegen nedan:
 
@@ -205,7 +205,7 @@ Fel AADSTS50003: Inga signeringsnyckeln konfigurerats.
 
 Programobjektet är skadat och Azure AD kan identifiera inte certifikatet som konfigurerats för programmet.
 
-Lösning
+**Lösning**
 
 Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -78,7 +78,7 @@ I följande avsnitt beskrivs konfigurationskraven för StorSimple-molninstallati
 Innan du etablerar molninstallationen måste du göra följande förberedelser i Azure-miljön:
 
 * Se till att du har en fysisk StorSimple 8000 series-enhet (modell 8100 eller 8600) distribuerad och körandes i ditt datacenter. Registrera enheten med samma StorSimple Device Manager-tjänst som du vill skapa en StorSimple Cloud Appliance-installation för.
-* [Konfigurera ett virtuellt nätverk i Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) för molninstallationen. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Premium Storage-regioner är regioner som motsvarar raden för disklagring i [listan över Azure-tjänster baserat på region](https://azure.microsoft.com/regions/services/).
+* [Konfigurera ett virtuellt nätverk i Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) för molninstallationen. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Premium Storage-regioner är regioner som motsvarar raden för disklagring i [listan över Azure-tjänster baserat på region](https://azure.microsoft.com/regions/services/).
 * Vi rekommenderar att du använder DNS-standardservern från Azure i stället för att ange ett eget DNS-servernamn. Om DNS-servernamnet inte är giltigt eller om DNS-servern inte kan matcha IP-adresser korrekt går det inte att skapa molninstallationen.
 * Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier.
 * Du kan skapa [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av molninstallationen. Servrarna måste uppfylla följande krav:

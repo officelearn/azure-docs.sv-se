@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Med hjälp av Azure Stack-portalen
 
@@ -31,7 +31,7 @@ Du kan använda Azure Stack-portalen för att prenumerera på offentliga erbjuda
 Azure Stack-operatorn (en tjänsteleverantör eller en administratör i din organisation), informerar dig om att få åtkomst till portalen rätt URL. 
 
 - URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
-- Om du använder Azure Stack Development Kit är portal adressen https://portal.local.azurestack.external.
+- Om du använder Azure Stack Development Kit portal adressen är https://portal.local.azurestack.external.
 
 ![Skärmbild av Azure-stacken användarportalen](media/azure-stack-use-portal/UserPortal.png)
 

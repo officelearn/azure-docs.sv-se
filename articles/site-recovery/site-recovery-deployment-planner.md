@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -36,7 +36,7 @@ Du kan se följande information i verktyget:
 **Utvärdering av kompatibilitet**
 
 * En utvärdering av den virtuella datorn stöds baserat på antal diskar, diskstorlek, IOPS, dataomsättning, starttyp (EFI/BIOS) och OS-version
- 
+
 **Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål**
 
 * Beräknad nätverksbandbredd som krävs för deltareplikering
@@ -93,13 +93,16 @@ Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns ocks
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Ladda ned och extrahera distributionshanteraren
-1. Ladda ned den senaste versionen av [Distributionshanteraren för Site Recovery](https://aka.ms/asr-deployment-planner). Verktyget är paketerat i en komprimerad mapp. Den aktuella versionen av verktyget har endast stöd för scenariot med VMware till Azure.
+1. Ladda ned den senaste versionen av [Distributionshanteraren för Site Recovery](https://aka.ms/asr-deployment-planner).
+Verktyget är paketerat i en komprimerad mapp. Den aktuella versionen av verktyget har endast stöd för scenariot med VMware till Azure.
 
-2. Kopiera den komprimerade mappen till den Windows Server som du vill köra verktyget från. Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtkomst för att ansluta till vCenter-servern/vSphere ESXi-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar dock att du kör verktyget på en server vars maskinvarukonfiguration uppfyller [riktlinjerna för förändring av storleken på konfigurationsservrar](https://aka.ms/asr-v2a-on-prem-components). Om du redan har distribuerat Site Recovery-komponenter lokalt bör du köra verktyget från konfigurationsservern.
+2. Kopiera den komprimerade mappen till den Windows Server som du vill köra verktyget från.
+Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtkomst för att ansluta till vCenter-servern/vSphere ESXi-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar dock att du kör verktyget på en server vars maskinvarukonfiguration uppfyller [riktlinjerna för förändring av storleken på konfigurationsservrar](https://aka.ms/asr-v2a-on-prem-components). Om du redan har distribuerat Site Recovery-komponenter lokalt bör du köra verktyget från konfigurationsservern.
 
     Vi rekommenderar att du har samma maskinvarukonfiguration som konfigurationsservern (som har en inbyggd processerver) på den server där du kör verktyget. En sådan konfiguration garanterar att det uppnådda genomflödet som verktyget rapporterar matchar det faktiska dataflöde som Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (t.ex. processor och lagringsutrymme) på servern. Om du kör verktyget från andra servrar beräknas dataflödet från den här servern till Azure. Också eftersom maskinvarukonfigurationen på servern kan skilja sig från konfigurationsservern kan det dataflöde som verktyget rapporterar vara felaktigt.
 
-3. Extrahera .zip-filen. Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
+3. Extrahera .zip-filen.
+Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
     Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
     E:\ASR Deployment Planner_v2.1zip

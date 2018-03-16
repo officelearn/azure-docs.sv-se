@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -44,7 +44,7 @@ Nu måste du skapa den **delegering endpoint**. Det måste genomföra ett antal 
 
 1. Ta emot en begäran i följande format:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL på sidan källa} & salt = {sträng} & sig = {sträng}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Nu måste du skapa den **delegering endpoint**. Det måste genomföra ett antal 
    * [begär en enkel inloggning (SSO) token] via API Management REST API
    * Lägg till en frågeparameter returnUrl SSO-URL som du har fått från API-anrop ovan:
      
-     > for example, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > Till exempel https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * omdirigera användaren till ovanstående producerade URL
@@ -101,7 +101,7 @@ Kontrollera sedan delegering slutpunkten utför följande åtgärder:
 
 1. Ta emot en begäran i följande format:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation= {åtgärd} & productId = {produkt att prenumerera på} & userId = {användare som gjort begäran} & salt = {sträng} & sig = {sträng}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product prenumerera på} & userId = {användare som gjort begäran} & salt = {sträng} & sig = {sträng}*
    > 
    > 
    

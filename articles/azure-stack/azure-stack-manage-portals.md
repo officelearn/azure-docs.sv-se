@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Med hjälp av administratörsportalen i Azure-stacken
 
@@ -34,8 +34,8 @@ För en development kit miljö måste du först se till att du kan [anslutas til
 
 | Miljö | Administratören Portal-URL |   
 | -- | -- | 
-| Development kit| https://adminportal.Local.azurestack.external  |
-| Integrerade system | https://adminportal. &lt; *region*&gt;.&lt; *FQDN*&gt; | 
+| Development kit| https://adminportal.local.azurestack.external  |
+| Integrerade system | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![Administratörsportalen](media/azure-stack-manage-portals/image1.png)

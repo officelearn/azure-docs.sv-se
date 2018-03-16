@@ -9,11 +9,11 @@ ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 382fbe8919a031ca29a32e708b12070c584ed21f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f013303cb99cc549cb0a8d72e2e9c60209008c67
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Skapa en funktionsapp och distribuera funktionskod från GitHub
 
@@ -37,7 +37,7 @@ Det här exemplet skapar en funktionsapp och distribuerar funktionskod från Git
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Varje kommando i tabellen länkar till kommandospecifik dokumentation. Det här skriptet använder följande kommandon:
+Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
@@ -48,6 +48,6 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. Det här 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
 Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

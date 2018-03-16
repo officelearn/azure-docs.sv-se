@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport för kapacitetsplaneraren i Azure Site Recovery
 Den genererade rapporten i Microsoft Excel innehåller följande ark:
@@ -132,16 +132,16 @@ I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för ha
 ![Sammanfattning av kostnadsuppskattning](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala för lagring, beräkning, nätverk och licenser när du skyddar alla dina kompatibla virtuella datorer till Azure med Azure Site Recovery. Kostnaden beräknas för kompatibla virtuella datorer och inte för alla profilerade virtuella datorer.  
- 
+
 Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Cost by components** (Kostnad per komponenter) Den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och Azure Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
 
-**Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test. 
+**Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test.
 
-**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen.
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs.
 
 **Azure storage cost per Month/Year** (Azure Storage-kostnad per månad/år) Det visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test.
 Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
@@ -266,7 +266,7 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.
 
-**OS-typ**: Den virtuella datorns typ av operativsystem. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn. 
+**OS-typ**: Den virtuella datorns typ av operativsystem. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.
 
 ## <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen rekommenderar vi alltid att du kör omfattande programtester med redundanstest för att få en bild av verklig prestanda för programmet.
@@ -282,15 +282,15 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per dis
 
 **Källans dataomsättning** | **Högsta gräns**
 ---|---
-Genomsnittlig dataomsättning per virtuell dator| 25 MB/s 
+Genomsnittlig dataomsättning per virtuell dator| 25 MB/s
 Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
-Maximal dataomsättning per dag som stöds av en processerver | 2 TB 
+Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 
 
 ## <a name="cost-estimation"></a>Kostnadsuppskattning
-Läs mer om [kostnadsuppskattning](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Läs mer om [kostnadsuppskattning](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

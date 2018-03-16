@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använd Azure AD-autentisering för åtkomst till Azure Media Services-API med övriga
 
@@ -59,10 +59,10 @@ Du behöver samla in följande datapunkter för att komma åt Media Services API
 
 |Inställning|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomst-token).|
-|REST API-slutpunkt|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program görs.|
+|Azure Active Directory-klientorganisationsdomän|microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomst-token).|
+|REST API-slutpunkt|https://amshelloworld.restv2.westus.media.azure.net/api/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program görs.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att få åtkomst-token. |
-|Klienthemlighet|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD application-nycklar (klienthemlighet). Klienthemligheten krävs för att få åtkomst-token.|
+|Klienthemlighet|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application-nycklar (klienthemlighet). Klienthemligheten krävs för att få åtkomst-token.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Hämta AAD auth information från Azure-portalen
 
@@ -123,12 +123,12 @@ Det här avsnittet visar hur du använder **Postman** att köra en REST-API som 
 2. Välj **POST**.
 3. Ange den URL som innehåller ditt klientnamn med hjälp av följande format: klientnamnet ska avslutas med **. onmicrosoft.com** och URL: en måste sluta med **oauth2-token**: 
 
-    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Välj den **huvuden** fliken.
 5. Ange den **huvuden** information med hjälp av datarutnätet ”nyckel/värde”. 
 
-    ![Datarutnätet](./media/connect-with-rest/headers-data-grid.png)
+    ![Data Grid](./media/connect-with-rest/headers-data-grid.png)
 
     Alternativt klickar du på **Massredigera** länka till höger i fönstret Postman och klistra in följande kod.
 
@@ -138,7 +138,7 @@ Det här avsnittet visar hur du använder **Postman** att köra en REST-API som 
 6. Tryck på den **brödtext** fliken.
 7. Ange brödtext information med hjälp av datarutnätet ”nyckel/värde” (Ersätt klient-ID och Hemlig värden). 
 
-    ![Datarutnätet](./media/connect-with-rest/data-grid.png)
+    ![Data Grid](./media/connect-with-rest/data-grid.png)
 
     Alternativt klickar du på **Massredigera** till höger i fönstret Postman och klistra in följande organ (Ersätt klient-ID och Hemlig värden):
 
@@ -159,7 +159,7 @@ Det här avsnittet visas hur du kommer åt den **tillgångar** API med hjälp av
 
 1. Öppna **Postman**.
 2. Välj **GET**.
-3. Klistra in REST API-slutpunkt (till exempel https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Klistra in REST API-slutpunkt (t.ex. https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Välj den **auktorisering** fliken. 
 5. Välj **Ägartoken**.
 6. Klistra in den token som skapades i föregående avsnitt.

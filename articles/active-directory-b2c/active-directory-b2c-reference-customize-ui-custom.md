@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användare resa med anpassade principer
 
@@ -72,10 +72,10 @@ För att säkerställa att allt fungerar som förväntat, måste du:
 - Använda absoluta URL: er, till exempel https://yourdomain/content för alla länkar och CSS-innehåll.
 
 > [!TIP]
-> Om du vill kontrollera att du är värd för ditt innehåll på platsen har CORS är aktiverat och testa CORS begäranden, kan du använda webbplatsen http://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärrserver (för att kontrollera om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
+> Om du vill kontrollera att du är värd för ditt innehåll på platsen har CORS är aktiverat och testa CORS begäranden, du kan använda webbplatsen http://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärrserver (för att kontrollera om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
 
 > [!TIP]
-> Plats-http://enable-cors.org/ innebär även en mer än användbara resurser på CORS.
+> Platsen http://enable-cors.org/ innebär även en mer än användbara resurser på CORS.
 
 Tack vare den här CORS-baserade metoden har användarna konsekvent upplevelse mellan ditt program och de sidor som hanteras av Azure AD B2C.
 
@@ -123,7 +123,7 @@ CORS (Cross-Origin Resource Sharing) måste vara aktiverat på slutpunkten för 
 Om du vill kontrollera att den lagring som du är värd för ditt innehåll i har CORS är aktiverat, fortsätter du med följande steg:
 
 1. Öppna en webbläsarsession och gå till sidan *unified.html* med dess plats i ditt lagringskonto, fullständig URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Till exempel https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Gå till http://test-cors.org. Den här platsen kan du kontrollera att den sida som du använder har CORS är aktiverat.  
+2. Navigera till http://test-cors.org. Den här platsen kan du kontrollera att den sida som du använder har CORS är aktiverat.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

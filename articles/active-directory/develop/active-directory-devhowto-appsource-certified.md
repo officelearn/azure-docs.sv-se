@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Hur du hämtar AppSource certifierade för Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) är mål för användare i verksamheten att upptäcka, försök och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
@@ -35,7 +35,7 @@ Ett program som accepterar inloggningar från användare från företaget eller 
 
 För att aktivera flera innehavare för ditt program:
 - Ange `Multi-Tenanted` egenskapen `Yes` för programregistrering av på den [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (som standard konfigureras program som har skapats i Azure Portal som *stöd för en innehavare*)
-- Uppdatera din kod för att skicka begäranden till den '`common`-slutpunkt (uppdatera slutpunkten från *https://login.microsoftonline.com/ {yourtenant}* till *https://login.microsoftonline.com/common*)
+- Uppdatera din kod för att skicka begäranden till den '`common`-slutpunkt (uppdatera slutpunkten från  *https://login.microsoftonline.com/{yourtenant}*  till  *https://login.microsoftonline.com/common* )
 - För vissa plattformar som ASP.NET, måste du också uppdatera din kod för att godkänna flera certifikatutfärdare
 
 Läs mer om multitenans: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](./active-directory-devhowto-multi-tenant-overview.md).

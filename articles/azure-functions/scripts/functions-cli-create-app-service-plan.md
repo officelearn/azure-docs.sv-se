@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c035eabe966eed97ce8c1df1e4ffba327f07ccac
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d2c346424c5bcec7ec91b309799a1bf9fe3cab02
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Skapa en funktionsapp i en App Service plan
 
@@ -44,7 +44,7 @@ Det här skriptet skapar en Azure Function-app som använder en dedikerad [App S
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Varje kommando i tabellen länkar kommando-specifik dokumentation. Det här skriptet använder följande kommandon:
+Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
@@ -55,6 +55,6 @@ Varje kommando i tabellen länkar kommando-specifik dokumentation. Det här skri
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
 Ytterligare CLI-skriptexempel för Azure Functions finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Hur du autentiserar användare webbprogram med Azure Access Control Service med Eclipse
 Den här guiden visar hur du använder Azure Access Control Service (ACS) i Azure-verktygen för Eclipse. Mer information om ACS finns i [nästa steg](#next_steps) avsnitt.
@@ -42,7 +42,7 @@ Följande funktioner är tillgängliga i ACS:
 
 Mer information om ACS finns [Access Control Service 2.0][Access Control Service 2.0].
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 Azure ACS bygger på säkerhetsobjekt anspråksbaserad identitet - en konsekvent metod för att skapa autentiseringsmekanismer för program som körs lokalt eller i molnet. Anspråksbaserad identitet innehåller ett vanligt sätt för program och tjänster att hämta identitetsinformation de behöver om användarna i organisationen i andra organisationer och på Internet.
 
 Om du vill utföra åtgärderna i den här guiden bör du förstå följande begrepp:
@@ -74,7 +74,7 @@ Följande bild visar hur ACS-autentisering fungerar med ett webbprogram:
 6. ACS verifierar säkerhetstoken som utfärdats av IP-Adressen, indata identiteten anspråk i den här variabeln till ACS-regelmotor beräknar identitetsanspråk utdata och skickar en ny säkerhetstoken som innehåller dessa utgående anspråk.
 7. ACS dirigerar om klienten till RP. Klienten skickar nya säkerhetstoken som utfärdats av ACS till RP. RP verifierar signaturen på den säkerhetstoken som utfärdats av ACS validerar anspråk i denna token och returnerar sidan som ursprungligen begärdes.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill utföra åtgärderna i den här guiden behöver du följande:
 
 * En Java Developer Kit (JDK), v 1.6 eller senare.
@@ -205,7 +205,7 @@ I den **inloggningen sidan integrering: Azure Web App** sidan den URL som visas 
 4. Klicka på **Slutför**.
 5. Klicka på den **körs i Azure-emulatorn** knappen.
 6. När Java-webbapp startar i beräkningsemulatorn, Stäng alla instanser av webbläsaren (så att alla aktuella webbläsarsessioner inte stör ACS inloggningen testet).
-7. Kör ditt program genom att öppna <http://localhost: 8080/MyACSHelloWorld/> i webbläsaren (eller <https://localhost:8080/MyACSHelloWorld/> när du har markerat **kräver HTTPS-anslutningar** ). Du ska ange ett Windows Live ID-inloggning och du bör vidtas för att returnera Webbadressen som angetts för tillämpningsprogrammet förlitande part.
+7. Kör ditt program genom att öppna <http://localhost:8080/MyACSHelloWorld/> i webbläsaren (eller <https://localhost:8080/MyACSHelloWorld/> när du har markerat **kräver HTTPS-anslutningar**). Du ska ange ett Windows Live ID-inloggning och du bör vidtas för att returnera Webbadressen som angetts för tillämpningsprogrammet förlitande part.
 8. När du är klar visar-programmet, klickar du på den **återställa Azure-emulatorn** knappen.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure

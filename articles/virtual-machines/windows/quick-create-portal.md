@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca18b8b67d9af0c1f80d9726c1e20af0ad7e9c19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ef2fdfc8f248f9ec5dd9fce9753548dfe802982a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Windows-dator med Azure Portal
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure-portalen på https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 

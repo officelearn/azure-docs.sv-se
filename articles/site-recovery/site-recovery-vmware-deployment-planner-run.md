@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Köra Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Lägen för att köra distributionshanteraren
-Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följande tre lägen: 
+Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följande tre lägen:
 
 1.  [Profilering](#profile-vmware-vms)
 2.  [Rapportgenerering](#generate-report)
@@ -49,8 +49,8 @@ Du behöver först en lista över de virtuella datorer som ska profileras. Du ka
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Du kan alternativt behöva köra följande kommando om Connect-VIServer inte identifieras som cmdletens namn.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Kör de två kommandona i listan här för att hämta alla namnen på virtuella datorer på en vCenter-server/sShere ESXi-värd och spara den i en txt-fil.
 Ersätt &lsaquo;servernamn&rsaquo;, &lsaquo;användarnamn&rsaquo;, &lsaquo;lösenord&rsaquo; och &lsaquo;utdatafil.txt&rsaquo; med egna värden.
@@ -101,7 +101,7 @@ Som standard är verktyget konfigurerat för att profilera och generera rapporte
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av ASR-distributionsplaneraren, en med VMList1.txt och en med VMList2.txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna. 
+Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av ASR-distributionsplaneraren, en med VMList1.txt och en med VMList2.txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna.
 
 Vi har märkt att åtgärden kan misslyckas med otillräckligt minne baserat på maskinvarukonfigurationen. Det gäller i synnerhet RAM-storleken på servern varifrån verktyget körs för att generera rapporten. Om du har bra maskinvara kan du ändra MaxVMsSupported till ett högre värde.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Nästa steg
 * [Analysera den genererade rapporten](site-recovery-vmware-deployment-planner-analyze-report.md).
-

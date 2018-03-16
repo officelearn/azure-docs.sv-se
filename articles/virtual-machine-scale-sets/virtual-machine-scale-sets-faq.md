@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -218,9 +218,9 @@ Du kan ange offentliga SSH-nycklar i klartext när du skapar en Linux VM:
  
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | --- |  ---
-SSH | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
+ssh | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
 sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
-nyckeldata | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
+keyData | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
 
 Ett exempel finns [101-vm-sshkey GitHub quickstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -291,9 +291,9 @@ Det uppstår inte här problemet när skala ut eftersom det inte finns en cachel
  
 Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten som om versionen inte har angetts.
  
-Metod | Webbadress
+Metod | URL
 --- | ---
-GET | https://mykeyvault.Vault.Azure.NET/secrets/ {hemlighet name} / {hemlighet version}? api-version = {api-version}
+HÄMTA | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Ersätt {*hemlighet namn*} med namnet och Ersätt {*hemlighet version*} med versionen av den hemlighet som du vill hämta. Den hemliga versionen kan inte uteslutas. I så fall hämtas den aktuella versionen.
   
@@ -339,7 +339,7 @@ Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/Trust
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Har [Azure hanterade tjänstidentiteten](https://docs.microsoft.com/azure/active-directory/msi-overview) arbeta med virtuella datorer?
 
-Ja. Du kan se några exempel MSI-mallar i Azure Quickstart-mallar. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Ja. Du kan se några exempel MSI-mallar i Azure Quickstart-mallar. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Tillägg
@@ -690,7 +690,7 @@ När en ny virtuell dator skapas visar egenskapen InstanceView för den virtuell
 
 För att få information om egenskaper för varje virtuell dator utan att göra flera anrop, kan du anropa `ListVMInstanceViews` genom att göra ett REST-API `GET` på följande resurs-URI:
 
-/subscriptions/ < PRENUMERATIONSID > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
+/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan jag skicka annat tillägg argument till olika virtuella datorer i en skaluppsättning för virtuell dator?
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -26,7 +26,7 @@ Den här kursen visar hur du skyddar ditt webbprogram genom att köpa ett SSL-ce
 
 ## <a name="step-1---log-in-to-azure"></a>Steg 1 – Logga in på Azure
 
-Logga in på Azure-portalen på http://portal.azure.com
+Logga in på Azure portal http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Steg 2 – beställning SSL-certifikat
 
@@ -159,7 +159,7 @@ Välj det här alternativet endast för [en Apptjänst-domän som du har köpt f
 
 1. Innehållet i den här filen bör vara det exakta namnet på domänen verifiering Token. (Du kan kopiera token från sidan Status för verifiering av domän)
 
-1. Överför den här filen i roten på webbservern som värd för din domän`/.well-known/pki-validation/starfield.html`
+1. Överför den här filen i roten på webbservern som värd för din domän `/.well-known/pki-validation/starfield.html`
 
 1. Klicka på **uppdatera** att uppdatera certifikatstatus när verifieringen är klar. Det kan ta några minuter för verifiering att slutföra.
 

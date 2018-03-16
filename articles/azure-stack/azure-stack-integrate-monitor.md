@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
 
@@ -206,7 +206,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |---------|---------|
 |*id*     |      Unikt ID för aviseringen.   |
 |*Namn*     |     Internt namn för aviseringen.   |
-|*typ*     |     Resursdefinitionen.    |
+|*Typ*     |     Resursdefinitionen.    |
 |*Plats*     |       Namn på område.     |
 |*tagg*     |   Resurstaggar.     |
 |*closedtimestamp*    |  UTC-tid då aviseringen stängdes.    |
@@ -221,12 +221,12 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*fabricname*     |    Registrerade fabric namnet på den felaktiga komponenten.   |
 |*Beskrivning*     |  Beskrivning av registrerade fabric-komponent.   |
 |*ServiceType*     |   Typ av registrerade fabrikstjänsten.   |
-|*reparation*     |   Rekommenderade steg.    |
-|*typ*     |   Typ av avisering.    |
+|*Reparation*     |   Rekommenderade steg.    |
+|*Typ*     |   Typ av avisering.    |
 |*resourceRegistrationid*    |     ID för den registrerade resursen som påverkas.    |
 |*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
 |*serviceregistrationid*     |    ID för en registrerad service.   |
-|*allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
+|*Allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
 |*state*     |    Tillstånd för avisering.   |
 |*Rubrik*     |    Aviseringen rubrik.   |
 |*impactedresourceid*     |     ID för påverkas resurs.    |
@@ -349,7 +349,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |---------|---------|
 |*id*     |      Unikt ID för aviseringen.   |
 |*Namn*     |     Internt namn för aviseringen.   |
-|*typ*     |     Resursdefinitionen.    |
+|*Typ*     |     Resursdefinitionen.    |
 |*Plats*     |       Namn på område.     |
 |*tagg*     |   Resurstaggar.     |
 |*closedtimestamp*    |  UTC-tid då aviseringen stängdes.    |
@@ -364,12 +364,12 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*fabricname*     |    Registrerade fabric namnet på den felaktiga komponenten.   |
 |*Beskrivning*     |  Beskrivning av registrerade fabric-komponent.   |
 |*ServiceType*     |   Typ av registrerade fabrikstjänsten.   |
-|*reparation*     |   Rekommenderade steg.    |
-|*typ*     |   Typ av avisering.    |
+|*Reparation*     |   Rekommenderade steg.    |
+|*Typ*     |   Typ av avisering.    |
 |*resourceRegistrationid*    |     ID för den registrerade resursen som påverkas.    |
 |*resourceProviderRegistrationID*   |    ID för registrerad resursprovider för komponenten som påverkas.  |
 |*serviceregistrationid*     |    ID för en registrerad service.   |
-|*allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
+|*Allvarlighetsgrad*     |     Allvarlighetsgrad för aviseringen.  |
 |*state*     |    Tillstånd för avisering.   |
 |*Rubrik*     |    Aviseringen rubrik.   |
 |*impactedresourceid*     |     ID för påverkas resurs.    |
@@ -393,7 +393,7 @@ Begäran hämtar hälsostatus för alla registrerade providrar.
 
 |Argument  |Beskrivning  |
 |---------|---------|
-|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Om den externa FQDN är azurestack.external och regionnamn är lokal är Resource Manager-slutpunkten https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Till exempel om den externa FQDN är azurestack.external och regionnamn är lokal Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.    |
 |*RegionName*     |     Regionnamn med Azure Stack-distributionen.    |
 |*api-version*     |   Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.      |
@@ -435,7 +435,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |---------|---------|
 |*Id*     |   Unikt ID för aviseringen.      |
 |*Namn*     |  Internt namn för aviseringen.       |
-|*typ*     |  Resursdefinitionen.       |
+|*Typ*     |  Resursdefinitionen.       |
 |*Plats*     |  Namn på område.       |
 |*tagg*     |     Resurstaggar.    |
 |*registrationId*     |   Unik registrering för resursprovidern.      |
@@ -445,7 +445,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*serviceLocation*     |   Den här resursprovidern har registrerats med region.      |
 |*infraURI*     |   URI för resursprovidern listats som en infrastruktur-roll.      |
 |*alertSummary*     |   Sammanfattning av kritiska meddelanden och varningsmeddelanden aviseringen som är associerade med resursprovidern.      |
-|*healthState*     |    Hälsotillståndet för resursprovidern.     |
+|*HealthState*     |    Hälsotillståndet för resursprovidern.     |
 
 
 ### <a name="get-resource-health"></a>Hämta resurshälsa
@@ -462,7 +462,7 @@ Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
 
 |Argument  |Beskrivning  |
 |---------|---------|
-|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Om den externa FQDN är azurestack.external och regionnamn är lokal är Resource Manager-slutpunkten https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Resource Manager-slutpunkten för din miljö för Azure-stacken, i formatet https://adminmanagement. {RegionName}. {Externa FQDN}. Till exempel om den externa FQDN är azurestack.external och regionnamn är lokal Resource Manager-slutpunkten är https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Prenumerations-ID för den användare som har att göra anropet. Du kan använda den här API för att fråga endast med en användare som har behörighet att providern standardabonnemang.         |
 |*RegionName*     |  Regionnamn med Azure Stack-distributionen.       |
 |*api-version*     |  Version av det protokoll som används för att göra denna begäran. Du måste använda 2016-05-01.       |
@@ -503,7 +503,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |---------|---------|
 |*Id*     |   Unikt ID för aviseringen.      |
 |*Namn*     |  Internt namn för aviseringen.       |
-|*typ*     |  Resursdefinitionen.       |
+|*Typ*     |  Resursdefinitionen.       |
 |*Plats*     |  Namn på område.       |
 |*tagg*     |     Resurstaggar.    |
 |*registrationId*     |   Unik registrering för resursprovidern.      |

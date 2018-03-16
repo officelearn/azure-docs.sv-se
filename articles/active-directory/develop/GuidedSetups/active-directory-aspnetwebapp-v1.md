@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
 ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram
@@ -66,14 +66,14 @@ Det här avsnittet visar hur du installerar och konfigurerar autentisering pipel
 > Om du vill hämta det här exemplet Visual Studio-projekt i stället? [Hämta ett projekt](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip) och gå vidare till den [konfigurationssteget](#configure-your-webconfig-and-register-an-application) konfigurera kodexemplet innan du kör.
 
 ## <a name="create-your-aspnet-project"></a>Skapa din ASP.NET-projekt
-1. I Visual Studio:`File` > `New` > `Project`<br/>
+1. I Visual Studio: `File` > `New` > `Project`<br/>
 2. Under *Visual C# \Web*väljer `ASP.NET Web Application (.NET Framework)`.
 3. Namnge ditt program och klicka på *OK*
 4. Välj `Empty` och markera sedan kryssrutan för att lägga till `MVC` referenser
 
 ## <a name="add-authentication-components"></a>Lägga till autentiseringskomponenter
 
-1. I Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
+1. I Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Lägg till *OWIN mellanprogram NuGet-paket* genom att skriva följande i fönstret Package Manager-konsolen:
 
     ```powershell
@@ -92,8 +92,8 @@ Följande steg används för att skapa en OWIN-mellanprogram *startklass* konfig
 
 > [!TIP]
 > Om ditt projekt inte har en `Startup.cs` filen i rotmappen:<br/>
-> 1. Högerklicka på projektets rotmapp: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Ge den namnet`Startup.cs`<br/>
+> 1. Högerklicka på projektets rotmapp: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Ge den namnet `Startup.cs`<br/>
 >
 >> Kontrollera att den klass som valts är en OWIN-startklass och inte en standard C#-klass. Kontrollera detta genom att kontrollera om du ser `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` ovanför namnområdet.
 
@@ -119,7 +119,7 @@ Följande steg används för att skapa en OWIN-mellanprogram *startklass* konfig
 
 Det här steget visar hur du skapar en ny domänkontrollant om du vill exponera metoder för inloggning och utloggning.
 
-1.  Högerklicka på den `Controllers` och väljer`Add` > `Controller`
+1.  Högerklicka på den `Controllers` och väljer `Add` > `Controller`
 2.  Välj `MVC (.NET version) Controller – Empty`.
 3.  Klicka på *Lägg till*
 4.  Ge den namnet `HomeController` och på *Lägg till*
@@ -135,7 +135,7 @@ Det här steget visar hur du skapar en ny domänkontrollant om du vill exponera 
 
 Skapa en ny vy för att lägga till knappen Logga in och visa information om användare efter autentisering i Visual Studio:
 
-1.  Högerklicka på den `Views\Home` och väljer`Add View`
+1.  Högerklicka på den `Views\Home` och väljer `Add View`
 2.  Ge den namnet `Index`.
 3.  Lägg till följande HTML, som innehåller knappen Logga in i filen:
 
@@ -149,10 +149,10 @@ Skapa en ny vy för att lägga till knappen Logga in och visa information om anv
 ## <a name="display-users-claims-by-adding-a-controller"></a>Visa användarens anspråk genom att lägga till en domänkontrollant
 Den här domänkontrollanten visar användning av den `[Authorize]` attribut för att skydda en domänkontrollant. Det här attributet begränsar åtkomsten till styrenhet genom att bara tillåta autentiserade användare. Följande kod gör använda för attributet för att visa användaranspråk som har hämtats som en del av inloggningen.
 
-1.  Högerklicka på den `Controllers` mapp:`Add` > `Controller`
+1.  Högerklicka på den `Controllers` mapp: `Add` > `Controller`
 2.  Välj `MVC {version} Controller – Empty`.
 3.  Klicka på *Lägg till*
-4.  Ge den namnet`ClaimsController`
+4.  Ge den namnet `ClaimsController`
 5.  Ersätt Koden i controller-klassen med följande kod - läggs till i `[Authorize]` attribut i klassen:
 
     [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
@@ -166,7 +166,7 @@ Den här domänkontrollanten visar användning av den `[Authorize]` attribut fö
 
 Skapa en ny vy för att visa användarens anspråk i en webbsida i Visual Studio:
 
-1.  Högerklicka på den `Views\Claims` mappen och:`Add View`
+1.  Högerklicka på den `Views\Claims` mappen och: `Add View`
 2.  Ge den namnet `Index`.
 3.  Lägg till följande HTML i filen:
 
@@ -186,7 +186,7 @@ Skapa en ny vy för att visa användarens anspråk i en webbsida i Visual Studio
     <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
     ```
 2. Välj projektet i Solution Explorer och titta på den <i>egenskaper</i> fönstret (om du inte ser en egenskapsfönstret trycker du på F4)
-3. Ändra SSL aktiverat för<code>True</code>
+3. Ändra SSL aktiverat för <code>True</code>
 4. Kopiera projektets SSL URL till Urklipp:<br/><br/>![Egenskaper för](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
 5. I <code>web.config</code>, Ersätt <code>Enter_the_Redirect_URL_here</code> med SSL-URL för ditt projekt 
 
@@ -213,8 +213,8 @@ Du kan konfigurera programmet så att endast användare som tillhör en organisa
 Följ anvisningarna nedan om du vill acceptera inloggningar av arbets- och skolkonton konton från alla företag eller organisation som har integrerat med Azure Active Directory. Det här är ett vanligt scenario för *SaaS-program*:
 
 1. Gå tillbaka till [Microsoft Azure Portal - App registreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) och leta reda på programmet som du precis har registrerats
-2. Under `All Settings` väljer`Properties`
-3. Ändra `Multi-tenanted` egenskapen `Yes` och klicka på`Save`
+2. Under `All Settings` väljer `Properties`
+3. Ändra `Multi-tenanted` egenskapen `Yes` och klicka på `Save`
 
 Mer information om den här inställningen och begreppet program med flera klienter finns [i den här artikeln](../active-directory-devhowto-multi-tenant-overview.md "översikt över flera innehavare").
 

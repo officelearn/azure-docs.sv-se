@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 96a4203c11cc20e01eb164dfdd9178988074ff48
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
@@ -73,7 +73,7 @@ Med hjälp av det här kommandot installerar du den senaste versionen av azure-b
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Steg 2: Skapa ett Azure Batch-konto
 
-Du kan skapa ett konto i [Azure Portal](batch-account-create-portal.md) eller från kommandoraden ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)).
+Du kan skapa ett konto i [Azure Portal](batch-account-create-portal.md) eller från kommandoraden ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure)).
 
 Nedan beskrivs kommandon som kan användas för att skapa ett sådant med hjälp av Azure CLI.
 

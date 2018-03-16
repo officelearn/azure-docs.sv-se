@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Innan du börjar
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Hur du distribuerar Azure App Service på Azure-stacken över feldomäner
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Distribuera App Service-resursprovider
               href: azure-stack-app-service-deploy.md
             - name: Distribuera App Service offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Update App Service
+              href: azure-stack-app-service-update.md
+            - name: Uppdatera Apptjänst Offline
+              href: azure-stack-app-service-update-offline.md
             - name: Lägga till fler webbarbetsroller
               href: azure-stack-app-service-add-worker-roles.md
             - name: Konfigurera distributionskällor
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Uppdatera en viktig information för App Service
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Lägga till i Marketplace
           items:
             - name: Marketplace-översikt

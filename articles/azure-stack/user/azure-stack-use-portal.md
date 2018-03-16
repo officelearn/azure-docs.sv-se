@@ -30,7 +30,7 @@ Du kan använda Azure Stack-portalen för att prenumerera på offentliga erbjuda
 
 Azure Stack-operatorn (en tjänsteleverantör eller en administratör i din organisation), informerar dig om att få åtkomst till portalen rätt URL. 
 
-- URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal. &lt; *region*&gt;.&lt; *FQDN*&gt;.
+- URL: en för ett integrerat system varierar beroende på din operatorn region och externa domännamn och kommer att vara i formatet https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
 - Om du använder Azure Stack Development Kit portal adressen är https://portal.local.azurestack.external.
 
 ![Skärmbild av Azure-stacken användarportalen](media/azure-stack-use-portal/UserPortal.png)

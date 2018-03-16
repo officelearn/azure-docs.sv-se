@@ -2,29 +2,26 @@
 title: "Azure SQL Database hanteras instans översikt | Microsoft Docs"
 description: "Det här avsnittet beskriver en Azure SQL Database hanteras och förklarar hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database."
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
 
 Azure SQL-hanterade databasinstans (förhandsversion) är en ny funktion i Azure SQL Database, tillhandahåller nästan 100% kompatibilitet med SQL Server on-premises genom att tillhandahålla ett ursprungligt [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som adresser vanliga säkerhetsfrågor, och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för lokala SQL Server-kunder. Hanterade instansen tillåter befintliga SQL Server-kunder att lyfta och flytta sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång bevarar hanteras instans alla PaaS funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som minskar drastiskt hanteringskostnader och TCO.
+
+> [!IMPORTANT]
+> En lista över regioner där hanteras instans är tillgänglig för närvarande finns [migrera dina databaser till en helt hanterad tjänst med Azure SQL-hanterade databasinstans](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Följande diagram ger en översikt över viktiga funktioner i den hanterade instans:
 

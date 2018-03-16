@@ -250,7 +250,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Testa din kod
 
-Tryck på `F5` köra projektet i Visual Studio. Webbläsaren öppnas och dirigerar dig till *http://localhost: {port}* där du ser den *logga in med Microsoft* knappen. Gå vidare och genom att klicka på Logga in.
+Tryck på `F5` köra projektet i Visual Studio. Webbläsaren öppnas och dirigerar dig till *http://localhost:{port}* där du ser den *logga in med Microsoft* knappen. Gå vidare och genom att klicka på Logga in.
 
 När du är redo att testa, använda ett arbetskonto (Azure Active Directory) för att logga in. 
 
@@ -280,7 +280,7 @@ Dessutom visas en tabell inklusive alla användaranspråk som ingår i autentise
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Testa åtkomst till en metod som har en *[auktorisera]* attribut (valfritt)
 I det här steget kan testa du åtkomst till anspråk domänkontrollant som en anonym användare:<br/>
 Välj en länk till utloggning användaren och slutföra utloggning.<br/>
-Skriv nu i din webbläsare http://localhost: {port} / utger sig för att komma åt den domänkontrollant som är skyddat med den `[Authorize]` attribut
+Skriv nu i din webbläsare http://localhost:{port}/utger sig för att komma åt den domänkontrollant som är skyddat med den `[Authorize]` attribut
 
 #### <a name="expected-results"></a>Förväntat resultat
 Du får uppmaningen att kräva att du autentisera för att visa.

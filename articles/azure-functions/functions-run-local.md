@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | Porten för felsökaren nod att använda. Standard: Ett värde från launch.json eller 5858. |
 | **`--debugLevel -d`** | Spårningsnivån konsolen (av, verbose, info, warning eller error). Standard: Info.|
 | **`--timeout -t`** | Tidsgräns för funktioner värden startas, i sekunder. Standard: 20 sekunder.|
-| **`--useHttps`** | Binda till https://localhost: {port} i stället för till http://localhost: {port}. Som standard skapas ett betrott certifikat på datorn.|
+| **`--useHttps`** | Binda till https://localhost:{port} i stället för till http://localhost:{port}. Som standard skapas ett betrott certifikat på datorn.|
 | **`--pause-on-error`** | Pausa för ytterligare information innan du avslutar processen. Användbar när den startas Azure Functions grundläggande verktyg från en integrerad utvecklingsmiljö (IDE).|
 
 När värden funktioner startar anger URL: en för HTTP-utlösta funktioner:
